@@ -66,6 +66,12 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
 .bp-chip     { background:#eef2ff; color:#3730a3; border-radius:5px; padding:3px 9px; font-weight:600; font-size:.8rem; }
 .bp-stat     { display:flex; gap:22px; flex-wrap:wrap; margin:0 0 20px; font-size:.86rem; color:#475569; }
 .bp-stat b   { color:#0f172a; font-size:1.05rem; display:block; }
+.bp-info-bg  { display:none; position:fixed; inset:0; background:rgba(15,23,42,.45); z-index:9999; align-items:center; justify-content:center; }
+.bp-info-box { background:#fff; border-radius:8px; padding:16px 20px; max-width:480px; width:90%; max-height:80vh; overflow:auto; box-shadow:0 10px 30px rgba(0,0,0,.2); font-size:.85rem; line-height:1.5; position:relative; }
+.bp-info-box p { margin:0 0 .8em; }
+.bp-info-box p:last-child { margin-bottom:0; }
+.bp-info-close { position:absolute; top:8px; right:12px; cursor:pointer; color:#94a3b8; font-size:1.2rem; line-height:1; }
+.bp-info-close:hover { color:#1e293b; }
 </style>
 </head>
 <body class="admin-body">

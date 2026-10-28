@@ -27,6 +27,15 @@ $msRotSettings = ms_rotation_settings(ms_batch_file_read($masterId, $batchId, 's
 // checked at click time matters for a run.
 $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batchId, 'batch_options.json'));
 ?>
+<!-- Shared ⓘ popup for this page and _batch_golive.php (included below) — a native
+     title="" tooltip disappears the moment you move toward it, so it can't be read in
+     full or clicked into. One instance here covers both files. -->
+<div class="bp-info-bg" id="bp-info-bg">
+    <div class="bp-info-box">
+        <span class="bp-info-close" id="bp-info-close">&times;</span>
+        <div id="bp-info-body"></div>
+    </div>
+</div>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
     <h3 style="margin-top:0;">1. Upload target list (CSV)</h3>
@@ -146,7 +155,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Insert/verify primary area code selected</strong>
         <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
-        <a href="#" class="hint" style="cursor:help;font-size:1.05rem;text-decoration:none;" title="Real, billed check (Claude with real web search) — for each checked row, finds the true PRIMARY area code for that city, not a newer overlay.\n\nBLANK on file, not live: the primary code is WRITTEN onto the row — the only thing this does to params.csv, and only that one field.\n\nBLANK on file, LIVE row: only suggested, never written — a live row's data changes only through Correct & Regenerate.\n\nSomething already on file (right or wrong): read-only either way. A wrong code is reported, never auto-changed — a human decides what to do with an existing number, same as every other CTM action here.\n\nA city already checked once, by ANY batch or niche, is never re-billed — fleet-wide cache in admin/infra/state/area_code_checks.json.">&#9432;</a>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Real, billed check (Claude with real web search) — for each checked row, finds the true PRIMARY area code for that city, not a newer overlay.\n\nBLANK on file, not live: the primary code is WRITTEN onto the row — the only thing this does to params.csv, and only that one field.\n\nBLANK on file, LIVE row: only suggested, never written — a live row's data changes only through Correct &amp; Regenerate.\n\nSomething already on file (right or wrong): read-only either way. A wrong code is reported, never auto-changed — a human decides what to do with an existing number, same as every other CTM action here.\n\nA city already checked once, by ANY batch or niche, is never re-billed — fleet-wide cache in admin/infra/state/area_code_checks.json.">&#9432;</a>
         <span class="hint" style="margin-left:6px;">Uses the same checkboxes as Get CTM Phone Numbers above. Real API cost (a few cents) per NEW city only — already-checked cities are free.</span>
         <div style="margin-top:8px;">
             <button type="button" class="btn btn-primary" id="ms-areacode-btn" onclick="msAreaCodeCheck()">Insert/verify primary area code selected (<span id="ms-areacode-count">0</span> selected)</button>
@@ -1212,6 +1221,26 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     // interpolates values into single-quoted JS string literals inside onclick="...".
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
+    // Click-to-open replacement for a native title="" tooltip, which vanishes the
+    // instant the mouse moves toward it — can't be read in full or clicked into.
+    // Exposed on window so _batch_golive.php's own separate <script> block (included
+    // above, included = still the same page) can open the same shared popup.
+    // \\n (two chars, a literal backslash+n some of these tooltips were written with
+    // outside of a JS string) and a real \n (from ones built inside a JS template
+    // literal, where \n is already a real newline by the time this runs) are both
+    // normalized to real newlines before splitting into paragraphs.
+    window.bpShowInfo = function (el) {
+        const raw = (el.getAttribute('data-info') || '').replace(/\\n/g, '\n');
+        document.getElementById('bp-info-body').innerHTML =
+            raw.split(/\n\n+/).map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
+        document.getElementById('bp-info-bg').style.display = 'flex';
+    };
+    function bpInfoClose() { document.getElementById('bp-info-bg').style.display = 'none'; }
+    document.addEventListener('click', e => {
+        if (e.target.id === 'bp-info-close' || e.target.id === 'bp-info-bg') bpInfoClose();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') bpInfoClose(); });
+
     function badge(status) {
         const map = { ok: ['#166534', '#dcfce7', 'ok'], warn: ['#92400e', '#fef3c7', 'warn'], error: ['#991b1b', '#fee2e2', 'error'] };
         const [fg, bg, label] = map[status] || map.error;
@@ -1833,7 +1862,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
               '<button type="button" class="btn sec" onclick="msClosePreflight()">Cancel</button>' +
               '<button type="button" class="btn btn-primary" onclick="msConfirmGenerate()">Confirm &amp; Generate</button>' +
               ' <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>' +
-              ' <span class="hint" style="cursor:help;font-size:1.05rem;" title="This launches one real detached process on the server for every domain in this run — not something your browser has to stay open to finish. Reopen this page any time to pick the live log and progress bar back up where they left off. The run keeps going exactly the same whether you watch it or not.">ⓘ</span>' +
+              ' <span class="hint" style="cursor:pointer;font-size:1.05rem;" onclick="bpShowInfo(this)" data-info="This launches one real detached process on the server for every domain in this run — not something your browser has to stay open to finish. Reopen this page any time to pick the live log and progress bar back up where they left off. The run keeps going exactly the same whether you watch it or not.">ⓘ</span>' +
             '</div>';
 
         document.getElementById('ms-preflight-overlay').style.display = 'flex';
@@ -2200,7 +2229,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + (isLive
                     ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button> ' +
                       '<span title="The resulting Save and Regenerate is a background job — safe to navigate away or close this tab once you click it, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span> ' +
-                      '<span class="hint" style="cursor:help;font-size:1.05rem;" title="No photo PROCESSING happens — the cosmetic hero-stamp/crop-jitter pass is skipped outright, since it is deterministic per domain and this button has no reason to spend time re-doing it. Upload itself is completely normal: it only ever sends a file whose content actually changed, so your existing live photos are never overwritten by this button, but a page that genuinely needs a photo it never had before (new content, not yet live) still gets it — this is NOT a blanket photo block, just real incremental sync like every other file.\n\nYou can safely leave this screen or close the tab once you click Save and Regenerate — this runs as one real background job on the server, not something your browser has to stay open to finish.\n\nSaves the edited fields on this row, then automatically rebuilds just this one domain (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Build) and uploads it live once that finishes. Every step is always full strength, with no caching shortcuts beyond the Images skip described above.">ⓘ</span>'
+                      '<span class="hint" style="cursor:pointer;font-size:1.05rem;" onclick="bpShowInfo(this)" data-info="No photo PROCESSING happens — the cosmetic hero-stamp/crop-jitter pass is skipped outright, since it is deterministic per domain and this button has no reason to spend time re-doing it. Upload itself is completely normal: it only ever sends a file whose content actually changed, so your existing live photos are never overwritten by this button, but a page that genuinely needs a photo it never had before (new content, not yet live) still gets it — this is NOT a blanket photo block, just real incremental sync like every other file.\n\nYou can safely leave this screen or close the tab once you click Save and Regenerate — this runs as one real background job on the server, not something your browser has to stay open to finish.\n\nSaves the edited fields on this row, then automatically rebuilds just this one domain (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Build) and uploads it live once that finishes. Every step is always full strength, with no caching shortcuts beyond the Images skip described above.\n\nIf another build is already running in this batch, this is queued, not lost — it waits its turn and launches automatically once the batch frees up, even if you close this tab or the page reloads in the meantime.">ⓘ</span>'
                     : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
                       '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
                 msPoolNotice(r.pool, domain) +
