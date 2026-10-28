@@ -694,7 +694,7 @@
                 {
                     "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
                     "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
+                    "location": "Senior PM, Management Consulting",
                     "initials": "MR",
                     "avatar_color": "accent",
                     "result_badge": "✓ PMP® — Passed first attempt"
@@ -702,7 +702,7 @@
                 {
                     "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I'm now going back for my PgMP. There's nowhere else I'd go.",
                     "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
+                    "location": "IT Project Lead, Enterprise Technology",
                     "initials": "SL",
                     "avatar_color": "#0d9488",
                     "result_badge": "✓ PMP® + PMI-ACP® Certified"
@@ -710,7 +710,7 @@
                 {
                     "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
                     "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
+                    "location": "Construction PM, Commercial Construction",
                     "initials": "DK",
                     "avatar_color": "highlight",
                     "result_badge": "✓ Entire team PMP® certified"
@@ -1824,6 +1824,33 @@
                     "_ai_locked": true
                 },
                 {
+                    "type": "stats",
+                    "skin": "accent",
+                    "stats_heading": "The Case for PMP Certification — By the Numbers",
+                    "stats_heading_level": "h2",
+                    "stats_bg_color": "custom",
+                    "stats_text_color": "#ffffff",
+                    "stats_items": [
+                        {
+                            "number": "29.8M",
+                            "label": "additional project professionals the world will need by 2035 — PMI's 2025 Talent Gap Report"
+                        },
+                        {
+                            "number": "24%",
+                            "label": "higher U.S. median salary for PMP-certified vs. non-certified PMs — $135,000 vs. $109,157"
+                        },
+                        {
+                            "number": "$173K",
+                            "label": "median U.S. salary for PMP holders certified 10+ years — PMI's 14th Edition Salary Survey"
+                        },
+                        {
+                            "number": "1.3–1.6M",
+                            "label": "projected North America PM talent gap by 2035 — 21–26% demand growth"
+                        }
+                    ],
+                    "stats_bg_custom": "#1a2e5a"
+                },
+                {
                     "type": "ai_block",
                     "ai_type_id": "national_features",
                     "ai_mode": "standalone",
@@ -1917,8 +1944,8 @@
                     "ai_prompt_override": "",
                     "skin": "light",
                     "heading_level": "h2",
-                    "heading_text": "PMP® Certification: Industry-Recognized Credential",
-                    "text": "<p>The PMP® (Project Management Professional) credential, offered by the Project Management Institute, has become the gold standard for project managers across diverse industries throughout the United States. Employers in IT, healthcare, construction, finance, government, and beyond recognize the PMP® as proof of standardized, rigorous project-management competence. Job postings for senior project-manager roles frequently list PMP® certification as preferred or required, reflecting how the credential has shaped hiring expectations nationwide. Certified project managers typically command stronger earning potential than their non-certified peers, making the credential a valuable investment in long-term career growth and professional marketability.</p><p>Career advancement often hinges on demonstrated expertise and professional credibility—both of which the PMP® credential establishes. Earning your certification signals readiness to lead larger, more complex initiatives and positions you as a trusted resource in competitive talent markets. Completing PMP® Certification Training through Granite PM Academy equips you with the knowledge, frameworks, and confidence to pass the rigorous PMP® exam while building the practical leadership skills employers seek. Whether you are seeking promotion within your current organization or pursuing new opportunities, the credential accelerates career momentum and opens doors to roles with greater scope and responsibility.</p>",
+                    "heading_text": "PMP® Certification: Industry-Recognized Credential — By the Numbers",
+                    "text": "<p>PMI's own research makes the case better than marketing copy can. The <a href=\"https://www.pmi.org/-/media/pmi/documents/public/pdf/learning/thought-leadership/talent_gap_2025-v3.pdf\" target=\"_blank\" rel=\"noopener\">2025 Global Project Management Talent Gap report</a> found the world already employs nearly 40 million project professionals — yet organizations will need up to 65 million by 2035, leaving a shortfall of as many as 29.8 million qualified people over the next decade. North America alone is projected to need 21%–26% more project talent by 2035, a gap of 1.3 to 1.6 million professionals the report says mature economies are struggling to fill as experienced project managers retire faster than new ones are credentialed. Job postings for senior project-manager roles increasingly list PMP® certification as preferred or required — direct evidence of employers responding to that shortage by filtering for proven competence.</p><p>PMI's <a href=\"https://www.pmi.org/learning/careers/project-management-salary-survey\" target=\"_blank\" rel=\"noopener\">14th Edition Earning Power: Project Management Salary Survey</a> — 14,628 project professionals surveyed across 21 countries in early 2025 — found PMP®-certified professionals earn a 17% higher median salary than non-certified peers globally. In the U.S. specifically, PMP holders reported a median salary of $135,000 versus $109,157 for non-certified project managers — a 24% premium, or roughly $26,000 a year — rising to a median of roughly $173,000 for professionals certified more than ten years. Completing PMP® Certification Training through Granite PM Academy is how that experience clock starts: the sooner you're certified, the sooner that premium starts compounding.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T04:51:46.855197Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
@@ -1942,20 +1969,20 @@
                         {
                             "image": "",
                             "alt": "",
-                            "heading": "Phase 2: People Domain (42% of Exam)",
+                            "heading": "Phase 2: People Domain (33% of Exam)",
                             "text": "Leading and managing teams across predictive and agile environments. Conflict resolution, negotiation, and emotional intelligence. Stakeholder identification, analysis, and engagement. Virtual team leadership and cross-functional collaboration."
                         },
                         {
                             "image": "",
                             "alt": "",
-                            "heading": "Phase 3: Process Domain (50% of Exam)",
+                            "heading": "Phase 3: Process Domain (41% of Exam)",
                             "text": "Scope, schedule, and cost management from initiation to closure. Risk identification, qualitative and quantitative analysis, response planning. Quality management, procurement, and communications. Earned value management — formulas, interpretation, exam scenarios."
                         },
                         {
                             "image": "",
                             "alt": "",
                             "heading": "Phase 4: Agile, Business Environment & Exam Mastery",
-                            "text": "Scrum, Kanban, SAFe, and hybrid delivery — ~50% of exam questions. Business environment domain: strategy alignment and benefits realization. Full 180-question timed mock exam. Targeted answer analysis, score review, and 30-day post-course study plan."
+                            "text": "Scrum, Kanban, SAFe, and hybrid delivery — ~60% of exam questions. Business environment domain (26% of exam, up sharply under PMI's July 2026 Exam Content Outline): strategy alignment and benefits realization. Full 180-question timed mock exam — same 240-minute format, two 10-minute breaks, and question mix (including case-study and graphic-based items) as the real PMI exam. Targeted answer analysis, score review, and 30-day post-course study plan."
                         }
                     ]
                 },
@@ -1987,7 +2014,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "People Domain",
-                            "text": "42% of Exam — Leading teams, conflict management, negotiation, emotional intelligence, and stakeholder engagement.",
+                            "text": "33% of Exam — Leading teams, conflict management, negotiation, emotional intelligence, and stakeholder engagement.",
                             "badge": "",
                             "link": "",
                             "btn_text": ""
@@ -1997,7 +2024,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "Process Domain",
-                            "text": "50% of Exam — Scope, schedule, cost, quality, risk, procurement, and communications management.",
+                            "text": "41% of Exam — Scope, schedule, cost, quality, risk, procurement, and communications management.",
                             "badge": "",
                             "link": "",
                             "btn_text": ""
@@ -2007,7 +2034,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "Business Environment",
-                            "text": "8% of Exam — Strategic alignment, benefits realization, organizational change, and compliance.",
+                            "text": "26% of Exam — Strategic alignment, benefits realization, organizational change, and compliance.",
                             "badge": "",
                             "link": "",
                             "btn_text": ""
@@ -2017,7 +2044,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "Agile & Hybrid Frameworks",
-                            "text": "~50% of Questions — Scrum, Kanban, SAFe, and hybrid delivery approaches covered as deeply as predictive methods.",
+                            "text": "~60% of Questions — Scrum, Kanban, SAFe, and hybrid delivery approaches covered as deeply as predictive methods.",
                             "badge": "",
                             "link": "",
                             "btn_text": ""
@@ -2299,7 +2326,7 @@
                         },
                         {
                             "question": "Is PMP certification training worth it in 2026?",
-                            "answer": "Yes. PMP-certified PMs earn 16–22% more than non-certified counterparts on average (PMI Earning Power survey). The credential is recognized globally and required or preferred for an increasing share of senior PM roles across government, tech, defense, and enterprise industries."
+                            "answer": "Yes, and the data backs it more strongly than ever. PMI's 14th Edition Earning Power Salary Survey found U.S. PMP®-certified professionals earn a median salary of $135,000 versus $109,157 for non-certified peers — a 24% premium — and PMI's 2025 Global Project Management Talent Gap report projects a shortfall of up to 29.8 million project professionals worldwide by 2035. The credential is recognized globally and required or preferred for an increasing share of senior PM roles across government, tech, defense, and enterprise industries — exactly the roles employers are struggling to fill."
                         },
                         {
                             "question": "Can my employer pay for PMP training?",
@@ -2315,7 +2342,7 @@
                         },
                         {
                             "question": "Is PMP certification worth the cost and time investment?",
-                            "answer": "<p>PMP is widely recognized across industries as the gold standard in project management credentials. Employers value certified professionals for leadership roles, and the credential often leads to expanded responsibilities and competitive advancement. Weigh the upfront training cost against your career goals and employer support—many organizations offer tuition reimbursement for professionals pursuing this certification.</p>"
+                            "answer": "<p>Run the actual numbers: Granite's live-virtual PMP Certification Training is $1,995, and PMI's own 14th Edition Earning Power Salary Survey found U.S. PMP-certified professionals earn a median of $135,000 versus $109,157 for non-certified peers — a roughly $26,000-a-year premium that recurs every year you hold the credential, not just once. Most professionals recover the training cost well within their first year of certification. Many employers also offer tuition reimbursement for professionals pursuing this certification, which can make the up-front cost close to zero.</p>"
                         },
                         {
                             "question": "Can I take PMP certification classes entirely online and live-virtual?",
@@ -2394,7 +2421,7 @@
                 "bc_label": "PMP Certification Training",
                 "bc_mid_label": "",
                 "bc_mid_url": "",
-                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\",\n      \"name\": \"PMP Certification Training — PMI Premier Authorized | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP certification training. Live-virtual 4-day course ($1,995) or self-paced on-demand ($995). money-back guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Certification Training\",\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#course\",\n      \"name\": \"PMP Certification Training\",\n      \"description\": \"PMI Premier Authorized PMP certification training for working professionals. Live-virtual 4-day instructor-led course and self-paced on-demand format. Includes 35 PMI contact hours, 800+ practice questions, full mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day)\",\n          \"price\": \"1995\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"995\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by the Project Management Institute and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What are the eligibility requirements for the PMP exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI requires a four-year degree plus 36 months of project management experience, or a high school diploma plus 60 months of PM experience, and 35 hours of formal PM education. Our course satisfies the 35-hour requirement.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the difference between the live-virtual and on-demand formats?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Live-virtual is a four-day instructor-led course in a real-time online classroom. On-demand is the same curriculum delivered as recorded, self-paced content. Both satisfy the 35-hour requirement and include the Pass Guarantee.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does the training include the 35 contact hours PMI requires?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. Completing our PMP certification training fully satisfies PMI's 35-contact-hour education requirement. You receive a certificate of completion to use when submitting your PMI application.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long does it take to get PMP certified after completing the training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"With our live-virtual course, most students submit their PMI application on Day 4 and receive approval in 5-10 business days. Most students sit the exam 30-45 days after completing training.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the PMP certification training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"35 contact hours of instruction; 2026-aligned curriculum with full agile and hybrid coverage; 800+ AI-adaptive practice questions; full 180-question mock exams; PMI application walkthrough; 30-day post-course study plan; and the money-back Pass Guarantee. The PMP exam fee is paid separately to PMI.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the money-back Pass Guarantee?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you complete our course, follow the post-course study activities, and don't pass the PMP exam on your first attempt, we enroll you in the next available session at no additional cost.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is PMP certification training worth it in 2026?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. PMP-certified project managers earn 16-22% more than non-certified counterparts on average, according to PMI's Earning Power survey. The credential is recognized globally and required or preferred for an increasing share of senior PM roles.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can my employer pay for PMP training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — most employers cover PMP training through professional development or L&D budgets. We provide formal invoicing and purchase orders. Veterans may also be eligible through GI Bill and DOD SkillBridge programs.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\",\n      \"name\": \"PMP Certification Training \\u2014 PMI Premier Authorized | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP certification training. Live-virtual 4-day course ($1,995) or self-paced on-demand ($995). money-back guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Certification Training\",\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#course\",\n      \"name\": \"PMP Certification Training\",\n      \"description\": \"PMI Premier Authorized PMP certification training for working professionals. Live-virtual 4-day instructor-led course and self-paced on-demand format. Includes 35 PMI contact hours, 800+ practice questions, full mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day)\",\n          \"price\": \"1995\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"995\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by the Project Management Institute and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What are the eligibility requirements for the PMP exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI requires: (1) a four-year degree plus 36 months of project management experience, OR a high school diploma plus 60 months of PM experience; and (2) 35 hours of formal PM education. Our course satisfies the 35-hour requirement. Experience must be documented across five process groups or domains.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the difference between the live-virtual and on-demand formats?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Live-virtual is a four-day instructor-led course in a real-time online classroom \\u2014 a PMI-certified expert guides every session, answers questions live, and walks you through the PMI application on Day 4. On-demand is the same curriculum delivered as recorded, self-paced content you can access immediately on your own schedule. Both satisfy the 35-hour requirement and include the Pass Guarantee.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does the training include the 35 contact hours PMI requires?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. Completing our PMP certification training fully satisfies PMI's 35-contact-hour education requirement. You receive a certificate of completion that you use when submitting your PMI application.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long does it take to get PMP certified after completing the training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"With our live-virtual course, most students submit their PMI application on Day 4 and receive approval in 5\\u201310 business days. After approval, scheduling with Pearson VUE takes another 1\\u20132 weeks. Most students sit the exam 30\\u201345 days after completing training.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the PMP certification training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"35 contact hours of instruction; 2026-aligned curriculum with full agile/hybrid coverage; 800+ AI-adaptive practice questions; full 180-question mock exams; PMI application walkthrough; 30-day post-course study plan; and the money-back Pass Guarantee. The PMP exam fee ($405 for PMI members, $555 non-members) is paid separately to PMI.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the money-back Pass Guarantee?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you complete our course, follow our post-course study activities, and don't pass the PMP exam on your first attempt, we enroll you in the next available session at no additional cost. No fine print beyond those two conditions.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is PMP certification training worth it in 2026?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, and the data backs it more strongly than ever. PMI's 14th Edition Earning Power Salary Survey found U.S. PMP\\u00ae-certified professionals earn a median salary of $135,000 versus $109,157 for non-certified peers \\u2014 a 24% premium \\u2014 and PMI's 2025 Global Project Management Talent Gap report projects a shortfall of up to 29.8 million project professionals worldwide by 2035. The credential is recognized globally and required or preferred for an increasing share of senior PM roles across government, tech, defense, and enterprise industries \\u2014 exactly the roles employers are struggling to fill.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can my employer pay for PMP training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes \\u2014 most employers cover PMP training costs through professional development or L&D budgets. We provide formal invoicing and purchase orders. Veterans: GI Bill and DOD SkillBridge programs may also apply.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What work experience do I need to qualify for PMP certification?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI requires applicants to demonstrate project management experience. Typically, you need a secondary degree plus three years of project management experience, or a bachelor's degree plus two years. Experience must include directing and controlling project tasks. Granite PM Academy reviews your specific background during enrollment to confirm eligibility before you enroll.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long does it take to complete PMP certification training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Most PMP certification courses run four to six weeks in an intensive live-virtual format. After completing coursework and study, you'll schedule your PMP exam with PMI\\u2014typically within one to three months. Total time from enrollment to exam pass varies based on your study pace and exam availability in your area.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is PMP certification worth the cost and time investment?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Run the actual numbers: Granite's live-virtual PMP Certification Training is $1,995, and PMI's own 14th Edition Earning Power Salary Survey found U.S. PMP-certified professionals earn a median of $135,000 versus $109,157 for non-certified peers \\u2014 a roughly $26,000-a-year premium that recurs every year you hold the credential, not just once. Most professionals recover the training cost well within their first year of certification. Many employers also offer tuition reimbursement for professionals pursuing this certification, which can make the up-front cost close to zero.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I take PMP certification classes entirely online and live-virtual?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. Granite PM Academy delivers PMP certification training via live-virtual instructor-led sessions, allowing you to participate from anywhere with internet access. This format combines real-time instruction, Q&A, and interaction with peers and instructors while maintaining the flexibility to study around your work schedule.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the difference between PMP and CAPM certifications?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMP (Project Management Professional) targets experienced project managers, while CAPM (Certified Associate in Project Management) is designed for entry-level professionals or those with less experience. PMP requires more work history and covers advanced concepts; CAPM has lower eligibility barriers and is often a stepping stone toward PMP. Your career stage and experience determine which is appropriate.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How much does a PMP certification course typically cost nationwide?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMP certification training costs vary by provider and course format. Granite PM Academy pricing reflects instructor-led live-virtual instruction, study materials, and exam prep. Request a detailed quote directly\\u2014many employers cover training costs partially or fully, and some providers offer payment plans or early-bird discounts.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I don't pass the PMP exam on my first attempt?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you do not pass on your first attempt, you can retake the exam after a waiting period set by PMI. Many students use their first attempt as a learning experience and strengthen weak areas before retesting. Granite PM Academy provides study resources and guidance to help you prepare for a second attempt and achieve certification.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
                 "primary_keyword": "PMP Certification Training",
                 "secondary_keywords": "PMP certification course, PMP certification classes, PMP cert course, project management professional certification course, PMP training online"
             }
@@ -2407,16 +2434,16 @@
                 {
                     "type": "hero_split",
                     "skin": "dark",
-                    "hs_heading": "PMP Boot Camp",
+                    "hs_heading": "PMP Bootcamp",
                     "hs_tagline": "PMI Premier Authorized Training Partner — Nationwide",
-                    "hs_subtext": "<p>The PMP credential is recognized across U.S. industries as a standard that validates your ability to lead complex projects and manage teams effectively. Granite PM Academy delivers this PMI-registered certification through live-virtual, instructor-led training designed to meet the Project Management Institute's required contact hours in just four days. Completing your PMP Boot Camp with us positions you for roles with measurably higher responsibility and earning potential in project management nationwide.</p>",
+                    "hs_subtext": "<p>The PMP credential is recognized across U.S. industries as a standard that validates your ability to lead complex projects and manage teams effectively. Granite PM Academy delivers this PMI-registered certification through live-virtual, instructor-led training designed to meet the Project Management Institute's required contact hours in just four days. Completing your PMP Bootcamp with us positions you for roles with measurably higher responsibility and earning potential in project management nationwide.</p>",
                     "hs_btn_text": "View Bootcamp Schedules",
-                    "hs_btn_url": "/pmp-certification-training",
+                    "hs_btn_url": "#pmp_boot_schedule",
                     "hs_btn2_text": "How the Bootcamp Works",
                     "hs_btn2_url": "#curriculum",
                     "hs_caption1": "✓ Money-Back Pass Guarantee",
-                    "hs_caption2": "35 PDUs Included · 800+ Practice Questions",
-                    "hs_photo_alt": "PMP Boot Camp students in training",
+                    "hs_caption2": "35 Contact Hours Included · 800+ Practice Questions",
+                    "hs_photo_alt": "PMP Bootcamp students in training",
                     "hs_image_side": "right",
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/granitepmacademy/uploads/media/hero_professional.webp",
@@ -2445,14 +2472,41 @@
                     "ai_prompt_override": "",
                     "skin": "light",
                     "heading_level": "h2",
-                    "heading_text": "PMP Boot Camp: Fast-Track Certification in Four Days",
-                    "text": "<p>The PMP® (Project Management Professional) credential has become essential across industries nationwide—from construction and technology to healthcare, finance, and federal contracting. Organizations depend on PMP®-certified professionals to lead complex initiatives, manage budgets and timelines, and drive measurable results. The demand reflects a simple fact: project management is a growing profession, and the PMP® is the globally recognized standard that employers trust. Earning this credential signals to hiring managers that you meet rigorous standards for knowledge, experience, and ethical practice—a competitive edge in a field where certified professionals command stronger opportunities and compensation across virtually every sector.</p><p>Granite PM Academy delivers PMP Boot Camp as a live-virtual, instructor-led program designed for working professionals who need to earn their certification without lengthy classroom commitments. As a PMI Authorized Training Partner, we satisfy the required contact-hour education requirement through intensive, focused instruction taught by active certified practitioners who bring real-world project experience to every lesson. Our four-day PMP Boot Camp combines expert-led training with targeted exam preparation, covering the PMBOK® Guide framework, practice exams, and test-taking strategy. You'll complete your education requirement and leave ready to pass the PMP® exam with confidence and momentum toward your next career milestone.</p>",
+                    "heading_text": "PMP Bootcamp: Fast-Track Certification in Four Days",
+                    "text": "<p>The PMP® (Project Management Professional) credential has become essential across industries nationwide—from construction and technology to healthcare, finance, and federal contracting. Organizations depend on PMP®-certified professionals to lead complex initiatives, manage budgets and timelines, and drive measurable results. The demand reflects a simple fact: project management is a growing profession, and the PMP® is the globally recognized standard that employers trust. Earning this credential signals to hiring managers that you meet rigorous standards for knowledge, experience, and ethical practice—a competitive edge in a field where certified professionals command stronger opportunities and compensation across virtually every sector.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed for working professionals who need to earn their certification without lengthy classroom commitments. As a PMI Authorized Training Partner, we satisfy the required contact-hour education requirement through intensive, focused instruction taught by active certified practitioners who bring real-world project experience to every lesson. Our four-day PMP Bootcamp combines expert-led training with targeted exam preparation, covering the PMBOK® Guide framework, practice exams, and test-taking strategy. You'll complete your education requirement and leave ready to pass the PMP® exam with confidence and momentum toward your next career milestone.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T05:02:39.530536Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
                     "_ai_type": "national_intro",
                     "_ai_input_hash": "6611a328f25ac122",
                     "_ai_locked": true
+                },
+                {
+                    "type": "stats",
+                    "skin": "accent",
+                    "stats_heading": "The Case for PMP Certification — By the Numbers",
+                    "stats_heading_level": "h2",
+                    "stats_bg_color": "custom",
+                    "stats_text_color": "#ffffff",
+                    "stats_items": [
+                        {
+                            "number": "29.8M",
+                            "label": "additional project professionals the world will need by 2035 — PMI's 2025 Talent Gap Report"
+                        },
+                        {
+                            "number": "24%",
+                            "label": "higher U.S. median salary for PMP-certified vs. non-certified PMs — $135,000 vs. $109,157"
+                        },
+                        {
+                            "number": "$173K",
+                            "label": "median U.S. salary for PMP holders certified 10+ years — PMI's 14th Edition Salary Survey"
+                        },
+                        {
+                            "number": "1.3–1.6M",
+                            "label": "projected North America PM talent gap by 2035 — 21–26% demand growth"
+                        }
+                    ],
+                    "stats_bg_custom": "#1a2e5a"
                 },
                 {
                     "type": "ai_block",
@@ -2527,14 +2581,14 @@
                     "ct_label": "By the Numbers",
                     "ct_col1_header": "Self-Study",
                     "ct_col2_header": "Granite PM Bootcamp",
-                    "ct_rows_raw": "Time to Exam-Ready | 4–6 Months | 4 Days\r\n35 PDU Requirement | Source separately | Included\r\nLive Expert Instruction | None | Every Session\r\nStructured Exam Strategy | DIY | Built In\r\nAI-Adaptive Practice | Generic tests | 800+ Questions\r\nPass Guarantee | None | Money-Back\r\nPMI-Authorized | Not verified | Premier ATP",
+                    "ct_rows_raw": "Time to Exam-Ready | 4–6 Months | 4 Days\r\n35-Hour Education Requirement | Source separately | Included\r\nLive Expert Instruction | None | Every Session\r\nStructured Exam Strategy | DIY | Built In\r\nAI-Adaptive Practice | Generic tests | 800+ Questions\r\nPass Guarantee | None | Money-Back\r\nPMI-Authorized | Not verified | Premier ATP",
                     "ct_callout": "PMI Premier Authorized Training Partner — fewer than 1% of training providers worldwide achieve this tier.",
                     "ct_bg": "#ffffff"
                 },
                 {
                     "type": "custom_html",
                     "skin": "",
-                    "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Reserve Your Seat &mdash;<br><span style=\"color:#2563eb;\">Classes Filling Fast</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Every bootcamp session is online live, instructor-led, and backed by our Pass Guarantee. Pick the date that works for you and lock in your spot.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"PMP Certification\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+                    "html": "<div class=\"content-block\" id=\"pmp_boot_schedule\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Reserve Your Seat &mdash;<br><span style=\"color:#2563eb;\">Classes Filling Fast</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Every bootcamp session is online live, instructor-led, and backed by our Pass Guarantee. Pick the date that works for you and lock in your spot.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"PMP Bootcamp\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
                 },
                 {
                     "type": "ai_block",
@@ -2548,8 +2602,8 @@
                     "ai_prompt_override": "",
                     "skin": "light",
                     "heading_level": "h2",
-                    "heading_text": "The PMP Credential's Impact on Your Career",
-                    "text": "<p>The Project Management Professional (PMP)® credential, offered by the Project Management Institute (PMI), holds recognized value across industries nationwide—from information technology and healthcare to construction, finance, and government sectors. Organizations increasingly seek or mandate PMP certification when hiring for project-management roles, viewing it as evidence of standardized competence in planning, execution, and risk management. The credential signals to employers that you've met rigorous eligibility requirements and demonstrated mastery of industry-standard frameworks. Certified project managers typically command stronger earning potential than their non-certified counterparts, reflecting the added credibility and specialized knowledge the designation represents.</p><p>Career advancement often hinges on credentials that differentiate you in a competitive job market. The PMP opens doors to larger, more complex projects and leadership roles that may otherwise remain closed. By completing the PMP Boot Camp through Granite PM Academy, you gain both the focused preparation needed to pass the certification exam and the practical confidence to lead high-stakes initiatives. Whether you're transitioning into project management, seeking promotion within your current organization, or aiming to command greater responsibility, the PMP credential—backed by rigorous study and hands-on training—positions you as a credible, capable project leader ready for the next phase of your career.</p>",
+                    "heading_text": "The PMP Credential's Impact on Your Career — By the Numbers",
+                    "text": "<p>PMI's own research makes the case better than marketing copy can. The <a href=\"https://www.pmi.org/-/media/pmi/documents/public/pdf/learning/thought-leadership/talent_gap_2025-v3.pdf\" target=\"_blank\" rel=\"noopener\">2025 Global Project Management Talent Gap report</a> found the world already employs nearly 40 million project professionals — yet organizations will need up to 65 million by 2035, leaving a shortfall of as many as 29.8 million qualified people over the next decade. North America alone is projected to need 21%–26% more project talent by 2035, a gap of 1.3 to 1.6 million professionals the report says mature economies are struggling to fill as experienced project managers retire faster than new ones are credentialed. That shortage is exactly why employers pay a premium for people who can prove their competence on day one.</p><p>PMI's <a href=\"https://www.pmi.org/learning/careers/project-management-salary-survey\" target=\"_blank\" rel=\"noopener\">14th Edition Earning Power: Project Management Salary Survey</a> — 14,628 project professionals surveyed across 21 countries in early 2025 — found PMP®-certified professionals earn a 17% higher median salary than non-certified peers globally. In the U.S. specifically, PMP holders reported a median salary of $135,000 versus $109,157 for non-certified project managers — a 24% premium, or roughly $26,000 a year. That premium compounds with experience: U.S. professionals certified for under five years reported a median of about $123,000, rising to roughly $173,000 for those certified more than ten years. Granite PM Academy's four-day bootcamp exists to get you past that first credentialing hurdle as fast as possible — so the clock on that experience curve starts now, not six months from now.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T05:02:47.948808Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
@@ -2561,7 +2615,7 @@
                     "type": "steps",
                     "skin": "",
                     "anchor": "curriculum",
-                    "steps_heading": "Your 4-Day PMP Bootcamp — Day-by-Day Breakdown",
+                    "steps_heading": "Your 4-Day PMP Bootcamp — Day-by-Day Breakdown (9:00 AM–6:00 PM Daily)",
                     "steps_heading_level": "h2",
                     "steps_items": [
                         {
@@ -2580,13 +2634,13 @@
                             "image": "",
                             "alt": "",
                             "heading": "Day 3: Agile, Hybrid & Execution",
-                            "text": "Scrum, Kanban & agile frameworks — ~50% of the exam. Hybrid project delivery approaches. Process domain: execution & change control. Business environment domain. High-frequency scenario trap questions. 75-question adaptive practice quiz."
+                            "text": "Scrum, Kanban & agile frameworks — ~60% of the exam. Hybrid project delivery approaches. Process domain: execution & change control. Business environment domain (26% of exam, up sharply under PMI's July 2026 update). High-frequency scenario trap questions. 75-question adaptive practice quiz."
                         },
                         {
                             "image": "",
                             "alt": "",
                             "heading": "Day 4: Exam Mastery & Simulation",
-                            "text": "Full 180-question timed mock exam. Targeted answer analysis & review. Exam-day strategy & time management. Pearson VUE scheduling guidance. Post-bootcamp 30-day study plan handoff. Submit PMI application with instructor assistance."
+                            "text": "Full 180-question timed mock exam — same 240-minute format, two 10-minute breaks, and question mix (including case-study and graphic-based items) as the real PMI exam. Targeted answer analysis & review by domain. Exam-day strategy & time management. Pearson VUE scheduling guidance — test center or OnVUE online. Post-bootcamp 30-day study plan handoff. Submit PMI application with instructor assistance."
                         }
                     ]
                 },
@@ -2618,7 +2672,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "People Domain",
-                            "text": "42% of Exam — Leading and managing teams, conflict resolution, negotiation, emotional intelligence, and stakeholder engagement.",
+                            "text": "33% of Exam — Leading and managing teams, conflict resolution, negotiation, emotional intelligence, and stakeholder engagement.",
                             "badge": "",
                             "link": "",
                             "btn_text": "Read More"
@@ -2628,7 +2682,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "Process Domain",
-                            "text": "50% of Exam — Scope, schedule, cost, quality, risk, procurement, and communications management.",
+                            "text": "41% of Exam — Scope, schedule, cost, quality, risk, procurement, and communications management.",
                             "badge": "",
                             "link": "",
                             "btn_text": "Read More"
@@ -2638,7 +2692,7 @@
                             "image": "",
                             "alt": "1",
                             "heading": "Business Environment",
-                            "text": "8% of Exam — Strategic alignment, benefits realization, organizational change management, and compliance.",
+                            "text": "26% of Exam — Strategic alignment, benefits realization, organizational change management, and compliance.",
                             "badge": "",
                             "link": "",
                             "btn_text": "Read More"
@@ -2648,7 +2702,7 @@
                             "image": "",
                             "alt": "",
                             "heading": "Agile & Hybrid Frameworks",
-                            "text": "~50% of Questions — Scrum, Kanban, SAFe, and hybrid approaches covered as deeply as predictive methods.",
+                            "text": "~60% of Questions — Scrum, Kanban, SAFe, and hybrid approaches covered as deeply as predictive methods.",
                             "badge": "",
                             "link": "",
                             "btn_text": "Read More"
@@ -2821,10 +2875,10 @@
                     "type": "cards",
                     "skin": "light",
                     "cards_label": "",
-                    "cards_heading": "PMP Boot Camp by City",
+                    "cards_heading": "PMP Bootcamp by City",
                     "cards_heading_level": "h2",
                     "cards_subhead": "",
-                    "cards_subtext": "Prefer a locally focused course? We deliver live-virtual pmp boot camp for professionals in these metros.",
+                    "cards_subtext": "Prefer a locally focused course? We deliver live-virtual PMP bootcamp training for professionals in these metros.",
                     "cards_cols": 3,
                     "cards_bg": "",
                     "cards_card_bg": "",
@@ -2844,8 +2898,8 @@
                             "icon": "",
                             "image": "",
                             "alt": "",
-                            "heading": "PMP Boot Camp in San Antonio, TX",
-                            "text": "Live-virtual pmp boot camp for San Antonio's defense, healthcare, and government project professionals.",
+                            "heading": "PMP Bootcamp in San Antonio, TX",
+                            "text": "Live-virtual PMP bootcamp training for San Antonio's defense, healthcare, and government project professionals.",
                             "badge": "",
                             "link": "/pmp-bootcamp-san-antonio-tx/",
                             "btn_text": "View San Antonio"
@@ -2854,8 +2908,8 @@
                             "icon": "",
                             "image": "",
                             "alt": "",
-                            "heading": "PMP Boot Camp in Huntsville, AL",
-                            "text": "Live-virtual pmp boot camp for Huntsville's aerospace and defense project professionals.",
+                            "heading": "PMP Bootcamp in Huntsville, AL",
+                            "text": "Live-virtual PMP bootcamp training for Huntsville's aerospace and defense project professionals.",
                             "badge": "",
                             "link": "/pmp-bootcamp-huntsville-al/",
                             "btn_text": "View Huntsville"
@@ -2864,8 +2918,8 @@
                             "icon": "",
                             "image": "",
                             "alt": "",
-                            "heading": "PMP Boot Camp in Tampa, FL",
-                            "text": "Live-virtual pmp boot camp for Tampa's healthcare, finance, and defense project professionals.",
+                            "heading": "PMP Bootcamp in Tampa, FL",
+                            "text": "Live-virtual PMP bootcamp training for Tampa's healthcare, finance, and defense project professionals.",
                             "badge": "",
                             "link": "/pmp-bootcamp-tampa-fl/",
                             "btn_text": "View Tampa"
@@ -2874,8 +2928,8 @@
                             "icon": "",
                             "image": "",
                             "alt": "",
-                            "heading": "PMP Boot Camp in Minneapolis, MN",
-                            "text": "Live-virtual pmp boot camp for Minneapolis's healthcare, finance, and technology project professionals.",
+                            "heading": "PMP Bootcamp in Minneapolis, MN",
+                            "text": "Live-virtual PMP bootcamp training for Minneapolis's healthcare, finance, and technology project professionals.",
                             "badge": "",
                             "link": "/pmp-bootcamp-minneapolis-mn/",
                             "btn_text": "View Minneapolis"
@@ -2884,8 +2938,8 @@
                             "icon": "",
                             "image": "",
                             "alt": "",
-                            "heading": "PMP Boot Camp in Charlotte, NC",
-                            "text": "Live-virtual pmp boot camp for Charlotte's banking, energy, and technology project professionals.",
+                            "heading": "PMP Bootcamp in Charlotte, NC",
+                            "text": "Live-virtual PMP bootcamp training for Charlotte's banking, energy, and technology project professionals.",
                             "badge": "",
                             "link": "/pmp-bootcamp-charlotte-nc/",
                             "btn_text": "View Charlotte"
@@ -2907,6 +2961,10 @@
                         {
                             "question": "What exactly is a PMP bootcamp and how does it work?",
                             "answer": "A PMP bootcamp is an intensive, accelerated 4-day training program that compresses months of self-study into a structured, expert-led experience. Our bootcamp covers all three PMP exam domains, satisfies PMI's 35-hour education requirement, provides 800+ practice questions, and walks you through the PMI application — all in four days. Most students submit their PMI application on Day 4 and sit the exam within 30 days."
+                        },
+                        {
+                            "question": "Is the PMP certification actually worth it in today's job market?",
+                            "answer": "<p>The data says yes, and the trend is strengthening, not fading. PMI's 2025 Global Project Management Talent Gap report projects a shortfall of up to 29.8 million project professionals worldwide by 2035, with North America alone needing 21%–26% more project talent than it has today. That scarcity shows up directly in pay: PMI's 14th Edition Earning Power Salary Survey found U.S. PMP®-certified professionals earn a median salary of $135,000 versus $109,157 for non-certified peers — a 24% premium that grows to roughly $173,000 median for professionals certified more than ten years. In a market short on qualified talent, the credential is one of the fastest ways to prove you're ready for the roles employers are struggling to fill.</p>"
                         },
                         {
                             "question": "Is a PMP bootcamp worth it compared to self-study?",
@@ -2938,7 +2996,23 @@
                         },
                         {
                             "question": "What work experience do I need to qualify for PMP certification?",
-                            "answer": "<p>PMI requires a combination of formal education and project management experience. Generally, you need either a bachelor's degree with three years of project experience, or a high school diploma with five years of experience. Our boot camp advisors review your background during enrollment and can clarify whether your role qualifies—many professionals underestimate their eligible experience.</p>"
+                            "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of non-overlapping project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education — fully satisfied by our bootcamp — though that requirement is waived if you already hold an active CAPM® certification. Our advisors review your background during enrollment and can clarify whether your role qualifies — many professionals underestimate their eligible experience.</p>"
+                        },
+                        {
+                            "question": "What score do I need to pass the PMP exam?",
+                            "answer": "<p>PMI doesn't publish a numeric passing score. The PMP exam is criterion-referenced — your results are reported as Above Target, Target, Below Target, or Needs Improvement in each of the three domains (People, Process, Business Environment), and your overall pass/fail outcome is determined against a psychometrically validated standard, not a blended percentage. A commonly cited practical benchmark is scoring at least 70% correct within each domain, but PMI itself does not confirm that number — which is exactly why exam-day strategy, not just content knowledge, matters so much. We cover how to read and prepare for PMI's actual scoring model on Day 4 of the bootcamp.</p>"
+                        },
+                        {
+                            "question": "How many questions are on the PMP exam, and how much time do I have?",
+                            "answer": "<p>The current PMP exam has 180 total questions — 170 scored and 10 unscored pretest questions used to validate future exam content — administered over 240 minutes with two optional 10-minute breaks. Beyond standard multiple-choice and multiple-response questions, the exam now includes case-study/scenario questions and graphic-based questions that require interpreting charts or diagrams. Our full-length mock exams on Day 4 mirror this exact format, timing, and question mix so there are no surprises on exam day.</p>"
+                        },
+                        {
+                            "question": "Can I take the PMP exam from home?",
+                            "answer": "<p>Yes. PMI offers the PMP exam both at a Pearson VUE test center and online via Pearson VUE's OnVUE remote proctoring, with identical content and difficulty either way. If you test from home, plan for an extensive check-in process and system compatibility check before your exam window, and keep in mind you may be asked to show ID to the proctor again after any break. We walk bootcamp graduates through choosing and prepping for whichever format fits them best.</p>"
+                        },
+                        {
+                            "question": "How many times can I retake the PMP exam if I don't pass?",
+                            "answer": "<p>PMI allows up to three attempts within your one-year eligibility period, which starts when your application is approved and does not reset after a failed attempt. If you don't pass within three tries, you must wait one full year from your last attempt before reapplying. This is part of why our Pass Guarantee matters — if you complete the bootcamp, follow the study plan, and don't pass on your first attempt, we bring you back at no additional charge so you're not spending a retake on avoidable gaps.</p>"
                         },
                         {
                             "question": "Can I pass the PMP exam without attending a boot camp?",
@@ -2985,7 +3059,7 @@
                     "wb_heading_level": "h2",
                     "wb_subtext": "When you invest in our PMP bootcamp, we invest in your success. If you complete the bootcamp and follow our study plan but don't pass on your first attempt, we bring you back at no additional charge — no questions asked, no fine print. And for the 1% who need a second attempt, the guarantee means nobody walks away without their PMP.",
                     "wb_btn_text": "View Bootcamp Schedules",
-                    "wb_btn_url": "/pmp-certification-training",
+                    "wb_btn_url": "#pmp_boot_schedule",
                     "wb_btn_style": "outline",
                     "wb_centered": false,
                     "wb_photo_alt": "",
@@ -3002,7 +3076,7 @@
                     "cb_heading_level": "h2",
                     "cb_subtext": "Bootcamp seats fill weeks in advance. Reserve your spot now and be PMP-certified in 30 days.",
                     "cb_btn_text": "View Bootcamp Schedules",
-                    "cb_btn_url": "/pmp-certification-training",
+                    "cb_btn_url": "#pmp_boot_schedule",
                     "cb_bg": "custom",
                     "cb_bg_custom": "#2563eb",
                     "cb_text_color": "#ffffff",
@@ -3010,24 +3084,24 @@
                 }
             ],
             "seo": {
-                "seo_title": "PMP Boot Camp — Intensive PMP Exam Prep | Granite PM Academy",
+                "seo_title": "PMP Bootcamp — Intensive PMP Exam Prep | Granite PM Academy",
                 "canonical_url": "https://granitepmacademy.com/pmp-bootcamp/",
                 "meta_description": "PMI Premier Authorized PMP bootcamp. 4-day intensive training with money-back guarantee, and 35 contact hours included. Live & virtual nationwide.",
                 "meta_keywords": "",
-                "og_title": "PMP Boot Camp — Intensive PMP Exam Prep | Granite PM Academy",
-                "og_description": "35 PDUs included. Money-back guarantee. The fastest path to PMP certification.",
+                "og_title": "PMP Bootcamp — Intensive PMP Exam Prep | Granite PM Academy",
+                "og_description": "35 contact hours included. Money-back guarantee. The fastest path to PMP certification.",
                 "og_image": "",
-                "service_name": "PMP Boot Camp",
+                "service_name": "PMP Bootcamp",
                 "service_type": "",
                 "service_area": "",
                 "service_description": "",
                 "bc_hide": false,
-                "bc_label": "PMP Boot Camp",
+                "bc_label": "PMP Bootcamp",
                 "bc_mid_label": "",
                 "bc_mid_url": "",
-                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\",\n      \"name\": \"PMP Bootcamp — Pass in 4 Days, Guaranteed | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp. 4-day intensive training with money-back guarantee, and 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#course\",\n      \"name\": \"PMP Exam Prep Bootcamp\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp. Live instructor-led training covering all three PMP exam domains. Includes 35 contact hours, 800+ practice questions, full mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n        }\n      ],\n      \"educationalCredentialAwarded\": {\n        \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#credential\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What exactly is a PMP bootcamp and how does it work?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"A PMP bootcamp is an intensive, accelerated 4-day training program that compresses months of self-study into a structured, expert-led experience. Our bootcamp covers all three PMP exam domains, satisfies PMI's 35-hour education requirement, provides 800+ practice questions, and walks you through the PMI application — all in four days. Most students submit their PMI application on Day 4 and sit the exam within 30 days.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is a PMP bootcamp worth it compared to self-study?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Self-study preparation typically produces far lower pass rates than live, instructor-led training. Beyond pass rates, a bootcamp satisfies your 35 contact hours, provides live expert instruction, and gets you exam-ready in 4 days instead of 4–6 months. For most working professionals, the time efficiency alone makes the bootcamp worth the investment.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does the bootcamp satisfy the 35-hour PMI education requirement?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — completing our 4-day PMP bootcamp fully satisfies PMI's 35-contact-hour requirement. You leave the bootcamp with this requirement met and are immediately eligible to submit your PMP application. We walk you through the application on Day 4 so you submit before you leave.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the PMP bootcamp available online?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. We offer live virtual PMP bootcamps with a real PMI-certified instructor via video conference — not pre-recorded video or self-paced modules. We also offer live in-person bootcamps at locations nationwide. Both formats achieve the same instructor-led preparation and the same money-back guarantee.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the PMP bootcamp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"35 contact hours of live expert instruction; 2026-aligned curriculum with full agile/hybrid coverage; 800+ AI-adaptive practice questions; full-length 180-question mock exams; PMI application walkthrough on Day 4; structured post-bootcamp 30-day study plan; post-class instructor Q&A access; and the money-back pass guarantee. The PMP exam fee ($405 for PMI members) is paid separately to PMI.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the money-back pass guarantee?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you attend our full 4-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the PMP exam on your first attempt, we will enroll you in the next available bootcamp session at no additional cost. No fine print beyond those two conditions.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How soon after the bootcamp can I take the PMP exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Most students sit the PMP exam within 30 days. Submit your PMI application on Day 4. PMI approves in 5–10 business days. Schedule Pearson VUE 1–2 weeks after approval. Our post-bootcamp study tools keep your momentum active through the entire waiting period.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can my employer pay for the PMP bootcamp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — many employers cover PMP bootcamp costs through professional development or L&D budgets. We provide formal invoicing, purchase orders, and group pricing. For qualifying veterans, GI Bill benefits and DOD SkillBridge programs may also apply.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
-                "primary_keyword": "PMP Boot Camp",
-                "secondary_keywords": "PMP bootcamp, PMP certification boot camp, PMP bootcamp near me, project management professional boot camp, live online PMP boot camp"
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\",\n      \"name\": \"PMP Bootcamp \\u2014 Pass in 4 Days, Guaranteed | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp. 4-day intensive training with money-back guarantee, and 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#course\",\n      \"name\": \"PMP Exam Prep Bootcamp\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp. Live instructor-led training covering all three PMP exam domains. Includes 35 contact hours, 800+ practice questions, full mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n        }\n      ],\n      \"educationalCredentialAwarded\": {\n        \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#credential\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What exactly is a PMP bootcamp and how does it work?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"A PMP bootcamp is an intensive, accelerated 4-day training program that compresses months of self-study into a structured, expert-led experience. Our bootcamp covers all three PMP exam domains, satisfies PMI's 35-hour education requirement, provides 800+ practice questions, and walks you through the PMI application \\u2014 all in four days. Most students submit their PMI application on Day 4 and sit the exam within 30 days.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the PMP certification actually worth it in today's job market?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The data says yes, and the trend is strengthening, not fading. PMI's 2025 Global Project Management Talent Gap report projects a shortfall of up to 29.8 million project professionals worldwide by 2035, with North America alone needing 21%\\u201326% more project talent than it has today. That scarcity shows up directly in pay: PMI's 14th Edition Earning Power Salary Survey found U.S. PMP\\u00ae-certified professionals earn a median salary of $135,000 versus $109,157 for non-certified peers \\u2014 a 24% premium that grows to roughly $173,000 median for professionals certified more than ten years. In a market short on qualified talent, the credential is one of the fastest ways to prove you're ready for the roles employers are struggling to fill.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is a PMP bootcamp worth it compared to self-study?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Self-study preparation typically produces far lower pass rates than live, instructor-led training. Beyond pass rates, a bootcamp satisfies your 35 contact hours, provides live expert instruction, and gets you exam-ready in 4 days instead of 4\\u20136 months. For most working professionals, the time efficiency alone makes the bootcamp worth the investment.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does the bootcamp satisfy the 35-hour PMI education requirement?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes \\u2014 completing our 4-day PMP bootcamp fully satisfies PMI's 35-contact-hour requirement. You leave the bootcamp with this requirement met and are immediately eligible to submit your PMP application. We walk you through the application on Day 4 so you submit before you leave.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the PMP bootcamp available online?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. We offer live virtual PMP bootcamps with a real PMI-certified instructor via video conference \\u2014 not pre-recorded video or self-paced modules. We also offer live in-person bootcamps at locations nationwide. Both formats achieve the same instructor-led preparation and the same money-back guarantee.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the PMP bootcamp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"35 contact hours of live expert instruction; 2026-aligned curriculum with full agile/hybrid coverage; 800+ AI-adaptive practice questions; full-length 180-question mock exams; PMI application walkthrough on Day 4; structured post-bootcamp 30-day study plan; post-class instructor Q&A access; and the money-back pass guarantee. The PMP exam fee ($405 for PMI members) is paid separately to PMI.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the money-back pass guarantee?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you attend our full 4-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the PMP exam on your first attempt, we will enroll you in the next available bootcamp session at no additional cost. No fine print beyond those two conditions.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How soon after the bootcamp can I take the PMP exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Most students sit the PMP exam within 30 days. Submit your PMI application on Day 4. PMI approves in 5\\u201310 business days. Schedule Pearson VUE 1\\u20132 weeks after approval. Our post-bootcamp study tools keep your momentum active through the entire waiting period.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can my employer pay for the PMP bootcamp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes \\u2014 many employers cover PMP bootcamp costs through professional development or L&D budgets. We provide formal invoicing, purchase orders, and group pricing. For qualifying veterans, GI Bill benefits and DOD SkillBridge programs may also apply.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What work experience do I need to qualify for PMP certification?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of non-overlapping project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education \\u2014 fully satisfied by our bootcamp \\u2014 though that requirement is waived if you already hold an active CAPM\\u00ae certification. Our advisors review your background during enrollment and can clarify whether your role qualifies \\u2014 many professionals underestimate their eligible experience.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What score do I need to pass the PMP exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI doesn't publish a numeric passing score. The PMP exam is criterion-referenced \\u2014 your results are reported as Above Target, Target, Below Target, or Needs Improvement in each of the three domains (People, Process, Business Environment), and your overall pass/fail outcome is determined against a psychometrically validated standard, not a blended percentage. A commonly cited practical benchmark is scoring at least 70% correct within each domain, but PMI itself does not confirm that number \\u2014 which is exactly why exam-day strategy, not just content knowledge, matters so much. We cover how to read and prepare for PMI's actual scoring model on Day 4 of the bootcamp.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many questions are on the PMP exam, and how much time do I have?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The current PMP exam has 180 total questions \\u2014 170 scored and 10 unscored pretest questions used to validate future exam content \\u2014 administered over 240 minutes with two optional 10-minute breaks. Beyond standard multiple-choice and multiple-response questions, the exam now includes case-study/scenario questions and graphic-based questions that require interpreting charts or diagrams. Our full-length mock exams on Day 4 mirror this exact format, timing, and question mix so there are no surprises on exam day.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I take the PMP exam from home?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. PMI offers the PMP exam both at a Pearson VUE test center and online via Pearson VUE's OnVUE remote proctoring, with identical content and difficulty either way. If you test from home, plan for an extensive check-in process and system compatibility check before your exam window, and keep in mind you may be asked to show ID to the proctor again after any break. We walk bootcamp graduates through choosing and prepping for whichever format fits them best.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many times can I retake the PMP exam if I don't pass?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI allows up to three attempts within your one-year eligibility period, which starts when your application is approved and does not reset after a failed attempt. If you don't pass within three tries, you must wait one full year from your last attempt before reapplying. This is part of why our Pass Guarantee matters \\u2014 if you complete the bootcamp, follow the study plan, and don't pass on your first attempt, we bring you back at no additional charge so you're not spending a retake on avoidable gaps.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I pass the PMP exam without attending a boot camp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, self-study is possible, but most professionals find a structured live-virtual or in-person boot camp accelerates learning and confidence. Our instructors cover the PMBOK\\u00ae Guide systematically, answer real-time questions, and teach exam strategy that self-study often misses. The intensive format compresses months of study into days, which appeals to busy professionals.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long does it take to earn PMP certification after boot camp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The boot camp itself is typically three to five days of instruction. After that, you apply to PMI for exam eligibility (usually approved within days to weeks), then schedule your exam. Most participants sit for the exam within two to four weeks of boot camp completion, making the full timeline quick relative to self-study paths.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the typical cost of a PMP boot camp and ROI?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Boot camp tuition varies, but professionals typically invest between $1,500 and $3,000 for instruction and materials. The PMP credential is widely recognized and often correlates with advancement and competitive salary in project-heavy roles. Many employers value or fund the certification, offsetting the upfront cost through career mobility and leadership opportunities.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is a live-virtual PMP boot camp as effective as in-person training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Live-virtual boot camps deliver the same real-time instruction and instructor interaction as in-person formats\\u2014you ask questions, see screen shares, and participate in group discussions, just remotely. This format eliminates travel time and works well for professionals balancing work and study. The key is choosing a program with synchronous (live) sessions, not just recorded videos.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Should I get PMP or CAPM certification for my career stage?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"CAPM\\u00ae is geared toward early-career professionals or those with limited PM experience; PMP\\u00ae is the advanced credential for seasoned project managers. If you meet PMP eligibility, pursuing PMP typically offers stronger market recognition and advancement potential. Our team can advise which credential aligns with your background and career goals during a consultation.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is PMP certification worth it if I already have a project management role?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. The PMP\\u00ae validates your expertise, opens doors to higher-level roles and better compensation, and demonstrates commitment to the profession. Many organizations prefer or require PMP for senior PM, PMO, and program leadership positions. It also strengthens your credibility with clients and stakeholders across industries\\u2014making it a solid investment in your long-term earning potential.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                "primary_keyword": "PMP Bootcamp",
+                "secondary_keywords": "PMP boot camp, PMP certification bootcamp, PMP bootcamp near me, project management professional bootcamp, live online PMP bootcamp"
             }
         },
         "page_capm_cert": {
@@ -3663,7 +3737,7 @@
                 {
                     "type": "hero_split",
                     "skin": "dark",
-                    "hs_heading": "CAPM Boot Camp",
+                    "hs_heading": "CAPM Bootcamp",
                     "hs_tagline": "PMI Premier Authorized Training Partner — Nationwide",
                     "hs_subtext": "<p>The CAPM credential is recognized by employers nationwide as proof of foundational project management competency and eligibility for advancement toward the PMP. Granite PM Academy delivers this PMI-required education through live-virtual, instructor-led training that condenses the contact-hour requirement into three intensive days, allowing working professionals to earn their certification without extended classroom commitments. Completing CAPM positions you to pursue higher-level PM roles and salary growth across industries.</p>",
                     "hs_btn_text": "View Bootcamp Schedules",
@@ -3701,8 +3775,8 @@
                     "ai_prompt_override": "",
                     "skin": "light",
                     "heading_level": "h2",
-                    "heading_text": "CAPM Boot Camp: Three-Day Certification Path",
-                    "text": "<p>The Certified Associate in Project Management (CAPM) credential has become essential across U.S. industries—from construction and technology to healthcare and federal contracting. The CAPM Boot Camp condenses comprehensive project management fundamentals into three intensive days, covering the five process groups, ten knowledge areas, and exam-critical frameworks defined by the Project Management Institute. Unlike self-study approaches, a structured boot camp accelerates learning and retention, preparing you to pass the CAPM exam while building skills immediately applicable in your workplace. Project management roles continue expanding as organizations prioritize delivery discipline and risk management, making CAPM a credential that strengthens your professional foundation and opens advancement opportunities across sectors.</p><p>Granite PM Academy delivers the CAPM Boot Camp as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed for working professionals. Our curriculum satisfies the contact-hour education requirement mandated by PMI, taught by active certified practitioners who blend real-world experience with exam strategy. The three-day format keeps momentum high while covering every domain tested on the CAPM exam, complete with practice questions, study materials, and instructor feedback tailored to close knowledge gaps. Upon completion, you'll have met the educational prerequisite for certification eligibility and possess the tools to schedule and pass the CAPM exam with confidence, positioning yourself for meaningful career growth in project management.</p>",
+                    "heading_text": "CAPM Bootcamp: Three-Day Certification Path",
+                    "text": "<p>The Certified Associate in Project Management (CAPM) credential has become essential across U.S. industries—from construction and technology to healthcare and federal contracting. The CAPM Bootcamp condenses comprehensive project management fundamentals into three intensive days, covering the five process groups, ten knowledge areas, and exam-critical frameworks defined by the Project Management Institute. Unlike self-study approaches, a structured bootcamp accelerates learning and retention, preparing you to pass the CAPM exam while building skills immediately applicable in your workplace. Project management roles continue expanding as organizations prioritize delivery discipline and risk management, making CAPM a credential that strengthens your professional foundation and opens advancement opportunities across sectors.</p><p>Granite PM Academy delivers the CAPM Bootcamp as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed for working professionals. Our curriculum satisfies the contact-hour education requirement mandated by PMI, taught by active certified practitioners who blend real-world experience with exam strategy. The three-day format keeps momentum high while covering every domain tested on the CAPM exam, complete with practice questions, study materials, and instructor feedback tailored to close knowledge gaps. Upon completion, you'll have met the educational prerequisite for certification eligibility and possess the tools to schedule and pass the CAPM exam with confidence, positioning yourself for meaningful career growth in project management.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T05:03:30.458262Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
@@ -3721,7 +3795,7 @@
                     "ai_inject_mode": null,
                     "ai_prompt_override": "",
                     "skin": "light",
-                    "fc_heading": "Why Granite PM Academy's CAPM Boot Camp Stands Apart",
+                    "fc_heading": "Why Granite PM Academy's CAPM Bootcamp Stands Apart",
                     "fc_num_cols": 4,
                     "columns": [
                         {
@@ -3805,7 +3879,7 @@
                     "skin": "light",
                     "heading_level": "h2",
                     "heading_text": "CAPM Credential Strengthens Your PM Career Nationally",
-                    "text": "<p>The Certified Associate in Project Management (CAPM)® credential is recognized across industries—from IT and healthcare to construction, finance, and government—as a mark of standardized project-management competence. Employers nationwide frequently list CAPM® certification as preferred or required in project-manager job postings, making it a valuable credential for advancing within your current organization or competing for roles elsewhere. Certified project managers typically command stronger earning power than their non-certified peers, reflecting the added credibility and demonstrated expertise the designation conveys to hiring managers and clients alike.</p><p>Career advancement, enhanced credibility on larger initiatives, and readiness to lead complex projects are the core benefits professionals gain from CAPM® certification. Whether you are early in your project-management journey or seeking to formalize skills you have developed on the job, completing Granite PM Academy's CAPM Boot Camp positions you to move confidently into senior project roles and expand your influence across your organization. The boot camp format accelerates your preparation, helping you earn the credential efficiently so you can begin reaping the professional and financial rewards sooner.</p>",
+                    "text": "<p>The Certified Associate in Project Management (CAPM)® credential is recognized across industries—from IT and healthcare to construction, finance, and government—as a mark of standardized project-management competence. Employers nationwide frequently list CAPM® certification as preferred or required in project-manager job postings, making it a valuable credential for advancing within your current organization or competing for roles elsewhere. Certified project managers typically command stronger earning power than their non-certified peers, reflecting the added credibility and demonstrated expertise the designation conveys to hiring managers and clients alike.</p><p>Career advancement, enhanced credibility on larger initiatives, and readiness to lead complex projects are the core benefits professionals gain from CAPM® certification. Whether you are early in your project-management journey or seeking to formalize skills you have developed on the job, completing Granite PM Academy's CAPM Bootcamp positions you to move confidently into senior project roles and expand your influence across your organization. The boot camp format accelerates your preparation, helping you earn the credential efficiently so you can begin reaping the professional and financial rewards sooner.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T05:03:39.288232Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
@@ -4129,7 +4203,7 @@
                         },
                         {
                             "question": "Does Granite PM Academy offer live-virtual or online self-paced CAPM boot camp?",
-                            "answer": "<p>Granite PM Academy delivers CAPM prep in live-virtual instructor-led sessions, enabling real-time Q&amp;A and peer interaction across the country. This format balances flexibility with structured accountability. Check the Boot Camp page for current class schedules, start dates, and any recorded content options that may supplement live sessions.</p>"
+                            "answer": "<p>Granite PM Academy delivers CAPM prep in live-virtual instructor-led sessions, enabling real-time Q&amp;A and peer interaction across the country. This format balances flexibility with structured accountability. Check the Bootcamp page for current class schedules, start dates, and any recorded content options that may supplement live sessions.</p>"
                         },
                         {
                             "question": "What topics are covered in the CAPM boot camp curriculum?",
@@ -4185,24 +4259,24 @@
                 }
             ],
             "seo": {
-                "seo_title": "CAPM Boot Camp — Intensive CAPM Exam Prep | Granite PM Academy",
+                "seo_title": "CAPM Bootcamp — Intensive CAPM Exam Prep | Granite PM Academy",
                 "canonical_url": "https://granitepmacademy.com/capm-bootcamp/",
                 "meta_description": "PMI Premier Authorized CAPM bootcamp. 3-day intensive instructor-led training ($995) with pass guarantee and 23 contact hours included. Live-virtual nationwide. No experience required.",
                 "meta_keywords": "",
-                "og_title": "CAPM Boot Camp — Intensive CAPM Exam Prep | Granite PM Academy",
+                "og_title": "CAPM Bootcamp — Intensive CAPM Exam Prep | Granite PM Academy",
                 "og_description": "Get CAPM certified in 3 intensive days. 23 contact hours. Pass guarantee. PMI Premier Authorized. No experience required.",
                 "og_image": "",
-                "service_name": "CAPM Boot Camp",
+                "service_name": "CAPM Bootcamp",
                 "service_type": "",
                 "service_area": "",
                 "service_description": "",
                 "bc_hide": false,
-                "bc_label": "CAPM Boot Camp",
+                "bc_label": "CAPM Bootcamp",
                 "bc_mid_label": "",
                 "bc_mid_url": "",
                 "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-bootcamp/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-bootcamp/\",\n      \"name\": \"CAPM Bootcamp — Get CAPM Certified in 3 Days | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM bootcamp. 3-day intensive instructor-led training ($995) with pass guarantee and 23 contact hours. Live-virtual nationwide. No experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Bootcamp\",\n            \"item\": \"https://granitepmacademy.com/capm-bootcamp/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-bootcamp/#course\",\n      \"name\": \"CAPM Exam Prep Bootcamp\",\n      \"description\": \"Intensive 3-day PMI Premier Authorized CAPM bootcamp. Live instructor-led training covering the full CAPM Exam Content Outline. Includes 23 contact hours, practice questions, full 150-question mock exam, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/capm-bootcamp/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day Intensive)\",\n          \"price\": \"995\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-bootcamp/\"\n        }\n      ],\n      \"educationalCredentialAwarded\": {\n        \"@id\": \"https://granitepmacademy.com/capm-bootcamp/#credential\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-bootcamp/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-bootcamp/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What are the eligibility requirements for the CAPM?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI requires a secondary school diploma (high school diploma or equivalent) and 23 hours of project management education. There is no work experience requirement. Our 3-day bootcamp satisfies the 23-hour education requirement entirely.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does the CAPM bootcamp satisfy PMI's 23-hour requirement?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. Completing our 3-day CAPM bootcamp fully satisfies PMI's 23-contact-hour education requirement. You receive a certificate of completion that you submit with your PMI application.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long after the bootcamp can I sit the CAPM exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Most students submit their PMI application on Day 3. PMI approves in 5–10 business days. After approval, you schedule with Pearson VUE and typically sit the exam within 1–3 weeks. Most students are CAPM-certified within 4–6 weeks of completing the bootcamp.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What does the CAPM exam look like?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The CAPM is a 150-question multiple-choice exam with a 3-hour time limit. It covers predictive and agile project management across the full project lifecycle. Questions are scenario-based — PMI tests judgment, not just memorization. We include full-length timed mock exams in the bootcamp.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the CAPM bootcamp?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"23 contact hours of live instructor-led training; updated curriculum aligned to PMI's current CAPM Exam Content Outline (agile + predictive); targeted practice questions; full 150-question mock exam; PMI application walkthrough on Day 3; 30-day post-bootcamp study plan; and the Pass Guarantee. CAPM exam fee ($225 for PMI members, $300 non-members) paid separately to PMI.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the CAPM a good investment for my career?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"For professionals entering or transitioning into PM, yes. The CAPM is recognized globally by employers in tech, healthcare, government, construction, and finance as evidence of formal PM training. It frequently differentiates candidates for coordinator, analyst, and associate PM roles where the PMP's 36-month experience requirement isn't yet met.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do CAPM bootcamp hours count toward the PMP?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. Your 23 CAPM bootcamp hours apply directly toward the PMP's 35-hour education requirement. When you've accumulated the 36 months of PM experience the PMP requires, you'll need to document additional hours or take a PMP-specific course to reach the 35-hour threshold.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the pass guarantee?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If you attend the full 3-day bootcamp, follow our recommended post-bootcamp study activities, and don't pass the CAPM exam on your first attempt, we enroll you in the next available bootcamp session at no cost. Those are the only two conditions.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
-                "primary_keyword": "CAPM Boot Camp",
-                "secondary_keywords": "CAPM bootcamp, CAPM exam prep, CAPM boot camp online, CAPM prep course"
+                "primary_keyword": "CAPM Bootcamp",
+                "secondary_keywords": "CAPM boot camp, CAPM exam prep, CAPM bootcamp online, CAPM prep course"
             }
         },
         "page_cpmai_cert": {
@@ -5204,9 +5278,18 @@
                     "tb_bg": "dark",
                     "tb_show_icons": true,
                     "tb_items": [
-                        {"label": "100% PMI-Acceptance Guarantee — Full Refund If Rejected", "icon": ""},
-                        {"label": "PMI Premier Authorized Training Partner", "icon": ""},
-                        {"label": "Live-Virtual or On-Demand", "icon": ""}
+                        {
+                            "label": "100% PMI-Acceptance Guarantee — Full Refund If Rejected",
+                            "icon": ""
+                        },
+                        {
+                            "label": "PMI Premier Authorized Training Partner",
+                            "icon": ""
+                        },
+                        {
+                            "label": "Live-Virtual or On-Demand",
+                            "icon": ""
+                        }
                     ]
                 },
                 {
