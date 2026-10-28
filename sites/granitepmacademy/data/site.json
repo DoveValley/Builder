@@ -3667,7 +3667,7 @@
                     "hs_tagline": "PMI Premier Authorized Training Partner — Nationwide",
                     "hs_subtext": "<p>The CAPM credential is recognized by employers nationwide as proof of foundational project management competency and eligibility for advancement toward the PMP. Granite PM Academy delivers this PMI-required education through live-virtual, instructor-led training that condenses the contact-hour requirement into three intensive days, allowing working professionals to earn their certification without extended classroom commitments. Completing CAPM positions you to pursue higher-level PM roles and salary growth across industries.</p>",
                     "hs_btn_text": "View Bootcamp Schedules",
-                    "hs_btn_url": "/pmp-certification-training",
+                    "hs_btn_url": "#capm_boot_schedule",
                     "hs_btn2_text": "How the Bootcamp Works",
                     "hs_btn2_url": "#curriculum",
                     "hs_caption1": "✓ Pass Guarantee Included",
@@ -3790,7 +3790,7 @@
                 {
                     "type": "custom_html",
                     "skin": "",
-                    "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Reserve Your Seat &mdash;<br><span style=\"color:#2563eb;\">Sessions Filling Fast</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Every CAPM bootcamp is live, instructor-led, and backed by our Pass Guarantee. Pick the date that works and lock in your spot.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"CAPM Bootcamp\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+                    "html": "<div class=\"content-block\" id=\"capm_boot_schedule\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Reserve Your Seat &mdash;<br><span style=\"color:#2563eb;\">Sessions Filling Fast</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Every CAPM bootcamp is live, instructor-led, and backed by our Pass Guarantee. Pick the date that works and lock in your spot.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"CAPM Bootcamp\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
                 },
                 {
                     "type": "ai_block",
@@ -4160,7 +4160,7 @@
                     "wb_heading_level": "h2",
                     "wb_subtext": "Complete the 3-day CAPM bootcamp and follow our post-bootcamp study plan. If you don't pass on your first attempt, we bring you back at no cost — no exceptions, no fine print beyond those two conditions. We stand behind our instruction because our track record stands on its own.",
                     "wb_btn_text": "View CAPM Bootcamp Schedules",
-                    "wb_btn_url": "/pmp-certification-training",
+                    "wb_btn_url": "#capm_boot_schedule",
                     "wb_btn_style": "outline",
                     "wb_centered": false,
                     "wb_photo_alt": "",
@@ -4177,7 +4177,7 @@
                     "cb_heading_level": "h2",
                     "cb_subtext": "3-day bootcamp sessions throughout the year. Reserve your spot and be CAPM-certified in 30 days.",
                     "cb_btn_text": "View CAPM Bootcamp Schedules",
-                    "cb_btn_url": "/pmp-certification-training",
+                    "cb_btn_url": "#capm_boot_schedule",
                     "cb_bg": "custom",
                     "cb_bg_custom": "#2563eb",
                     "cb_text_color": "#ffffff",
