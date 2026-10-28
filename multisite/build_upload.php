@@ -160,7 +160,15 @@ if ($do['build']) {
     if ($skipImages) $skipList = array_values(array_unique(array_merge($skipList, ['images'])));
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $cmd = [$php, BASE_DIR . '/multisite/run_campaign.php', $masterId, '--batch=' . $batchId, '--run-id=' . $runId,
-            '--no-preflight', '--jobs=1', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
+            // 2, not higher — each domain already fans out to ~8 concurrent API threads
+            // internally (generate.py), so jobs × 8 concurrent calls risks provider
+            // rate-limit backoff well before it risks CPU. Raised from 1 now that this
+            // box has 4 cores (was 2) — ms_run_pool() already runs each job as its own
+            // real OS process (proc_open), so this is the same proven mechanism
+            // admin/multisite_api.php's AI-content-generation tab already uses at up to
+            // 16 jobs, just turned on here too. No effect on a single-domain regenerate
+            // (Correct & Regenerate) — only matters when --only= lists more than one.
+            '--no-preflight', '--jobs=2', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
     if ($skipList) $cmd[] = '--skip=' . implode(',', $skipList);
     // Section-order rotation is itself skipped (part of $logoOnlySkip's 'structure'), so
     // the saved pin counts would do nothing anyway — left out entirely for a logo-only run.
