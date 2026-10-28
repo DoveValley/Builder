@@ -206,8 +206,14 @@ function infra_golive_schedule(int $perDay, string $startDate, array $opts = [])
 }
 
 /**
- * Take domains off the calendar: queued → staged, date and time cleared. Only 'queued' —
- * a domain already switching DNS or live is past the point a date can undo.
+ * Take domains off the calendar: date and time cleared, status reset to 'staged'.
+ * Blocked only for 'live'/'releasing' — the release has already happened or is
+ * actively in flight, so a date can no longer undo anything there. Every other
+ * status (staged, queued, awaiting-ns, partial, register-failed, ...) is fair game:
+ * a domain can carry a leftover go_live_at from an old schedule no matter which of
+ * those it currently sits in (e.g. a torn-down domain that got re-provisioned back
+ * to 'staged' kept its original date — found 2026-10-28 on nelsonrestoration.com,
+ * stuck since 08-22 because this used to only accept 'queued').
  * @param string $batch only touch domains carrying this tag ('' = any)
  * @return array{unscheduled:int, why:array}
  */
@@ -219,7 +225,7 @@ function infra_golive_unschedule(array $domains, string $batch = ''): array
         $r = $d !== '' ? infra_state_get_domain($d) : null;
         if (!$r) { $out['why'][] = [$d, 'not in the fleet']; continue; }
         if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) { $out['why'][] = [$d, 'not in this batch']; continue; }
-        if (($r['status'] ?? '') !== 'queued') { $out['why'][] = [$d, 'not scheduled']; continue; }
+        if (in_array($r['status'] ?? '', ['live', 'releasing'], true)) { $out['why'][] = [$d, 'already live/releasing']; continue; }
         infra_state_upsert_domain(['domain' => $d, 'go_live_at' => '', 'go_live_time' => '', 'status' => 'staged']);
         $out['unscheduled']++;
     }
@@ -398,6 +404,13 @@ function infra_golive_take_offline(string $domain): array
     if (!$acct) { infra_cache_force(false); return ['ok' => false, 'message' => 'zone is in an account the console no longer has']; }
 
     $r = cf_delete_dns_record($acct, (string) $z['zone_id'], 'A', $domain);
+
+    // A torn-down domain has no business still carrying an old go-live date — left
+    // alone, it sits there forever (nelsonrestoration.com, stuck since 08-22 until
+    // 2026-10-28) since nothing else ever clears it for a non-'queued' status. This
+    // IS the deliberate "I'm done with this release" action, so clear it here too,
+    // not just on the explicit Unschedule button.
+    infra_state_upsert_domain(['domain' => $domain, 'go_live_at' => '', 'go_live_time' => '']);
 
     // THE CHECK HAS THE LAST WORD, same rule as every pipeline action: the zone (and
     // live) cells are re-derived from what Cloudflare/the site actually report now,

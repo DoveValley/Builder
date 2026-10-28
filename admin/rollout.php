@@ -264,6 +264,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             <a href="#" data-sel="scheduled">all scheduled</a> &middot;
             <a href="#" data-sel="notup">all not uploaded</a> &middot;
             <a href="#" data-sel="none">none</a>
+            &middot; rows
+            <input type="number" id="ro-range-start" min="1" placeholder="start" style="width:58px;padding:2px 4px">
+            &ndash;
+            <input type="number" id="ro-range-end" min="1" placeholder="end" style="width:58px;padding:2px 4px">
+            <input type="checkbox" id="ro-range-tick" title="Tick to select rows numbered start&ndash;end (the number shown next to each domain); untick to deselect them">
             &nbsp; <strong id="ro-count">0</strong> selected
         </div>
     </div>
@@ -702,6 +707,17 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         if (e.target.id === 'ro-all') {
             const f = TABS.find(t => t[0] === view)[2];
             rows.filter(f).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
+            render();
+        }
+        if (e.target.id === 'ro-range-tick') {
+            const start = parseInt($('ro-range-start').value, 10), end = parseInt($('ro-range-end').value, 10);
+            if (!start || !end || start > end) {
+                say('Enter a valid start and end row number first (the number shown next to each domain).');
+                e.target.checked = false; return;
+            }
+            // Row number (r.n), not the array index or current tab — stable across tabs,
+            // same number printed next to each domain.
+            rows.filter(r => r.n >= start && r.n <= end).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
         if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload') syncForcePhotos();
