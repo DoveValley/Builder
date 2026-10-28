@@ -197,86 +197,33 @@ foreach ($domainsIn as $dom) {
         continue;
     }
 
-    // ── Resync from CTM — verbatim from admin/multisite_api.php's
-    // ctm_resync_numbers case. ──────────────────────────────────────────────────
+    // ── Resync from CTM — shared core is ctm_resync_domain(), also used by
+    // row_correct's own post-save auto-resync (admin/multisite_api.php). ─────────
     if ($action === 'resync_numbers') {
-        $phone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
-        if ($phone === '') {
-            $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No phone on file — nothing to resync.'];
-            ctmb_say("  {$dom}: no phone on file — nothing to resync\n");
-            continue;
-        }
-        $areaOnFile = (string) ($byDomain[$dom]['area_code'] ?? '');
-        $lookupPhone = ctm_combine_phone_area($phone, $areaOnFile);
-        $found = ctm_number_by_phone($accountId, $lookupPhone);
-        if (!$found['ok']) {
-            $results[] = ['domain' => $dom, 'ok' => false, 'error' => $found['error']];
-            ctmb_say("  {$dom}: FAILED — {$found['error']}\n");
-            continue;
-        }
-        $numberId = (string) ($found['number']['id'] ?? '');
-        if ($numberId === '') {
-            $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot resync.'];
-            ctmb_say("  {$dom}: FAILED — CTM returned a match with no number id\n");
-            continue;
-        }
-
-        $warnings = [];
-        if ($lookupPhone !== $phone) {
-            $warnings[] = "Phone on file is just '{$phone}', missing its area code — the site will show an incomplete number until you fix it by hand.";
-        }
-
         $rowNum = array_search($dom, $rowOrder, true);
         $rowNum = $rowNum === false ? 0 : $rowNum + 1;
-        $city = trim((string) ($byDomain[$dom]['city'] ?? ''));
-        $ss   = trim((string) ($byDomain[$dom]['SS'] ?? ''));
-        $label = ctm_build_label($nicheCode, $batchSeq, $rowNum, $ss, $city, $dom);
-
-        $relabeled = false;
-        $verify = ctm_get_number($accountId, $numberId);
-        $curName = $verify['ok'] ? ($verify['data']['name'] ?? null) : null;
-        if ($curName !== $label) {
-            $setName = ctm_set_number_name($accountId, $numberId, $label);
-            if ($setName['ok']) { $relabeled = true; }
-            else { $warnings[] = "Could not update its CTM label: {$setName['error']}"; }
+        $r = ctm_resync_domain($accountId, $dom, $byDomain[$dom], $nicheCode, $batchSeq, $rowNum);
+        if (!$r['ok']) {
+            $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']];
+            ctmb_say("  {$dom}: FAILED — {$r['error']}\n");
+            continue;
         }
-
-        $gotPhone  = (string) ($found['number']['phone_number'] ?? $found['number']['number'] ?? '');
-        $gotDigits = substr(preg_replace('/\D/', '', $gotPhone), -10);
-        $realArea  = substr($gotDigits, 0, 3);
-        $areaChanged = $realArea !== '' && $realArea !== trim((string) ($byDomain[$dom]['area_code'] ?? ''));
-        if ($areaChanged) $byDomain[$dom]['area_code'] = $realArea;
-
-        $forwardTo = trim((string) ($byDomain[$dom]['forward_to'] ?? ''));
-        $routing = 'no_destination_on_file';
-        if ($forwardTo !== '') {
-            $oldRpn = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));
-            $routed = ctm_set_routing_for_domain($accountId, $lookupPhone, $forwardTo, $oldRpn);
-            if ($routed['ok']) {
-                $byDomain[$dom]['forward_to']     = $routed['destination'];
-                $byDomain[$dom]['forward_rpn_id'] = $routed['receiving_id'];
-                $routing = 'synced';
-            } else {
-                $routing = 'failed';
-                $warnings[] = "Could not sync call routing: {$routed['error']}";
-            }
-        }
-
+        $byDomain[$dom] = $r['row'];
         $results[] = [
             'domain'      => $dom,
             'ok'          => true,
-            'phone'       => $phone,
+            'phone'       => $byDomain[$dom]['phone'],
             'area_code'   => $byDomain[$dom]['area_code'],
-            'relabeled'   => $relabeled,
-            'area_synced' => $areaChanged,
-            'routing'     => $routing,
-            'warning'     => implode(' ', $warnings),
+            'relabeled'   => $r['relabeled'],
+            'area_synced' => $r['area_synced'],
+            'routing'     => $r['routing'],
+            'warning'     => $r['warning'],
         ];
         $changes = [];
-        if ($relabeled) $changes[] = 'label fixed';
-        if ($areaChanged) $changes[] = "area code → {$realArea}";
-        if ($routing === 'synced') $changes[] = 'routing re-applied';
-        if ($routing === 'failed') $changes[] = 'routing FAILED';
+        if ($r['relabeled']) $changes[] = 'label fixed';
+        if ($r['area_synced']) $changes[] = "area code → {$byDomain[$dom]['area_code']}";
+        if ($r['routing'] === 'synced') $changes[] = 'routing re-applied';
+        if ($r['routing'] === 'failed') $changes[] = 'routing FAILED';
         ctmb_say("  {$dom}: " . ($changes ? implode(', ', $changes) : 'already in sync') . "\n");
         ms_write_rows_by_domain_live($paramsPath, $byDomain);
         continue;

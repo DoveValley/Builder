@@ -1821,6 +1821,7 @@ switch ($action) {
     case 'row_correct':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
         if (strtolower(trim((string) ($_POST['confirm'] ?? ''))) !== $dom) {
             echo json_encode(['error' => 'Confirmation did not match the domain — nothing changed.']); break;
@@ -1831,12 +1832,40 @@ switch ($action) {
         if (!$rec || ($rec['status'] ?? '') !== 'live') {
             echo json_encode(['error' => "{$dom} is not live — use the regular row editor instead."]); break;
         }
+        // Row position BEFORE any mutation — ctm_build_label()'s row number means
+        // "this domain's place in the target list", same meaning ctm_bulk.php's
+        // $rowOrder uses, and mutating values below never reorders $byDomain's keys.
+        $rcRowNum = array_search($dom, array_keys($byDomain), true);
+        $rcRowNum = $rcRowNum === false ? 0 : $rcRowNum + 1;
+        $rcOldPhone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
         foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
         $byDomain[$dom] = ms_scrub_stale_area_code([$byDomain[$dom]], $paramsPath)[0];
         $rv = ms_validate_rows([$byDomain[$dom]]);
         if ($rv['error'] > 0) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
+        // Correcting the phone number here used to be the end of it — CTM itself was
+        // never touched, which is exactly how 30 live numbers ended up with a blank
+        // CTM label: the new number got typed in here, but nothing told CTM's
+        // dashboard which domain/city it now belongs to. Auto-resync whenever the
+        // phone actually changed, using the same ctm_resync_domain() "Resync from
+        // CTM" already uses — best-effort: a resync failure (or no account_id typed
+        // into the CTM toolbar) still lets the row save, it just skips this step.
+        $rcNewPhone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
+        $rcAccountId = trim((string) ($_POST['account_id'] ?? ''));
+        $rcResync = null;
+        if ($rcNewPhone !== '' && $rcNewPhone !== $rcOldPhone && $rcAccountId !== '') {
+            $rcNicheCode = strtoupper(substr($masterId, 0, 3));
+            $rcBatchSeq  = (int) (ms_batch_meta($masterId, $batchId)['seq'] ?? 0);
+            $r = ctm_resync_domain($rcAccountId, $dom, $byDomain[$dom], $rcNicheCode, $rcBatchSeq, $rcRowNum);
+            if ($r['ok']) {
+                $byDomain[$dom] = $r['row'];
+                $rcResync = ['relabeled' => $r['relabeled'], 'area_synced' => $r['area_synced'],
+                             'routing' => $r['routing'], 'warning' => $r['warning']];
+            } else {
+                $rcResync = ['error' => $r['error']];
+            }
+        }
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
-        echo json_encode(['saved' => true]);
+        echo json_encode(['saved' => true, 'ctm_resync' => $rcResync]);
         break;
 
     // Append ONE new domain — no CSV round-trip for a single addition.

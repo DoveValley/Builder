@@ -622,6 +622,85 @@ function ctm_set_routing_for_domain(string $accountId, string $trackingPhone, st
     ];
 }
 
+/**
+ * Bring CTM's label, area_code, and routing back into agreement with whatever phone
+ * number is already on file for one domain — the shared core behind "Resync from
+ * CTM" (multisite/ctm_bulk.php's resync_numbers action) and row_correct's own
+ * post-save auto-resync (admin/multisite_api.php). Pulled out to one function so
+ * the two callers can never drift into different behavior — found needed 2026-10-28
+ * after row_correct shipped a corrected phone number with no path to CTM at all,
+ * leaving 30 live numbers' CTM labels blank until a human remembered to click
+ * Resync separately.
+ *
+ * Looks the number up fresh in CTM BY PHONE, not by a stored id — a hand-typed
+ * correction never recorded one. Never writes `phone` itself; this is entirely
+ * about bringing CTM's own metadata into line with a phone already considered
+ * correct by the caller.
+ *
+ * @param array $row the domain's current params.csv row — reads phone/area_code/
+ *                    forward_to/forward_rpn_id/city/SS; the returned row has
+ *                    area_code/forward_to/forward_rpn_id updated where CTM's
+ *                    answer differed from what was on file
+ * @return array{ok:bool, row?:array, relabeled?:bool, area_synced?:bool, routing?:string, warning?:string, error?:string}
+ */
+function ctm_resync_domain(string $accountId, string $domain, array $row, string $nicheCode, int $batchSeq, int $rowNum): array
+{
+    $phone = trim((string) ($row['phone'] ?? ''));
+    if ($phone === '') return ['ok' => false, 'error' => 'No phone on file — nothing to resync.'];
+
+    $areaOnFile  = (string) ($row['area_code'] ?? '');
+    $lookupPhone = ctm_combine_phone_area($phone, $areaOnFile);
+    $found = ctm_number_by_phone($accountId, $lookupPhone);
+    if (!$found['ok']) return ['ok' => false, 'error' => $found['error']];
+
+    $numberId = (string) ($found['number']['id'] ?? '');
+    if ($numberId === '') return ['ok' => false, 'error' => 'CTM returned a match with no number id — cannot resync.'];
+
+    $warnings = [];
+    if ($lookupPhone !== $phone) {
+        $warnings[] = "Phone on file is just '{$phone}', missing its area code — the site will show an incomplete number until you fix it by hand.";
+    }
+
+    $city  = trim((string) ($row['city'] ?? ''));
+    $ss    = trim((string) ($row['SS'] ?? ''));
+    $label = ctm_build_label($nicheCode, $batchSeq, $rowNum, $ss, $city, $domain);
+
+    $relabeled = false;
+    $verify  = ctm_get_number($accountId, $numberId);
+    $curName = $verify['ok'] ? ($verify['data']['name'] ?? null) : null;
+    if ($curName !== $label) {
+        $setName = ctm_set_number_name($accountId, $numberId, $label);
+        if ($setName['ok']) { $relabeled = true; }
+        else { $warnings[] = "Could not update its CTM label: {$setName['error']}"; }
+    }
+
+    $gotPhone    = (string) ($found['number']['phone_number'] ?? $found['number']['number'] ?? '');
+    $gotDigits   = substr(preg_replace('/\D/', '', $gotPhone), -10);
+    $realArea    = substr($gotDigits, 0, 3);
+    $areaChanged = $realArea !== '' && $realArea !== trim((string) ($row['area_code'] ?? ''));
+    if ($areaChanged) $row['area_code'] = $realArea;
+
+    $forwardTo = trim((string) ($row['forward_to'] ?? ''));
+    $routing   = 'no_destination_on_file';
+    if ($forwardTo !== '') {
+        $oldRpn  = trim((string) ($row['forward_rpn_id'] ?? ''));
+        $routed  = ctm_set_routing_for_domain($accountId, $lookupPhone, $forwardTo, $oldRpn);
+        if ($routed['ok']) {
+            $row['forward_to']     = $routed['destination'];
+            $row['forward_rpn_id'] = $routed['receiving_id'];
+            $routing = 'synced';
+        } else {
+            $routing = 'failed';
+            $warnings[] = "Could not sync call routing: {$routed['error']}";
+        }
+    }
+
+    return [
+        'ok' => true, 'row' => $row, 'relabeled' => $relabeled, 'area_synced' => $areaChanged,
+        'routing' => $routing, 'warning' => implode(' ', $warnings),
+    ];
+}
+
 // ── "Check primary area code" — real, AI-plus-web-search verification ──────────
 // A separate capability from ctm_area_code_for_city() above: that function only
 // ever answers from the manual table or fleet.db's own (sometimes wrong) data —

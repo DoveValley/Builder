@@ -2671,9 +2671,20 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const fd = new FormData();
         fd.append('csrf_token', csrfToken); fd.append('domain', domain);
         fd.append('confirm', msUnlockedConfirm[domain] || domain);
+        // Same field the CTM bulk-action buttons already read — lets row_correct
+        // auto-resync CTM's label/routing when the phone actually changes (see its
+        // docblock in admin/multisite_api.php). Blank is fine: the row still saves,
+        // the resync step just doesn't run.
+        const ctmAcct = document.getElementById('ms-ctm-account');
+        if (ctmAcct) fd.append('account_id', ctmAcct.value.trim());
         Object.keys(fields).forEach(k => fd.append(k, fields[k]));
         const d = await (await fetch('multisite_api.php?action=row_correct', { method: 'POST', body: fd })).json();
         if (d.error) { alert(d.error); return; }
+        if (d.ctm_resync && d.ctm_resync.error) {
+            alert('Saved, but could not sync CTM: ' + d.ctm_resync.error);
+        } else if (d.ctm_resync && d.ctm_resync.warning) {
+            alert('Saved. CTM resync note: ' + d.ctm_resync.warning);
+        }
         msEditingDomain = null;
         delete msUnlockedConfirm[domain];
         await msLoadRows();
