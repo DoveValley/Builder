@@ -2221,6 +2221,36 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         Object.keys(msCtmSelected).forEach(d => { if (!msRows[d]) delete msCtmSelected[d]; });
         msRenderRowsTable();
         msCtmUpdateCount();
+        msResumeQueuedBuilds();
+    }
+
+    // Reattaches the right poller for any domain with a build still queued/running/
+    // just-finished in THIS batch — one request for the whole table, so a page
+    // reload (or any other msLoadRows() refresh) picks back up exactly where a
+    // Correct & Regenerate left off, even if it was queued behind something else
+    // and the page was closed the whole time it waited.
+    async function msResumeQueuedBuilds() {
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=rollout_build_queue_list')).json(); }
+        catch (e) { return; }
+        let queuedSeen = 0;
+        (d.entries || []).forEach(entry => {
+            if (entry.status === 'queued') queuedSeen++;
+            (entry.domains || []).forEach(domain => {
+                if (!msRows[domain]) return; // not a row in this batch's current table
+                if (entry.status === 'queued') {
+                    const el = msProgressEl(domain);
+                    if (el) el.textContent = 'Waiting for another build in this batch to finish… (position ' + queuedSeen + ')';
+                    msPollQueuedBuild(domain);
+                } else if (entry.status === 'running' && entry.run_id) {
+                    const el = msProgressEl(domain);
+                    if (el) el.textContent = 'Resuming — working on ' + domain + '…';
+                    msPollRegenBuild(domain, entry.run_id);
+                } else if (entry.status === 'done') {
+                    msRenderBuildDone(domain, !!entry.dead, entry.exit);
+                }
+            });
+        });
     }
 
     // ── "Get CTM Phone Numbers" — isolated capability, see includes/calltrackingmetrics.php.
@@ -2648,10 +2678,41 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         try { d = await (await fetch('multisite_api.php?action=rollout_build', { method: 'POST', body: fd })).json(); }
         catch (e) { if (el) el.textContent = 'Could not reach the server.'; return; }
         if (d.error) { if (el) el.innerHTML = esc(d.error); return; }
+        if (d.queued) {
+            // A build was already running elsewhere in this batch — found
+            // 2026-10-28 silently dropping clicks like this one three sessions
+            // running. Now it waits its turn instead of just vanishing; see
+            // msPollQueuedBuild() and ms_build_queue_launch_or_queue().
+            if (el) el.textContent = 'Waiting for another build in this batch to finish… (position ' + d.position + ')';
+            msPollQueuedBuild(domain);
+            return;
+        }
         msPollRegenBuild(domain, d.run_id);
     }
 
+    // One row's build/upload is only ever watched by ONE active poller at a time —
+    // msResumeQueuedBuilds() (page load) and msRegenerateOne() (a fresh click) can
+    // both try to attach one for the same domain; without this a reload right
+    // after clicking would end up with two intervals hitting the status endpoint
+    // for the same domain.
+    const msActiveBuildPolls = new Set();
+
+    function msRenderBuildDone(domain, dead, exit) {
+        const el = msProgressEl(domain);
+        if (!el) return;
+        // dead — killed, or the box restarted, mid-job: no exit code was ever
+        // written, which on its own used to read as a clean success.
+        const bad = dead || (exit != null && exit !== 0);
+        el.innerHTML = dead
+            ? '<span style="color:#991b1b;">Rebuild/upload stopped unexpectedly for ' + esc(domain) + ' — killed, or the server restarted. Re-run it.</span>'
+            : (bad
+                ? '<span style="color:#991b1b;">Finished with failures for ' + esc(domain) + ' — check the log.</span>'
+                : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>');
+    }
+
     function msPollRegenBuild(domain, runId) {
+        if (msActiveBuildPolls.has(domain)) return;
+        msActiveBuildPolls.add(domain);
         const el = msProgressEl(domain);
         const timer = setInterval(async () => {
             let s;
@@ -2660,15 +2721,31 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             if (!s) return;
             if (!s.done) { if (el) el.textContent = (s.detail || s.stage_label || ('Working on ' + domain)) + '…'; return; }
             clearInterval(timer);
-            // s.dead — killed, or the box restarted, mid-job: no exit code was ever
-            // written, which on its own used to read as a clean success.
-            const bad = s.dead || (s.exit != null && s.exit !== 0);
-            if (el) el.innerHTML = s.dead
-                ? '<span style="color:#991b1b;">Rebuild/upload stopped unexpectedly for ' + esc(domain) + ' — killed, or the server restarted. Re-run it.</span>'
-                : (bad
-                    ? '<span style="color:#991b1b;">Finished with failures for ' + esc(domain) + ' — check the log.</span>'
-                    : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>');
+            msActiveBuildPolls.delete(domain);
+            msRenderBuildDone(domain, !!s.dead, s.exit);
         }, 2500);
+    }
+
+    // Watches a QUEUED request (no run_id yet) until it either starts for real
+    // (hands off to msPollRegenBuild, unchanged) or finishes while still sitting
+    // in the queue's own "done" state (the drain cron can launch AND finish a
+    // short job between two polls). Keeps working across a page reload, since it
+    // reads from queue.json on the server, not anything held in this tab.
+    function msPollQueuedBuild(domain) {
+        if (msActiveBuildPolls.has(domain)) return;
+        msActiveBuildPolls.add(domain);
+        const el = msProgressEl(domain);
+        const timer = setInterval(async () => {
+            let s;
+            try { s = await (await fetch('multisite_api.php?action=rollout_build_queue_status&domain=' + encodeURIComponent(domain))).json(); }
+            catch (e) { return; }
+            if (!s || s.state === 'none') { clearInterval(timer); msActiveBuildPolls.delete(domain); return; }
+            if (s.state === 'queued') { if (el) el.textContent = 'Waiting for another build in this batch to finish… (position ' + s.position + ')'; return; }
+            clearInterval(timer);
+            msActiveBuildPolls.delete(domain);
+            if (s.state === 'running') { msPollRegenBuild(domain, s.run_id); return; }
+            msRenderBuildDone(domain, !!s.dead, s.exit);
+        }, 3000);
     }
 
     window.msRowAddToggle = function () {

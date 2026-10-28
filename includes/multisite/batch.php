@@ -639,44 +639,233 @@ function ms_launch_job(string $dir, string $sentinel, string $alreadyRunningMsg,
 {
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $sentinel, $alreadyRunningMsg, $script, $args) {
-        foreach (glob($dir . '/*.out') ?: [] as $f) {
-            // ms_job_running(), not a bare mtime check: a killed job stops touching its
-            // .out file but is in no sense "already running", and used to go on blocking
-            // every relaunch of the same job type for a full hour after it died.
-            if (strpos((string) @file_get_contents($f), $sentinel) === false && ms_job_running($f)) {
-                return ['error' => $alreadyRunningMsg, 'run_id' => basename($f, '.out')];
+        if (ms_launch_job_is_busy($dir, $sentinel)) {
+            $f = ms_launch_job_busy_out($dir, $sentinel);
+            return ['error' => $alreadyRunningMsg, 'run_id' => $f ? basename($f, '.out') : null];
+        }
+        return ms_launch_job_now($dir, $sentinel, $script, $args);
+    });
+}
+
+/**
+ * Is anything in $dir still running, per the same ms_job_running() liveness check
+ * ms_launch_job() has always used? Split out so a caller that wants to QUEUE on
+ * busy instead of refusing (ms_launch_or_queue_build(), the build-queue below) can
+ * run the identical check under its own lock callback — this must never drift from
+ * what ms_launch_job() itself considers "busy".
+ */
+function ms_launch_job_is_busy(string $dir, string $sentinel): bool
+{
+    return ms_launch_job_busy_out($dir, $sentinel) !== null;
+}
+
+function ms_launch_job_busy_out(string $dir, string $sentinel): ?string
+{
+    foreach (glob($dir . '/*.out') ?: [] as $f) {
+        if (strpos((string) @file_get_contents($f), $sentinel) === false && ms_job_running($f)) return $f;
+    }
+    return null;
+}
+
+/**
+ * The actual launch mechanics (run-id, the pid/sentinel wrapper, exec) with NO
+ * busy-check and NO locking of its own — callers MUST already hold $dir/.lock
+ * (via ms_with_launch_lock) before calling this, exactly as ms_launch_job() does.
+ * Split out so ms_launch_or_queue_build() can launch from inside its own
+ * lock-held busy-check without a second, nested flock() on the same file (flock
+ * is per open-file-description, not per-process — a second fopen+flock from the
+ * same request would block on itself).
+ */
+function ms_launch_job_now(string $dir, string $sentinel, string $script, array $args): array
+{
+    $runId  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+    $out    = $dir . '/' . $runId . '.out';
+    // Created NOW, before exec() — setsid+sh+the redirect itself takes a moment
+    // to actually open $out, and without this the "already running" scan above
+    // can find nothing yet for a job that in truth just started a few
+    // milliseconds ago, letting a near-simultaneous second call slip through.
+    touch($out);
+    $argStr = implode(' ', array_map('escapeshellarg', $args));
+    // First thing the wrapper does: write its own pid — and that pid's start time
+    // out of /proc — to <run-id>.pid. This is the whole basis of ms_job_running()
+    // below: the sentinel line at the end is only ever written on a normal exit, so
+    // without a pid to check, a kill -9 (or an OOM kill, or a reboot) leaves the job
+    // reading as "Running…" for good. $$ inside the $( ) is still the wrapper's own
+    // pid, not the subshell's, which is what makes this one line work.
+    //
+    // cut -f22 lands on the start time only because this process's comm is "sh" and
+    // so holds no spaces; ms_pid_start_time() parses that field the careful way for
+    // the general case. An empty or garbled second field simply degrades to a plain
+    // "does this pid exist" check, which is what ms_pid_alive() falls back to anyway.
+    $pidCmd = 'echo "$$ $(cut -d\' \' -f22 /proc/$$/stat 2>/dev/null)" > '
+            . escapeshellarg($dir . '/' . $runId . '.pid') . '; ';
+    // The sentinel line is deliberately NOT escapeshellarg'd as a whole — it has
+    // to stay inside double quotes so $? expands to the exit code of the command
+    // just before it, inside the sh -c context. escapeshellarg() would wrap it in
+    // single quotes instead, which suppresses that expansion and always prints a
+    // literal "$?".
+    $inner = $pidCmd . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
+           . ' > ' . escapeshellarg($out) . ' 2>&1; echo "' . $sentinel . ' $?" >> ' . escapeshellarg($out);
+    exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+    return ['started' => true, 'run_id' => $runId];
+}
+
+/**
+ * The build queue — found needed 2026-10-28 after the SAME "batch already busy"
+ * refusal silently dropped a row's Correct & Regenerate three separate times
+ * across three sessions (appliance-b3, pest-b2, mold-b2): a click that loses the
+ * lock race today gets a small gray error on the row and nothing else — no retry,
+ * no record anywhere that it was ever asked for. One queue.json per batch's
+ * buildupload dir, read/written ONLY while holding that same dir's .lock (the
+ * exact file ms_with_launch_lock() already serializes "is anything running"
+ * checks through), so this can never race a live click or the drain cron below.
+ *
+ * Each entry: domain (for display/lookup), script+args+sentinel (everything
+ * ms_launch_job_now() needs to actually launch it later), status
+ * (queued|running|done), run_id (once launched), queued_at.
+ */
+function ms_build_queue_path(string $dir): string { return $dir . '/queue.json'; }
+
+function ms_build_queue_read(string $dir): array
+{
+    $raw = @file_get_contents(ms_build_queue_path($dir));
+    $q = $raw !== false ? json_decode($raw, true) : null;
+    return is_array($q) ? $q : [];
+}
+
+function ms_build_queue_write(string $dir, array $queue): void
+{
+    @file_put_contents(ms_build_queue_path($dir), json_encode(array_values($queue), JSON_PRETTY_PRINT));
+}
+
+/**
+ * Drop any entry whose job has actually finished — keeps queue.json from growing
+ * forever and is what lets a 'running' entry resolve to 'done' the next time
+ * anyone looks (a page reload, the status action, or the next drain tick).
+ * $dir/$sentinel always match the SAME buildupload dir this queue lives in.
+ */
+function ms_build_queue_prune(string $dir, string $sentinel, array $queue): array
+{
+    $kept = [];
+    foreach ($queue as $e) {
+        $status = $e['status'] ?? '';
+        // A 'done' entry was already written back to disk as 'done' by a PREVIOUS
+        // call to this function (the branch below) — this round is its second
+        // sighting, so this is where it actually gets dropped. Without this, an
+        // entry that already flipped to 'done' would never be removed: the
+        // 'running' branch below no longer matches it, and nothing else does.
+        if ($status === 'done') continue;
+        if ($status === 'running' && !empty($e['run_id'])) {
+            $out = $dir . '/' . $e['run_id'] . '.out';
+            if (is_file($out)) {
+                $r = ms_job_read_out($out, $sentinel);
+                if ($r['done']) {
+                    // Keep it through THIS round only — its first sighting as 'done' —
+                    // so a status check or page-load list lands on the real result
+                    // at least once instead of the job just vanishing. The branch
+                    // above drops it on the round after this one.
+                    $e['status'] = 'done'; $e['exit'] = $r['exit']; $e['dead'] = $r['dead'];
+                    $kept[] = $e;
+                    continue;
+                }
             }
         }
-        $runId  = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
-        $out    = $dir . '/' . $runId . '.out';
-        // Created NOW, before exec() — setsid+sh+the redirect itself takes a moment
-        // to actually open $out, and without this the "already running" scan above
-        // can find nothing yet for a job that in truth just started a few
-        // milliseconds ago, letting a near-simultaneous second call slip through.
-        touch($out);
-        $argStr = implode(' ', array_map('escapeshellarg', $args));
-        // First thing the wrapper does: write its own pid — and that pid's start time
-        // out of /proc — to <run-id>.pid. This is the whole basis of ms_job_running()
-        // below: the sentinel line at the end is only ever written on a normal exit, so
-        // without a pid to check, a kill -9 (or an OOM kill, or a reboot) leaves the job
-        // reading as "Running…" for good. $$ inside the $( ) is still the wrapper's own
-        // pid, not the subshell's, which is what makes this one line work.
-        //
-        // cut -f22 lands on the start time only because this process's comm is "sh" and
-        // so holds no spaces; ms_pid_start_time() parses that field the careful way for
-        // the general case. An empty or garbled second field simply degrades to a plain
-        // "does this pid exist" check, which is what ms_pid_alive() falls back to anyway.
-        $pidCmd = 'echo "$$ $(cut -d\' \' -f22 /proc/$$/stat 2>/dev/null)" > '
-                . escapeshellarg($dir . '/' . $runId . '.pid') . '; ';
-        // The sentinel line is deliberately NOT escapeshellarg'd as a whole — it has
-        // to stay inside double quotes so $? expands to the exit code of the command
-        // just before it, inside the sh -c context. escapeshellarg() would wrap it in
-        // single quotes instead, which suppresses that expansion and always prints a
-        // literal "$?".
-        $inner = $pidCmd . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
-               . ' > ' . escapeshellarg($out) . ' 2>&1; echo "' . $sentinel . ' $?" >> ' . escapeshellarg($out);
-        exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
-        return ['started' => true, 'run_id' => $runId];
+        $kept[] = $e;
+    }
+    return $kept;
+}
+
+/**
+ * Same shape as ms_launch_job(), except a batch that's already busy gets this
+ * request QUEUED instead of refused. Must be the only caller that both checks
+ * busy AND decides what to do about it for the buildupload dir — ms_launch_job()
+ * itself is untouched and still used, unchanged, by every other job type
+ * (create_hosts/upload/golive_run/research), which deliberately still refuse
+ * outright; queuing here is scoped to the one action (rollout_build) that was
+ * actually found silently dropping clicks.
+ *
+ * $domains is the FULL list this job covers (one for a row's Correct &
+ * Regenerate, several for a "Run selected" bulk click) — stored so
+ * ms_build_queue_status_for() can answer "what's happening for domain X" even
+ * when X was queued as part of a multi-domain request.
+ *
+ * @return array{started?:bool, run_id?:string, queued?:bool, position?:int}
+ */
+function ms_build_queue_launch_or_queue(string $dir, string $sentinel, string $script, array $args, array $domains): array
+{
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $sentinel, $script, $args, $domains) {
+        $queue = ms_build_queue_prune($dir, $sentinel, ms_build_queue_read($dir));
+        if (!ms_launch_job_is_busy($dir, $sentinel)) {
+            ms_build_queue_write($dir, $queue);
+            return ms_launch_job_now($dir, $sentinel, $script, $args);
+        }
+        $queue[] = ['domains' => $domains, 'script' => $script, 'args' => $args, 'sentinel' => $sentinel,
+            'status' => 'queued', 'run_id' => null, 'queued_at' => gmdate('c')];
+        ms_build_queue_write($dir, $queue);
+        // The new entry was just appended last, so its 1-based position among
+        // still-queued entries is simply how many queued entries exist now.
+        $position = count(array_filter($queue, fn($e) => ($e['status'] ?? '') === 'queued'));
+        return ['queued' => true, 'position' => $position];
+    });
+}
+
+/**
+ * Status for ONE domain's most recent build-queue entry in this batch — queued,
+ * running (with the real run_id, so a caller can hand off to the existing
+ * run_id-based status check), done, or 'none' (nothing queued/running for this
+ * domain right now — not an error, just nothing to report).
+ */
+function ms_build_queue_status_for(string $dir, string $sentinel, string $domain): array
+{
+    $queue = ms_build_queue_prune($dir, $sentinel, ms_build_queue_read($dir));
+    ms_build_queue_write($dir, $queue);
+    $match = null;
+    foreach ($queue as $e) if (in_array($domain, $e['domains'] ?? [], true)) $match = $e; // last one wins — most recent
+    if (!$match) return ['state' => 'none'];
+    if ($match['status'] === 'queued') {
+        $position = 0;
+        foreach ($queue as $e) if (($e['status'] ?? '') === 'queued') { $position++; if ($e === $match) break; }
+        return ['state' => 'queued', 'position' => $position];
+    }
+    if ($match['status'] === 'running') return ['state' => 'running', 'run_id' => $match['run_id']];
+    return ['state' => 'done', 'exit' => $match['exit'] ?? null, 'dead' => $match['dead'] ?? false];
+}
+
+/**
+ * All non-done entries for a whole batch at once — used on page load so resuming
+ * "what's in flight" costs one request, not one per row.
+ */
+function ms_build_queue_list(string $dir, string $sentinel): array
+{
+    // prune() already shows a just-finished entry exactly once (the round it
+    // flips to 'done') and drops it for good the round after — nothing extra
+    // to filter here.
+    $queue = ms_build_queue_prune($dir, $sentinel, ms_build_queue_read($dir));
+    ms_build_queue_write($dir, $queue);
+    return array_values($queue);
+}
+
+/**
+ * Called only from the drain cron (multisite/build_queue_tick.php) — if this
+ * batch is free and has anything queued, launch the oldest queued entry. Returns
+ * what it did, or null if there was nothing to do (already busy, or queue empty).
+ */
+function ms_build_queue_drain(string $dir, string $sentinel): ?array
+{
+    if (!is_file(ms_build_queue_path($dir))) return null;
+    return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $sentinel) {
+        $queue = ms_build_queue_prune($dir, $sentinel, ms_build_queue_read($dir));
+        if (ms_launch_job_is_busy($dir, $sentinel)) { ms_build_queue_write($dir, $queue); return null; }
+        $idx = null;
+        foreach ($queue as $i => $e) if (($e['status'] ?? '') === 'queued') { $idx = $i; break; }
+        if ($idx === null) { ms_build_queue_write($dir, $queue); return null; }
+        $entry = $queue[$idx];
+        $r = ms_launch_job_now($dir, $entry['sentinel'], $entry['script'], $entry['args']);
+        $queue[$idx]['status'] = 'running';
+        $queue[$idx]['run_id'] = $r['run_id'] ?? null;
+        ms_build_queue_write($dir, $queue);
+        return ['domains' => $entry['domains'], 'run_id' => $r['run_id'] ?? null];
     });
 }
 

@@ -848,9 +848,29 @@ switch ($action) {
         if ($rtImageQuality !== 'medium') $rtArgs[] = '--image-quality=' . $rtImageQuality;
         if ($rtLogoOnly) $rtArgs[] = '--logo-only';
         if ($rtWipe) $rtArgs[] = '--wipe';
-        echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
-            'A run is already in progress for this batch — wait for it to finish.',
-            BASE_DIR . '/multisite/build_upload.php', $rtArgs));
+        // A batch that's already busy QUEUES this instead of refusing it outright —
+        // see ms_build_queue_launch_or_queue()'s docblock. Found 2026-10-28: the old
+        // flat refusal silently dropped a Correct & Regenerate click three separate
+        // times across three sessions whenever it landed while something else in the
+        // same batch was still building.
+        echo json_encode(ms_build_queue_launch_or_queue($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
+            BASE_DIR . '/multisite/build_upload.php', $rtArgs, $rtDoms));
+        break;
+
+    // Poll one domain's build-queue state — queued/running/done/none. Used by the
+    // row progress cell while a Correct & Regenerate (or a "Run selected" covering
+    // this domain) is sitting queued, before it has a real run_id to poll via
+    // rollout_build_status.
+    case 'rollout_build_queue_status':
+        $bqDom = strtolower(trim((string) ($_GET['domain'] ?? '')));
+        if ($bqDom === '') { echo json_encode(['error' => 'domain required.']); break; }
+        echo json_encode(ms_build_queue_status_for($batchDir . '/buildupload', '__MS_BUILDUP_DONE__', $bqDom));
+        break;
+
+    // Everything currently queued/running for this whole batch, one call — used on
+    // page load to resume showing in-flight rows without a request per row.
+    case 'rollout_build_queue_list':
+        echo json_encode(['entries' => ms_build_queue_list($batchDir . '/buildupload', '__MS_BUILDUP_DONE__')]);
         break;
 
     // Manually confirm one domain right now instead of waiting for the hourly go-live

@@ -17,7 +17,10 @@
  *      so the fleet's Built/Uploaded cells (and therefore the go-live gate) see the result.
  *      Always runs, same cost either way, since it's a read-only status recheck, not an
  *      action — there's nothing to "choose" here the way there is for steps 1-3.
- * Launched by multisite_api.php's rollout_build action through ms_launch_job().
+ * Launched by multisite_api.php's rollout_build action through
+ * ms_build_queue_launch_or_queue() (queues instead of refusing when this batch is
+ * already busy — see that function's docblock in includes/multisite/batch.php),
+ * or later by multisite/build_queue_tick.php draining that queue once it's free.
  *
  * --do= exists because step 2 (Generate) is the one step here with a real cost — real AI
  * calls, real dollars per domain. Without a way to run Upload alone, fixing a bad FTP
