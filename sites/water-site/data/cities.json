@@ -45945,7 +45945,8 @@
         "miles": 35
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "hollywood-fl",
@@ -46268,13 +46269,18 @@
     "market_blurb": "Santa Barbara's economy is anchored by tourism, higher education, and healthcare, with the University of California, Santa Barbara serving as a major employer and economic driver. The city also hosts a growing technology and biotech sector alongside its historic agricultural industry, particularly wine grapes and avocados. Its scenic coastline and Mediterranean climate continue to draw visitors, supporting a robust hospitality and service economy.",
     "local_note": "Many Santa Barbara homes are built on slab-on-grade or raised crawl space foundations due to the region's seismic activity and hillside terrain. The dominant water-damage risk is heavy seasonal rainfall and flash flooding, especially in areas near burn scars where debris flows and runoff can overwhelm drainage systems.",
     "neighborhoods": [
+      "East Side",
+      "Funk Zone",
+      "Riviera",
+      "The Mesa",
+      "Upper State",
+      "Waterfront",
+      "Westside",
       "Downtown Santa Barbara",
       "The Riviera",
-      "The Mesa",
       "San Roque",
       "Samarkand",
       "Eastside",
-      "Westside",
       "Upper State Street"
     ],
     "population": 88665,
@@ -46312,7 +46318,8 @@
         "miles": 30
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "elgin-il",
@@ -49067,6 +49074,14 @@
     "market_blurb": "Concord, California is the largest city in Contra Costa County and serves as a regional hub for healthcare, retail, and government services. Its economy benefits from proximity to the greater San Francisco Bay Area, with John Muir Health and county/city government offices among the largest employers. A mix of manufacturing, logistics, and professional services rounds out the local job base.",
     "local_note": "Most homes in Concord are built on concrete slab-on-grade foundations, typical of California construction. The dominant water-damage risk is heavy seasonal rain and flash flooding during winter atmospheric river storms.",
     "neighborhoods": [
+      "Brookview Park",
+      "Canterbury Village",
+      "Canyon Creek",
+      "Centre Pointe",
+      "Clayton Valley Highlands",
+      "Four Corners",
+      "Fruitbowl",
+      "Kelly Glen Estates",
       "Downtown Concord",
       "Todos Santos",
       "Ygnacio Valley",
@@ -49108,7 +49123,8 @@
         "miles": 10
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "norman-ok",
@@ -49247,6 +49263,14 @@
     "market_blurb": "Norman, Oklahoma's economy is anchored by the University of Oklahoma, which drives employment in education, research, and healthcare. The presence of federal agencies like the FAA Aeronautical Center and the National Weather Center adds a strong government and aerospace/meteorological research component to the local economy. Retail, services, and light manufacturing round out Norman's diverse economic base.",
     "local_note": "Most homes in Norman are built on slab foundations, typical for central Oklahoma. The dominant water-damage risk in the area comes from heavy seasonal thunderstorms and flash flooding, particularly during spring and early summer.",
     "neighborhoods": [
+      "Ashton Grove",
+      "Brookhaven",
+      "Castlerock",
+      "Colonial Estates",
+      "Crestland Town Homes",
+      "Eastridge",
+      "Flaming Oaks",
+      "Frost Creek",
       "Downtown Norman",
       "Campus Corner",
       "Brookhaven Village",
@@ -49280,7 +49304,8 @@
         "miles": 12
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "round-rock-tx",
@@ -49786,7 +49811,9 @@
     ],
     "market_blurb": "Bellflower, CA maintains a diverse local economy anchored by healthcare, retail, and light manufacturing, with its position in southeastern Los Angeles County supporting strong logistics and warehousing activity. Retail corridors along Bellflower Boulevard and Artesia Boulevard drive significant commercial traffic, while the city's schools and public services remain major local employers. The city's proximity to major freeways also supports automotive services and small business growth.",
     "local_note": "Most homes in Bellflower are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk here comes from heavy seasonal winter rains, which can cause roof leaks, slab moisture intrusion, and localized flash flooding during intense storms.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Bellflower Village"
+    ],
     "population": 79190,
     "nearby_towns": [
       {
@@ -49823,7 +49850,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -51627,8 +51654,15 @@
     "market_blurb": "Southfield, Michigan has long been one of Oakland County's premier business hubs, hosting a dense concentration of corporate offices, financial services firms, and healthcare institutions along the I-696 and Northwestern Highway corridors. Lear Corporation's global headquarters and numerous regional offices for insurance, banking, and technology firms anchor the local economy. The city's mix of office towers and medical campuses makes it a key employment center within the greater Detroit metro area.",
     "local_note": "Most homes in Southfield are built with full basements, standard for southeastern Michigan's frost-line depth, making basement seepage and sump pump failures a common concern. The dominant water-damage risks here are heavy spring and summer rainstorms combined with winter freeze-thaw cycles and snowmelt, which can overwhelm drainage systems and cause basement flooding.",
     "neighborhoods": [
+      "Avon Lane",
+      "Beechwood Acres",
+      "Bellwood Estates",
+      "Bonnie Acres",
+      "Burgh Pointe",
+      "Burton Woods",
+      "Cambridge Village",
+      "Cranbrook Village",
       "Southfield Town Center",
-      "Civic Center District",
       "Northland Center"
     ],
     "population": 73201,
@@ -51666,7 +51700,8 @@
         "miles": 15
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "upland-ca",
@@ -51807,6 +51842,8 @@
     "market_blurb": "Upland, California's economy is anchored by healthcare, retail, and logistics, benefiting from its location along the Route 66 corridor and proximity to major Inland Empire distribution hubs. Major employers include San Antonio Regional Hospital and the Upland Unified School District, alongside national retailers with a strong local presence. The city's economy is closely tied to the broader San Bernardino County and Inland Empire logistics and housing markets.",
     "local_note": "Most homes in Upland are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk is heavy seasonal rain and flash flooding, particularly during winter atmospheric river storms that can cause runoff and debris flow from the nearby San Gabriel Mountain foothills.",
     "neighborhoods": [
+      "College Park",
+      "Downtown Upland",
       "North Upland",
       "South Upland",
       "San Antonio Heights",
@@ -51848,7 +51885,8 @@
         "miles": 10
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "santa-maria-ca",
@@ -56060,6 +56098,14 @@
     "market_blurb": "Perris, California has grown into a key logistics and distribution hub within the Inland Empire, benefiting from its location along the I-215 corridor and proximity to March Air Reserve Base. The local economy is anchored by warehousing, manufacturing, and construction activity, alongside steady public-sector employment through local school districts and city government. Perris also retains ties to its agricultural roots while continuing to see residential and industrial growth.",
     "local_note": "Most homes in Perris are built on concrete slab foundations, typical of inland Southern California construction. The dominant water-damage risk in the area comes from heavy seasonal winter rains and occasional flash flooding, particularly in low-lying areas near washes and flood channels.",
     "neighborhoods": [
+      "Amelia Square",
+      "Ellis",
+      "Encanto",
+      "Mountain View",
+      "Olive Grove",
+      "Rancho las Perris",
+      "Stratford Place",
+      "Val Verde",
       "Downtown Perris",
       "May Ranch",
       "Perris Valley",
@@ -56100,7 +56146,8 @@
         "miles": 25
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "brockton-ma",
@@ -58279,7 +58326,10 @@
     "local_note": "Most homes in Compton are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk in the area is heavy seasonal winter rain, which can cause localized flash flooding and drainage issues due to aging infrastructure.",
     "neighborhoods": [
       "Richland Farms",
-      "Downtown Compton"
+      "Downtown Compton",
+      "Sunny Cove",
+      "East Compton",
+      "Leland"
     ],
     "population": 95740,
     "nearby_towns": [
@@ -60673,7 +60723,8 @@
     "local_note": "Most homes in West Covina are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk in the area comes from heavy seasonal winter rains, which can cause flash flooding and roof or drainage-related water intrusion.",
     "neighborhoods": [
       "South Hills",
-      "Shadow Oak"
+      "Shadow Oak",
+      "Cameron Park"
     ],
     "population": 106000,
     "nearby_towns": [
