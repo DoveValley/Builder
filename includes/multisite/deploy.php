@@ -238,6 +238,89 @@ function ms_ftp_parse_list_entry(string $item): ?array {
 }
 
 /**
+ * Recursively list everything under the FTP connection's CURRENT working
+ * directory — the SFTP walk above's counterpart, same chdir-based approach as
+ * ms_ftp_delete_tree() (non-destructive here) for the same chroot reason: some
+ * hosts reject an absolute-path listing but accept one built from relative
+ * chdir's. Fills $files[relPath] = true.
+ */
+function ms_ftp_walk($conn, string $sub, array &$files): void {
+    $raw = @ftp_rawlist($conn, '.');
+    if (!is_array($raw)) return;
+    foreach ($raw as $item) {
+        $e = ms_ftp_parse_list_entry($item);
+        if (!$e || $e['name'] === '.' || $e['name'] === '..') continue;
+        $rel = $sub === '' ? $e['name'] : $sub . '/' . $e['name'];
+        if ($e['type'] === 'd') {
+            if (@ftp_chdir($conn, $e['name'])) {
+                ms_ftp_walk($conn, $rel, $files);
+                @ftp_chdir($conn, '..');
+            }
+        } else {
+            $files[$rel] = true;
+        }
+    }
+}
+
+/**
+ * Independent, read-only confirmation of what actually landed remotely after
+ * deploy_site() — over a FRESH connection, since deploy_site()'s own connection
+ * may already be dead by the time this runs (exactly the case this exists to
+ * catch: an FTP drop mid-upload). Lists the real remote tree and compares it
+ * against every file the LOCAL build has — not just what this run attempted to
+ * send, so a file that was already correctly on the server from an earlier run
+ * is covered too, not only this run's own targets.
+ *
+ * Found needed 2026-10-28: a connection dropped mid-upload, deploy_site()
+ * correctly counted the failure, but nothing after it ever independently
+ * confirmed the SITE was actually complete — 16 files stayed missing on a live
+ * box while every later status check read the domain as fully uploaded.
+ *
+ * `ok` is null, not false, when verification itself could not run (e.g. the
+ * second connection also failed) — that means "unknown", never "confirmed
+ * broken". A check that can't run must not read as a worse result than one
+ * that ran and found nothing wrong.
+ *
+ * @param array    $ftp   same shape as deploy_site()'s
+ * @param string   $path  the resolved remote base path deploy_site() just used
+ * @param string[] $local every relative path the local build has
+ * @return array{ok:?bool, missing:string[], remote_count:int, error?:string}
+ */
+function ms_verify_deploy(array $ftp, string $path, array $local): array {
+    $protocol = strtolower(trim($ftp['ftp_protocol'] ?? 'ftp')) === 'sftp' ? 'sftp' : 'ftp';
+    $remote = [];
+
+    if ($protocol === 'sftp') {
+        $err = null;
+        $sftp = ms_sftp_open($ftp, 20, $err);
+        if (!$sftp) return ['ok' => null, 'missing' => [], 'remote_count' => 0, 'error' => $err];
+        $dirs = [];
+        ms_sftp_walk($sftp, $path === '' ? '/public_html' : $path, '', $remote, $dirs);
+    } else {
+        if (!function_exists('ftp_connect')) {
+            return ['ok' => null, 'missing' => [], 'remote_count' => 0, 'error' => 'No FTP extension.'];
+        }
+        $host = preg_replace('#^s?ftps?://#i', '', trim($ftp['ftp_host'] ?? ''));
+        $port = (int) ($ftp['ftp_port'] ?? 0) ?: 21;
+        $conn = @ftp_connect($host, $port, 20);
+        if (!$conn || !@ftp_login($conn, $ftp['ftp_user'] ?? '', $ftp['ftp_pass'] ?? '')) {
+            return ['ok' => null, 'missing' => [], 'remote_count' => 0, 'error' => 'Could not reconnect to verify.'];
+        }
+        @ftp_pasv($conn, true);
+        if ($path !== '' && !@ftp_chdir($conn, $path)) {
+            @ftp_close($conn);
+            return ['ok' => null, 'missing' => [], 'remote_count' => 0, 'error' => "Could not enter {$path} to verify."];
+        }
+        ms_ftp_walk($conn, '', $remote);
+        @ftp_close($conn);
+    }
+
+    $missing = [];
+    foreach ($local as $rel) if (!isset($remote[$rel])) $missing[] = $rel;
+    return ['ok' => empty($missing), 'missing' => $missing, 'remote_count' => count($remote)];
+}
+
+/**
  * Recursively delete everything under the FTP connection's CURRENT working directory
  * (not the directory itself). Mirrors ms_sftp_delete_tree() exactly — same $log(msg,
  * type) callback shape ('log' for progress, 'warn' for per-item failures) — so a caller
@@ -589,10 +672,42 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
         ftp_close($conn);
     }
 
+    // Independent re-check, ONLY when this run actually reported a failure — a
+    // clean run has nothing to doubt, and a full remote listing costs roughly as
+    // much as the upload itself, not worth paying on every routine success.
+    // Found needed 2026-10-28: deploy_site() correctly counted an FTP drop's
+    // failures, but nothing downstream ever confirmed the site was STILL
+    // incomplete — the pipeline's later status check read it as fully uploaded
+    // regardless, because the folders a dropped connection leaves behind still
+    // exist, just empty inside.
+    $verifyMissing = [];
+    if ($failed > 0) {
+        $verify = ms_verify_deploy($ftp, $path ?? '', array_keys($files));
+        if ($verify['ok'] === false) {
+            $verifyMissing = $verify['missing'];
+            progress_log('Verified against the live server: ' . count($verifyMissing)
+                . ' file(s) genuinely missing — ' . implode(', ', array_slice($verifyMissing, 0, 5))
+                . (count($verifyMissing) > 5 ? ', +' . (count($verifyMissing) - 5) . ' more' : ''), 'error');
+        } elseif ($verify['ok'] === null) {
+            progress_log('Could not independently verify the upload (' . ($verify['error'] ?? 'reconnect failed')
+                . ') — treat the failure count above as the only confirmed fact.', 'warn');
+        }
+        // $verify['ok'] === true here means every reported failure got through on
+        // a later retry within this same run (deploy_site() has no such retry
+        // today, but ftp_put succeeding against a since-recovered connection
+        // before the hard break above is possible) — nothing left to report.
+    }
+
     // Remove entries for files that no longer exist locally
     foreach (array_keys($newManifest) as $rel) {
         if (!isset($files[$rel])) unset($newManifest[$rel]);
     }
+    // Also drop anything the independent re-check just proved isn't really there —
+    // covers the rare case ftp_put() itself reported success for a file that never
+    // actually landed, not just the already-excluded, already-counted failures.
+    // Without this the manifest would keep thinking it's done, and every future
+    // run would keep skipping it as "unchanged".
+    foreach ($verifyMissing as $rel) unset($newManifest[$rel]);
 
     // Persist the manifest (create parent dir — for multisite it lives under multisite/manifests/).
     $manifestDir = dirname($manifestFile);
@@ -611,5 +726,6 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
     $summary .= '.';
     progress_log($summary, $failed > 0 ? 'warn' : 'done');
 
-    return ['status' => 'done', 'uploaded' => $uploaded, 'failed' => $failed, 'msg' => $summary];
+    return ['status' => 'done', 'uploaded' => $uploaded, 'failed' => $failed, 'msg' => $summary,
+            'verify_missing' => $verifyMissing];
 }

@@ -116,6 +116,10 @@ $manifestDir = BASE_DIR . '/sites/' . $masterId . '/multisite/manifests';
 if (!is_dir($manifestDir)) @mkdir($manifestDir, 0775, true);
 
 $ok = 0; $fail = 0; $sent = 0;
+// Per-domain ground truth from deploy_site() itself — used below to override the
+// generic post-upload status refresh for any domain THIS run already knows failed,
+// rather than trusting a separate, shallower check to re-derive the same answer.
+$failedDomains = [];
 foreach ($ready as $t) {
     $r = $t['row'];
     $ftp = [
@@ -166,6 +170,11 @@ foreach ($ready as $t) {
     if (($dep['status'] ?? '') === 'fatal' || $bad > 0) {
         $fail++;
         printf("✗ %s\n", $bad > 0 ? "{$bad} file(s) failed" : ($dep['msg'] ?? 'failed'));
+        $verifyMissing = $dep['verify_missing'] ?? [];
+        $failedDomains[$t['domain']] = $bad . ' file(s) failed to upload'
+            . ($verifyMissing ? ' — confirmed still missing on the server: '
+                . implode(', ', array_slice($verifyMissing, 0, 5))
+                . (count($verifyMissing) > 5 ? ', +' . (count($verifyMissing) - 5) . ' more' : '') : '.');
     } else {
         $ok++; $sent += $up;
         printf("✓ %s\n", $up > 0 ? "{$up} uploaded" : 'already up to date');
@@ -186,6 +195,16 @@ if ($onlyList) {
     infra_pipeline_refresh('upload', '', implode(',', $onlyList));
 } else {
     infra_pipeline_refresh('upload', $masterId . '/' . $batchId);
+}
+// Override with ground truth for anything THIS run already proved failed. Found
+// needed 2026-10-28: the refresh above only lists the REMOTE folder's top level,
+// so a page folder an FTP drop left created-but-empty still reads as "has a real
+// folder" — a connection loss deploy_site() correctly counted as failed came back
+// out of the SAME refresh call as "ok" moments later, and every later consumer
+// (the Bulk grid, the go-live gate, Batch Simple's own column) trusted that
+// instead of what this run actually watched happen.
+foreach ($failedDomains as $fdDomain => $fdNote) {
+    infra_pipeline_set($fdDomain, 'upload', INFRA_STEP_FAIL, $fdNote, true);
 }
 
 /* Queue a file-date refresh for anything that is ALREADY PUBLIC. An upload stamps every
