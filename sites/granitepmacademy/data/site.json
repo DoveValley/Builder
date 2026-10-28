@@ -5145,6 +5145,16 @@
                     "_ai_locked": true
                 },
                 {
+                    "type": "trust_bar",
+                    "tb_bg": "dark",
+                    "tb_show_icons": true,
+                    "tb_items": [
+                        {"label": "100% PMI-Acceptance Guarantee — Full Refund If Rejected", "icon": ""},
+                        {"label": "PMI Premier Authorized Training Partner", "icon": ""},
+                        {"label": "Live-Virtual or On-Demand", "icon": ""}
+                    ]
+                },
+                {
                     "type": "text",
                     "bg_color": "#ffffff",
                     "text_color": "#6b7280",
@@ -5165,7 +5175,7 @@
                         },
                         {
                             "heading": "Your Three-Year Cycle",
-                            "text": "Earn your required PDUs during this window through courses, volunteering, or other PMI-approved activities, and report them in your myPMI dashboard as you go."
+                            "text": "<p>Earn your required PDUs during this window through courses, volunteering, or other PMI-approved activities, and report them in your myPMI dashboard as you go. Check your exact cycle dates and progress anytime in PMI's <a href=\"https://ccrs.pmi.org\" target=\"_blank\" rel=\"noopener\">Continuing Certification Requirements System (CCRS)</a>.</p>"
                         },
                         {
                             "heading": "Your Renewal Deadline",
