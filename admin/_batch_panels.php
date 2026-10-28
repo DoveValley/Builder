@@ -128,13 +128,13 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Resync from CTM</strong>
         <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
-        <span class="hint" style="margin-left:6px;">For a number bought by hand directly in CTM (not through Get CTM Phone Numbers) — paste its Phone into the row first, then check it here. Looks up the real number behind that Phone and brings CTM's dashboard label, this row's Area Code, and call routing back into agreement with it. Also how a stale or wrong-account Phone gets caught.</span>
+        <span class="hint" style="margin-left:6px;">For a number bought by hand directly in CTM (not through Get CTM Phone Numbers) — paste its Phone into the row first, then check it here. Looks up the real number behind that Phone and brings CTM's dashboard label (its "description"), this row's Area Code, and call routing back into agreement with it. Also how a stale or wrong-account Phone gets caught.</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-resync-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
             <button type="button" class="btn btn-primary" id="ms-resync-btn" onclick="msCtmResyncNumbers()">Resync from CTM (<span id="ms-resync-count">0</span> selected)</button>
             <span id="ms-resync-msg" class="hint" style="margin-left:8px;"></span>
             <div class="hint" style="margin-top:4px;width:100%;">
-                Uses the same checkboxes as Get CTM Phone Numbers above. Never touches Phone itself — works on already-live rows too. A row with a destination on file always gets routing re-applied to whatever number is in Phone now, replacing anything stale.
+                Never touches Phone itself, so there's no live/not-live distinction — same behavior either way. The most common case: domain NOT live yet, you bought the number directly in CTM and pasted it into Phone yourself, and you just want CTM's label (its "description" in the CTM dashboard) and this row's Area Code to actually match what you bought, without re-buying anything. Uses the same checkboxes as Get CTM Phone Numbers above. A row with a destination on file always gets routing re-applied to whatever number is in Phone now, replacing anything stale.
             </div>
         </div>
         <details id="ms-resync-details" style="margin-top:8px;">
