@@ -108,7 +108,8 @@
             <div class="mobile-nav-logo">
                 <a href="<?= h($homeUrl ?? '/') ?>" class="mobile-nav-logo-link">
                     <?php if (!empty($header['mobile_logo_icon_white'])): ?>
-                        <img src="<?= h(admin_upload_url_v($header['mobile_logo_icon_white'])) ?>" alt="" <?= img_dim_attrs($header['mobile_logo_icon_white'], 43) ?>class="mobile-nav-logo-icon" style="height:43px;width:auto;display:block;">
+                        <?php $__mobNavIconPath = img_logo_variant($header['mobile_logo_icon_white'], 43); ?>
+                        <img src="<?= h(admin_upload_url_v($__mobNavIconPath)) ?>" alt="" <?= img_dim_attrs($__mobNavIconPath, 43) ?>class="mobile-nav-logo-icon" style="height:43px;width:auto;display:block;">
                         <span class="mobile-nav-logo-text<?= $__navBrandLine3 !== '' ? ' mobile-nav-logo-text-3line' : '' ?>">
                             <span class="mobile-nav-logo-line"><?= h($__navBrandLine1) ?></span>
                             <?php if ($__navBrandLine2 !== ''): ?><span class="mobile-nav-logo-line"><?= h($__navBrandLine2) ?></span><?php endif; ?>

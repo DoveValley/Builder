@@ -132,18 +132,25 @@ function media_magick(string $src, string $dest, array $ops): bool {
 function img_write_mobile_variant(string $mainFile): void {
     if (!is_file($mainFile)) return;
     [$w, $h] = @getimagesize($mainFile) ?: [0, 0];
-    // Buffer kept small (not the ~800-920 gap this originally shipped with): the
-    // AI-photo pipeline (includes/multisite/image_ai.php) crop-fits most of its output
-    // to slot sizes in the 840-990px range — comfortably admin-upload-sized, but still
-    // real, measured savings for a phone (confirmed via PageSpeed on a real page: these
-    // were flagged as "larger than needed for displayed size" every time). A generous
-    // buffer was silently skipping nearly all of them.
-    if ($w < 1 || $h < 1 || $w <= MOBILE_IMG_WIDTH + 20) return;
+    if ($w < 1 || $h < 1) return;
+
+    // Scaled to 75% of the SOURCE's own width, capped at MOBILE_IMG_WIDTH, rather than
+    // always targeting one flat number. A full-bleed hero/wide_banner background (its
+    // source typically 1000px+) still lands on the 800px cap, same as always — plenty
+    // sharp for a ~400px phone viewport at retina density. But a narrower two-column
+    // slot (hero_split's hs_photo, feature_split's fs_photo — CSS-capped at 500px even
+    // on DESKTOP, see .hs-image-wrap) used to be SKIPPED ENTIRELY by the old flat-800
+    // threshold once its source dropped under ~820px, even though its real mobile
+    // display width is ~388px (a 412px phone viewport minus container padding) — so a
+    // 702-750px source shipped to mobile completely unreduced. Confirmed via PageSpeed
+    // on real pages across 3 niches: these were flagged as "larger than needed for
+    // displayed size" every time, and the skip condition above is exactly why.
+    $nw = min(MOBILE_IMG_WIDTH, max(400, (int) round($w * 0.75)));
+    if ($nw >= $w - 20) return; // not meaningfully smaller — a second file wouldn't help
 
     $mobileFile = preg_replace('/\.webp$/i', '-mobile.webp', $mainFile);
     if ($mobileFile === null || $mobileFile === $mainFile) return;
 
-    $nw = MOBILE_IMG_WIDTH;
     $nh = max(1, (int) round($h * $nw / $w));
 
     if (extension_loaded('gd')) {
