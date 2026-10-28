@@ -43,8 +43,12 @@ table.ro th.ro-vert{writing-mode:vertical-rl;transform:rotate(180deg);white-spac
 table.ro td{border-bottom:1px solid #f1f5f9;padding:6px 7px;vertical-align:middle}
 table.ro tr:hover td{background:#f8fafc}
 table.ro input[type="checkbox"]{width:20px;height:20px;cursor:pointer}
+#ro-range-tick{width:20px;height:20px;cursor:pointer;vertical-align:middle}
 .dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e2e8f0}
 .dot.ok{background:#16a34a}.dot.running{background:#f59e0b}.dot.fail{background:#dc2626}.dot.todo{background:#cbd5e1}
+.ro-built-date{font-size:.8rem;color:#475569;white-space:nowrap;cursor:help}
+.ro-built-date.ro-built-fresh{color:#16a34a;font-weight:700}
+.ro-built-date.ro-built-stale{color:#dc2626;font-weight:700}
 .pill{font-size:.75rem;padding:2px 8px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
 .pill.Live{background:#dcfce7;color:#166534}.pill.Scheduled{background:#dbeafe;color:#1e3a8a}.pill.Ready{background:#fef9c3;color:#854d0e}
 a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
@@ -341,6 +345,35 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
     }
     const dot = s => '<span class="dot ' + esc(s) + '" title="' + esc(s || 'not checked') + '"></span>';
+    // Built column shows the actual build date instead of a plain dot once there's one to
+    // show — a flat "done" dot doesn't say whether that was this morning or three weeks
+    // ago, which is exactly what matters when deciding whether a domain needs a rebuild.
+    // Falls back to the ordinary dot for every other state (never built / running / failed)
+    // so nothing here changes except the one case that now has a date worth showing.
+    function builtCell(r) {
+        const d = r.detail && r.detail.built;
+        if (!d || r.steps.built !== 'ok' || !d.at) return dot(r.steps.built);
+        const at = new Date(d.at * 1000);
+        const startOf = x => new Date(x.getFullYear(), x.getMonth(), x.getDate());
+        const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
+        const cls = daysAgo <= 0 ? 'ro-built-fresh' : (daysAgo >= 7 ? 'ro-built-stale' : '');
+        const label = (at.getMonth() + 1) + '/' + at.getDate();
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="' + esc(d.note || ('Built ' + at.toLocaleString())) + '">' + label + '</span>';
+    }
+    // Live column: same "show the date, not just a dot" idea as Built, but only a fresh
+    // tier — unlike a build, a site that's been live for months isn't stale or in need of
+    // attention, so there's no red tier here on purpose. released_at is the moment the
+    // nameservers actually switched (not the day it was scheduled for), stored as
+    // 'YYYY-MM-DD HH:MM:SS'; Safari won't parse that with a space, hence the 'T' swap.
+    function liveCell(r) {
+        if (r.status !== 'live' || !r.released_at) return dot(r.steps.live);
+        const at = new Date(r.released_at.replace(' ', 'T'));
+        const startOf = x => new Date(x.getFullYear(), x.getMonth(), x.getDate());
+        const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
+        const cls = daysAgo <= 0 ? 'ro-built-fresh' : '';
+        const label = (at.getMonth() + 1) + '/' + at.getDate();
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + label + '</span>';
+    }
     const popColor = p => p >= 50000 ? '#16a34a' : (p >= 35000 ? '#ca8a04' : '#dc2626');
     // 1st CF account on a box = white/default, 2nd = blue, 3rd = purple, 4th = green.
     const CF_SLOT_COLOR = { 2: '#2563eb', 3: '#9333ea', 4: '#16a34a' };
@@ -574,7 +607,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             const lab = label(r), tick = canTick(r);
             return '<tr>'
                 + '<td>' + (tick ? '<input type="checkbox" data-d="' + esc(r.domain) + '"' + (sel.has(r.domain) ? ' checked' : '') + '>' : '') + '</td>'
-                + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>' + esc(r.domain) + '</strong> <a href="#" class="ro-info" data-info="' + esc(r.domain) + '" title="Details">&#9432;</a>'
+                + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>'
+                + (r.status === 'live'
+                    ? '<a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener" title="Open the live site">' + esc(r.domain) + '</a>'
+                    : esc(r.domain))
+                + '</strong> <a href="#" class="ro-info" data-info="' + esc(r.domain) + '" title="Details">&#9432;</a>'
                 + (r.pop || r.nm_city ? '<div class="muted" style="font-size:11px">(' + esc(r.city.split(',')[0]) + (r.pop ? ', <span style="color:' + popColor(r.pop) + '">' + Number(r.pop).toLocaleString() + '</span>' : '') + (r.nm_city ? ', NMCity=' + esc(r.nm_city) : '') + ')</div>' : '')
                 + '</td><td>' + esc(r.city) + '</td>'
                 + '<td>' + dot(r.phone ? 'ok' : '') + '</td>'
@@ -583,11 +620,9 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<td>' + (r.cf_account ? '<span' + (CF_SLOT_COLOR[r.cf_slot] ? ' style="color:' + CF_SLOT_COLOR[r.cf_slot] + ';font-weight:600"' : '') + '>' + esc(r.cf_account) + '</span>' : '<span class="muted">—</span>') + '</td>'
                 + '<td>' + dot(r.steps.research) + '</td>'
                 + '<td>' + dot(r.steps.host) + '</td>'
-                + '<td>' + dot(r.steps.built) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
+                + '<td>' + builtCell(r) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
                 + '<td>' + (r.go_live_at && r.status !== 'live' ? esc(niceDate(r.go_live_at)) + (r.go_live_time ? ' ' + esc(niceTime(r.go_live_time)) : '') : '<span class="muted">—</span>') + '</td>'
-                + '<td>' + (r.status === 'live'
-                    ? '<a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener" title="Open the live site">' + dot(r.steps.live) + '</a>'
-                    : dot(r.steps.live)) + '</td>'
+                + '<td>' + liveCell(r) + '</td>'
                 + '<td>' + (lab === 'Switching DNS'
                     ? '<a href="#" class="ro-confirm pill ' + esc(lab) + '" data-confirm="' + esc(r.domain) + '" title="Check now instead of waiting for the hourly cron">' + esc(lab) + '</a>'
                     : '<span class="pill ' + esc(lab) + '">' + esc(lab) + '</span>') + '</td></tr>';
