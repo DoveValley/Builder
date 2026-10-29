@@ -1,394 +1,428 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "atlanta-ga",
-    "slug": "pmp-certification-training-atlanta-ga",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "atlanta-ga",
-        "city": "Atlanta",
-        "state": "Georgia",
-        "SS": "GA",
-        "city_slug": "atlanta-ga",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier5"
-        ],
-        "city_spotlight": "<p>Atlanta's logistics and supply-chain infrastructure—anchored by UPS, Delta Air Lines, and Hartsfield-Jackson International Airport's ongoing capital modernization—creates consistent demand for credentialed project managers across the metro area. The city's diverse economy in technology, healthcare, and real estate development further expands PM career opportunities. Granite PM Academy delivers live-virtual PMP® Certification training designed for Atlanta professionals balancing work and study.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Atlanta's construction, logistics, and tech sectors depend on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's required contact hours, preparing you to pass the PMP exam and earn a credential that commands respect across Atlanta's largest industries. For working managers in this competitive market, PMP certification typically unlocks leadership roles and salary advancement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:02.967094Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "8e8e9a7f575562c4",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Atlanta for Rising Project Leaders",
-            "text": "<p>Atlanta's logistics and supply chain sector drives relentless demand for credentialed project managers. With UPS, Delta Air Lines, and The Home Depot headquartered in the metro area, organizations across distribution, transportation, and retail operations compete aggressively for professionals who can lead complex initiatives on time and within budget. The PMP® certification has become the standard credential these employers seek when evaluating candidates for advancement into program and portfolio leadership roles. Beyond logistics, Atlanta's robust healthcare, fintech, and technology sectors further amplify opportunities for certified practitioners, making the PMP® a strategic investment for your career trajectory in this city.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led instruction designed for working professionals in Atlanta and beyond. As a PMI Authorized Training Partner, we satisfy the contact-hour requirements mandated by the Project Management Institute, ensuring your coursework counts toward PMP® eligibility. Our faculty are active certified practitioners who bring real-world experience from the industries and companies shaping Atlanta's economy. Upon completion, you'll have the preparation and confidence needed to sit for the PMP® exam and earn the credential that opens doors across Atlanta's diverse project-driven organizations.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:06.568416Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "39678df85b5692fd",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Atlanta's logistics leaders demand PMP certification now",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Legitimacy",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status means your contact hours count toward PMP® eligibility without question. No ambiguity—your training meets PMI's rigorous standards, so you move straight to exam registration."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Virtual Schedule",
-                    "text": "Attend instructor-led classes online at times that fit your work schedule. Real-time interaction with certified practitioners replaces pre-recorded videos, and you satisfy all contact-hour requirements without leaving your desk."
-                },
-                {
-                    "heading": "Instructors Who Still Manage Projects",
-                    "text": "Your instructors aren't academics—they hold active PMP® credentials and manage programs today at firms across Atlanta's industries. They teach framework theory, then share what actually works in logistics, IT, and healthcare delivery."
-                },
-                {
-                    "heading": "Atlanta Supply Chain Employers Are Hiring PMP® Holders",
-                    "text": "UPS, Delta, and The Home Depot routinely promote project managers with PMI credentials into senior roles. Atlanta's logistics and supply-chain dominance creates measurable career lift for certified professionals in your region."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:11.081054Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "04c6c1de101a436a",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Atlanta's Growth Sectors",
-            "text": "<p>Atlanta's logistics and supply chain dominance—anchored by UPS, Delta Air Lines, and Hartsfield-Jackson Atlanta International Airport's ongoing capital improvement and terminal modernization projects—creates consistent demand for credentialed project managers who can orchestrate complex operations and infrastructure initiatives. Beyond transportation, The Home Depot, Coca-Cola, and Southern Company rely on certified PMs to lead enterprise-scale programs, while tech-forward employers like Microsoft, developing their Atlanta data center and campus, actively seek professionals with recognized credentials to manage development timelines and resource allocation.</p><p>PMP certification carries particular weight in Atlanta's logistics, IT, and healthcare job markets, where employers frequently list it as preferred or required. The city's project manager compensation tracks close to national norms, with technology and supply chain roles commanding higher end salaries—and certification strengthens your leverage in negotiations. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these roles and advance into senior PM and program leadership positions within Atlanta's dynamic, credential-conscious employer base.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:14.762188Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "aaaeed018f3e4872",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Atlanta",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific education and hours-worked prerequisites for the PMP credential. Granite PM Academy's advisors can verify your background against PMI standards at no charge before you enroll."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Attend Granite PM Academy's PMI-approved, instructor-led course delivered live online. Our Atlanta-based instructors teach project-management frameworks, risk, quality, and professional responsibility aligned to the PMP exam blueprint. Completion earns your official education certificate—required for PMI application."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with the Project Management Institute and submit your application, including proof of your 35 contact hours and work experience. Pay PMI's exam fee directly to the Institute. Our team guides you through each form field and deadline to ensure accuracy."
-                },
-                {
-                    "heading": "Prepare and Take the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your exam with Pearson VUE at a testing center in the Atlanta area or online. Sit for the computer-based PMP exam when you feel ready."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After certification, earn Professional Development Units (PDUs) throughout your three-year renewal cycle by attending training, speaking at conferences, or publishing in your field. Granite PM Academy's ongoing courses help you meet renewal requirements and stay current in project-management practice."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:19.590204Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "12974ec9e739f53b",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Atlanta project managers?",
-                    "answer": "<p>Yes. Atlanta's major employers—including The Home Depot, Delta Air Lines, UPS, and Emory Healthcare—actively seek PMP-certified professionals, particularly in logistics, IT, and healthcare. The credential strengthens your negotiating position for salary and advancement, and demand for experienced, credentialed project managers in the region remains consistently strong across these sectors.</p>"
-                },
-                {
-                    "question": "Which Atlanta industries value PMP certification most?",
-                    "answer": "<p>Logistics and supply chain roles (UPS, Georgia-Pacific), information technology, healthcare systems (Wellstar, Emory), and film/entertainment production value PMP certification highly. Tech and logistics positions typically offer compensation at the higher end of project management ranges. CAPM certification also serves as a recognized entry point for building a career in these competitive Atlanta markets.</p>"
-                },
-                {
-                    "question": "Can I attend PMP training in Atlanta while working full-time?",
-                    "answer": "<p>Yes. Granite PM Academy offers live-virtual PMP training that you can attend from your workplace or home, making it practical for working professionals balancing job demands. This format is especially convenient for Atlanta's corporate environments, where many employers permit remote learning during work hours or support tuition reimbursement for professional certifications.</p>"
-                },
-                {
-                    "question": "When should Atlanta professionals pursue PMP certification?",
-                    "answer": "<p>The Atlanta job market shows sustained, strong demand for PMP-certified candidates. If you're aiming for senior project roles, leading cross-functional teams, or negotiating advancement at companies like Cox Enterprises, Turner Broadcasting, or AT&T, pursuing certification sooner rather than later positions you ahead of competition and increases your leverage in salary discussions.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:25.195421Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "facfb3efef789dc5",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta, and The Home Depot—fuels consistent demand for credentialed project managers across the metro area. Beyond transportation and retail, the city's expanding tech sector and major infrastructure initiatives like MARTA transit expansion create steady hiring momentum. Granite PM Academy delivers live-virtual PMP® Certification Training designed for Atlanta professionals seeking the credential that opens doors across these growth industries.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:14:26.878679Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "e9dd1206524c8d47",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "atlanta-ga",
+  "slug": "pmp-certification-training-atlanta-ga",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "atlanta-ga",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "atlanta-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier5"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-atlanta-ga/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Atlanta, GA, PMP exam prep Atlanta, PMP course Atlanta GA, project management certification Atlanta, GA, PMI PMP training Atlanta",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\",\r\n      \"name\": \"PMP Certification Training in Atlanta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Atlanta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Atlanta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Atlanta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Atlanta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Logistics and Supply Chain",
+      "Information Technology",
+      "Film and Entertainment",
+      "Healthcare",
+      "Financial Services (Fintech)",
+      "Construction and Real Estate Development"
+    ],
+    "top_employers": [
+      "The Home Depot",
+      "Delta Air Lines",
+      "The Coca-Cola Company",
+      "UPS",
+      "Southern Company",
+      "Cox Enterprises",
+      "AT&T",
+      "Emory University and Emory Healthcare",
+      "Wellstar Health System",
+      "NCR Voyix",
+      "Turner Broadcasting (Warner Bros. Discovery)",
+      "Georgia-Pacific"
+    ],
+    "salary_note": "Project manager compensation in Atlanta tends to track close to national averages, with variation based on industry (tech and logistics roles often pay at the higher end) and level of certification. Demand for experienced, credentialed project managers remains strong, giving candidates with PMP certification leverage in salary negotiations.",
+    "market_blurb": "Atlanta's project management job market is robust, fueled by the city's diverse economic base spanning logistics, technology, healthcare, and entertainment. As headquarters to major corporations like Delta, UPS, and The Home Depot, the metro area consistently generates demand for skilled project and program managers. The city's growing tech sector and status as a logistics hub further reinforce steady hiring activity in this field.",
+    "notable_projects": [
+      "Hartsfield-Jackson Atlanta International Airport capital improvement and terminal modernization projects",
+      "The Centennial Yards mixed-use development in downtown Atlanta",
+      "MARTA transit expansion initiatives",
+      "Microsoft's Atlanta data center and campus development"
+    ],
+    "credential_demand": "PMP certification is widely valued among Atlanta-area employers, particularly in logistics, IT, and healthcare sectors, and frequently appears as a preferred or required qualification in local project management job postings. CAPM is also recognized as a solid entry point for those building a project management career in the region.",
+    "_researched": 1,
+    "city_spotlight": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta, and The Home Depot—drives consistent demand for skilled project managers across the metro area. Add the city's thriving tech ecosystem, healthcare institutions, and major infrastructure initiatives like MARTA transit expansion, and the PMP credential becomes a clear asset for career advancement. Granite PM Academy delivers live-virtual PMP Certification to Atlanta professionals, combining flexible scheduling with PMI-aligned training.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-atlanta-ga.webp",
+    "city_image_alt": "A2ATL20250614-0721 in Atlanta, GA",
+    "city_image_credit": "Photo: AtlChampion, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:A2ATL20250614-0721_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Atlanta's logistics, supply chain, and healthcare sectors rely heavily on certified project managers to coordinate complex operations across regional and national networks. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills the PMI's required contact hours, enabling you to earn credentials on a flexible schedule while working full-time. Completing your PMP opens doors to leadership roles and competitive compensation in Atlanta's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:49:38.913212Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "47b699ceed658e84",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Atlanta for Growing Project Managers",
+      "text": "<p>Atlanta's logistics and supply chain sector stands as a defining force in the city's project management job market, anchored by global powerhouses like Delta Air Lines and UPS that continuously recruit skilled project managers to oversee complex operations. Beyond logistics, Atlanta's diverse economy—spanning healthcare systems, financial services, construction, and technology—creates robust demand for professionals holding the Project Management Professional (PMP®) credential. Whether you work for one of the Fortune 500 companies headquartered here or a mid-market firm serving Atlanta's growing sectors, earning your PMP® certification positions you to advance into higher-responsibility roles and command competitive compensation in a market where project management expertise remains consistently sought after.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training as a PMI Authorized Training Partner, meaning your coursework satisfies the contact-hour requirements mandated by the Project Management Institute for credential eligibility. Our instructors are active certified practitioners who bring real-world experience into every session, ensuring you learn not just theory but practical frameworks you can apply immediately. The live-virtual format means you can prepare for your PMP® exam without disrupting your Atlanta career, attending sessions on a schedule that works for working professionals. Upon completion of our training and successful exam passage, you'll hold a credential recognized globally and valued by employers across Atlanta's key industries, positioning you for promotion and career growth in the region's dynamic job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:49:43.145097Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "bc78b16bd2ff69c7",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Atlanta's logistics leaders demand PMP-certified project managers",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Legitimacy",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP training meets PMI's rigorous curriculum and delivery standards. Employers across Atlanta's major industries—from UPS logistics to Emory Healthcare—recognize and trust PMI-authorized preparation. Your certification path carries institutional credibility from day one."
+        },
+        {
+          "heading": "Live-Virtual Format, Real Contact Hours",
+          "text": "Earn required PMI contact hours through live-virtual instructor-led sessions that fit working professionals' schedules. No recordings or asynchronous substitutes—you engage directly with instructors in real time, ask questions, and complete hands-on exercises. Flexible scheduling meets Atlanta's fast-paced work culture without compromising rigor."
+        },
+        {
+          "heading": "Learn from Active Certified Practitioners",
+          "text": "Granite instructors hold active PMP and related certifications and work as practicing project managers—not trainers alone. They bring current methodologies, real-world problem-solving, and industry context into every lesson. Your classroom experience draws from practitioners managing projects today, not textbook theory."
+        },
+        {
+          "heading": "Atlanta Employers Actively Hire PMP Professionals",
+          "text": "The PMP credential opens doors at The Home Depot, Delta Air Lines, AT&T, Southern Company, and other major Atlanta employers investing heavily in project and program management. Construction, logistics, IT, and healthcare sectors across the region prioritize PMI certification. Certification strengthens your candidacy in a competitive local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:49:48.073109Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "50e8cd4e314806c8",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Demand Across Atlanta's Major Industries",
+      "text": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta Air Lines, and The Home Depot—consistently seeks certified project managers to oversee complex operations, vendor coordination, and infrastructure upgrades. Beyond logistics, The Coca-Cola Company, Southern Company, and AT&T employ PMP-credentialed professionals across capital projects and organizational initiatives. Healthcare organizations including Emory Healthcare and Wellstar Health System rely on certified project managers to deliver clinical technology deployments and facility expansions. Local development efforts such as the Centennial Yards mixed-use project and Hartsfield-Jackson Atlanta International Airport's terminal modernization underscore the region's ongoing need for skilled, credentialed professionals who can navigate multi-stakeholder environments and deliver on schedule and budget.</p><p>PMP® certification carries genuine weight in Atlanta's job market, particularly among logistics, IT, and healthcare employers where the credential frequently appears as preferred or required. Project managers with PMP certification gain measurable leverage in salary negotiations; compensation in Atlanta typically aligns with national ranges, though tech and logistics roles often command higher pay bands. Completing your PMP Certification Training through Granite PM Academy positions you to capitalize on this demand. Our live-virtual program is designed to fit working professionals' schedules while preparing you for the exam and equipping you with frameworks applicable immediately in Atlanta's competitive project-management landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:49:52.084786Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d731804b599ba01c",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Atlanta",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years. Review PMI's full eligibility criteria now to confirm your qualifications before enrolling in Granite PM Academy's training program."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Attend all sessions from your home or office, interact with active certified practitioners in real time, and build the foundation you need to pass the exam."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the training, create your PMI account and submit your official PMP application, including your education and experience details. Pay the required exam fee directly to PMI to activate your eligibility to sit for the test."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor support—to reinforce your knowledge. Schedule your proctored exam when ready, and complete the computer-based assessment at an authorized testing center."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn professional development units (PDUs) over a three-year renewal cycle to keep your credential active. Pursue training, attend conferences, or contribute to your profession—Granite PM Academy and PMI offer multiple pathways to fulfill renewal requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:49:56.463377Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "0ae5392f72641d71",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Atlanta project managers?",
+          "answer": "<p>Yes. Atlanta's largest employers—including logistics giants like UPS and The Home Depot, healthcare systems like Emory and Wellstar, and tech-forward companies like Delta and AT&T—actively seek PMP-certified professionals. The credential strengthens your negotiating position on salary and opens doors across the region's strongest sectors: logistics, IT, healthcare, and construction. Demand for credentialed project managers remains robust, making certification a practical investment in your career trajectory.</p>"
+        },
+        {
+          "question": "Which Atlanta industries value PMP certification most highly?",
+          "answer": "<p>PMP certification carries particular weight in Atlanta's logistics and supply-chain sector, IT departments, and healthcare operations—three areas where major employers post the credential as preferred or required. Film and entertainment (including production studios), construction and real estate development, and fintech firms also recognize the value of certified practitioners. Your certification signals readiness to manage complex, regulated, or high-stakes initiatives across these competitive markets.</p>"
+        },
+        {
+          "question": "Can I attend PMP training from my Atlanta workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP training as live-virtual instruction, giving you the flexibility to attend from your office, home, or any location with reliable internet. This format works well for Atlanta professionals balancing full-time roles at major employers or managing multiple client projects. You'll participate in real-time sessions and interact with instructors without commuting to a physical classroom.</p>"
+        },
+        {
+          "question": "Should Atlanta project managers pursue PMP or CAPM first?",
+          "answer": "<p>If you meet PMI's experience requirements, pursue PMP directly—the credential will accelerate your earning potential and career advancement in Atlanta's competitive job market. If you're early in your career or lack formal project management experience, CAPM is a respected entry point recognized by local employers and builds a foundation for PMP certification later. Both credentials enhance your profile; choose based on your current experience level and career timeline.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:02.518544Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4a547b17602c7cdf",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Atlanta's logistics and technology sectors drive consistent demand for skilled project managers, with major employers like UPS, Delta, and The Home Depot anchoring a robust hiring market. Ongoing projects including MARTA transit expansion and the Centennial Yards mixed-use development further fuel opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Atlanta professionals nationwide, helping you earn the credential that matters in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:04.067406Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a20d2477c5c00a4e",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-atlanta-ga/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Atlanta, GA, PMP exam prep Atlanta, PMP course Atlanta GA, project management certification Atlanta, GA, PMI PMP training Atlanta",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\",\r\n      \"name\": \"PMP Certification Training in Atlanta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Atlanta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Atlanta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Atlanta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Atlanta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-atlanta-ga/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

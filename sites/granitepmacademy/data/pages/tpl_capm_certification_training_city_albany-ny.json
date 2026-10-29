@@ -1,390 +1,431 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "albany-ny",
-    "slug": "capm-certification-training-albany-ny",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "albany-ny",
-        "city": "Albany",
-        "state": "New York",
-        "SS": "NY",
-        "city_slug": "albany-ny",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Albany's project management demand flows from its dual identity as New York's state capital and an emerging life-sciences hub. Government agencies, SUNY system offices, and institutions like Albany Medical Center anchor stable employment, while the Albany Nanotech Complex and GlobalFoundries expansion create growth opportunities in semiconductor and advanced manufacturing. Granite PM Academy delivers live-virtual PMP® Certification to Albany professionals seeking to advance in these sectors.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Albany's public sector and higher-education institutions rely on certified project managers to deliver infrastructure and operational initiatives efficiently. Granite PM Academy's live-virtual CAPM® Boot Camp delivers the instructor-led training and PMI contact hours required to sit for the Certified Associate in Project Management credential, with flexible scheduling suited to working professionals. Earning your CAPM® positions you competitively for project coordinator and management roles across Albany's government agencies, universities, and nonprofit sectors.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:48.972581Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "8889d38a8ca3c7a0",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Albany's Growing Project Managers",
-            "text": "<p>As New York's state capital, Albany anchors one of the nation's most stable project management markets, where government agencies and public-sector organizations drive consistent demand for certified practitioners. Beyond state government, Albany's economy is expanding rapidly through healthcare systems like Albany Medical Center and St. Peter's Health Partners, semiconductor innovation at the Albany Nanotech Complex via GlobalFoundries, and research institutions across the SUNY system. Whether you're pursuing project management roles in public administration, healthcare delivery, higher education, or advanced manufacturing, the CAPM® certification demonstrates your readiness to manage schedules, budgets, and stakeholder expectations—skills these employers actively seek. Entry-level professionals and career-changers in Albany benefit from earning this credential early, positioning themselves ahead of competition in a region where both established government roles and emerging tech-sector opportunities reward formal PM credentials.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers the CAPM Certification & Boot Camp through live-virtual, instructor-led sessions designed to fit working professionals in Albany. Our program covers the full Project Management Institute® body of knowledge, meets all contact-hour requirements for CAPM® eligibility, and is taught by active, certified practitioners who bring real-world Albany project environments into the classroom. You'll complete exam preparation, practice questions, and strategic study guidance—all built to help you pass confidently on your first attempt. Upon completion, you'll be positioned to sit for the CAPM® exam and launch or accelerate a project management career in one of the Northeast's most dynamic job markets.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:53.732741Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "e275a5ea07f7c60a",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Launch Your PM Career in Albany's Growing Government Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM® boot camp meets all PMI eligibility requirements. You earn recognized contact hours that count directly toward certification—no guesswork about whether your training qualifies."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Our instructors are active, certified project managers working in healthcare, government, and utilities—the industries driving Albany's economy. Learn frameworks and problem-solving directly from practitioners managing projects in your local job market today."
-                },
-                {
-                    "heading": "Exam Prep Built Into Boot Camp",
-                    "text": "Granite's CAPM® format combines instruction with dedicated exam-preparation workshops, practice tests, and one-on-one feedback. You finish the program ready to sit for the exam—not scrambling for additional study resources afterward."
-                },
-                {
-                    "heading": "High Demand from Albany Employers",
-                    "text": "State agencies, SUNY, Albany Medical Center, and GlobalFoundries actively hire project coordinators and program managers holding CAPM® or PMP®. The credential opens doors across government, healthcare, and manufacturing—sectors with substantial job growth in the Albany region."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:57.784604Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "416b43a8711481a0",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Albany's Growing Tech and Government Hub",
-            "text": "<p>Albany's project management job market is anchored by New York State Government and a robust healthcare sector, alongside emerging opportunities in semiconductor manufacturing and nanotechnology research. State agencies, SUNY System Administration, and University at Albany consistently recruit certified project managers to oversee complex initiatives—from the Albany Nanotech Complex expansion at SUNY Polytechnic Institute to ongoing Empire State Plaza renovation projects. Healthcare employers including Albany Medical Center and St. Peter's Health Partners also depend on skilled PMs to manage operational and capital projects. Beyond government and healthcare, organizations like GlobalFoundries, CDPHP, and National Grid bring additional demand for project professionals who can demonstrate structured methodology and earned credentials.</p><p>In Albany's competitive but steady market, certified project managers command respect and premium compensation relative to non-credentialed peers. PMP and CAPM certifications are frequently listed as preferred or required qualifications in regional postings, particularly within government, healthcare, and technology sectors—a signal that employers here recognize standardized project management training as a genuine differentiator. Completing the CAPM Certification & Boot Camp through Granite PM Academy positions you to meet that credential demand directly, strengthening your candidacy across Albany's largest employers and giving you a documented edge as you advance into higher-responsibility roles in a region where steady state and institutional hiring provides long-term career stability.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:01.675881Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "c5911cbe7ff4adcc",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Albany",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and can document the required contact hours of project management education. Importantly, the CAPM credential requires no prior work experience—ideal for Albany professionals entering or transitioning into project management roles."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required education into a focused schedule, allowing you to master CAPM fundamentals while balancing your current responsibilities in Albany's growing healthcare and government sectors."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Create your PMI account, complete the formal application, and pay the associated exam fee. Granite PM Academy provides guidance on documentation and submission to ensure your application meets all PMI requirements without delay."
-                },
-                {
-                    "heading": "Prepare and Sit for the CAPM Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor feedback—to build confidence before your test. You'll sit for the proctored CAPM exam on a schedule that works for your Albany location and availability."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "After certification, earn professional development units (PDUs) over the standard three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing learning opportunities to support your continuous professional development in project management."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:05.642277Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "3dd6f1fc3640ea6e",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Albany government and healthcare careers?",
-                    "answer": "<p>Yes. New York State Government and healthcare employers like Albany Medical Center and St. Peter's Health Partners increasingly list PMP or CAPM credentials as preferred qualifications in project management postings. CAPM establishes foundational PM discipline and positions you competitively for roles managing departmental initiatives, capital projects, and care-delivery process improvements—sectors that dominate Albany's job market and value standardized methodology.</p>"
-                },
-                {
-                    "question": "Which Albany employers most value CAPM and PMP certifications?",
-                    "answer": "<p>State government agencies, SUNY System Administration, University at Albany, Albany Medical Center, and technology employers like GlobalFoundries actively seek certified project managers. Healthcare networks, insurance carriers (MVP Health Care, CDPHP), and utilities (National Grid) similarly prioritize credentials. Certified professionals stand out in these regulated, process-heavy industries where demonstrating formal PM training directly supports advancement and credibility.</p>"
-                },
-                {
-                    "question": "Can I attend Granite PM Academy's boot camp while working in Albany?",
-                    "answer": "<p>Yes. Our live-virtual boot camp format allows Albany professionals to participate from their office, home, or workplace without travel to an external classroom. This flexibility supports working professionals at state agencies, hospitals, and corporate offices across the Capital District who need to maintain productivity while earning certification within weeks rather than months.</p>"
-                },
-                {
-                    "question": "Does Albany's job market affect when I should pursue CAPM certification?",
-                    "answer": "<p>Timing matters. Albany's steady demand from government, healthcare, and higher education means employers consistently recruit certified project managers year-round. However, state and healthcare budgets often finalize in spring, creating hiring cycles. Completing CAPM before late winter or early spring positions you to apply when these large regional employers are actively filling PM roles, maximizing your competitive edge during peak recruitment windows.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:11.951132Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "1990962f0ae83c4a",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Albany's project management market is anchored by New York State Government and SUNY system roles, with expanding demand from healthcare institutions like Albany Medical Center and the semiconductor manufacturing sector tied to the Albany Nanotech Complex. This mix of stable public-sector positions and growing tech and life-sciences investment creates consistent opportunities for both entry-level and experienced PMs. Granite PM Academy serves Albany professionals pursuing CAPM® Certification through live-virtual Boot Camp delivery.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:13.701115Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "2d9d90fb286f85b8",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "albany-ny",
+  "slug": "capm-certification-training-albany-ny",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "albany-ny",
+    "city": "Albany",
+    "state": "New York",
+    "SS": "NY",
+    "city_slug": "albany-ny",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-albany-ny/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Albany, NY, CAPM boot camp Albany, CAPM training Albany, NY, CAPM classes Albany NY, CAPM exam prep Albany",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\",\n      \"name\": \"CAPM Certification & Boot Camp in Albany, NY | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Albany, NY. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Albany, NY\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Albany, NY\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Albany, NY. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "State and local government",
+      "Healthcare and life sciences",
+      "Higher education and research",
+      "Semiconductor and nanotechnology manufacturing",
+      "Insurance and financial services",
+      "Energy and utilities"
+    ],
+    "top_employers": [
+      "New York State Government",
+      "SUNY (State University of New York) System Administration",
+      "University at Albany",
+      "Albany Medical Center",
+      "St. Peter's Health Partners",
+      "GlobalFoundries",
+      "CDPHP",
+      "MVP Health Care",
+      "National Grid",
+      "KeyBank",
+      "Regeneron Pharmaceuticals"
+    ],
+    "salary_note": "Project manager compensation in the Albany area tends to track slightly below major metros like New York City but remains competitive due to steady demand from state government, healthcare, and technology employers; certified PMs with PMP credentials generally command a premium over non-certified peers.",
+    "market_blurb": "Albany's project management job market is anchored by its role as New York's state capital, giving it a strong base of government and public-sector program management roles, alongside growing demand from healthcare systems, higher education institutions, and semiconductor manufacturing tied to the Albany Nanotech Complex. The mix of stable public-sector employment and expanding tech/life-science investment creates consistent opportunities for both entry-level and experienced project managers.",
+    "notable_projects": [
+      "Albany Nanotech Complex expansion (SUNY Polytechnic Institute / NY CREATES)",
+      "GlobalFoundries Fab 8 expansion in nearby Malta, NY",
+      "Albany International Airport terminal and infrastructure improvements",
+      "Empire State Plaza renovation and maintenance initiatives"
+    ],
+    "credential_demand": "PMP certification is frequently listed as a preferred or required qualification in Albany-area project management postings, particularly within government, healthcare, and technology sectors, reflecting broader regional demand for standardized project management practices.",
+    "_researched": 1,
+    "city_spotlight": "<p>Albany's project management demand is rooted in its identity as New York's state capital, where government and public-sector program roles anchor a diverse employment base. Growth in healthcare systems, higher education, and semiconductor manufacturing—including the Albany Nanotech Complex and GlobalFoundries operations—creates consistent opportunities for both emerging and seasoned practitioners. Granite PM Academy delivers live-virtual PMP Certification training to Albany professionals seeking to formalize their credentials and advance in this expanding market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Albany's public-sector, healthcare, and higher-education workforce increasingly rely on formal project management expertise to deliver complex initiatives. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement through instructor-led courses flexible enough to fit working schedules, positioning you to earn the CAPM credential and stand out in Albany's competitive professional market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:35.201341Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7cc1747fdb24d306",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Albany for Government & Public Sector",
+      "text": "<p>As New York's state capital, Albany anchors one of the nation's most stable project management markets, with New York State Government and SUNY System Administration leading a robust public-sector workforce. Government agencies, combined with healthcare systems like Albany Medical Center and St. Peter's Health Partners, consistently seek professionals who can demonstrate structured project delivery skills. The CAPM certification—entry-level credential from the Project Management Institute—validates your ability to support and execute projects across these sectors, making it a direct competitive advantage for anyone entering or advancing within Albany's government, healthcare, or higher-education employer base.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet all contact-hour requirements for the credential. Our active certified practitioners guide you through the PMBOK® framework and exam domains at a pace designed for working professionals. Whether you're transitioning into project management or strengthening your credentials for promotion within Albany's public or private sector, our structured program culminates in exam readiness and the CAPM credential—a credential valued by hiring managers across state government, healthcare, and growing tech and life-sciences employers throughout the region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:38.894185Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "11e618a0984475ab",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Albany's Growing Project Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM training meets all PMI standards and eligibility requirements. This authorization guarantees the rigor and credibility employers across Albany's government, healthcare, and technology sectors expect from certified professionals."
+        },
+        {
+          "heading": "Live Virtual, Contact-Hour Verified",
+          "text": "Instructor-led live-virtual sessions deliver the required contact hours for CAPM eligibility without travel or scheduling conflicts. Attend from anywhere, earn full PMI recognition, and progress toward certification on a timeline that fits your Albany-area job demands."
+        },
+        {
+          "heading": "Active Practitioners as Instructors",
+          "text": "Your instructors hold active PMI certifications and apply real-world project-management experience in their teaching. Learn from practitioners who understand current industry standards, not outdated theory, so you enter your certification exam and career with current, practical knowledge."
+        },
+        {
+          "heading": "Certification Demand in Albany's Major Employers",
+          "text": "New York State Government, SUNY System Administration, Albany Medical Center, and GlobalFoundries actively seek certified project managers. CAPM credentials position you competitively for roles in government, healthcare, higher education, and advanced manufacturing—the industries driving employment growth in the Capital Region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:43.092831Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f229276038bf6b0a",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Albany's Growing Sectors",
+      "text": "<p>Albany's economy is anchored by New York State Government and a robust healthcare sector, both of which actively hire certified project managers to oversee complex initiatives. The state government, SUNY System Administration, and major health systems such as Albany Medical Center and St. Peter's Health Partners rely on structured project management to deliver services and execute strategic priorities. Beyond government and healthcare, the region's technology and manufacturing base—including the Albany Nanotech Complex expansion and GlobalFoundries' operations—creates sustained demand for professionals who can manage cross-functional teams and deliver projects on time and within scope. These employers consistently seek candidates with formal project management credentials as evidence of competency and commitment to industry best practices.</p><p>In the Albany market, certified project managers command recognition and compensation premiums over non-credentialed peers, particularly within state government, healthcare, and technology sectors where PMP and CAPM credentials are frequently listed as preferred or required qualifications. While salaries in the Albany area track slightly below major metropolitan centers, steady demand from established employers and growing initiatives creates a competitive and stable career path. Completing CAPM Certification Training through Granite PM Academy positions you to meet those credential expectations and advance into higher-responsibility roles. The live-virtual format fits the working professional's schedule, allowing you to earn your credential while staying employed and engaged in your current role.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:47.282586Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4611bf05ab84f059",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Albany",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree (high school diploma, associate, or equivalent) and completion of project management education—no prior work experience needed. This makes CAPM ideal for Albany professionals entering project management roles across government, healthcare, and higher education sectors. Verify your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course delivered entirely online. This intensive format compresses CAPM fundamentals into a focused schedule, allowing you to balance certification training with your current role in Albany's competitive job market while earning required contact hours."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your education hours, create your PMI account and submit your CAPM application online. You'll pay the PMI exam fee at this stage. Granite PM Academy will guide you through the application process to ensure all documentation is complete and accurate."
+        },
+        {
+          "heading": "Prepare and Take the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study guides, to solidify your knowledge of project management processes and terminology. Schedule your computer-based exam when ready. Many candidates complete the exam within weeks of finishing the boot camp."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "After passing the exam, you'll earn your CAPM credential valid for three years. Maintain it by earning professional development units (PDUs) across the renewal cycle. Granite PM Academy offers ongoing PDU opportunities to help you stay current and advance your project management career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:52.109083Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "06297527b8663d19",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Albany government and healthcare careers?",
+          "answer": "<p>Yes. New York State Government and healthcare employers like Albany Medical Center and St. Peter's Health Partners increasingly list PMP or CAPM credentials as preferred qualifications in project management postings. CAPM positions you competitively for roles in these dominant Albany sectors, where standardized project management practices are now expected. The credential also supports advancement into roles managing larger, more complex initiatives—where certification commands a measurable earning premium over non-certified peers.</p>"
+        },
+        {
+          "question": "Which Albany employers actively hire certified associate project managers?",
+          "answer": "<p>State agencies, SUNY System Administration, University at Albany, and regional healthcare networks are primary employers seeking project management certification. Additionally, Albany's growing technology sector—including semiconductor manufacturing and insurance/financial services—routinely requires or prefers CAPM and PMP credentials. Government agencies in particular view formal certification as a standard qualification for project coordination and management roles.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CAPM training while working in Albany?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM training runs nationwide and can be attended from your workplace, home, or anywhere with reliable internet. This format works well for Albany professionals balancing full-time roles in government, healthcare, or corporate environments. You join live instructor sessions remotely, ask questions in real time, and complete coursework on your own schedule around your existing commitments.</p>"
+        },
+        {
+          "question": "Should Albany PMs pursue CAPM certification before the job market shifts?",
+          "answer": "<p>Albany's steady demand for certified project managers—driven by government, healthcare, and technology employers—shows no sign of slowing. Obtaining CAPM now strengthens your candidacy for roles that list certification as preferred, and positions you ahead of peers in a competitive regional market. Early certification also demonstrates commitment to the profession, which employers value when promotions or specialized roles open.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:57.841041Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2d1dc92cd26a6796",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Albany's project management demand flows from its dual identity as New York's state capital and an emerging life-sciences and semiconductor hub. Government agencies, SUNY System Administration, and employers like GlobalFoundries and Albany Medical Center actively seek certified project managers to lead both mission-critical public initiatives and high-growth tech and healthcare expansions. Granite PM Academy delivers live-virtual CAPM Certification Training to Albany professionals nationwide, combining flexible scheduling with PMI-aligned curriculum so you can earn your credential without leaving your role.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:59.867452Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "731bcc1fef03c5a0",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-albany-ny/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Albany, NY, CAPM boot camp Albany, CAPM training Albany, NY, CAPM classes Albany NY, CAPM exam prep Albany",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\",\n      \"name\": \"CAPM Certification Training in Albany, NY | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Albany, NY. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Albany, NY\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#course\",\n      \"name\": \"CAPM Certification Training in Albany, NY\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Albany, NY. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-albany-ny/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

@@ -1,390 +1,430 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "lancaster-pa",
-    "slug": "capm-certification-training-lancaster-pa",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "lancaster-pa",
-        "city": "Lancaster",
-        "state": "Pennsylvania",
-        "SS": "PA",
-        "city_slug": "lancaster-pa",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Lancaster's healthcare sector—anchored by Penn Medicine Lancaster General Health and supported by strong manufacturing and agribusiness bases—creates sustained demand for certified project managers across campus expansions, facility upgrades, and regional development initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Lancaster professionals seeking to advance their credentials and compete for these high-value roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Lancaster's manufacturing and supply-chain sector demands structured project management expertise, and the CAPM certification is the entry credential that opens those doors. Granite PM Academy delivers live-virtual, instructor-led CAPM boot camp training that fulfills PMI's contact-hour education requirement, letting you earn your certification on a schedule that fits working professionals. Completing your CAPM positions you as a credentialed project coordinator or assistant in Lancaster's production and logistics roles, where the credential directly strengthens advancement prospects.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:58.833106Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "6688754ea209bd34",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Lancaster's Growing PM Market",
-            "text": "<p>Lancaster's healthcare sector, anchored by Penn Medicine Lancaster General Health and complemented by a robust manufacturing base including Armstrong World Industries, creates urgent demand for credentialed project managers who can navigate complex clinical initiatives and production workflows. Whether you're supporting hospital expansion, medical device launches, or supply-chain optimization in Lancaster's agribusiness and food-processing industries, the Certified Associate in Project Management (CAPM)® credential signals that you understand PMI's proven framework for delivering results—a competitive advantage in a region where established employers and growth-stage organizations alike actively recruit certified talent.</p><p>Granite PM Academy delivers your CAPM Certification & Boot Camp as a PMI Authorized Training Partner, offering live-virtual, instructor-led sessions taught by active certified practitioners who bring real-world Lancaster-area project experience into the classroom. Our boot-camp format compresses learning into an efficient schedule, satisfies all required contact hours, and prepares you to pass the CAPM® exam on your first attempt. Upon completion, you'll hold a credential recognized across Lancaster's healthcare systems, manufacturers, financial institutions, and government agencies—opening doors to higher-impact roles and career advancement in your local market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:02.935753Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "a1d18c3f5f18c5fd",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Lancaster's Project Management Credential Path",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Instruction",
-                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your CAPM® boot camp meets all PMI requirements for eligibility and contact hours. You earn a credential recognized across healthcare, manufacturing, and financial services—the industries anchoring Lancaster's economy."
-                },
-                {
-                    "heading": "Live Instruction, Flexible Schedule",
-                    "text": "Attend instructor-led sessions online or in-person without sacrificing your current role. Our instructors are active certified practitioners—they bring real project examples from Armstrong, Penn Medicine Lancaster General Health, and other regional employers into every lesson."
-                },
-                {
-                    "heading": "Exam Readiness Built In",
-                    "text": "Beyond the classroom, you receive targeted exam-prep support designed to move you from understanding to passing. Practice exams, study guides, and instructor feedback sharpen the skills the CAPM® assessment demands—so you sit for the exam with confidence."
-                },
-                {
-                    "heading": "Local Career Demand, Real Growth",
-                    "text": "Lancaster's healthcare systems, manufacturers, and financial firms actively hire professionals with project-management credentials. The CAPM® signals you can lead initiatives and manage timelines—skills these employers urgently need as they scale operations and modernize processes."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:07.129166Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "b864ce596ae2ba76",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing Across Lancaster",
-            "text": "<p>Lancaster's healthcare sector leads demand for certified project managers, with Penn Medicine Lancaster General Health managing ongoing campus and facility expansions that require skilled program oversight. Beyond healthcare, manufacturers like Armstrong World Industries and Woodstream Corporation regularly staff project management roles, as do financial services employers such as Fulton Financial Corporation. High Companies' mixed-use and commercial real estate developments throughout downtown Lancaster, alongside the Lancaster County Convention Center revitalization initiatives, represent the kinds of complex, multi-phase initiatives that depend on credentialed project leadership. These employers—spanning healthcare, manufacturing, finance, and real estate—actively seek candidates who can demonstrate formal project governance competency.</p><p>While Lancaster's project manager compensation typically tracks slightly below larger regional metros, steady demand across these core industries makes CAPM certification a pragmatic investment in your local career trajectory. Employers here increasingly view PMP and CAPM credentials favorably when filling mid- to senior-level project and program management roles, especially as organizations formalize their project governance practices. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you to meet that rising employer expectation and compete effectively for advancement within Lancaster's growing project management market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:11.115335Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "4ba9eed9ff039cbb",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Lancaster",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary diploma or equivalent and can complete the required project management education hours. No work experience is needed—CAPM welcomes career-changers and early-career professionals entering Lancaster's growing manufacturing and healthcare project environments."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses the required education into a focused schedule, allowing Lancaster professionals to earn certification without prolonged time away from work or family."
-                },
-                {
-                    "heading": "Submit PMI Application",
-                    "text": "Complete your PMI application online and remit the exam fee. Granite PM Academy staff can guide you through the submission process to ensure accuracy and timely approval before your exam date."
-                },
-                {
-                    "heading": "Prepare and Take the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor support—to build confidence. Sit for the CAPM exam at a PMI-authorized testing center, demonstrating your foundational project management knowledge."
-                },
-                {
-                    "heading": "Maintain Your Credential",
-                    "text": "Renew your CAPM every three years by earning professional development units (PDUs). Granite PM Academy offers ongoing learning paths to help you stay current and advance toward PMP eligibility as your experience grows."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:15.439801Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "1a309b15afde7345",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Lancaster healthcare project managers?",
-                    "answer": "<p>Lancaster's healthcare sector—anchored by Penn Medicine Lancaster General Health and other regional providers—increasingly prioritizes formal project management credentials as organizations standardize governance and operational workflows. CAPM certification signals capability in structured planning and risk management, qualities these employers actively seek when promoting professionals into mid-level PM roles. The credential strengthens your candidacy without requiring the extensive experience PMP demands.</p>"
-                },
-                {
-                    "question": "Which Lancaster employers value CAPM or PMP certification most?",
-                    "answer": "<p>Healthcare systems, manufacturing firms like Armstrong World Industries and Woodstream Corporation, and financial services organizations including Fulton Financial Corporation increasingly favor CAPM- and PMP-certified candidates for project leadership positions. These industries rely on complex, cross-functional initiatives where formal PM methodology and credentialed professionals reduce risk and improve outcomes. Education and government sectors in Lancaster County also recognize these credentials during advancement decisions.</p>"
-                },
-                {
-                    "question": "Can I attend the CAPM boot camp live-virtual from my Lancaster workplace?",
-                    "answer": "<p>Yes. The live-virtual format lets you join from your office, home, or any stable internet location in Lancaster. This flexibility suits professionals balancing full-time roles at Lancaster General, local manufacturers, or financial institutions. You'll participate in real-time instruction and group exercises while maintaining your work schedule, making the boot camp practical for employed professionals across the region.</p>"
-                },
-                {
-                    "question": "Should I get CAPM certified before the Lancaster job market shifts?",
-                    "answer": "<p>Lancaster's project management demand remains steady across healthcare, manufacturing, and financial services, but credential preference is growing as these sectors formalize PM governance. Pursuing CAPM now positions you ahead of candidates without certification and improves your competitive standing for mid-level openings. Given steady—though not inflated—compensation in the Lancaster market, the credential's credibility advantage is especially valuable for career progression.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:21.749053Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "c557e0ebb4fa8956",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Lancaster's healthcare expansion—led by Penn Medicine Lancaster General Health's ongoing campus and facility projects—anchors robust demand for certified project managers across the region's manufacturing, financial services, and agribusiness sectors. Organizations like Armstrong World Industries and Fulton Financial Corporation actively recruit PM talent to lead complex initiatives. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp sessions tailored to working professionals in Lancaster, equipping you to advance in this growing market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:23.612895Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "92c997a622c73b9c",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "lancaster-pa",
+  "slug": "capm-certification-training-lancaster-pa",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "lancaster-pa",
+    "city": "Lancaster",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "lancaster-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-lancaster-pa/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Lancaster, PA, CAPM boot camp Lancaster, CAPM training Lancaster, PA, CAPM classes Lancaster PA, CAPM exam prep Lancaster",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\",\n      \"name\": \"CAPM Certification & Boot Camp in Lancaster, PA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Lancaster, PA. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Lancaster, PA\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Lancaster, PA\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Lancaster, PA. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Agriculture & Food Processing",
+      "Insurance & Financial Services",
+      "Education",
+      "Tourism & Hospitality"
+    ],
+    "top_employers": [
+      "Penn Medicine Lancaster General Health",
+      "Armstrong World Industries",
+      "High Companies",
+      "Fulton Financial Corporation",
+      "Willow Valley Communities",
+      "Franklin & Marshall College",
+      "Turkey Hill Dairy",
+      "Woodstream Corporation",
+      "Lancaster County Government",
+      "Millersville University"
+    ],
+    "salary_note": "Project manager compensation in Lancaster tends to track slightly below larger metros like Philadelphia or Harrisburg, but demand remains steady across healthcare, manufacturing, and financial services sectors. Employers increasingly favor candidates with PMP or CAPM credentials when filling mid- to senior-level PM roles.",
+    "market_blurb": "Lancaster, PA's project management job market is anchored by its strong healthcare, manufacturing, and agribusiness sectors, with organizations like Penn Medicine Lancaster General Health and Armstrong World Industries regularly seeking PM talent. The city's mix of established manufacturers, financial institutions, and a growing healthcare system creates consistent opportunities for certified project and program managers.",
+    "notable_projects": [
+      "Penn Medicine Lancaster General Health campus and facility expansions",
+      "High Companies mixed-use and commercial real estate developments in downtown Lancaster",
+      "Lancaster County Convention Center and downtown revitalization initiatives",
+      "Turkey Hill Experience and related regional tourism development projects"
+    ],
+    "credential_demand": "While not every Lancaster-area job posting explicitly requires PMP or CAPM certification, employers in healthcare, manufacturing, and financial services increasingly view these credentials favorably for project and program management roles, especially as organizations formalize project governance practices.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lancaster's healthcare and manufacturing sectors—anchored by Penn Medicine Lancaster General Health and Armstrong World Industries—drive steady demand for certified project managers across the region. The city's diverse employer base in healthcare, financial services, and agribusiness creates consistent career advancement opportunities for PMP®-credentialed professionals. Granite PM Academy delivers live-virtual PMP Certification training to Lancaster professionals, enabling you to earn your credential on your schedule while advancing in your local market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Lancaster's healthcare, manufacturing, and financial services sectors depend on skilled project managers to drive complex initiatives forward. Granite PM Academy delivers live-virtual CAPM Certification Training that satisfies PMI's contact-hour education requirement, taught by active certified practitioners and structured for working professionals. Earning your CAPM credential opens doors across Lancaster's largest employers and positions you for advancement in a market where project management expertise is in genuine demand.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:12.528526Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b50ffb0adaf221bc",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Lancaster's Growing PM Workforce",
+      "text": "<p>Lancaster's healthcare sector, anchored by Penn Medicine Lancaster General Health and supported by a robust manufacturing base including Armstrong World Industries, creates steady demand for certified project managers who can navigate complex clinical initiatives, capital equipment deployments, and process improvements. The CAPM (Certified Associate in Project Management) credential demonstrates your readiness to lead these efforts—a credential valued across healthcare systems, manufacturing plants, financial institutions, and agribusiness operations throughout Lancaster County. For professionals in these growth sectors, CAPM certification signals foundational competency in scope, schedule, and risk management at a level employers actively seek when filling project coordinator and junior project manager roles.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner, offering live-virtual, instructor-led courses designed to fit working professionals' schedules while meeting PMI's contact-hour requirements for the CAPM exam. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn frameworks that apply directly to Lancaster's diverse industries. Upon completion of your training with us, you'll be prepared to sit for the CAPM exam and take the next step in your project management career—whether you're advancing within healthcare, manufacturing, financial services, or another sector driving opportunity in the Lancaster region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:16.521942Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f0a417802a0854d1",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Lancaster's Healthcare & Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM certification carries the weight of PMI's rigorous standards—the credential Lancaster employers in healthcare, manufacturing, and financial services actively seek when hiring project coordinators and program support professionals."
+        },
+        {
+          "heading": "Live Instruction Fits Your Work Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for CAPM eligibility without forcing you to commute or abandon your current role at Penn Medicine Lancaster General Health, Armstrong, or other major regional employers. Learn on your terms, earn credentials on theirs."
+        },
+        {
+          "heading": "Learn From Active Certified Practitioners",
+          "text": "Your instructors are working project and program managers holding active PMI certifications. They teach real-world practices—not textbook theory—and provide exam-preparation support designed to build your confidence and competency before you sit for the CAPM exam."
+        },
+        {
+          "heading": "Open Doors in Lancaster's Growth Industries",
+          "text": "Healthcare systems, food processing, insurance, and manufacturing operations across Lancaster County rely on certified project managers to coordinate initiatives and control costs. CAPM positions you for roles at major employers and demonstrates commitment to professional standards they value and reward."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:20.805078Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "024040e52ca8d8b5",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Lancaster",
+      "text": "<p>Healthcare remains Lancaster's largest employer base, with Penn Medicine Lancaster General Health leading ongoing campus and facility expansions that require experienced project managers to oversee complex clinical, operational, and capital initiatives. Beyond healthcare, manufacturing employers like Armstrong World Industries, Woodstream Corporation, and Turkey Hill Dairy rely on certified project managers to coordinate product launches, facility upgrades, and supply-chain improvements. Financial services firms such as Fulton Financial Corporation and real estate developers like High Companies—currently driving mixed-use and commercial revitalization in downtown Lancaster—actively seek professionals who can manage multi-stakeholder projects and meet formal governance standards. Education and government sectors, represented by Millersville University and Lancaster County Government, similarly employ project managers across infrastructure, IT, and organizational development portfolios.</p><p>While project manager compensation in Lancaster tends to track slightly below larger regional metros, demand for certified professionals remains steady across healthcare, manufacturing, and financial services. Employers here increasingly view PMP® and CAPM® credentials as meaningful differentiators when filling mid- to senior-level project and program management roles, particularly as organizations formalize their project governance practices. Completing CAPM Certification Training through Granite PM Academy equips you with a recognized credential and PMI-aligned competencies that align directly with how Lancaster employers evaluate and advance project management talent. The combination of steady local demand and employer preference for formal certification makes this an ideal time to pursue your credential and strengthen your position in Lancaster's growing PM market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:24.927707Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "386e7b026b99cdf1",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your CAPM Certification Path in Lancaster",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and formal project management education—but no work experience. If you hold a high school diploma, associate degree, or equivalent, you're already qualified to pursue this credential. Many Lancaster professionals new to project management discover this flexibility opens the door earlier than expected."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required project management education into a focused schedule, allowing you to advance without lengthy classroom commitments. All instruction happens online, fitting working professionals across Lancaster's diverse industries."
+        },
+        {
+          "heading": "Apply to PMI and Pay Exam Fee",
+          "text": "Once coursework is complete, submit your PMI application and exam registration. Our team guides you through the documentation process to ensure your eligibility is confirmed. PMI will verify your educational requirement before you can sit for the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the CAPM Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources to help you succeed on test day. You'll sit for a proctored exam that validates your mastery of project management fundamentals. We support your readiness every step of the way."
+        },
+        {
+          "heading": "Maintain Your Credential Long-Term",
+          "text": "CAPM credentials renew on a three-year cycle. You'll earn professional development units through continued learning and involvement in project management. Staying current keeps your credential active and demonstrates your commitment to the profession."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:29.598263Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "8f31dd600926c6b1",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Lancaster Pennsylvania healthcare careers?",
+          "answer": "<p>Lancaster's healthcare sector—anchored by Penn Medicine Lancaster General Health and supported by regional networks—increasingly formalizes project governance as organizations modernize operations and IT infrastructure. CAPM certification signals readiness for structured project management roles in clinical, administrative, and capital project settings. While not universally required, the credential strengthens your candidacy for advancement into mid-level PM positions where employers value demonstrated methodology and governance knowledge alongside clinical or operational expertise.</p>"
+        },
+        {
+          "question": "Which Lancaster area industries most value CAPM or PMP credentials?",
+          "answer": "<p>Healthcare, manufacturing, and financial services dominate Lancaster's economy and lead in adopting formal project management practices. Organizations like Armstrong World Industries, Woodstream Corporation, and Fulton Financial Corporation increasingly view CAPM certification as a differentiator when filling project and program management roles. Agriculture and food processing (including Turkey Hill Dairy) and education sectors show growing interest in credentials as they scale operations and pursue business transformation initiatives.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CAPM training from my Lancaster workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all CAPM training live-virtual, so you can participate from your workplace, home office, or any location with reliable internet connectivity. This flexibility works well for Lancaster professionals balancing full-time roles at major employers while pursuing certification. Confirm with your IT department that your network permits video conferencing; most corporate environments in the region support it without issue.</p>"
+        },
+        {
+          "question": "Should I get CAPM certified now or wait for Lancaster PM demand to grow?",
+          "answer": "<p>Lancaster's project management demand across healthcare, manufacturing, and financial services is steady and growing—not a future prospect. Employers increasingly favor credentials when promoting into PM roles, and formal project governance is now standard practice at major regional employers. Pursuing CAPM now positions you ahead of peers and ensures you're ready when openings arise; waiting risks falling behind candidates who already hold the credential.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:35.635218Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ed4384fba86ac554",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lancaster's healthcare and manufacturing sectors—anchored by Penn Medicine Lancaster General Health and Armstrong World Industries—consistently recruit certified project managers to lead campus expansions, facility upgrades, and operational initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training to Lancaster professionals seeking the credential employers in these industries value, with flexible scheduling that fits working schedules across Pennsylvania.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:37.360851Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "1b2555ecbd990329",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-lancaster-pa/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Lancaster, PA, CAPM boot camp Lancaster, CAPM training Lancaster, PA, CAPM classes Lancaster PA, CAPM exam prep Lancaster",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\",\n      \"name\": \"CAPM Certification Training in Lancaster, PA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Lancaster, PA. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Lancaster, PA\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#course\",\n      \"name\": \"CAPM Certification Training in Lancaster, PA\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Lancaster, PA. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-lancaster-pa/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

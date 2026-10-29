@@ -1,348 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "bremerton-wa",
-    "slug": "ai-training-bremerton-wa",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "bremerton-wa",
-        "city": "Bremerton",
-        "state": "Washington",
-        "SS": "WA",
-        "city_slug": "bremerton-wa",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Bremerton's project management demand flows from Naval Base Kitsap and the Puget Sound Naval Shipyard, where defense contractors and government agencies actively seek PMs with formal credentials to lead complex engineering and logistics initiatives. Concurrent healthcare expansion at St. Michael Medical Center and Washington State Ferries' modernization programs extend opportunities across sectors. Granite PM Academy delivers live-virtual PMP® Certification to Bremerton professionals, covering PMI® requirements and practical skills valued by local employers.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Bremerton's naval shipbuilding and defense contracting sector demands project managers fluent in emerging technologies. Granite PM Academy delivers live-virtual, instructor-led AI training that satisfies PMI's contact-hour requirements, giving you the skills to lead complex, tech-forward initiatives across the region's largest employers. Master AI applications in scheduling, risk management, and resource allocation—credentials that strengthen your competitiveness in Bremerton's high-stakes defense and maritime project environment.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:39.903134Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "70b7b43c8f5e0c7d",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Bremerton, Washington",
-            "text": "<p>Bremerton's project management landscape is shaped fundamentally by the Puget Sound Naval Shipyard and Naval Base Kitsap, where complex defense and engineering projects demand rigorous planning, risk management, and increasingly, the ability to integrate artificial intelligence into project workflows. As these major employers modernize their operations and healthcare systems like St. Michael Medical Center expand their infrastructure initiatives, project managers in Bremerton face growing pressure to master emerging technologies alongside traditional PM disciplines. AI fluency is no longer optional—it's becoming a competitive requirement for professionals seeking advancement in the city's defense, maritime, healthcare, and government sectors.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led, live-virtual AI training designed specifically for working project managers pursuing PMP® or CAPM® credentials in Bremerton and beyond. Our courses are taught by active certified practitioners who understand both PMI standards and real-world applications of AI in project delivery. Each program satisfies the formal contact-hour requirements recognized by the Project Management Institute, positioning you to sit for certification while building practical skills in AI tools, predictive analytics, and intelligent automation. Whether you work in naval shipbuilding, healthcare operations, or government administration, this training bridges the gap between your local market's demands and your professional credentials.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:43.763965Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "9e3f26d3814f6dee",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Naval & Defense Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Instruction",
-                    "text": "Granite PM Academy delivers PMI-approved curriculum meeting all contact-hour requirements for PMP® and CAPM® certification. Your training counts toward official PMI credentials—no supplemental online modules needed."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Our instructors hold active PMI certifications and work as practicing project managers. They bring current methods from shipyard operations, healthcare delivery, and government programs into every session."
-                },
-                {
-                    "heading": "Flexible Live-Virtual Format",
-                    "text": "Attend instructor-led classes on your schedule—synchronous sessions fit Bremerton professionals managing multiple demands. Participate live from your office or home without sacrificing contact-hour rigor."
-                },
-                {
-                    "heading": "Credential Valued by Local Employers",
-                    "text": "Naval shipyard, military base, county government, and healthcare employers in the Bremerton area actively hire certified project managers. PMP® and CAPM® credentials strengthen your candidacy for advancement in these dominant sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:47.429566Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "8d2e78502b5b55e5",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Bremerton's Defense & Healthcare Sectors",
-            "text": "<p>Bremerton's economy centers on defense and healthcare, creating steady demand for certified project managers. The Puget Sound Naval Shipyard & Intermediate Maintenance Facility and Naval Base Kitsap employ large teams managing complex operations and infrastructure projects—including the Shipyard Infrastructure Optimization Program (SIOP)—where PMP and CAPM credentials are increasingly preferred qualifications. Beyond defense, St. Michael Medical Center (Virginia Mason Franciscan Health) continues campus expansion, and Washington State Ferries is modernizing terminals and deploying hybrid-electric vessels, all requiring skilled project leadership. Regional government agencies and private contractors supporting these institutions also hire certified project managers regularly.</p><p>Holding a PMP or CAPM credential positions you competitively in Bremerton's market, particularly for roles tied to Navy shipyard support and healthcare system delivery. Employers in the area recognize certification as a signal of disciplined methodology and industry readiness—and compensation for certified project managers in the Puget Sound region reflects that demand, especially when candidates bring experience in defense, shipyard, or healthcare environments. Completing Granite PM Academy's AI Training for Project Managers equips you with modern tools and frameworks that align with how Bremerton's largest employers now manage risk, schedule, and resource allocation. In a city where major projects span years and involve multiple stakeholders, that credential and updated skillset can meaningfully advance your career trajectory.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:52.251699Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "8e68424389e86ee9",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Does AI training help project managers advance careers at Bremerton shipyard employers?",
-                    "answer": "<p>Yes. Defense contractors and Naval Base Kitsap support organizations increasingly seek PMs who combine traditional credentials (PMP, CAPM) with emerging AI competencies. Shipyard and Navy-adjacent projects involve complex scheduling, resource optimization, and risk forecasting—areas where AI literacy strengthens your candidacy. Employers in this sector view AI training as a differentiator, especially for roles managing large-scale modernization and maintenance initiatives.</p>"
-                },
-                {
-                    "question": "Which Bremerton employers prefer certified project managers with AI skills?",
-                    "answer": "<p>Defense contractors (BAE Systems, Amentum), healthcare systems (Virginia Mason Franciscan Health), and government agencies (Kitsap County, City of Bremerton) increasingly list PMP and CAPM as preferred qualifications. Healthcare and shipyard operations especially value candidates who understand both formal PM certification and emerging technologies. While certification isn't always mandatory, it consistently strengthens your position in Bremerton's competitive, credential-conscious job market.</p>"
-                },
-                {
-                    "question": "Can I attend Bremerton AI project management training from my workplace?",
-                    "answer": "<p>Yes. Our live-virtual format allows you to participate from your office, home, or any stable internet location in Bremerton. This flexibility suits professionals at Naval Base facilities, St. Michael Medical Center, and local government offices who need to balance training with ongoing job responsibilities. You'll engage with instructors and peers in real time without commuting to an off-site classroom.</p>"
-                },
-                {
-                    "question": "Is now the right time to pursue PM certification in Bremerton's job market?",
-                    "answer": "<p>Yes. Bremerton's concentration of defense, healthcare, and government employers maintains steady demand for certified project managers. PMP and CAPM credentials track regional Puget Sound compensation premiums, particularly for roles in Navy shipyard support and hospital system projects. With credential requirements rising across defense contractors and healthcare organizations, earlier certification generally improves your advancement timeline and earning potential.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:58.381765Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "e9c122e4ef1f618d",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Bremerton's project management demand is anchored by Puget Sound Naval Shipyard and Naval Base Kitsap, where defense and engineering projects create consistent openings for PMs skilled in complex, regulated environments. Healthcare expansion at St. Michael Medical Center and Washington State Ferries' hybrid-electric vessel modernization add further career pathways. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Bremerton professionals seeking credentials that match local employer expectations.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:00.099567Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "0f7beba5b3330796",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "bremerton-wa",
+  "slug": "ai-training-bremerton-wa",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "bremerton-wa",
+    "city": "Bremerton",
+    "state": "Washington",
+    "SS": "WA",
+    "city_slug": "bremerton-wa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-bremerton-wa/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Bremerton, WA, AI courses Bremerton, CPMAI certification Bremerton, AI project management training Bremerton, WA, AI for project managers Bremerton",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\",\n      \"name\": \"AI Training for Project Managers in Bremerton, WA — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Bremerton, WA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Bremerton, WA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#course\",\n      \"name\": \"AI Training for Project Managers in Bremerton, WA\",\n      \"description\": \"CPMAI certification training for project managers in Bremerton, WA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Defense & Naval Shipyard Operations",
+      "Healthcare",
+      "Government/Public Administration",
+      "Maritime & Manufacturing",
+      "Education",
+      "Transportation (Ferries/Transit)"
+    ],
+    "top_employers": [
+      "Puget Sound Naval Shipyard & Intermediate Maintenance Facility",
+      "Naval Base Kitsap",
+      "Kitsap County Government",
+      "City of Bremerton",
+      "Washington State Ferries",
+      "St. Michael Medical Center (Virginia Mason Franciscan Health)",
+      "Olympic College",
+      "Kitsap Transit",
+      "Amentum",
+      "BAE Systems (Bremerton facility)"
+    ],
+    "salary_note": "Project manager pay in Bremerton tends to track regional Puget Sound rates, with a premium for candidates who hold PMP certification and have experience in defense, shipyard, or healthcare project environments. Exact figures vary widely by employer and sector, but demand for certified PMs remains steady given the concentration of large government and healthcare institutions.",
+    "market_blurb": "Bremerton's project management job market is anchored by the Puget Sound Naval Shipyard and Naval Base Kitsap, which drive consistent demand for PMs skilled in defense, engineering, and logistics projects. Healthcare expansion around St. Michael Medical Center and public infrastructure work led by Kitsap County and Washington State Ferries add further opportunities. The city's mix of military, healthcare, and government employers makes formal project management training and certification a practical asset for local job seekers.",
+    "notable_projects": [
+      "Puget Sound Naval Shipyard Shipyard Infrastructure Optimization Program (SIOP)",
+      "St. Michael Medical Center campus expansion (Virginia Mason Franciscan Health)",
+      "Washington State Ferries hybrid-electric vessel and terminal modernization program",
+      "Bremerton downtown/waterfront redevelopment initiatives"
+    ],
+    "credential_demand": "PMP and CAPM credentials are increasingly favored by defense contractors and healthcare organizations in the Bremerton area, particularly for roles tied to Navy shipyard support and hospital system projects. Even where certification isn't mandatory, employers frequently list it as a preferred qualification for project and program management positions.",
+    "_researched": 1,
+    "city_spotlight": "<p>Bremerton's project management market is anchored by the Puget Sound Naval Shipyard and Naval Base Kitsap, where defense and engineering expertise command consistent demand. Growth in healthcare and public infrastructure—including St. Michael Medical Center's campus expansion and Washington State Ferries' modernization initiatives—further expands opportunities for certified PMs across military, government, and civilian sectors. Granite PM Academy delivers live-virtual PMP® Certification to Bremerton professionals seeking to formalize credentials and advance in these high-demand industries.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Bremerton's defense, naval, and maritime sectors depend on skilled project managers to coordinate complex operations across shipyard facilities, government agencies, and supporting manufacturers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's required contact hours for this credential. Earning your CPMAI opens doors to advancement across Bremerton's largest employers and strengthens your foundation for more senior certifications.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:09.023442Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b83dfe29604723ff",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Bremerton's Project Managers",
+      "text": "<p>The Puget Sound Naval Shipyard and Naval Base Kitsap anchor Bremerton's project management market, creating sustained demand for professionals who can lead complex defense, engineering, and logistics initiatives. Beyond the naval sector, healthcare expansion at St. Michael Medical Center, public infrastructure projects through Kitsap County, and maritime operations across Washington State Ferries and regional manufacturers all require skilled project managers. The PMI Certified Associate in Project Management (PMI-CPMAI) credential demonstrates your readiness to manage these mission-critical projects and positions you competitively in Bremerton's diverse employment landscape—whether you are entering the field or advancing from a technical role into formal project leadership.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training nationwide, including preparation for Bremerton professionals. Our curriculum satisfies the Project Management Institute's contact-hour requirements and is taught by active certified practitioners with real-world project experience. You will complete the course on a schedule that fits your work commitments, gain the knowledge needed to pass the PMI-CPMAI exam, and earn a credential recognized across defense, healthcare, government, and maritime industries. Upon certification, you will hold a portable, PMI-recognized credential that opens pathways to higher-responsibility roles and strengthens your standing in Bremerton's competitive project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:12.891572Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0d306af04f7b3306",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Project Management Certification for Bremerton's Defense & Naval Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMI-CPMAI training meets all official PMI requirements. Employers across Bremerton's defense, shipyard, and government sectors trust PMI-authorized credentials as the standard for project leadership roles."
+        },
+        {
+          "heading": "Live Instructors, Virtual Flexibility, Full Credit",
+          "text": "Attend live-virtual instructor-led sessions that satisfy PMI's contact-hour requirements without commuting. Active certified practitioners teach real-world applications, and you earn every hour of credential eligibility while balancing Bremerton's demanding professional schedules."
+        },
+        {
+          "heading": "Exam Readiness From Practitioners",
+          "text": "Your instructors are active certified practitioners who guide you through exam domains with current best practices. Dedicated exam-preparation support ensures you understand not just concepts, but the practical scenarios that appear in the certification assessment."
+        },
+        {
+          "heading": "Credential Match for Bremerton's Major Employers",
+          "text": "Naval shipyard, military base, county government, and maritime employers in Bremerton routinely hire certified project managers. PMI-CPMAI certification directly aligns with advancement and hiring standards at organizations that dominate the local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:17.131463Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ab411f4739f74cac",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Bremerton's Defense & Healthcare Sectors",
+      "text": "<p>Bremerton's economy is anchored by the Puget Sound Naval Shipyard & Intermediate Maintenance Facility and Naval Base Kitsap, which drive sustained demand for skilled project managers across defense contracting and shipyard operations. Organizations like BAE Systems, Amentum, and supporting government agencies routinely hire certified PMs to oversee complex initiatives—from the Shipyard Infrastructure Optimization Program to vessel maintenance and modernization efforts. Beyond defense, St. Michael Medical Center (Virginia Mason Franciscan Health) and Kitsap County Government maintain active project portfolios in healthcare expansion and public administration. These anchors create a competitive, specialized job market where project management credentials distinguish candidates and open pathways to roles managing high-stakes, mission-critical work.</p><p>The PMP® and CAPM® credentials carry measurable weight in Bremerton's hiring environment. Defense contractors and healthcare systems in the region increasingly list PMI certifications as preferred or required qualifications, especially for positions tied to Navy shipyard support and hospital system projects. Candidates who hold these credentials typically command stronger compensation packages aligned with regional Puget Sound rates, and certified project managers see steadier advancement opportunities as employers scale programs and infrastructure initiatives. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet this credentialing demand directly—delivering the recognized credential and practical frameworks employers in Bremerton's dominant industries actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:21.667031Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5f44013f2100d541",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Bremerton's Defense & Healthcare Sectors",
+      "text": "<p>Bremerton's economy centers on the Puget Sound Naval Shipyard & Intermediate Maintenance Facility and Naval Base Kitsap, two anchors that drive consistent demand for certified project managers across defense contracting, shipyard operations, and supporting government agencies. Organizations including BAE Systems, Amentum, Kitsap County Government, and the City of Bremerton regularly hire PMs to oversee complex initiatives—from the Puget Sound Naval Shipyard Shipyard Infrastructure Optimization Program (SIOP) to St. Michael Medical Center's campus expansion. Healthcare systems and public agencies in the region increasingly treat project management certification as a preferred or required qualification, reflecting the scale and compliance demands of their work.</p><p>In Bremerton's competitive market, earning your PMI-CPMAI certification through Granite PM Academy positions you to stand out for roles that command regional Puget Sound compensation premiums, especially when you hold credentials and experience in defense, shipyard, or healthcare environments. Employers here recognize certified project managers as better equipped to handle budgets, timelines, and regulatory requirements tied to Navy support and hospital system projects. By completing a structured certification program with active practitioners, you gain both the credential employers actively seek and the practical framework to deliver results in Bremerton's largest and most consequential industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:25.795622Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5f44013f2100d541",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Bremerton defense and shipyard careers?",
+          "answer": "<p>Yes. Puget Sound Naval Shipyard, Naval Base Kitsap, and defense contractors operating in the Bremerton area increasingly list PMP and CAPM credentials as preferred qualifications for project and program management roles. Certification signals competency in structured project delivery—critical in defense and maritime environments where compliance, risk, and stakeholder coordination are paramount. Even where not mandatory, certified candidates typically advance faster and command stronger compensation in these sectors.</p>"
+        },
+        {
+          "question": "Which major Bremerton employers value PMP or CAPM certification most?",
+          "answer": "<p>Defense contractors, Navy shipyard support organizations, healthcare systems like St. Michael Medical Center (Virginia Mason Franciscan Health), Kitsap County Government, and the City of Bremerton prioritize PMI credentials for project leadership roles. BAE Systems and Amentum facilities in the area frequently seek certified professionals. Additionally, education and transit agencies value credentials when managing capital projects or organizational change initiatives.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training while working in Bremerton?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training live-virtual, so you can participate from your workplace, home, or any location with internet access. This flexibility suits Bremerton professionals balancing full-time roles at Naval facilities, healthcare institutions, or government agencies. You'll engage with instructors and peers in real time without commuting or relocating.</p>"
+        },
+        {
+          "question": "Should Bremerton PMs pursue certification now given local job market demand?",
+          "answer": "<p>The Bremerton job market—anchored by Naval shipyard operations, healthcare expansion, and government administration—maintains steady, strong demand for certified project managers. Defense contractors and public-sector organizations frequently list certification as a preferred qualification. Pursuing it now positions you competitively before roles fill and gives you time to leverage the credential in your next opportunity or advancement.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:31.708618Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1546f4ed554b6b13",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Bremerton's project management demand is anchored by Puget Sound Naval Shipyard, Naval Base Kitsap, and ongoing defense and infrastructure programs—creating consistent opportunities for PMs skilled in engineering, logistics, and complex operations. Healthcare expansion at St. Michael Medical Center and Washington State Ferries' modernization initiatives add diverse sectors where formal certification strengthens competitiveness. Granite PM Academy delivers live-virtual PMI-CPMAI® Certification Training to Bremerton professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:33.633532Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4f2cab535555bc3e",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Bremerton's project management demand centers on the Puget Sound Naval Shipyard and Naval Base Kitsap, where defense and engineering expertise command consistent opportunity. Healthcare growth at St. Michael Medical Center and Washington State Ferries' modernization initiatives expand the PM job market further across government and maritime sectors. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Bremerton professionals seeking to formalize credentials and advance careers in these high-demand fields.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:35.378590Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4f2cab535555bc3e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-bremerton-wa/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Bremerton, WA, AI courses Bremerton, CPMAI certification Bremerton, AI project management training Bremerton, WA, AI for project managers Bremerton",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\",\n      \"name\": \"PMI-CPMAI Certification Training in Bremerton, WA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Bremerton, WA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Bremerton, WA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Bremerton, WA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Bremerton, WA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-bremerton-wa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-bremerton-wa/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

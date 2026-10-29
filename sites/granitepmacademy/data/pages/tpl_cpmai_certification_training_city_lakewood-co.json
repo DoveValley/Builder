@@ -1,0 +1,395 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "lakewood-co",
+  "slug": "ai-training-lakewood-co",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "lakewood-co",
+    "city": "Lakewood",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "lakewood-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Federal/state government",
+      "Healthcare",
+      "Medical device manufacturing",
+      "Banking/finance",
+      "Education",
+      "Mixed-use retail"
+    ],
+    "top_employers": [
+      "Denver Federal Center",
+      "Jefferson County School District R-1",
+      "State of Colorado",
+      "St. Anthony Hospital",
+      "Terumo BCT",
+      "FirstBank"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Lakewood's economy is led by government: the Denver Federal Center (the largest concentration of federal agencies outside Washington, D.C.) and the State of Colorado, alongside Jeffco Schools, St. Anthony Hospital, medical-device maker Terumo BCT, and Lakewood-headquartered FirstBank.",
+    "notable_projects": [
+      "Belmar - mixed-use redevelopment (retail, residential, arts district) built on the former Villa Italia Mall site"
+    ],
+    "credential_demand": "The heavy concentration of federal and state government employers at the Denver Federal Center makes Lakewood a plausible strong market for PMP - federal agencies are well known for favoring or requiring PMP for program/project roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lakewood's employer base includes Denver Federal Center, Jefferson County School District R-1, State of Colorado, St. Anthony Hospital. Lakewood's economy is led by government: the Denver Federal Center (the largest concentration of federal agencies outside Washington, D.C.) and the State of Colorado, alongside Jeffco Schools, St. Anthony Hospital, medical-device maker Terumo BCT, and Lakewood-headquartered FirstBank. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Lakewood professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Lakewood, CO",
+    "city_image_credit": "Photo: Buaidh, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Belmar_Square_banner.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-lakewood-co.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMI-CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Lakewood's federal, healthcare, and medical device sectors rely on certified project managers to deliver complex, regulated initiatives. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's contact-hour education requirement, accessible to working professionals across Colorado. Earning your PMI-CPMAI credential strengthens your qualifications for project leadership roles in Lakewood's growth industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:49.835006Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9d316eee41bc111a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Lakewood's Government & Healthcare Leaders",
+      "text": "<p>Lakewood's economy is anchored by the Denver Federal Center—the largest concentration of federal agencies outside Washington, D.C.—alongside the State of Colorado, Jefferson County School District, and major healthcare and medical-device employers. Project managers in these sectors face distinctive demands: navigating complex compliance frameworks, coordinating across multiple stakeholder groups, and delivering critical infrastructure and services on time and within budget. The PMI-CPMAI (Certified Associate in Project Management) credential validates your ability to support project execution in these high-stakes environments, making it a credible differentiator for advancement in Lakewood's government, healthcare, and education-driven job market.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led sessions that fit working professionals' schedules across Colorado and nationwide. Our active certified practitioners teach the full curriculum, covering the contact-hour requirements mandated for PMI-CPMAI eligibility, and guide you through exam preparation with real-world insight. Whether you're advancing within a federal agency, healthcare system, or education institution in the Lakewood area, our flexible virtual format means you can earn your certification without disrupting your career. Begin your path to PMI-CPMAI certification today and position yourself for leadership roles in your organization.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:54.032240Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0d0d3f9eb957a8ed",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification Tailored for Lakewood's Federal and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMI-CPMAI course meets all official standards. This credential carries weight with employers across Lakewood's federal, healthcare, and financial sectors who recognize PMI's rigorous certification requirements."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI-CPMAI eligibility without travel to a classroom. Professionals at Denver Federal Center, St. Anthony Hospital, and other major Lakewood employers balance certification training with full-time work through our flexible scheduling."
+        },
+        {
+          "heading": "Instructors Bring Real-World PM Experience",
+          "text": "Your instructors are active certified practitioners who apply project-management principles daily in their own careers. This hands-on expertise translates into exam-preparation content and case studies that reflect how government, healthcare, and financial organizations actually manage programs and projects."
+        },
+        {
+          "heading": "Credential Demanded by Lakewood Employers",
+          "text": "Lakewood's largest employers—Jefferson County School District, State of Colorado agencies, FirstBank, and medical-device firms—actively seek project managers and program leaders with PMI credentials. The PMI-CPMAI positions you competitively for advancement in these mission-critical organizations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:58.318247Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "312dc357cc573ec3",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lakewood",
+      "text": "<p>The Denver Federal Center anchors Lakewood's project-management job market, drawing federal agencies that rely heavily on certified project managers for program oversight and delivery. Beyond government, major local employers—including Jefferson County School District R-1, St. Anthony Hospital, Terumo BCT, and FirstBank—manage complex initiatives across education, healthcare, medical device manufacturing, and finance. The Belmar redevelopment, a mixed-use transformation of the former Villa Italia Mall site, exemplifies the kind of large-scale project work that certified professionals coordinate in the region, blending retail, residential, and arts components into a cohesive community asset.</p><p>Earning the PMP® credential positions you competitively in Lakewood's labor market. Federal and state employers—concentrated here more densely than in most communities—actively favor or require the PMP® for program and project roles, making certification a meaningful differentiator. Nationally, PMP®-certified project managers command a measurable salary premium over non-certified peers, and that advantage holds across most regions and industries. By completing PMI-CPMAI Certification Training through Granite PM Academy, you gain the rigorous preparation and live-virtual instruction needed to pass the exam and advance into higher-responsibility roles with Lakewood's largest employers—without geographic constraints, since all training is delivered online nationwide.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:02.589804Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "86b64a5f3e99f823",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the PMI-CPMAI certification?",
+          "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+        },
+        {
+          "question": "Who should pursue the PMI-CPMAI in {city}?",
+          "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the PMI-CPMAI course?",
+          "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+        },
+        {
+          "question": "How is the PMI-CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Does PMP certification help project managers get hired at Denver Federal Center employers in Lakewood?",
+          "answer": "<p>Yes. Federal agencies headquartered at the Denver Federal Center—a major Lakewood-area employer cluster—typically favor or require PMP certification for program and project management roles. The credential demonstrates compliance with federal competency standards and strengthens applications for GS-level positions. Lakewood professionals targeting government contracts or federal project work will find PMP recognition significantly improves competitiveness.</p>"
+        },
+        {
+          "question": "What do project managers earn in Lakewood after earning PMP certification?",
+          "answer": "<p>While Lakewood-specific salary data is limited, PMI's national research shows PMP-certified project managers report a median salary of $135,000 versus $109,157 for non-certified peers—a premium that holds across most regions. Lakewood's concentration in federal, healthcare, and manufacturing sectors typically supports strong compensation for certified professionals, though individual outcomes vary by employer and experience.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification training worth it for Lakewood healthcare and medical device careers?",
+          "answer": "<p>Yes. Lakewood's significant healthcare and medical device employers—including St. Anthony Hospital and Terumo BCT—regularly staff regulated projects requiring rigorous project governance and compliance documentation. PMP certification signals mastery of these disciplines and advances career progression in regulated environments. For professionals in these industries, the credential is widely recognized as a career accelerator.</p>"
+        },
+        {
+          "question": "Can Lakewood professionals take live-virtual PMP training from their workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI Certification Training is delivered entirely live-virtual nationwide, allowing Lakewood professionals to attend from any location with internet access—workplace, home, or anywhere else. This format accommodates full-time work schedules and eliminates travel time, making certification training feasible alongside your current role.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:07.847723Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c1e315955eed2b72",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lakewood's economy centers on the Denver Federal Center, home to the largest concentration of federal agencies outside Washington, D.C., alongside major state government, healthcare, and financial services employers. Project managers across these sectors—from federal agencies to FirstBank and St. Anthony Hospital—drive complex initiatives like the Belmar mixed-use redevelopment. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lakewood professionals seeking to advance their credentials and career prospects.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:09.614622Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "c77e0fc367f9ae3f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-lakewood-co/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Lakewood, CO, AI courses Lakewood, CPMAI certification Lakewood, AI project management training Lakewood, CO, AI for project managers Lakewood",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lakewood-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lakewood-co/\",\n      \"name\": \"PMI-CPMAI Certification Training in Lakewood, CO | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Lakewood, CO for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Lakewood, CO\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lakewood-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lakewood-co/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Lakewood, CO\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Lakewood, CO who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lakewood-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lakewood-co/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lakewood-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lakewood-co/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lakewood-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}",
+    "primary_keyword": "PMI-CPMAI Certification Training"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T03:33:15+00:00",
+  "template_version": "f6a3382b6a8f42a3fb45841d36f4e3b0"
+}

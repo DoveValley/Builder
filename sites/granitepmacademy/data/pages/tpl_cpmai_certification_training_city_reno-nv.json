@@ -1,348 +1,399 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "reno-nv",
-    "slug": "ai-training-reno-nv",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "reno-nv",
-        "city": "Reno",
-        "state": "Nevada",
-        "SS": "NV",
-        "city_slug": "reno-nv",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Reno's logistics and advanced manufacturing sector—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—continues driving steady demand for certified project managers across construction, data centers, and infrastructure development. Major expansion projects at Switch's Citadel Campus and downtown's Neon Line District redevelopment underscore the region's need for skilled program leadership. Granite PM Academy delivers live-virtual PMP® Certification to Reno professionals ready to advance in this growing market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Reno's growing technology and logistics sectors demand project managers who can lead teams through rapid digital transformation. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI's contact-hour requirements, enabling you to master artificial intelligence tools directly applicable to your role. Earn a credential that positions you for advancement in Reno's innovation-driven job market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:25.864688Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "98eb3ba6909c5303",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Reno",
-            "text": "<p>Reno's emergence as a advanced manufacturing and logistics powerhouse—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—has fundamentally reshaped demand for skilled project managers who can navigate complex, technology-driven environments. AI is no longer peripheral to project management; it is central to how teams in Reno's fastest-growing sectors plan timelines, allocate resources, and mitigate risk at scale. Whether you manage construction at the Tahoe Reno Industrial Center, oversee operations at a data center, or coordinate supply chains for one of the region's major employers, understanding how to integrate AI tools into your project workflow is essential to staying competitive and advancing your career.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training for project managers that meets the contact-hour requirements for PMP® and CAPM® certification. Our courses are taught by active, credentialed practitioners who bring real-world experience from industries across Reno's economy—logistics, advanced manufacturing, healthcare, and construction. You'll learn how to apply AI to forecasting, resource planning, and stakeholder communication in a format that fits working professionals' schedules. Upon completion, you'll have both the knowledge and the credentials to lead smarter projects and unlock the next level of your project management career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:29.589660Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "bc2faf2b1825c76e",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI-Ready Project Managers Reno Employers Need Now",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Value",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your certification meets the Project Management Institute's rigorous standards. Reno employers—from Tesla's Gigafactory to Switch's data centers—recognize PMI credentials as the industry benchmark for hiring and promotion decisions."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Our instructor-led format pairs certified practitioners actively managing projects in Reno's logistics, manufacturing, and technology sectors. You learn current methodologies and troubleshoot real scenarios with professionals who understand the challenges of your local industry, not generic case studies."
-                },
-                {
-                    "heading": "Exam Prep Built Into Every Course",
-                    "text": "Beyond contact-hour requirements, we embed focused exam preparation throughout. Practice exams, question-bank access, and instructor feedback during live sessions mean you arrive at test day confident—not scrambling with third-party prep materials."
-                },
-                {
-                    "heading": "Meet Reno's Growing Demand for PMs",
-                    "text": "Advanced manufacturing, data-center expansion, and healthcare growth across Washoe County have created sustained demand for credentialed project managers. A PMI certification positions you for roles in these high-growth sectors where employers prefer candidates who've completed formal, authorized training."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:34.172009Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "a9d6a130e8196e0f",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Reno's Growing Industrial Sector",
-            "text": "<p>Reno's rapid expansion in advanced manufacturing and logistics has created steady demand for certified project managers across multiple sectors. Tesla's Gigafactory Nevada and the ongoing Switch Citadel Campus data center expansion represent the scale of industrial projects currently reshaping the region, each requiring skilled professionals to oversee complex timelines, budgets, and cross-functional teams. Beyond manufacturing, employers like Amazon, Renown Health, and Washoe County School District actively seek project managers to lead infrastructure upgrades, facility expansions, and technology implementations. Construction and hospitality operators, including major resort properties, similarly depend on certified PMs to deliver projects on schedule and within scope.</p><p>PMP® certification is increasingly listed as a preferred or required qualification in Reno-area job postings, particularly within construction, healthcare, and manufacturing—sectors where formalized project oversight directly impacts operational success. While compensation for project managers in Reno tracks below larger West Coast metros, the region offers competitive pay relative to Nevada and strong job stability, reflecting sustained demand from the industrial and infrastructure growth driving the local economy. Completing Granite PM Academy's AI Training for Project Managers positions you to stand out in this market by combining traditional PM expertise with emerging AI tools that forward-thinking Reno employers are beginning to value. This credential gives you a tangible edge as the region continues to attract major capital projects and expand its workforce needs.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:38.786672Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "9fd911292c8716b0",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI training for project managers worth it in Reno's manufacturing sector?",
-                    "answer": "<p>Yes. Reno's advanced manufacturing ecosystem—anchored by Tesla's Gigafactory Nevada and Panasonic's operations—increasingly demands project managers who can oversee AI-integrated workflows and data-driven decision-making. PMP certification paired with AI competency positions you competitively within these high-growth employers where formalized project oversight and automation literacy are becoming preferred qualifications.</p>"
-                },
-                {
-                    "question": "Which Reno employers actively hire certified project managers with AI skills?",
-                    "answer": "<p>Switch's data center operations, Amazon's logistics hub, Tesla's manufacturing expansion, and Renown Health's infrastructure projects all value project managers with modern credentials. Construction and healthcare sectors in particular list PMP certification as preferred or required. AI training complements this demand by showing employers you can manage complex, technology-driven initiatives—a growing need across Reno's diversifying economy.</p>"
-                },
-                {
-                    "question": "Can Reno project managers take the live-virtual AI certification course from their office?",
-                    "answer": "<p>Yes. The live-virtual format lets you attend from your workplace, home, or anywhere with reliable internet. This flexibility is especially valuable for Reno professionals balancing demanding roles at major employers like Amazon, Washoe County School District, or hospitality groups. You complete training without commuting to an external classroom while maintaining your daily responsibilities.</p>"
-                },
-                {
-                    "question": "When is the best time for Reno professionals to pursue AI project management certification?",
-                    "answer": "<p>Now. Reno's steady demand for trained project managers—driven by construction growth, logistics expansion, and manufacturing scale-up—means employers are actively recruiting certified candidates. Job postings across healthcare, manufacturing, and infrastructure increasingly list PMP as preferred. Starting your AI training before competing applicants do positions you ahead in a market where these credentials demonstrably influence hiring decisions.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:44.819311Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "9668aba0918bbb4a",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Reno's advanced manufacturing and logistics sectors—anchored by Tesla's Gigafactory Nevada and Amazon's regional operations—are driving sustained demand for skilled project managers across construction, EV production, and infrastructure development. Downtown redevelopment and major airport terminal upgrades further expand opportunities for certified professionals. Granite PM Academy delivers live-virtual AI Training for Project Managers to Reno's workforce, helping local professionals build competitive credentials and lead high-impact initiatives.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:46.530600Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "99fdd9e1c1fb9ba4",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "reno-nv",
+  "slug": "ai-training-reno-nv",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "reno-nv",
+    "city": "Reno",
+    "state": "Nevada",
+    "SS": "NV",
+    "city_slug": "reno-nv",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-reno-nv/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Reno, NV, AI courses Reno, CPMAI certification Reno, AI project management training Reno, NV, AI for project managers Reno",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\",\n      \"name\": \"AI Training for Project Managers in Reno, NV — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Reno, NV for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Reno, NV\",\n            \"item\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#course\",\n      \"name\": \"AI Training for Project Managers in Reno, NV\",\n      \"description\": \"CPMAI certification training for project managers in Reno, NV who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Logistics and warehousing/distribution",
+      "Advanced manufacturing and battery/EV production",
+      "Data centers and technology",
+      "Healthcare",
+      "Gaming, hospitality and tourism",
+      "Construction and infrastructure development"
+    ],
+    "top_employers": [
+      "Tesla (Gigafactory Nevada)",
+      "Amazon",
+      "Switch",
+      "Renown Health",
+      "University of Nevada, Reno",
+      "Washoe County School District",
+      "Panasonic",
+      "IGT (International Game Technology)",
+      "Peppermill Resort Spa Casino",
+      "Grand Sierra Resort and Casino",
+      "Barrick Gold (Reno office)",
+      "Patagonia (distribution center)"
+    ],
+    "salary_note": "Project manager pay in the Reno area tends to track slightly below larger West Coast metros like San Francisco or Seattle but is competitive within Nevada, reflecting strong demand from manufacturing, logistics, and construction employers rather than a specific published figure.",
+    "market_blurb": "Reno's project management job market has grown alongside its expansion as a logistics and advanced manufacturing hub, driven by large-scale employers like Tesla and Amazon alongside a resilient gaming and hospitality sector. Construction and infrastructure growth tied to the Tahoe Reno Industrial Center and downtown redevelopment continue to create steady demand for certified project and program managers across industries.",
+    "notable_projects": [
+      "Tesla Gigafactory Nevada expansion",
+      "Switch Citadel Campus data center expansion",
+      "Reno-Tahoe International Airport terminal and infrastructure improvements",
+      "Downtown Reno's Neon Line District redevelopment"
+    ],
+    "credential_demand": "PMP certification is increasingly listed as a preferred or required qualification in Reno-area job postings, particularly within construction, healthcare, and manufacturing sectors where formalized project oversight is valued. Overall demand for trained project management professionals remains steady given the region's ongoing industrial and infrastructure growth.",
+    "_researched": 1,
+    "city_spotlight": "<p>Reno's logistics and advanced manufacturing sector—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—continues to expand, creating steady demand for certified project managers across supply chain, production, and infrastructure roles. Downtown redevelopment and major data center projects add further momentum to the local PM job market. Granite PM Academy delivers live-virtual PMP Certification training to Reno professionals seeking to advance their careers in these high-growth industries.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-reno-nv.webp",
+    "city_image_alt": "Reno, Nevada, NV",
+    "city_image_credit": "Photo: Trevor Bexon, CC BY 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Reno,_Nevada_(16931715632).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Reno's advanced manufacturing, logistics, and data-center sectors rely on skilled project managers to deliver complex, high-stakes initiatives. Granite PM Academy's live-virtual PMI-CPMAI Certification Training delivers instructor-led instruction that satisfies PMI's contact-hour education requirement, accessible from anywhere while you maintain your local career momentum. Earn the credential employers across Reno's fastest-growing industries recognize and value.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:43.480582Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "96fc26125492bb78",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Reno's Advanced Manufacturing Leaders",
+      "text": "<p>Reno's emergence as a global advanced manufacturing and logistics center—anchored by major operations like Tesla's Gigafactory Nevada and Amazon's regional distribution network—has created unprecedented demand for certified program and portfolio managers who can lead complex, multi-disciplinary initiatives. The PMI-CPMAI® (Certified Practitioner in the Model for Agile) credential positions professionals in Reno to manage enterprise-scale transformation projects across battery production, supply chain optimization, and infrastructure expansion. As Reno continues to grow its role in EV manufacturing and data center development, employers increasingly seek practitioners who can bridge traditional program management with agile delivery at the portfolio level—a skill set the CPMAI® certification explicitly validates.</p><p>Granite PM Academy delivers PMI-CPMAI® Certification Training through live-virtual, instructor-led courses designed to fit working professionals' schedules while meeting all PMI contact-hour requirements. Our active certified practitioners bring real-world experience in complex program delivery and guide you through the competencies, frameworks, and case studies essential to passing the CPMAI® exam. Whether you're advancing your career in Reno's manufacturing sector, construction and infrastructure development, or technology-driven industries, our structured curriculum and expert instruction prepare you to earn your credential and immediately apply portfolio-level leadership skills in your role.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:47.496659Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b3602467f6515f8f",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Reno's Growing Project Economy",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Credential Recognition",
+          "text": "As a PMI Authorized Training Partner, Granite PM Academy delivers CPMAI instruction that meets PMI's rigorous standards. Your certification carries the weight employers across Reno's logistics, manufacturing, and data-center sectors expect and trust."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Live-virtual instructor-led sessions satisfy CPMAI contact-hour requirements without requiring travel or rigid classroom attendance. Professionals in Reno can complete training while managing existing project commitments and maintaining workplace productivity."
+        },
+        {
+          "heading": "Learn from Active Certified Practitioners",
+          "text": "Granite's instructors hold current PMI certifications and apply real-world project experience daily. Classroom examples and case discussions reflect genuine challenges, not textbook scenarios, preparing you for the exam and the role."
+        },
+        {
+          "heading": "Local Demand for Program and Project Managers",
+          "text": "Reno employers—from Tesla's Gigafactory to Amazon, Switch data centers, and Renown Health—actively hire credentialed project managers. CPMAI certification positions you competitively for mid-to-senior roles in the industries driving Reno's economic growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:51.567849Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5cc02f6f243622a9",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Reno's Growing Industrial Hub",
+      "text": "<p>Reno's advanced manufacturing and logistics sectors are creating steady demand for certified project managers. Tesla's Gigafactory Nevada and the ongoing expansion of Switch's Citadel Campus data center campus represent the scale of industrial projects reshaping the region—initiatives where skilled project oversight directly drives success. Beyond manufacturing and tech infrastructure, Amazon, Renown Health, and the University of Nevada, Reno all actively recruit professionals with formal project management credentials. Construction and infrastructure growth, including Reno-Tahoe International Airport's terminal improvements and the Downtown Reno Neon Line District redevelopment, further underscore the credential's relevance across the local economy.</p><p>The PMP® certification is increasingly preferred or required in Reno-area job postings, particularly within construction, healthcare, and manufacturing—sectors where formalized project oversight is highly valued. Project manager compensation in Reno remains competitive within Nevada and reflects strong regional demand, even as it tracks modestly below larger West Coast metros. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that demand directly: you'll earn a credential employers actively seek, deepen your ability to lead complex initiatives, and strengthen your standing in a market where industrial and infrastructure expansion continues to create opportunity for trained professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:55.475626Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "3b1571bb8a67782e",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Reno's Growing Industrial Hub",
+      "text": "<p>Reno's expansion as an advanced manufacturing and logistics center has created steady demand for certified project managers across multiple sectors. Tesla's Gigafactory Nevada and the ongoing Switch Citadel Campus data center expansion represent the scale of capital projects now underway in the region, while Amazon and other major logistics operators rely on trained PMs to manage distribution and warehouse operations. Healthcare systems like Renown Health, construction firms overseeing infrastructure improvements at Reno-Tahoe International Airport, and the region's hospitality and gaming employers all actively seek professionals who can demonstrate formalized project oversight capabilities. The credential has become increasingly valued as Reno's industrial footprint deepens.</p><p>A PMP® or CAPM® certification signals to these employers that you can manage scope, schedule, and risk to standard methodology—a credential particularly in demand within construction, healthcare, and manufacturing sectors where project complexity and regulatory compliance matter most. While Reno's project manager compensation remains competitive within Nevada and reflects strong regional growth rather than parity with larger West Coast metros, the steady pipeline of work across manufacturing, distribution, and infrastructure development creates genuine career mobility for certified professionals. Completing PMI-CPMAI Certification Training through Granite PM Academy—delivered live-virtual and on your schedule—positions you to capitalize on these opportunities and advance your standing in a market where formal qualification is increasingly expected rather than optional.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:59.904566Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "3b1571bb8a67782e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Reno project managers?",
+          "answer": "<p>Yes. Reno's growing advanced manufacturing, logistics, and construction sectors increasingly list PMP certification as preferred or required in job postings. The credential demonstrates formalized project oversight capability—valued highly by employers like Tesla's Gigafactory Nevada, major distribution centers, and healthcare systems. Market demand for trained project management professionals remains steady given the region's ongoing industrial and infrastructure expansion, making certification a competitive advantage for career advancement and salary positioning in the local market.</p>"
+        },
+        {
+          "question": "Which Reno industries and employers value PMP certification most?",
+          "answer": "<p>Construction, healthcare (Renown Health), advanced manufacturing (including EV battery production), and logistics/warehousing distribution centers show the strongest demand for certified project managers. Data center operations, gaming and hospitality management, and infrastructure development projects also increasingly prefer or require the credential. Reno's economy depends heavily on formalized project oversight across these sectors, making PMP certification directly relevant to career growth and hiring criteria in your local market.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual certification course from my Reno workplace?",
+          "answer": "<p>Yes. All Granite PM Academy training is delivered 100% live-virtual nationwide, meaning you can attend from your workplace, home, or any location with internet access. This flexibility suits Reno professionals working in distributed environments—particularly those in remote logistics operations, healthcare systems, or construction sites. You participate in real-time instruction and peer interaction without relocating or commuting to an in-person classroom.</p>"
+        },
+        {
+          "question": "Should Reno project managers pursue CPMAI certification now or wait?",
+          "answer": "<p>Pursue it now. Reno's steady industrial growth, infrastructure development, and expansion in advanced manufacturing mean certification demand will likely remain strong or increase. Early certification positions you ahead of competitors as major employers formalize project management hiring standards. Delaying leaves you at a disadvantage in a market where the credential is becoming more common among candidates for mid- to senior-level project roles across construction, healthcare, and manufacturing.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:06.302335Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "746f13c7e688837a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Reno's advanced manufacturing and logistics sector—anchored by Tesla's Gigafactory Nevada and major distribution operations—fuels steady demand for certified project managers across construction, warehousing, and infrastructure development. Downtown redevelopment and data center expansions add further momentum to the market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to working professionals throughout Reno, combining flexible scheduling with PMI-aligned curriculum to advance your career in this expanding economy.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:08.049164Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9982348f505b08a4",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Reno's logistics and advanced manufacturing boom—anchored by Tesla's Gigafactory Nevada and major distribution operations—has intensified demand for certified project managers across construction, data centers, and infrastructure development. The Tahoe Reno Industrial Center and downtown redevelopment projects continue to fuel steady hiring for professionals who can credential with PMI-CPMAI certification. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Reno professionals nationwide, helping you qualify for the roles reshaping the region.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:09.805680Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9982348f505b08a4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-reno-nv/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Reno, NV, AI courses Reno, CPMAI certification Reno, AI project management training Reno, NV, AI for project managers Reno",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\",\n      \"name\": \"PMI-CPMAI Certification Training in Reno, NV | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Reno, NV for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Reno, NV\",\n            \"item\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Reno, NV\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Reno, NV who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-reno-nv/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-reno-nv/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

@@ -1,348 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "ogden-ut",
-    "slug": "ai-training-ogden-ut",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "ogden-ut",
-        "city": "Ogden",
-        "state": "Utah",
-        "SS": "UT",
-        "city_slug": "ogden-ut",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Ogden's project management demand centers on aerospace and defense, anchored by Hill Air Force Base's F-35A modernization and Northrop Grumman's Promontory operations, alongside advanced manufacturing and healthcare systems. Certified project managers thrive in this compliance-driven, schedule-intensive environment. Granite PM Academy delivers live-virtual PMP® Certification to Ogden professionals seeking to advance in these high-demand sectors.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Ogden's aerospace and defense sector relies on project managers who can integrate AI tools into complex supply chains and manufacturing workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI's contact-hour requirements, giving you skills employers in the region actively seek. Master AI applications in scheduling, risk analysis, and resource optimization to advance your career in Ogden's high-demand industrial market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:52.243775Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a3880732167f86f1",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Ogden, Utah",
-            "text": "<p>Ogden's project management landscape is shaped fundamentally by Hill Air Force Base and the aerospace and defense contractors it anchors—a sector where compliance, precision scheduling, and risk management are non-negotiable. As artificial intelligence reshapes how project teams forecast timelines, allocate resources, and flag risks before they escalate, project managers in Ogden face a critical gap: many rely on traditional methods while their counterparts at defense contractors and advanced manufacturers increasingly integrate AI tools into day-to-day delivery. For professionals in Ogden seeking to remain competitive in government contracting, manufacturing, and federal services, AI training isn't a luxury—it's a career necessity that directly applies to the schedule-driven, audit-heavy environments that dominate the local job market.</p><p>Granite PM Academy delivers AI training for project managers through PMI-authorized, instructor-led courses that meet the rigorous contact-hour requirements PMI establishes for PMP® and CAPM® credential holders. Our live-virtual format accommodates Ogden's working professionals without requiring travel, while our instructors—all active certified practitioners with real-world experience—teach AI applications grounded in the same compliance and risk frameworks that aerospace, defense, and manufacturing teams depend on daily. Whether you're pursuing initial certification or maintaining your credential through professional development, our courses equip you with both the conceptual foundation and practical tools to deploy AI effectively in your projects, positioning you for advancement in Ogden's specialized, competitive PM market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:56.940012Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "b0b8791ce636773c",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills That Advance Your Ogden Career",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Credential Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your AI training course satisfies the contact-hour requirement for PMP® and CAPM® certification. You earn recognized credentials trusted by Ogden employers in aerospace, defense, and advanced manufacturing."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Schedule",
-                    "text": "Learn from active certified practitioners in live-virtual sessions that fit your Ogden work schedule. Instructors bring real project experience from industries like aerospace and healthcare, making AI tools directly applicable to the challenges you face."
-                },
-                {
-                    "heading": "Focused Exam Preparation",
-                    "text": "Granite PM Academy provides structured exam-prep support tailored to PMP® and CAPM® requirements. You receive practice questions, study guides, and instructor feedback designed to build confidence and competency before test day."
-                },
-                {
-                    "heading": "Local Demand, Proven ROI",
-                    "text": "Ogden's largest employers—Hill Air Force Base, Northrop Grumman, Autoliv, and Boeing—actively hire project managers with AI competency and PMI credentials. This certification positions you for advancement in the industries reshaping the region's workforce."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:00.585614Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "d67be3c288b7e0a0",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Ogden's Aerospace Hub",
-            "text": "<p>Ogden's economy centers on aerospace, defense, and advanced manufacturing—sectors where certified project managers are in steady demand. Hill Air Force Base and its contractor network, including Northrop Grumman and Boeing, consistently seek professionals who can manage complex programs and meet federal compliance standards. The F-35A beddown and facility modernization at Hill Air Force Base exemplifies the scale of projects that require disciplined, credentialed leadership. Beyond defense, Intermountain McKay-Dee Hospital, Weber State University's ongoing campus expansions, and Downtown Ogden's redevelopment initiatives all rely on project managers to coordinate timelines, budgets, and stakeholder alignment.</p><p>In Ogden's aerospace and defense sector, formal credentials like the PMP® are often required or strongly preferred by contractors working with federal agencies. Compensation for certified project managers tracks closely with broader Salt Lake City metro levels, and the most competitive offers concentrate in roles tied to Hill Air Force Base and advanced manufacturing operations. Completing the AI Training for Project Managers program through Granite PM Academy equips you with both the foundational project-management discipline and the emerging AI-integration skills that distinguish candidates in Ogden's high-demand contractor and government-adjacent roles. Whether you're pursuing the CAPM® as an entry point or advancing toward the PMP®, this credential accelerates your pathway into Ogden's strongest-growth sectors.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:05.120224Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "fe097c1488a4439c",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI training for project managers worth it in Ogden's aerospace sector?",
-                    "answer": "<p>Yes. Ogden's aerospace and defense ecosystem—anchored by Hill Air Force Base and its contractor network including Northrop Grumman and Boeing—increasingly expects project managers to understand AI applications in planning, risk analysis, and resource optimization. AI competency strengthens your candidacy for roles where PMP or CAPM credentials are already preferred or required, making you more competitive for the higher-paying positions this sector offers.</p>"
-                },
-                {
-                    "question": "Which Ogden employers most value AI-skilled project managers?",
-                    "answer": "<p>Aerospace/defense contractors tied to Hill Air Force Base, advanced manufacturing firms like Autoliv and Lifetime Products, and government-adjacent agencies including the IRS Ogden Service Center prioritize formal credentials and emerging technical skills. Healthcare systems and Weber State University also seek PMs who can lead digital transformation projects. AI training positions you as forward-thinking in industries where Ogden has the strongest job pipeline.</p>"
-                },
-                {
-                    "question": "Can I take the AI project management course while working in Ogden?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you attend from your workplace or home, accommodating Ogden professionals in shift-based roles (defense contractors, hospitals, government offices) or those juggling full-time jobs with certification study. You maintain your work schedule while completing the course on your timeline, ideal for professionals balancing immediate job demands with career advancement.</p>"
-                },
-                {
-                    "question": "When should Ogden project managers pursue AI certification given local job demand?",
-                    "answer": "<p>Now. Ogden's aerospace, defense, and advanced manufacturing sectors are actively hiring PMs and rewarding credential holders with roles that track closely to Salt Lake City metro compensation levels. Completing AI training before applying positions you ahead of the candidate pool, especially if you're targeting contractor or federal-adjacent positions where formal credentials unlock higher salary bands and security clearance pathways.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:10.814335Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "411cdc2b908a02d3",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Ogden's project management demand centers on aerospace and defense — anchored by Hill Air Force Base and contractors like Northrop Grumman — alongside advanced manufacturing, healthcare, and federal services. The F-35A beddown and facility modernization at the Base, combined with propulsion systems operations at Promontory, create steady roles for certified project managers navigating compliance and schedule-critical environments. Granite PM Academy delivers live-virtual AI Training for Project Managers to Ogden professionals seeking to advance their credentials and careers.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:12.559992Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "7e86f9190e6798e0",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "ogden-ut",
+  "slug": "ai-training-ogden-ut",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "ogden-ut",
+    "city": "Ogden",
+    "state": "Utah",
+    "SS": "UT",
+    "city_slug": "ogden-ut",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-ogden-ut/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Ogden, UT, AI courses Ogden, CPMAI certification Ogden, AI project management training Ogden, UT, AI for project managers Ogden",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\",\n      \"name\": \"AI Training for Project Managers in Ogden, UT — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Ogden, UT for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Ogden, UT\",\n            \"item\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#course\",\n      \"name\": \"AI Training for Project Managers in Ogden, UT\",\n      \"description\": \"CPMAI certification training for project managers in Ogden, UT who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Aerospace & Defense",
+      "Advanced Manufacturing",
+      "Healthcare",
+      "Government & Federal Services",
+      "Outdoor Products & Recreation Manufacturing",
+      "Education"
+    ],
+    "top_employers": [
+      "Hill Air Force Base",
+      "Autoliv",
+      "Intermountain McKay-Dee Hospital",
+      "Weber State University",
+      "Internal Revenue Service (Ogden Service Center)",
+      "Northrop Grumman",
+      "Lifetime Products",
+      "Amer Sports (Salomon/Atomic North America)",
+      "Ogden City School District",
+      "Boeing"
+    ],
+    "salary_note": "Project management compensation in the Ogden area tends to track closely with Salt Lake City metro pay scales, with the strongest demand and most competitive offers found in aerospace/defense and advanced manufacturing roles tied to Hill Air Force Base and its contractor network.",
+    "market_blurb": "Ogden's project management job market is anchored by its deep ties to Hill Air Force Base, aerospace and defense contractors, and a growing advanced manufacturing and outdoor products sector. Healthcare systems and public-sector employers, including federal offices and Weber State University, add steady demand for program and project coordination talent. The city's blend of government contracting and manufacturing creates consistent need for certified project managers who can navigate compliance-heavy, schedule-driven environments.",
+    "notable_projects": [
+      "Hill Air Force Base F-35A beddown and facility modernization",
+      "Northrop Grumman propulsion systems facility operations at Promontory",
+      "Weber State University campus facility expansions",
+      "Downtown Ogden redevelopment and business depot revitalization initiatives"
+    ],
+    "credential_demand": "PMP certification is particularly valued among Ogden's aerospace, defense, and government-adjacent employers, where formal project management credentials are often preferred or required for contractor and federal-adjacent roles; CAPM serves as a common entry point for those building toward these positions.",
+    "_researched": 1,
+    "city_spotlight": "<p>Ogden's project management demand centers on aerospace and defense, anchored by Hill Air Force Base and major contractors like Northrop Grumman operating advanced propulsion and manufacturing facilities across northern Utah. Government agencies, healthcare systems, and Weber State University add steady demand for skilled project coordinators in compliance-heavy, schedule-driven environments. Granite PM Academy delivers live-virtual PMP® Certification training to Ogden professionals nationwide, flexible scheduling for those managing complex programs locally.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Ogden's aerospace, defense, and advanced manufacturing sectors rely on skilled project managers to coordinate complex, regulated initiatives across Hill Air Force Base, Northrop Grumman, Autoliv, and Boeing operations. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirement, enabling you to earn this credential on your schedule while working. Holding PMI-CPMAI demonstrates your capability to lead projects in these high-demand industries and strengthens your competitive position in Ogden's project management job market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:15.009172Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3bdddef652f4ac6d",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Ogden's Aerospace & Defense Sector",
+      "text": "<p>Ogden's project management market is defined by its deep roots in aerospace and defense contracting, anchored by Hill Air Force Base and major defense manufacturers who demand certified professionals capable of managing complex, compliance-heavy, schedule-driven initiatives. The PMI-CPMAI (Certified Associate in Project Management) credential positions you to compete for roles across this sector and the city's expanding advanced manufacturing and healthcare industries, where structured project methodology is non-negotiable. For professionals in Ogden working within or seeking entry to these industries, PMI-CPMAI certification demonstrates mastery of project fundamentals and commitment to industry standards—a meaningful differentiator in a market where federal contracting, quality assurance, and risk management shape daily work.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals. Our curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners with real-world project experience. Whether you're advancing your career in Ogden or relocating to the region, our flexible online format lets you earn your credential without disrupting your schedule. Upon completion of training and successful exam passage, you'll hold a credential recognized across industries and employers—positioning you for expanded opportunities in project coordination, program management, and career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:19.164423Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a8858e109c89aed9",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification: Ogden's Aerospace & Defense Advantage",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy delivers PMI-CPMAI training as an authorized partner, ensuring your credential meets the strictest industry standards. Every course element aligns with PMI's rigorous requirements, giving you confidence your certification is recognized across Ogden's largest employers and beyond."
+        },
+        {
+          "heading": "Live-Virtual Instructors, Real Expertise",
+          "text": "Our instructors are active certified practitioners applying project and program management daily in their roles. Live-virtual sessions mean you learn directly from working professionals without sacrificing flexibility—critical for Ogden's working professionals balancing career and study."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "PMI-CPMAI exam readiness is woven throughout our curriculum, not tacked on at the end. You'll work through question formats, timing strategies, and domain focus alongside instructors who know what the exam tests—and how to help you pass it."
+        },
+        {
+          "heading": "High-Demand Credential in Ogden's Top Industries",
+          "text": "Hill Air Force Base, Northrop Grumman, Autoliv, and Intermountain McKay-Dee Hospital all employ program and portfolio managers who hold or pursue PMI credentials. PMI-CPMAI positions you for advancement in Ogden's aerospace, defense, advanced manufacturing, and healthcare sectors where this certification strengthens hiring and promotion prospects."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:23.715864Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "44881ca980da0390",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Ogden's Aerospace Hub",
+      "text": "<p>Ogden's economy centers on aerospace and defense, making it a regional hub for certified project managers. Hill Air Force Base and its contractor network—including Northrop Grumman, Boeing, and Autoliv—consistently recruit PMs to oversee complex operations and modernization initiatives. The F-35A beddown and facility modernization at Hill Air Force Base exemplifies the scale of projects managed locally. Beyond defense, employers like Intermountain McKay-Dee Hospital, Weber State University, and the Ogden City School District also rely on project management expertise for campus expansions, facility upgrades, and organizational initiatives, creating diverse career pathways across healthcare, education, and public administration.</p><p>PMP® and CAPM® credentials carry particular weight in Ogden's aerospace and government-adjacent sectors, where formal certifications are often preferred or required for advancement into contractor and federal-aligned roles. Project management compensation in the Ogden area aligns closely with Salt Lake City metro standards, with the most competitive offers concentrated in aerospace and advanced manufacturing positions tied to Hill Air Force Base and its supplier ecosystem. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively in this credential-conscious market. Our live-virtual format lets you earn your certification on your schedule while building the practical, standards-based skills that Ogden's largest employers actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:27.707750Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "aa6273689ce71764",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Ogden's Aerospace & Defense Hub",
+      "text": "<p>Ogden's economy centers on aerospace, defense, and advanced manufacturing—sectors where certified project managers are in steady demand. Hill Air Force Base and its contractor network, including Northrop Grumman and Boeing, consistently seek PMP®-credentialed professionals to lead complex initiatives. The F-35A beddown and facility modernization at Hill Air Force Base exemplifies the scale and sophistication of projects underway locally. Beyond defense, Intermountain McKay-Dee Hospital, Weber State University's ongoing campus facility expansions, and manufacturers like Autoliv and Lifetime Products all employ project managers to oversee operations and strategic initiatives. For those entering the field, CAPM® certification provides a recognized entry point; for experienced practitioners, PMP® credential unlocks roles on the largest and most technically demanding programs in the region.</p><p>In Ogden's aerospace and defense ecosystem, formal project management credentials are often preferred or required, particularly for contractor and federal-adjacent roles. Compensation for certified project managers in the Ogden area aligns with Salt Lake City metro pay scales, with the strongest demand and most competitive offers concentrated in aerospace, defense, and advanced manufacturing positions tied to Hill Air Force Base and its supplier network. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential expectation and advance into leadership roles where your certification is a genuine differentiator. Whether you're early in your career or transitioning into project management, earning your credential here opens access to Ogden's most dynamic and growing employers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:32.041034Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "aa6273689ce71764",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth it for Ogden aerospace and defense careers?",
+          "answer": "<p>Yes. Ogden's aerospace and defense sector—anchored by Hill Air Force Base and its contractor network—strongly values formal project management credentials, particularly PMP and CAPM, for advancement and federal-adjacent roles. PMI-CPMAI training positions you with the foundational skills and frameworks that employers in this region prioritize when evaluating candidates for contractor and government-adjacent positions where structured PM discipline is required or preferred.</p>"
+        },
+        {
+          "question": "Which Ogden employers hire project managers with PMI certifications?",
+          "answer": "<p>Ogden's largest employers in aerospace, defense, advanced manufacturing, and healthcare—including those in the Hill Air Force Base contractor ecosystem, medical device and hospital systems, and advanced manufacturing—regularly seek certified project managers. Government and federal-adjacent roles particularly value PMI credentials. While certification alone does not guarantee placement, it is a competitive credential within these industries and strengthens candidacy across Ogden's largest employment sectors.</p>"
+        },
+        {
+          "question": "How do Ogden project management salaries compare to Salt Lake City rates?",
+          "answer": "<p>Project management compensation in Ogden tracks closely with Salt Lake City metro pay scales. Strongest demand and most competitive offers are found in aerospace, defense, and advanced manufacturing roles tied to the Hill Air Force Base contractor network and related sectors. PMI-certified professionals in these fields typically command higher compensation than non-certified peers, reflecting the credential's value in Ogden's largest and fastest-growing employment markets.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training while working in Ogden?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is 100% live-virtual and delivered nationwide, so you can attend from anywhere—including your workplace or home in Ogden—on a schedule that fits your job. This format is ideal for Ogden professionals balancing employment at large regional employers with certification goals, and allows you to apply concepts to your current role in real time.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:37.878645Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "85c785319fc32f23",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Ogden's project management demand is rooted in aerospace and defense—Hill Air Force Base anchors the region's economy, supported by major contractors like Northrop Grumman and ongoing F-35A modernization initiatives. Healthcare systems, federal offices, and advanced manufacturing round out a job market that consistently seeks certified professionals who can manage compliance-heavy, schedule-driven work. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Ogden professionals, combining flexible scheduling with the credential employers here recognize and require.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:39.887381Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f6ca823b5bda5dfb",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Ogden's project management demand is rooted in aerospace and defense—Hill Air Force Base, Northrop Grumman, and Boeing anchor a market where compliance, scheduling precision, and federal contracting expertise are essential. Advanced manufacturing, healthcare systems, and federal offices including the IRS Service Center extend opportunity across sectors. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Ogden professionals nationwide, building the credentials employers in this regulated, mission-critical environment expect.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:41.782873Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f6ca823b5bda5dfb",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-ogden-ut/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Ogden, UT, AI courses Ogden, CPMAI certification Ogden, AI project management training Ogden, UT, AI for project managers Ogden",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\",\n      \"name\": \"PMI-CPMAI Certification Training in Ogden, UT | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Ogden, UT for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Ogden, UT\",\n            \"item\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Ogden, UT\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Ogden, UT who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-ogden-ut/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-ogden-ut/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

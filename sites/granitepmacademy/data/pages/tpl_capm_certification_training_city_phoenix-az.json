@@ -1,390 +1,436 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "phoenix-az",
-    "slug": "capm-certification-training-phoenix-az",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "phoenix-az",
-        "city": "Phoenix",
-        "state": "Arizona",
-        "SS": "AZ",
-        "city_slug": "phoenix-az",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier6"
-        ],
-        "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving sustained demand for skilled project managers, with major expansions like TSMC's North Phoenix fabrication facility and Intel's Ocotillo campus creating immediate PM opportunities. Healthcare systems, aerospace, financial services, and construction also fuel a diverse job market where certified professionals advance across industries. Granite PM Academy delivers live-virtual PMP® Certification to Phoenix professionals ready to credential for these expanding roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Phoenix's aerospace and defense sector relies heavily on entry-level project coordinators who hold CAPM® Certification. Granite PM Academy's live-virtual boot camp delivers PMI's required contact-hour education in an accelerated format, preparing you to pass the CAPM exam while balancing work and study. Earning this credential positions you for faster advancement into project management roles across Phoenix's growing manufacturing and defense-contractor base.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:17:54.336283Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "b8f01c969692da86",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Phoenix—Build Skills for Semiconductor & Advanced Manufacturing Growth",
-            "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving unprecedented demand for skilled project managers. As Intel, Honeywell, and other major players expand operations across the metro area, organizations need professionals who can lead cross-functional teams, manage timelines and budgets, and deliver results in complex technical environments. The Certified Associate in Project Management (CAPM®) credential signals to employers that you understand foundational project management frameworks and best practices—a competitive advantage in Phoenix's fast-growing industrial and tech sectors, where project complexity continues to rise alongside the region's diverse economic base spanning aerospace, healthcare systems, and financial services.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM® Certification & Boot Camp through live-virtual, instructor-led training taught by active certified practitioners who bring real-world project experience to every session. Our program satisfies the contact-hour requirements for CAPM® eligibility and prepares you to pass the PMI® exam with confidence. Whether you're advancing your career in Phoenix's semiconductor supply chain, healthcare infrastructure, or financial services sector, this boot camp format accelerates your readiness so you can test and earn your credential without prolonged classroom schedules. Start your path to CAPM® certification today and position yourself for the next opportunity in Phoenix's expanding project management market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:17:58.377051Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "45fd9ca80cb6757f",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Boot Camp: PMI-Authorized Certification in Phoenix",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Authorized by PMI Directly",
-                    "text": "Granite PM Academy's CAPM® program carries PMI Authorization, ensuring your training meets all official eligibility requirements for exam candidacy. No shortcuts—genuine credential recognition across Phoenix's major employers and industries."
-                },
-                {
-                    "heading": "Live Instruction, Real Hours",
-                    "text": "Synchronous, instructor-led virtual sessions satisfy PMI's contact-hour mandate for CAPM® eligibility. Engage directly with instructors, ask questions in real time, and complete your requirement without self-paced ambiguity or delays."
-                },
-                {
-                    "heading": "Instructors Still in the Field",
-                    "text": "Your instructors hold active CAPM®, PMP®, or Program Management Professional certifications and work on live projects. Learn from practitioners solving today's challenges at Honeywell, Intel, and aerospace firms—not textbook theory alone."
-                },
-                {
-                    "heading": "Arizona's Growing PM Demand",
-                    "text": "Intel's Phoenix expansion, Banner Health's system-wide projects, and aerospace growth at Honeywell fuel demand for credentialed project coordinators. CAPM® certification opens doors at the employers actively hiring across Phoenix's strongest sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:02.474391Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "4087df248ceac8c3",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Phoenix's Tech & Healthcare Hub",
-            "text": "<p>Phoenix's rapid growth in semiconductor manufacturing and healthcare has created sustained demand for certified project managers across major local employers. Intel, Honeywell, and Banner Health regularly seek PMs to lead complex initiatives—from Intel's Ocotillo campus expansion in nearby Chandler to Banner's ongoing healthcare system modernization. Similarly, the TSMC Arizona semiconductor fabrication facility expansion in North Phoenix represents the kind of large-scale, highly coordinated work that drives hiring for skilled project professionals. Financial services firms like Wells Fargo, Bank of America, and JPMorgan Chase also maintain significant operations here, each requiring experienced PMs for infrastructure and technology projects. Construction and real estate development firms managing the Phoenix Sky Harbor International Airport modernization and Loop 202 South Mountain Freeway construction add further breadth to local opportunity.</p><p>PMP and CAPM certifications are increasingly preferred or required qualifications in Phoenix-area job postings, particularly in construction, healthcare, and technology manufacturing sectors where competition for top talent is fierce. Project manager compensation in the region is competitive with national averages and tends to grow meaningfully for certified professionals compared to non-certified peers—a gap that widens as you advance. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you as a credible entry point into this expanding market, building the foundation for the PMP credential that will open doors across Phoenix's most dynamic industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:06.768647Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "eb8a2d76b4e6718e",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Phoenix",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary diploma or equivalent and meet the project management education requirement. CAPM uniquely requires no prior work experience—ideal if you're transitioning into PM roles across Phoenix's growing tech, aerospace, and construction sectors."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required contact hours into a focused program, allowing Phoenix professionals to balance certification study with existing commitments."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI and pay the exam fee through their official portal. Granite PM Academy guides you through each application field to ensure accurate submission and timely approval before your exam window opens."
-                },
-                {
-                    "heading": "Prepare and Sit for the CAPM Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and study guides to build confidence. Schedule your remote or in-person exam and complete the certification assessment on your timeline."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "Earn professional development units across the standard three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing education resources tailored to Phoenix's project management community."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:10.439424Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "28dfe59a8a4cd356",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Phoenix tech manufacturing careers?",
-                    "answer": "<p>Yes. Phoenix's semiconductor and advanced manufacturing sectors—anchored by major employers like Intel and Honeywell—increasingly seek project managers who can demonstrate structured PM fundamentals. CAPM establishes that foundation and is recognized locally as a springboard toward PMP certification, which commands higher compensation and preference in technical hiring across the region's expanding manufacturing base.</p>"
-                },
-                {
-                    "question": "Which Phoenix employers prefer or require CAPM or PMP certification?",
-                    "answer": "<p>Healthcare systems (Banner Health), financial services firms (Wells Fargo, Bank of America, Charles Schwab, JPMorgan Chase), aerospace and defense contractors, and technology manufacturers routinely list PMP or CAPM as preferred qualifications in local job postings. Construction and real estate development employers also value the credential. CAPM is recognized as a credible entry point in these competitive Phoenix markets.</p>"
-                },
-                {
-                    "question": "Can I attend Phoenix CAPM boot camp training while working remotely?",
-                    "answer": "<p>Yes. Our live-virtual format allows Phoenix professionals to attend from their workplace, home office, or anywhere with stable internet. This flexibility is especially valuable for employed professionals at major Phoenix employers who need to balance certification training with current project responsibilities without relocating or taking full days away from the office.</p>"
-                },
-                {
-                    "question": "How does Phoenix's growing PM demand affect CAPM certification timing?",
-                    "answer": "<p>Phoenix's job market for project managers is tightening as tech manufacturing and healthcare sectors expand, making earlier certification increasingly valuable. Pursuing CAPM now positions you ahead of rising competition and accelerates your path to PMP eligibility—allowing you to capture opportunities before saturation increases in a market where certified professionals already command measurably higher compensation.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:16.081472Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "bed8648417e2fb1b",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving sustained demand for skilled project managers, with major expansions like TSMC's Arizona fabrication facility and Intel's Ocotillo campus creating high-value PM roles across the metro. Healthcare systems, aerospace, and financial services—anchored by employers like Banner Health, Honeywell, and JPMorgan Chase—further strengthen career pathways for certified professionals. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp instruction to Phoenix professionals ready to advance in this growing market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:17.744314Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "f114cb5786d22cd2",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "phoenix-az",
+  "slug": "capm-certification-training-phoenix-az",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "phoenix-az",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "SS": "AZ",
+    "city_slug": "phoenix-az",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-phoenix-az/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Phoenix, AZ, CAPM boot camp Phoenix, CAPM training Phoenix, AZ, CAPM classes Phoenix AZ, CAPM exam prep Phoenix",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\",\n      \"name\": \"CAPM Certification & Boot Camp in Phoenix, AZ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Phoenix, AZ. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Phoenix, AZ\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Phoenix, AZ\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Phoenix, AZ. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Semiconductor & Advanced Manufacturing",
+      "Healthcare Systems",
+      "Aerospace & Defense",
+      "Financial Services & Banking",
+      "Construction & Real Estate Development",
+      "Technology"
+    ],
+    "top_employers": [
+      "Banner Health",
+      "Intel",
+      "Honeywell",
+      "Wells Fargo",
+      "Bank of America",
+      "American Express",
+      "Charles Schwab",
+      "City of Phoenix",
+      "Arizona State University",
+      "JPMorgan Chase",
+      "USAA",
+      "Freeport-McMoRan"
+    ],
+    "salary_note": "Project manager compensation in the Phoenix area tends to be competitive with national averages and varies significantly by industry and certification level, with PMP-certified professionals generally commanding higher pay than non-certified peers. Demand has grown alongside the region's expanding tech manufacturing and healthcare sectors, making experienced PMs increasingly sought after.",
+    "market_blurb": "Phoenix's project management job market is expanding steadily, fueled by growth in semiconductor manufacturing, healthcare systems, and financial services. Major infrastructure and corporate expansions across the metro area continue to create demand for skilled project and program managers. The city's diverse economic base, spanning tech, aerospace, and construction, offers strong career mobility for certified PM professionals.",
+    "notable_projects": [
+      "TSMC Arizona semiconductor fabrication facility expansion in North Phoenix",
+      "Phoenix Sky Harbor International Airport modernization and terminal projects",
+      "Loop 202 South Mountain Freeway construction",
+      "Intel's Ocotillo campus expansion in nearby Chandler"
+    ],
+    "credential_demand": "PMP certification is highly regarded among Phoenix-area employers, particularly in construction, healthcare, and technology manufacturing sectors, and frequently appears as a preferred or required qualification in local job postings. CAPM is also recognized as a valuable entry point for professionals building toward full PMP certification in this competitive market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector—anchored by major facility expansions like TSMC's North Phoenix operation—is driving sustained demand for skilled project managers across the metro area. Healthcare systems, aerospace, and financial services employers including Banner Health, Intel, and Honeywell continue to invest in infrastructure and corporate growth, creating strong career opportunities for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training to Phoenix professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-phoenix-az.webp",
+    "city_image_alt": "Downtown Phoenix Aerial Looking Northeast, AZ",
+    "city_image_credit": "Photo: DPPed, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Phoenix's aerospace, defense, semiconductor, and advanced manufacturing sectors depend on credentialed project managers to coordinate complex, regulated initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training that satisfies PMI's required contact-hour education, taught by active certified practitioners, on a schedule that fits working professionals. Earning your CAPM credential positions you to step into junior and mid-level project management roles across Phoenix's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:34.489113Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2e1876f5d5c212fc",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Phoenix's Growing PM Market",
+      "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's demand for skilled project managers, and the expansion shows no signs of slowing. With Intel, Honeywell, and related supply-chain operations driving major capital projects across the metro area, employers are actively seeking professionals who can demonstrate structured project management competency from day one. The Certified Associate in Project Management (CAPM®) credential has become a strategic entry point for career-focused professionals in Phoenix who want to stand out in a competitive landscape where construction, healthcare systems, financial services, and aerospace all compete for talent. In a city where infrastructure and corporate growth continue to accelerate, the CAPM® signals foundational PM knowledge that employers—from Banner Health to JPMorgan Chase—recognize and value.</p><p>Granite PM Academy delivers CAPM® Certification Training through live-virtual, instructor-led sessions taught by active certified practitioners with real-world project experience. As a PMI Authorized Training Partner, we deliver the contact-hour instruction required to satisfy PMI eligibility, allowing you to sit for the CAPM® exam with confidence. Our flexible, nationwide virtual format means you can complete training on a schedule that fits your professional commitments in Phoenix, without geographic constraints. Every session is interactive and instructor-paced, designed to translate PMI's Project Management Body of Knowledge (PMBOK®) into practical frameworks you'll use immediately. Upon completion, you'll hold a credential that opens doors across Phoenix's diverse industries and strengthens your trajectory toward PMP® certification and senior PM roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:39.120592Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "40d6d23696628117",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification Accelerates Your Phoenix Career Path",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training, Nationally Recognized",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering CAPM® training that meets PMI's rigorous standards. Your certification is recognized across Arizona's largest employers—Intel, Honeywell, Banner Health, and financial services firms actively hiring certified project managers."
+        },
+        {
+          "heading": "Live Instruction Fits Working Professionals",
+          "text": "Our live-virtual, instructor-led format satisfies all contact-hour requirements for CAPM® eligibility without disrupting your current role. Schedule flexibility lets you earn your credential while working full-time in Phoenix's semiconductor, healthcare, aerospace, or financial sectors."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Instructors are active certified professionals managing real projects across industries—not trainers reading slides. Their applied experience translates directly into exam-ready knowledge and practical skills you'll use immediately in your Phoenix-area position."
+        },
+        {
+          "heading": "Meet Phoenix Employer Demand for CAPM®",
+          "text": "Construction, aerospace, healthcare systems, and advanced manufacturing sectors across Phoenix increasingly require or prefer CAPM® certification for project coordinator and junior PM roles. Granite's exam-preparation support ensures first-attempt success, strengthening your candidacy with Banner Health, JPMorgan Chase, ASU, the City of Phoenix, and comparable organizations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:43.679950Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1db15b0b9ed0bf4a",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Phoenix's Tech Hub",
+      "text": "<p>Phoenix's rapid expansion in semiconductor manufacturing and advanced technology has made project management expertise increasingly central to the region's largest employers. Banner Health, Intel, Honeywell, and Freeport-McMoRan all actively recruit certified project managers to lead complex initiatives across healthcare systems, manufacturing, aerospace, and defense operations. The TSMC Arizona semiconductor fabrication facility expansion in North Phoenix and Intel's Ocotillo campus growth in nearby Chandler represent the scale of projects reshaping the local economy—undertakings that require experienced, credentialed professionals to coordinate resources, timelines, and cross-functional teams. Construction and real estate development firms managing the Phoenix Sky Harbor International Airport modernization and the Loop 202 South Mountain Freeway project similarly depend on certified PMs to deliver on schedule and within budget.</p><p>PMP certification is highly regarded among Phoenix-area employers, particularly in construction, technology manufacturing, and healthcare, and regularly appears as a preferred or required qualification in local job postings. CAPM certification serves as a recognized entry point for professionals building toward full PMP status in this competitive market. Earning your CAPM through Granite PM Academy's live-virtual program positions you to advance within Phoenix's fastest-growing sectors. Project manager compensation in the region remains competitive with national averages and tends to rise meaningfully with certification—a credential that signals credibility to employers across the industries driving Phoenix's growth and creates measurable career momentum in a market where demand continues to outpace supply.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:47.886117Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "20e3d6059d13edf4",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Phoenix",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree (high school diploma or equivalent) and completion of formal project management education—no prior work experience needed. This makes CAPM ideal for Phoenix professionals entering or transitioning into project management roles across semiconductor, aerospace, healthcare, and financial services sectors."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course. Our intensive format compresses foundational project management education into a structured schedule, allowing Phoenix professionals to balance certification study with work and family commitments."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and complete your official CAPM application, including verification of your secondary degree and completion of required education hours. Pay the associated exam fee to secure your testing eligibility."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Leverage Granite PM Academy's exam-preparation resources to review PMBOK Guide content and practice test formats. Schedule your computer-based exam through PMI's testing partner and complete the assessment on your timeline."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After certification, earn professional development units (PDUs) across a three-year renewal cycle to keep your CAPM active. Pursue ongoing learning through project management courses, conferences, and professional activities aligned with PMI standards."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:52.146190Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "f231f65c7d083489",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Phoenix project managers?",
+          "answer": "<p>Yes, especially if you work in Phoenix's growing tech manufacturing, healthcare, or aerospace sectors. CAPM is recognized by major local employers as a valuable entry credential and a solid foundation toward PMP certification. In a competitive market where certified professionals command higher compensation, CAPM signals commitment to the field and accelerates your pathway to roles demanding deeper project governance knowledge.</p>"
+        },
+        {
+          "question": "Which Phoenix industries most value CAPM certification?",
+          "answer": "<p>Semiconductor manufacturing, healthcare systems, aerospace & defense, financial services, and construction & real estate development actively seek certified project managers. Intel, Banner Health, Honeywell, and firms in Arizona's defense and construction sectors regularly list PMP and CAPM as preferred qualifications. CAPM positions you as job-ready in these high-demand fields and strengthens your candidacy for advancement.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CAPM training from my Phoenix workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers live-virtual instructor-led training nationwide, so you can attend from your office, home, or any location with internet access. This flexibility is ideal for Phoenix professionals balancing full-time roles at major employers or juggling construction or healthcare schedules. You'll interact with instructors and cohorts in real time without commuting or relocating.</p>"
+        },
+        {
+          "question": "How does Phoenix's growing job market affect CAPM certification timing?",
+          "answer": "<p>Phoenix's expanding tech and healthcare sectors are driving sustained demand for credentialed project managers. Earning CAPM sooner positions you to capitalize on current hiring momentum and salary growth in these industries. Waiting risks missing roles that list certification as preferred or required—particularly as competition intensifies among candidates in this fast-growing region.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:57.360705Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "26530f9a6522f181",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is accelerating, with major facility expansions driving sustained demand for skilled project managers across the metro area. Employers like Intel, Banner Health, and financial services leaders actively recruit CAPM-certified professionals to lead mission-critical initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training to Phoenix professionals, enabling you to earn your credential on your schedule while positioned for immediate career impact in this thriving market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:58.962029Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "cb5db0ee38568417",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-phoenix-az/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Phoenix, AZ, CAPM boot camp Phoenix, CAPM training Phoenix, AZ, CAPM classes Phoenix AZ, CAPM exam prep Phoenix",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\",\n      \"name\": \"CAPM Certification Training in Phoenix, AZ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Phoenix, AZ. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Phoenix, AZ\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#course\",\n      \"name\": \"CAPM Certification Training in Phoenix, AZ\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Phoenix, AZ. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-phoenix-az/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

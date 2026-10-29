@@ -1,402 +1,403 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "bellevue-wa",
-  "slug": "pmp-bootcamp-bellevue-wa",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "bellevue-wa",
-    "city": "Bellevue",
-    "state": "Washington",
-    "SS": "WA",
-    "city_slug": "bellevue-wa",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier2",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "bellevue-wa",
+    "slug": "pmp-bootcamp-bellevue-wa",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "bellevue-wa",
+        "city": "Bellevue",
+        "state": "Washington",
+        "SS": "WA",
+        "city_slug": "bellevue-wa",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier2",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Telecommunications",
+            "Trucking/heavy-equipment manufacturing",
+            "Global logistics/freight forwarding",
+            "Technology",
+            "Commercial real estate development"
+        ],
+        "top_employers": [
+            "T-Mobile US",
+            "Paccar",
+            "Expeditors International of Washington",
+            "Meta (Spring District campus)"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Bellevue is headquarters to T-Mobile US, Paccar, and Expeditors International, with Meta's major Spring District campus and a strong downtown Microsoft presence adding a large tech-sector footprint alongside telecom, trucking, and logistics.",
+        "notable_projects": [
+            "The Spring District - 36-acre, $2.3B transit-oriented mixed-use development; Meta occupies nine buildings on the former REI HQ campus",
+            "Bellevue Downtown light rail station (opened 2024, part of Sound Transit's East Link extension)"
+        ],
+        "credential_demand": "Between T-Mobile's network/technology programs, Paccar's manufacturing operations, and large-scale real estate builds like the Spring District, PMP certification is plausibly valued across Bellevue's telecom, logistics, and tech-adjacent project management roles.",
+        "_researched": 1,
+        "city_spotlight": "<p>Bellevue's employer base includes T-Mobile US, Paccar, Expeditors International of Washington, Meta (Spring District campus). Bellevue is headquarters to T-Mobile US, Paccar, and Expeditors International, with Meta's major Spring District campus and a strong downtown Microsoft presence adding a large tech-sector footprint alongside telecom, trucking, and logistics. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Bellevue professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Bellevue's telecommunications, logistics, and technology sectors rely on PMP®-certified leaders to manage complex infrastructure and product delivery at scale. Granite PM Academy's live-virtual PMP Bootcamp delivers the instructor-led contact hours required by PMI, fitting intensive preparation around your work schedule. Earning your PMP® credential positions you for advancement in roles spanning T-Mobile US, Expeditors International, and the region's expanding commercial real estate and manufacturing projects.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:25.587097Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "587c46c5b85ac134",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Bellevue: Fast-Track Certification for Project Managers",
+            "text": "<p>Bellevue's telecommunications and logistics sectors—anchored by T-Mobile US, Paccar, and Expeditors International—depend on skilled project managers to deliver complex, mission-critical initiatives across global supply chains and enterprise infrastructure. A PMP® certification signals to these employers and others across Bellevue's technology and real-estate development communities that you can lead cross-functional teams, manage risk, and deliver on schedule and budget. For professionals in this competitive market, the PMP® credential opens doors to leadership roles and stronger compensation prospects in an industry where certified practitioners command meaningful respect.</p><p>Granite PM Academy's intensive PMP® Bootcamp is a live-virtual, instructor-led program designed to help you meet PMI's contact-hour requirements while preparing thoroughly for the certification exam. Our active certified practitioners bring real-world project experience to every session, translating framework concepts into practical application you'll use immediately. Whether you're employed in Bellevue or working remotely for a company headquartered here, our flexible virtual format lets you study on your schedule while remaining fully engaged with instructors and cohort members. Upon completion, you'll be well-positioned to apply for your PMP® credential and advance your career in project management.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:29.570175Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "5fb5843ecd8bb6bc",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Bellevue's Tech and Logistics Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility requirements, eliminating guesswork about credential acceptance and ensuring you meet PMI's official standards from day one."
+                },
+                {
+                    "heading": "Live Instruction, Flexible Schedule",
+                    "text": "Attend live-virtual instructor-led sessions that satisfy contact-hour requirements without commuting. Learn alongside peers across the country while maintaining your current role—ideal for Bellevue professionals balancing work and certification goals."
+                },
+                {
+                    "heading": "Instructors Who Practice Daily",
+                    "text": "Your instructors are active certified practitioners, not classroom-only trainers. They bring current real-world project challenges and solutions into every session, grounding PMP frameworks in the hands-on experience that shapes exam success and on-the-job confidence."
+                },
+                {
+                    "heading": "Credential Valued by Local Employers",
+                    "text": "Bellevue's technology, telecommunications, and logistics sectors—including major firms like T-Mobile US, Paccar, and Meta—actively seek PMP-certified professionals for program leadership roles. This bootcamp aligns your credential with the market demand strongest in your region."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:33.585427Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "259e496e9b125828",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Bellevue's Tech and Innovation Hub",
+            "text": "<p>T-Mobile US, Paccar, and Expeditors International of Washington all maintain significant operations in Bellevue, creating steady demand for certified project managers across telecommunications, manufacturing, and global logistics. Beyond those anchors, the Spring District—a $2.3 billion transit-oriented mixed-use development—and Meta's nine-building campus on the former REI headquarters site represent large-scale infrastructure and technology projects that require skilled PM leadership. These employers and initiatives reflect Bellevue's role as a regional center for complex, mission-critical operations where structured project discipline directly drives business outcomes.</p><p>The PMP® credential carries proven earning power: nationally, PMP-certified practitioners report significantly higher median compensation than their non-certified peers, a premium that holds across most regions and industries. In Bellevue's competitive market—where telecom infrastructure builds, equipment manufacturing timelines, and real estate development cycles demand rigorous scope and cost control—certification distinguishes you as someone equipped to lead high-stakes initiatives. Completing the PMP Bootcamp through Granite PM Academy equips you with the framework, vocabulary, and credibility to step into or advance within project management roles across Bellevue's dominant sectors, positioning you to command better opportunities as the region's technology and development footprint continues to expand.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:37.702707Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "6228946c2e3877aa",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Bellevue",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus project-management experience, or a high school diploma with additional experience hours. Review PMI's education and work-hour requirements to confirm you meet the credential's baseline qualifications before enrolling."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp. Attend interactive, instructor-led sessions on your schedule. This formal education covers all five process groups and knowledge areas PMI tests, and fulfills the mandatory contact-hour requirement."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing the bootcamp, create your PMI account and submit your official PMP application, documenting your education and project experience. Pay the PMI exam fee to activate your eligibility window for sitting the exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-prep resources—practice questions, strategy sessions, and study guides—to reinforce the bootcamp content. Schedule your PMP exam at a Pearson VUE testing center and take the computer-based exam when ready."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "Earn Professional Development Units (PDUs) every three years to keep your credential active. Pursue training, conference attendance, volunteer work, or other PMI-approved activities aligned with your career growth and your local job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:42.461377Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "92172bfb647e5fac",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Bellevue tech and telecom project managers?",
+                    "answer": "<p>T-Mobile US, Meta's Spring District campus, and major tech vendors operating in Bellevue increasingly expect or prefer PMP certification for senior project management roles. Across telecommunications, technology, and adjacent sectors, PMI data shows PMP-certified professionals report a median salary premium of roughly $26,000 annually over non-certified peers nationally—a gap that typically holds in high-cost markets like Bellevue where employer investment in certified talent is substantial.</p>"
+                },
+                {
+                    "question": "Which Bellevue industries hire PMP-certified project managers most?",
+                    "answer": "<p>Bellevue's largest employers span telecommunications (T-Mobile US), heavy equipment manufacturing (Paccar), global logistics (Expeditors International), and technology development. All four sectors rely on PMP-certified professionals to lead complex, multi-stakeholder initiatives. Manufacturing and logistics operations especially value the credential for supply-chain and production projects; tech campuses rely on it for infrastructure and product launches.</p>"
+                },
+                {
+                    "question": "Can I attend a live-virtual PMP Bootcamp while working in Bellevue?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is 100% live-virtual, designed for working professionals. You can join from your Bellevue office, home, or anywhere with reliable internet, fitting the course into your existing schedule without relocation or travel. This format is especially convenient for Bellevue-area employees juggling roles at major employers or managing client projects across time zones.</p>"
+                },
+                {
+                    "question": "Should Bellevue project managers get PMP certified now or wait?",
+                    "answer": "<p>Bellevue's job market—driven by active hiring at T-Mobile, Paccar, Meta, and commercial real estate developers—creates steady demand for certified project managers. If your role involves coordinating cross-functional teams, managing budgets, or leading infrastructure or product initiatives, the credential strengthens your candidacy immediately. Waiting risks missing advancement opportunities within your current employer or in Bellevue's competitive talent market.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:48.597924Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "bab40334b4060d62",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Bellevue's headquarters for T-Mobile US, Paccar, and Meta's sprawling Spring District campus create sustained demand for skilled project managers across telecommunications, logistics, and tech. The Bellevue Downtown light rail station opening in 2024 and the $2.3B Spring District transit-oriented development underscore the region's appetite for leaders who can navigate complex, large-scale initiatives. Granite PM Academy delivers live-virtual PMP® Bootcamp training to Bellevue professionals seeking PMI® certification on a schedule that fits working life.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:50.517929Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "217ff085f41f553b",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Telecommunications",
-      "Trucking/heavy-equipment manufacturing",
-      "Global logistics/freight forwarding",
-      "Technology",
-      "Commercial real estate development"
-    ],
-    "top_employers": [
-      "T-Mobile US",
-      "Paccar",
-      "Expeditors International of Washington",
-      "Meta (Spring District campus)"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Bellevue is headquarters to T-Mobile US, Paccar, and Expeditors International, with Meta's major Spring District campus and a strong downtown Microsoft presence adding a large tech-sector footprint alongside telecom, trucking, and logistics.",
-    "notable_projects": [
-      "The Spring District - 36-acre, $2.3B transit-oriented mixed-use development; Meta occupies nine buildings on the former REI HQ campus",
-      "Bellevue Downtown light rail station (opened 2024, part of Sound Transit's East Link extension)"
-    ],
-    "credential_demand": "Between T-Mobile's network/technology programs, Paccar's manufacturing operations, and large-scale real estate builds like the Spring District, PMP certification is plausibly valued across Bellevue's telecom, logistics, and tech-adjacent project management roles.",
-    "_researched": 1,
-    "city_spotlight": "<p>Bellevue's employer base includes T-Mobile US, Paccar, Expeditors International of Washington, Meta (Spring District campus). Bellevue is headquarters to T-Mobile US, Paccar, and Expeditors International, with Meta's major Spring District campus and a strong downtown Microsoft presence adding a large tech-sector footprint alongside telecom, trucking, and logistics. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Bellevue professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Bellevue's telecommunications, logistics, and technology sectors rely on PMP®-certified leaders to manage complex infrastructure and product delivery at scale. Granite PM Academy's live-virtual PMP Bootcamp delivers the instructor-led contact hours required by PMI, fitting intensive preparation around your work schedule. Earning your PMP® credential positions you for advancement in roles spanning T-Mobile US, Expeditors International, and the region's expanding commercial real estate and manufacturing projects.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:25.587097Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "587c46c5b85ac134",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Bellevue, WA, PMP bootcamp Bellevue, PMP certification boot camp Bellevue, WA, PMP bootcamp near me, intensive PMP training Bellevue",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\",\n      \"name\": \"PMP Bootcamp in Bellevue, WA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Bellevue, WA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Bellevue, WA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#course\",\n      \"name\": \"PMP Bootcamp in Bellevue, WA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Bellevue, WA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Bellevue: Fast-Track Certification for Project Managers",
-      "text": "<p>Bellevue's telecommunications and logistics sectors—anchored by T-Mobile US, Paccar, and Expeditors International—depend on skilled project managers to deliver complex, mission-critical initiatives across global supply chains and enterprise infrastructure. A PMP® certification signals to these employers and others across Bellevue's technology and real-estate development communities that you can lead cross-functional teams, manage risk, and deliver on schedule and budget. For professionals in this competitive market, the PMP® credential opens doors to leadership roles and stronger compensation prospects in an industry where certified practitioners command meaningful respect.</p><p>Granite PM Academy's intensive PMP® Bootcamp is a live-virtual, instructor-led program designed to help you meet PMI's contact-hour requirements while preparing thoroughly for the certification exam. Our active certified practitioners bring real-world project experience to every session, translating framework concepts into practical application you'll use immediately. Whether you're employed in Bellevue or working remotely for a company headquartered here, our flexible virtual format lets you study on your schedule while remaining fully engaged with instructors and cohort members. Upon completion, you'll be well-positioned to apply for your PMP® credential and advance your career in project management.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:29.570175Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "5fb5843ecd8bb6bc",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Bellevue's Tech and Logistics Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility requirements, eliminating guesswork about credential acceptance and ensuring you meet PMI's official standards from day one."
-        },
-        {
-          "heading": "Live Instruction, Flexible Schedule",
-          "text": "Attend live-virtual instructor-led sessions that satisfy contact-hour requirements without commuting. Learn alongside peers across the country while maintaining your current role—ideal for Bellevue professionals balancing work and certification goals."
-        },
-        {
-          "heading": "Instructors Who Practice Daily",
-          "text": "Your instructors are active certified practitioners, not classroom-only trainers. They bring current real-world project challenges and solutions into every session, grounding PMP frameworks in the hands-on experience that shapes exam success and on-the-job confidence."
-        },
-        {
-          "heading": "Credential Valued by Local Employers",
-          "text": "Bellevue's technology, telecommunications, and logistics sectors—including major firms like T-Mobile US, Paccar, and Meta—actively seek PMP-certified professionals for program leadership roles. This bootcamp aligns your credential with the market demand strongest in your region."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:33.585427Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "259e496e9b125828",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Bellevue's Tech and Innovation Hub",
-      "text": "<p>T-Mobile US, Paccar, and Expeditors International of Washington all maintain significant operations in Bellevue, creating steady demand for certified project managers across telecommunications, manufacturing, and global logistics. Beyond those anchors, the Spring District—a $2.3 billion transit-oriented mixed-use development—and Meta's nine-building campus on the former REI headquarters site represent large-scale infrastructure and technology projects that require skilled PM leadership. These employers and initiatives reflect Bellevue's role as a regional center for complex, mission-critical operations where structured project discipline directly drives business outcomes.</p><p>The PMP® credential carries proven earning power: nationally, PMP-certified practitioners report significantly higher median compensation than their non-certified peers, a premium that holds across most regions and industries. In Bellevue's competitive market—where telecom infrastructure builds, equipment manufacturing timelines, and real estate development cycles demand rigorous scope and cost control—certification distinguishes you as someone equipped to lead high-stakes initiatives. Completing the PMP Bootcamp through Granite PM Academy equips you with the framework, vocabulary, and credibility to step into or advance within project management roles across Bellevue's dominant sectors, positioning you to command better opportunities as the region's technology and development footprint continues to expand.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:37.702707Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "6228946c2e3877aa",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Bellevue",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a bachelor's degree plus project-management experience, or a high school diploma with additional experience hours. Review PMI's education and work-hour requirements to confirm you meet the credential's baseline qualifications before enrolling."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp. Attend interactive, instructor-led sessions on your schedule. This formal education covers all five process groups and knowledge areas PMI tests, and fulfills the mandatory contact-hour requirement."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing the bootcamp, create your PMI account and submit your official PMP application, documenting your education and project experience. Pay the PMI exam fee to activate your eligibility window for sitting the exam."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-prep resources—practice questions, strategy sessions, and study guides—to reinforce the bootcamp content. Schedule your PMP exam at a Pearson VUE testing center and take the computer-based exam when ready."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "Earn Professional Development Units (PDUs) every three years to keep your credential active. Pursue training, conference attendance, volunteer work, or other PMI-approved activities aligned with your career growth and your local job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:42.461377Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "92172bfb647e5fac",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Bellevue tech and telecom project managers?",
-          "answer": "<p>T-Mobile US, Meta's Spring District campus, and major tech vendors operating in Bellevue increasingly expect or prefer PMP certification for senior project management roles. Across telecommunications, technology, and adjacent sectors, PMI data shows PMP-certified professionals report a median salary premium of roughly $26,000 annually over non-certified peers nationally—a gap that typically holds in high-cost markets like Bellevue where employer investment in certified talent is substantial.</p>"
-        },
-        {
-          "question": "Which Bellevue industries hire PMP-certified project managers most?",
-          "answer": "<p>Bellevue's largest employers span telecommunications (T-Mobile US), heavy equipment manufacturing (Paccar), global logistics (Expeditors International), and technology development. All four sectors rely on PMP-certified professionals to lead complex, multi-stakeholder initiatives. Manufacturing and logistics operations especially value the credential for supply-chain and production projects; tech campuses rely on it for infrastructure and product launches.</p>"
-        },
-        {
-          "question": "Can I attend a live-virtual PMP Bootcamp while working in Bellevue?",
-          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is 100% live-virtual, designed for working professionals. You can join from your Bellevue office, home, or anywhere with reliable internet, fitting the course into your existing schedule without relocation or travel. This format is especially convenient for Bellevue-area employees juggling roles at major employers or managing client projects across time zones.</p>"
-        },
-        {
-          "question": "Should Bellevue project managers get PMP certified now or wait?",
-          "answer": "<p>Bellevue's job market—driven by active hiring at T-Mobile, Paccar, Meta, and commercial real estate developers—creates steady demand for certified project managers. If your role involves coordinating cross-functional teams, managing budgets, or leading infrastructure or product initiatives, the credential strengthens your candidacy immediately. Waiting risks missing advancement opportunities within your current employer or in Bellevue's competitive talent market.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:48.597924Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "bab40334b4060d62",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Bellevue's headquarters for T-Mobile US, Paccar, and Meta's sprawling Spring District campus create sustained demand for skilled project managers across telecommunications, logistics, and tech. The Bellevue Downtown light rail station opening in 2024 and the $2.3B Spring District transit-oriented development underscore the region's appetite for leaders who can navigate complex, large-scale initiatives. Granite PM Academy delivers live-virtual PMP® Bootcamp training to Bellevue professionals seeking PMI® certification on a schedule that fits working life.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:50.517929Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "217ff085f41f553b",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Bellevue, WA, PMP bootcamp Bellevue, PMP certification boot camp Bellevue, WA, PMP bootcamp near me, intensive PMP training Bellevue",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\",\n      \"name\": \"PMP Bootcamp in Bellevue, WA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Bellevue, WA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Bellevue, WA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#course\",\n      \"name\": \"PMP Bootcamp in Bellevue, WA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Bellevue, WA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bellevue-wa/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

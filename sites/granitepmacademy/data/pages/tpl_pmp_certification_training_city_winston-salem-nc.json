@@ -1,394 +1,424 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "winston-salem-nc",
-    "slug": "pmp-certification-training-winston-salem-nc",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "winston-salem-nc",
-        "city": "Winston-Salem",
-        "state": "North Carolina",
-        "SS": "NC",
-        "city_slug": "winston-salem-nc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Winston-Salem's healthcare and biotech sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and the expanding Wake Forest Innovation Quarter—drive consistent demand for skilled project managers across clinical, research, and campus development initiatives. Banking, advanced manufacturing, and logistics round out a diversified employer base that values PMP certification for career advancement. Granite PM Academy delivers live-virtual PMP Certification training to Winston-Salem professionals seeking to meet industry standards and unlock leadership roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Winston-Salem's healthcare and manufacturing sectors rely on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, preparing you to sit for the exam while maintaining your current work schedule. Earning your PMP credential opens doors to leadership roles and competitive compensation across the region's largest employers.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:55.741206Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "821a82fe7f367e4e",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Winston-Salem for Healthcare Leaders",
-            "text": "<p>Winston-Salem's healthcare sector—anchored by organizations like Novant Health and Atrium Health Wake Forest Baptist—depends on skilled project and program managers to deliver complex clinical initiatives, facility expansions, and digital transformation programs. Project managers in healthcare face distinctive pressures: regulatory compliance, cross-functional team coordination, and tight timelines that directly affect patient outcomes. The PMP® credential is the recognized standard in this environment, signaling to employers that you understand healthcare-specific constraints and can lead programs from initiation through closure. For professionals working within Winston-Salem's thriving biotech and life sciences ecosystem, as well as those in banking and advanced manufacturing, PMP certification opens pathways to senior leadership roles and positions you competitively in a market where demand for certified program managers remains steady.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP Certification Training aligned with PMI's rigorous contact-hour requirements. Our instructors are active, working certified practitioners who bring real-world experience from projects across healthcare, finance, logistics, and manufacturing—the very sectors driving Winston-Salem's economy. We structure each course to fit working professionals' schedules while ensuring you master the PMBOK® Guide framework and exam domains thoroughly. Upon completion, you'll hold the hours required to sit for the PMP® exam, equipped with study resources and confidence to earn your credential. Whether you're advancing within Truist, Novant Health, or another local employer, Granite PM Academy's certification training is your foundation for career growth in Winston-Salem's competitive project-management market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:00.930019Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "8983ac329a11d7b4",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification for Winston-Salem's Growing PM Workforce",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Path",
-                    "text": "Granite PM Academy is an authorized PMI training partner, ensuring your instruction meets PMI standards for the PMP credential. This recognition guarantees your contact hours are accepted toward eligibility requirements."
-                },
-                {
-                    "heading": "Live Virtual Instruction, Your Schedule",
-                    "text": "Attend instructor-led classes online at times that fit your work and life. Real-time instruction from active practitioners satisfies PMI's contact-hour requirement without requiring classroom travel in the Piedmont region."
-                },
-                {
-                    "heading": "Exam Readiness Built In",
-                    "text": "Study alongside instructors actively applying project management in their fields today. Focused exam-preparation support, not just theory, positions you to pass the PMP on your timeline."
-                },
-                {
-                    "heading": "Demand Among Winston-Salem Employers",
-                    "text": "Healthcare systems, financial institutions, manufacturers, and logistics firms across Winston-Salem actively hire certified project managers. The PMP credential strengthens your candidacy at employers like Novant Health, Truist Financial, and Old Dominion Freight Line."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:04.826108Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "07983e52ddd6eebb",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Winston-Salem's Growing Sectors",
-            "text": "<p>Winston-Salem's healthcare and financial-services sectors are among the region's largest employers of project managers and coordinators. Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial all manage complex, ongoing initiatives that require disciplined project delivery—from clinical system implementations to regulatory compliance projects and infrastructure upgrades. The Wake Forest Innovation Quarter expansion, a major biotech and research campus redevelopment in downtown Winston-Salem, represents the kind of large-scale, cross-functional initiative that organizations increasingly staff with PMP-certified professionals. Manufacturing employers like Hanesbrands and Reynolds American similarly rely on certified project managers to oversee supply-chain, operational, and facility projects where structured methodology and risk management directly impact the bottom line.</p><p>A PMP or CAPM credential strengthens your candidacy in this market, especially if you bring experience in healthcare, financial services, or manufacturing—the industries where Winston-Salem employers most actively seek certified professionals. While compensation in Winston-Salem generally tracks slightly below larger metros like Charlotte or Raleigh, the steady demand from major healthcare systems, banking institutions, and established manufacturers keeps project-management roles competitive and stable. Completing your PMP Certification Training with Granite PM Academy positions you to move into or advance within these well-anchored local employers, where regulatory compliance priorities and structured project delivery make the credential a meaningful differentiator in hiring and promotion decisions.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:08.886894Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "27f22ecac45b893a",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Winston-Salem",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Review PMI's education and professional experience requirements for the PMP credential. You'll need either a four-year degree with specific project-management experience, or a high-school diploma with additional years in the field. Verify your background meets PMI standards before proceeding."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours of Training",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP preparation course. Our instructors deliver the PMI-mandated contact hours on a schedule that fits working professionals. You'll learn the PMBOK® Guide framework, exam domains, and real-world application in an interactive classroom setting."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Create your PMI account and submit your PMP application, including documentation of your education and project-management experience. Pay the required exam fee through PMI's portal. Our team can guide you through the submission process to ensure accuracy and avoid delays."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor support. Schedule your exam at a testing center convenient to you. On exam day, you'll answer questions designed to assess your knowledge of project-management principles and the PMBOK® Guide."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After earning your PMP, commit to a three-year renewal cycle. Earn professional development units (PDUs) through training, conference attendance, volunteer work, or mentoring. Granite PM Academy offers continuing-education courses to help you meet renewal requirements and stay current in the field."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:13.382790Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "fa7467b626501e49",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth it for project managers in Winston-Salem?",
-                    "answer": "<p>Yes, particularly if you work in healthcare, banking, or manufacturing—Winston-Salem's dominant sectors. Employers like Novant Health, Truist Financial, and Reynolds American increasingly value PMP certification for roles requiring structured delivery and regulatory compliance. While not universally required, the credential strengthens candidacy for project coordinator and manager positions and can support negotiation for competitive compensation in a market where demand remains steady.</p>"
-                },
-                {
-                    "question": "Which Winston-Salem employers actively hire PMP-certified project managers?",
-                    "answer": "<p>Healthcare systems (Novant Health, Atrium Health Wake Forest Baptist), financial institutions (Truist), manufacturing firms (Hanesbrands, Corning, Reynolds American), and logistics companies (Old Dominion Freight Line) all employ project managers and value PMP or CAPM credentials. Wake Forest University and government agencies also manage significant projects where certification enhances credibility. These sectors prioritize formal project governance and risk management, making PMP holders competitive candidates.</p>"
-                },
-                {
-                    "question": "Can I attend PMP training in Winston-Salem while working at my current job?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to attend classes from your workplace or home, fitting training around your existing schedule. This is especially valuable for Winston-Salem professionals balancing roles at healthcare networks, financial services firms, or manufacturing plants. You complete coursework on your timeline without relocating or taking extended time off.</p>"
-                },
-                {
-                    "question": "How does Winston-Salem's job market affect PMP certification timing?",
-                    "answer": "<p>Winston-Salem's steady demand for project managers in healthcare, banking, and manufacturing means PMP certification can be pursued strategically throughout your career—not just during job searches. Many employers here support professional development, and certifying before a promotion or role transition positions you competitively. Early certification in entry-level coordinator roles can accelerate advancement to manager-level positions where compensation gains are most meaningful.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:18.572424Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "2e2749239529dbbe",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Winston-Salem's healthcare and advanced manufacturing sectors—anchored by Truist, Novant Health, and Atrium Health Wake Forest Baptist—create consistent demand for skilled project managers. The city's expanding biotech innovation districts and major initiatives like the Wake Forest Innovation Quarter redevelopment further strengthen PM career opportunities across multiple industries. Granite PM Academy delivers live-virtual PMP® Certification Training to Winston-Salem professionals ready to advance their credentials and earning potential.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:09:20.073266Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "d80210e5df6b1107",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "winston-salem-nc",
+  "slug": "pmp-certification-training-winston-salem-nc",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "winston-salem-nc",
+    "city": "Winston-Salem",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "winston-salem-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Winston-Salem, NC, PMP exam prep Winston-Salem, PMP course Winston-Salem NC, project management certification Winston-Salem, NC, PMI PMP training Winston-Salem",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\",\r\n      \"name\": \"PMP Certification Training in Winston-Salem, NC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Winston-Salem, NC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Winston-Salem, NC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#course\",\r\n      \"name\": \"PMP Certification Training in Winston-Salem, NC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Winston-Salem, NC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Healthcare and biomedical research",
+      "Banking and financial services",
+      "Manufacturing (tobacco, textiles, and industrial products)",
+      "Higher education",
+      "Biotechnology and life sciences",
+      "Logistics and distribution"
+    ],
+    "top_employers": [
+      "Truist Financial",
+      "Novant Health",
+      "Atrium Health Wake Forest Baptist",
+      "Wake Forest University",
+      "Reynolds American (R.J. Reynolds Tobacco Company)",
+      "Hanesbrands",
+      "Krispy Kreme",
+      "Corning Incorporated",
+      "Herbalife Nutrition",
+      "City of Winston-Salem",
+      "Forsyth County Government",
+      "Old Dominion Freight Line"
+    ],
+    "salary_note": "Project manager compensation in Winston-Salem tends to track slightly below larger metros like Charlotte or Raleigh but remains competitive due to steady demand from healthcare systems, banking, and manufacturing employers. Candidates with PMP certification and healthcare, IT, or financial-services experience are generally positioned for stronger offers.",
+    "market_blurb": "Winston-Salem's project management job market is shaped by its strong healthcare, banking, and advanced manufacturing base, anchored by organizations like Truist, Novant Health, and Atrium Health Wake Forest Baptist. The city's ongoing growth in biotechnology and innovation districts, along with its legacy manufacturing and logistics sectors, continues to generate steady demand for project and program managers. Wake Forest University and the broader Piedmont Triad region also support a pipeline of PM talent moving into local industry roles.",
+    "notable_projects": [
+      "Wake Forest Innovation Quarter expansion (biotech and research campus redevelopment in downtown Winston-Salem)",
+      "Business 40 (I-40 Business) reconstruction project through downtown Winston-Salem",
+      "Wake Forest University School of Medicine's continued Innovation Quarter campus development",
+      "Truist Stadium and downtown redevelopment initiatives"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Winston-Salem employers in healthcare, banking, and manufacturing, where structured project delivery and regulatory compliance are priorities. While not universally required, holding a PMP or CAPM credential can strengthen candidacy for project coordinator and manager roles across the area's dominant industries.",
+    "_researched": 1,
+    "city_spotlight": "<p>Winston-Salem's healthcare and banking sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial—create steady demand for credentialed project managers. Major initiatives like the Wake Forest Innovation Quarter expansion and downtown redevelopment projects underscore the region's need for skilled PM leadership across biotech, manufacturing, and financial services. Granite PM Academy delivers live-virtual PMP® Certification training to Winston-Salem professionals seeking to advance their careers in this thriving market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Winston-Salem's healthcare, financial services, and manufacturing sectors depend on skilled project managers to deliver complex initiatives on time and on budget. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led instruction and PMI contact hours you need to earn the PMP credential without disrupting your work schedule. Completing your certification positions you for advancement and competitive pay across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:58.070628Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e9239b4f1286c1c8",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Winston-Salem's Healthcare and Financial Leaders",
+      "text": "<p>Winston-Salem's project management market is anchored by major healthcare systems—Novant Health and Atrium Health Wake Forest Baptist—alongside financial services powerhouses like Truist, creating persistent demand for credentialed project managers who can navigate complex, regulated environments. In these sectors, the PMP® credential signals mastery of frameworks that healthcare and banking professionals depend on to deliver initiatives on time and within scope. Whether you're managing clinical implementations, technology rollouts, or infrastructure projects in Winston-Salem's thriving biotech and advanced manufacturing spaces, PMP® Certification demonstrates the discipline and accountability these industries require—and strengthens your advancement prospects in a competitive regional market.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction that meets all contact-hour requirements for eligibility. Our active certified practitioners bring real-world experience into every session, ensuring you learn frameworks and techniques grounded in practice, not theory alone. Our flexible scheduling and online delivery mean you can pursue certification without geographic constraints, and our comprehensive curriculum prepares you not only to pass the exam but to apply project management discipline immediately in your role. Start your path to PMP® Certification and position yourself for leadership opportunities in Winston-Salem's growing project-driven economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:02.169593Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "85a5d1dbdaaae692",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Winston-Salem's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets all PMI standards. Your contact hours are officially recognized, eliminating doubt about eligibility when you apply for the credential."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend live-virtual instructor-led sessions that fit working professionals' calendars. Interact with active certified practitioners in real time, ask questions as they arise, and complete the contact-hour requirement without commuting or relocating."
+        },
+        {
+          "heading": "Exam-Ready Support Included",
+          "text": "Our instructors bring active project-management experience into every lesson. Beyond core content, you receive targeted exam-preparation guidance, practice scenarios, and clarification on challenging domains—not generic study tips."
+        },
+        {
+          "heading": "Credential Valued by Local Employers",
+          "text": "Winston-Salem's healthcare systems, financial institutions, manufacturers, and logistics leaders increasingly hire PMP-certified project managers. The credential opens doors across Novant Health, Truist Financial, Reynolds American, and similar major regional employers seeking proven capability."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:05.904956Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "67a93bc9eec34228",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Winston-Salem",
+      "text": "<p>Healthcare systems and financial institutions are among Winston-Salem's largest employers of project managers. Truist Financial, Novant Health, and Atrium Health Wake Forest Baptist all rely on certified professionals to oversee initiatives spanning technology deployments, regulatory compliance, and organizational change. The Wake Forest Innovation Quarter expansion—a major biotech and research campus redevelopment in downtown Winston-Salem—exemplifies the scale of local project work, as does the ongoing Business 40 reconstruction project threading through the city. Manufacturing employers including Reynolds American and Hanesbrands, along with logistics and distribution operations, similarly depend on structured project delivery to meet production timelines and compliance requirements.</p><p>A PMP® or CAPM® credential strengthens your candidacy in Winston-Salem's competitive job market, particularly if your background spans healthcare, banking, or manufacturing. While the credential is not universally required, employers in these dominant sectors increasingly value the structured methodology and risk-management discipline that certification demonstrates. Project manager compensation in Winston-Salem remains competitive relative to market demand, though it typically tracks slightly below larger metros like Charlotte or Raleigh. Completing PMP Certification Training through Granite PM Academy positions you to differentiate yourself among local candidates and advance into roles where documented expertise in project governance and delivery directly translates to career growth and stronger offers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:10.080937Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "301a118e9650a637",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Winston-Salem",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "The PMP requires either a bachelor's degree plus project-management experience, or a high school diploma with significantly more experience. Review PMI's formal education and work-hour requirements before applying. Granite PM Academy's advisors can clarify which pathway fits your background."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions on your schedule from anywhere—no travel required. Our instructors, active certified practitioners, cover the PMBOK Guide framework, exam domains, and real-world application. You'll earn all required contact hours in one cohort."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your training hours, submit your PMP application directly to PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process. PMI will review your credentials and approve your eligibility to sit for the exam."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor support—to build confidence. Schedule your exam at a Pearson Vue testing center on your timeline. Pass the computer-based PMP exam to earn your credential."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP is valid for three years. Maintain it by earning Professional Development Units (PDUs) through approved training, volunteer work, or authorship. Granite PM Academy offers continuing-education courses to help you meet renewal requirements and stay current in project-management practice."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:15.078972Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "e6b31cd1432386b6",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Winston-Salem healthcare project managers?",
+          "answer": "<p>Yes. Winston-Salem's healthcare employers—Novant Health, Atrium Health Wake Forest Baptist, and Wake Forest University—increasingly prioritize PMP certification for roles managing clinical IT implementations, facility upgrades, and regulatory compliance initiatives. The credential strengthens your candidacy for advancement and positions you competitively in a market where structured project delivery directly impacts patient outcomes and operational efficiency.</p>"
+        },
+        {
+          "question": "Which Winston-Salem employers value PMP or CAPM certification most?",
+          "answer": "<p>Healthcare systems, banking (Truist Financial), manufacturing (Reynolds American, Hanesbrands, Corning), and logistics (Old Dominion Freight Line) all value PMP and CAPM credentials. These industries rely on regulated, compliance-heavy project delivery. While not universally required, certification strengthens your candidacy for project coordinator and manager roles and often supports internal advancement conversations across Winston-Salem's dominant employment sectors.</p>"
+        },
+        {
+          "question": "When is the best time to earn PMP certification in Winston-Salem's job market?",
+          "answer": "<p>Winston-Salem's steady demand for project managers in healthcare, banking, and manufacturing makes certification valuable year-round. However, pursuing it during or just before a job search—or when your current employer is initiating major IT, operational, or regulatory projects—maximizes its impact. Banking and healthcare often budget for training in early calendar years, making January through March opportune windows to complete your credential.</p>"
+        },
+        {
+          "question": "Can I attend PMP training from my Winston-Salem workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual training format allows you to attend from your office, home, or any location with internet access. This flexibility is ideal for Winston-Salem professionals managing busy schedules at Truist, Novant Health, manufacturing facilities, or other major employers. You'll engage with instructors and cohort peers in real time without commuting, making it easier to balance work, study, and certification prep.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:20.768970Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "01a29f66ed85681a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Winston-Salem's healthcare and financial services sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial—drive steady demand for credentialed project managers. Major initiatives like the Wake Forest Innovation Quarter biotech expansion and downtown redevelopment projects underscore the city's growth in life sciences and advanced manufacturing. Granite PM Academy serves Winston-Salem professionals with live-virtual PMP Certification Training aligned to PMI standards and local career advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:55:22.424833Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "917b720b7f442515",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Winston-Salem, NC, PMP exam prep Winston-Salem, PMP course Winston-Salem NC, project management certification Winston-Salem, NC, PMI PMP training Winston-Salem",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\",\r\n      \"name\": \"PMP Certification Training in Winston-Salem, NC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Winston-Salem, NC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Winston-Salem, NC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#course\",\r\n      \"name\": \"PMP Certification Training in Winston-Salem, NC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Winston-Salem, NC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-winston-salem-nc/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

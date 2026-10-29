@@ -1,408 +1,409 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "portland-or",
-  "slug": "pmp-certification-training-portland-or",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "portland-or",
-    "city": "Portland",
-    "state": "Oregon",
-    "SS": "OR",
-    "city_slug": "portland-or",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "portland-or",
+    "slug": "pmp-certification-training-portland-or",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "portland-or",
+        "city": "Portland",
+        "state": "Oregon",
+        "SS": "OR",
+        "city_slug": "portland-or",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Aerospace & Advanced Manufacturing",
+            "Automotive/Commercial Vehicle Manufacturing",
+            "Utilities/Energy",
+            "Insurance & Financial Services",
+            "Healthcare"
+        ],
+        "top_employers": [
+            "Precision Castparts Corp.",
+            "Daimler Truck North America",
+            "Portland General Electric",
+            "StanCorp Financial Group",
+            "NW Natural",
+            "Legacy Health",
+            "Providence Portland Medical Center"
+        ],
+        "salary_note": "Comparably reports average PMP-certified Project Manager salary in Portland, OR at $145,201/yr (28% above its cited national average); ZipRecruiter separately reports ~$129,811/yr as of late 2026.",
+        "market_blurb": "Portland's major private-sector employers include aerospace/industrial manufacturer Precision Castparts, truck maker Daimler Truck North America, utilities Portland General Electric and NW Natural, insurer StanCorp Financial Group, and large nonprofit hospital systems Legacy Health and Providence.",
+        "notable_projects": [
+            "Interstate Bridge Replacement Program (I-5 Portland-Vancouver WA crossing) - Phase 1 ~$5.6B, amended federal Record of Decision issued July 2026, construction targeted 2027-2028"
+        ],
+        "credential_demand": "Large manufacturing/engineering operations, utility infrastructure programs, and sizeable hospital systems make Portland's job market plausibly reward PMP for capital-intensive industrial, infrastructure, and healthcare-facility project work - consistent with the above-national-average local PMP salary figures found.",
+        "_researched": 1,
+        "city_spotlight": "<p>Portland's employer base includes Precision Castparts Corp., Daimler Truck North America, Portland General Electric, StanCorp Financial Group. Portland's major private-sector employers include aerospace/industrial manufacturer Precision Castparts, truck maker Daimler Truck North America, utilities Portland General Electric and NW Natural, insurer StanCorp Financial Group, and large nonprofit hospital systems Legacy Health and Providence. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Portland professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Portland's aerospace, manufacturing, utilities, and healthcare sectors rely on credentialed project managers to drive complex initiatives from conception through delivery. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction, enabling you to earn this globally recognized credential while maintaining your current role. A PMP certification positions you for senior project leadership and competitive advancement across Portland's largest employers.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:59.234057Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ff1274af84d5dc85",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Portland's Aerospace and Industrial Leaders",
+            "text": "<p>Portland's aerospace and advanced manufacturing sector—anchored by major employers like Precision Castparts Corp.—demands project managers who can lead complex, high-stakes initiatives across supply chains and production environments. Whether you work in aerospace, utilities, automotive manufacturing, or the region's growing healthcare and financial services sectors, the Project Management Professional (PMP)® credential signals to employers that you possess the discipline, frameworks, and real-world competency they need. In Portland's competitive job market, PMP certification distinguishes you as someone capable of delivering projects on time, on budget, and to specification—a skill set these industries actively seek and reward.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit the schedules of working professionals. Our courses satisfy the contact-hour requirements mandated by the Project Management Institute and are taught by active certified practitioners who bring current project experience to every lesson. You'll study the PMBOK® Guide framework, work through real-world scenarios, and prepare systematically for the PMP exam—all without leaving Portland. Upon completion, you'll hold a credential recognized globally and valued by employers across every major industry represented in the Portland region, positioning you for career advancement and increased earning potential.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:03.182615Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "ff4a169b4847a4bf",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Portland's Advanced Manufacturing Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets PMI's rigorous standards. This status guarantees your contact hours count toward PMI eligibility requirements, removing uncertainty from your certification journey."
+                },
+                {
+                    "heading": "Live Instruction, Flexible Schedule",
+                    "text": "Our live-virtual instructor-led format delivers real-time interaction without commute demands—ideal for Portland professionals balancing work and study. You satisfy all contact-hour requirements while learning from your home or office, on a schedule that fits your calendar."
+                },
+                {
+                    "heading": "Instructors Bring Field Expertise",
+                    "text": "Your instructors are active certified practitioners managing real projects today, not trainers reading slides. Their current hands-on experience translates into exam preparation grounded in how the PMP® body of knowledge actually works in practice."
+                },
+                {
+                    "heading": "Credential Demand Across Portland Industries",
+                    "text": "Portland's aerospace, manufacturing, utilities, and healthcare sectors increasingly seek PMP®-certified program and project managers. The credential strengthens your candidacy at employers like Precision Castparts, Portland General Electric, and Legacy Health, where structured project leadership is a career advantage."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:07.356908Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "da47502bc52a10f8",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Portland's Industrial Hub",
+            "text": "<p>Portland's advanced manufacturing and aerospace sector drives consistent demand for certified project managers. Precision Castparts Corp., a global leader in aerospace components, relies on PMP®-certified professionals to oversee complex production and supply-chain initiatives. Equally, the region's automotive and commercial vehicle operations, including Daimler Truck North America, depend on rigorous project governance for vehicle development and manufacturing scaled operations. Beyond manufacturing, major infrastructure work—including the Interstate Bridge Replacement Program's Phase 1, a $5.6 billion I-5 Portland-Vancouver crossing modernization targeted for construction in 2027–2028—creates substantial project management roles across engineering and utility sectors. Portland General Electric, NW Natural, and the region's leading healthcare systems further expand the local market for professionals who can demonstrate command of formal project delivery methodology.</p><p>The PMP® credential carries measurable weight in Portland's job market. Compensation data consistently places PMP-certified project managers in Portland above the national average, reflecting the region's concentration of capital-intensive industrial, infrastructure, and healthcare-facility work. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these higher-value roles, whether in aerospace manufacturing, utility infrastructure programs, or major hospital system expansions. The credential signals to Portland's employers—many of them Fortune 500 operations or major public institutions—that you meet the industry standard for scope, schedule, and budget stewardship. In a market where project complexity and regulatory demands are high, that certification translates directly into career advancement and earning potential.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:12.310085Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "f0655fc01e275954",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Portland",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and project-management experience before you apply. Review PMI's education and hours-worked prerequisites for the PMP® credential. Granite PM Academy's advisors can help you verify your qualifications and clarify any gaps before you enroll."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend all sessions from anywhere, on a schedule that fits your work and life. Our active certified practitioners deliver real-world context and hands-on preparation aligned directly to PMI's exam domains."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your 35 contact hours, apply directly to PMI with your education and experience documentation. Pay the PMI exam fee at the time of application. Granite PM Academy provides guidance on the application process so you submit accurately and avoid delays."
+                },
+                {
+                    "heading": "Prepare and Take the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A support—to build confidence. Schedule your proctored PMP® exam through PMI's testing partner. Our instructors remain available to answer final questions before test day."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "The PMP® credential is valid for three years. Earn Professional Development Units (PDUs) by pursuing continuing education, project work, and professional involvement. Renew your certification before expiration to keep your credential active and your skills current."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:17.214074Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "3507f272f4c07df3",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Portland project managers in manufacturing?",
+                    "answer": "<p>Portland's aerospace and advanced manufacturing sector—including major operations in precision engineering and commercial vehicle production—increasingly values the PMP credential for capital-intensive programs. Comparably reports PMP-certified project managers in Portland earn approximately 28% above the national average, reflecting strong local demand in industries where complex, multi-phase projects drive business outcomes. For professionals in these fields, the credential typically accelerates advancement and eligibility for senior program roles.</p>"
+                },
+                {
+                    "question": "Which Portland employers actively hire PMP-certified project managers?",
+                    "answer": "<p>Portland's largest employers span aerospace/advanced manufacturing, automotive/commercial vehicle manufacturing, utilities and energy infrastructure, healthcare facility operations, and financial services. Organizations managing capital projects, facility expansions, grid modernization, and complex clinical programs consistently seek PMP-certified professionals. While credential value varies by role and employer, the local job market's concentration in project-intensive industries makes PMP certification a recognized asset for career progression in these sectors.</p>"
+                },
+                {
+                    "question": "Can Portland professionals attend live-virtual PMP training from their workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP certification training is delivered entirely live-virtual, allowing Portland professionals to participate from any location with internet access—including their workplace, home office, or coffee shop. This format suits Portland's distributed workforce, whether you work for a downtown Portland employer, a suburban facility, or remotely. Schedule the course around your existing commitments without travel time or relocation.</p>"
+                },
+                {
+                    "question": "How does Portland's project management job market affect certification timing?",
+                    "answer": "<p>Portland's demand for PMP-certified professionals in utilities, healthcare, and manufacturing suggests early certification can accelerate your career timeline. If you're transitioning into project management or seeking promotion within Portland's major employers, completing certification before competing for mid-to-senior-level roles positions you competitively. The local market's above-average salaries for certified professionals suggest completing the credential sooner rather than later aligns with opportunity windows in these industries.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:23.367787Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "479b1c9137924ef5",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Portland's aerospace and advanced manufacturing sector—anchored by major employers like Precision Castparts Corp.—fuels steady demand for skilled project managers overseeing complex operations and capital initiatives. Large-scale infrastructure projects, including the Interstate Bridge Replacement Program, further expand PM career opportunities across the region's utilities, healthcare, and financial services industries. Granite PM Academy delivers live-virtual PMP Certification Training to Portland professionals seeking to advance their credentials and project leadership capabilities.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:25.115991Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "ffe8bccd52845bde",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & Advanced Manufacturing",
-      "Automotive/Commercial Vehicle Manufacturing",
-      "Utilities/Energy",
-      "Insurance & Financial Services",
-      "Healthcare"
-    ],
-    "top_employers": [
-      "Precision Castparts Corp.",
-      "Daimler Truck North America",
-      "Portland General Electric",
-      "StanCorp Financial Group",
-      "NW Natural",
-      "Legacy Health",
-      "Providence Portland Medical Center"
-    ],
-    "salary_note": "Comparably reports average PMP-certified Project Manager salary in Portland, OR at $145,201/yr (28% above its cited national average); ZipRecruiter separately reports ~$129,811/yr as of late 2026.",
-    "market_blurb": "Portland's major private-sector employers include aerospace/industrial manufacturer Precision Castparts, truck maker Daimler Truck North America, utilities Portland General Electric and NW Natural, insurer StanCorp Financial Group, and large nonprofit hospital systems Legacy Health and Providence.",
-    "notable_projects": [
-      "Interstate Bridge Replacement Program (I-5 Portland-Vancouver WA crossing) - Phase 1 ~$5.6B, amended federal Record of Decision issued July 2026, construction targeted 2027-2028"
-    ],
-    "credential_demand": "Large manufacturing/engineering operations, utility infrastructure programs, and sizeable hospital systems make Portland's job market plausibly reward PMP for capital-intensive industrial, infrastructure, and healthcare-facility project work - consistent with the above-national-average local PMP salary figures found.",
-    "_researched": 1,
-    "city_spotlight": "<p>Portland's employer base includes Precision Castparts Corp., Daimler Truck North America, Portland General Electric, StanCorp Financial Group. Portland's major private-sector employers include aerospace/industrial manufacturer Precision Castparts, truck maker Daimler Truck North America, utilities Portland General Electric and NW Natural, insurer StanCorp Financial Group, and large nonprofit hospital systems Legacy Health and Providence. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Portland professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Portland's aerospace, manufacturing, utilities, and healthcare sectors rely on credentialed project managers to drive complex initiatives from conception through delivery. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction, enabling you to earn this globally recognized credential while maintaining your current role. A PMP certification positions you for senior project leadership and competitive advancement across Portland's largest employers.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:59.234057Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ff1274af84d5dc85",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-portland-or/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Portland, OR, PMP exam prep Portland, PMP course Portland OR, project management certification Portland, OR, PMI PMP training Portland",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\",\r\n      \"name\": \"PMP Certification Training in Portland, OR | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Portland, OR. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Portland, OR\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#course\",\r\n      \"name\": \"PMP Certification Training in Portland, OR\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Portland, OR. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Portland's Aerospace and Industrial Leaders",
-      "text": "<p>Portland's aerospace and advanced manufacturing sector—anchored by major employers like Precision Castparts Corp.—demands project managers who can lead complex, high-stakes initiatives across supply chains and production environments. Whether you work in aerospace, utilities, automotive manufacturing, or the region's growing healthcare and financial services sectors, the Project Management Professional (PMP)® credential signals to employers that you possess the discipline, frameworks, and real-world competency they need. In Portland's competitive job market, PMP certification distinguishes you as someone capable of delivering projects on time, on budget, and to specification—a skill set these industries actively seek and reward.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit the schedules of working professionals. Our courses satisfy the contact-hour requirements mandated by the Project Management Institute and are taught by active certified practitioners who bring current project experience to every lesson. You'll study the PMBOK® Guide framework, work through real-world scenarios, and prepare systematically for the PMP exam—all without leaving Portland. Upon completion, you'll hold a credential recognized globally and valued by employers across every major industry represented in the Portland region, positioning you for career advancement and increased earning potential.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:03.182615Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "ff4a169b4847a4bf",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Portland's Advanced Manufacturing Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets PMI's rigorous standards. This status guarantees your contact hours count toward PMI eligibility requirements, removing uncertainty from your certification journey."
-        },
-        {
-          "heading": "Live Instruction, Flexible Schedule",
-          "text": "Our live-virtual instructor-led format delivers real-time interaction without commute demands—ideal for Portland professionals balancing work and study. You satisfy all contact-hour requirements while learning from your home or office, on a schedule that fits your calendar."
-        },
-        {
-          "heading": "Instructors Bring Field Expertise",
-          "text": "Your instructors are active certified practitioners managing real projects today, not trainers reading slides. Their current hands-on experience translates into exam preparation grounded in how the PMP® body of knowledge actually works in practice."
-        },
-        {
-          "heading": "Credential Demand Across Portland Industries",
-          "text": "Portland's aerospace, manufacturing, utilities, and healthcare sectors increasingly seek PMP®-certified program and project managers. The credential strengthens your candidacy at employers like Precision Castparts, Portland General Electric, and Legacy Health, where structured project leadership is a career advantage."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:07.356908Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "da47502bc52a10f8",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Portland's Industrial Hub",
-      "text": "<p>Portland's advanced manufacturing and aerospace sector drives consistent demand for certified project managers. Precision Castparts Corp., a global leader in aerospace components, relies on PMP®-certified professionals to oversee complex production and supply-chain initiatives. Equally, the region's automotive and commercial vehicle operations, including Daimler Truck North America, depend on rigorous project governance for vehicle development and manufacturing scaled operations. Beyond manufacturing, major infrastructure work—including the Interstate Bridge Replacement Program's Phase 1, a $5.6 billion I-5 Portland-Vancouver crossing modernization targeted for construction in 2027–2028—creates substantial project management roles across engineering and utility sectors. Portland General Electric, NW Natural, and the region's leading healthcare systems further expand the local market for professionals who can demonstrate command of formal project delivery methodology.</p><p>The PMP® credential carries measurable weight in Portland's job market. Compensation data consistently places PMP-certified project managers in Portland above the national average, reflecting the region's concentration of capital-intensive industrial, infrastructure, and healthcare-facility work. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these higher-value roles, whether in aerospace manufacturing, utility infrastructure programs, or major hospital system expansions. The credential signals to Portland's employers—many of them Fortune 500 operations or major public institutions—that you meet the industry standard for scope, schedule, and budget stewardship. In a market where project complexity and regulatory demands are high, that certification translates directly into career advancement and earning potential.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:12.310085Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "f0655fc01e275954",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Portland",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and project-management experience before you apply. Review PMI's education and hours-worked prerequisites for the PMP® credential. Granite PM Academy's advisors can help you verify your qualifications and clarify any gaps before you enroll."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend all sessions from anywhere, on a schedule that fits your work and life. Our active certified practitioners deliver real-world context and hands-on preparation aligned directly to PMI's exam domains."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing your 35 contact hours, apply directly to PMI with your education and experience documentation. Pay the PMI exam fee at the time of application. Granite PM Academy provides guidance on the application process so you submit accurately and avoid delays."
-        },
-        {
-          "heading": "Prepare and Take the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A support—to build confidence. Schedule your proctored PMP® exam through PMI's testing partner. Our instructors remain available to answer final questions before test day."
-        },
-        {
-          "heading": "Maintain Your Credential",
-          "text": "The PMP® credential is valid for three years. Earn Professional Development Units (PDUs) by pursuing continuing education, project work, and professional involvement. Renew your certification before expiration to keep your credential active and your skills current."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:17.214074Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "3507f272f4c07df3",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Portland project managers in manufacturing?",
-          "answer": "<p>Portland's aerospace and advanced manufacturing sector—including major operations in precision engineering and commercial vehicle production—increasingly values the PMP credential for capital-intensive programs. Comparably reports PMP-certified project managers in Portland earn approximately 28% above the national average, reflecting strong local demand in industries where complex, multi-phase projects drive business outcomes. For professionals in these fields, the credential typically accelerates advancement and eligibility for senior program roles.</p>"
-        },
-        {
-          "question": "Which Portland employers actively hire PMP-certified project managers?",
-          "answer": "<p>Portland's largest employers span aerospace/advanced manufacturing, automotive/commercial vehicle manufacturing, utilities and energy infrastructure, healthcare facility operations, and financial services. Organizations managing capital projects, facility expansions, grid modernization, and complex clinical programs consistently seek PMP-certified professionals. While credential value varies by role and employer, the local job market's concentration in project-intensive industries makes PMP certification a recognized asset for career progression in these sectors.</p>"
-        },
-        {
-          "question": "Can Portland professionals attend live-virtual PMP training from their workplace?",
-          "answer": "<p>Yes. Granite PM Academy's PMP certification training is delivered entirely live-virtual, allowing Portland professionals to participate from any location with internet access—including their workplace, home office, or coffee shop. This format suits Portland's distributed workforce, whether you work for a downtown Portland employer, a suburban facility, or remotely. Schedule the course around your existing commitments without travel time or relocation.</p>"
-        },
-        {
-          "question": "How does Portland's project management job market affect certification timing?",
-          "answer": "<p>Portland's demand for PMP-certified professionals in utilities, healthcare, and manufacturing suggests early certification can accelerate your career timeline. If you're transitioning into project management or seeking promotion within Portland's major employers, completing certification before competing for mid-to-senior-level roles positions you competitively. The local market's above-average salaries for certified professionals suggest completing the credential sooner rather than later aligns with opportunity windows in these industries.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:23.367787Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "479b1c9137924ef5",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Portland's aerospace and advanced manufacturing sector—anchored by major employers like Precision Castparts Corp.—fuels steady demand for skilled project managers overseeing complex operations and capital initiatives. Large-scale infrastructure projects, including the Interstate Bridge Replacement Program, further expand PM career opportunities across the region's utilities, healthcare, and financial services industries. Granite PM Academy delivers live-virtual PMP Certification Training to Portland professionals seeking to advance their credentials and project leadership capabilities.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:25.115991Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "ffe8bccd52845bde",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-portland-or/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Portland, OR, PMP exam prep Portland, PMP course Portland OR, project management certification Portland, OR, PMI PMP training Portland",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\",\r\n      \"name\": \"PMP Certification Training in Portland, OR | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Portland, OR. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Portland, OR\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#course\",\r\n      \"name\": \"PMP Certification Training in Portland, OR\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Portland, OR. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-portland-or/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

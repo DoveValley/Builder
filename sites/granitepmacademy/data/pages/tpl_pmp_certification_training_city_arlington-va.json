@@ -1,405 +1,406 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "arlington-va",
-  "slug": "pmp-certification-training-arlington-va",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "arlington-va",
-    "city": "Arlington",
-    "state": "Virginia",
-    "SS": "VA",
-    "city_slug": "arlington-va",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "arlington-va",
+    "slug": "pmp-certification-training-arlington-va",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "arlington-va",
+        "city": "Arlington",
+        "state": "Virginia",
+        "SS": "VA",
+        "city_slug": "arlington-va",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Defense & Government",
+            "Aerospace",
+            "Technology/E-commerce",
+            "Consumer Packaged Goods"
+        ],
+        "top_employers": [
+            "U.S. Department of Defense (The Pentagon)",
+            "Boeing (global headquarters)",
+            "Amazon (HQ2, National Landing)",
+            "Nestle USA (Rosslyn)"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Arlington combines the Pentagon's defense workforce with Boeing's global corporate headquarters, Amazon's HQ2 campus in National Landing, and Nestle USA's U.S. headquarters in Rosslyn - a rare concentration of Fortune 500 and federal-government decision-making in one city.",
+        "notable_projects": [
+            "Boeing global headquarters campus and Research & Technology Hub at 929 Long Bridge Drive",
+            "Amazon HQ2 Metropolitan Park - Phase 1 opened 2023 with 8,300+ employees based there"
+        ],
+        "credential_demand": "Between Pentagon/defense acquisition work, Boeing's aerospace program management, and Amazon's large-scale real-estate and operations buildout, Arlington's employer base plausibly values PMP-certified project managers.",
+        "_researched": 1,
+        "city_spotlight": "<p>Arlington's employer base includes U.S. Department of Defense (The Pentagon), Boeing (global headquarters), Amazon (HQ2, National Landing), Nestle USA (Rosslyn). Arlington combines the Pentagon's defense workforce with Boeing's global corporate headquarters, Amazon's HQ2 campus in National Landing, and Nestle USA's U.S. headquarters in Rosslyn - a rare concentration of Fortune 500 and federal-government decision-making in one city. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Arlington professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Arlington's concentration of Defense, Government, and Aerospace employers demands project managers who speak PMI's language. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that fulfills PMI's contact-hour requirements, preparing you to earn the credential employers in your market prioritize. Pass the exam and position yourself for advancement within Arlington's largest sectors.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:09.588381Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "1f5521872cd28587",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Arlington for Defense & Government Leaders",
+            "text": "<p>Arlington's concentration of federal defense agencies and global corporate headquarters creates exceptional demand for credentialed project managers. The Pentagon and surrounding defense ecosystem require professionals who can lead complex, regulated programs under strict compliance frameworks—a skillset the Project Management Institute's PMP certification directly addresses. Beyond government, Arlington's presence as home to Boeing's global headquarters and Amazon's National Landing campus means private-sector employers across aerospace, technology, and enterprise operations compete for certified talent. For Arlington professionals in these sectors, PMP certification signals mastery of risk management, stakeholder governance, and delivery discipline that translates immediately into career advancement and competitive compensation.</p><p>Granite PM Academy delivers PMP Certification Training as an official PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals. Our curriculum satisfies PMI's contact-hour requirements and is taught by active certified practitioners with real-world project experience. We combine flexible scheduling with rigorous preparation so you master the exam domains, meet all PMI eligibility criteria, and earn your credential on your timeline. Whether you're advancing within a federal contractor, corporate program-management office, or technology-driven enterprise in Arlington, Granite PM Academy equips you with the knowledge and coaching to pass the PMP exam and step into higher-impact roles.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:13.766662Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "b15fd24f96d0ab00",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Arlington's Defense and Tech Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your contact hours count directly toward PMP eligibility. No dispute over accreditation—your investment in training translates immediately into credential requirements met."
+                },
+                {
+                    "heading": "Live Virtual, Structured Schedule",
+                    "text": "Attend instructor-led sessions from anywhere, on a fixed schedule that fits working professionals. Real-time interaction with active certified practitioners—no recordings, no self-paced gaps—delivers the contact hours PMP requires while keeping your career momentum."
+                },
+                {
+                    "heading": "Exam-Ready Instruction and Support",
+                    "text": "Learn from instructors actively applying PMP frameworks in their own practice, then sharpen exam readiness through dedicated preparation support. Instruction grounded in current real-world application raises your confidence at test time."
+                },
+                {
+                    "heading": "Credential Valued by Arlington Employers",
+                    "text": "Defense, aerospace, and federal contracting—Arlington's largest employment sectors—consistently hire for PMP-certified program and project managers. The credential directly addresses hiring demand at organizations like the Pentagon, Boeing, and major tech firms expanding locally."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:17.792820Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "5db7692080018231",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Demand in Arlington's Major Industries",
+            "text": "<p>Arlington's economic landscape is anchored by the U.S. Department of Defense, Boeing's global headquarters and Research & Technology Hub at 929 Long Bridge Drive, Amazon's HQ2 operations at National Landing (where Phase 1 opened in 2023 with over 8,300 employees), and Nestle USA in Rosslyn. Each of these employers routinely manages complex, large-scale programs—from defense acquisition and aerospace engineering to metropolitan real-estate development and supply-chain operations—where certified project managers are integral to success. The scale and strategic importance of these organizations mean that PMP-certified professionals are actively sought to lead cross-functional teams, manage budgets, and deliver initiatives on schedule.</p><p>Earning a PMP® credential positions you competitively in Arlington's job market. Project managers holding PMP certification report significantly higher median earnings than non-certified peers nationally—a premium that holds across most regions and industries. In a city where defense, aerospace, technology, and consumer goods employers are competing for top talent, the credential signals mastery of globally recognized standards and best practices. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual and designed around working professionals' schedules—gives you the framework, preparation, and credentials employers in Arlington value when filling senior project-management roles.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:21.947818Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "888d6e417c8f21f1",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Arlington",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your PMP Eligibility",
+                    "text": "PMI requires a combination of education and project-management experience. Review PMI's specific hour requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma. Verify your project-management experience qualifies before enrolling to avoid delays."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all 35 required contact hours on a schedule that fits your work commitments. Our instructors deliver real-world frameworks and exam-focused content entirely online, so you learn from anywhere."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your training hours, submit your PMP application directly to PMI. Document your project-management experience and education as required. Pay PMI's examination fee to activate your application and secure your exam eligibility."
+                },
+                {
+                    "heading": "Prepare and Take Your Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor feedback—to strengthen weak areas. Schedule your exam through PMI's approved testing centers. Sit for the PMP exam when you feel confident; our support continues through your test date."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After passing, maintain your credential by earning Professional Development Units (PDUs) over PMI's standard three-year renewal cycle. Track your PDUs through PMI's system, renew on schedule, and stay current with project-management best practices to keep your certification active."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:26.698726Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "3720c7826e689802",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Arlington defense and aerospace careers?",
+                    "answer": "<p>Arlington's largest employers—the Department of Defense, Boeing, and defense contractors—routinely require or strongly prefer PMP® certification for senior program and project roles, especially in acquisition and systems management. PMI's Earning Power data shows certified project managers earn approximately $135,000 median salary versus $109,157 for non-certified peers nationally, a gap that typically holds across defense and aerospace sectors. For Arlington professionals in these industries, certification often accelerates advancement and eligibility for higher-responsibility contracts.</p>"
+                },
+                {
+                    "question": "Which Arlington employers value PMP certification most highly?",
+                    "answer": "<p>Pentagon procurement offices, Boeing's global program management offices, Amazon's operations and real estate teams, and Nestle USA's supply-chain division all employ certified project managers regularly. Government and defense contractors in particular cite PMP® certification as a preferred credential for roles managing federal contracts and complex technical programs. Technology and e-commerce employers in National Landing increasingly seek certified professionals for large-scale infrastructure and logistics projects.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Arlington workplace office?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual PMP® Certification Training runs entirely online, allowing you to join from your Arlington office, home, or any location with internet access. Many Arlington professionals in fast-paced defense and tech roles appreciate the flexibility to train from their workplace during breaks or before/after core hours. Confirm your employer's remote-access policies beforehand for any security or firewall considerations specific to government or defense contractors.</p>"
+                },
+                {
+                    "question": "When should Arlington project managers pursue PMP certification?",
+                    "answer": "<p>Arlington's robust defense, aerospace, and tech sectors create consistent demand for certified project managers year-round. However, defense and government contractors often hire for fiscal-year budget cycles (September–October), making late spring and early summer ideal for certification completion. Early career professionals should pursue it within 3–5 years of first project-management role to maximize career trajectory; mid-career professionals in Arlington frequently recertify to stay competitive in high-security federal contracts and senior program roles.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:33.505401Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "b9dccf1c73d9ea4f",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Arlington's concentration of Pentagon operations, Boeing's global headquarters, and Amazon HQ2 creates sustained demand for skilled project managers across defense, aerospace, and technology sectors. The Amazon Metropolitan Park expansion and Boeing's Long Bridge campus redevelopment exemplify the large-scale initiatives reshaping the region. Granite PM Academy delivers live-virtual PMP® Certification Training to Arlington professionals seeking to advance their credentials and competitive positioning in this high-opportunity market.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:35.057306Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "73740b3de9069beb",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Defense & Government",
-      "Aerospace",
-      "Technology/E-commerce",
-      "Consumer Packaged Goods"
-    ],
-    "top_employers": [
-      "U.S. Department of Defense (The Pentagon)",
-      "Boeing (global headquarters)",
-      "Amazon (HQ2, National Landing)",
-      "Nestle USA (Rosslyn)"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Arlington combines the Pentagon's defense workforce with Boeing's global corporate headquarters, Amazon's HQ2 campus in National Landing, and Nestle USA's U.S. headquarters in Rosslyn - a rare concentration of Fortune 500 and federal-government decision-making in one city.",
-    "notable_projects": [
-      "Boeing global headquarters campus and Research & Technology Hub at 929 Long Bridge Drive",
-      "Amazon HQ2 Metropolitan Park - Phase 1 opened 2023 with 8,300+ employees based there"
-    ],
-    "credential_demand": "Between Pentagon/defense acquisition work, Boeing's aerospace program management, and Amazon's large-scale real-estate and operations buildout, Arlington's employer base plausibly values PMP-certified project managers.",
-    "_researched": 1,
-    "city_spotlight": "<p>Arlington's employer base includes U.S. Department of Defense (The Pentagon), Boeing (global headquarters), Amazon (HQ2, National Landing), Nestle USA (Rosslyn). Arlington combines the Pentagon's defense workforce with Boeing's global corporate headquarters, Amazon's HQ2 campus in National Landing, and Nestle USA's U.S. headquarters in Rosslyn - a rare concentration of Fortune 500 and federal-government decision-making in one city. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Arlington professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Arlington's concentration of Defense, Government, and Aerospace employers demands project managers who speak PMI's language. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that fulfills PMI's contact-hour requirements, preparing you to earn the credential employers in your market prioritize. Pass the exam and position yourself for advancement within Arlington's largest sectors.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:09.588381Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "1f5521872cd28587",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-arlington-va/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Arlington, VA, PMP exam prep Arlington, PMP course Arlington VA, project management certification Arlington, VA, PMI PMP training Arlington",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\",\r\n      \"name\": \"PMP Certification Training in Arlington, VA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Arlington, VA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Arlington, VA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#course\",\r\n      \"name\": \"PMP Certification Training in Arlington, VA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Arlington, VA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Arlington for Defense & Government Leaders",
-      "text": "<p>Arlington's concentration of federal defense agencies and global corporate headquarters creates exceptional demand for credentialed project managers. The Pentagon and surrounding defense ecosystem require professionals who can lead complex, regulated programs under strict compliance frameworks—a skillset the Project Management Institute's PMP certification directly addresses. Beyond government, Arlington's presence as home to Boeing's global headquarters and Amazon's National Landing campus means private-sector employers across aerospace, technology, and enterprise operations compete for certified talent. For Arlington professionals in these sectors, PMP certification signals mastery of risk management, stakeholder governance, and delivery discipline that translates immediately into career advancement and competitive compensation.</p><p>Granite PM Academy delivers PMP Certification Training as an official PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals. Our curriculum satisfies PMI's contact-hour requirements and is taught by active certified practitioners with real-world project experience. We combine flexible scheduling with rigorous preparation so you master the exam domains, meet all PMI eligibility criteria, and earn your credential on your timeline. Whether you're advancing within a federal contractor, corporate program-management office, or technology-driven enterprise in Arlington, Granite PM Academy equips you with the knowledge and coaching to pass the PMP exam and step into higher-impact roles.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:13.766662Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "b15fd24f96d0ab00",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Arlington's Defense and Tech Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your contact hours count directly toward PMP eligibility. No dispute over accreditation—your investment in training translates immediately into credential requirements met."
-        },
-        {
-          "heading": "Live Virtual, Structured Schedule",
-          "text": "Attend instructor-led sessions from anywhere, on a fixed schedule that fits working professionals. Real-time interaction with active certified practitioners—no recordings, no self-paced gaps—delivers the contact hours PMP requires while keeping your career momentum."
-        },
-        {
-          "heading": "Exam-Ready Instruction and Support",
-          "text": "Learn from instructors actively applying PMP frameworks in their own practice, then sharpen exam readiness through dedicated preparation support. Instruction grounded in current real-world application raises your confidence at test time."
-        },
-        {
-          "heading": "Credential Valued by Arlington Employers",
-          "text": "Defense, aerospace, and federal contracting—Arlington's largest employment sectors—consistently hire for PMP-certified program and project managers. The credential directly addresses hiring demand at organizations like the Pentagon, Boeing, and major tech firms expanding locally."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:17.792820Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "5db7692080018231",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Demand in Arlington's Major Industries",
-      "text": "<p>Arlington's economic landscape is anchored by the U.S. Department of Defense, Boeing's global headquarters and Research & Technology Hub at 929 Long Bridge Drive, Amazon's HQ2 operations at National Landing (where Phase 1 opened in 2023 with over 8,300 employees), and Nestle USA in Rosslyn. Each of these employers routinely manages complex, large-scale programs—from defense acquisition and aerospace engineering to metropolitan real-estate development and supply-chain operations—where certified project managers are integral to success. The scale and strategic importance of these organizations mean that PMP-certified professionals are actively sought to lead cross-functional teams, manage budgets, and deliver initiatives on schedule.</p><p>Earning a PMP® credential positions you competitively in Arlington's job market. Project managers holding PMP certification report significantly higher median earnings than non-certified peers nationally—a premium that holds across most regions and industries. In a city where defense, aerospace, technology, and consumer goods employers are competing for top talent, the credential signals mastery of globally recognized standards and best practices. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual and designed around working professionals' schedules—gives you the framework, preparation, and credentials employers in Arlington value when filling senior project-management roles.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:21.947818Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "888d6e417c8f21f1",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Arlington",
-      "steps_items": [
-        {
-          "heading": "Confirm Your PMP Eligibility",
-          "text": "PMI requires a combination of education and project-management experience. Review PMI's specific hour requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma. Verify your project-management experience qualifies before enrolling to avoid delays."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all 35 required contact hours on a schedule that fits your work commitments. Our instructors deliver real-world frameworks and exam-focused content entirely online, so you learn from anywhere."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing your training hours, submit your PMP application directly to PMI. Document your project-management experience and education as required. Pay PMI's examination fee to activate your application and secure your exam eligibility."
-        },
-        {
-          "heading": "Prepare and Take Your Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor feedback—to strengthen weak areas. Schedule your exam through PMI's approved testing centers. Sit for the PMP exam when you feel confident; our support continues through your test date."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After passing, maintain your credential by earning Professional Development Units (PDUs) over PMI's standard three-year renewal cycle. Track your PDUs through PMI's system, renew on schedule, and stay current with project-management best practices to keep your certification active."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:26.698726Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "3720c7826e689802",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Arlington defense and aerospace careers?",
-          "answer": "<p>Arlington's largest employers—the Department of Defense, Boeing, and defense contractors—routinely require or strongly prefer PMP® certification for senior program and project roles, especially in acquisition and systems management. PMI's Earning Power data shows certified project managers earn approximately $135,000 median salary versus $109,157 for non-certified peers nationally, a gap that typically holds across defense and aerospace sectors. For Arlington professionals in these industries, certification often accelerates advancement and eligibility for higher-responsibility contracts.</p>"
-        },
-        {
-          "question": "Which Arlington employers value PMP certification most highly?",
-          "answer": "<p>Pentagon procurement offices, Boeing's global program management offices, Amazon's operations and real estate teams, and Nestle USA's supply-chain division all employ certified project managers regularly. Government and defense contractors in particular cite PMP® certification as a preferred credential for roles managing federal contracts and complex technical programs. Technology and e-commerce employers in National Landing increasingly seek certified professionals for large-scale infrastructure and logistics projects.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Arlington workplace office?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP® Certification Training runs entirely online, allowing you to join from your Arlington office, home, or any location with internet access. Many Arlington professionals in fast-paced defense and tech roles appreciate the flexibility to train from their workplace during breaks or before/after core hours. Confirm your employer's remote-access policies beforehand for any security or firewall considerations specific to government or defense contractors.</p>"
-        },
-        {
-          "question": "When should Arlington project managers pursue PMP certification?",
-          "answer": "<p>Arlington's robust defense, aerospace, and tech sectors create consistent demand for certified project managers year-round. However, defense and government contractors often hire for fiscal-year budget cycles (September–October), making late spring and early summer ideal for certification completion. Early career professionals should pursue it within 3–5 years of first project-management role to maximize career trajectory; mid-career professionals in Arlington frequently recertify to stay competitive in high-security federal contracts and senior program roles.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:33.505401Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "b9dccf1c73d9ea4f",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Arlington's concentration of Pentagon operations, Boeing's global headquarters, and Amazon HQ2 creates sustained demand for skilled project managers across defense, aerospace, and technology sectors. The Amazon Metropolitan Park expansion and Boeing's Long Bridge campus redevelopment exemplify the large-scale initiatives reshaping the region. Granite PM Academy delivers live-virtual PMP® Certification Training to Arlington professionals seeking to advance their credentials and competitive positioning in this high-opportunity market.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:35.057306Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "73740b3de9069beb",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-arlington-va/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Arlington, VA, PMP exam prep Arlington, PMP course Arlington VA, project management certification Arlington, VA, PMI PMP training Arlington",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\",\r\n      \"name\": \"PMP Certification Training in Arlington, VA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Arlington, VA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Arlington, VA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#course\",\r\n      \"name\": \"PMP Certification Training in Arlington, VA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Arlington, VA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-arlington-va/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

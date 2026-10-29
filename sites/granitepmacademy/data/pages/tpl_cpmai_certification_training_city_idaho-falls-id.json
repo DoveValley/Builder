@@ -1,348 +1,398 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "idaho-falls-id",
-    "slug": "ai-training-idaho-falls-id",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "idaho-falls-id",
-        "city": "Idaho Falls",
-        "state": "Idaho",
-        "SS": "ID",
-        "city_slug": "idaho-falls-id",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "city_spotlight": "<p>Idaho Falls' project management demand centers on Idaho National Laboratory and its contractor network, alongside expanding healthcare and manufacturing sectors. INL's modernization initiatives and the proposed Versatile Test Reactor project create strong opportunities for credentialed professionals across research, engineering, and facility management roles. Granite PM Academy delivers live-virtual PMP® Certification to Idaho Falls professionals seeking to advance their careers in this growing regional hub.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Idaho Falls' nuclear energy and advanced manufacturing sectors depend on project managers who can integrate AI tools into complex, regulated workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, giving you practical skills in real time without travel. Earn credentials that open doors across the region's high-demand technical and industrial projects.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:41.294511Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "93e5cb681dca6e7f",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Idaho Falls",
-            "text": "<p>Idaho Falls' role as a national center for nuclear energy research and development—anchored by Idaho National Laboratory and its network of scientific and engineering contractors—creates a distinctive demand for project managers who can navigate complex, regulated, and innovation-driven environments. The integration of artificial intelligence into project workflows is reshaping how teams at INL, Battelle Energy Alliance, and regional healthcare and manufacturing employers plan, monitor, and deliver outcomes. Project managers in Idaho Falls who master AI tools gain a measurable edge in managing scope, risk, and resource allocation across the federal research, healthcare expansion, and industrial modernization initiatives that define the local economy. For professionals already holding or pursuing PMP® or CAPM® credentials, AI training closes a critical skill gap and strengthens competitive positioning in a market where continuous technical competency directly influences career advancement and organizational impact.</p><p>Granite PM Academy delivers AI training for project managers through live-virtual, instructor-led sessions taught by active certified practitioners—all designed to meet the contact-hour requirements recognized by PMI as part of professional development. Our PMI Authorized Training Partner status ensures that every course aligns with current standards and supports your path toward initial certification or credential renewal in Idaho Falls. Whether you're managing large-scale research initiatives, healthcare system implementations, or manufacturing transformations, our curriculum translates AI fundamentals into practical applications for real-world project environments. By completing training with Granite PM Academy, you invest directly in your credibility, your organization's delivery capability, and your readiness to lead in a market where formal project management certification and ongoing technical competency are increasingly expected by employers.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:46.367683Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "63746f4150a8ae71",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Idaho Falls nuclear sector demands certified project leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, meaning your PMP® or CAPM® completion satisfies PMI's official requirements. Employers across Idaho Falls—from INL to regional healthcare systems—recognize this authorization as the genuine certification standard."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Professional Schedules",
-                    "text": "Our live-virtual instructor-led classes deliver the contact hours required for PMI credentials without demanding in-person commutes. Idaho Falls professionals balance project work, family, and study; this format lets you earn certification while staying in your role."
-                },
-                {
-                    "heading": "Active Practitioners Teach Real-World PM",
-                    "text": "Instructors are certified, working project managers—not academics. They bring current experience from nuclear, manufacturing, healthcare, and government environments common to Idaho Falls, translating classroom concepts into tactics you'll use immediately."
-                },
-                {
-                    "heading": "Local Hiring Edge for INL and Partners",
-                    "text": "Idaho National Laboratory, Battelle Energy Alliance, and manufacturing employers in the region prioritize credentialed project managers. A PMI credential positions you competitively for roles managing high-complexity programs where Idaho Falls' largest employers concentrate hiring efforts."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:50.974733Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "b153ae069fe97b4f",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Idaho Falls",
-            "text": "<p>Idaho Falls' economy is anchored by Idaho National Laboratory and its contractor network, where certified project managers are in steady demand for engineering and program management roles. Beyond INL, employers including Melaleuca, Inc., Eastern Idaho Regional Medical Center, and the City of Idaho Falls actively hire project managers to lead initiatives ranging from corporate campus expansions to downtown redevelopment and infrastructure projects. The technical and compliance-driven nature of nuclear energy research, combined with ongoing modernization efforts at INL, creates a market where structured project management expertise is valued and directly applied to high-stakes work.</p><p>Earning a project management credential positions you competitively within Idaho Falls' energy, healthcare, and manufacturing sectors, where PMP® certification is frequently sought for advancement. Compensation for certified project managers in this region tracks with the presence of INL and its contractor ecosystem, generally offering competitive pay for technical roles compared to broader regional markets. Completing AI Training for Project Managers through Granite PM Academy equips you with both foundational PM knowledge and skills to integrate artificial intelligence tools into your work—a combination increasingly relevant as Idaho Falls employers modernize their operations and project delivery approaches. Whether you're supporting energy infrastructure, healthcare systems, or local government initiatives, the credential strengthens your candidacy and earning potential in this specialized market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:55.194302Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "a2ab617f00802b22",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI training valuable for project managers working at Idaho Falls energy sector employers?",
-                    "answer": "<p>Yes. Idaho National Laboratory and its contractor network increasingly integrate AI and advanced analytics into program management and technical planning. PMP certification combined with AI competency positions you for higher-impact roles in nuclear research, energy operations, and complex engineering projects—sectors where Idaho Falls compensation tends to be most competitive relative to the broader regional market.</p>"
-                },
-                {
-                    "question": "Which Idaho Falls employers most value project management certification for AI roles?",
-                    "answer": "<p>Idaho National Laboratory contractors, Battelle Energy Alliance, and healthcare organizations like Eastern Idaho Regional Medical Center prioritize formal credentials for program and project roles. Government agencies including City of Idaho Falls and Bonneville County also increasingly value certified project managers, particularly for compliance-driven initiatives and infrastructure projects where AI planning tools are becoming standard.</p>"
-                },
-                {
-                    "question": "Can I attend the AI project management course from my Idaho Falls workplace office?",
-                    "answer": "<p>Yes. The live-virtual format allows you to join from any location with stable internet, including your employer's office or workplace. This flexibility is ideal for Idaho Falls professionals at INL, Melaleuca, WinCo, or healthcare facilities who prefer learning during or near work hours without commuting to an external classroom.</p>"
-                },
-                {
-                    "question": "How does Idaho Falls' job market affect when to pursue AI project management training?",
-                    "answer": "<p>Idaho Falls' strong nuclear energy, healthcare, and manufacturing sectors create sustained demand for certified project managers. Early adoption of AI skills ahead of broader credential adoption in your industry can position you for promotion and higher compensation. Timing your training during a current or upcoming role transition—especially if your employer is expanding technical programs—maximizes ROI in this competitive local market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:49:00.913944Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "caf4402eeda84c56",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Idaho Falls' project management demand centers on Idaho National Laboratory and its contractor network, alongside growth in healthcare and manufacturing. Major employers including INL, Battelle Energy Alliance, and Eastern Idaho Regional Medical Center increasingly seek professionals with formal PM credentials to lead modernization initiatives and infrastructure projects. Granite PM Academy delivers live-virtual AI Training for Project Managers to Idaho Falls professionals seeking skills aligned with the region's federal research, healthcare, and industrial sectors.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:49:02.285115Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "59c562cae077fbf2",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "idaho-falls-id",
+  "slug": "ai-training-idaho-falls-id",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "idaho-falls-id",
+    "city": "Idaho Falls",
+    "state": "Idaho",
+    "SS": "ID",
+    "city_slug": "idaho-falls-id",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-idaho-falls-id/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Idaho Falls, ID, AI courses Idaho Falls, CPMAI certification Idaho Falls, AI project management training Idaho Falls, ID, AI for project managers Idaho Falls",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\",\n      \"name\": \"AI Training for Project Managers in Idaho Falls, ID — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Idaho Falls, ID for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Idaho Falls, ID\",\n            \"item\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#course\",\n      \"name\": \"AI Training for Project Managers in Idaho Falls, ID\",\n      \"description\": \"CPMAI certification training for project managers in Idaho Falls, ID who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Nuclear energy and research",
+      "Healthcare",
+      "Manufacturing",
+      "Agriculture and food processing",
+      "Government/public administration",
+      "Professional and scientific services"
+    ],
+    "top_employers": [
+      "Idaho National Laboratory (INL)",
+      "Battelle Energy Alliance",
+      "Melaleuca, Inc.",
+      "Eastern Idaho Regional Medical Center",
+      "Mountain View Hospital",
+      "Idaho Falls School District 91",
+      "City of Idaho Falls",
+      "Bonneville County",
+      "Premier Technology, Inc.",
+      "WinCo Foods",
+      "Idaho State University"
+    ],
+    "salary_note": "Project manager compensation in Idaho Falls tends to track with the presence of Idaho National Laboratory and its contractors, which often offer competitive pay for technical and program management roles compared to the broader regional market. Exact figures vary widely by industry and certification level, but PMP-certified candidates are generally positioned for higher-paying opportunities within the energy, healthcare, and manufacturing sectors.",
+    "market_blurb": "Idaho Falls has a steady demand for project managers driven largely by Idaho National Laboratory and its network of scientific and engineering contractors, alongside growth in healthcare and manufacturing. The city's mix of federal research initiatives, expanding healthcare systems, and local industry investment creates consistent opportunities for professionals with formal project management training. As Idaho Falls continues to grow as a regional hub for eastern Idaho, project management skills are increasingly valued across both public and private sector employers.",
+    "notable_projects": [
+      "Idaho National Laboratory modernization and research infrastructure initiatives",
+      "Versatile Test Reactor project proposed at INL",
+      "Downtown Idaho Falls redevelopment and Greenbelt improvement initiatives",
+      "Melaleuca corporate campus expansions in Idaho Falls"
+    ],
+    "credential_demand": "Employers connected to Idaho National Laboratory and its contractor network frequently value PMP certification for engineering and program management roles, reflecting the technical and compliance-driven nature of nuclear and energy-sector projects. In healthcare and local government, project management experience is valued, though formal certification requirements vary by employer and role.",
+    "_researched": 1,
+    "city_spotlight": "<p>Idaho Falls's project management demand is anchored by Idaho National Laboratory and its contractor network, alongside growth in healthcare and manufacturing. The Versatile Test Reactor project and INL modernization initiatives underscore strong demand for credentialed project managers across federal research, healthcare systems, and local industry. Granite PM Academy delivers live-virtual PMP® Certification training to Idaho Falls professionals, aligned with PMI® standards and designed around working schedules.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-idaho-falls-id.webp",
+    "city_image_alt": "Downtown Idaho Falls, ID",
+    "city_image_credit": "Photo: Eric Fredericks from Rancho Cordova, California, United States, CC BY-SA 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Idaho_Falls.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Idaho Falls's concentration in nuclear energy research, healthcare systems, and advanced manufacturing demands project managers who can navigate complex, heavily regulated environments. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's required contact hours, letting you earn your credential while working full-time at employers like INL, Eastern Idaho Regional Medical Center, or Melaleuca. The PMI-CPMAI credential strengthens your qualifications for leadership roles across Idaho Falls's largest industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:42.234489Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "70fe98415c34928d",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Idaho Falls Project Managers",
+      "text": "<p>Idaho Falls' economy is anchored by Idaho National Laboratory and its network of scientific and engineering contractors, where rigorous project management discipline is non-negotiable. Professionals managing complex research initiatives, infrastructure projects, and cross-functional teams at INL and partner organizations face exacting stakeholder demands and regulatory requirements that formal certification directly addresses. Beyond the federal research sector, Idaho Falls' expanding healthcare systems, manufacturing operations, and government agencies equally depend on certified project managers to deliver results on time and within scope. The PMI-CPMAI Certification demonstrates mastery of agile methodologies and adaptive practices—capabilities that resonate across Idaho Falls' diverse employer base and position you competitively for advancement in roles where adaptability and structured delivery matter.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies contact-hour requirements for this credential. Our active certified practitioners bring real-world experience into every session, ensuring the frameworks and tools you learn translate immediately to your projects in Idaho Falls' complex operating environment. The live-virtual format means you train on your schedule without geographical constraints, while maintaining the instructor interaction and peer collaboration that accelerate learning. Upon successful completion of our program and the PMI examination, you'll hold a credential recognized across public and private sector employers nationwide—opening pathways to senior roles, salary progression, and leadership opportunities as Idaho Falls continues to grow as a regional hub for eastern Idaho.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:46.627556Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a4d0b2ff18b76fd3",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Idaho Falls's Nuclear and Research Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMI-CPMAI course meets all official requirements and prepares you for credential success. Enroll with confidence that your training aligns with PMI standards."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI-CPMAI eligibility without forcing you into a classroom. Study from Idaho Falls while learning in real time from active practitioners."
+        },
+        {
+          "heading": "Exam Ready Before Test Day",
+          "text": "Instructors certified in their practice areas teach current methodology and share exam-preparation strategies throughout the course. You'll finish training with the confidence and tactical knowledge you need to pass."
+        },
+        {
+          "heading": "Credential That Advances Your Idaho Falls Career",
+          "text": "Idaho Falls employers in nuclear energy, healthcare, manufacturing, and government rely on PMI-certified professionals to lead complex projects. PMI-CPMAI credentials open doors at INL, regional medical centers, and public agencies actively hiring program managers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:50.393467Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "00eceb617cd13ffd",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Idaho Falls",
+      "text": "<p>Idaho National Laboratory and its contractor network form the backbone of project management hiring in Idaho Falls, creating consistent demand for certified professionals across nuclear energy, research infrastructure, and program management roles. Organizations like Battelle Energy Alliance, which operates INL, actively seek PMP®-certified candidates for engineering and compliance-driven projects. Beyond the energy sector, Eastern Idaho Regional Medical Center, Melaleuca, Inc., and the City of Idaho Falls employ project managers to oversee capital initiatives—from healthcare system expansions to the Downtown Idaho Falls redevelopment and Greenbelt improvement projects that have reshaped the community in recent years. These employers value both technical expertise and formal credentials that demonstrate capability to manage complex, regulated, and interdisciplinary work.</p><p>The PMI-CPMAI certification positions you competitively within Idaho Falls's distinctive market. Project managers in the energy and nuclear sectors—where INL's modernization and research infrastructure initiatives create ongoing opportunities—typically command compensation that reflects the technical rigor and regulatory requirements of their roles. Healthcare, manufacturing, and government employers similarly recognize that certified project managers deliver measurable value in planning, risk management, and stakeholder coordination. By completing Granite PM Academy's PMI-CPMAI Certification Training through our live-virtual format, you gain a credential that aligns with what Idaho Falls employers actively seek, while maintaining the flexibility to study on your own schedule and advance your career without relocating or commuting to a classroom.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:54.415325Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "401856aaced26e8e",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Idaho Falls",
+      "text": "<p>Idaho Falls's employment landscape is shaped significantly by Idaho National Laboratory and its contractor network, which drives demand for skilled project managers across nuclear energy, research infrastructure, and related technical fields. Major regional employers—including Battelle Energy Alliance, Eastern Idaho Regional Medical Center, Melaleuca, Inc., and the City of Idaho Falls—regularly seek certified professionals to lead complex initiatives. The Versatile Test Reactor project and INL's broader modernization efforts exemplify the scale and sophistication of programs managed locally, creating sustained opportunities for PMP-certified candidates who understand both technical delivery and regulatory compliance in high-stakes environments.</p><p>The PMP® credential carries particular weight in Idaho Falls's energy and healthcare sectors, where formal certification signals readiness for advanced program leadership roles and often correlates with compensation gains. Idaho Falls project managers connected to the INL contractor ecosystem and healthcare networks tend to earn competitively relative to the broader Mountain West region—a direct reflection of the technical complexity and compliance demands of their work. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for these roles, equipping you with the frameworks and credentials employers here actively value when staffing infrastructure modernization, facility expansion, and mission-critical healthcare and government projects.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:58.425587Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "401856aaced26e8e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Idaho Falls nuclear energy careers?",
+          "answer": "<p>Yes. Idaho National Laboratory and its contractor network prioritize PMP certification for engineering and program management roles, reflecting the technical rigor and compliance demands of nuclear and energy-sector projects. Certified professionals in this sector often access higher-paying opportunities and leadership positions. The credential signals mastery of risk management and stakeholder coordination—critical in regulated energy environments.</p>"
+        },
+        {
+          "question": "Which Idaho Falls employers value PMI-CPMAI project management certification most?",
+          "answer": "<p>Employers across Idaho Falls's largest sectors—particularly those in nuclear energy, healthcare, manufacturing, and government—recognize formal project management credentials. Idaho National Laboratory contractors, regional medical centers, school district administration, and Bonneville County operations frequently seek certified project managers. Certification demonstrates structured methodology, which resonates especially in technical, compliance-heavy, and mission-critical roles across these industries.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMI-CPMAI training while working at Idaho Falls employers?",
+          "answer": "<p>Yes. Granite PM Academy delivers live-virtual training nationally, so you can attend from your workplace, home, or any location with internet access. This format suits Idaho Falls professionals balancing full-time roles at INL, healthcare systems, manufacturing, or government agencies. Schedule the course around your employer's calendar, and many organizations offer tuition reimbursement for professional certifications.</p>"
+        },
+        {
+          "question": "When should Idaho Falls project managers pursue PMP certification for local job market timing?",
+          "answer": "<p>Idaho Falls's project management demand—driven by INL contract cycles, healthcare expansion, and manufacturing growth—remains steady year-round. However, early certification strengthens your candidacy before competitive hiring seasons. If you're targeting roles in energy, healthcare, or public administration, pursue certification now to position yourself for promotions and higher compensation bands that reward certified credentials in these sectors.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:04.002073Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "992daf3306535c65",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Idaho Falls's project management demand is anchored by Idaho National Laboratory and its contractor network, with growing opportunities across healthcare and manufacturing. Major employers including Battelle Energy Alliance, Eastern Idaho Regional Medical Center, and Melaleuca actively seek professionals with formal PM credentials to lead modernization initiatives, facility expansions, and research infrastructure projects. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Idaho Falls professionals nationwide, combining flexible scheduling with PMI-aligned curriculum.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:05.742672Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "dff16a11021d07b4",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Idaho Falls's project management demand is anchored by Idaho National Laboratory and its contractor network, alongside expanding healthcare and manufacturing sectors. Major employers including Battelle Energy Alliance, Eastern Idaho Regional Medical Center, and Melaleuca actively seek professionals with formal PM credentials to lead initiatives from nuclear research modernization to corporate campus growth. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Idaho Falls professionals nationwide, on a schedule designed for working adults.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:07.385998Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "dff16a11021d07b4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-idaho-falls-id/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Idaho Falls, ID, AI courses Idaho Falls, CPMAI certification Idaho Falls, AI project management training Idaho Falls, ID, AI for project managers Idaho Falls",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\",\n      \"name\": \"PMI-CPMAI Certification Training in Idaho Falls, ID | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Idaho Falls, ID for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Idaho Falls, ID\",\n            \"item\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Idaho Falls, ID\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Idaho Falls, ID who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-idaho-falls-id/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

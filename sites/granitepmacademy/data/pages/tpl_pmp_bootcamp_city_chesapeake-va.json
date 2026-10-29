@@ -1,404 +1,405 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "chesapeake-va",
-  "slug": "pmp-bootcamp-chesapeake-va",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "chesapeake-va",
-    "city": "Chesapeake",
-    "state": "Virginia",
-    "SS": "VA",
-    "city_slug": "chesapeake-va",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier3",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "chesapeake-va",
+    "slug": "pmp-bootcamp-chesapeake-va",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "chesapeake-va",
+        "city": "Chesapeake",
+        "state": "Virginia",
+        "SS": "VA",
+        "city_slug": "chesapeake-va",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier3",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Discount variety retail",
+            "Healthcare",
+            "E-commerce/logistics",
+            "Financial services/insurance",
+            "Telecommunications"
+        ],
+        "top_employers": [
+            "Dollar Tree (international headquarters)",
+            "Family Dollar (headquarters)",
+            "Chesapeake Regional Medical Center",
+            "Amazon.com Services",
+            "Sentara Healthcare",
+            "USAA",
+            "Cox Communications"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Chesapeake is headquarters to both Dollar Tree and Family Dollar, with Amazon, Sentara Healthcare, USAA, and Cox Communications also among its largest employers, spanning retail, logistics, healthcare, and financial services.",
+        "notable_projects": [
+            "Dollar Tree's newly completed Chesapeake headquarters campus on Volvo Parkway, housing roughly 1,900 employees"
+        ],
+        "credential_demand": "Dollar Tree's recent headquarters build and its large-scale retail/supply-chain operations are the type of complex, multi-year initiatives where PMP certification is plausibly valued among Chesapeake's corporate project managers.",
+        "_researched": 1,
+        "city_spotlight": "<p>Chesapeake's employer base includes Dollar Tree (international headquarters), Family Dollar (headquarters), Chesapeake Regional Medical Center, Amazon.com Services. Chesapeake is headquarters to both Dollar Tree and Family Dollar, with Amazon, Sentara Healthcare, USAA, and Cox Communications also among its largest employers, spanning retail, logistics, healthcare, and financial services. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chesapeake professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Chesapeake's retail, healthcare, and logistics sectors depend on skilled project managers to coordinate complex operations across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMP Bootcamp training that fulfills PMI's contact-hour requirements, letting you earn your PMP credential on a schedule that fits your job. The certification opens doors to leadership roles and competitive compensation across Chesapeake's major employers.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:53.308041Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "5eedd4da3bb8b777",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Chesapeake: Intensive Certification for Retail & Logistics Leaders",
+            "text": "<p>Chesapeake is home to Dollar Tree and Family Dollar headquarters, alongside major logistics and healthcare operations—a concentration that makes project management expertise uniquely valuable in your local market. These organizations, along with Amazon, Sentara Healthcare, and other top employers, depend on skilled project managers to coordinate complex supply chains, retail initiatives, and cross-functional teams. A PMP® certification distinguishes you as someone capable of managing high-stakes projects in the competitive retail, logistics, and healthcare sectors that define Chesapeake's economy, positioning you for leadership roles and competitive compensation in your region.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp taught by active certified practitioners who bring real-world experience to every lesson. As a PMI Authorized Training Partner, we deliver the contact hours required by the Project Management Institute, structured so working professionals in Chesapeake can pursue certification without relocating or abandoning their schedules. Our instructor-led format ensures you learn from experienced practitioners, ask questions in real time, and build the practical skills tested on the PMP exam. Upon successful completion and exam passage, you'll earn the PMP credential—a globally recognized mark that opens doors to advancement and higher earning potential across Chesapeake's largest employers and beyond.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:57.272321Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "c189f055294baff7",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Chesapeake's Retail and Healthcare Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Means Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. That means your PMP training meets PMI's rigorous standards and your contact hours count directly toward certification eligibility—no surprises, no gaps."
+                },
+                {
+                    "heading": "Live Instructors, Virtual Flexibility, Real Results",
+                    "text": "Attend live-virtual instructor-led sessions that fit your schedule while meeting every contact-hour requirement for PMP eligibility. Active certified practitioners lead every session, bringing current project challenges and solutions into the classroom."
+                },
+                {
+                    "heading": "Exam Prep Built Into Your Bootcamp",
+                    "text": "Study materials, practice exams, and targeted exam-preparation support are integrated throughout your bootcamp. You'll learn PMP content and build test-taking confidence in parallel, not as an afterthought."
+                },
+                {
+                    "heading": "Credential Demanded by Chesapeake's Top Employers",
+                    "text": "Major employers in discount retail, healthcare, e-commerce logistics, and financial services across Chesapeake actively hire PMP-certified project managers. Your certification directly aligns with local hiring demand and career-advancement pathways in your industry."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:01.348573Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "62ba2257ae99ef29",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Chesapeake",
+            "text": "<p>Chesapeake's economy is anchored by major retail and corporate operations, including Dollar Tree's international headquarters and the recently completed flagship campus on Volvo Parkway—a landmark facility housing roughly 1,900 employees. Alongside Dollar Tree and Family Dollar, employers like Chesapeake Regional Medical Center, Amazon.com Services, Sentara Healthcare, USAA, and Cox Communications all depend on certified project managers to oversee complex, multi-year initiatives spanning supply-chain modernization, real-estate development, healthcare system upgrades, and technology infrastructure. A headquarters build of that scale, combined with the operational depth of discount retail, healthcare networks, and e-commerce logistics, creates steady demand for professionals who can demonstrate structured project governance and delivery expertise.</p><p>The PMP® credential carries measurable career weight: across most regions, certified project managers report significantly higher median compensation than their non-certified peers—a premium that reflects both the rigor of the certification and the complexity of projects that require it. Completing Granite PM Academy's PMP Bootcamp positions you to compete for these roles in Chesapeake's competitive corporate environment. Our live-virtual format lets you earn your certification on your schedule while working, so you can advance into higher-responsibility positions at the employers actively building and scaling operations in your city—without pausing your current career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:05.380072Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "7ef6e47234724a40",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Chesapeake",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's specific requirements for your background—typically a degree plus years of directed project work, or equivalent experience. Granite PM Academy's advisors can verify your qualifications before enrollment."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend interactive sessions on your schedule—no travel required. Our active certified practitioners deliver real-world frameworks and case studies across five days of structured, PMI-approved instruction."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, apply directly to PMI with your education and experience documentation. Pay PMI's exam fee at application. Granite PM Academy provides guidance on forms and deadlines to keep your timeline on track."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and live review sessions—to build confidence. Register with Pearson VUE and sit for the computer-based exam at your chosen testing center or approved remote location."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "Earn professional development units (PDUs) across a standard three-year renewal cycle by taking courses, volunteering, or contributing to the profession. Granite PM Academy offers ongoing training to support continuous learning and recertification."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:10.140877Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "b189d3be530be945",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers at Chesapeake retail or logistics employers?",
+                    "answer": "<p>Chesapeake's major retail and supply-chain employers—including those managing large-scale distribution and headquarters operations—regularly oversee complex, multi-year initiatives where structured project management disciplines are valued. While no Chesapeake-specific salary data is independently verified, PMI's Earning Power Salary Survey reports certified PMP® professionals earn a median premium of approximately $26,000 annually over non-certified peers, a differential that holds across most regions and industries.</p>"
+                },
+                {
+                    "question": "Which Chesapeake industries and employers hire PMP-certified project managers most?",
+                    "answer": "<p>Chesapeake's strongest demand for certified project managers exists in discount retail operations, healthcare systems, e-commerce and logistics, financial services, and telecommunications. Employers managing enterprise-wide transformations, supply-chain expansions, and infrastructure projects—such as those headquartered in Chesapeake—particularly value candidates who demonstrate formal project governance and risk-management credentials.</p>"
+                },
+                {
+                    "question": "Can I attend live online PMP bootcamp Chesapeake from my workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is delivered entirely live-virtual nationwide, allowing Chesapeake professionals to attend from their office, home, or any location with internet access. This format accommodates working schedules and eliminates travel time, making it practical for busy project managers balancing full-time roles at local employers.</p>"
+                },
+                {
+                    "question": "Should Chesapeake project managers pursue PMP certification now or wait for career advancement?",
+                    "answer": "<p>Chesapeake's competitive project-management market—fueled by active headquarters operations and ongoing enterprise initiatives—rewards early certification. Pursuing your PMP® credential now positions you ahead of peers when promotion or lateral opportunities arise, and strengthens your candidacy for higher-responsibility roles at major local employers investing in large-scale projects.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:15.731938Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "50410c9bf132c6a2",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Chesapeake's economy centers on discount retail leadership—Dollar Tree and Family Dollar both call the city home—alongside major healthcare, logistics, and financial-services operations. These sectors consistently demand skilled project managers to oversee complex initiatives, from retail expansion to supply-chain modernization. Granite PM Academy delivers live-virtual PMP Bootcamp training to Chesapeake professionals seeking PMI® certification on a flexible schedule aligned with working life.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:17.349994Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "7bd27e74534730bb",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Discount variety retail",
-      "Healthcare",
-      "E-commerce/logistics",
-      "Financial services/insurance",
-      "Telecommunications"
-    ],
-    "top_employers": [
-      "Dollar Tree (international headquarters)",
-      "Family Dollar (headquarters)",
-      "Chesapeake Regional Medical Center",
-      "Amazon.com Services",
-      "Sentara Healthcare",
-      "USAA",
-      "Cox Communications"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Chesapeake is headquarters to both Dollar Tree and Family Dollar, with Amazon, Sentara Healthcare, USAA, and Cox Communications also among its largest employers, spanning retail, logistics, healthcare, and financial services.",
-    "notable_projects": [
-      "Dollar Tree's newly completed Chesapeake headquarters campus on Volvo Parkway, housing roughly 1,900 employees"
-    ],
-    "credential_demand": "Dollar Tree's recent headquarters build and its large-scale retail/supply-chain operations are the type of complex, multi-year initiatives where PMP certification is plausibly valued among Chesapeake's corporate project managers.",
-    "_researched": 1,
-    "city_spotlight": "<p>Chesapeake's employer base includes Dollar Tree (international headquarters), Family Dollar (headquarters), Chesapeake Regional Medical Center, Amazon.com Services. Chesapeake is headquarters to both Dollar Tree and Family Dollar, with Amazon, Sentara Healthcare, USAA, and Cox Communications also among its largest employers, spanning retail, logistics, healthcare, and financial services. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chesapeake professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Chesapeake's retail, healthcare, and logistics sectors depend on skilled project managers to coordinate complex operations across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMP Bootcamp training that fulfills PMI's contact-hour requirements, letting you earn your PMP credential on a schedule that fits your job. The certification opens doors to leadership roles and competitive compensation across Chesapeake's major employers.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:53.308041Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "5eedd4da3bb8b777",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Chesapeake, VA, PMP bootcamp Chesapeake, PMP certification boot camp Chesapeake, VA, PMP bootcamp near me, intensive PMP training Chesapeake",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\",\n      \"name\": \"PMP Bootcamp in Chesapeake, VA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Chesapeake, VA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Chesapeake, VA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#course\",\n      \"name\": \"PMP Bootcamp in Chesapeake, VA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Chesapeake, VA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Chesapeake: Intensive Certification for Retail & Logistics Leaders",
-      "text": "<p>Chesapeake is home to Dollar Tree and Family Dollar headquarters, alongside major logistics and healthcare operations—a concentration that makes project management expertise uniquely valuable in your local market. These organizations, along with Amazon, Sentara Healthcare, and other top employers, depend on skilled project managers to coordinate complex supply chains, retail initiatives, and cross-functional teams. A PMP® certification distinguishes you as someone capable of managing high-stakes projects in the competitive retail, logistics, and healthcare sectors that define Chesapeake's economy, positioning you for leadership roles and competitive compensation in your region.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp taught by active certified practitioners who bring real-world experience to every lesson. As a PMI Authorized Training Partner, we deliver the contact hours required by the Project Management Institute, structured so working professionals in Chesapeake can pursue certification without relocating or abandoning their schedules. Our instructor-led format ensures you learn from experienced practitioners, ask questions in real time, and build the practical skills tested on the PMP exam. Upon successful completion and exam passage, you'll earn the PMP credential—a globally recognized mark that opens doors to advancement and higher earning potential across Chesapeake's largest employers and beyond.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:57.272321Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "c189f055294baff7",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Chesapeake's Retail and Healthcare Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Means Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. That means your PMP training meets PMI's rigorous standards and your contact hours count directly toward certification eligibility—no surprises, no gaps."
-        },
-        {
-          "heading": "Live Instructors, Virtual Flexibility, Real Results",
-          "text": "Attend live-virtual instructor-led sessions that fit your schedule while meeting every contact-hour requirement for PMP eligibility. Active certified practitioners lead every session, bringing current project challenges and solutions into the classroom."
-        },
-        {
-          "heading": "Exam Prep Built Into Your Bootcamp",
-          "text": "Study materials, practice exams, and targeted exam-preparation support are integrated throughout your bootcamp. You'll learn PMP content and build test-taking confidence in parallel, not as an afterthought."
-        },
-        {
-          "heading": "Credential Demanded by Chesapeake's Top Employers",
-          "text": "Major employers in discount retail, healthcare, e-commerce logistics, and financial services across Chesapeake actively hire PMP-certified project managers. Your certification directly aligns with local hiring demand and career-advancement pathways in your industry."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:01.348573Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "62ba2257ae99ef29",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Chesapeake",
-      "text": "<p>Chesapeake's economy is anchored by major retail and corporate operations, including Dollar Tree's international headquarters and the recently completed flagship campus on Volvo Parkway—a landmark facility housing roughly 1,900 employees. Alongside Dollar Tree and Family Dollar, employers like Chesapeake Regional Medical Center, Amazon.com Services, Sentara Healthcare, USAA, and Cox Communications all depend on certified project managers to oversee complex, multi-year initiatives spanning supply-chain modernization, real-estate development, healthcare system upgrades, and technology infrastructure. A headquarters build of that scale, combined with the operational depth of discount retail, healthcare networks, and e-commerce logistics, creates steady demand for professionals who can demonstrate structured project governance and delivery expertise.</p><p>The PMP® credential carries measurable career weight: across most regions, certified project managers report significantly higher median compensation than their non-certified peers—a premium that reflects both the rigor of the certification and the complexity of projects that require it. Completing Granite PM Academy's PMP Bootcamp positions you to compete for these roles in Chesapeake's competitive corporate environment. Our live-virtual format lets you earn your certification on your schedule while working, so you can advance into higher-responsibility positions at the employers actively building and scaling operations in your city—without pausing your current career.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:05.380072Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "7ef6e47234724a40",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Chesapeake",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's specific requirements for your background—typically a degree plus years of directed project work, or equivalent experience. Granite PM Academy's advisors can verify your qualifications before enrollment."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend interactive sessions on your schedule—no travel required. Our active certified practitioners deliver real-world frameworks and case studies across five days of structured, PMI-approved instruction."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After course completion, apply directly to PMI with your education and experience documentation. Pay PMI's exam fee at application. Granite PM Academy provides guidance on forms and deadlines to keep your timeline on track."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and live review sessions—to build confidence. Register with Pearson VUE and sit for the computer-based exam at your chosen testing center or approved remote location."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "Earn professional development units (PDUs) across a standard three-year renewal cycle by taking courses, volunteering, or contributing to the profession. Granite PM Academy offers ongoing training to support continuous learning and recertification."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:10.140877Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "b189d3be530be945",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers at Chesapeake retail or logistics employers?",
-          "answer": "<p>Chesapeake's major retail and supply-chain employers—including those managing large-scale distribution and headquarters operations—regularly oversee complex, multi-year initiatives where structured project management disciplines are valued. While no Chesapeake-specific salary data is independently verified, PMI's Earning Power Salary Survey reports certified PMP® professionals earn a median premium of approximately $26,000 annually over non-certified peers, a differential that holds across most regions and industries.</p>"
-        },
-        {
-          "question": "Which Chesapeake industries and employers hire PMP-certified project managers most?",
-          "answer": "<p>Chesapeake's strongest demand for certified project managers exists in discount retail operations, healthcare systems, e-commerce and logistics, financial services, and telecommunications. Employers managing enterprise-wide transformations, supply-chain expansions, and infrastructure projects—such as those headquartered in Chesapeake—particularly value candidates who demonstrate formal project governance and risk-management credentials.</p>"
-        },
-        {
-          "question": "Can I attend live online PMP bootcamp Chesapeake from my workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is delivered entirely live-virtual nationwide, allowing Chesapeake professionals to attend from their office, home, or any location with internet access. This format accommodates working schedules and eliminates travel time, making it practical for busy project managers balancing full-time roles at local employers.</p>"
-        },
-        {
-          "question": "Should Chesapeake project managers pursue PMP certification now or wait for career advancement?",
-          "answer": "<p>Chesapeake's competitive project-management market—fueled by active headquarters operations and ongoing enterprise initiatives—rewards early certification. Pursuing your PMP® credential now positions you ahead of peers when promotion or lateral opportunities arise, and strengthens your candidacy for higher-responsibility roles at major local employers investing in large-scale projects.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:15.731938Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "50410c9bf132c6a2",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Chesapeake's economy centers on discount retail leadership—Dollar Tree and Family Dollar both call the city home—alongside major healthcare, logistics, and financial-services operations. These sectors consistently demand skilled project managers to oversee complex initiatives, from retail expansion to supply-chain modernization. Granite PM Academy delivers live-virtual PMP Bootcamp training to Chesapeake professionals seeking PMI® certification on a flexible schedule aligned with working life.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:17.349994Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "7bd27e74534730bb",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Chesapeake, VA, PMP bootcamp Chesapeake, PMP certification boot camp Chesapeake, VA, PMP bootcamp near me, intensive PMP training Chesapeake",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\",\n      \"name\": \"PMP Bootcamp in Chesapeake, VA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Chesapeake, VA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Chesapeake, VA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#course\",\n      \"name\": \"PMP Bootcamp in Chesapeake, VA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Chesapeake, VA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chesapeake-va/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

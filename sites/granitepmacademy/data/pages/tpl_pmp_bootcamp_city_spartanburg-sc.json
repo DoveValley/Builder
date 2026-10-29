@@ -1,390 +1,422 @@
 {
-    "template_id": "tpl_pmp_bootcamp_city",
-    "city_id": "spartanburg-sc",
-    "slug": "pmp-bootcamp-spartanburg-sc",
-    "title": "PMP Bootcamp {city}",
-    "city_vars": {
-        "id": "spartanburg-sc",
-        "city": "Spartanburg",
-        "state": "South Carolina",
-        "SS": "SC",
-        "city_slug": "spartanburg-sc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Spartanburg's automotive and advanced manufacturing sector, led by BMW's Plant Spartanburg and supported by logistics giants like Amazon and regional healthcare expansion, consistently demands skilled project managers to lead complex production, supply chain, and facility initiatives. The Upstate's diversified industrial base—from textiles to e-commerce distribution—creates steady, marketable opportunities for professionals holding the PMP® credential. Granite PM Academy serves Spartanburg professionals with live-virtual PMP Certification training designed around working schedules.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Spartanburg's manufacturing and automotive supply sector relies on project managers who can lead cross-functional teams under tight deadlines. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI contact-hour education requirement in an accelerated format, taught by experienced instructors, so you can earn your credential without pausing your career. For project managers in this region, PMP certification typically opens doors to supervisory roles and higher compensation within established production and supply-chain organizations.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_boot_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP boot camp {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:36.996859Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "0c020c0ba5f8a86c",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Boot Camp in Spartanburg: Project Management Certification for Manufacturing Leaders",
-            "text": "<p>Spartanburg's automotive and advanced manufacturing sector—anchored by BMW Manufacturing and Milliken & Company—drives relentless demand for project managers who can orchestrate complex production schedules, supply chain coordination, and facility expansions. These capital-intensive operations require professionals who speak the language of risk, scope, and stakeholder management. A PMP certification signals to local employers in automotive, logistics, healthcare, and distribution that you can manage the budgets, timelines, and teams that keep the Upstate's industrial economy competitive. For career-focused professionals in Spartanburg, the PMP credential opens doors across the region's manufacturing corridor and positions you as a credible resource for the complex initiatives that define growth in this market.</p><p>Granite PM Academy delivers live, instructor-led PMP Boot Camp training as a PMI Authorized Training Partner, designed to compress weeks of study into an intensive format that satisfies PMI contact-hour requirements. Our instructors are active, certified practitioners who bring real-world experience from manufacturing, healthcare, and logistics environments—the industries that define Spartanburg's economic landscape. The immersive boot camp model fits working professionals in Spartanburg who need flexible scheduling without sacrificing depth or instructor support. Upon completion of your course, you'll be ready to sit for the PMP exam with the knowledge and confidence to earn one of project management's most respected credentials and advance your career in this thriving regional market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:41.436411Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "4268220e6662616c",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Spartanburg Professionals Choose Our PMP Boot Camp",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Credential Path",
-                    "text": "Our boot camp delivers PMI contact hours required for PMP® eligibility. Granite PM Academy's PMI Authorized Training Partner status ensures your classroom hours meet credential standards—no gaps, no guesswork. Fast-track your application with verified completion."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Learn from active PMP®-certified practitioners managing projects in automotive, healthcare, and logistics today. Our instructors bring current case studies and industry challenges into every session, not textbook theory alone. Direct access to working professionals accelerates your readiness."
-                },
-                {
-                    "heading": "Flexible Format, Full Exam Prep",
-                    "text": "Live-virtual instruction fits working schedules while maintaining instructor interaction and peer collaboration. We include exam-strategy sessions, practice tests, and one-on-one guidance to maximize your first-attempt success. No self-study gaps."
-                },
-                {
-                    "heading": "Demand Across Spartanburg's Top Employers",
-                    "text": "BMW Manufacturing, Milliken, Spartanburg Regional Healthcare, and major distribution centers actively hire project managers with PMP® credentials. The credential unlocks advancement in automotive supply, textile innovation, healthcare operations, and logistics—Spartanburg's core industries. Local salary ranges reward certified expertise."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:45.737978Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "5afe06cbca7e77dc",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Automotive and Manufacturing Spartanburg",
-            "text": "<p>Spartanburg's automotive and advanced manufacturing sector anchors a robust market for certified project managers. BMW Manufacturing Co. drives significant demand, particularly as the company expands electric vehicle production at Plant Spartanburg—a multi-year initiative requiring skilled project leadership across engineering, supply chain, and operations. Beyond automotive, Milliken & Company's innovation and R&D center enhancements, Spartanburg Regional Healthcare System's ongoing facility modernization projects, and the region's major logistics employers—including Amazon Fulfillment Center and the Adidas Distribution Center—all actively recruit professionals who can coordinate complex, cross-functional deliverables. These organizations increasingly value PMP and CAPM certifications as markers of standardized, efficient project delivery.</p><p>Earning your PMP credential positions you competitively in Spartanburg's job market. Project management salaries in the area track regional Upstate South Carolina and national manufacturing and healthcare benchmarks, with certified professionals commanding stronger offers than non-credentialed peers—though exact compensation varies by industry and experience. The Spartanburg market rewards specialized skills: certified project managers in engineering, operations, and expansion roles at major employers often advance faster and access roles closed to uncertified candidates. Completing Granite PM Academy's PMP Boot Camp gives you the verified credential and current best practices that local hiring managers in automotive, textiles, healthcare, and distribution actively seek, accelerating your path to higher-impact and higher-paying positions in your community.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:50.515571Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "96f100a1f05073f6",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "PMP Boot Camp",
-                    "badge": "INTENSIVE",
-                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$2,495",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_boot_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP® Certification in Spartanburg",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP® credential. Review PMI's official eligibility guidelines to confirm your background qualifies. Contact Granite PM Academy if you need clarification on whether your experience aligns with PMI standards."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours of Instruction",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our course delivers the required formal education in an accelerated format, combining real-world project scenarios with PMI's framework. Attend all sessions to earn your certificate of completion, required for your PMI application."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "After finishing the boot camp, apply directly to PMI with your course completion certificate and relevant project-management documentation. Pay PMI's exam application fee through their official portal. Allow time for PMI to review and approve your application before scheduling your exam."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor support, to solidify your knowledge. Schedule your exam at a testing center near Spartanburg. On exam day, apply the strategies and content you mastered during the boot camp."
-                },
-                {
-                    "heading": "Maintain Your PMP® Credential",
-                    "text": "After earning your PMP®, commit to the standard three-year renewal cycle by earning Professional Development Units (PDUs) through continuing education, conference attendance, and project-management activities. Granite PM Academy offers ongoing professional-development resources to help you stay current and maintain your credential."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:56.005803Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "283155e4472459c5",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-                },
-                {
-                    "question": "Can I complete the PMP Bootcamp online from {city}?",
-                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-                },
-                {
-                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Spartanburg manufacturing and automotive careers?",
-                    "answer": "<p>Yes. Spartanburg's dominant automotive and advanced manufacturing sectors—anchored by BMW Manufacturing, Milliken, and major suppliers—increasingly prioritize PMP and CAPM credentials for engineering, operations, and expansion roles. While certification isn't always mandatory, it's often preferred and positions you competitively for leadership roles where standardized project delivery and efficiency improvements are critical business drivers.</p>"
-                },
-                {
-                    "question": "Which Spartanburg employers value PMP certification most?",
-                    "answer": "<p>Healthcare systems, automotive manufacturers, logistics and distribution centers, and textile/materials engineering companies actively seek PMP-certified professionals. Organizations like Spartanburg Regional Healthcare System, BMW Manufacturing, Adidas Distribution Center, Amazon Fulfillment Center, and TJX Distribution Center frequently hire certified project managers for operational, capital, and process-improvement initiatives where credential standards matter.</p>"
-                },
-                {
-                    "question": "Can I attend the live-virtual PMP boot camp from my Spartanburg workplace?",
-                    "answer": "<p>Yes. Our live-virtual format lets you join from your office, home, or any location with reliable internet—no travel required. Spartanburg professionals at distribution centers, manufacturing facilities, and healthcare systems commonly attend during scheduled class hours from their workplace, provided your employer permits it and you have a private, distraction-free space.</p>"
-                },
-                {
-                    "question": "How does Spartanburg's job market timing affect when to pursue PMP certification?",
-                    "answer": "<p>Spartanburg's manufacturing, healthcare, and logistics sectors show steady, year-round demand for certified project managers. Rather than waiting for seasonal hiring, candidates benefit from earning PMP or CAPM credentials proactively. The region's major employers—particularly those managing expansion or modernization—actively recruit certified professionals, so early certification can accelerate your competitive advantage and salary positioning.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:07:01.785381Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "4955089d3bddf5b4",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Spartanburg's automotive and advanced manufacturing sector—anchored by BMW's Plant Spartanburg and complemented by logistics hubs serving national retailers—creates consistent demand for skilled project managers who can navigate complex supply chains and facility expansions. Healthcare system growth and EV production initiatives add further urgency for professionals holding the PMP® credential. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Spartanburg's working professionals.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:07:03.629427Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "874bf2e55a04d6bb",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Intensive PMP Prep — Right from {city}",
-            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_boot_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "spartanburg-sc",
+  "slug": "pmp-bootcamp-spartanburg-sc",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "spartanburg-sc",
+    "city": "Spartanburg",
+    "state": "South Carolina",
+    "SS": "SC",
+    "city_slug": "spartanburg-sc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/",
-        "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "meta_keywords": "PMP boot camp Spartanburg, SC, PMP bootcamp Spartanburg, PMP certification boot camp Spartanburg, SC, PMP bootcamp near me, intensive PMP training Spartanburg",
-        "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\",\n      \"name\": \"PMP Boot Camp in Spartanburg, SC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Spartanburg, SC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Spartanburg, SC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#course\",\n      \"name\": \"PMP Boot Camp in Spartanburg, SC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Spartanburg, SC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n    }\n  ]\n}",
-        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+    "industries": [
+      "Automotive manufacturing and suppliers",
+      "Advanced/textile manufacturing",
+      "Healthcare systems",
+      "Logistics and distribution",
+      "Consumer goods and food service",
+      "Materials science and engineering"
+    ],
+    "top_employers": [
+      "BMW Manufacturing Co.",
+      "Milliken & Company",
+      "Spartanburg Regional Healthcare System",
+      "Denny's Corporation",
+      "Adidas Distribution Center",
+      "Amazon Fulfillment Center",
+      "QS/1 (J M Smith Corporation)",
+      "Mount Vernon Mills",
+      "TJX Distribution Center (Fairforest area)",
+      "Advance Auto Parts Distribution Center"
+    ],
+    "salary_note": "Project management salaries in the Spartanburg area tend to track regional Upstate South Carolina and national manufacturing/healthcare benchmarks, with experienced PMP-certified professionals commanding the most competitive offers; exact figures vary widely by industry and experience level, so candidates should verify current data with local salary surveys.",
+    "market_blurb": "Spartanburg, South Carolina, sits at the heart of the Upstate manufacturing corridor, anchored by automotive giant BMW and textile/materials leader Milliken & Company, alongside a growing logistics and distribution sector tied to national retailers and e-commerce. This diverse industrial base, combined with a strong regional healthcare system, creates steady demand for skilled project and program managers who can coordinate complex manufacturing, supply chain, and facility expansion initiatives. As companies continue to invest in the area, project management expertise remains a valuable and marketable skill set in the local economy.",
+    "notable_projects": [
+      "BMW Manufacturing Co. electric vehicle (EV) production expansion at Plant Spartanburg",
+      "Spartanburg Regional Healthcare System facility expansions and modernization projects",
+      "I-85 corridor widening and infrastructure improvements (South Carolina Department of Transportation)",
+      "Milliken & Company innovation and R&D center enhancements"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly valued by Spartanburg-area manufacturing, healthcare, and logistics employers seeking to standardize project delivery and improve efficiency. While not always a strict requirement, certified project managers are often preferred for engineering, operations, and expansion-related roles in the region's major companies.",
+    "_researched": 1,
+    "city_spotlight": "<p>Spartanburg's automotive and advanced manufacturing hub—anchored by BMW's electric vehicle expansion and supported by logistics, healthcare, and materials science employers—creates sustained demand for skilled project managers who can lead complex supply chain, facility, and production initiatives. Granite PM Academy delivers live-virtual PMP® Certification training to Spartanburg professionals, enabling you to earn your credential on your schedule while advancing in a market where project management expertise remains highly marketable across manufacturing, distribution, and healthcare sectors.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-spartanburg-sc.webp",
+    "city_image_alt": "Love Where You Live mural in downtown Spartanburg, SC",
+    "city_image_credit": "Photo: PegasusRacer28, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Love_Where_You_Live_mural_in_downtown_Spartanburg.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Spartanburg's automotive manufacturing, advanced textile, and logistics sectors depend on leaders who can manage complex supply chains and production schedules. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, letting you earn your credential without leaving your workplace. For project managers across Spartanburg's major employers, the PMP® credential unlocks career advancement and competitive compensation in a market that values certified expertise.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:17.627721Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e2026b0825968689",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Spartanburg: Advance Your Career in Automotive and Manufacturing",
+      "text": "<p>Spartanburg's position as a global automotive manufacturing hub, anchored by BMW Manufacturing Co. and supported by a robust network of precision suppliers, creates sustained demand for project managers who can lead complex production initiatives, facility expansions, and supply chain coordination. Alongside this automotive center sits a thriving advanced manufacturing and materials science sector, represented by industry leaders like Milliken & Company, where cross-functional project expertise directly drives competitive advantage. The region's growing logistics and distribution infrastructure—home to major fulfillment and distribution operations—adds another layer of opportunity for professionals managing time-sensitive, high-stakes initiatives. For Spartanburg-based professionals in these sectors, PMP® certification signals the discipline and frameworks needed to manage projects of increasing scope and complexity, making it a marketable credential that reflects local employer expectations.</p><p>Granite PM Academy delivers PMP® Bootcamp as a live-virtual, instructor-led program recognized by the Project Management Institute as an authorized training partner. Our bootcamp satisfies the contact-hour requirements mandated by PMI for PMP® eligibility, taught by active certified practitioners with real-world project experience across industries. The live-virtual format ensures you can complete your training without geographical constraints while maintaining the interactive accountability and peer engagement of a structured classroom environment. Upon completion, you'll have met a critical gateway requirement for sitting for the PMP® examination, positioning you to earn the credential that employers throughout Spartanburg and beyond recognize as a mark of project management mastery and professional commitment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:22.439836Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "58b0e206ae306246",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Spartanburg's Advanced Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Our PMP Bootcamp delivers the PMI contact hours required for eligibility, ensuring your certification pathway meets strict industry standards recognized across automotive, textile, and logistics sectors."
+        },
+        {
+          "heading": "Live Instruction, Real Exam Prep",
+          "text": "Instructor-led live-virtual sessions satisfy PMP contact-hour requirements while keeping you in your Spartanburg role. Dedicated exam-preparation support—practice tests, strategy review, and targeted feedback—maximizes your certification success on your first attempt."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Our instructors are active PMP and CAPM certified professionals who apply project management daily in complex environments. Their real-world experience translates into bootcamp content that addresses actual challenges you'll face managing cross-functional teams and demanding timelines."
+        },
+        {
+          "heading": "Credential Demand in Spartanburg's Growth Industries",
+          "text": "BMW Manufacturing, Adidas Distribution Center, Amazon Fulfillment Center, and Spartanburg Regional Healthcare System actively hire project and program managers. The PMP credential differentiates your resume in a competitive local market and qualifies you for higher-responsibility roles across these major employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:26.713158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1d4f1eb1bae25d02",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Spartanburg's Growing Industries",
+      "text": "<p>Spartanburg's automotive and advanced manufacturing sectors—anchored by BMW Manufacturing Co., Milliken & Company, and Mount Vernon Mills—actively hire certified project managers to lead production expansions, facility modernizations, and supply-chain initiatives. BMW's electric vehicle production expansion at Plant Spartanburg and Milliken's R&D center enhancements exemplify the kind of capital-intensive, multi-phase projects that demand rigorous project management discipline. Beyond manufacturing, Spartanburg Regional Healthcare System's ongoing facility expansions and modernization efforts, combined with the region's robust logistics hub (including major distribution and fulfillment operations), create steady demand for professionals who can manage complex timelines, budgets, and cross-functional teams.</p><p>The PMP® and CAPM® certifications are increasingly preferred by Spartanburg employers in manufacturing, healthcare, and logistics roles, particularly for engineering, operations, and expansion-related positions where standardized project delivery and measurable efficiency gains matter most. While not universally mandated, certified professionals typically command more competitive compensation packages aligned with regional and national benchmarks for their experience level. Completing the PMP Bootcamp through Granite PM Academy positions you to meet this credential demand directly: you'll earn a globally recognized qualification that resonates with the employers reshaping Spartanburg's industrial and healthcare landscape, and you'll do so entirely online, fitting certification around your current work schedule.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:30.931751Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c039499562a57ac7",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Spartanburg",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years. Review PMI's full eligibility criteria to ensure you meet education and experience thresholds before enrolling in Granite PM Academy's bootcamp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend all required contact hours—delivered synchronously by active certified practitioners—to satisfy PMI's formal education requirement and build the knowledge foundation for exam success."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the bootcamp, create your PMI account and submit your PMP application, documenting your project-management experience. Pay the associated exam fee to PMI. Granite PM Academy's team can guide you through the application process."
+        },
+        {
+          "heading": "Prepare and Pass the PMP Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce bootcamp content. Schedule your exam at a PMI-approved testing center and sit for the computer-based assessment on your timeline."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Your PMP remains active for three years. Earn Professional Development Units (PDUs) through continuing education, volunteer work, or conference attendance to renew your credential. Plan your PDU strategy early to stay current and competitive in your local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:35.573176Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b565f355fe06734a",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Spartanburg's manufacturing sector?",
+          "answer": "<p>Yes. Spartanburg's automotive, textile, and advanced manufacturing employers—including major companies like BMW Manufacturing and Milliken—increasingly prefer or require PMP certification for engineering, operations, and expansion-related project leadership roles. The credential signals standardized project delivery capability, which directly supports these industries' efficiency and quality goals. Experienced PMP-certified professionals in the region command more competitive offers than non-certified counterparts, making certification a strategic career investment.</p>"
+        },
+        {
+          "question": "Which Spartanburg employers value PMP and CAPM credentials most?",
+          "answer": "<p>Spartanburg's largest employers across automotive manufacturing, healthcare, logistics, and distribution actively seek certified project managers. BMW Manufacturing Co., Milliken & Company, Spartanburg Regional Healthcare System, and major distribution centers (Amazon, Adidas, TJX) all prioritize PMP and CAPM credentials when filling operations, engineering, and project leadership roles. While certification is not always mandatory, it significantly strengthens candidacy and supports internal advancement in these organizations.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP Bootcamp from my Spartanburg workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is entirely live-virtual, meaning you can participate from your workplace, home, or any location with reliable internet. Many Spartanburg professionals in manufacturing, healthcare, and logistics settings attend during flexible scheduling windows. Confirm your employer's policies on training during work hours, but the virtual format removes geographic barriers and travel constraints.</p>"
+        },
+        {
+          "question": "Should Spartanburg project managers certify now or wait for better timing?",
+          "answer": "<p>Certification demand among Spartanburg's major employers is currently strong and growing. Manufacturing expansion, healthcare system modernization, and logistics operations all drive need for certified project managers. Delaying certification may mean missing advancement opportunities within your current organization or in the competitive regional job market. Given the region's robust project-driven sectors, pursuing PMP or CAPM certification sooner positions you ahead of non-certified peers.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:42.038625Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "da4c50d886cfbb12",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Spartanburg's automotive and advanced manufacturing ecosystem—anchored by BMW's Plant Spartanburg EV expansion and Milliken & Company's innovation initiatives—drives consistent demand for skilled project managers who can lead complex production, supply chain, and facility modernization efforts. Healthcare system expansions and the region's growing logistics hub further broaden opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP Bootcamp training to Spartanburg working professionals, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:43.819749Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d5f32c10e1632d9a",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Spartanburg, SC, PMP bootcamp Spartanburg, PMP certification boot camp Spartanburg, SC, PMP bootcamp near me, intensive PMP training Spartanburg",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\",\n      \"name\": \"PMP Bootcamp in Spartanburg, SC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Spartanburg, SC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Spartanburg, SC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#course\",\n      \"name\": \"PMP Bootcamp in Spartanburg, SC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Spartanburg, SC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-spartanburg-sc/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMP Bootcamp",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "1a2eea2155d777355b5ff0707995b162"
 }

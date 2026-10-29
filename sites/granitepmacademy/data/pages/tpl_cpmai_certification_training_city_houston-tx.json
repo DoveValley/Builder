@@ -1,348 +1,399 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "houston-tx",
-    "slug": "ai-training-houston-tx",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "houston-tx",
-        "city": "Houston",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "houston-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier6"
-        ],
-        "city_spotlight": "<p>As a global energy hub anchored by ExxonMobil, Chevron, Shell, and other major operators, Houston's project management market thrives across oil & gas, petrochemicals, healthcare, aerospace, and construction. Major initiatives like the Port of Houston expansion and Texas Medical Center projects sustain consistent demand for skilled PMs and program managers. Granite PM Academy serves Houston professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Houston's energy and petrochemical sectors rely on project managers who can integrate AI tools into complex, large-scale operations. Granite PM Academy delivers instructor-led AI Training for Project Managers in a live-virtual format that satisfies PMI's contact-hour requirements, equipping you to lead smarter decisions across planning, risk analysis, and resource allocation. Mastering AI-driven project management positions you for advancement in Houston's competitive technical and industrial markets.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:21.703297Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "b11fe027348103e5",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Houston's Energy Sector",
-            "text": "<p>Houston's energy industry—anchored by global leaders like ExxonMobil, Chevron, Shell, and Baker Hughes—faces a critical shift as artificial intelligence reshapes project planning, risk management, and resource allocation across petrochemical plants and upstream operations. Project managers in Houston now compete in a market where AI fluency directly impacts career advancement and project outcomes. Whether you manage capital-intensive energy projects, construction schedules, or cross-functional teams at NASA Johnson Space Center or within the Texas Medical Center, integrating AI tools into your project management practice is no longer optional. Granite PM Academy's AI Training for Project Managers equips you with the strategies and techniques to leverage machine learning and automation—skills that Houston employers across energy, aerospace, healthcare, and construction increasingly expect from certified professionals.</p><p>Granite PM Academy delivers AI Training for Project Managers as a PMI Authorized Training Partner, offering live-virtual, instructor-led instruction taught by active certified practitioners with real-world experience in Houston's major industries. Our curriculum satisfies the contact-hour requirements for PMP® and CAPM® credential maintenance and advancement, ensuring every session counts toward your professional development. You'll work through practical AI applications—from predictive analytics for schedule forecasting to intelligent resource optimization—in a format designed for working professionals. Upon completion, you'll earn recognition that strengthens your candidacy for senior roles and positions you to lead modern project teams across Houston's robust and expanding job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:26.540375Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "c38f866d84bf6f46",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI skills for Houston's energy and construction leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy's status as a PMI Authorized Training Partner means your PMP® or CAPM® certification meets the rigor major Houston employers—ExxonMobil, Shell, Bechtel—expect. No ambiguity about course quality or credential legitimacy when hiring managers review your credentials."
-                },
-                {
-                    "heading": "Live instruction fits working schedules",
-                    "text": "Synchronous virtual sessions deliver the contact hours required for PMI certification while letting you stay employed full-time in your Houston role. Instructors teach live; you ask questions in real time and complete requirements without extended classroom commutes across the metro area."
-                },
-                {
-                    "heading": "Practitioners teach what they practice daily",
-                    "text": "Your instructors are active certified project managers working in Houston's energy, construction, and aerospace sectors. They bring current case studies and real obstacles—not textbook theory—into every session, grounding AI and scope management in the work you'll manage."
-                },
-                {
-                    "heading": "Credential demanded by Houston's major employers",
-                    "text": "PMP® and CAPM® certifications are standard qualifications for project and program roles at ExxonMobil, Phillips 66, Chevron, Memorial Hermann, and Bechtel. Houston's competitive job market rewards certified professionals with advancement and mobility across energy, petrochemical, construction, and healthcare sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:31.122774Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "e68a91146b979a95",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Houston's Energy Sector",
-            "text": "<p>Houston's energy industry—anchored by ExxonMobil, Chevron, Shell, and ConocoPhillips—drives consistent demand for certified project managers across upstream, downstream, and support operations. Beyond energy, major employers including Bechtel, Baker Hughes, and Halliburton seek PMP-credentialed professionals to lead capital projects, infrastructure upgrades, and operational initiatives. Healthcare systems like Memorial Hermann and Houston Methodist are expanding facilities and modernizing care delivery, creating mid- to senior-level PM roles. Even NASA Johnson Space Center's Artemis program support activities and the Port of Houston's ongoing modernization projects underscore how deeply project management expertise threads through the region's largest employers and most visible infrastructure work.</p><p>The local market strongly favors PMP certification and equivalent credentials when determining compensation bands and advancement potential. Energy, engineering, and healthcare sectors especially—Houston's economic cornerstones—routinely list PMP or equivalent as a differentiator for roles above entry level, meaning certified professionals command measurably stronger negotiating positions. Completing AI Training for Project Managers through Granite PM Academy equips you with both the technical foundation and the credential recognition that Houston's largest employers actively seek. In a competitive market where pay scales significantly with certification and experience, pairing expertise in modern AI-driven project tools with PMI credentials positions you to compete effectively for the roles that define Houston's career landscape.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:35.277280Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "f111ce89c7dfd3f3",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI training worth it for project managers in Houston's energy sector?",
-                    "answer": "<p>Yes. Houston's energy, oil & gas, and petrochemical employers—including ExxonMobil, Chevron, Shell, and Baker Hughes—increasingly integrate AI into project planning, resource forecasting, and risk management. AI competency differentiates candidates competing for mid- to senior-level roles where PMP certification is already expected. Combined with a recognized credential, AI expertise directly strengthens your position in a market where energy and engineering firms actively seek candidates who can leverage emerging tools.</p>"
-                },
-                {
-                    "question": "Which Houston employers most value AI and project management certification?",
-                    "answer": "<p>Major Houston employers in energy (ExxonMobil, Chevron, ConocoPhillips, Shell, Phillips 66), engineering and construction (Bechtel, Baker Hughes, Halliburton), aerospace (NASA Johnson Space Center), and healthcare (Memorial Hermann, Houston Methodist) prioritize PMP or equivalent credentials. These sectors now increasingly look for candidates who also understand AI applications in scheduling, budgeting, and stakeholder communication—making dual competency a competitive edge in job postings and advancement discussions.</p>"
-                },
-                {
-                    "question": "Can Houston project managers attend AI training live-virtual from their office?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format accommodates working professionals in Houston offices, construction sites, and remote locations. You can attend from your workplace or home without sacrificing schedule flexibility. This format is especially valuable for Houston's shift-based and field-heavy industries, where energy, construction, and aerospace teams operate across distributed sites and fixed classroom attendance may not be practical.</p>"
-                },
-                {
-                    "question": "How does Houston's job market affect when to pursue AI project management training?",
-                    "answer": "<p>Houston's competitive demand for certified project managers—particularly in energy, healthcare, and engineering—means early certification and upskilling can accelerate promotion timelines and salary growth. If you're already holding PMP or CAPM, adding AI competency now positions you ahead of candidates still in transition. Given strong local hiring activity and emphasis on differentiators, timing your credential upgrade before your next role or promotion window is strategic.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:41.499111Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "c9c131d577475582",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>As a global energy hub, Houston's project management demand spans oil and gas giants like ExxonMobil and Shell, plus thriving healthcare, aerospace, and construction sectors. Major initiatives—from Port of Houston modernization to NASA Johnson Space Center's Artemis program—create sustained opportunities for skilled PMs. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Houston professionals seeking competitive credentials and practical skills.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:43.269608Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "a1a578601f4bc641",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "houston-tx",
+  "slug": "ai-training-houston-tx",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "houston-tx",
+    "city": "Houston",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "houston-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-houston-tx/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Houston, TX, AI courses Houston, CPMAI certification Houston, AI project management training Houston, TX, AI for project managers Houston",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\",\n      \"name\": \"AI Training for Project Managers in Houston, TX — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Houston, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Houston, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#course\",\n      \"name\": \"AI Training for Project Managers in Houston, TX\",\n      \"description\": \"CPMAI certification training for project managers in Houston, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Energy (Oil & Gas) and Petrochemicals",
+      "Construction and Engineering",
+      "Healthcare and Life Sciences",
+      "Aerospace and Aviation",
+      "Manufacturing and Industrial",
+      "Logistics and Port/Maritime Trade"
+    ],
+    "top_employers": [
+      "ExxonMobil",
+      "Chevron",
+      "Shell",
+      "ConocoPhillips",
+      "Phillips 66",
+      "NRG Energy",
+      "Baker Hughes",
+      "Halliburton",
+      "Memorial Hermann Health System",
+      "Houston Methodist",
+      "NASA Johnson Space Center",
+      "Bechtel"
+    ],
+    "salary_note": "Project management salaries in Houston tend to be competitive due to strong demand from the energy, construction, and healthcare sectors, with pay often scaling significantly based on certification, years of experience, and industry (especially oil & gas and engineering). Employers frequently favor candidates holding PMP or CAPM credentials when setting compensation tiers.",
+    "market_blurb": "Houston's project management job market remains robust, driven by its position as a global energy hub alongside growing healthcare, construction, and aerospace sectors. The city's diverse economic base—from petrochemical plants to the Texas Medical Center and NASA's Johnson Space Center—creates steady demand for skilled project and program managers across industries. Houston's ongoing infrastructure and industrial expansion projects further sustain this demand.",
+    "notable_projects": [
+      "Port of Houston expansion and modernization initiatives",
+      "Texas Medical Center expansion projects",
+      "NASA Johnson Space Center Artemis program support activities",
+      "Houston METRO transit system improvement projects"
+    ],
+    "credential_demand": "PMP certification is widely recognized and often preferred or required by major Houston employers in energy, engineering, and healthcare sectors, reflecting strong local demand for standardized project management expertise. Job postings in the region frequently list PMP or equivalent certification as a differentiator for mid- to senior-level project management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Houston's energy sector—home to ExxonMobil, Chevron, Shell, and Baker Hughes—anchors one of North America's strongest project management markets, complemented by NASA Johnson Space Center, the Texas Medical Center, and major infrastructure initiatives like Port of Houston expansion. Skilled PMs command steady demand across oil & gas, aerospace, healthcare, and construction. Granite PM Academy serves Houston professionals nationwide with live-virtual PMP® Certification training, flexible scheduling, and expert instruction designed for working practitioners earning the PMI® credential.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-houston-tx.webp",
+    "city_image_alt": "Texas medical center in Houston, TX",
+    "city_image_credit": "Photo: Katie Haugland Brown, CC BY 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Texas_medical_center.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Houston's energy, petrochemical, and construction sectors rely on project managers who can demonstrate advanced competency in complex, regulated environments. Granite PM Academy's live-virtual PMI-CPMAI Certification Training satisfies PMI's required contact-hour education, delivered by active certified practitioners on a schedule that fits working professionals. Earning this credential positions you to lead high-stakes projects across Houston's largest industries and qualify for senior-level PM roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:37.425235Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "af558d34581cb522",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Houston, Texas",
+      "text": "<p>As a global energy hub anchored by industry giants like ExxonMobil, Chevron, Shell, and Baker Hughes, Houston's project management landscape is shaped by the complexity and scale of oil, gas, and petrochemical operations. These capital-intensive, highly regulated projects demand practitioners who can manage risk, coordinate across multiple stakeholders, and deliver results on time and budget. The PMI-CPMAI (Certified Practitioner in the Management of Agile and Integrated) credential signals to Houston employers across energy, construction, aerospace, and healthcare that you possess both traditional and adaptive project leadership skills—a combination increasingly valued as organizations integrate agile methodologies into large infrastructure and industrial programs.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMI-CPMAI Certification Training that meets all contact-hour requirements for credential eligibility. Our faculty are active certified practitioners with real-world experience across industries and sectors, bringing current best practices directly into every session. Whether you're advancing your career at a Houston-area major employer, supporting the Texas Medical Center's complex health-system initiatives, or managing aerospace and construction projects, our structured program prepares you to sit for the PMI-CPMAI exam with confidence. Enroll today and take the next step toward certification and career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:41.589735Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "21ffd162aab4912c",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Houston's Energy Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy holds PMI Authorization Partnership status, meaning your PMI-CPMAI training meets all PMI standards and eligibility requirements. Your certificate carries full weight with Houston employers across energy, construction, and aerospace who rely on PMI-credentialed professionals."
+        },
+        {
+          "heading": "Live Virtual Instruction, Full Contact Hours",
+          "text": "Our live-virtual instructor-led format delivers the required contact hours for PMI-CPMAI eligibility without requiring travel or relocation. Attend from Houston or anywhere nationwide on a schedule designed for working professionals balancing immediate career advancement."
+        },
+        {
+          "heading": "Active Practitioners, Real Exam Preparation",
+          "text": "Your instructors are active certified practitioners with hands-on project and program management experience. Granite PM Academy includes comprehensive exam-preparation support—practice questions, strategy sessions, and targeted review—to help you pass on your first attempt."
+        },
+        {
+          "heading": "Credential Demanded by Houston's Major Employers",
+          "text": "ExxonMobil, Chevron, Shell, Baker Hughes, Halliburton, Bechtel, and other Houston-based leaders in energy, petrochemicals, construction, and aerospace actively hire PMI-certified program and portfolio managers. PMI-CPMAI credential positions you competitively for mid- to senior-level roles in the industries that drive Houston's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:45.960250Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "111499d0da1cc0e6",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Houston's Energy Sector",
+      "text": "<p>Houston's energy industry—anchored by global operators like ExxonMobil, Chevron, Shell, and ConocoPhillips—creates sustained demand for certified project managers across upstream, downstream, and engineering functions. Beyond oil and gas, major employers in construction, healthcare, and aerospace also actively recruit PMP and CAPM credential holders. The Port of Houston's ongoing expansion and modernization initiatives, Texas Medical Center growth projects, and NASA Johnson Space Center's Artemis program support activities all require skilled project professionals to coordinate complex, multidisciplinary work. These high-stakes environments reward managers who can demonstrate standardized project management expertise.</p><p>In Houston's competitive talent market, PMP and CAPM certification serve as recognized differentiators—especially in energy and engineering roles where employers frequently list credentials as requirements or strong preferences for mid- to senior-level positions. Salaries for certified project managers tend to scale meaningfully based on certification level, experience, and industry, with energy, construction, and healthcare sectors offering particularly strong compensation. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet those local hiring standards and advance into roles where your credential directly influences career trajectory and earning potential. Active certified practitioners lead all our live-virtual sessions, ensuring content remains current and relevant to real-world project demands.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:49.982147Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0ee28f241de30eb8",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Houston's Energy Sector",
+      "text": "<p>Houston's energy industry—anchored by major employers like ExxonMobil, Chevron, Shell, and ConocoPhillips—creates sustained demand for certified project managers across upstream, downstream, and support operations. Beyond oil and gas, healthcare organizations including Memorial Hermann Health System and Houston Methodist, as well as engineering and construction firms like Bechtel and Halliburton, actively recruit PMs to lead complex initiatives. The Port of Houston's ongoing expansion and modernization efforts, combined with ongoing Texas Medical Center projects, exemplify the scale and frequency of work requiring structured project governance—exactly the kind of role where a credentialed project manager adds measurable value.</p><p>PMP and CAPM credentials are widely recognized and often preferred or required by Houston's major employers when filling mid- to senior-level project management roles, making certification a genuine differentiator in the local job market. Compensation for project managers in Houston scales meaningfully with credentials, experience, and industry; energy, construction, and healthcare sectors in particular reward certified practitioners with competitive pay structures that reflect strong regional demand for standardized expertise. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the frameworks and credentials Houston's largest employers actively seek, positioning you to advance your career in a market where project management excellence directly influences hiring and compensation decisions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:53.720104Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0ee28f241de30eb8",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Houston energy sector careers?",
+          "answer": "<p>Houston's energy, petrochemical, and engineering sectors—including major employers like ExxonMobil, Chevron, and Shell—actively seek certified project managers to lead complex, high-stakes initiatives. PMP and CAPM credentials are frequently listed as preferred or required qualifications in local job postings, and compensation tiers often scale meaningfully based on certification status. For professionals targeting mid- to senior-level roles in these industries, certification typically represents a tangible career and earning advantage.</p>"
+        },
+        {
+          "question": "Which Houston employers value PMI project management certification most?",
+          "answer": "<p>Energy majors (ExxonMobil, Chevron, Shell, ConocoPhillips), engineering and construction firms (Bechtel, Baker Hughes, Halliburton), healthcare systems (Memorial Hermann, Houston Methodist), aerospace (NASA Johnson Space Center), and manufacturing sectors all maintain strong demand for PMP-certified talent. These industries rely on standardized project management practices to manage risk, budgets, and timelines. Certification differentiates candidates competing for advancement in these high-demand fields.</p>"
+        },
+        {
+          "question": "How does Houston's job market affect when I should pursue certification?",
+          "answer": "<p>Houston's competitive project management landscape—driven by energy, construction, and healthcare demand—rewards early certification. Professionals holding PMP or CAPM credentials often advance faster and command stronger compensation packages than non-certified peers with equal experience. If you are actively job-hunting or seeking promotion within the next 12–18 months, pursuing certification now positions you to capture roles that explicitly require or strongly prefer it.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Houston workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered 100% live-virtual, allowing you to participate from your Houston office, home, or any location with a stable internet connection. This format suits professionals in energy, healthcare, and engineering roles who manage demanding schedules. You can attend sessions in real time and interact directly with instructors without traveling to an off-site classroom.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:59.871706Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2652c57dbb1d516e",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As a global energy hub, Houston's project management market thrives across oil and gas, petrochemicals, construction, aerospace, and healthcare—with major employers like ExxonMobil, Chevron, and NASA Johnson Space Center driving steady demand for skilled PMs. Current initiatives including Port of Houston modernization and Texas Medical Center expansion underscore ongoing infrastructure investment across the city. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Houston professionals nationwide, offering flexible scheduling and expert instruction in the credential employers in your region actively seek.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:01.610232Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "8dc8b2a14f52682f",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Houston's energy sector—anchored by ExxonMobil, Chevron, Shell, and other global operators—sustains robust demand for certified project managers across oil & gas, petrochemicals, construction, and aerospace. Major initiatives including Port of Houston modernization and NASA Johnson Space Center's Artemis program support activities underscore the city's need for skilled practitioners. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Houston professionals nationwide, combining flexibility with the credential employers in your region value most.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:03.502214Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "8dc8b2a14f52682f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-houston-tx/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Houston, TX, AI courses Houston, CPMAI certification Houston, AI project management training Houston, TX, AI for project managers Houston",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\",\n      \"name\": \"PMI-CPMAI Certification Training in Houston, TX | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Houston, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Houston, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Houston, TX\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Houston, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-houston-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-houston-tx/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "chattanooga-tn",
-    "slug": "ai-training-chattanooga-tn",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "chattanooga-tn",
-        "city": "Chattanooga",
-        "state": "Tennessee",
-        "SS": "TN",
-        "city_slug": "chattanooga-tn",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's electric vehicle production and supported by insurance giants BlueCross BlueShield and Unum—fuels steady demand for skilled project managers across automotive, healthcare, logistics, and emerging tech roles. With EPB's fiber-optic expansion and Amazon's regional fulfillment operations driving additional opportunities, the PMP® credential strengthens your competitive position locally. Granite PM Academy delivers live-virtual PMP Certification training designed around Chattanooga professionals' schedules and career goals.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Chattanooga's growing manufacturing and logistics sector relies on project managers who can navigate complex operations with emerging technology. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, letting you earn credentials on your schedule while staying employed. Master AI tools that set you apart in Chattanooga's competitive project-management market and increase your value to regional employers.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:03:39.705792Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "d319d64bbe91f3f2",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Chattanooga",
-            "text": "<p>Chattanooga's manufacturing sector, anchored by Volkswagen's substantial operations, demands project managers who can lead complex, technology-driven initiatives in real time. As automation and artificial intelligence reshape production workflows across the automotive supply chain, professionals managing these transitions need practical skills to integrate AI tools into scheduling, risk forecasting, and resource optimization. Beyond manufacturing, Chattanooga's insurance, healthcare, and logistics employers—including BlueCross BlueShield of Tennessee, Erlanger Health System, and Covenant Logistics—are equally invested in AI-augmented project delivery. Whether you're coordinating product launches, managing digital transformation, or overseeing supply-chain improvements, understanding how to leverage AI within a structured project management framework has become essential to career growth in Chattanooga's competitive job market.</p><p>Granite PM Academy, as a PMI Authorized Training Partner, delivers live virtual, instructor-led AI training designed specifically for project managers pursuing PMP®, CAPM®, or PMI-DASSM® credentials. Our courses combine classroom instruction with practical, hands-on case studies that reflect real-world scenarios in Chattanooga's dominant industries. Each program satisfies the contact-hour requirements for your chosen certification and is taught by active, certified practitioners who bring current industry experience to every session. Upon completion, you'll earn both the credential-eligible hours and the practical knowledge to deploy AI applications across project lifecycle phases—positioning you as a competitive candidate for advanced roles throughout Chattanooga's thriving business community.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:03:44.590921Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "4408f1fb99be7331",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI-Ready Project Managers: Chattanooga's Competitive Edge",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP or CAPM sits on a foundation trusted by Volkswagen, Amazon, and every major employer in Chattanooga. That authorization matters when hiring managers screen candidates."
-                },
-                {
-                    "heading": "Live Instruction Meets Your Schedule",
-                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI certification while letting you train from home or the office. Active certified practitioners teach every session, bringing real Chattanooga project experience into the classroom."
-                },
-                {
-                    "heading": "Exam Readiness, Not Just Course Completion",
-                    "text": "Beyond coursework, you receive structured exam-preparation support designed to close knowledge gaps before test day. Our instructors actively hold PMP or CAPM credentials and teach current best practices, not outdated theory."
-                },
-                {
-                    "heading": "Land Roles Across Chattanooga's Growth Industries",
-                    "text": "Advanced manufacturing, healthcare systems, logistics, and insurance firms across Chattanooga actively hire certified project managers. A PMI credential opens doors at employers like Erlanger, Covenant Logistics, and Unum, where program-management expertise commands stronger salary and advancement prospects."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:03:49.115060Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "13d15e10fb93425d",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Manufacturing-Driven Chattanooga",
-            "text": "<p>Volkswagen Chattanooga's ongoing expansion into electric vehicle production, alongside established operations at BlueCross BlueShield of Tennessee, Unum, and Erlanger Health System, has created sustained demand for skilled project managers across the region's largest sectors. The automotive manufacturer's transition to ID.4 production requires coordination across supply chain, production, and quality teams—work that hinges on disciplined project governance. Similarly, insurance and healthcare employers depend on certified PMs to shepherd digital transformation, infrastructure upgrades, and operational restructuring. Whether you're managing a manufacturing retooling initiative, an insurance systems migration, or a hospital facility expansion, Chattanooga's employer base values methodical planning and risk management.</p><p>The PMP® credential has become a meaningful differentiator in Chattanooga's competitive project management market, particularly for candidates targeting automotive and healthcare roles where formal certification signals rigor and compliance expertise. While compensation for project managers in Chattanooga remains competitive relative to regional demand, those holding PMP® certification combined with industry-specific experience—especially in advanced manufacturing or healthcare—typically command stronger offers. Completing the AI Training for Project Managers through Granite PM Academy positions you to lead modern, data-informed projects at the companies reshaping Chattanooga's economy, while equipping you with tools that resonate with local hiring managers who increasingly expect both traditional PM discipline and contemporary AI literacy.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:03:53.824306Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "2855b0b7df48f600",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Chattanooga manufacturing careers?",
-                    "answer": "<p>Yes. Chattanooga's advanced manufacturing sector—anchored by major automotive and industrial employers—increasingly seeks project managers who can integrate AI tools into production planning and supply-chain optimization. AI training complements PMP® certification and makes you a stronger candidate for roles at Volkswagen Chattanooga, Astec Industries, and Miller Industries, where process efficiency directly impacts competitiveness and compensation.</p>"
-                },
-                {
-                    "question": "Do Chattanooga's largest employers value AI and project management certification?",
-                    "answer": "<p>Strong demand exists across Chattanooga's key sectors. Healthcare systems like Erlanger and CHI Memorial prioritize certified project managers for digital transformation initiatives. Insurance firms BlueCross BlueShield and Unum actively seek credentials that signal capability in automation and risk management. Manufacturing, logistics, and TVA also increasingly view PMP® and AI competency as meaningful differentiators for advancement and leadership roles.</p>"
-                },
-                {
-                    "question": "Can I take Chattanooga's AI project management course from my workplace?",
-                    "answer": "<p>Yes. The live-virtual format allows you to attend from your office, home, or any location with reliable internet. This flexibility suits Chattanooga professionals managing demanding schedules at large employers—you can participate without travel time while maintaining your work commitments during the training period.</p>"
-                },
-                {
-                    "question": "Should I pursue AI certification now or wait in Chattanooga's job market?",
-                    "answer": "<p>Start now. Chattanooga's project manager talent pool is competitive, but demand from manufacturing, healthcare, and insurance sectors remains strong. Early adoption of AI training and PMP® certification positions you ahead of peers and typically supports higher compensation in a market where advanced skills directly correlate with advancement opportunities and better offers.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:03:59.747394Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "73021cf6463b02d9",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's major retooling for electric vehicle production—drives persistent demand for skilled project managers across automotive, insurance, healthcare, and logistics. EPB's fiber-optic smart grid expansion and Amazon's regional fulfillment operations further broaden opportunities for professionals managing complex, cross-functional initiatives. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Chattanooga's working professionals, equipping them to lead in this diversifying economy.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:01.750185Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "166a5fe83aaaec52",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "chattanooga-tn",
+  "slug": "ai-training-chattanooga-tn",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "chattanooga-tn",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "chattanooga-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-chattanooga-tn/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Chattanooga, TN, AI courses Chattanooga, CPMAI certification Chattanooga, AI project management training Chattanooga, TN, AI for project managers Chattanooga",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\",\n      \"name\": \"AI Training for Project Managers in Chattanooga, TN — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Chattanooga, TN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Chattanooga, TN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#course\",\n      \"name\": \"AI Training for Project Managers in Chattanooga, TN\",\n      \"description\": \"CPMAI certification training for project managers in Chattanooga, TN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Advanced Manufacturing (Automotive)",
+      "Insurance & Financial Services",
+      "Healthcare",
+      "Logistics & Distribution",
+      "Tourism & Hospitality",
+      "Technology/Innovation"
+    ],
+    "top_employers": [
+      "Volkswagen Chattanooga",
+      "BlueCross BlueShield of Tennessee",
+      "Unum",
+      "Erlanger Health System",
+      "CHI Memorial",
+      "Amazon",
+      "Covenant Logistics",
+      "McKee Foods",
+      "EPB (Electric Power Board of Chattanooga)",
+      "Astec Industries",
+      "Tennessee Valley Authority (TVA)",
+      "Miller Industries"
+    ],
+    "salary_note": "Project manager compensation in Chattanooga tends to track slightly below larger metro areas like Atlanta or Nashville but remains competitive due to strong demand from manufacturing, insurance, and healthcare employers. Candidates with PMP certification and industry-specific experience (especially automotive or healthcare) typically command the most competitive offers locally.",
+    "market_blurb": "Chattanooga's project management job market is anchored by its strong manufacturing base—led by Volkswagen—alongside major insurance and healthcare employers headquartered or operating in the city. The presence of logistics firms and a growing tech sector (bolstered by EPB's fiber infrastructure) has diversified demand for skilled project and program managers. Local universities like the University of Tennessee at Chattanooga also support a pipeline of talent entering project management roles.",
+    "notable_projects": [
+      "Volkswagen Chattanooga's expansion and retooling for electric vehicle (ID.4) production",
+      "EPB's citywide fiber-optic smart grid expansion",
+      "Amazon fulfillment center development and expansion in the Chattanooga area",
+      "Downtown Chattanooga riverfront and infrastructure development initiatives"
+    ],
+    "credential_demand": "PMP certification is increasingly valued by Chattanooga-area manufacturing, insurance, and healthcare employers as a differentiator for project management roles, though demand for skilled project managers generally remains strong across sectors regardless of formal certification.",
+    "_researched": 1,
+    "city_spotlight": "<p>Chattanooga's project management demand is driven by advanced manufacturing—particularly Volkswagen's electric vehicle production expansion—alongside thriving insurance, healthcare, and logistics sectors. EPB's fiber-optic infrastructure project and Amazon's fulfillment center growth add further momentum for skilled PMs across the region. Granite PM Academy delivers live-virtual PMP Certification training to Chattanooga professionals, enabling you to earn your credential on a schedule that fits your career.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Chattanooga's advanced manufacturing, logistics, and healthcare sectors rely on skilled project managers to coordinate complex operations across automotive production, distribution networks, and clinical environments. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that fulfills PMI's required contact hours, letting you earn this credential on your schedule while working. Completing your CPMAI positions you for advancement in Chattanooga's fastest-growing industries without relocating or sacrificing your current role.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:15.619062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5f5be26907ca616a",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Chattanooga's Project Management Professionals",
+      "text": "<p>Chattanooga's manufacturing sector, anchored by major automotive operations and supported by a robust insurance and healthcare presence, has created sustained demand for skilled program and portfolio managers who can navigate complex, multi-initiative environments. The PMI-CPMAI certification equips professionals in Chattanooga to lead enterprise-wide initiatives across these capital-intensive industries, where the ability to align strategy with execution directly impacts organizational success. Whether you work for one of the city's Fortune 500 employers, a growing logistics firm, or a healthcare system, the Certified Associate in Project Management credential signals to your employer and peers that you possess the disciplined frameworks and knowledge base expected of advancing program leaders.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that meet all contact-hour requirements set by the Project Management Institute. Our curriculum is taught by active certified practitioners with real-world experience in complex project environments, ensuring every lesson translates directly to your role. You'll study at your own pace from anywhere, with flexible scheduling that fits working professionals in Chattanooga and beyond. Upon completion, you'll be ready to sit for the PMI-CPMAI exam and earn a credential recognized across the industries driving the region's economy—positioning you for career advancement and expanded leadership opportunity.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:19.687616Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "858fc766da125cba",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Chattanooga's Advanced Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets all official requirements and your certificate carries full PMI weight. Employers across Chattanooga's automotive, logistics, and healthcare sectors recognize PMI credentials as the standard for project leadership."
+        },
+        {
+          "heading": "Live-Virtual Format, Real Contact Hours",
+          "text": "Our instructor-led live-virtual classes satisfy PMI's contact-hour requirement for PMI-CPMAI eligibility without sacrificing interactivity. Attend from anywhere, ask questions in real time, and complete the credential on a schedule that fits working professionals in Chattanooga's fast-paced industries."
+        },
+        {
+          "heading": "Instructors Who Live the Practice",
+          "text": "Your instructors are active certified practitioners—not just trainers. They bring current, hands-on experience in project and program management, ensuring lessons connect directly to challenges you'll face in roles at major Chattanooga employers and beyond."
+        },
+        {
+          "heading": "Local Demand, National Credential",
+          "text": "Chattanooga's largest employers—from Volkswagen and Amazon to BlueCross BlueShield and Unum—actively hire and promote project and program managers with PMI credentials. PMI-CPMAI positions you for leadership roles in manufacturing, logistics, healthcare, and technology sectors driving the region's growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:24.714433Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e832a3e4fceecfc9",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Chattanooga's Growing Industries",
+      "text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's major retooling for electric vehicle production—drives consistent demand for skilled project managers across the city. Beyond automotive, BlueCross BlueShield of Tennessee, Unum, and regional health systems including Erlanger and CHI Memorial employ project managers to oversee complex operational and technology initiatives. Amazon's ongoing fulfillment center development in the Chattanooga area, alongside EPB's citywide fiber-optic smart grid expansion, further illustrate the breadth of organizations hiring PMs locally. These employers span manufacturing, insurance, healthcare, and logistics—sectors where structured project management expertise directly improves execution and competitive positioning.</p><p>Earning your PMI-CPMAI Certification through Granite PM Academy positions you competitively in Chattanooga's job market. While project manager compensation here remains attractive relative to hiring demand, candidates who combine formal certification with industry-specific experience—particularly in automotive or healthcare—typically stand out to local employers and command stronger offers. The PMP credential is increasingly valued by Chattanooga manufacturers, insurers, and health systems as a differentiator for advancement and leadership roles. Completing live-virtual, expert-led training with Granite PM Academy gives you the credential, exam preparation, and practical framework that Chattanooga employers actively seek, without requiring you to pause your career or relocate.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:29.771117Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "537fdd54bf605baf",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Chattanooga's Growth Industries",
+      "text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's ongoing expansion and retooling for electric vehicle production—creates substantial demand for skilled project managers who can navigate complex, capital-intensive initiatives. Beyond automotive, BlueCross BlueShield of Tennessee, Erlanger Health System, and CHI Memorial actively recruit certified project managers to oversee healthcare operations, system implementations, and facility projects. Amazon's fulfillment center development and expansion in the region, alongside EPB's citywide fiber-optic smart grid rollout, further illustrate the breadth of local opportunities. Organizations across manufacturing, insurance, healthcare, and logistics recognize project management as critical to their competitive advantage, making certified professionals attractive candidates.</p><p>The PMI-CPMAI Certification through Granite PM Academy positions you to stand out in Chattanooga's talent market, where project management certification is increasingly valued as a differentiator—particularly for those targeting automotive or healthcare roles. While Chattanooga's project manager compensation tracks slightly below larger metros like Atlanta or Nashville, strong local demand from major employers keeps salaries competitive, and candidates with formal credentials and industry-specific expertise typically command the most favorable offers. Completing a recognized PMI certification demonstrates mastery of frameworks and best practices that Chattanooga employers actively seek, accelerating your path to advancement in roles where the credential and your experience directly align with organizational need.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:33.753358Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "537fdd54bf605baf",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Chattanooga project managers?",
+          "answer": "<p>Yes. Chattanooga's largest employers—Volkswagen, BlueCross BlueShield of Tennessee, Unum, healthcare systems, and logistics firms—increasingly use PMP certification as a hiring and promotion differentiator. While skilled project managers remain in strong demand across manufacturing, insurance, and healthcare regardless of formal credentials, those holding PMP certification typically command more competitive offers locally, especially candidates with industry-specific experience in automotive or healthcare.</p>"
+        },
+        {
+          "question": "Which Chattanooga industries most value PMI-CPMAI certification?",
+          "answer": "<p>Advanced manufacturing (particularly automotive suppliers and OEMs like Volkswagen), insurance and financial services, healthcare systems, and logistics/distribution employers view PMP certification as a meaningful credential for project management roles. These sectors dominate Chattanooga's employment landscape and actively recruit certified professionals. Technology and tourism/hospitality employers also value the credential, though demand remains strong in these areas even without formal certification.</p>"
+        },
+        {
+          "question": "When should I pursue PMP certification in Chattanooga's job market?",
+          "answer": "<p>Chattanooga's project management demand is consistent year-round, but timing your certification strategically matters. If you're targeting roles at major manufacturers, insurers, or healthcare employers, obtaining PMP certification before applying strengthens your candidacy significantly. Early-career professionals should pursue it within 1–2 years of entering a PM role; mid-career professionals benefit from certification when transitioning between industries or seeking advancement into senior PM positions.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in Chattanooga?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual PMI-CPMAI training allows you to participate from your workplace, home, or anywhere with internet access—no travel required. This format works well for Chattanooga professionals balancing full-time roles at local employers. You engage with instructors and peers in real time, ask questions as they arise, and complete the training while maintaining your current schedule and location.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:39.415033Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3e599225a5773dd3",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's electric vehicle production and supported by a robust ecosystem of logistics, insurance, and healthcare employers—drives consistent demand for skilled project managers. From EPB's fiber-optic smart grid expansion to supply-chain operations across the region, certified PMs command competitive opportunities. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Chattanooga professionals nationwide, helping you earn credentials that align with local career momentum.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:41.494321Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4bd901cfd6177f1b",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's electric vehicle production expansion—drives sustained demand for skilled project managers across the city's industrial, insurance, healthcare, and logistics ecosystems. With major employers like BlueCross BlueShield, Unum, and Amazon operating locally, and EPB's fiber-optic smart grid expansion creating technology-focused opportunities, certified project managers command strong career prospects. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to working professionals throughout Chattanooga, enabling you to earn your credential on your schedule while preparing for roles across these high-demand sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:43.655722Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4bd901cfd6177f1b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-chattanooga-tn/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Chattanooga, TN, AI courses Chattanooga, CPMAI certification Chattanooga, AI project management training Chattanooga, TN, AI for project managers Chattanooga",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\",\n      \"name\": \"PMI-CPMAI Certification Training in Chattanooga, TN | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Chattanooga, TN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Chattanooga, TN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Chattanooga, TN\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Chattanooga, TN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-chattanooga-tn/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

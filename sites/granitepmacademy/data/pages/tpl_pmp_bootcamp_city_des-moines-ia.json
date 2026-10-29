@@ -1,390 +1,424 @@
 {
-    "template_id": "tpl_pmp_bootcamp_city",
-    "city_id": "des-moines-ia",
-    "slug": "pmp-bootcamp-des-moines-ia",
-    "title": "PMP Bootcamp {city}",
-    "city_vars": {
-        "id": "des-moines-ia",
-        "city": "Des Moines",
-        "state": "Iowa",
-        "SS": "IA",
-        "city_slug": "des-moines-ia",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Des Moines's insurance and financial services sector—anchored by employers like Principal Financial Group and Wellmark Blue Cross Blue Shield—drives consistent demand for project managers overseeing system implementations and process improvements. Data center expansions and healthcare facility projects across the metro further strengthen opportunities for credentialed PMs. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Des Moines professionals seeking to advance in this stable, growing market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Des Moines's insurance and financial services sector relies heavily on professionals who can manage complex, cross-functional projects at scale. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that satisfies PMI's rigorous contact-hour requirements, preparing you to earn the Project Management Professional credential. In Iowa's competitive business environment, PMP certification opens doors to senior project roles and measurably stronger earning potential across the region's largest employers.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_boot_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP boot camp {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:16.928259Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "cb90919d27c16118",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Boot Camp in Des Moines: High-Demand Certification for Insurance & Finance",
-            "text": "<p>Des Moines' dominance as a major insurance and financial services hub—home to Principal Financial Group, Wellmark Blue Cross Blue Shield, Nationwide, and EMC Insurance—creates sustained demand for certified project managers who can lead system implementations, digital transformations, and process improvement initiatives across the sector. Professionals in Des Moines' insurance, agribusiness, healthcare, and technology industries recognize that the Project Management Professional (PMP)® credential signals readiness to manage complex, high-stakes projects in environments where risk management and stakeholder coordination directly impact organizational success. Whether you're advancing within a Fortune 500 insurer, a healthcare network, or a data center operator investing in Des Moines' growing tech infrastructure, PMP certification positions you competitively in a stable, growing market where structured project leadership is prized.</p><p>Granite PM Academy delivers intensive PMP Boot Camp training as a PMI Authorized Training Partner, combining live-virtual and instructor-led instruction designed to fit working professionals' schedules while meeting PMI's contact-hour requirements for PMP eligibility. Our courses are taught by active certified practitioners who bring real-world Des Moines project experience into the classroom, covering the PMBOK® Guide framework, exam strategy, and practical application across the industries that define this region's economy. Upon completion, you'll have fulfilled a critical credential requirement and gained the knowledge and confidence needed to pass the PMP exam and advance your project management career in Des Moines.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:21.591209Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "73e797d8dc7a2197",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification for Des Moines's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Guarantee",
-                    "text": "Granite PM Academy's PMP Boot Camp is delivered by a PMI Authorized Training Partner, ensuring your contact hours meet PMI's strict requirements for exam eligibility. No guesswork—your path to certification is formally recognized by the Project Management Institute."
-                },
-                {
-                    "heading": "Live Instruction Fits Your Schedule",
-                    "text": "Our instructor-led live-virtual format lets you earn required contact hours without relocating or sacrificing work commitments. Real-time instruction from active practitioners means you learn current methodologies while staying rooted in Des Moines and your career."
-                },
-                {
-                    "heading": "Exam Readiness From Day One",
-                    "text": "Every instructor is a current PMP-certified practitioner who integrates exam-preparation strategy throughout the boot camp. You'll practice test scenarios, review high-yield content, and receive targeted feedback—not cramming weeks after class ends."
-                },
-                {
-                    "heading": "Credential Local Employers Actively Seek",
-                    "text": "Des Moines's insurance, financial services, agribusiness, and healthcare sectors hire project managers with PMP credentials. Employers like Principal Financial Group, Wellmark, and Corteva value certified professionals who demonstrate formal PM discipline and proven methodology—a credential that strengthens your candidacy immediately."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:26.251230Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "8427c33e7e32fa25",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Des Moines",
-            "text": "<p>Des Moines is home to Principal Financial Group, Wellmark Blue Cross Blue Shield, and other major employers whose scale and complexity demand skilled project managers. Insurance and financial services firms anchor the local market, but certified PMs are equally sought after across healthcare networks like UnityPoint Health and MercyOne, technology-driven organizations managing infrastructure expansions, and government agencies. Real-world demand is visible in initiatives such as the Principal Riverwalk downtown development and ongoing Microsoft data center expansions in the region—projects that require disciplined scheduling, resource allocation, and stakeholder coordination. Employers in these sectors recognize that PMP and CAPM credentials signal the methodological rigor needed to deliver on time and within scope.</p><p>Project manager compensation in Des Moines remains competitive within the region's cost-of-living context, with insurance, healthcare, and IT employers typically offering the strongest pay and benefits packages for certified professionals. While a PMP is not universally required, it meaningfully strengthens your candidacy in local job postings and demonstrates your commitment to professional standards. Completing Granite PM Academy's PMP Boot Camp positions you to stand out in Des Moines' active hiring market—equipping you with both the credential and the practical skills that local employers actively value when building their project teams.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:30.535640Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "6bf29c833fc6f1da",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "PMP Boot Camp",
-                    "badge": "INTENSIVE",
-                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$2,495",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_boot_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP® Certification in Des Moines",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP® credential. Des Moines professionals in manufacturing, healthcare, and construction typically qualify. Review PMI's official eligibility criteria, then contact Granite PM Academy to confirm your specific background qualifies."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Boot Camp. Our Des Moines cohorts deliver the required formal education through interactive sessions, real-world case studies, and direct instructor access. Complete all contact hours before submitting your PMI application."
-                },
-                {
-                    "heading": "Apply to PMI and Pay Fee",
-                    "text": "Submit your PMI application with proof of education and experience. Pay the examination fee directly to PMI. Granite PM Academy staff can guide you through the online application portal and answer questions about required documentation."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice exams, study guides, and targeted coaching sessions. Schedule your PMP® exam through PMI's testing partner. Test at a local Des Moines proctoring center or online, based on your preference."
-                },
-                {
-                    "heading": "Maintain Your PMP® Credential",
-                    "text": "Earn professional development units (PDUs) during your three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing PDU-eligible workshops and webinars. Renew your credential before expiration by submitting proof of PDUs to PMI."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:35.712594Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "bdde79e070c7d9dd",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-                },
-                {
-                    "question": "Can I complete the PMP Bootcamp online from {city}?",
-                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-                },
-                {
-                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Des Moines insurance and financial services careers?",
-                    "answer": "<p>Yes. Insurance, financial services, and healthcare employers in Des Moines—including major firms like Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—actively seek PMP-certified project managers as proof of delivery capability. While not always a hard requirement, the credential helps candidates stand out in local job postings and can support advancement into program and portfolio leadership roles within these competitive sectors.</p>"
-                },
-                {
-                    "question": "Can Des Moines professionals take the live-virtual PMP boot camp from their workplace?",
-                    "answer": "<p>Yes. Our live-virtual format allows you to attend from your office, home, or any location with internet access. Many Des Moines professionals join from their workplace during flexible hours or take the course remotely during approved training time. Check with your employer's IT policies on VPN and bandwidth requirements before enrollment to ensure a smooth experience.</p>"
-                },
-                {
-                    "question": "What salary range do project managers with PMP earn in Des Moines, Iowa?",
-                    "answer": "<p>Project manager compensation in Des Moines tracks slightly below national coastal-market averages but remains competitive given the region's lower cost of living. Insurance, financial services, and healthcare employers typically offer the strongest pay and benefits packages for certified PMs. The credential can help you negotiate higher starting salary and advancement opportunities within these growth sectors.</p>"
-                },
-                {
-                    "question": "Should Des Moines professionals pursue PMP certification now or wait for job openings?",
-                    "answer": "<p>Pursuing PMP now is strategic in Des Moines's job market. While the credential is increasingly favored by employers in insurance, healthcare, IT, and government sectors, demand often exceeds the supply of certified candidates locally. Earning your certification before actively job-searching positions you as a competitive candidate ready to move quickly when roles open at Principal, Wellmark, MidAmerican Energy, or other major regional employers.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:40.637293Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "dfd8bbc9a9692f4e",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Des Moines' insurance and financial services sector—home to Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—drives consistent demand for project managers overseeing system implementations and process improvements. Technology investments, including major data center expansions, further fuel hiring across the region's agribusiness, healthcare, and manufacturing industries. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Des Moines professionals seeking to advance their credentials and meet this growing market opportunity.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:42.745180Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "94177d4f2ce79cc1",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Intensive PMP Prep — Right from {city}",
-            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_boot_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "des-moines-ia",
+  "slug": "pmp-bootcamp-des-moines-ia",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "des-moines-ia",
+    "city": "Des Moines",
+    "state": "Iowa",
+    "SS": "IA",
+    "city_slug": "des-moines-ia",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/",
-        "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "meta_keywords": "PMP boot camp Des Moines, IA, PMP bootcamp Des Moines, PMP certification boot camp Des Moines, IA, PMP bootcamp near me, intensive PMP training Des Moines",
-        "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\",\n      \"name\": \"PMP Boot Camp in Des Moines, IA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Des Moines, IA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Des Moines, IA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#course\",\n      \"name\": \"PMP Boot Camp in Des Moines, IA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Des Moines, IA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n    }\n  ]\n}",
-        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+    "industries": [
+      "Insurance and Financial Services",
+      "Agribusiness",
+      "Healthcare",
+      "Technology and Data Centers",
+      "Manufacturing",
+      "Government and Public Administration"
+    ],
+    "top_employers": [
+      "Principal Financial Group",
+      "Wellmark Blue Cross Blue Shield",
+      "Nationwide",
+      "EMC Insurance",
+      "MidAmerican Energy",
+      "Hy-Vee",
+      "UnityPoint Health",
+      "MercyOne",
+      "Corteva Agriscience",
+      "Dotdash Meredith",
+      "City of Des Moines",
+      "State of Iowa"
+    ],
+    "salary_note": "Project manager compensation in Des Moines tends to track slightly below national coastal-market averages but remains competitive given the region's lower cost of living, with insurance, financial services, and healthcare employers typically offering the strongest pay and benefits for certified PMs.",
+    "market_blurb": "Des Moines has a stable, growing project management job market anchored by its status as a major insurance and financial services hub, alongside strong agribusiness, healthcare, and technology sectors. Employers across these industries regularly seek PMs to manage system implementations, facility expansions, and process improvement initiatives. The city's steady corporate growth and data center investments continue to create demand for structured project leadership.",
+    "notable_projects": [
+      "Principal Riverwalk downtown development",
+      "Microsoft data center expansions in West Des Moines/Polk County",
+      "Meta (Facebook) data center campus in Altoona",
+      "Des Moines International Airport terminal modernization"
+    ],
+    "credential_demand": "PMP certification is generally viewed favorably by Des Moines-area employers, especially within insurance, healthcare, and IT-driven organizations, as a signal of proven project delivery skills. While not always a strict requirement, PMP or CAPM credentials can help candidates stand out in local job postings for project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Des Moines's insurance and financial services sector—home to Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—drives consistent demand for project managers overseeing system implementations and process improvements. Technology and data center investments, including major expansions by Microsoft and Meta in the region, further strengthen the PM job market across healthcare, agribusiness, and government. Granite PM Academy serves Des Moines professionals pursuing PMP® Certification through live-virtual training designed to fit working schedules.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-des-moines-ia.webp",
+    "city_image_alt": "Morning Skyline - Des Moines, Iowa - Winter on the Des Moines River, IA",
+    "city_image_credit": "Photo: Tony Webster from Minneapolis, Minnesota, United States, CC BY 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Morning_Skyline_-_Des_Moines,_Iowa_-_Winter_on_the_Des_Moines_River_(24805016620)_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Des Moines's insurance, financial services, and agribusiness sectors rely heavily on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact hours for the PMP credential, allowing you to earn certification on your schedule. For project managers in Des Moines's largest employers and growth industries, the PMP demonstrates the technical and leadership competency that drives career advancement and competitive compensation.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:44:44.342268Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "c92e7e58d9799640",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Des Moines: Advance Your Career in Insurance and Finance",
+      "text": "<p>Des Moines's prominence as a major insurance and financial services hub creates steady, ongoing demand for project managers who can lead system implementations, regulatory compliance initiatives, and enterprise transformations. Principal Financial Group, Wellmark Blue Cross Blue Shield, Nationwide, and EMC Insurance—all anchored in Des Moines—regularly seek PMs to manage complex, cross-functional projects that drive operational efficiency and competitive advantage. Beyond insurance, the city's strong agribusiness, healthcare, and technology sectors add depth to the local project management job market, meaning PMP® certification carries immediate relevance whether you work in financial services, data center expansion, healthcare facility projects, or process improvement across manufacturing and government. In Des Moines, the PMP® credential signals readiness to step into leadership roles that these major employers actively fill.</p><p>Granite PM Academy delivers PMP® Bootcamp as a live-virtual, instructor-led program designed to compress your learning and get you exam-ready in weeks rather than months. As a PMI Authorized Training Partner, we ensure our bootcamp satisfies the contact-hour requirements you need to sit for the PMP® exam, taught by active certified practitioners with real-world project experience. Our live-virtual format means you learn from anywhere while maintaining the interaction, accountability, and expert guidance that make bootcamp learning effective. Whether you're in Des Moines or anywhere across the nation, you'll complete the structured coursework, practice exams, and instructor feedback necessary to pass the PMP® credential exam and advance your career with a globally recognized certification.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:44:48.796090Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b2bfba483d236616",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Des Moines's Financial Services and Insurance Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Bootcamp Training",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Our PMP Bootcamp delivers the contact hours required by the Project Management Institute for credential eligibility, ensuring your investment counts toward PMI's strict requirements without gaps or workarounds."
+        },
+        {
+          "heading": "Live Instruction, Real-Time Learning",
+          "text": "Attend live-virtual classes with active certified practitioners who teach current best practices. You interact with instructors in real time, ask questions, and receive immediate feedback—no recorded videos or self-paced gaps that leave confusion unresolved before exam day."
+        },
+        {
+          "heading": "Comprehensive Exam Preparation Support",
+          "text": "Beyond bootcamp instruction, you receive targeted exam-prep resources, practice tests, and study guidance tailored to PMP domains. This structured support addresses weak areas before you sit for certification, improving confidence and readiness."
+        },
+        {
+          "heading": "Credential Demand Across Des Moines Employers",
+          "text": "Principal Financial Group, Wellmark Blue Cross Blue Shield, Nationwide, and other major Des Moines employers across insurance, financial services, healthcare, and agribusiness actively hire project and program managers. PMP certification strengthens your candidacy and earning potential in a competitive local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:44:52.989266Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c050c76e634a4a5e",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Des Moines",
+      "text": "<p>Des Moines's insurance and financial services sector—anchored by Principal Financial Group and Wellmark Blue Cross Blue Shield—drives consistent demand for certified project managers. Beyond underwriting and policy administration, these firms manage complex digital transformations, infrastructure upgrades, and enterprise initiatives that require disciplined project delivery. Nationwide, EMC Insurance, and UnityPoint Health similarly employ project and program managers across technology, operations, and healthcare delivery portfolios. Real-world examples of local PM demand include the Principal Riverwalk downtown development and the Microsoft data center expansions across West Des Moines and Polk County—projects that depend on skilled professionals to coordinate budgets, timelines, and cross-functional teams.</p><p>The PMP credential signals to Des Moines employers—particularly in insurance, healthcare, and IT-driven organizations—that you can lead complex deliverables with rigor and accountability. While certification is not always a strict hiring requirement, it meaningfully strengthens your candidacy for project management roles in local job postings. Compensation for certified project managers in Des Moines remains competitive within the region's cost-of-living context, with financial services and healthcare employers typically offering the strongest pay and benefits packages. Completing Granite PM Academy's PMP Bootcamp equips you with the knowledge, preparation strategy, and credential to advance your career in a market where proven project delivery skills are actively valued.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:44:56.888601Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2f7198b3ad670bf6",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Des Moines",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years of equivalent experience. Review PMI's full criteria to confirm you meet education and hours requirements before enrolling in Granite PM Academy's bootcamp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend all sessions from your location in Des Moines or anywhere with internet access. Our instructors deliver comprehensive PMBOK® Guide coverage and exam-focused content across the full program."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the 35-hour course, submit your PMP application directly to PMI, including proof of education and project experience. Pay the PMI exam fee when you apply. Allow time for PMI's review and approval before scheduling your exam appointment."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study guides, to reinforce bootcamp content. Schedule your exam with Pearson VUE at a test center or online. Sit for the four-hour, 200-question PMP exam when ready."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, you must earn 60 professional development units (PDUs) every three years to keep your certification active. Pursue continuing education through PMI-approved activities, training, or volunteer work in project management to meet renewal requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:45:01.724796Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "c559299aca570137",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Des Moines project managers?",
+          "answer": "<p>Yes. Des Moines's largest employers—Principal Financial Group, Wellmark Blue Cross Blue Shield, Nationwide, and UnityPoint Health—actively seek PMP-certified professionals for project and program management roles. While certification is not always mandatory, it signals proven delivery capability and helps candidates stand out in local hiring for insurance, healthcare, and financial services positions. Given Des Moines's competitive cost of living and strong employer base, PMP credential holders typically access higher-paying roles within these sectors.</p>"
+        },
+        {
+          "question": "Which Des Moines industries value PMP certification most?",
+          "answer": "<p>Insurance, financial services, and healthcare employers in Des Moines place the highest value on PMP and CAPM credentials. Organizations like Principal, Wellmark, Nationwide, and MercyOne view certification as evidence of rigorous project governance and risk management—critical in regulated industries. Technology and government roles (City of Des Moines, State of Iowa) also favor certified professionals. Agribusiness and manufacturing firms increasingly recognize the credential's value for process improvement and cross-functional delivery.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP bootcamp from my Des Moines workplace?",
+          "answer": "<p>Yes. Granite PM Academy's bootcamp is 100% live-virtual and can be attended from anywhere with internet access—including your workplace, home office, or a local coffee shop. This flexibility is ideal for Des Moines professionals managing demanding schedules at Principal, Wellmark, or other major employers. You can participate in real-time instruction and group exercises without traveling, making the program compatible with your existing work commitments.</p>"
+        },
+        {
+          "question": "Does Des Moines's job market affect when I should get PMP certified?",
+          "answer": "<p>Yes. Des Moines's project management openings tend to cluster in insurance, healthcare, and financial services—sectors that consistently post PMP-preferred roles year-round. However, completing certification before actively job hunting strengthens your candidacy significantly. If you're already working at a Des Moines employer, earning your credential demonstrates commitment to advancement and often positions you for internal promotion or lateral moves into higher-impact projects.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:45:07.970031Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "bb05826523b5012e",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Des Moines's insurance and financial services sector—anchored by Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—drives steady demand for project managers overseeing system implementations and process improvements. Major data center expansions by Microsoft and Meta, plus ongoing infrastructure projects like airport terminal modernization, reinforce the city's need for structured project leadership across technology, healthcare, and agribusiness. Granite PM Academy delivers live-virtual PMP Bootcamp training to Des Moines professionals nationwide, on a schedule that fits working schedules.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:45:09.822369Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3587de329e54a2ac",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Des Moines, IA, PMP bootcamp Des Moines, PMP certification boot camp Des Moines, IA, PMP bootcamp near me, intensive PMP training Des Moines",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\",\n      \"name\": \"PMP Bootcamp in Des Moines, IA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Des Moines, IA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Des Moines, IA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#course\",\n      \"name\": \"PMP Bootcamp in Des Moines, IA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Des Moines, IA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-des-moines-ia/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMP Bootcamp",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "1a2eea2155d777355b5ff0707995b162"
 }

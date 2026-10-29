@@ -1,348 +1,394 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "beaumont-tx",
-    "slug": "ai-training-beaumont-tx",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "beaumont-tx",
-        "city": "Beaumont",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "beaumont-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "city_spotlight": "<p>Beaumont's refining and petrochemical sector—anchored by major operations like the ExxonMobil Beaumont Refinery—drives steady demand for project managers overseeing plant expansions and capital construction. Healthcare systems, the Port of Beaumont, and public agencies add consistent opportunities for professionals with formal credentials. Granite PM Academy delivers live-virtual PMP Certification to Beaumont professionals seeking to formalize their expertise and advance in this industrial-focused job market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Beaumont's refining and petrochemical sector relies on project managers who can integrate emerging AI tools into complex, safety-critical operations. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI contact-hour requirements, helping you master AI applications within your field while maintaining the rigor employers in this region demand. Certified professionals who understand both traditional project discipline and AI-driven decision-making command stronger advancement opportunities across Beaumont's energy and industrial sector.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:41.302949Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "803b2ca049b386d3",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Beaumont, Texas",
-            "text": "<p>Beaumont's project management landscape is defined by the scale and complexity of refining and petrochemical operations—from ExxonMobil's Beaumont Refinery to DuPont's major plant—where artificial intelligence is transforming how capital projects, maintenance turnarounds, and plant expansions are planned, monitored, and controlled. Project managers at these industrial sites increasingly face pressure to integrate AI-driven forecasting, resource optimization, and risk analytics into their daily workflows. Beyond the refining sector, healthcare systems like Christus St. Elizabeth and Baptist Hospitals, the Port of Beaumont's logistics operations, and local government agencies are equally adopting AI tools to accelerate decision-making and improve project outcomes. In Beaumont's competitive job market, formal certification combined with demonstrated competency in emerging technologies sets experienced professionals apart and positions them for advancement into senior program and portfolio leadership roles.</p><p>Granite PM Academy, as a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers seeking to master practical applications of artificial intelligence within the formal PM framework. Our courses satisfy the contact-hour requirements for PMP® and CAPM® credentials, and each class is taught by active certified practitioners with real-world experience in industrial, healthcare, and public-sector environments. Rather than abstract theory, you'll engage with use cases and tools directly relevant to Beaumont's dominant industries and learn how to embed AI responsibly into your project governance and execution. Upon completion, you'll hold both a recognized credential and current competency in the tools shaping the future of project management.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:46.163204Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "7778a734273774f7",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Certification Training Built for Beaumont's Energy Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Credential Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® or CAPM® training meets all official standards. This status guarantees your contact hours count toward PMI certification eligibility—no guesswork, no rejected applications."
-                },
-                {
-                    "heading": "Live Instructor-Led Learning Online",
-                    "text": "Attend synchronous, live-virtual classes with certified instructors who deliver the exact contact hours required for PMI credentials. You engage in real time, ask questions directly, and build skills without sacrificing your current work schedule at Beaumont employers."
-                },
-                {
-                    "heading": "Instructors Who Practice Daily",
-                    "text": "Your instructors hold active PMP® or CAPM® certifications and work as practicing project managers in oil & gas, petrochemical, healthcare, and manufacturing environments. They teach real-world scenarios, not textbook theory alone."
-                },
-                {
-                    "heading": "Demand from Local Large Employers",
-                    "text": "ExxonMobil Beaumont Refinery, DuPont, Christus St. Elizabeth, and Port of Beaumont prioritize certified project managers for capital projects, process improvement, and operations. A PMI credential strengthens your candidacy and earning potential across Beaumont's largest hiring sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:50.050554Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "292b03bdc7d63162",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Beaumont's Industrial Hub",
-            "text": "<p>Beaumont's economy centers on large-scale refining, petrochemicals, and industrial operations that demand skilled project managers at every level. The ExxonMobil Beaumont Refinery—among the largest crude processing facilities in the United States—regularly oversees major capital projects and plant turnarounds requiring certified leadership. DuPont, Huntsman Corporation, and the Port of Beaumont similarly invest in infrastructure and terminal expansion initiatives that depend on rigorous project controls. Healthcare employers including Christus St. Elizabeth Hospital and Baptist Hospitals of Southeast Texas also hire project managers for facility upgrades and operational improvements. These organizations actively seek professionals who can navigate complex timelines, budgets, and stakeholder coordination in high-stakes environments.</p><p>The Beaumont market rewards project managers who hold recognized credentials, particularly those with industrial or engineering-construction experience. PMP® certification is viewed favorably by local employers overseeing plant turnarounds, capital projects, and infrastructure work—and certified professionals typically negotiate stronger compensation packages than uncertified peers in this industrial-heavy region. Completing Granite PM Academy's AI Training for Project Managers positions you to apply modern problem-solving techniques to the refinery expansions, port deepening projects, and corridor improvements that define Beaumont's ongoing growth. By combining practical AI tools with project management fundamentals, you strengthen your candidacy for leadership roles where steady demand and regional industrial activity create genuine career advancement opportunities.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:54.516869Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "388314c8eb3c41b6",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management certification worth it for Beaumont refinery and petrochemical careers?",
-                    "answer": "<p>Yes. Beaumont's industrial base—anchored by ExxonMobil, DuPont, and Huntsman—regularly staffs large-scale capital projects, plant turnarounds, and engineering initiatives where certified project managers command higher compensation and faster advancement. AI training adds competitive advantage in a market that increasingly values both traditional PM rigor and emerging technology literacy. Certified professionals managing complex industrial operations gain measurable negotiating power in salary discussions.</p>"
-                },
-                {
-                    "question": "Which Beaumont employers hire project managers with AI and certification credentials?",
-                    "answer": "<p>Major local employers across oil &amp; gas refining, petrochemicals, healthcare, and port operations actively hire certified project managers. Facilities like Christus St. Elizabeth Hospital and Baptist Hospitals of Southeast Texas seek PMP holders for capital infrastructure projects; the Port of Beaumont and City of Beaumont value credentialed professionals for complex logistics and municipal initiatives. Lamar University and BISD also employ certified project managers for facilities and strategic programs.</p>"
-                },
-                {
-                    "question": "Can I attend AI project management courses from my Beaumont workplace during work hours?",
-                    "answer": "<p>Yes. Our live-virtual format allows professionals at Beaumont refineries, hospitals, government offices, and port facilities to join from their workplace or site office with stable internet access. Many local participants attend during scheduled downtime or coordinate with supervisors. Check with your employer's learning policy and your instructor about any workplace-specific technical requirements before enrollment.</p>"
-                },
-                {
-                    "question": "When should Beaumont project managers pursue AI certification given local job market demand?",
-                    "answer": "<p>Beaumont's steady industrial and infrastructure activity creates consistent demand for certified project managers. If you manage or plan to manage capital projects, plant turnarounds, or engineering initiatives, certification strengthens your position now. Early adoption of AI training distinguishes you in a competitive talent pool and positions you for leadership roles as the sector increasingly integrates automation and data-driven decision-making into project delivery.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:49:01.300383Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "8c4a39c4efd7472e",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Beaumont's project management demand centers on its role as a major Gulf Coast refining and petrochemical hub, where employers like ExxonMobil and DuPont regularly staff large-scale plant expansions and capital construction projects. Healthcare systems, the Port of Beaumont, and public institutions add complementary demand for credentialed project managers. Granite PM Academy delivers live-virtual AI Training for Project Managers to Beaumont professionals seeking formal credentials and industry-ready skills.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:49:02.753665Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "6cc6c49e30229a99",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "beaumont-tx",
+  "slug": "ai-training-beaumont-tx",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "beaumont-tx",
+    "city": "Beaumont",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "beaumont-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-beaumont-tx/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Beaumont, TX, AI courses Beaumont, CPMAI certification Beaumont, AI project management training Beaumont, TX, AI for project managers Beaumont",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\",\n      \"name\": \"AI Training for Project Managers in Beaumont, TX — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Beaumont, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Beaumont, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#course\",\n      \"name\": \"AI Training for Project Managers in Beaumont, TX\",\n      \"description\": \"CPMAI certification training for project managers in Beaumont, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Oil & Gas Refining and Petrochemicals",
+      "Healthcare",
+      "Maritime and Port Logistics",
+      "Manufacturing and Industrial Construction",
+      "Education",
+      "Public Sector / Government Services"
+    ],
+    "top_employers": [
+      "ExxonMobil Beaumont Refinery",
+      "DuPont Beaumont Plant",
+      "Christus St. Elizabeth Hospital",
+      "Baptist Hospitals of Southeast Texas",
+      "Lamar University",
+      "Beaumont Independent School District",
+      "City of Beaumont",
+      "Jefferson County",
+      "Port of Beaumont",
+      "Entergy Texas",
+      "Huntsman Corporation"
+    ],
+    "salary_note": "Project manager pay in the Beaumont area tends to track the demands of its heavy industrial and petrochemical base, with higher compensation typically going to those managing capital projects, plant turnarounds, or engineering/construction initiatives. Certified professionals with industrial or healthcare project experience are generally more competitive in local salary negotiations than uncertified candidates.",
+    "market_blurb": "Beaumont's project management job market is closely tied to its status as a major refining and petrochemical hub along the Texas Gulf Coast, supplemented by steady demand from healthcare systems, public institutions, and the Port of Beaumont's logistics operations. Large industrial employers regularly need project managers for plant expansions, maintenance turnarounds, and capital construction, while local hospitals and government agencies add additional steady demand. Overall, the market favors professionals who can demonstrate formal project management training alongside industry-specific technical knowledge.",
+    "notable_projects": [
+      "ExxonMobil Beaumont Refinery expansion, which increased crude processing capacity to among the largest in the United States",
+      "Sabine-Neches Waterway deepening and widening project supporting regional port and industrial growth",
+      "Port of Beaumont infrastructure and terminal expansion projects",
+      "Interstate 10 corridor and bridge improvement projects in the Beaumont area"
+    ],
+    "credential_demand": "PMP certification is generally viewed favorably by Beaumont-area industrial, healthcare, and engineering employers, particularly for roles overseeing plant turnarounds or capital projects, though specific hiring statistics are not publicly available. Overall demand for trained project management professionals remains steady given the region's ongoing industrial and infrastructure activity.",
+    "_researched": 1,
+    "city_spotlight": "<p>Beaumont's project management landscape is anchored in refining and petrochemicals, with the ExxonMobil Beaumont Refinery and DuPont plant driving continuous demand for certified professionals managing capital projects, expansions, and turnarounds. Healthcare systems, the Port of Beaumont, and public agencies add steady opportunity across sectors. Granite PM Academy serves Beaumont professionals nationwide with live-virtual PMP® Certification training, equipping you to meet the formal credentials and industry expertise employers in this market expect.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Beaumont's refining, petrochemical, and port logistics sectors rely on structured project delivery across complex operations, making PMI-CPMAI Certification Training essential for advancement. Granite PM Academy delivers live-virtual, instructor-led CPMAI training that satisfies PMI's contact-hour requirements, enabling you to earn this credential on your schedule. Completing CPMAI positions you for leadership roles managing capital projects and operational initiatives across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:49.385033Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ea25c25359ffbfef",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Beaumont's Project Managers",
+      "text": "<p>Beaumont's role as a major refining and petrochemical hub along the Texas Gulf Coast makes formal project management certification particularly valuable for career advancement. ExxonMobil, DuPont, Huntsman Corporation, and other large industrial operators in the region regularly undertake plant expansions, maintenance turnarounds, and capital construction projects that demand certified project managers. Beyond the refining sector, healthcare systems, the Port of Beaumont's logistics operations, and public institutions add consistent demand for credentialed professionals. Employers across these industries increasingly expect candidates to demonstrate formal PMI training and credentials alongside technical expertise—making PMI-CPMAI Certification Training a concrete differentiator in Beaumont's competitive job market.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that meet PMI's contact-hour requirements and prepare you to sit for the exam. As a PMI Authorized Training Partner, we ensure every course meets the standards set by the Project Management Institute. Our instructors are active certified practitioners who bring real-world project experience into every session, and our flexible online format accommodates the schedules of working professionals throughout Beaumont and beyond. Upon completion and passing your exam, you'll hold a credential recognized across the refining, healthcare, maritime, and manufacturing sectors—positioning you for expanded opportunities and professional growth in your Beaumont career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:53.283459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6a7004bb930188ae",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Beaumont's Industrial Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI certification meets PMI's rigorous standards and is recognized by employers across Beaumont's oil, gas, petrochemical, and manufacturing sectors seeking qualified program and portfolio managers."
+        },
+        {
+          "heading": "Live Virtual Format, Real Contact Hours",
+          "text": "Instructor-led live-virtual sessions deliver the contact-hour requirement for PMI-CPMAI eligibility. Study on your schedule while meeting PMI's attendance standards—no recordings or asynchronous gaps. Ideal for Beaumont professionals balancing full-time roles at major employers."
+        },
+        {
+          "heading": "Learn from Active Certified Practitioners",
+          "text": "Your instructors are active certified practitioners with hands-on project and program management experience. They bring current case studies and real-world problem-solving into every session, equipping you to lead complex initiatives from day one."
+        },
+        {
+          "heading": "Bridge Beaumont's Program Management Skills Gap",
+          "text": "ExxonMobil, DuPont, Christus Health, and the Port of Beaumont all depend on skilled program and portfolio managers. PMI-CPMAI certification positions you for advancement in Beaumont's high-demand industrial, healthcare, and logistics sectors—where employer demand outpaces supply."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:57.528050Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "59f2183d1b34b616",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Beaumont's Industrial Hub",
+      "text": "<p>Beaumont's economy centers on refining, petrochemicals, and heavy industrial operations—sectors where certified project managers are essential. The ExxonMobil Beaumont Refinery, one of the largest crude-processing facilities in the United States, regularly requires skilled project professionals to oversee capital projects and plant turnarounds. DuPont's Beaumont Plant, Huntsman Corporation, and the Port of Beaumont's ongoing infrastructure and terminal expansion initiatives similarly depend on project managers to keep complex, multi-stakeholder operations on schedule and within budget. Healthcare employers like Christus St. Elizabeth Hospital and Baptist Hospitals of Southeast Texas also hire project managers for facility upgrades and service-delivery improvements. These organizations actively seek certified professionals who can demonstrate structured methodology and accountability.</p><p>The PMI-CPMAI credential strengthens your positioning in Beaumont's competitive project-management market. Employers across the region—particularly those managing capital projects, plant turnarounds, and engineering initiatives—view certification favorably when evaluating candidates for advancement and higher-responsibility roles. Project managers with industrial or healthcare experience and formal certification credentials typically negotiate better compensation packages than uncertified peers in Beaumont. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the frameworks and credentials that local employers recognize and value, positioning you to move into leadership roles and maximize earning potential as Beaumont's industrial and port activity continues to expand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:02.132083Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4567ce67cf674d9b",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Beaumont's Industrial Hub",
+      "text": "<p>Beaumont's economy is anchored by major employers across refining, petrochemicals, healthcare, and port operations—all sectors that depend heavily on skilled project management. The ExxonMobil Beaumont Refinery, among the largest crude processors in the United States, regularly manages capital projects and plant turnarounds that require certified professionals to oversee complex, safety-critical work. Similarly, DuPont's Beaumont Plant, the Port of Beaumont's ongoing infrastructure and terminal expansion, and initiatives like the Sabine-Neches Waterway deepening project all create sustained demand for project managers who can coordinate schedules, budgets, and stakeholder expectations across industrial and maritime environments. Employers in healthcare and education, including Christus St. Elizabeth Hospital and Lamar University, also seek certified professionals for construction, renovation, and operational transformation initiatives.</p><p>In Beaumont's competitive project-management market, the PMI-CPMAI credential distinguishes you as a serious candidate. Compensation for project managers in the region tracks the complexity and scale of industrial work—those managing capital projects, plant turnarounds, and engineering-construction initiatives command stronger offers, and certification typically strengthens your negotiating position relative to uncertified peers. By completing PMI-CPMAI Certification Training through Granite PM Academy's live-virtual format, you gain the credential and practical frameworks that employers in Beaumont's oil, gas, healthcare, and port sectors recognize and value. The training equips you to manage the high-stakes, deadline-driven projects that define this industrial region's growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:06.925459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4567ce67cf674d9b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth it for Beaumont refinery and petrochemical careers?",
+          "answer": "<p>Yes. Beaumont's industrial base—anchored by major refining and petrochemical operations—routinely demands certified project managers for capital projects, plant turnarounds, and engineering initiatives. Certified professionals with industrial project experience typically negotiate stronger compensation packages than uncertified peers in these roles. The credential signals readiness for high-stakes, complex operations common in the region's energy and manufacturing sectors.</p>"
+        },
+        {
+          "question": "Which Beaumont employers value PMI-CPMAI or PMP certification most?",
+          "answer": "<p>Large industrial, healthcare, and port-operations employers in Beaumont—including energy refineries, chemical plants, hospital systems, and maritime logistics organizations—view PMI credentials favorably for project leadership roles. The certification is particularly valued by those managing capital-intensive projects, plant maintenance cycles, or infrastructure work. Public-sector and education employers in the region also recognize the credential as a marker of structured project discipline.</p>"
+        },
+        {
+          "question": "Can I attend Beaumont PMI-CPMAI live-virtual training from my workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your office, home, or any location with internet access—including your employer's site if permitted by your organization. This flexibility is especially valuable for Beaumont professionals balancing demanding industrial or healthcare schedules. Confirm your workplace's video-conferencing policies before enrolling to ensure uninterrupted participation.</p>"
+        },
+        {
+          "question": "Should Beaumont professionals get certified before or after starting a project management role?",
+          "answer": "<p>Beaumont's steady industrial and infrastructure activity creates ongoing demand for project managers at all experience levels. Many local employers view certification as an asset for advancement into senior or specialized roles—particularly in plant turnarounds and capital projects. Pursuing certification before or early in your role strengthens your candidacy for higher-responsibility positions and can accelerate your earning potential in Beaumont's competitive industrial market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:12.757759Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "71974f0d1d8c7d60",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Beaumont's project management demand centers on its role as a major refining and petrochemical hub, with ExxonMobil, DuPont, and regional port operations driving steady work in plant expansions, capital construction, and logistics. Healthcare systems, education, and public agencies add complementary opportunities across the local market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Beaumont professionals seeking to formalize their credentials and advance in these competitive sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:14.587456Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "bee249f89d75a864",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Beaumont's project management demand stems from its position as a major refining and petrochemical hub, with ExxonMobil, DuPont, and related industrial operations regularly seeking managers for plant expansions and capital construction projects. Healthcare systems, the Port of Beaumont, and regional public institutions add steady demand across multiple sectors. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Beaumont professionals seeking the formal credentials employers in this market expect.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:16.254796Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "bee249f89d75a864",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-beaumont-tx/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Beaumont, TX, AI courses Beaumont, CPMAI certification Beaumont, AI project management training Beaumont, TX, AI for project managers Beaumont",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\",\n      \"name\": \"PMI-CPMAI Certification Training in Beaumont, TX | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Beaumont, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Beaumont, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Beaumont, TX\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Beaumont, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-beaumont-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-beaumont-tx/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

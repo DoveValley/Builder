@@ -1,390 +1,431 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "mobile-al",
-    "slug": "capm-certification-training-mobile-al",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "mobile-al",
-        "city": "Mobile",
-        "state": "Alabama",
-        "SS": "AL",
-        "city_slug": "mobile-al",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Mobile's project management demand is anchored by shipbuilding and aerospace manufacturing—Austal USA and Airbus drive consistent hiring for skilled program managers across Navy contracts and commercial aircraft production. The region's growing port infrastructure, healthcare expansions, and industrial operations create steady PMP® opportunities in both public and private sectors. Granite PM Academy delivers live-virtual PMP Certification designed for Mobile professionals seeking to advance in this thriving Gulf Coast industrial hub.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Mobile's shipbuilding and defense contracting sector relies on professionals who can manage complex, regulated projects—and the CAPM certification signals that readiness to employers across the region. Granite PM Academy delivers live-virtual, instructor-led CAPM boot camp training that fulfills PMI's contact-hour education requirement, letting you earn your credential while maintaining work and family commitments. Completing CAPM positions you for entry-level and mid-level project management roles where Mobile's maritime and industrial base offers genuine advancement opportunity.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:49.160223Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "2cc8ebc999b6820f",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Mobile for Project Managers",
-            "text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by industry leaders like Austal USA and the Airbus U.S. Manufacturing Facility—create sustained demand for credentialed project managers who can manage complex, multi-phase programs in these highly regulated environments. Healthcare systems, maritime logistics operators, and chemical manufacturers across the region similarly seek certified professionals to lead capital projects, facility expansions, and operational initiatives. The CAPM® (Certified Associate in Project Management) credential signals to these employers that you understand standardized project management frameworks, risk assessment, and stakeholder communication—skills that directly translate to the high-stakes, deadline-driven work that defines Mobile's industrial and infrastructure sectors.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM Certification & Boot Camp through live-virtual, instructor-led instruction designed for working professionals in Mobile who need flexible scheduling without compromising depth. Our courses satisfy PMI's contact-hour requirements and are taught by active certified practitioners with hands-on experience in industries like yours. You'll study real-world scenarios, practice exam-style questions, and gain the confidence to pass your official PMI exam—positioning yourself for advancement in Mobile's competitive project management job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:52.774584Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "5f5a139b7dd6ff17",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Launch Your PM Career in Mobile's Shipbuilding & Aerospace Hub",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Training Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM boot camp meets all PMI credential requirements. Your completion certificate satisfies contact-hour prerequisites, letting you move directly to exam registration without delays or compliance questions."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Your instructors hold active CAPM or PMP® certifications and work in project management today. They teach frameworks using current examples from manufacturing, logistics, and healthcare—industries that anchor Mobile's economy—making concepts immediately relevant to your career."
-                },
-                {
-                    "heading": "Structured Exam Prep & Support",
-                    "text": "Beyond boot camp hours, you receive targeted exam-preparation materials, practice tests, and instructor guidance on high-risk topic areas. This layered approach builds confidence and keeps pass readiness in focus from day one through exam day."
-                },
-                {
-                    "heading": "Local Demand: Austal, Airbus & Beyond",
-                    "text": "Austal USA, Airbus's Mobile facility, AM/NS Calvert, and the Port Authority all manage complex projects requiring certified project coordinators and managers. CAPM certification signals readiness for entry and mid-level PM roles in these major employers' pipelines."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:41:57.415010Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "75ecb015cc7bbd8f",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Mobile's Advanced Manufacturing",
-            "text": "<p>Mobile's economy is anchored by large-scale, complex industrial operations where certified project managers are in steady demand. Austal USA and the Airbus U.S. Manufacturing Facility at Brookley Aeroplex represent the heart of this sector—both organizations manage multi-phase production and engineering initiatives that require disciplined project oversight. The Austal shipbuilding programs for the U.S. Navy, alongside Airbus's A320 Family aircraft production expansion, exemplify the kind of mission-critical work where project management credentials carry real weight. Beyond aerospace and shipbuilding, the Alabama State Port Authority's container terminal and infrastructure expansion projects, plus healthcare systems like USA Health and Infirmary Health, create additional pathways for certified PMs across maritime logistics, industrial manufacturing, and healthcare operations.</p><p>CAPM and PMP credentials are increasingly preferred—and sometimes required—in Mobile's shipbuilding, aerospace, and industrial sectors, where employers actively seek candidates who can demonstrate formal project management training. While project manager compensation in Mobile tracks slightly below some national metro averages, the demand for certified professionals in these industries remains strong, and employers frequently offer competitive pay premiums for candidates holding CAPM or PMP credentials alongside relevant engineering or manufacturing experience. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you to meet that local demand directly, equipping you with the credential and practical skills that Mobile's largest employers recognize and value as you advance your career in this thriving manufacturing economy.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:02.317848Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "c0c4cf4579d294f5",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Mobile",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "CAPM requires a secondary degree and formal project management education—no work experience necessary. Mobile professionals new to the field qualify immediately. Verify you meet PMI's educational prerequisite, then move forward with confidence."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required contact hours into a focused learning experience, letting you master core PM frameworks and terminology on a schedule that fits your career."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI and pay the examination fee once your education is complete. This formal application step activates your eligibility to sit for the CAPM exam and officially launches your credential journey."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Granite PM Academy provides targeted exam-preparation support to reinforce concepts and build test confidence. Schedule your exam at a PMI-approved testing center, then demonstrate your mastery of project management fundamentals."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "After earning CAPM, commit to earning professional development units over the standard three-year renewal cycle. This ongoing engagement keeps your credential active and your knowledge current within the Mobile project-management community."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:06.686422Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "7c439d1c72277572",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth it for Mobile shipbuilding and aerospace careers?",
-                    "answer": "<p>Yes. Austal USA, Airbus U.S. Manufacturing, and related suppliers in Mobile increasingly seek formally certified project managers for large-scale, multi-phase programs. While CAPM is an entry-level credential, it demonstrates foundational PM competency and positions you competitively for advancement into roles where PMP certification later becomes preferred. Local employers in these sectors value credentials that signal capability to manage complex schedules and stakeholder coordination.</p>"
-                },
-                {
-                    "question": "Which Mobile employers actively hire project managers with CAPM or PMP?",
-                    "answer": "<p>Shipbuilding (Austal USA), aerospace manufacturing (Airbus U.S. Manufacturing), port and maritime operations (Alabama State Port Authority), chemical and industrial manufacturing (AM/NS Calvert, Evonik, Continental Tire), and healthcare systems (USA Health, Infirmary Health) all list project management credentials as preferred qualifications in job postings. These sectors manage capital-intensive, regulated projects where formal PM expertise directly impacts outcomes and safety.</p>"
-                },
-                {
-                    "question": "Can I attend CAPM boot camp live-virtual from my Mobile workplace?",
-                    "answer": "<p>Yes. Our live-virtual format allows you to participate from your office, home, or any location with stable internet—common for Mobile professionals working in distributed industrial and healthcare environments. This flexibility is especially valuable if your employer supports certification during work hours or if you coordinate study around shift work common in manufacturing and port operations.</p>"
-                },
-                {
-                    "question": "Should I get CAPM certified now or wait for the Mobile job market?",
-                    "answer": "<p>Mobile's demand for certified project managers in shipbuilding, aerospace, and industrial manufacturing is strong and growing. Waiting risks missing advancement opportunities—employers list credentials as preferred qualifications before you apply. Starting CAPM training now positions you ahead of internal promotion cycles and external hiring rounds, particularly valuable as these sectors expand workforce planning and formal project governance.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:12.378589Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "088bc81d0a03fd6e",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Mobile's aerospace and shipbuilding sectors—anchored by Airbus and Austal USA—drive consistent demand for skilled project managers across manufacturing, maritime logistics, and infrastructure expansion. The Port of Mobile's growth and ongoing Navy shipbuilding contracts create steady opportunities for certified professionals. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp classes tailored to Mobile's working professionals seeking to advance in this competitive market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:14.064755Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "d7018af316b56a06",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "mobile-al",
+  "slug": "capm-certification-training-mobile-al",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "mobile-al",
+    "city": "Mobile",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "mobile-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-mobile-al/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Mobile, AL, CAPM boot camp Mobile, CAPM training Mobile, AL, CAPM classes Mobile AL, CAPM exam prep Mobile",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\",\n      \"name\": \"CAPM Certification & Boot Camp in Mobile, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Mobile, AL. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Mobile, AL\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Mobile, AL\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Mobile, AL. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Shipbuilding & Marine Manufacturing",
+      "Aerospace Manufacturing",
+      "Maritime & Port Operations/Logistics",
+      "Healthcare",
+      "Chemical & Industrial Manufacturing",
+      "Construction & Infrastructure"
+    ],
+    "top_employers": [
+      "Austal USA",
+      "Airbus U.S. Manufacturing Facility",
+      "AM/NS Calvert",
+      "Alabama State Port Authority",
+      "USA Health",
+      "Infirmary Health",
+      "Continental Tire",
+      "Evonik Corporation",
+      "International Paper",
+      "Mobile County Public School System",
+      "City of Mobile"
+    ],
+    "salary_note": "Project manager compensation in Mobile tends to track slightly below national metro averages but remains competitive within Alabama, particularly in shipbuilding, aerospace, and industrial manufacturing where demand for certified PMs is strong. Employers in these sectors often offer premium pay for candidates with PMP certification and manufacturing or engineering project experience.",
+    "market_blurb": "Mobile's project management job market is anchored by its strong shipbuilding, aerospace, and maritime/port sectors, with companies like Austal USA and Airbus driving consistent demand for skilled program and project managers. Healthcare systems and chemical/industrial manufacturers in the region also regularly seek project management talent to support expansions and operational initiatives. As a growing Gulf Coast industrial hub, Mobile offers steady opportunities for certified project managers across both public and private sectors.",
+    "notable_projects": [
+      "Airbus A320 Family aircraft production expansion at Brookley Aeroplex",
+      "Austal USA shipbuilding programs for the U.S. Navy (including Independence-class and future combatant ship contracts)",
+      "I-10 Mobile River Bridge and Bayway project",
+      "Port of Mobile container terminal and infrastructure expansion (Alabama State Port Authority)"
+    ],
+    "credential_demand": "PMP certification is increasingly valued by Mobile-area employers, especially in shipbuilding, aerospace, and industrial manufacturing, where large-scale, multi-phase projects require formal project management expertise. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and the Airbus A320 production expansion at Brookley Aeroplex—drive consistent demand for skilled project managers across industrial, maritime, and healthcare employers. The Port of Mobile's infrastructure growth and major infrastructure projects like the I-10 Mobile River Bridge further strengthen opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Mobile professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Mobile's shipbuilding, aerospace, and port operations sectors depend on structured project delivery across complex, regulated environments. Granite PM Academy delivers live-virtual CAPM Certification Training with instructor-led instruction that fulfills PMI's contact-hour education requirement, designed to fit working schedules while building the foundational project-management credentials employers in these industries actively seek. Earning your CAPM positions you for advancement in Mobile's competitive manufacturing and logistics job market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:02.577897Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "789bc8214349678a",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Mobile's Project Management Demand",
+      "text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by industry leaders like Austal USA and the Airbus U.S. Manufacturing Facility—create sustained demand for certified project managers who can manage complex, regulated programs from conception through delivery. These capital-intensive industries depend on skilled professionals to coordinate schedules, budgets, and cross-functional teams across construction, procurement, and manufacturing workflows. Beyond shipbuilding and aerospace, Mobile's maritime logistics, healthcare systems, and chemical manufacturing operations equally value project management credentials as they scale facilities and launch operational initiatives. The CAPM (Certified Associate in Project Management) certification positions emerging and early-career professionals in Mobile to compete for roles that often require formal PMI credentials and foundational knowledge of project governance, scope management, and risk planning.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes designed to fit working schedules while meeting PMI's contact-hour requirements for eligibility. Our instructors bring active, real-world certification and project experience into every session, translating PMI frameworks into practical scenarios you'll encounter in Mobile's industrial and healthcare environments. The live-virtual format means you study from anywhere while receiving direct instruction, peer interaction, and immediate answers to your questions about exam content and application. Upon completion of training and successful exam passage, you'll hold a credential recognized across industries and by the companies driving Mobile's economy, positioning you for advancement in project coordinator, associate manager, and program support roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:07.228698Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0b00f717b964bb2c",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification: Mobile's Shipbuilding & Manufacturing Edge",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy's CAPM training is PMI Authorized Training Partner–delivered, ensuring your certificate meets all PMI eligibility requirements. You complete genuine contact hours through live-virtual instruction, positioning you for immediate exam registration without eligibility disputes."
+        },
+        {
+          "heading": "Live Instructors, Real Expertise",
+          "text": "Your instructors are active certified practitioners—not slides or recordings. They teach live-virtual sessions, answer questions in real time, and bring current project-management practices into every classroom discussion. You learn from people still doing the work."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "CAPM exam readiness is woven throughout the course, not bolted on at the end. Granite's curriculum addresses the CAPM Exam Content Outline directly, and instructors guide you through practice questions and test-taking strategy during live sessions."
+        },
+        {
+          "heading": "Credential Valued by Mobile Employers",
+          "text": "Austal USA, AM/NS Calvert, the Alabama State Port Authority, and local aerospace manufacturers actively seek professionals with project-management credentials. CAPM signals capability to employers across shipbuilding, manufacturing, logistics, and healthcare—industries that drive Mobile's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:16.340987Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "fa3feada7ade012c",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Mobile's Industrial Sector",
+      "text": "<p>Mobile's economy is anchored by large-scale manufacturing and maritime operations where certified project managers are in steady demand. Austal USA's shipbuilding programs for the U.S. Navy—including Independence-class and future combatant ship contracts—rely on project managers to coordinate complex, multi-phase construction and delivery. The Airbus A320 Family aircraft production expansion at Brookley Aeroplex similarly requires skilled PMs to oversee manufacturing workflows and supply-chain integration. Beyond aerospace and shipbuilding, the Alabama State Port Authority's container terminal and infrastructure expansion projects, along with major regional initiatives like the I-10 Mobile River Bridge and Bayway project, create ongoing opportunities for certified professionals in construction management and port logistics.</p><p>Employers across shipbuilding, aerospace, industrial manufacturing, and healthcare in Mobile increasingly list PMP® or CAPM® credentials as preferred qualifications in their project management job postings, particularly for roles managing large-scale, capital-intensive programs. While project manager compensation in Mobile typically tracks slightly below national metro averages, the demand for certified credentials—especially in shipbuilding and aerospace—often translates to competitive pay and premium advancement opportunities for candidates who hold formal PM certification. Completing CAPM Certification Training through Granite PM Academy positions you to meet these local market expectations and strengthen your candidacy with employers who view certification as a strategic asset for managing the sophisticated, regulated projects that define Mobile's industrial landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:20.786036Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "45b1f4160d182bc1",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Mobile",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and completion of project management education hours—no work experience necessary. This makes CAPM ideal for career-changers and early-career professionals in Mobile's shipbuilding, aerospace, and port operations sectors seeking formal credentialing quickly."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp format. Attend scheduled sessions from anywhere, learn from active certified practitioners, and finish the requirement in an intensive timeframe designed for working professionals balancing jobs and certification goals."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI, provide proof of your completed education hours, and pay the exam fee directly to PMI. Granite PM Academy guides you through documentation and submission to ensure a smooth application process before you test."
+        },
+        {
+          "heading": "Prepare and Sit for the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study guides aligned to the CAPM Body of Knowledge. Schedule your proctored exam and take the test on your timeline to earn your credential."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "Every three years, renew by earning professional development units through training, volunteer work, or professional involvement. Sustain your competitive edge in Mobile's project-heavy industries and demonstrate ongoing commitment to project management excellence."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:25.126676Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "274a0aeb6d60c456",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth it for project managers in Mobile's shipbuilding and aerospace sectors?",
+          "answer": "<p>Yes. Shipbuilding, aerospace, and industrial manufacturing employers in Mobile—including major regional firms—increasingly list PMP or CAPM credentials as preferred qualifications for project management roles. These industries manage large-scale, multi-phase projects where formal PM expertise directly impacts delivery and safety. CAPM establishes foundational credibility and often accelerates advancement into roles commanding higher compensation, particularly when paired with manufacturing or engineering experience.</p>"
+        },
+        {
+          "question": "Which Mobile employers most value CAPM and PMP certification credentials?",
+          "answer": "<p>Demand is strongest in shipbuilding, aerospace manufacturing, and industrial sectors—domains central to Mobile's economy. Chemical manufacturers, port operations, and healthcare systems also seek certified project managers for complex initiatives. While certification is not always mandatory, job postings in these fields frequently list PMP or CAPM as preferred. Earning CAPM early positions you competitively as you move toward PMP eligibility and more senior roles.</p>"
+        },
+        {
+          "question": "Can I attend CAPM certification training in Mobile while working full-time?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to participate from your workplace, home, or any location with internet access. This flexibility works well for Mobile professionals managing demanding schedules in shipbuilding, aerospace, healthcare, and manufacturing—sectors where full-time project work is the norm. You control when and where you engage, making certification achievable without disrupting your career.</p>"
+        },
+        {
+          "question": "Should I get CAPM certified now or wait for PMP eligibility in Mobile's job market?",
+          "answer": "<p>Consider certifying now if you have no formal PM hours logged. CAPM builds knowledge quickly, strengthens your resume immediately, and qualifies you for entry-level PM roles in Mobile's growing aerospace, shipbuilding, and industrial sectors. Once you accumulate project management experience, you'll transition smoothly to PMP. Starting with CAPM shortens your overall path to higher-demand credentials and competitive positioning in Mobile's market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:31.183463Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f3ed3274813cbb6c",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and Airbus manufacturing at Brookley Aeroplex—create sustained demand for certified project managers across defense contracts, port operations, and industrial expansion initiatives. Healthcare systems and chemical manufacturers in the region further strengthen opportunities for skilled practitioners. Granite PM Academy delivers live-virtual CAPM Certification Training to Mobile professionals nationwide, fitting credentials into working schedules while meeting PMI requirements.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:32.820514Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b316c0958d4fc2a0",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-mobile-al/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Mobile, AL, CAPM boot camp Mobile, CAPM training Mobile, AL, CAPM classes Mobile AL, CAPM exam prep Mobile",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\",\n      \"name\": \"CAPM Certification Training in Mobile, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Mobile, AL. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Mobile, AL\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#course\",\n      \"name\": \"CAPM Certification Training in Mobile, AL\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Mobile, AL. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-mobile-al/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

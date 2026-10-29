@@ -1,348 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "sioux-falls-sd",
-    "slug": "ai-training-sioux-falls-sd",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "sioux-falls-sd",
-        "city": "Sioux Falls",
-        "state": "South Dakota",
-        "SS": "SD",
-        "city_slug": "sioux-falls-sd",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Sioux Falls' healthcare sector—anchored by Sanford Health and Avera Health—drives ongoing demand for skilled project managers overseeing facility expansions, IT implementations, and system integrations. The city's diversified economy across financial services, agribusiness, and manufacturing amplifies opportunities for professionals managing complex, cross-functional initiatives. Granite PM Academy delivers live-virtual PMP® Certification tailored to Sioux Falls working professionals, helping you earn the credential that advances your career in this competitive market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Sioux Falls's growing healthcare and financial-services sectors increasingly rely on project managers to coordinate complex initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI contact-hour requirements, letting you earn credentials on a schedule that fits your job. Mastering AI tools positions you for higher-impact roles and compensation growth in a market where skilled PMs remain in strong demand.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:28.350844Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "036fbdcbecac173c",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Sioux Falls",
-            "text": "<p>Sioux Falls' healthcare sector—anchored by major systems like Sanford Health and Avera Health—drives consistent demand for project managers who can lead complex initiatives from facility expansions to clinical IT implementations. As these organizations integrate artificial intelligence into operations and care delivery, project managers need practical skills to oversee AI-powered process improvements, manage cross-functional teams navigating new technologies, and communicate AI's impact to stakeholders. In Sioux Falls, this intersection of healthcare scale and emerging technology creates a competitive advantage for PMs who combine traditional project management expertise with current AI literacy. Whether you work in healthcare, financial services, manufacturing, or another industry in this diversified economy, understanding how to plan, resource, and deliver projects that incorporate AI tools has become essential to advancing your career and your organization's capabilities.</p><p>Granite PM Academy delivers AI Training for Project Managers through live-virtual, instructor-led courses designed by active certified practitioners who work in the field. As a PMI Authorized Training Partner, we structure our programs to satisfy the contact-hour requirements for PMP® and CAPM® credential holders seeking to maintain or earn certifications that employers in Sioux Falls increasingly value. Our curriculum bridges the gap between traditional project management and AI-driven workflows, covering practical applications without requiring a technical background. You'll earn recognized PDU credit while learning from professionals who understand the real challenges project managers face in healthcare systems, banking operations, and other sectors driving Sioux Falls' economy. Start your path toward advanced certification and position yourself as a leader equipped to manage tomorrow's projects today.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:33.822364Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "1f52a390c61555e0",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Project Managers in Sioux Falls",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Matters Here",
-                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, meaning your contact hours count directly toward PMP® or CAPM® eligibility. No extra documentation or appeals—your credential sits on solid ground from day one."
-                },
-                {
-                    "heading": "Live Instruction, Flexible Schedule",
-                    "text": "Instructor-led virtual sessions meet PMI's contact-hour requirements without forcing you into a classroom. Balance Sioux Falls work and family life while earning recognized certification hours each week."
-                },
-                {
-                    "heading": "Taught by Working Practitioners",
-                    "text": "Our instructors hold active PMP® and CAPM® credentials and manage real projects in healthcare, finance, and manufacturing—the same industries hiring in Sioux Falls. Learn from current best practice, not textbook theory."
-                },
-                {
-                    "heading": "Credential Valued by Local Employers",
-                    "text": "Healthcare systems, financial institutions, and manufacturing firms across Sioux Falls actively recruit certified project managers. A PMP® or CAPM® positions you competitively for roles at Sanford, Avera, and regional banking leaders."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:37.968839Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "24d37e478c3b06ad",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Healthcare-Driven Sioux Falls",
-            "text": "<p>Sioux Falls' healthcare sector anchors demand for certified project managers. Sanford Health and Avera Health—two of the region's largest employers—continually invest in facility expansions and care system upgrades that require skilled PM leadership. Beyond healthcare, financial services employers including Citibank, Wells Fargo, and First Premier Bank hire project managers to oversee technology deployments, process improvements, and regulatory compliance initiatives. Manufacturing and agribusiness operations such as POET and Smithfield Foods also seek certified professionals to manage bioprocessing facility developments and supply-chain projects. The City of Sioux Falls and its School District round out the local ecosystem, running infrastructure and downtown development projects that benefit from formal project credentials.</p><p>Completing AI Training for Project Managers at Granite PM Academy positions you to compete effectively for these roles. Project managers in Sioux Falls remain in steady demand, particularly within healthcare and financial services where structured project delivery is critical—and employers increasingly value PMP and CAPM certifications as proof of that discipline. Compensation is competitive for the regional Midwest market, though it varies by industry and experience level; you should review current local job postings to confirm salary expectations in your target sector. By combining AI-focused project management skills with a recognized credential, you strengthen your candidacy in a market where healthcare and financial-services hiring managers actively screen for certified talent.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:42.138238Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "8ce50c47bb385117",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Do Sioux Falls healthcare employers value AI project management certification?",
-                    "answer": "<p>Sanford Health and Avera Health, among the region's largest employers, increasingly rely on structured project delivery for clinical system implementations and operational improvements. Both sectors benefit from certified professionals who can manage complex, interdisciplinary initiatives. However, credential demand varies by department and role—review current openings at these organizations and similar regional healthcare systems to confirm how prominently PMP, CAPM, or AI-focused credentials appear in job descriptions relevant to your target position.</p>"
-                },
-                {
-                    "question": "Is AI training for project managers worth pursuing in Sioux Falls?",
-                    "answer": "<p>Sioux Falls' financial services sector—anchored by Citibank, Wells Fargo, and First Premier Bank—increasingly automates workflows and deploys AI-driven tools, making certified professionals who understand both project management and AI integration competitive advantages. Healthcare and manufacturing sectors show similar trends. Career value depends on your current role, target industry, and local job market conditions at the time you complete training. Survey current project manager postings in your field to assess whether employers are actively seeking this expertise before enrolling.</p>"
-                },
-                {
-                    "question": "Can I attend Granite PM Academy's live-virtual AI course while working in Sioux Falls?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your workplace, home, or any location with reliable internet. This is particularly valuable for Sioux Falls professionals at larger employers like the City of Sioux Falls or Smithfield Foods, where scheduling time away for in-person training can be logistically difficult. Confirm session times and technical requirements with the academy during enrollment to ensure compatibility with your work environment and schedule.</p>"
-                },
-                {
-                    "question": "When should Sioux Falls project managers pursue AI certification to stay competitive?",
-                    "answer": "<p>Sioux Falls' manufacturing, agribusiness, and financial services sectors are integrating AI into project workflows now—not in years to come. Professionals seeking roles at POET, regional banks, or healthcare systems benefit from early certification, as demand for these credentials is still growing and talent supply remains relatively limited. Timing your certification before a job transition or promotion cycle increases its immediate value. Monitor local job postings in your target industry to align your training with current hiring momentum.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:50.006922Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "1d457106d92f7db1",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Sioux Falls' anchored healthcare sector—led by major systems like Sanford Health and Avera Health—continuously drives demand for project managers overseeing facility expansions, IT implementations, and care delivery transformations. Add a robust financial services presence and you'll find consistent opportunities for PMs managing process improvement and infrastructure initiatives across industries. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Sioux Falls professionals seeking to advance their careers.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:51.903183Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "7fc39956d89dc455",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "sioux-falls-sd",
+  "slug": "ai-training-sioux-falls-sd",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "sioux-falls-sd",
+    "city": "Sioux Falls",
+    "state": "South Dakota",
+    "SS": "SD",
+    "city_slug": "sioux-falls-sd",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-sioux-falls-sd/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Sioux Falls, SD, AI courses Sioux Falls, CPMAI certification Sioux Falls, AI project management training Sioux Falls, SD, AI for project managers Sioux Falls",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\",\n      \"name\": \"AI Training for Project Managers in Sioux Falls, SD — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Sioux Falls, SD for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Sioux Falls, SD\",\n            \"item\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#course\",\n      \"name\": \"AI Training for Project Managers in Sioux Falls, SD\",\n      \"description\": \"CPMAI certification training for project managers in Sioux Falls, SD who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Healthcare",
+      "Financial Services/Banking",
+      "Biotechnology and Agribusiness",
+      "Manufacturing",
+      "Retail and Distribution"
+    ],
+    "top_employers": [
+      "Sanford Health",
+      "Avera Health",
+      "Citibank",
+      "Wells Fargo",
+      "First Premier Bank",
+      "Premier Bankcard",
+      "Smithfield Foods",
+      "POET",
+      "City of Sioux Falls",
+      "Sioux Falls School District",
+      "Amazon"
+    ],
+    "salary_note": "Project managers in Sioux Falls are in steady demand, particularly within healthcare and financial services, with compensation generally competitive for the regional Midwest market. Exact figures vary widely by industry and experience level, so candidates should research current listings rather than rely on a single benchmark.",
+    "market_blurb": "Sioux Falls has a diversified economy anchored by major healthcare systems like Sanford Health and Avera Health, along with a strong financial services and banking sector including Citibank and First Premier Bank. This mix creates consistent opportunities for project and program managers overseeing facility expansions, IT system implementations, and process improvement initiatives across these industries.",
+    "notable_projects": [
+      "Sanford Health facility and research expansions in Sioux Falls",
+      "Avera Health system expansions and new care facility construction",
+      "POET biofuel and bioprocessing facility developments",
+      "City of Sioux Falls infrastructure and downtown development initiatives"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly valued by Sioux Falls employers in healthcare and financial services, where structured project delivery is critical, though demand for certified professionals should be confirmed through current local job postings rather than assumed uniformly across all sectors.",
+    "_researched": 1,
+    "city_spotlight": "<p>Sioux Falls's healthcare sector—anchored by Sanford Health and Avera Health system expansions—drives sustained demand for skilled project managers overseeing facility construction, clinical IT implementations, and care delivery transformation. Financial services employers and agribusiness operations add further complexity to capital projects and process improvement work across the region. Granite PM Academy serves Sioux Falls professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Healthcare systems, financial institutions, and manufacturing operations across Sioux Falls depend on skilled project managers to deliver critical initiatives on time and within budget. Granite PM Academy's live-virtual PMI-CPMAI Certification Training meets PMI's required contact-hour education standard, enabling you to earn this credential while managing your current role. Completing your CPMAI certification positions you for advancement and higher compensation within Sioux Falls's competitive project-management market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:20.855967Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6047692c47f5111f",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Sioux Falls, SD",
+      "text": "<p>Sioux Falls' healthcare sector—anchored by Sanford Health and Avera Health—drives significant demand for certified project and program managers overseeing facility expansions, clinical IT implementations, and enterprise-wide process improvements. The PMI-CPMAI certification equips professionals in Sioux Falls to lead complex, multi-phase initiatives across these healthcare organizations and the city's equally robust financial services and manufacturing sectors. Whether you're managing capital projects, digital transformation efforts, or cross-functional teams at one of Sioux Falls' major employers, this credential demonstrates mastery of agile and traditional methodologies, stakeholder engagement, and risk management—skills that directly address the strategic priorities of Sioux Falls' most dynamic industries.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led courses designed to fit working professionals' schedules. Our active certified practitioners teach the full curriculum, ensuring you meet all required contact hours and emerge ready to pass the PMI-CPMAI exam. You'll engage with real-world scenarios and expert instruction from anywhere in the nation, then apply your certification immediately to projects in Sioux Falls' healthcare, financial, and industrial sectors. Your path to PMI-CPMAI certification starts with a flexible, authoritative training program backed by PMI's standards and your commitment to professional growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:24.815635Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "e9c9c7e98bb830b2",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Healthcare & Finance Leaders Choose PMI-CPMAI Here",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Credential Credibility",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI certificate reflects rigorous standards recognized across Sioux Falls's healthcare systems, financial institutions, and Fortune 500 employers—no shortcuts, no workarounds."
+        },
+        {
+          "heading": "Live Virtual Instructor, Real Contact Hours",
+          "text": "Synchronous instructor-led training over Zoom fulfills PMI's contact-hour requirement without commute or scheduling conflict. Attend live from Sioux Falls; interact in real time; earn verifiable hours counted toward eligibility."
+        },
+        {
+          "heading": "Taught by Active Certified Practitioners",
+          "text": "Your instructors hold active PMI certifications and apply current project-management discipline daily in their professional roles. You learn from practitioners, not lecturers, grounded in real-world complexity your peers face."
+        },
+        {
+          "heading": "Credential Valued by Major Sioux Falls Employers",
+          "text": "Healthcare networks, banking groups, and manufacturing firms across Sioux Falls prioritize PMI credentials for program and project leadership roles. The PMI-CPMAI signals readiness to manage initiatives in regulated, high-stakes environments common to the region's largest employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:28.989490Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "70c903b9c70cf626",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Sioux Falls",
+      "text": "<p>Sioux Falls's healthcare sector — anchored by major employers Sanford Health and Avera Health — drives consistent demand for certified project managers overseeing facility expansions, research initiatives, and system-wide care delivery projects. Beyond healthcare, financial services institutions including Citibank, Wells Fargo, and First Premier Bank regularly staff project management roles to deliver infrastructure upgrades, compliance initiatives, and digital transformation work. Manufacturing and agribusiness operations such as POET and Smithfield Foods, along with City of Sioux Falls municipal departments managing downtown development and infrastructure programs, round out a diverse local market where structured project delivery has become essential to competitive operations.</p><p>The PMI-CPMAI certification positions you to compete for these roles in a region where PMP® and CAPM® credentials are increasingly valued — particularly in healthcare and financial services, where methodical project governance directly supports organizational outcomes. Project managers in Sioux Falls enjoy steady regional demand and compensation generally competitive for the Midwest market, though specific opportunities and pay vary by industry and experience. Completing Granite PM Academy's PMI-CPMAI Certification Training through live-virtual instruction gives you the credential and practical framework employers here recognize, without requiring you to pause your current role or commute to training. Confirm current local hiring trends through job postings in your target sector to validate timing for your certification pursuit.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:33.134546Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "26ea35671afa5395",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Sioux Falls",
+      "text": "<p>Sioux Falls's healthcare sector stands as a primary engine of project-management hiring, with Sanford Health and Avera Health driving ongoing facility expansions and new care facility construction across the region. These organizations manage complex, mission-critical initiatives that require skilled project leaders to oversee timelines, budgets, and cross-functional teams. Beyond healthcare, financial services employers—including Citibank, Wells Fargo, First Premier Bank, and Premier Bankcard—maintain robust project portfolios in systems implementation, compliance, and business transformation. Manufacturing and agribusiness operations such as Smithfield Foods and POET also employ certified project managers to coordinate facility development and bioprocessing projects. The City of Sioux Falls's infrastructure and downtown development initiatives further expand local demand for professionals who can navigate regulatory requirements and stakeholder coordination.</p><p>Project managers in Sioux Falls benefit from steady regional demand, particularly within healthcare and financial services, where structured project delivery and risk management are essential to operations. Compensation is generally competitive for the Midwest market, though ranges vary by industry and experience. Earning your PMI-CPMAI certification through Granite PM Academy positions you to meet employer expectations in these sectors and strengthens your candidacy for advancement. Current job postings in your target industry will reveal which certifications are most valued in your specific career path; the credential equips you with both the methodology and the credential badge that employers increasingly seek when evaluating promotion and hiring decisions in Sioux Falls's competitive professional landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:37.485427Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "26ea35671afa5395",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Sioux Falls's healthcare sector?",
+          "answer": "<p>Yes. Sanford Health and Avera Health—two of Sioux Falls's largest employers—increasingly value structured project delivery across clinical, operational, and IT initiatives. PMP and CAPM certifications signal competency in managing complex, regulated environments where methodological rigor is critical. Confirm current demand by reviewing open roles at these and other regional health systems; credential value aligns most directly with organizations running formal project governance.</p>"
+        },
+        {
+          "question": "Which Sioux Falls employers actively hire certified project managers?",
+          "answer": "<p>Healthcare systems (Sanford, Avera) and financial services firms (Citibank, Wells Fargo, First Premier Bank, Premier Bankcard) consistently recruit certified practitioners for program delivery, system implementation, and operational transformation. Manufacturing, distribution, and agribusiness employers in the region also recognize the credential, though adoption varies. Review current job postings from target employers to confirm which roles explicitly require or prefer PMP or CAPM certification.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Sioux Falls workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all instructor-led training 100% live-virtual, so you can participate from your office, home, or any location with stable internet. This format is especially convenient for Sioux Falls professionals balancing full-time roles at major employers; you attend scheduled sessions without travel, and can engage with cohorts nationwide. Confirm your organization's IT policy regarding external training platforms before enrollment.</p>"
+        },
+        {
+          "question": "When should I pursue CPMAI certification given Sioux Falls's job market?",
+          "answer": "<p>Sioux Falls's project-management demand remains steady across healthcare and financial services, making certification a sound career investment year-round. However, timing matters: review current openings in your target industry and organization to identify whether certified roles are actively being posted. If your employer is launching major initiatives or restructuring teams, certification can position you competitively; if demand is quiet, pursuing it during slower periods allows you to complete training without schedule pressure.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:43.805630Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5369012a24665e2e",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Sioux Falls's healthcare sector—anchored by major systems like Sanford Health and Avera Health—drives steady demand for certified project and program managers overseeing facility expansions, IT implementations, and care delivery improvements. Add a robust financial services and banking presence, and you'll find project leadership roles across multiple industries competing for skilled talent. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to working professionals nationwide, including Sioux Falls, with flexible scheduling designed for your career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:45.624283Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a89a062cc577e4c4",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Sioux Falls's healthcare sector—anchored by Sanford Health and Avera Health—drives ongoing demand for skilled project managers overseeing facility expansions, care system implementations, and clinical IT initiatives. Add the city's robust financial services base and agribusiness operations, and you'll find project and program management roles across multiple industries. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Sioux Falls professionals nationwide, helping you meet the credential requirements that employers in this diversified market value most.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:47.448561Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a89a062cc577e4c4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-sioux-falls-sd/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Sioux Falls, SD, AI courses Sioux Falls, CPMAI certification Sioux Falls, AI project management training Sioux Falls, SD, AI for project managers Sioux Falls",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\",\n      \"name\": \"PMI-CPMAI Certification Training in Sioux Falls, SD | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Sioux Falls, SD for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Sioux Falls, SD\",\n            \"item\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Sioux Falls, SD\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Sioux Falls, SD who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-sioux-falls-sd/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

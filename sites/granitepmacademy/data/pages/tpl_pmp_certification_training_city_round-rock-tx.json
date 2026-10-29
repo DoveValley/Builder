@@ -1,410 +1,411 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "round-rock-tx",
-  "slug": "pmp-certification-training-round-rock-tx",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "round-rock-tx",
-    "city": "Round Rock",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "round-rock-tx",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier4",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "round-rock-tx",
+    "slug": "pmp-certification-training-round-rock-tx",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "round-rock-tx",
+        "city": "Round Rock",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "round-rock-tx",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier4",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Technology/semiconductors",
+            "Healthcare",
+            "Retail & logistics",
+            "Advanced manufacturing"
+        ],
+        "top_employers": [
+            "Dell Technologies (global headquarters)",
+            "Emerson Automation Solutions (global headquarters)",
+            "Toppan Photomasks, Inc. (global headquarters)",
+            "St. David's Round Rock Medical Center",
+            "Baylor Scott & White Healthcare"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Round Rock is anchored by Dell Technologies' global headquarters alongside the global headquarters of Emerson Automation Solutions and Toppan Photomasks, with a sizable healthcare cluster including St. David's and Baylor Scott & White.",
+        "notable_projects": [
+            "The District - $1 billion, 65-acre mixed-use development near I-35/SH-45, under construction",
+            "Round Rock Multipurpose Complex expansion - $28 million, targeted completion late June 2027"
+        ],
+        "credential_demand": "With a major tech headquarters, two other global headquarters, major hospital systems, and a $1B+ active mixed-use development in the city, there is a plausible, real local base of employers that routinely run large capital and IT projects requiring certified project managers.",
+        "_researched": 1,
+        "city_spotlight": "<p>Round Rock's employer base includes Dell Technologies (global headquarters), Emerson Automation Solutions (global headquarters), Toppan Photomasks, Inc. (global headquarters), St. David's Round Rock Medical Center. Round Rock is anchored by Dell Technologies' global headquarters alongside the global headquarters of Emerson Automation Solutions and Toppan Photomasks, with a sizable healthcare cluster including St. David's and Baylor Scott & White. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Round Rock professionals seeking to advance their project management careers.</p>",
+        "city_image_alt": "Round Rock, TX",
+        "city_image_credit": "Photo: Brooks Bennett (City of Round Rock), CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Dell_diamond_4DM.jpg",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-round-rock-tx.webp"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Round Rock's technology, healthcare, and advanced manufacturing sectors rely on PMP-certified leaders to coordinate complex initiatives across global operations. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, letting you earn this credential on your schedule while working full-time. A PMP in Round Rock opens doors to senior roles managing high-stakes projects at companies driving innovation across the region.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:20.830864Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "3b088a969ebcadf0",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Round Rock's Tech and Manufacturing Leaders",
+            "text": "<p>Round Rock's economy is shaped by Dell Technologies' global headquarters and a constellation of advanced manufacturing and technology firms that depend on rigorous project delivery at scale. Professionals managing complex initiatives across semiconductors, automation, and high-tech operations face constant pressure to demonstrate structured capability—and the Project Management Professional (PMP)® credential has become the industry standard. In Round Rock's competitive talent market, PMP certification signals mastery of scope, schedule, and risk management that employers in these sectors actively seek, often supporting salary progression and leadership readiness for team leads and program managers navigating multi-stakeholder environments.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet the Project Management Institute's contact-hour requirements for credential eligibility. Our courses are taught by active certified practitioners who bring real-world discipline and practical problem-solving into every session, ensuring you learn not just theory but the frameworks your peers in Round Rock's major employers are using today. Whether you're preparing for your first PMP exam or advancing from entry-level credentials, our flexible virtual format fits working professionals' schedules while keeping instruction direct and rigorous—designed to move you toward exam readiness and the competitive edge that certification delivers.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:24.911007Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "08ecda61079764f1",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Round Rock's Technology and Healthcare Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP® training meets PMI's rigorous standards and satisfies contact-hour requirements for certification eligibility. This authorization guarantees employers across Round Rock's tech and healthcare sectors recognize your credential as legitimate and valuable."
+                },
+                {
+                    "heading": "Live-Virtual Classes Fit Working Schedules",
+                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® certification without requiring you to attend in-person sessions. Participate from anywhere while maintaining the real-time interaction and accountability that make classroom-equivalent training effective for working professionals."
+                },
+                {
+                    "heading": "Learn from Active Practicing Professionals",
+                    "text": "Your instructors are active certified practitioners with current PMP® credentials and hands-on project-management experience. They bring real-world context and problem-solving approaches to every lesson, preparing you to apply certification knowledge immediately in your role."
+                },
+                {
+                    "heading": "Credential Aligns with Round Rock Employer Demand",
+                    "text": "Round Rock's concentration of technology, semiconductor, healthcare, and advanced manufacturing employers actively hire PMP®-certified project managers. This credential directly addresses the qualifications Dell Technologies, Emerson Automation Solutions, and leading healthcare systems seek when building their project-delivery teams."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:29.025620Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "3bd07c85727fddc5",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Round Rock's Tech Hub",
+            "text": "<p>Round Rock's status as home to Dell Technologies' global headquarters, alongside Emerson Automation Solutions and Toppan Photomasks, Inc., creates sustained demand for certified project managers across technology, advanced manufacturing, and enterprise operations. These organizations routinely manage large-scale capital projects, infrastructure upgrades, and IT initiatives that require disciplined scope, schedule, and cost control. Beyond corporate headquarters, The District—a $1 billion, 65-acre mixed-use development currently under construction near I-35 and SH-45—and the $28 million Round Rock Multipurpose Complex expansion demonstrate the scale of active projects moving through the local economy. Healthcare systems including St. David's Round Rock Medical Center and Baylor Scott & White Healthcare add further diversity to the employer base, each running IT implementations and facility projects where project management certification is valued.</p><p>PMP® certification carries measurable career weight in this market. Nationally, certified project managers report earning substantially more than non-certified peers—a premium that holds across most regions and industries. In Round Rock's competitive landscape of tech headquarters, manufacturing operations, and healthcare expansion, the credential signals competence to employers already investing in complex, high-stakes initiatives. Completing PMP Certification Training through Granite PM Academy positions you to stand out in a labor market where employers actively seek certified practitioners. Our live-virtual format means you can earn your credential on your schedule while remaining based in Round Rock, gaining skills directly applicable to the projects and employers reshaping your city's economy.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:33.453037Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "a619a4f7cbc5d2e7",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Round Rock",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your PMP Eligibility",
+                    "text": "PMI requires a combination of formal education and verifiable project-management experience. Review the specific education and hours-of-experience thresholds that apply to your background, then gather documentation. Granite PM Academy's enrollment team can clarify whether you meet PMI's prerequisites before you enroll."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course designed for working professionals. Attend all sessions synchronously from anywhere, interact with active certified practitioners, and cover the full PMBOK® Guide curriculum. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for exam content."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your 35 contact hours, submit your PMP application directly to PMI with proof of education and experience. Pay the examination fee to finalize your application. PMI will review and approve your eligibility before you can schedule your exam."
+                },
+                {
+                    "heading": "Prepare and Pass Your Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and Q&A forums—to reinforce your learning. Schedule your exam at a Pearson VUE testing center on your timeline. You'll sit for a computer-based exam that assesses your mastery of project-management knowledge and skills."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After certification, earn Professional Development Units (PDUs) over a three-year renewal cycle by completing approved training, volunteering, or publishing. Renew your credential with PMI before expiration to keep the PMP active. Granite PM Academy offers ongoing PDU-eligible courses to support your continuous professional development."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:38.776152Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "7032b990ddd84614",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP Certification worth it for Round Rock tech and semiconductor careers?",
+                    "answer": "<p>Round Rock's concentration of global technology and semiconductor headquarters means large-scale IT infrastructure and capital projects are constant. Employers in these sectors—and in healthcare systems and advanced manufacturing—routinely prioritize or require PMP® certification for project leadership roles. The PMI's 14th Edition Earning Power Salary Survey shows certified project managers command a median salary premium of approximately $26,000 annually over non-certified peers nationally, a differential that holds across most regions including tech-heavy markets.</p>"
+                },
+                {
+                    "question": "Which Round Rock employers and industries value PMP Certification most?",
+                    "answer": "<p>Dell Technologies (global HQ), Emerson Automation Solutions (global HQ), Toppan Photomasks, and Round Rock's major healthcare systems and retail logistics operations all manage complex, multi-phase projects where certified project managers lead resource allocation, timeline control, and risk management. Advanced manufacturing, semiconductor production, hospital expansion, and IT transformation initiatives—all active in Round Rock—are sectors where PMP® holders are competitive differentiators for promotion and hiring.</p>"
+                },
+                {
+                    "question": "Can I attend PMP Training from my Round Rock workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual PMP Certification Training is attended entirely online, so Round Rock professionals can join from their office, home, or any location with internet access. This flexibility allows you to balance work and study without commute time—especially valuable in a market where employers like Dell and Emerson frequently demand on-site or hybrid schedules alongside professional development.</p>"
+                },
+                {
+                    "question": "Should Round Rock project managers certify now or wait for job market timing?",
+                    "answer": "<p>Round Rock's active $1B+ mixed-use development, ongoing technology transformation at multiple global headquarters, and healthcare system expansion create steady demand for certified project managers. Rather than waiting for market conditions, earning your PMP® credential now positions you to compete for leadership roles as these capital and IT initiatives scale up. Timing your certification with your career readiness—not market cycles—typically yields better outcomes.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:45.190422Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "a16a6495401aaf0d",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Round Rock's economy centers on technology and advanced manufacturing, anchored by Dell Technologies' global headquarters and major semiconductor operations including Toppan Photomasks. Across healthcare, St. David's Round Rock Medical Center and Baylor Scott & White drive capital projects and operational complexity that demand skilled project managers. Granite PM Academy delivers live-virtual PMP® Certification Training to Round Rock professionals seeking to advance in these growth sectors.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:46.779599Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "85609d74b624ad17",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Technology/semiconductors",
-      "Healthcare",
-      "Retail & logistics",
-      "Advanced manufacturing"
-    ],
-    "top_employers": [
-      "Dell Technologies (global headquarters)",
-      "Emerson Automation Solutions (global headquarters)",
-      "Toppan Photomasks, Inc. (global headquarters)",
-      "St. David's Round Rock Medical Center",
-      "Baylor Scott & White Healthcare"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Round Rock is anchored by Dell Technologies' global headquarters alongside the global headquarters of Emerson Automation Solutions and Toppan Photomasks, with a sizable healthcare cluster including St. David's and Baylor Scott & White.",
-    "notable_projects": [
-      "The District - $1 billion, 65-acre mixed-use development near I-35/SH-45, under construction",
-      "Round Rock Multipurpose Complex expansion - $28 million, targeted completion late June 2027"
-    ],
-    "credential_demand": "With a major tech headquarters, two other global headquarters, major hospital systems, and a $1B+ active mixed-use development in the city, there is a plausible, real local base of employers that routinely run large capital and IT projects requiring certified project managers.",
-    "_researched": 1,
-    "city_spotlight": "<p>Round Rock's employer base includes Dell Technologies (global headquarters), Emerson Automation Solutions (global headquarters), Toppan Photomasks, Inc. (global headquarters), St. David's Round Rock Medical Center. Round Rock is anchored by Dell Technologies' global headquarters alongside the global headquarters of Emerson Automation Solutions and Toppan Photomasks, with a sizable healthcare cluster including St. David's and Baylor Scott & White. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Round Rock professionals seeking to advance their project management careers.</p>",
-    "city_image_alt": "Round Rock, TX",
-    "city_image_credit": "Photo: Brooks Bennett (City of Round Rock), CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Dell_diamond_4DM.jpg",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-round-rock-tx.webp"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Round Rock's technology, healthcare, and advanced manufacturing sectors rely on PMP-certified leaders to coordinate complex initiatives across global operations. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, letting you earn this credential on your schedule while working full-time. A PMP in Round Rock opens doors to senior roles managing high-stakes projects at companies driving innovation across the region.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:20.830864Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "3b088a969ebcadf0",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-round-rock-tx/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Round Rock, TX, PMP exam prep Round Rock, PMP course Round Rock TX, project management certification Round Rock, TX, PMI PMP training Round Rock",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\",\r\n      \"name\": \"PMP Certification Training in Round Rock, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Round Rock, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Round Rock, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#course\",\r\n      \"name\": \"PMP Certification Training in Round Rock, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Round Rock, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Round Rock's Tech and Manufacturing Leaders",
-      "text": "<p>Round Rock's economy is shaped by Dell Technologies' global headquarters and a constellation of advanced manufacturing and technology firms that depend on rigorous project delivery at scale. Professionals managing complex initiatives across semiconductors, automation, and high-tech operations face constant pressure to demonstrate structured capability—and the Project Management Professional (PMP)® credential has become the industry standard. In Round Rock's competitive talent market, PMP certification signals mastery of scope, schedule, and risk management that employers in these sectors actively seek, often supporting salary progression and leadership readiness for team leads and program managers navigating multi-stakeholder environments.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet the Project Management Institute's contact-hour requirements for credential eligibility. Our courses are taught by active certified practitioners who bring real-world discipline and practical problem-solving into every session, ensuring you learn not just theory but the frameworks your peers in Round Rock's major employers are using today. Whether you're preparing for your first PMP exam or advancing from entry-level credentials, our flexible virtual format fits working professionals' schedules while keeping instruction direct and rigorous—designed to move you toward exam readiness and the competitive edge that certification delivers.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:24.911007Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "08ecda61079764f1",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Round Rock's Technology and Healthcare Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP® training meets PMI's rigorous standards and satisfies contact-hour requirements for certification eligibility. This authorization guarantees employers across Round Rock's tech and healthcare sectors recognize your credential as legitimate and valuable."
-        },
-        {
-          "heading": "Live-Virtual Classes Fit Working Schedules",
-          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® certification without requiring you to attend in-person sessions. Participate from anywhere while maintaining the real-time interaction and accountability that make classroom-equivalent training effective for working professionals."
-        },
-        {
-          "heading": "Learn from Active Practicing Professionals",
-          "text": "Your instructors are active certified practitioners with current PMP® credentials and hands-on project-management experience. They bring real-world context and problem-solving approaches to every lesson, preparing you to apply certification knowledge immediately in your role."
-        },
-        {
-          "heading": "Credential Aligns with Round Rock Employer Demand",
-          "text": "Round Rock's concentration of technology, semiconductor, healthcare, and advanced manufacturing employers actively hire PMP®-certified project managers. This credential directly addresses the qualifications Dell Technologies, Emerson Automation Solutions, and leading healthcare systems seek when building their project-delivery teams."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:29.025620Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "3bd07c85727fddc5",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Round Rock's Tech Hub",
-      "text": "<p>Round Rock's status as home to Dell Technologies' global headquarters, alongside Emerson Automation Solutions and Toppan Photomasks, Inc., creates sustained demand for certified project managers across technology, advanced manufacturing, and enterprise operations. These organizations routinely manage large-scale capital projects, infrastructure upgrades, and IT initiatives that require disciplined scope, schedule, and cost control. Beyond corporate headquarters, The District—a $1 billion, 65-acre mixed-use development currently under construction near I-35 and SH-45—and the $28 million Round Rock Multipurpose Complex expansion demonstrate the scale of active projects moving through the local economy. Healthcare systems including St. David's Round Rock Medical Center and Baylor Scott & White Healthcare add further diversity to the employer base, each running IT implementations and facility projects where project management certification is valued.</p><p>PMP® certification carries measurable career weight in this market. Nationally, certified project managers report earning substantially more than non-certified peers—a premium that holds across most regions and industries. In Round Rock's competitive landscape of tech headquarters, manufacturing operations, and healthcare expansion, the credential signals competence to employers already investing in complex, high-stakes initiatives. Completing PMP Certification Training through Granite PM Academy positions you to stand out in a labor market where employers actively seek certified practitioners. Our live-virtual format means you can earn your credential on your schedule while remaining based in Round Rock, gaining skills directly applicable to the projects and employers reshaping your city's economy.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:33.453037Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "a619a4f7cbc5d2e7",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Round Rock",
-      "steps_items": [
-        {
-          "heading": "Confirm Your PMP Eligibility",
-          "text": "PMI requires a combination of formal education and verifiable project-management experience. Review the specific education and hours-of-experience thresholds that apply to your background, then gather documentation. Granite PM Academy's enrollment team can clarify whether you meet PMI's prerequisites before you enroll."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course designed for working professionals. Attend all sessions synchronously from anywhere, interact with active certified practitioners, and cover the full PMBOK® Guide curriculum. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for exam content."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing your 35 contact hours, submit your PMP application directly to PMI with proof of education and experience. Pay the examination fee to finalize your application. PMI will review and approve your eligibility before you can schedule your exam."
-        },
-        {
-          "heading": "Prepare and Pass Your Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and Q&A forums—to reinforce your learning. Schedule your exam at a Pearson VUE testing center on your timeline. You'll sit for a computer-based exam that assesses your mastery of project-management knowledge and skills."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After certification, earn Professional Development Units (PDUs) over a three-year renewal cycle by completing approved training, volunteering, or publishing. Renew your credential with PMI before expiration to keep the PMP active. Granite PM Academy offers ongoing PDU-eligible courses to support your continuous professional development."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:38.776152Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "7032b990ddd84614",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP Certification worth it for Round Rock tech and semiconductor careers?",
-          "answer": "<p>Round Rock's concentration of global technology and semiconductor headquarters means large-scale IT infrastructure and capital projects are constant. Employers in these sectors—and in healthcare systems and advanced manufacturing—routinely prioritize or require PMP® certification for project leadership roles. The PMI's 14th Edition Earning Power Salary Survey shows certified project managers command a median salary premium of approximately $26,000 annually over non-certified peers nationally, a differential that holds across most regions including tech-heavy markets.</p>"
-        },
-        {
-          "question": "Which Round Rock employers and industries value PMP Certification most?",
-          "answer": "<p>Dell Technologies (global HQ), Emerson Automation Solutions (global HQ), Toppan Photomasks, and Round Rock's major healthcare systems and retail logistics operations all manage complex, multi-phase projects where certified project managers lead resource allocation, timeline control, and risk management. Advanced manufacturing, semiconductor production, hospital expansion, and IT transformation initiatives—all active in Round Rock—are sectors where PMP® holders are competitive differentiators for promotion and hiring.</p>"
-        },
-        {
-          "question": "Can I attend PMP Training from my Round Rock workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP Certification Training is attended entirely online, so Round Rock professionals can join from their office, home, or any location with internet access. This flexibility allows you to balance work and study without commute time—especially valuable in a market where employers like Dell and Emerson frequently demand on-site or hybrid schedules alongside professional development.</p>"
-        },
-        {
-          "question": "Should Round Rock project managers certify now or wait for job market timing?",
-          "answer": "<p>Round Rock's active $1B+ mixed-use development, ongoing technology transformation at multiple global headquarters, and healthcare system expansion create steady demand for certified project managers. Rather than waiting for market conditions, earning your PMP® credential now positions you to compete for leadership roles as these capital and IT initiatives scale up. Timing your certification with your career readiness—not market cycles—typically yields better outcomes.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:45.190422Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "a16a6495401aaf0d",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Round Rock's economy centers on technology and advanced manufacturing, anchored by Dell Technologies' global headquarters and major semiconductor operations including Toppan Photomasks. Across healthcare, St. David's Round Rock Medical Center and Baylor Scott & White drive capital projects and operational complexity that demand skilled project managers. Granite PM Academy delivers live-virtual PMP® Certification Training to Round Rock professionals seeking to advance in these growth sectors.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:46.779599Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "85609d74b624ad17",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-round-rock-tx/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Round Rock, TX, PMP exam prep Round Rock, PMP course Round Rock TX, project management certification Round Rock, TX, PMI PMP training Round Rock",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\",\r\n      \"name\": \"PMP Certification Training in Round Rock, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Round Rock, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Round Rock, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#course\",\r\n      \"name\": \"PMP Certification Training in Round Rock, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Round Rock, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-round-rock-tx/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

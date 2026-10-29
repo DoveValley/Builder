@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "peoria-il",
-    "slug": "ai-training-peoria-il",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "peoria-il",
-        "city": "Peoria",
-        "state": "Illinois",
-        "SS": "IL",
-        "city_slug": "peoria-il",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Peoria's project management demand centers on Caterpillar's manufacturing footprint and supplier ecosystem, bolstered by healthcare expansion at OSF HealthCare and infrastructure modernization across the region. As major employers pursue facility upgrades and innovation initiatives, PMP-certified professionals find clear career pathways in advanced manufacturing, healthcare systems, and public-sector projects. Granite PM Academy delivers live-virtual PMP Certification to Peoria professionals seeking to formalize expertise and advance in a market that values structured project leadership.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Peoria's manufacturing and heavy-equipment sectors increasingly rely on project managers who understand AI's role in supply-chain optimization and predictive scheduling. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, preparing you to lead smarter projects in a competitive regional market. Master AI tools that local employers value, and position yourself for advancement among Peoria's growing base of digitally sophisticated operations teams.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:03.974273Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a1fe7c101d15af8c",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Peoria",
-            "text": "<p>Peoria's project management landscape is shaped fundamentally by Caterpillar and its extensive supplier network—a manufacturing ecosystem where equipment design, production scaling, and infrastructure projects demand rigorous planning and execution. As Caterpillar and regional peers modernize operations through automation and digital transformation, project managers who understand artificial intelligence's role in forecasting, resource optimization, and risk mitigation gain a decisive edge. Healthcare systems, insurance firms, and government agencies across Peoria are equally investing in AI-driven process improvements, creating demand for certified professionals who can bridge technical capability and project delivery. AI training for project managers addresses this directly: it equips you to guide AI implementation projects, leverage predictive analytics for scheduling, and manage the human and organizational change these initiatives require.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led AI training for project managers in a live-virtual format designed for Peoria professionals balancing work and certification goals. Our courses are taught by active certified practitioners with real-world experience in manufacturing, healthcare, and enterprise environments—instructors who understand the specific challenges facing Peoria organizations. Each program satisfies contact-hour requirements for PMP®, CAPM®, and PMI-CP credentials, ensuring your investment counts directly toward your certification pathway. Whether you're seeking to advance within Caterpillar's or OSF HealthCare's project teams, or to position yourself competitively across Peoria's growing sectors, our AI-focused training builds the expertise employers now expect from certified project managers.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:08.766105Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "b7daf9436e796b7d",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills for Peoria's Equipment and Healthcare Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Guarantees Credential Recognition",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® certification earns full recognition across Caterpillar, OSF HealthCare, and other major Peoria employers. No shortcuts, no workarounds—direct alignment with PMI standards."
-                },
-                {
-                    "heading": "Live Instruction Fits Your Working Schedule",
-                    "text": "Our live-virtual instructor-led format delivers required contact hours without pulling you from your job. Active practitioners teach real scenarios—not recordings—so you learn how AI tools integrate into equipment manufacturing and healthcare project workflows."
-                },
-                {
-                    "heading": "Exam Prep Built Into Your Certification Path",
-                    "text": "Granite instructors are certified practitioners who coach you through exam strategy, question types, and common stumbling blocks. You don't study alone; you prepare alongside instructors who've earned and maintained their own PMP® and CAPM® credentials."
-                },
-                {
-                    "heading": "Local Employers Are Hiring Certified Managers Now",
-                    "text": "Advanced manufacturing, healthcare systems, and insurance firms across Peoria actively seek project managers with PMI credentials and AI competency. Your certification directly addresses the skills gap these employers—Caterpillar, UnityPoint Health, RLI Insurance—are recruiting to fill."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:13.086541Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "91618109bc8ac17c",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Peoria's Manufacturing Hub",
-            "text": "<p>Peoria's economy centers on advanced manufacturing and heavy equipment production, where certified project managers drive operational excellence and capital investment initiatives. Caterpillar Inc. remains the region's largest employer and actively recruits PMP-certified professionals to oversee facility modernization and manufacturing investments across its local footprint. OSF HealthCare and UnityPoint Health – Methodist, two major healthcare systems expanding clinical and innovation facilities in the area, similarly seek credentialed project leaders to manage complex clinical and infrastructure deployments. Beyond these anchors, RLI Insurance, CEFCU, Komatsu Mining Corp., and the City of Peoria's downtown and riverfront redevelopment initiatives create steady demand for professionals who can demonstrate structured project delivery and risk management capabilities.</p><p>A PMP or CAPM credential carries particular weight in Peoria's manufacturing and healthcare sectors, where standardized project practices increasingly differentiate candidates competing for mid- and senior-level roles. While compensation tends to track slightly below national metro averages, the area's lower cost of living and strong purchasing power make certified roles financially competitive and career-accelerating. Completing the AI Training for Project Managers through Granite PM Academy positions you to meet Peoria employers' growing expectations for technical expertise and formal credential attainment, giving you an edge as you advance into program leadership and strategic planning roles within the region's dominant industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:16.839494Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "54679e41cd1ce2d4",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Peoria manufacturing careers?",
-                    "answer": "<p>Yes, especially in Peoria's advanced manufacturing sector. Caterpillar and Komatsu Mining Corp. increasingly seek project managers who can integrate AI tools into plant operations and capital project oversight. The PMP credential combined with AI competency positions you as a differentiator for mid- to senior-level roles—where Peoria's manufacturing demand is strongest and where standardized project delivery practices are becoming table stakes.</p>"
-                },
-                {
-                    "question": "Which Peoria employers value PMP and AI certification for project roles?",
-                    "answer": "<p>Healthcare systems like OSF HealthCare and UnityPoint Health–Methodist actively reference PMP credentials in project and program leadership postings. Caterpillar, RLI Insurance, and government agencies (City of Peoria, Peoria County Government) also favor certified candidates for IT, capital, and operational projects. Adding AI training strengthens your profile for roles overseeing IT modernization and complex delivery initiatives across these sectors.</p>"
-                },
-                {
-                    "question": "Can I attend Peoria AI project management training from my workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format works seamlessly from your office, home, or any location with internet access—ideal for Peoria professionals at Caterpillar, healthcare systems, or government who need flexibility. You can complete the course without travel, making it practical for working professionals balancing full-time roles in manufacturing, healthcare, or insurance.</p>"
-                },
-                {
-                    "question": "When should Peoria project managers pursue AI and PMP certification?",
-                    "answer": "<p>Timing matters in Peoria's steady but competitive job market. PMP and AI training are most valuable when you're targeting mid- to senior-level roles—where demand concentrates in manufacturing, healthcare IT, and capital project leadership. If you're currently in a coordinator or specialist role aiming for advancement in the next 12–18 months, pursuing certification now positions you ahead of peers in a market where credentials remain a meaningful differentiator.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:22.654427Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "00be26b28d7ed1f4",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Peoria's project management demand is rooted in Caterpillar's manufacturing footprint and modernization initiatives, reinforced by OSF HealthCare's clinical expansion and infrastructure projects like the McClugage Bridge reconstruction. Certified project managers find steady opportunities across advanced manufacturing, healthcare systems, insurance, and public administration. Granite PM Academy delivers live-virtual AI Training for Project Managers to Peoria professionals ready to advance their careers.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:24.081473Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "de042f574c7fd7c2",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "peoria-il",
+  "slug": "ai-training-peoria-il",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "peoria-il",
+    "city": "Peoria",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "peoria-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-peoria-il/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Peoria, IL, AI courses Peoria, CPMAI certification Peoria, AI project management training Peoria, IL, AI for project managers Peoria",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\",\n      \"name\": \"AI Training for Project Managers in Peoria, IL — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Peoria, IL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Peoria, IL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#course\",\n      \"name\": \"AI Training for Project Managers in Peoria, IL\",\n      \"description\": \"CPMAI certification training for project managers in Peoria, IL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Advanced manufacturing (heavy equipment)",
+      "Healthcare systems",
+      "Insurance and financial services",
+      "Agricultural research and agribusiness",
+      "Higher education",
+      "Government and public administration"
+    ],
+    "top_employers": [
+      "Caterpillar Inc.",
+      "OSF HealthCare",
+      "UnityPoint Health – Methodist",
+      "RLI Insurance",
+      "CEFCU",
+      "Komatsu Mining Corp.",
+      "Advanced Technology Services (ATS)",
+      "Bradley University",
+      "Illinois Central College",
+      "City of Peoria",
+      "Peoria County Government",
+      "USDA National Center for Agricultural Utilization Research"
+    ],
+    "salary_note": "Project manager compensation in Peoria tends to track slightly below national metro averages but offers strong purchasing power given the area's lower cost of living, with the most competitive roles concentrated in manufacturing and healthcare. Demand for PMP-certified candidates remains steady, especially for mid- to senior-level positions overseeing plant operations, IT, or capital projects.",
+    "market_blurb": "Peoria's project management job market is anchored by its long-standing manufacturing base, led by Caterpillar and its supplier network, alongside a growing healthcare sector represented by OSF HealthCare and UnityPoint Health. Insurance, agricultural research, and higher education add further stability, giving certified project managers opportunities across both private industry and public-sector initiatives. As regional employers modernize operations and pursue infrastructure upgrades, demand for structured project management expertise continues to grow in the Peoria metro area.",
+    "notable_projects": [
+      "Caterpillar's ongoing facility modernization and manufacturing investments in the Peoria area",
+      "OSF HealthCare's continued expansion of clinical and innovation facilities in Peoria",
+      "McClugage Bridge reconstruction connecting Peoria and East Peoria over the Illinois River",
+      "Peoria Riverfront and downtown redevelopment initiatives"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly referenced in Peoria-area job postings, particularly within manufacturing, healthcare, and insurance organizations seeking standardized project delivery practices. While not universally required, certification is often viewed as a differentiator for candidates pursuing project or program leadership roles with employers like Caterpillar and OSF HealthCare.",
+    "_researched": 1,
+    "city_spotlight": "<p>Peoria's advanced manufacturing sector—anchored by Caterpillar and its supply chain—creates sustained demand for structured project management expertise across production, facility modernization, and infrastructure initiatives. Healthcare expansion by OSF HealthCare and insurance operations add diverse certification pathways. Granite PM Academy delivers live-virtual PMP® Certification training to Peoria professionals, combining PMI-aligned curriculum with flexible scheduling for working adults pursuing this industry-recognized credential.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Peoria's advanced manufacturing and healthcare sectors rely on project managers to coordinate complex operations across equipment production, facility management, and clinical initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's required contact hours, enabling you to earn this credential on a schedule that fits your role. Completing PMI-CPMAI positions you competitively for project leadership roles across Peoria's largest employers and industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:31.358647Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ad9363fc9f5498d2",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Peoria Project Managers",
+      "text": "<p>Peoria's manufacturing sector, anchored by Caterpillar and its extensive supplier network, has long depended on structured project management to deliver complex equipment and infrastructure on time and within budget. As these organizations modernize operations and pursue capital upgrades alongside the region's growing healthcare systems—OSF HealthCare and UnityPoint Health—the demand for professionals holding PMI-recognized credentials continues to accelerate. The PMI-CPMAI certification signals to employers across Peoria's manufacturing, healthcare, insurance, and public-sector employers that you possess the foundational project management knowledge and discipline required to lead initiatives in these increasingly competitive industries.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit your schedule while meeting all contact-hour requirements for this credential. Our active certified practitioners bring real-world project experience to every class, ensuring that the methodologies and frameworks you learn translate directly to the challenges you'll face in Peoria's diverse business environment. Whether you're advancing within a manufacturing operation, transitioning into healthcare administration, or strengthening credentials for public-sector project work, our structured curriculum prepares you to pass the PMI-CPMAI exam and immediately apply earned skills to your next initiative.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:35.050485Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5493e6bb704fd3aa",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification: Advanced Manufacturing Professionals' Pathway",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy holds PMI authorization to deliver PMI-CPMAI training that satisfies all official contact-hour requirements. This credential carries direct recognition from the Project Management Institute, the global standard-setting body for project and program management across all industries."
+        },
+        {
+          "heading": "Live-Virtual Instructor-Led Sessions",
+          "text": "Complete all required contact hours through live-virtual classes scheduled to fit working professionals' calendars. Interact with instructors and peers in real time, ask questions as concepts unfold, and earn full certification credit without commuting or relocating from Peoria."
+        },
+        {
+          "heading": "Active Certified Practitioners as Instructors",
+          "text": "Learn from instructors who hold current PMI certifications and apply project-management principles daily in their own careers. Real-world examples and troubleshooting come directly from practitioners, not from theory alone, ensuring content reflects how the discipline works in practice."
+        },
+        {
+          "heading": "Local Demand Across Peoria's Key Sectors",
+          "text": "Healthcare systems, insurance firms, government agencies, and advanced manufacturing employers throughout Peoria actively hire certified project and program managers. The PMI-CPMAI credential demonstrates readiness for these roles and aligns with hiring standards at major regional employers seeking qualified leadership talent."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:39.328107Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3d27be13d5afdee5",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Peoria's Industrial Hub",
+      "text": "<p>Peoria's economy centers on advanced manufacturing and heavy equipment production, where Caterpillar Inc. remains the dominant employer and driver of project-management demand. The company's ongoing facility modernization and manufacturing investments across the Peoria area create sustained need for certified professionals to oversee complex capital projects, plant operations, and cross-functional initiatives. Beyond manufacturing, OSF HealthCare's expansion of clinical and innovation facilities, along with employers like RLI Insurance and UnityPoint Health – Methodist, regularly hire project managers to lead IT infrastructure, facility upgrades, and organizational change efforts. Public-sector initiatives—including the McClugage Bridge reconstruction and downtown riverfront redevelopment—further demonstrate the breadth of project-driven activity in the region, drawing certified talent into both private and government roles.</p><p>PMI credentials including the PMP® and CAPM® are increasingly referenced in local job postings as employers in manufacturing, healthcare, and insurance seek standardized project delivery practices. While not universally mandated, certification functions as a meaningful differentiator when pursuing mid- to senior-level leadership positions with Peoria's largest organizations. Project manager compensation in the area tends to track slightly below national metro averages but is offset by strong local purchasing power and a lower cost of living—making the ROI of certification training particularly attractive. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for roles overseeing plant operations, capital projects, and clinical expansions, while equipping you with the credential Peoria employers now expect from candidates serious about advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:43.736483Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c7953c3130386c28",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Peoria's Growing Sectors",
+      "text": "<p>Peoria's economy is anchored by advanced manufacturing and healthcare, both sectors where certified project managers are in steady demand. Caterpillar Inc.'s ongoing facility modernization and manufacturing investments across the Peoria area create consistent openings for professionals managing plant operations, capital projects, and cross-functional initiatives. OSF HealthCare's continued expansion of clinical and innovation facilities similarly requires project leadership to oversee complex, multi-phase delivery. Beyond these anchor employers, RLI Insurance, Komatsu Mining Corp., and the City of Peoria's involvement in major infrastructure work—including the McClugage Bridge reconstruction and downtown redevelopment—generate project management roles across insurance, government, and public administration. PMP and CAPM certifications are increasingly referenced in local job postings, particularly among organizations seeking standardized project delivery practices and proven leadership capability.</p><p>Pursuing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for mid- to senior-level roles in Peoria's manufacturing and healthcare sectors, where the credential serves as a meaningful differentiator. While project manager compensation in Peoria typically tracks slightly below national metro averages, the area's lower cost of living translates to strong purchasing power—and the most competitive roles remain concentrated in manufacturing and healthcare leadership. Completing your certification equips you with both the structured knowledge and credential recognition that employers like Caterpillar and OSF HealthCare value when filling project and program leadership positions. Our live-virtual training format means you can earn your certification on your own schedule while staying engaged with your current role in Peoria.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:48.209679Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c7953c3130386c28",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Peoria manufacturing careers?",
+          "answer": "<p>Yes, particularly if you work in or aspire to roles at heavy equipment manufacturers like Caterpillar or Komatsu Mining Corp. PMP and CAPM certifications are increasingly cited in Peoria-area job postings for plant operations, capital projects, and process improvement roles. While not universally required, certification distinguishes candidates competing for mid- to senior-level positions where standardized project delivery is valued. Combined with Peoria's lower cost of living and steady demand for certified project leaders, the credential can meaningfully support career advancement and earning potential in the region's strongest sector.</p>"
+        },
+        {
+          "question": "Which Peoria employers actively seek PMP or CAPM certified project managers?",
+          "answer": "<p>Caterpillar, OSF HealthCare, RLI Insurance, and City of Peoria government are among major employers increasingly referencing PMI certifications in project and program leadership postings. Healthcare systems and insurance firms in particular are adopting standardized project methodologies, raising demand for certified professionals. Manufacturing and IT roles managing complex equipment or capital deployments also show steady certification preference. While certification alone does not guarantee placement, it strengthens your candidacy with Peoria's largest and most project-intensive organizations across multiple sectors.</p>"
+        },
+        {
+          "question": "What salary range can Peoria project managers expect with certification?",
+          "answer": "<p>Project manager compensation in Peoria tracks slightly below national metro averages but reflects the area's lower cost of living, resulting in strong purchasing power. The most competitive roles—and higher salaries—concentrate in manufacturing (Caterpillar, Komatsu), healthcare systems, and insurance. PMP or CAPM certification typically correlates with advancement to mid- to senior-level positions where compensation is more competitive, particularly when paired with relevant industry experience. Regional demand for certified professionals in these sectors remains steady, supporting career progression opportunities.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training while working in Peoria?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format is designed for working professionals nationwide, including those in Peoria. You attend instructor-led sessions remotely from any location—home, office, or workplace—on a schedule that accommodates full-time employment. This flexibility is especially valuable for Peoria professionals balancing roles at large employers like Caterpillar, OSF HealthCare, or government agencies. You receive the same certification-aligned curriculum and instructor interaction as in-person attendees, with the convenience of learning from your current work environment.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:55.328585Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3d91790fad99cbe2",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Caterpillar's ongoing modernization initiatives and its extensive supplier network anchor Peoria's robust project management job market, where certified professionals are increasingly sought to lead facility upgrades and operational transformations. OSF HealthCare's clinical expansion and the region's insurance, agricultural research, and government sectors create sustained demand for structured PM expertise across private and public organizations. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Peoria professionals, enabling working adults to earn credentials on a flexible schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:57.096526Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "5243e20c268081f0",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Peoria's project management demand is rooted in advanced manufacturing, where Caterpillar and its supplier network drive ongoing facility modernization and equipment investments. Healthcare expansion, insurance services, and agricultural research further diversify career pathways for certified practitioners across the metro area. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Peoria professionals, combining flexible scheduling with PMI-aligned curriculum designed for working adults pursuing credential advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:58.830742Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "5243e20c268081f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-peoria-il/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Peoria, IL, AI courses Peoria, CPMAI certification Peoria, AI project management training Peoria, IL, AI for project managers Peoria",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\",\n      \"name\": \"PMI-CPMAI Certification Training in Peoria, IL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Peoria, IL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Peoria, IL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Peoria, IL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Peoria, IL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-peoria-il/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-peoria-il/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

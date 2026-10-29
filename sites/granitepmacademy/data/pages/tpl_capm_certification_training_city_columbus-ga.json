@@ -1,390 +1,434 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "columbus-ga",
-    "slug": "capm-certification-training-columbus-ga",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "columbus-ga",
-        "city": "Columbus",
-        "state": "Georgia",
-        "SS": "GA",
-        "city_slug": "columbus-ga",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Columbus's defense and financial services sectors anchor steady demand for skilled project managers, with Fort Moore's infrastructure modernization and major employers like Global Payments and Synovus driving diverse PM opportunities across government, corporate, and healthcare environments. Granite PM Academy delivers live-virtual PMP® Certification designed for Columbus professionals seeking to advance their careers in this growing market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Columbus's logistics and distribution hub economy depends on skilled coordinators managing complex supply-chain projects. Granite PM Academy's live-virtual CAPM Boot Camp delivers the PMI-required contact hours through instructor-led instruction, preparing you to earn your Certified Associate in Project Management credential while keeping your schedule flexible. In Columbus's operations-heavy market, CAPM certification strengthens your foundation for advancing into supervisory and management roles across manufacturing, warehousing, and transportation sectors.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:08.766698Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a104e9230d30184b",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Columbus Project Managers",
-            "text": "<p>Fort Moore's presence as one of Columbus's largest employers has made project and program management expertise essential across the region's defense, financial services, and healthcare sectors. Professionals working within or supporting military contracting, federal agencies, and the major corporations headquartered here—Aflac, Synovus, Global Payments, and others—face growing demand for credential-backed PM competency. The CAPM® (Certified Associate in Project Management) credential signals foundational knowledge that employers in Columbus value, particularly in structured environments where compliance, resource management, and stakeholder communication directly impact outcomes. Whether you're advancing within a defense contractor, a Fortune 500 finance company, or Columbus's expanding healthcare and manufacturing base, CAPM Certification positions you as a serious candidate for advancement and higher responsibility.</p><p>Granite PM Academy delivers CAPM Certification & Boot Camp as a PMI® Authorized Training Partner through live-virtual, instructor-led sessions taught by active, certified practitioners. Our program satisfies the contact-hour requirement mandated by the Project Management Institute and prepares you to sit for the CAPM® exam with confidence. We combine real-world project scenarios with exam-focused preparation so you understand both the principles behind modern project management and the specifics you'll encounter on test day. Enroll in our Columbus-area boot camp and take the next step toward a recognized credential that opens doors across Columbus's diverse employer landscape.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:13.536238Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "fa59fb4438209f4e",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Launch Your PM Career in Columbus's Growing Defense & Finance Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training You Can Trust",
-                    "text": "Granite PM Academy holds PMI authorization to deliver CAPM® Certification training. This status ensures your contact hours meet PMI's rigorous standards and count directly toward your credential application—no guesswork, no delays."
-                },
-                {
-                    "heading": "Live Instruction Fits Your Schedule",
-                    "text": "Attend live-virtual instructor-led sessions from anywhere in Columbus. Our synchronous format satisfies PMI's contact-hour requirement while letting you balance work at Aflac, Synovus, or other local employers with real-time learning and peer interaction."
-                },
-                {
-                    "heading": "Learn from Active Practitioners",
-                    "text": "Your instructors are certified project managers working in defense, healthcare, and finance—the industries driving Columbus's job market. They teach from current, field-tested experience, not theory alone, and coach you through exam readiness strategies."
-                },
-                {
-                    "heading": "Credential Valued by Columbus Employers",
-                    "text": "Fort Moore, Global Payments, Piedmont Columbus Regional, and Muscogee County Schools actively hire entry-level and mid-career project coordinators and assistants. CAPM® certification signals readiness for these roles and strengthens your application across the region's fastest-growing sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:17.859277Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f538b100d58f1eb6",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Across Columbus's Key Industries",
-            "text": "<p>Columbus's robust defense, financial services, and healthcare sectors create consistent demand for certified project managers. Fort Moore's ongoing base operations and infrastructure modernization projects require skilled PMs to coordinate large-scale, multi-phase initiatives. Global Payments and Synovus—two of the region's largest employers—regularly seek project managers to lead corporate technology and operational improvements. Piedmont Columbus Regional's healthcare facility expansions and the Chattahoochee RiverWalk redevelopment further illustrate the breadth of complex, structured projects underway across Columbus that depend on disciplined project management.</p><p>While project manager compensation in Columbus tracks slightly below national metro averages, the concentration of defense contractors, financial institutions, and healthcare organizations creates genuine competitive advantage for certified professionals. PMP certification—and the CAPM as a stepping stone—increasingly appears as a preferred or advantageous qualification in regional job postings, positioning credential holders for stronger negotiating leverage and advancement into higher pay bands. Completing the CAPM Certification & Boot Camp through Granite PM Academy equips you with the foundational skills and formal credential that Columbus employers recognize and value, giving you a concrete edge as you build or advance your project management career in this market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:22.392994Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "c6ae63a88b107d87",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Columbus",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and meet the education requirement for CAPM candidacy. The credential requires no prior project management work experience—a key advantage for Columbus professionals entering or transitioning into the field."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp format. Our intensive course covers PMI's project management framework and prepares you to apply for the CAPM exam while fitting your Columbus work schedule."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register directly with the Project Management Institute and pay the associated exam fee. Granite PM Academy guides you through the application process to ensure your documentation meets PMI standards before exam scheduling."
-                },
-                {
-                    "heading": "Prepare and Take the CAPM Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study materials aligned to the CAPM test domains. Schedule your proctored exam once you feel confident in your readiness."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "Earn professional development units during the standard three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing learning options to support your continuous development as a project management professional."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:26.569268Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "ab9fff88cc902dd5",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Columbus project managers?",
-                    "answer": "<p>Yes—particularly if you work in financial services, defense contracting, or healthcare. Columbus employers like Aflac, Global Payments, and Fort Moore increasingly list CAPM or PMP as preferred qualifications for project management roles. While Columbus salaries track slightly below national metro averages, certified professionals command stronger negotiating leverage and access to higher pay bands than non-certified peers.</p>"
-                },
-                {
-                    "question": "Which Columbus employers most value CAPM or PMP certification?",
-                    "answer": "<p>Financial services firms (Aflac, Synovus), defense and advanced manufacturing (Fort Moore, Pratt & Whitney), and healthcare systems (Piedmont Columbus Regional, St. Francis-Emory) prioritize certified project managers for complex, multi-phase initiatives. Government agencies and Columbus State University also favor the credential for internal project leadership roles and contract management positions.</p>"
-                },
-                {
-                    "question": "Can I attend Columbus CAPM boot camp training from my workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to participate from your office, home, or any location with internet access. This flexibility is ideal for Columbus professionals balancing full-time roles at Synovus, healthcare facilities, or government departments while earning your certification on your schedule.</p>"
-                },
-                {
-                    "question": "When is the best time to pursue CAPM certification in Columbus?",
-                    "answer": "<p>If you're early in your project management career or targeting a promotion within the next 12–18 months, pursue certification now. Columbus employers in defense, financial services, and healthcare frequently post roles requiring or preferring CAPM/PMP; securing the credential before applying strengthens your candidacy and positions you ahead of non-certified competitors in a competitive local market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:31.705150Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "fae7ae3d9a8150cb",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Columbus's defense and financial services sectors anchor steady demand for skilled project managers, with Fort Moore's infrastructure modernization and Global Payments' corporate initiatives driving active hiring. Healthcare expansion at Piedmont Columbus Regional and growth across advanced manufacturing further broaden PM career pathways. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp to help Columbus professionals meet local market requirements and advance their credentials.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:33.416329Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "96a08cb3ac9a35c7",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "columbus-ga",
+  "slug": "capm-certification-training-columbus-ga",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "columbus-ga",
+    "city": "Columbus",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "columbus-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-columbus-ga/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Columbus, GA, CAPM boot camp Columbus, CAPM training Columbus, GA, CAPM classes Columbus GA, CAPM exam prep Columbus",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\",\n      \"name\": \"CAPM Certification & Boot Camp in Columbus, GA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Columbus, GA. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Columbus, GA\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Columbus, GA\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Columbus, GA. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Military/Defense (Fort Moore)",
+      "Financial Services & FinTech",
+      "Healthcare",
+      "Advanced Manufacturing",
+      "Government/Public Administration",
+      "Education"
+    ],
+    "top_employers": [
+      "Aflac",
+      "Synovus",
+      "Global Payments (formerly TSYS)",
+      "Fort Moore (U.S. Army, formerly Fort Benning)",
+      "Pratt & Whitney",
+      "Piedmont Columbus Regional",
+      "St. Francis-Emory Healthcare",
+      "Columbus State University",
+      "Muscogee County School District",
+      "City of Columbus Government"
+    ],
+    "salary_note": "Project manager compensation in Columbus tends to track slightly below national metro averages but remains competitive given the concentration of financial services, defense, and healthcare employers; certified professionals (PMP) are generally positioned for higher pay bands and stronger negotiating leverage than non-certified counterparts.",
+    "market_blurb": "Columbus, Georgia offers a steady project management job market anchored by major employers in financial services, defense, and healthcare. With Fort Moore, Synovus, Aflac, and Global Payments all maintaining significant operations in the area, demand for skilled project and program managers spans both public-sector and corporate environments. The city's growing healthcare and manufacturing sectors further diversify opportunities for PM professionals.",
+    "notable_projects": [
+      "Fort Moore base operations and infrastructure modernization (formerly Fort Benning)",
+      "Global Payments corporate campus and technology initiatives",
+      "Chattahoochee RiverWalk and riverfront redevelopment in downtown Columbus",
+      "Piedmont Columbus Regional healthcare facility expansions"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Columbus employers, particularly in financial services, defense contracting, and healthcare organizations that manage complex, multi-phase projects. Job postings in the region often list PMP or equivalent certification as a preferred or advantageous qualification for project management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Columbus's defense footprint anchors steady demand for project managers across military operations, financial services, and healthcare. Fort Moore, Aflac, Global Payments, and Piedmont Columbus Regional maintain substantial local operations, creating roles spanning base infrastructure modernization, corporate technology initiatives, and facility expansion—sectors where PMP-certified professionals command competitive advantage. Granite PM Academy delivers live-virtual PMP Certification to Columbus professionals nationwide, fitting working schedules without compromising credential rigor.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-columbus-ga.webp",
+    "city_image_alt": "Downtown Columbus, Georgia skyline, GA",
+    "city_image_credit": "Photo: PghPhxNfk, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Columbus,_Georgia_skyline.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Columbus's major employers—from Fort Moore's defense operations to Global Payments, Aflac, and healthcare systems—depend on project managers who understand structured methodology. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction, preparing you to sit for the credential without location barriers. Earning your CAPM positions you competitively for advancement across Columbus's military, financial services, healthcare, and manufacturing sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:29.042094Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "02e5c0c60654e09e",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Columbus, GA",
+      "text": "<p>Columbus's project management landscape is anchored by Fort Moore and its surrounding defense and military contracting ecosystem, where structured project discipline and formal credentials are essential for career advancement. Alongside this defense sector foundation, the city hosts major financial services operations—Synovus, Aflac, and Global Payments—plus a growing healthcare cluster, all of which rely on certified project managers to deliver complex initiatives on time and within scope. For professionals working in Columbus's diverse industries, CAPM® Certification signals competency in core PM fundamentals and opens pathways to higher-level roles and competitive compensation. Whether you're supporting defense contracts, banking infrastructure projects, or healthcare initiatives, the CAPM credential demonstrates your readiness to manage small to mid-scale projects and your commitment to professional standards recognized across all sectors.</p><p>Granite PM Academy delivers live-virtual CAPM Certification Training designed to fit the schedules of working professionals in Columbus and beyond. As a PMI Authorized Training Partner, we provide instructor-led courses taught by active certified practitioners who bring real-world experience to every session. Our training satisfies the contact-hour requirements mandated by the Project Management Institute, preparing you to sit for the CAPM exam with confidence. You'll study at your own pace while maintaining the accountability and interaction of live instruction, without geographical or scheduling barriers. Upon completion, you'll be positioned to apply for your CAPM credential and advance your career in Columbus's robust project management job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:33.430117Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4511689d26b29e47",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Build PM Skills for Fort Moore and Beyond",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Meets Your Schedule",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual CAPM® instruction that fulfills all contact-hour requirements for exam eligibility. Attend from Columbus on your own time without compromise to credential rigor."
+        },
+        {
+          "heading": "Learn from Working Certified Practitioners",
+          "text": "Your instructors are active PMP®- and CAPM®-certified professionals applying project-management principles in their daily work. That real-world experience translates directly into classroom examples and exam-readiness strategies you can trust."
+        },
+        {
+          "heading": "Comprehensive Exam Prep Built In",
+          "text": "CAPM® certification training includes structured exam preparation, practice scenarios, and targeted review sessions. You graduate ready to sit for the credential, not just equipped with course materials."
+        },
+        {
+          "heading": "Credential Valued by Columbus Employers",
+          "text": "Fort Moore's defense and engineering sectors, alongside Columbus's thriving financial services, healthcare, and manufacturing industries, actively hire credentialed project managers. CAPM® certification signals readiness to employers like Aflac, Synovus, Pratt & Whitney, and Piedmont Columbus Regional."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:37.398606Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "98f395a54448d6ab",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Columbus, Georgia",
+      "text": "<p>Columbus's economy is anchored by a powerful mix of defense, financial services, and healthcare employers who consistently hire certified project managers. Fort Moore, the U.S. Army installation at the city's core, drives ongoing base operations and infrastructure modernization—large-scale initiatives that demand rigorous project oversight. Simultaneously, Global Payments, Synovus, and Aflac maintain significant local footprints managing complex technology and corporate initiatives, while Piedmont Columbus Regional and St. Francis-Emory Healthcare oversee facility expansions and care-delivery projects. Each of these organizations relies on skilled project managers to navigate multi-phase, cross-functional work. Credential holders are positioned as stronger candidates for these roles, particularly where stakeholder coordination and compliance matter most.</p><p>PMP® certification is increasingly preferred—often listed as advantageous or required—in Columbus job postings across defense contracting, financial services, and healthcare. The credential opens doors to higher pay bands and stronger negotiating leverage than non-certified peers typically command, even as local compensation remains competitive within the Southeast. Completing CAPM® Certification Training with Granite PM Academy gives you the foundational credential and PMI-recognized validation that employers in this market actively seek. Our live-virtual format fits working professionals' schedules, and the coursework equips you to pursue the PMP® when you're ready—accelerating your path to senior-level roles and compensation growth within Columbus's robust project-driven economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:42.015769Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "eb72cdd61c7adaeb",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Columbus",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires only a secondary degree and completion of project management education hours—no prior work experience necessary. This makes CAPM ideal for Columbus professionals across military, healthcare, financial services, and government sectors who are beginning their PM careers or transitioning into project leadership roles."
+        },
+        {
+          "heading": "Complete 23 Hours of PM Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses core project management knowledge into a focused curriculum delivered by active certified practitioners, allowing you to complete the requirement without disrupting your work schedule at major Columbus employers."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing coursework, register directly with PMI and pay the exam fee. Granite PM Academy provides guidance on the application process and requirements, ensuring your submission is complete and ready for exam scheduling."
+        },
+        {
+          "heading": "Prepare and Sit for the CAPM Exam",
+          "text": "Granite PM Academy equips you with exam-preparation resources and strategies to build confidence before test day. Our instructors help you understand the exam format, review challenging concepts, and apply project management principles to real-world scenarios you'll encounter in Columbus's diverse industries."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "Every three years, renew your credential by earning professional development units (PDUs) through ongoing learning. PMI offers flexible pathways—training, publications, volunteering—that fit your schedule while keeping your expertise current in your sector."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:46.494430Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "e8562560a921adcc",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Columbus project managers?",
+          "answer": "<p>Yes. Columbus's concentrated financial services, defense, and healthcare sectors increasingly list CAPM or PMP as preferred qualifications in project management postings. Certified professionals typically command stronger negotiating leverage and access to higher pay bands than non-certified counterparts, even as local compensation tracks slightly below national metro averages. The credential positions you competitively across Aflac, Synovus, Global Payments, and healthcare organizations managing complex, multi-phase initiatives.</p>"
+        },
+        {
+          "question": "Which Columbus employers most value CAPM or PMP certification?",
+          "answer": "<p>Financial services firms (Aflac, Synovus, Global Payments), Fort Moore defense contracting partners, healthcare systems (Piedmont Columbus Regional, St. Francis-Emory Healthcare), and advanced manufacturing organizations prioritize certified project managers for roles overseeing regulated, high-complexity programs. Government and education employers—including Muscogee County Schools and City of Columbus—also increasingly favor the credential. These sectors rely on structured project governance and risk management, making certification a recognized asset.</p>"
+        },
+        {
+          "question": "Can I attend CAPM training in Columbus while working from my office?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM training is delivered entirely online, allowing Columbus professionals to attend from their workplace, home, or any location with internet access. The flexible, synchronous format accommodates Columbus's working schedules without requiring travel, making it practical for full-time employees at major local employers or independent practitioners across the region.</p>"
+        },
+        {
+          "question": "When should Columbus professionals pursue CAPM certification in their career?",
+          "answer": "<p>Columbus's competitive job market rewards early certification. If you're targeting roles at Fort Moore contractors, financial services firms, or healthcare systems, obtaining CAPM before or early in your project management career strengthens your candidacy and earning potential. Local employers increasingly view the credential as a prerequisite for advancement, so pursuing it before your next role change positions you advantageously in a candidate-competitive market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:52.412469Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f38746b1fb7a973b",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Columbus's project management demand is anchored by Fort Moore's base operations and infrastructure modernization, complemented by strong growth in financial services, healthcare, and advanced manufacturing. Major employers including Aflac, Synovus, and Global Payments maintain significant operations here, creating consistent opportunities for certified project managers across defense, corporate, and public-sector environments. Granite PM Academy delivers live-virtual CAPM Certification Training to Columbus professionals nationwide, helping you earn the credential that opens doors in your local market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:54.092814Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0848220822a5b227",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-columbus-ga/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Columbus, GA, CAPM boot camp Columbus, CAPM training Columbus, GA, CAPM classes Columbus GA, CAPM exam prep Columbus",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\",\n      \"name\": \"CAPM Certification Training in Columbus, GA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Columbus, GA. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Columbus, GA\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#course\",\n      \"name\": \"CAPM Certification Training in Columbus, GA\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Columbus, GA. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-columbus-ga/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

@@ -1,390 +1,430 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "midland-tx",
-    "slug": "capm-certification-training-midland-tx",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "midland-tx",
-        "city": "Midland",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "midland-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "city_spotlight": "<p>Midland's project management demand is anchored in Permian Basin energy operations, where operators like Chevron and ConocoPhillips drive continuous capital projects alongside oilfield services and infrastructure work. Healthcare and municipal expansions—including Midland Memorial Hospital facility upgrades and city water infrastructure initiatives—create additional certification-worthy opportunities. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Midland professionals navigating this dynamic market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Midland's energy sector and construction industry rely on professionals who can coordinate complex projects under tight deadlines. Granite PM Academy delivers live-virtual, instructor-led CAPM Certification & Boot Camp training that fulfills PMI's contact-hour education requirement, preparing you to sit for the Certified Associate in Project Management exam. Earning your CAPM positions you as a credible project-management professional in Midland's competitive market, opening doors to roles across oil and gas, construction, and related fields.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:13.246694Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "e535d6d382cd5ca5",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Midland, Texas",
-            "text": "<p>The Permian Basin energy sector drives Midland's project management landscape, with major operators like Chevron, Occidental Petroleum, and ConocoPhillips managing complex capital projects that demand skilled, certified professionals. Beyond oil and gas, healthcare systems, municipal infrastructure, and oilfield services firms across Midland increasingly require CAPM®-certified project coordinators and junior project managers to meet industry standards and support operational scaling. As energy companies expand operations and construction firms bid on infrastructure work in the region, organizations prioritize candidates who hold recognized project management credentials. The CAPM® Certification validates your foundational knowledge in scheduling, budgeting, risk, and stakeholder management—skills directly applicable to the fast-paced, technically demanding projects that define Midland's economy.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM® Boot Camp through live-virtual, instructor-led training designed for working professionals in Midland and across Texas. Our courses satisfy the contact-hour requirements mandated by PMI and are taught by active certified practitioners with real-world experience in energy, construction, and healthcare sectors. You'll master exam domains, work through case studies, and receive personalized instruction—all on a flexible schedule that fits your career. Upon completion, you'll be ready to sit for the CAPM® exam and take the next step in your project management career, positioning yourself as a qualified candidate for advancement in Midland's competitive job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:17.292020Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "82d33313ff02c2e5",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Energy Sector Growth Drives CAPM Demand Across Midland",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Value",
-                    "text": "Granite PM Academy's CAPM® Boot Camp is delivered by a PMI Authorized Training Partner, guaranteeing your certification meets industry standards. This authorization confirms curriculum rigor and instructor qualifications, protecting your investment and ensuring employers recognize your credential."
-                },
-                {
-                    "heading": "Live Instructor Teaching Meets All Requirements",
-                    "text": "Our synchronous, instructor-led format satisfies PMI's contact-hour requirements for CAPM® eligibility without asynchronous gaps. You engage directly with faculty in real time, ask questions immediately, and complete the formal education pathway PMI requires for certification candidacy."
-                },
-                {
-                    "heading": "Active Practitioners Teach Real-World Project Management",
-                    "text": "Granite's instructors are working certified project managers, not academics. They bring current oilfield, construction, healthcare, and municipal project challenges into the classroom, grounding CAPM® concepts in the decision-making you'll face at Chevron, Halliburton, Midland Memorial, or the City of Midland."
-                },
-                {
-                    "heading": "Permian Basin Employers Hire CAPM® Graduates",
-                    "text": "Energy giants and oilfield service firms across Midland prioritize certified project coordinators. The CAPM® credential accelerates your hiring prospects and salary positioning in the Permian Basin's project-intensive environment, where energy, infrastructure, and logistics operations demand structured resource and schedule management."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:22.583119Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "255d42314b6a57ed",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Midland's Energy Sector",
-            "text": "<p>Midland's project management job market is anchored by the Permian Basin energy industry, where major operators and service firms—including Chevron, Occidental Petroleum, ConocoPhillips, and Halliburton—compete intensely for skilled professionals. Beyond oil and gas, certified project managers find demand across healthcare (Midland Memorial Hospital's ongoing facility expansion projects), infrastructure (the Midland International Air and Space Port terminal and infrastructure expansions), and municipal services. The City of Midland's water supply and infrastructure improvement initiatives also create steady PM roles. Energy-sector growth and large capital projects mean employers actively seek candidates who can demonstrate structured project delivery and risk management capabilities.</p><p>CAPM Certification & Boot Camp from Granite PM Academy positions you directly for this competitive market. While the credential is not universally required, Midland-area employers in energy, healthcare, and construction increasingly value it as a differentiator—especially when staffing major operational expansions and infrastructure initiatives. Project manager compensation in Midland runs higher than many Texas metros, driven by the concentration of energy operators and service companies bidding for experienced talent. Completing your CAPM certification here gives you a credible credential that signals your commitment to professional project management standards, improving your standing in a region where capital-intensive projects and skilled talent shortages work in your favor.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:26.838182Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "e5ee619ecab2d660",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Midland",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and review the required project management education hours. The CAPM requires no prior work experience—making it accessible to professionals new to the field who want to formalize their PM knowledge."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required curriculum into an efficient schedule, allowing Midland professionals to earn their education hours without extended classroom commitments."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Complete your PMI application with documentation of your secondary degree and completed education hours. Pay the PMI exam fee to officially register for the CAPM examination and secure your test date."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and instructor guidance to build confidence. On exam day, demonstrate your mastery of project management fundamentals and earn your CAPM credential."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "Earn professional development units across the standard three-year renewal cycle to keep your certification active. Granite PM Academy supports your ongoing professional growth with continuing education and renewal guidance."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:31.030924Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "58e2325ff4b3dae5",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Midland oil and gas project managers?",
-                    "answer": "<p>Yes. Midland's energy sector—anchored by major operators like Chevron, Occidental Petroleum, ConocoPhillips, and Diamondback Energy, plus service giants like Halliburton and Schlumberger—increasingly values PMP and CAPM credentials to standardize project delivery on large capital initiatives. While not universally mandated, certified candidates typically enjoy a competitive edge in hiring and advancement, especially as companies scale operations across the Permian Basin.</p>"
-                },
-                {
-                    "question": "Which Midland employers actively hire CAPM-certified project managers?",
-                    "answer": "<p>Energy operators, oilfield services firms, and support industries across Midland actively recruit certified project managers. Beyond oil and gas, Midland Memorial Hospital, Midland Independent School District, the City of Midland, and regional construction and logistics firms also value the CAPM credential to strengthen project governance. The certification signals competence to employers managing complex, budget-sensitive work across multiple sectors.</p>"
-                },
-                {
-                    "question": "Do Midland professionals earning higher PM salaries benefit most from CAPM?",
-                    "answer": "<p>Project manager compensation in Midland tends to run higher than many Texas metros due to competition among energy operators and service companies for skilled talent. While pay varies by industry and certification level, the CAPM can help you qualify for and advance within those competitive energy-sector roles that command premium salaries. Certification strengthens your candidacy when competing for positions with greater scope and responsibility.</p>"
-                },
-                {
-                    "question": "Can I attend a CAPM boot camp from my Midland office or worksite?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM Boot Camp allows you to participate from your Midland workplace, office, or home. This format is especially practical for Midland professionals working across distributed energy company locations or remote drilling and field operations. You retain full instructor access and peer interaction while maintaining your local schedule and work commitments.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:37.160049Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "bdda3537fe70722d",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Midland's project management demand centers on the Permian Basin energy economy, where oil and gas operators like Chevron and ConocoPhillips drive continuous capital projects alongside oilfield services, healthcare, and municipal infrastructure work. Major expansions—from Midland International Air and Space Port improvements to ConocoPhillips operational projects—create steady openings for certified project managers. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp to Midland professionals ready to advance in this competitive market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:38.985941Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "3ca0b74ba20804c7",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "midland-tx",
+  "slug": "capm-certification-training-midland-tx",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "midland-tx",
+    "city": "Midland",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "midland-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-midland-tx/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Midland, TX, CAPM boot camp Midland, CAPM training Midland, TX, CAPM classes Midland TX, CAPM exam prep Midland",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\",\n      \"name\": \"CAPM Certification & Boot Camp in Midland, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Midland, TX. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Midland, TX\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Midland, TX\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Midland, TX. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Oil & Gas / Energy (Permian Basin)",
+      "Oilfield Services & Equipment",
+      "Healthcare",
+      "Construction & Infrastructure",
+      "Logistics & Transportation",
+      "Public Sector / Municipal Services"
+    ],
+    "top_employers": [
+      "Chevron",
+      "Occidental Petroleum",
+      "ConocoPhillips",
+      "Diamondback Energy",
+      "Halliburton",
+      "SLB (Schlumberger)",
+      "Fasken Oil and Ranch",
+      "Midland Memorial Hospital",
+      "Midland Independent School District",
+      "City of Midland"
+    ],
+    "salary_note": "Project manager compensation in Midland tends to run higher than many Texas metros due to the concentration of oil and gas operators and service companies competing for skilled talent. Exact pay varies widely by industry and certification level, but energy-sector project roles are generally among the most competitive in the region.",
+    "market_blurb": "Midland's project management job market is closely tied to the Permian Basin energy economy, with oil and gas operators, oilfield service firms, and related construction and infrastructure work driving steady demand for project and program managers. Healthcare and municipal projects add additional opportunities beyond the energy sector. As energy companies expand operations and capital projects in the region, demand for certified project management professionals remains strong.",
+    "notable_projects": [
+      "Midland International Air and Space Port terminal and infrastructure expansions",
+      "Midland Memorial Hospital facility expansion projects",
+      "ConocoPhillips and ExxonMobil Permian Basin operational expansions in the Midland area",
+      "City of Midland water supply and infrastructure improvement projects"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly valued by Midland-area energy, healthcare, and construction employers seeking to standardize project delivery amid large capital projects. While not universally required, certified candidates often have a competitive edge in local project management hiring.",
+    "_researched": 1,
+    "city_spotlight": "<p>Midland's project management demand flows from the Permian Basin energy economy, where oil and gas operators like Chevron and ConocoPhillips drive continuous capital projects alongside oilfield services, healthcare expansions, and municipal infrastructure work. PMP® certification positions professionals to advance into leadership roles managing these high-stakes initiatives. Granite PM Academy delivers live-virtual PMP® Certification training to Midland professionals nationwide, offering flexible scheduling and expert instruction to help you earn this globally recognized credential.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Midland's energy, oilfield services, construction, and municipal sectors rely on structured project delivery, making CAPM® Certification Training a credential that accelerates career momentum across the region's dominant employers. Granite PM Academy delivers live-virtual, instructor-led CAPM training that satisfies PMI's contact-hour education requirement, enabling you to sit for the exam on your schedule. Earning CAPM® positions you for project coordinator and assistant project manager roles where Midland's largest organizations—from Chevron and ConocoPhillips to Halliburton and Midland Memorial Hospital—actively hire certified talent.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:43.613704Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "214d9c8837f805a4",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Midland's Energy Sector Leaders",
+      "text": "<p>Midland's project management landscape is shaped by the Permian Basin energy economy, where oil and gas operators, oilfield services firms, and capital-intensive infrastructure projects create steady demand for credentialed project managers. Whether you work for a major energy company like Chevron or Occidental Petroleum, support operations at firms such as Halliburton or SLB, or manage projects in Midland's healthcare and municipal sectors, the CAPM® (Certified Associate Project Manager) credential signals your commitment to professional standards and positions you for advancement in a competitive market. Employers across these industries recognize CAPM as a foundational qualification that demonstrates your understanding of core project management disciplines and your readiness to lead or coordinate project work.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals in Midland and nationwide. Our courses satisfy the contact-hour requirements for CAPM eligibility and are taught by active certified practitioners who bring real-world project experience to every class. We focus on practical application of the PMBOK® Guide framework so you can immediately apply what you learn to your projects. Whether you are preparing for your first certification or advancing your credentials, Granite PM Academy provides the structured preparation and expert instruction you need to pass the CAPM exam and strengthen your career in Midland's dynamic project-driven economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:47.688505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0d1613c218333e57",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Permian Basin Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM training meets all PMI standards and satisfies contact-hour requirements for credential eligibility. You receive official documentation recognized by employers across Midland's energy, construction, and healthcare sectors."
+        },
+        {
+          "heading": "Live-Virtual Instructor-Led Sessions",
+          "text": "Attend live, interactive classes entirely online—no travel to classroom sites required. Our instructors deliver real-time instruction and answer questions immediately, fulfilling PMI contact-hour requirements while fitting your work schedule in the Permian Basin and beyond."
+        },
+        {
+          "heading": "Practicing Certified Professionals as Instructors",
+          "text": "Learn from active CAPM and PMP certification holders who apply project-management principles daily. Their practical experience translates classroom concepts into tools you'll use immediately in your role, whether in oil and gas, healthcare, construction, or municipal services."
+        },
+        {
+          "heading": "Credential Valued by Midland's Major Employers",
+          "text": "The CAPM credential is recognized by Chevron, Occidental Petroleum, Halliburton, SLB, Midland Memorial Hospital, and regional contractors seeking certified project coordinators. In Midland's competitive energy and infrastructure markets, this certification demonstrates competency employers actively hire for and often advance."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:52.023036Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4a7118007fb459d1",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Midland's Energy Hub",
+      "text": "<p>Midland's economy centers on oil and gas operations across the Permian Basin, where major operators like Chevron, Occidental Petroleum, and ConocoPhillips compete for skilled project management talent. Beyond energy majors, oilfield services firms such as Halliburton and SLB employ certified project managers to oversee capital-intensive drilling, completion, and infrastructure work. Healthcare and municipal sectors also actively hire: Midland Memorial Hospital's ongoing facility expansion projects and the City of Midland's water supply and infrastructure improvements represent steady demand for professionals who can coordinate complex timelines, budgets, and stakeholder needs. Construction and logistics employers likewise seek PMs to manage the supply chains and on-site delivery that keep the region's operations running.</p><p>CAPM certification carries real weight in Midland's competitive labor market. Employers in energy, healthcare, and construction increasingly value PMI credentials as proof of standardized project delivery capability—particularly when managing large capital projects. Project manager compensation in Midland tends to run higher than many Texas metros because of the concentration of oil and gas operators and service companies vying for skilled talent. While CAPM is not universally required, certified candidates often gain a measurable edge in hiring and advancement conversations. Completing CAPM Certification Training through Granite PM Academy gives you a credential that resonates with local employers and positions you to capitalize on Midland's strong demand for disciplined, credentialed project professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:56.224642Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "88b6a43874a3cc56",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Midland",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and completion of project management education hours—but no prior work experience. Whether you're transitioning into project management at one of Midland's energy, healthcare, or construction employers, or launching your PM career, you qualify to begin immediately."
+        },
+        {
+          "heading": "Complete 23 Hours of PM Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses core project management knowledge into a focused schedule, allowing working professionals in Midland to earn required contact hours without disrupting your job or commute."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing coursework, submit your CAPM application directly to PMI and pay the associated exam fee. Granite PM Academy staff will guide you through the submission process and answer questions about eligibility documentation."
+        },
+        {
+          "heading": "Prepare and Pass the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and review sessions, to build confidence. Sit for the proctored CAPM exam on your schedule, testing your mastery of project management fundamentals and processes."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "CAPM is valid for three years. Before expiration, earn professional development units (PDUs) through training, volunteer work, or professional activities. Granite PM Academy offers continuing education options to support your ongoing certification maintenance and career growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:00.827859Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "22b406288c318200",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Midland oil and gas project managers?",
+          "answer": "<p>Yes. Midland's energy sector—anchored by Chevron, Occidental Petroleum, ConocoPhillips, Diamondback Energy, and oilfield services firms like Halliburton and SLB—increasingly values standardized project management credentials for capital-intensive operations. CAPM gives you a competitive edge in hiring and advancement, and project management roles in Midland's energy market typically command premium compensation compared to many other Texas metros, especially as you progress toward PMP.</p>"
+        },
+        {
+          "question": "Which Midland employers most value CAPM or PMP certification?",
+          "answer": "<p>Midland's largest employers across energy, healthcare, construction, and public sectors—including Permian Basin operators, oilfield services companies, Midland Memorial Hospital, Midland Independent School District, and the City of Midland—actively seek certified project managers to standardize delivery on large capital and infrastructure projects. While not universally required, certification narrows the field and signals commitment to professional standards.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's CAPM training while working in Midland?",
+          "answer": "<p>Yes. All CAPM training is delivered live-virtual, allowing you to join from your Midland office, home, or jobsite. This format is ideal for energy and construction professionals managing on-site responsibilities; you can participate in scheduled sessions without relocating or traveling, and access course materials and recordings as your schedule permits.</p>"
+        },
+        {
+          "question": "Should I get CAPM certified now or wait for the Midland job market to improve?",
+          "answer": "<p>Pursue certification now. Midland's competitive project management hiring market—driven by ongoing capital projects in energy, healthcare, and infrastructure—rewards certified candidates consistently. Delaying certification puts you at a disadvantage when skilled roles open; investing in your credential ahead of a formal job search positions you to stand out and negotiate better terms as vacancies arise.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:06.550286Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1219986c5d4a89e8",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Midland's project management demand centers on the Permian Basin energy sector, where oil and gas operators like Chevron and ConocoPhillips drive ongoing capital expansions alongside oilfield services, healthcare, and municipal infrastructure work. Major initiatives—from Midland Memorial Hospital facility expansions to City of Midland water infrastructure improvements—create consistent openings for certified professionals. Granite PM Academy delivers live-virtual CAPM Certification Training to Midland professionals seeking the credential that employers across energy, construction, and public sectors increasingly require.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:09.516851Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "197afcb77aeb4d56",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-midland-tx/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Midland, TX, CAPM boot camp Midland, CAPM training Midland, TX, CAPM classes Midland TX, CAPM exam prep Midland",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\",\n      \"name\": \"CAPM Certification Training in Midland, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Midland, TX. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Midland, TX\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#course\",\n      \"name\": \"CAPM Certification Training in Midland, TX\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Midland, TX. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-midland-tx/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

@@ -1,394 +1,422 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "leavenworth-ks",
-    "slug": "pmp-certification-training-leavenworth-ks",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "leavenworth-ks",
-        "city": "Leavenworth",
-        "state": "Kansas",
-        "SS": "KS",
-        "city_slug": "leavenworth-ks",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Leavenworth's project management market centers on Fort Leavenworth, the VA Medical Center, and federal and state correctional facilities—sectors where certified PMs drive complex, high-stakes initiatives. Recent projects like the Lansing Correctional Facility replacement and ongoing VA facility upgrades underscore steady demand for professionals with public-sector and defense-adjacent credentials. Granite PM Academy delivers live-virtual PMP® Certification to Leavenworth professionals seeking to advance in these mission-critical roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Leavenworth's concentration of federal and military operations creates consistent demand for credentialed project managers across agencies and defense contractors. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's required contact hours, fitting your schedule while you work. Earning your PMP credential positions you competitively for advancement in a local market where project management rigor and formal certification carry significant weight.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:07.323730Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "98d4b8fcff6e2657",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Leavenworth for Government & Defense Professionals",
-            "text": "<p>Fort Leavenworth's role as home to the U.S. Army Combined Arms Center, along with Leavenworth's major federal and state correctional facilities, veterans healthcare system, and county government operations, creates a distinct project management landscape. Professionals managing complex military initiatives, facility modernization, healthcare delivery systems, and government programs face stakeholder expectations and compliance requirements that demand formal credential recognition. The PMP® certification—the gold standard from the Project Management Institute—signals to employers across Fort Leavenworth, the Dwight D. Eisenhower VA Medical Center, and local public agencies that you possess the discipline, framework, and proven competency to lead high-stakes projects successfully. In Leavenworth's steady, mission-critical market, certification often becomes the credential that distinguishes promotable candidates.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP Certification Training designed to fit working professionals' schedules while meeting all PMI contact-hour requirements. Our instructors are active certified practitioners with real-world experience in government, defense, and complex organizational environments—they teach the PMBOK® Guide framework through scenarios and applications relevant to your sector. We guide you through eligibility verification, exam strategy, and ongoing professional development so you enter the certification exam confident and prepared. Your investment in PMP certification positions you for career advancement and leadership roles across Leavenworth's public-sector and defense-adjacent employers.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:12.278633Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "cdbf590682b1f568",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification for Leavenworth's Military and Federal Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Means Legitimate Credential",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMP course meets Project Management Institute standards. This distinction matters: employers at Fort Leavenworth and federal agencies recognize only PMI-approved paths to certification as legitimate preparation."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Schedules",
-                    "text": "Our live-virtual instructor-led classes let you earn required contact hours without relocating or committing to fixed classroom days. Schedule flexibility supports professionals managing military, correctional, or healthcare operations who cannot pause work for rigid training calendars."
-                },
-                {
-                    "heading": "Learn From Active Certified Practitioners",
-                    "text": "Your instructors hold current PMP credentials and work in project management roles. They bring real-world examples from defense contracting, facility operations, and large-scale program delivery—the exact context you face in Leavenworth's dominant industries."
-                },
-                {
-                    "heading": "Credential Unlocks Leavenworth Employer Demand",
-                    "text": "Fort Leavenworth, the VA Medical Center, federal and state correctional facilities, and major hospitals actively seek certified project managers. The PMP credential signals readiness for leadership roles at the region's largest employers and opens advancement paths in military-aligned sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:16.525067Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "da02871b19613e35",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers at Fort Leavenworth and Beyond",
-            "text": "<p>Fort Leavenworth's U.S. Army Combined Arms Center anchors project management demand across Leavenworth, where federal defense, corrections, and healthcare institutions form the backbone of the local economy. The Army's ongoing facility modernization and construction initiatives require skilled project managers who can navigate complex stakeholder environments and deliver on schedule. Beyond the base, the Dwight D. Eisenhower VA Medical Center, federal and state correctional facilities including the U.S. Penitentiary and the Lansing Correctional Facility (which completed its major replacement project in 2020), and Leavenworth County Government all rely on certified professionals to oversee capital projects, system implementations, and operational improvements. These employers value structured project governance and proven delivery capability.</p><p>The PMP® and CAPM® certifications carry genuine weight with Leavenworth-area employers, particularly those in defense, federal healthcare, and public administration where credentialed project managers stand out in hiring and advancement decisions. While compensation in Leavenworth tends to track the broader Kansas City-area metro range rather than commanding top-market rates, government and defense employers offer steady, competitive pay and long-term stability—especially for candidates demonstrating PMP-level expertise. Completing your PMP Certification Training through Granite PM Academy positions you to qualify for these roles and to lead the infrastructure and facility projects that define Leavenworth's institutional landscape. The credential is a direct credential to career progression in a market where disciplined project delivery is non-negotiable.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:21.449361Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "c3c2330de3d82626",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Leavenworth",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "PMI requires you to meet specific education and project-management experience thresholds before applying. Review PMI's official eligibility criteria—which account for your degree level and years of verifiable project experience—to confirm you qualify for PMP certification."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our instructors deliver the PMI-required contact hours on a schedule designed for working professionals in the Leavenworth area, covering the PMBOK Guide framework and exam domains."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "After finishing the course, submit your official PMP application directly to PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process so you can move forward confidently toward exam eligibility."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—including practice questions, study guides, and instructor support—to build confidence. Schedule your PMP exam with Pearson Vue and take the computerized test at an approved testing center near Leavenworth."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After certification, earn Professional Development Units (PDUs) over a standard renewal cycle by attending training, contributing to the profession, or giving back to your community. Stay current with PMI requirements to keep your credential active and competitive."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:26.273952Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "3c6ce525fda85407",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Leavenworth government and defense careers?",
-                    "answer": "<p>Yes. Federal, defense, and public-sector employers in Leavenworth—including Fort Leavenworth, the VA Medical Center, and county government—increasingly require or strongly prefer PMP or CAPM certification for project leadership roles. Structured project governance is valued in these environments, and the credential demonstrates compliance-ready competency that aligns with federal and military standards.</p>"
-                },
-                {
-                    "question": "Which Leavenworth employers hire project managers with PMP certification?",
-                    "answer": "<p>Fort Leavenworth (U.S. Army Combined Arms Center), the Dwight D. Eisenhower VA Medical Center, Saint Luke's Cushing Memorial Hospital, University of Saint Mary, Leavenworth County Government, and the City of Leavenworth all operate structured projects where certified project managers are competitive candidates. Defense and healthcare sectors in particular view PMP certification favorably for advancement.</p>"
-                },
-                {
-                    "question": "Do Leavenworth project managers earn competitive salaries with PMP certification?",
-                    "answer": "<p>Project manager compensation in Leavenworth tracks Kansas City-area metro ranges, with government, defense, and healthcare employers offering steady, competitive pay rather than top-market salaries. Certified professionals typically earn more than non-certified peers, and demand is strongest for candidates with proven PMP-level project delivery experience and proven results in regulated environments.</p>"
-                },
-                {
-                    "question": "Can I attend PMP certification training from my Leavenworth workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual PMP training format allows you to attend from your office, home, or any location with reliable internet. This flexibility suits Leavenworth professionals at Fort Leavenworth, healthcare facilities, and government offices who prefer to train without travel or scheduling disruption.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:31.494266Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "cbab66d7d57154ad",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Leavenworth's project management demand centers on Fort Leavenworth, the VA Medical Center, and federal and state correctional facilities—sectors requiring PMP-certified professionals to lead complex, mission-critical initiatives. Recent projects like the Lansing Correctional Facility replacement and ongoing facility modernization at Fort Leavenworth underscore consistent hiring for credentialed project managers in government and defense-adjacent roles. Granite PM Academy delivers live-virtual PMP Certification Training to working professionals throughout Leavenworth.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:33.471632Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "c9e259cea414597d",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "leavenworth-ks",
+  "slug": "pmp-certification-training-leavenworth-ks",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "leavenworth-ks",
+    "city": "Leavenworth",
+    "state": "Kansas",
+    "SS": "KS",
+    "city_slug": "leavenworth-ks",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Leavenworth, KS, PMP exam prep Leavenworth, PMP course Leavenworth KS, project management certification Leavenworth, KS, PMI PMP training Leavenworth",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\",\r\n      \"name\": \"PMP Certification Training in Leavenworth, KS | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Leavenworth, KS. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Leavenworth, KS\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#course\",\r\n      \"name\": \"PMP Certification Training in Leavenworth, KS\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Leavenworth, KS. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Military/Defense (Fort Leavenworth)",
+      "Corrections/Government (federal and state correctional facilities)",
+      "Healthcare",
+      "Education",
+      "Public Administration/Local Government",
+      "Logistics and Manufacturing support"
+    ],
+    "top_employers": [
+      "Fort Leavenworth (U.S. Army Combined Arms Center)",
+      "Veterans Affairs Eastern Kansas Healthcare System (Dwight D. Eisenhower VA Medical Center)",
+      "United States Penitentiary Leavenworth",
+      "Lansing Correctional Facility",
+      "Saint Luke's Cushing Memorial Hospital",
+      "University of Saint Mary",
+      "Leavenworth County Government",
+      "City of Leavenworth",
+      "USD 453 Leavenworth Public Schools",
+      "CoreCivic (Leavenworth Detention Center)"
+    ],
+    "salary_note": "Project manager pay in Leavenworth tends to track broader Kansas City-area metro rates, with government, defense, and healthcare employers offering steady, competitive compensation rather than top-market salaries; demand is strongest for candidates with proven PMP-level project delivery experience.",
+    "market_blurb": "Leavenworth's project management job market is shaped heavily by its role as home to Fort Leavenworth and several major correctional and healthcare institutions, creating consistent demand for professionals who can manage complex government, military, and facility-based projects. Additional opportunities arise from local healthcare systems, higher education, and county/municipal government initiatives. The market is steady rather than explosive, favoring certified professionals with public-sector or defense-adjacent project experience.",
+    "notable_projects": [
+      "Lansing Correctional Facility replacement project (new state prison completed in 2020)",
+      "Fort Leavenworth Combined Arms Center facility modernization and construction initiatives",
+      "Dwight D. Eisenhower VA Medical Center facility upgrades",
+      "Leavenworth riverfront and downtown redevelopment efforts"
+    ],
+    "credential_demand": "PMP and CAPM certifications are viewed favorably by Leavenworth-area employers, particularly those tied to federal, defense, and healthcare institutions where structured project governance is valued; general demand for certified project management skills appears steady rather than exceptionally high-volume.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fort Leavenworth and Leavenworth's federal and state correctional facilities anchor a steady demand for project managers who can navigate complex government and military initiatives. Healthcare systems, county government, and public education add consistent opportunities for certified professionals with public-sector experience. Granite PM Academy delivers live-virtual PMP® Certification to Leavenworth professionals pursuing advancement in these mission-critical fields.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Government and defense operations at Fort Leavenworth, federal and state correctional facilities, and the Veterans Affairs Eastern Kansas Healthcare System drive ongoing demand for skilled project managers across Leavenworth. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirements, enabling you to earn the credential entirely online on a schedule that fits your work commitments. The PMP credential strengthens your qualifications for advancement and project leadership roles within Leavenworth's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:14.460074Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "523373630c71e3d4",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Leavenworth's Project Managers",
+      "text": "<p>Fort Leavenworth's role as home to the U.S. Army Combined Arms Center creates a distinctive demand for project managers who can navigate complex military and defense-sector initiatives. Across Leavenworth's federal and state correctional facilities, healthcare systems, and public administration offices, professionals who hold the Project Management Professional (PMP)® credential command respect and advancement opportunities in government and mission-critical environments. The PMP® demonstrates mastery of the frameworks, tools, and leadership disciplines that government agencies, military commands, and large institutional employers in Leavenworth expect from their project leads. For professionals already working in these sectors—or transitioning into them—certification accelerates credibility and opens pathways to higher-impact roles.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led courses that meet all contact-hour requirements for eligibility. Our active certified practitioners bring real-world experience into every session, translating project management principles into the decision-making and stakeholder dynamics you'll face in government, healthcare, and public-sector organizations. Training is flexible, nationwide, and designed around working professionals' schedules. Upon completion, you'll be positioned to sit for the PMP® exam with confidence and begin your journey toward a credential that meaningfully advances your career in Leavenworth's steady, credential-conscious job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:18.499004Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "16afe56b20b4a913",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Leavenworth's Military and Government Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner, ensuring your PMP® coursework meets all PMI standards and satisfies contact-hour requirements for credential eligibility. This authorization guarantees alignment with current exam blueprints and industry-recognized rigor."
+        },
+        {
+          "heading": "Live Instructors, Virtual Flexibility",
+          "text": "Attend real-time instructor-led sessions online—no recordings, no self-paced delays. Active certified practitioners deliver instruction synchronously, answer questions live, and fulfill the contact-hour mandate, all while you work around your Leavenworth schedule."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Granite PM Academy integrates PMP® exam preparation throughout coursework—practice questions, domain review, and test-taking strategy—so you graduate ready to sit for the certification exam with confidence, not guesswork."
+        },
+        {
+          "heading": "Advance Your Career at Fort Leavenworth and Beyond",
+          "text": "Fort Leavenworth, the VA Medical Center, federal and state correctional facilities, and Leavenworth's healthcare and manufacturing sectors increasingly demand certified project managers. The PMP® credential is a competitive asset for leadership roles, program oversight, and career advancement across these employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:22.578200Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7383c477c0459e9c",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Leavenworth's Federal and Government Sector",
+      "text": "<p>Fort Leavenworth's U.S. Army Combined Arms Center and the region's major federal and state correctional facilities—including the United States Penitentiary Leavenworth and the Lansing Correctional Facility—anchor Leavenworth's demand for certified project managers. These institutions, along with the Dwight D. Eisenhower VA Medical Center and Leavenworth County Government, regularly oversee large-scale initiatives: facility modernization at Fort Leavenworth, the completed Lansing Correctional Facility replacement project, and ongoing VA Medical Center upgrades all require structured project delivery and governance. Organizations managing such work value credentials that demonstrate mastery of scope, schedule, and resource management—skills the PMP® and CAPM® certifications directly signal to hiring managers in defense, corrections, healthcare, and public administration.</p><p>Compensation for certified project managers in Leavenworth tracks regional norms for the broader Kansas City area, with government, defense, and healthcare employers offering steady, competitive pay rather than premium salaries. What makes the PMP® credential worthwhile here is its standing within the federal and institutional hiring culture: agencies and facilities in Leavenworth view structured project management certification as evidence of professional rigor and eligibility for advancement into leadership roles. Completing PMP Certification Training through Granite PM Academy—delivered entirely online and designed around working professionals' schedules—positions you to qualify for the roles these major local employers actively seek to fill, without requiring you to pause your career or relocate for instruction.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:27.046440Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "149b9d1d944362ce",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Leavenworth",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's specific thresholds for your background—typically a bachelor's degree plus three years of project experience, or equivalent alternative pathways. Verify your qualifications before enrollment to ensure you'll meet application requirements."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend sessions from your Leavenworth location on your schedule; our synchronous online format keeps you connected to active certified practitioners and peers. You'll cover all five process groups and ten knowledge areas required for exam readiness."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the 35-hour course, register with PMI and submit your formal certification application, including your work history and training documentation. Pay the required exam fee directly to PMI. Plan ahead; processing typically takes several weeks, so apply promptly after your coursework ends."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor feedback—to build confidence. Schedule your PMP exam at a Pearson VUE testing center. On exam day, you'll answer 180 questions across three hours, demonstrating mastery of project-management frameworks and real-world scenarios."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to a three-year renewal cycle by earning professional development units (PDUs). Pursue continuing education, volunteer leadership, or published work in project management to stay current. Renew your credential before expiration to keep your competitive edge in Leavenworth's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:32.439858Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6dcfb8306971dd86",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Leavenworth government and defense careers?",
+          "answer": "<p>Yes. Fort Leavenworth, the VA Medical Center, and federal correctional facilities prioritize structured project governance and formal credentials. PMP and CAPM certifications signal capability in these environments, where compliance, oversight, and measurable delivery outcomes are non-negotiable. Government and defense employers in the Leavenworth area view certified project managers as better equipped to navigate complex, regulated initiatives—making the credential a meaningful career differentiator.</p>"
+        },
+        {
+          "question": "Which Leavenworth employers value PMP certification most?",
+          "answer": "<p>Federal and state employers dominate Leavenworth's job market: Fort Leavenworth (U.S. Army Combined Arms Center), the Dwight D. Eisenhower VA Medical Center, USP Leavenworth, Lansing Correctional Facility, and the Leavenworth Detention Center all operate under stringent project and quality standards. Healthcare systems like Saint Luke's Cushing and public agencies including USD 453 and Leavenworth County Government also value PMP-certified professionals. These institutions recognize the credential as evidence of discipline in planning, risk management, and stakeholder communication.</p>"
+        },
+        {
+          "question": "What do project managers in Leavenworth typically earn with PMP certification?",
+          "answer": "<p>Leavenworth project managers' compensation tracks Kansas City-area metro rates rather than top-market national levels. Government, defense, and healthcare employers in the region offer steady, competitive pay—often with strong benefits and job security—rather than premium salaries. Certified professionals with proven delivery experience command respect and advancement within these stable institutions, though earning potential is shaped more by employer type and tenure than by the certification alone.</p>"
+        },
+        {
+          "question": "Can I attend PMP training from my Leavenworth workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP certification training is delivered 100% live-virtual, so you can participate from your office, home, or any location with internet access. This format works well for Leavenworth professionals balancing work at Fort Leavenworth, the VA, correctional facilities, hospitals, or city and county agencies. You stay connected to your role while earning your credential on a schedule that fits your employer's project cycles and your own availability.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:39.248329Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5b41398d121768ae",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Leavenworth and Leavenworth's network of federal and state correctional facilities, VA medical center, and public agencies create steady demand for certified project managers skilled in government and defense-sector environments. Recent initiatives—including the Lansing Correctional Facility replacement project and ongoing Fort Leavenworth facility modernization—underscore the region's reliance on professionals who can navigate complex, compliance-heavy project delivery. Granite PM Academy serves Leavenworth professionals with live-virtual PMP Certification Training, designed to fit working schedules while building the credentials these employers prioritize.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:41.238821Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "32004d684476e55c",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Leavenworth, KS, PMP exam prep Leavenworth, PMP course Leavenworth KS, project management certification Leavenworth, KS, PMI PMP training Leavenworth",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\",\r\n      \"name\": \"PMP Certification Training in Leavenworth, KS | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Leavenworth, KS. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Leavenworth, KS\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#course\",\r\n      \"name\": \"PMP Certification Training in Leavenworth, KS\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Leavenworth, KS. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-leavenworth-ks/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

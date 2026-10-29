@@ -1,390 +1,420 @@
 {
-    "template_id": "tpl_pmp_bootcamp_city",
-    "city_id": "roanoke-va",
-    "slug": "pmp-bootcamp-roanoke-va",
-    "title": "PMP Bootcamp {city}",
-    "city_vars": {
-        "id": "roanoke-va",
-        "city": "Roanoke",
-        "state": "Virginia",
-        "SS": "VA",
-        "city_slug": "roanoke-va",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Roanoke's healthcare sector—anchored by Carilion Clinic and complemented by major transportation infrastructure managed by Norfolk Southern—creates steady demand for credentialed project managers across facility expansions, service line rollouts, and regional operations. Manufacturing, education, and municipal government round out a diversified job market where formal PMP® Certification increasingly signals competitive advantage. Granite PM Academy delivers live-virtual PMP Certification training to Roanoke professionals ready to advance their careers.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Roanoke's growing technology and advanced manufacturing sectors increasingly demand formally credentialed project managers to lead complex initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that fulfills PMI's contact-hour requirements, allowing you to earn your Project Management Professional credential without leaving the region. Completing your PMP positions you for leadership roles and higher compensation across Roanoke's expanding professional services and engineering firms.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_boot_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP boot camp {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:12.714116Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "70e93d40ce213142",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Boot Camp in Roanoke: Project Management Certification for Healthcare Leaders",
-            "text": "<p>Roanoke's healthcare sector, anchored by Carilion Clinic and supported by major medical centers and the Virginia Tech Carilion School of Medicine, drives consistent demand for skilled project and program managers. As healthcare organizations manage complex facility expansions, technology implementations, and care delivery initiatives, the ability to lead projects with discipline and proven methodology has become essential. Professionals in Roanoke's healthcare ecosystem—alongside those in transportation, manufacturing, and regional government—recognize that formal PMP certification signals competence and opens pathways to leadership roles. The PMP credential, issued by the Project Management Institute, carries weight across industries and employers in this region, making a focused boot camp the most efficient route to earning it.</p><p>Granite PM Academy delivers PMP Boot Camp through live-virtual, instructor-led training designed for working professionals in Roanoke who need intensive preparation without sacrificing their current roles. As a PMI Authorized Training Partner, we meet all contact-hour requirements for PMP eligibility and teach the exam domains through active practitioners who apply real-world project scenarios daily. Our boot camp format compresses learning into a structured schedule, covering project initiation, planning, execution, monitoring, and closing with the rigor the PMI exam demands. Upon completion, you'll be prepared to sit for the PMP certification exam and step into roles that value this credential across Roanoke's growing project-driven organizations.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:17.538131Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "b20c2efc11543b49",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification Designed for Roanoke's Major Industries",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Partner",
-                    "text": "Granite PM Academy is an official PMI Authorized Training Partner, ensuring your boot camp meets all PMI standards for contact hours and curriculum rigor. This credential matters when employers like Norfolk Southern and Carilion verify your training pedigree."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Our instructors hold active PMP certifications and work full-time in project management across healthcare, manufacturing, and government sectors. You learn from practitioners solving actual problems in Roanoke's largest industries, not from trainers reading slides."
-                },
-                {
-                    "heading": "Virtual Format Meets All Requirements",
-                    "text": "Attend live-virtual instructor-led sessions that satisfy PMI's full contact-hour requirement without commuting to a classroom. Study alongside peers from Virginia Tech, Wells Fargo, and local government while keeping your job and schedule intact."
-                },
-                {
-                    "heading": "Credential Demanded by Local Employers",
-                    "text": "Roanoke's healthcare systems, transportation networks, and manufacturing operations actively recruit PMP-certified leaders. The credential directly positions you for advancement at employers hiring project managers across the region's largest sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:21.156118Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "ddf9e2eb6b18f079",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Roanoke's Growing Sectors",
-            "text": "<p>Healthcare expansion and transportation infrastructure form the backbone of project management demand in Roanoke. Carilion Clinic and LewisGale Medical Center drive continuous facility and service-line expansion projects that require experienced, credentialed project managers to oversee planning, budgeting, and execution. Simultaneously, Norfolk Southern's ongoing operational and facility upgrades across the Roanoke Valley create substantial PM roles in the rail and logistics sector. Public-sector initiatives—including the Roanoke River Greenway and downtown revitalization—further underscore consistent demand for certified professionals who can manage complex, multi-stakeholder initiatives.</p><p>PMP® certification has become increasingly valuable in Roanoke's job market, particularly within healthcare systems and engineering-focused employers actively recruiting qualified candidates. While project manager compensation in Roanoke typically reflects the region's lower cost of living compared to larger metros, healthcare and rail employers often extend competitive packages for certified professionals. By completing the PMP Boot Camp with Granite PM Academy, you position yourself to meet rising credential requirements, strengthen your candidacy within Roanoke's steady growth sectors, and build the expertise that employers in your region actively seek. The credential pays dividends not just as a credential, but as a concrete signal of your readiness to lead the infrastructure and healthcare projects reshaping Roanoke's economy.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:25.212434Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "7bb8d4c2a229934a",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "PMP Boot Camp",
-                    "badge": "INTENSIVE",
-                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$2,495",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_boot_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Roanoke",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific thresholds—typically a combination of a degree and years of documented direct project experience. PMI provides detailed eligibility guidelines; Granite PM Academy can help clarify your qualifications."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours of Training",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Roanoke-focused cohorts deliver the PMI-required contact hours in an interactive format, covering the PMBOK framework, real-world scenarios, and exam-aligned content. Attend synchronously; engage directly with our certified instructors and peers."
-                },
-                {
-                    "heading": "Apply to PMI and Pay the Exam Fee",
-                    "text": "Submit your formal PMP application through PMI's candidate portal, documenting your experience and education. Pay the associated exam registration fee to PMI. Our academy team guides you through the application process and confirms your eligibility before you sit for the exam."
-                },
-                {
-                    "heading": "Prepare and Sit for Your Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and review sessions—to reinforce your learning. Schedule your proctored PMP exam through PMI's testing partner. Our instructors remain available to address final questions and build your confidence before test day."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After earning your PMP, maintain the credential by earning professional development units (PDUs) throughout a standard three-year renewal cycle. Granite PM Academy offers ongoing PDU-eligible courses and webinars to help Roanoke professionals stay current in project management and renew on schedule."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:30.869572Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "e7120b9ca57855a1",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-                },
-                {
-                    "question": "Can I complete the PMP Bootcamp online from {city}?",
-                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-                },
-                {
-                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for project managers in Roanoke?",
-                    "answer": "<p>Yes. Roanoke's healthcare systems—Carilion Clinic and LewisGale Medical Center—and Norfolk Southern's transportation operations increasingly list PMP as preferred or required for PM roles. While Roanoke salaries trend below national averages, certified PMs in healthcare and rail/logistics sectors often receive competitive packages that offset the regional cost-of-living advantage. Demand remains steady given ongoing hospital expansion and infrastructure projects.</p>"
-                },
-                {
-                    "question": "Which Roanoke employers specifically value PMP certification?",
-                    "answer": "<p>Healthcare systems (Carilion Clinic, LewisGale Medical Center, Virginia Tech Carilion School of Medicine), transportation and logistics (Norfolk Southern Corporation), and government agencies (City of Roanoke, Roanoke County Government) actively seek certified project managers. Manufacturing and engineering firms, including Optical Cable Corporation, also increasingly prefer the credential for capital and operations projects. Financial services and education institutions round out demand.</p>"
-                },
-                {
-                    "question": "Can I attend the live-virtual PMP Boot Camp from my Roanoke workplace?",
-                    "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet. Many Roanoke professionals in healthcare and corporate settings attend during scheduled class hours from their workplace. Confirm your employer's remote-learning policies beforehand, and ensure a quiet, professional environment for the intensive boot-camp schedule.</p>"
-                },
-                {
-                    "question": "When should I pursue PMP certification given Roanoke's project management job market?",
-                    "answer": "<p>Timing matters. Roanoke's healthcare sector is undergoing active expansion, and Norfolk Southern continues infrastructure initiatives—both favor certified candidates now. If you're in healthcare, government, or transportation, pursuing certification sooner strengthens your candidacy for promotions and higher-tier PM roles. Entry-level professionals should consider CAPM first, then PMP as they gain experience and meet eligibility requirements.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:36.873297Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "50285335c5321574",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Roanoke's project management demand centers on healthcare leadership—Carilion Clinic's ongoing facility expansions and the Virginia Tech Carilion School of Medicine's research institute development create sustained opportunities for credentialed PMs. Norfolk Southern's rail operations and the city's infrastructure modernization initiatives compound this need across transportation, manufacturing, and government sectors. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Roanoke professionals seeking certification and career advancement.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:06:38.677124Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "66b74feaf02918c5",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Intensive PMP Prep — Right from {city}",
-            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_boot_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "roanoke-va",
+  "slug": "pmp-bootcamp-roanoke-va",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "roanoke-va",
+    "city": "Roanoke",
+    "state": "Virginia",
+    "SS": "VA",
+    "city_slug": "roanoke-va",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-roanoke-va/",
-        "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "meta_keywords": "PMP boot camp Roanoke, VA, PMP bootcamp Roanoke, PMP certification boot camp Roanoke, VA, PMP bootcamp near me, intensive PMP training Roanoke",
-        "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-        "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-        "og_image": "",
-        "service_name": "PMP Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\",\n      \"name\": \"PMP Boot Camp in Roanoke, VA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Roanoke, VA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Roanoke, VA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#course\",\n      \"name\": \"PMP Boot Camp in Roanoke, VA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Roanoke, VA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n    }\n  ]\n}",
-        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+    "industries": [
+      "Healthcare",
+      "Transportation & Rail (Norfolk Southern)",
+      "Manufacturing",
+      "Education & Research",
+      "Banking & Financial Services",
+      "Government & Public Administration"
+    ],
+    "top_employers": [
+      "Carilion Clinic",
+      "Norfolk Southern Corporation",
+      "Advance Auto Parts",
+      "LewisGale Medical Center (HCA Virginia)",
+      "Virginia Tech Carilion School of Medicine",
+      "Wells Fargo",
+      "Roanoke City Public Schools",
+      "Kroger",
+      "Optical Cable Corporation",
+      "City of Roanoke",
+      "Roanoke County Government",
+      "Delta Dental of Virginia"
+    ],
+    "salary_note": "Project manager compensation in Roanoke tends to run below national averages typical of larger metro areas, reflecting the region's lower cost of living, but healthcare and rail/logistics employers often offer competitive packages for certified PMs. Demand for experienced, certified project managers remains steady given ongoing hospital and infrastructure expansion in the area.",
+    "market_blurb": "Roanoke's project management job market is anchored by its strong healthcare sector, led by Carilion Clinic, alongside a long-standing presence in rail transportation through Norfolk Southern. Manufacturing, education, and regional government projects further diversify demand for skilled project and program managers. As the city continues to invest in infrastructure and healthcare facility expansions, employers increasingly value formal project management training and certification.",
+    "notable_projects": [
+      "Carilion Clinic facility and service line expansions",
+      "Virginia Tech Carilion School of Medicine and Research Institute development",
+      "Norfolk Southern operational and facility upgrades in the Roanoke Valley",
+      "Roanoke River Greenway and downtown revitalization initiatives"
+    ],
+    "credential_demand": "PMP certification is increasingly listed as a preferred or required qualification in Roanoke-area project management job postings, particularly within healthcare systems and engineering/transportation employers. CAPM serves as a valuable entry point for those pursuing careers in the region's growing healthcare and infrastructure project sectors.",
+    "_researched": 1,
+    "city_spotlight": "<p>Roanoke's healthcare sector, anchored by Carilion Clinic and LewisGale Medical Center, drives sustained demand for skilled project managers—particularly as facilities expand and new service lines launch. Transportation, manufacturing, and regional government projects further broaden opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Roanoke-area professionals, enabling you to earn your credential on your schedule while advancing in a market where formal project management training is increasingly valued.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Roanoke's major employers—from healthcare systems like Carilion Clinic to transportation leaders like Norfolk Southern—depend on skilled project managers to deliver mission-critical work. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program designed to satisfy PMI's contact-hour education requirement and prepare you for the PMP credential exam. Earning your PMP demonstrates the discipline and methodology that positions you for advancement across Roanoke's healthcare, manufacturing, and government sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:47:50.178999Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3d58ec6ce15d38b0",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Roanoke: Train for High-Demand Certification",
+      "text": "<p>Roanoke's healthcare sector, anchored by Carilion Clinic and supported by LewisGale Medical Center and the Virginia Tech Carilion School of Medicine, represents one of the region's largest and fastest-growing employers of project managers. As these organizations expand facilities, modernize operations, and coordinate complex clinical programs, they actively recruit professionals with formal project management credentials. Simultaneously, Norfolk Southern's long-standing transportation and rail operations, combined with manufacturing, regional government initiatives, and infrastructure investments across Roanoke, create consistent demand for PMP-certified leaders who can manage budgets, timelines, and cross-functional teams. Earning your PMP certification signals to employers in these sectors that you possess the discipline, methodology, and proven competency to lead critical initiatives.</p><p>Granite PM Academy delivers PMP Bootcamp as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our program satisfies the contact-hour requirement mandated by the Project Management Institute and is taught by active certified practitioners with real-world project leadership experience. Whether you're advancing within Roanoke's healthcare network, supporting operations at a regional manufacturer, or pivoting into a project management role, our bootcamp prepares you to pass the PMP exam and step into a more strategic, better-compensated position in your career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:47:54.217681Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "7374c8bcfc31dd9d",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Roanoke's Healthcare & Rail Leaders Choose PMP Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP training meets PMI's rigorous standards. Employers across Roanoke's healthcare systems, transportation networks, and manufacturing firms recognize PMI-authorized preparation as the gold standard for project-management credibility."
+        },
+        {
+          "heading": "Live Instruction Fits Working Professional Schedules",
+          "text": "Our live-virtual, instructor-led bootcamp delivers the contact hours required for PMP eligibility without relocating or commuting. Attend from Roanoke while earning the structured, interactive instruction that ensures exam readiness and practical skill transfer."
+        },
+        {
+          "heading": "Learn From Active Certified Practitioners",
+          "text": "Your instructors are working PMP and CAPM certified professionals who apply project-management discipline daily in real roles. This keeps every lesson grounded in current best practices, not outdated theory—preparing you to lead projects immediately."
+        },
+        {
+          "heading": "PMP Demand Across Roanoke's Major Industries",
+          "text": "Carilion Clinic, Norfolk Southern, and Roanoke's government agencies increasingly require or favor PMP certification for program and project leadership roles. Earning your PMP credential directly strengthens your candidacy for advancement within Roanoke's largest employers and emerging opportunities across healthcare, rail, and public administration."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:47:58.742302Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "065a82ee91f00378",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Roanoke's Growth Sectors",
+      "text": "<p>Roanoke's healthcare expansion and transportation infrastructure needs are driving steady demand for certified project managers across the region's largest employers. Carilion Clinic's ongoing facility and service line expansions, along with the Virginia Tech Carilion School of Medicine and Research Institute development, represent major initiatives requiring skilled PM leadership. Norfolk Southern's operational and facility upgrades across the Roanoke Valley, combined with downtown revitalization and greenway projects, further underscore the breadth of opportunity. Healthcare systems, rail and logistics operators, and government agencies actively seek PMs who can demonstrate formal credentials and structured methodology—making certification a competitive asset in local hiring.</p><p>While project manager compensation in Roanoke reflects the region's lower cost of living relative to larger metros, healthcare and transportation employers often offer competitive packages for certified professionals. PMP® certification is increasingly listed as preferred or required in Roanoke-area job postings, particularly within hospital systems and engineering-focused organizations. Completing Granite PM Academy's PMP Bootcamp equips you with the credential and practical skills that employers here value most, positioning you to advance into higher-responsibility roles as the region's infrastructure and healthcare sectors continue to grow. The combination of steady local demand and a lower competitive threshold for certified talent creates a favorable entry or advancement opportunity for career-focused professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:02.758468Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "7f20ce4fe642d6af",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Roanoke",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience before you apply. Review PMI's specific requirements for your educational background and professional history to ensure you meet the foundation needed to sit for the exam."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. This formal education satisfies PMI's mandatory contact-hour requirement and covers the PMBOK® Guide framework, real-world scenarios, and exam strategy—delivered entirely online at times that fit your schedule."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing bootcamp coursework, submit your official PMI application with proof of education and project experience. Pay the associated exam fee directly to PMI to activate your eligibility and reserve your exam seat within the required window."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor guidance to consolidate your knowledge. Schedule your PMP exam at a Pearson VUE testing center and take the computer-based assessment on your chosen date."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) over a three-year renewal cycle to keep your certification active. Document your continuing education through PMI-approved activities and submit your renewal before expiration to sustain your credential and professional standing."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:07.332194Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "27065e0dbf7e0b25",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Roanoke healthcare project managers?",
+          "answer": "<p>Yes. Roanoke's healthcare sector—anchored by Carilion Clinic, LewisGale Medical Center, and Virginia Tech Carilion School of Medicine—increasingly lists PMP as preferred or required for project management roles. Healthcare systems managing facility expansions, IT implementations, and clinical workflows value certified practitioners. While Roanoke PM compensation typically runs below national metros, healthcare employers often structure competitive packages for credentialed project managers, making certification a tangible career accelerator in the region's largest employment sector.</p>"
+        },
+        {
+          "question": "Which Roanoke employers most actively hire PMP-certified project managers?",
+          "answer": "<p>Healthcare systems (Carilion, LewisGale), Norfolk Southern Corporation's rail and logistics operations, and engineering-focused manufacturers in the region actively recruit certified PMs. Infrastructure and public-sector employers—City of Roanoke, Roanoke County Government—also increasingly post PMP as preferred. Banking and financial services roles at Wells Fargo and government contracting work similarly benefit from certification. Steady demand reflects ongoing hospital expansion, transportation upgrades, and infrastructure investment across these sectors.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP Bootcamp from my Roanoke workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy delivers the PMP Bootcamp entirely live-virtual, so you can attend from your office, home, or any location with reliable internet connectivity. This format works well for Roanoke professionals managing full-time schedules at healthcare systems, Norfolk Southern, or government agencies. You'll participate in real-time instruction and interactive sessions without requiring travel, making it practical for those balancing work and certification preparation in the Roanoke area.</p>"
+        },
+        {
+          "question": "Should Roanoke professionals get PMP or CAPM first for project management careers?",
+          "answer": "<p>CAPM serves as a valuable entry point, especially in Roanoke's growing healthcare and infrastructure sectors, if you lack the required project management experience for PMP. However, if you meet PMP experience requirements, pursuing the PMP directly positions you faster for roles at Carilion, Norfolk Southern, or regional engineering firms where the credential is increasingly preferred or required. Timing depends on your current experience level and job market urgency in your target industry.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:14.038370Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8bd8ab9688c21a68",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Roanoke's healthcare sector, anchored by Carilion Clinic and LewisGale Medical Center, drives steady demand for skilled project managers—especially as major facility expansions and service line initiatives continue across the region. Norfolk Southern's ongoing operational and infrastructure upgrades, alongside manufacturing and government projects, further broaden opportunity for certified professionals. Granite PM Academy delivers live-virtual PMP Bootcamp training to Roanoke professionals seeking the credential employers increasingly value in today's competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:48:15.844973Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a95eeff9baa8c408",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-roanoke-va/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Roanoke, VA, PMP bootcamp Roanoke, PMP certification boot camp Roanoke, VA, PMP bootcamp near me, intensive PMP training Roanoke",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\",\n      \"name\": \"PMP Bootcamp in Roanoke, VA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Roanoke, VA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Roanoke, VA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#course\",\n      \"name\": \"PMP Bootcamp in Roanoke, VA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Roanoke, VA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-roanoke-va/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMP Bootcamp",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "1a2eea2155d777355b5ff0707995b162"
 }

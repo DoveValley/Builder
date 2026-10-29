@@ -1,405 +1,406 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "san-francisco-ca",
-  "slug": "pmp-bootcamp-san-francisco-ca",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "san-francisco-ca",
-    "city": "San Francisco",
-    "state": "California",
-    "SS": "CA",
-    "city_slug": "san-francisco-ca",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "san-francisco-ca",
+    "slug": "pmp-bootcamp-san-francisco-ca",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "san-francisco-ca",
+        "city": "San Francisco",
+        "state": "California",
+        "SS": "CA",
+        "city_slug": "san-francisco-ca",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Enterprise Software/Cloud",
+            "Banking & Financial Services",
+            "Payments Technology",
+            "Apparel",
+            "Internet Infrastructure"
+        ],
+        "top_employers": [
+            "Salesforce",
+            "Wells Fargo",
+            "Visa Inc.",
+            "Levi Strauss & Co.",
+            "Cloudflare",
+            "Autodesk"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "San Francisco's employer base is led by enterprise software and fintech companies headquartered downtown - Salesforce, Visa, Cloudflare, and Autodesk - alongside Wells Fargo's banking headquarters and a current wave of public-private downtown revitalization investment.",
+        "notable_projects": [
+            "Embarcadero Plaza and Sue Bierman Park transformation - ~$40M public-private redevelopment approved July 2026",
+            "Powell Street Improvement Project - $14.5M streetscape overhaul",
+            "Downtown Revitalization and Economic Recovery Financing District - established February 2026 to reinvest incremental property tax revenue into downtown redevelopment"
+        ],
+        "credential_demand": "Large-scale enterprise software and financial-services headquarters, combined with active downtown capital redevelopment programs, support real demand for structured project management skills such as PMP in the local job market.",
+        "_researched": 1,
+        "city_spotlight": "<p>San Francisco's employer base includes Salesforce, Wells Fargo, Visa Inc., Levi Strauss & Co.. San Francisco's employer base is led by enterprise software and fintech companies headquartered downtown - Salesforce, Visa, Cloudflare, and Autodesk - alongside Wells Fargo's banking headquarters and a current wave of public-private downtown revitalization investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to San Francisco professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>San Francisco's enterprise software, cloud, financial services, and payments technology sectors demand project managers who can navigate complex, high-stakes initiatives. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, preparing you to earn the PMP credential on your timeline. For project managers in this competitive market, PMP certification opens doors to senior roles and competitive compensation across the region's leading employers.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:40.185606Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "4e478602f5e74e49",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in San Francisco for Enterprise Software Leaders",
+            "text": "<p>San Francisco's enterprise software and fintech sector—anchored by companies like Salesforce, Visa, Cloudflare, and Autodesk—depends on project managers who can scale operations across global teams and complex technical environments. The PMP® certification has become the standard credential for professionals seeking to advance into leadership roles at these organizations and throughout the region's banking, payments, and cloud infrastructure industries. Whether you're managing cross-functional product launches, infrastructure rollouts, or financial technology implementations, the PMP® demonstrates your mastery of planning, execution, and risk management at a level that San Francisco employers actively seek.</p><p>Granite PM Academy delivers PMP® Bootcamp as a live-virtual, instructor-led program designed to satisfy all PMI® contact-hour requirements and prepare you for certification exam success. Our curriculum is taught by active certified practitioners with real-world experience in complex project environments, and the flexible format accommodates working professionals throughout San Francisco and beyond. By completing this intensive bootcamp, you'll earn the hours needed to apply for the PMP® credential, join a network of certified professionals, and position yourself competitively for advancement in your organization and across the Bay Area's dynamic project-management market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:43.631557Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "3af0dea11171c18c",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP certification for San Francisco's software and fintech leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-authorized credential path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. You earn required contact hours through live-virtual instruction that meets PMI's rigorous standards, positioning you for exam eligibility without compromise."
+                },
+                {
+                    "heading": "Instructors actively practicing today",
+                    "text": "Your instructors are certified project managers working in real enterprises right now. They bring current frameworks, real-world problem-solving, and field-tested techniques into every session—not outdated case studies."
+                },
+                {
+                    "heading": "Exam prep built into bootcamp",
+                    "text": "Live-virtual sessions integrate PMP exam strategy, question patterns, and confidence-building drills. You don't study separately; preparation is woven throughout, reducing study time after class ends."
+                },
+                {
+                    "heading": "Credential valued by Bay Area employers",
+                    "text": "Enterprise software, banking, and payments leaders in San Francisco—Salesforce, Wells Fargo, Visa—prioritize PMP-certified program and project managers. The credential unlocks roles and advancement in the region's fastest-growing sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:47.549950Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "24a8c07678596888",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP® Demand in San Francisco's Enterprise Tech Hub",
+            "text": "<p>San Francisco's concentration of enterprise software and financial-services headquarters creates sustained demand for certified project managers. Salesforce, Cloudflare, Autodesk, Wells Fargo, and Visa Inc. all maintain major operations in the city, managing complex product releases, infrastructure upgrades, and cross-functional initiatives that require structured project governance. Beyond corporate headquarters, the city's active downtown redevelopment—including the ~$40M Embarcadero Plaza and Sue Bierman Park transformation approved in July 2026 and the $14.5M Powell Street Improvement Project—demonstrates how public and private capital projects rely on PMP-certified professionals to coordinate budgets, timelines, and stakeholder alignment.</p><p>The PMP® credential carries measurable career value in this market. Nationally, PMP-certified project managers report median earnings substantially higher than their non-certified counterparts—a premium that holds across most regions and industries. In San Francisco's competitive landscape, where enterprise software, financial services, and payments technology dominate the employment base, that credential signals readiness for senior project leadership roles and positions you for advancement in organizations where project management maturity is a competitive advantage. Completing Granite PM Academy's PMP Bootcamp equips you with both the knowledge to pass the rigorous PMI® examination and the practical frameworks that San Francisco employers expect from certified practitioners.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:51.443052Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "c9ff064092af4bc9",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in San Francisco",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and project-management experience. Review PMI's baseline requirements—typically a high school diploma plus substantial hours leading projects—before you apply. Granite PM Academy's eligibility advisors can clarify whether your background qualifies."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. The instructor-led course covers all five process groups and ten knowledge areas tested on exam day. Flexible scheduling lets you complete hours around your current role at firms like Salesforce, Visa, or Wells Fargo."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the bootcamp, submit your official PMP application directly to PMI, documenting your education and project experience. Pay PMI's exam fee at the time of application. Granite PM Academy provides guidance on the application portal and required documentation."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A sessions—to build confidence before test day. You'll take the four-hour, 180-question PMP exam at a Pearson VUE testing center in the Bay Area. Our instructors remain available to clarify concepts during your final review."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After passing, you earn the PMP credential valid for three years. Maintain it by earning professional development units (PDUs) through continuing education, volunteering, or giving talks. PMI's online platform tracks your progress toward renewal, keeping your credential current as your career advances."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:56.840382Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "11647cd8ab03d6aa",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for San Francisco software engineers moving into project management?",
+                    "answer": "<p>Yes. Enterprise software and cloud-infrastructure companies headquartered in San Francisco—including Salesforce, Cloudflare, and Autodesk—routinely seek PMP-certified project managers to lead cross-functional teams and manage complex technical initiatives. While no city-specific salary premium has been independently verified, PMI's research shows PMP-certified professionals nationally report a median salary approximately $26,000 higher than non-certified peers, a differential that typically holds across major tech hubs.</p>"
+                },
+                {
+                    "question": "Do San Francisco's financial-services employers require or prefer PMP certification?",
+                    "answer": "<p>Large financial-services and payments-technology organizations based in San Francisco—such as Wells Fargo, Visa Inc., and other downtown institutions—actively recruit project managers with formal credentials like the PMP. These sectors rely on structured governance, regulatory compliance, and portfolio oversight, making PMP-certified professionals competitive candidates for mid- and senior-level roles managing mission-critical initiatives.</p>"
+                },
+                {
+                    "question": "Can I attend the PMP Bootcamp live-virtual course while working in San Francisco?",
+                    "answer": "<p>Yes. The PMP Bootcamp is delivered 100% live-virtual, so you can attend from your home, office, or any location with internet access. This format allows San Francisco professionals to complete the program without travel while maintaining full-time employment, and to engage in real-time instruction and group problem-solving with your cohort nationwide.</p>"
+                },
+                {
+                    "question": "How does San Francisco's project-management job market affect when I should certify?",
+                    "answer": "<p>San Francisco's active downtown redevelopment programs and dense concentration of enterprise software and financial-services headquarters create sustained demand for certified project managers. If you are planning a role transition or promotion within the next 6–12 months, pursuing PMP certification now positions you to compete for openings as they emerge, rather than preparing credentials after opportunity arises.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:02.777461Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "25024800bb1b102e",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>San Francisco's enterprise software and fintech sector—anchored by Salesforce, Visa, Cloudflare, and Wells Fargo—demands skilled project managers to lead complex digital and infrastructure initiatives. Downtown revitalization projects like the Embarcadero Plaza transformation underscore the city's ongoing investment in large-scale delivery programs. Granite PM Academy's live-virtual PMP Bootcamp equips San Francisco professionals with PMI certification and the credential recognition essential to advance in these competitive industries.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:04.553087Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "70b566ff36188882",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Enterprise Software/Cloud",
-      "Banking & Financial Services",
-      "Payments Technology",
-      "Apparel",
-      "Internet Infrastructure"
-    ],
-    "top_employers": [
-      "Salesforce",
-      "Wells Fargo",
-      "Visa Inc.",
-      "Levi Strauss & Co.",
-      "Cloudflare",
-      "Autodesk"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "San Francisco's employer base is led by enterprise software and fintech companies headquartered downtown - Salesforce, Visa, Cloudflare, and Autodesk - alongside Wells Fargo's banking headquarters and a current wave of public-private downtown revitalization investment.",
-    "notable_projects": [
-      "Embarcadero Plaza and Sue Bierman Park transformation - ~$40M public-private redevelopment approved July 2026",
-      "Powell Street Improvement Project - $14.5M streetscape overhaul",
-      "Downtown Revitalization and Economic Recovery Financing District - established February 2026 to reinvest incremental property tax revenue into downtown redevelopment"
-    ],
-    "credential_demand": "Large-scale enterprise software and financial-services headquarters, combined with active downtown capital redevelopment programs, support real demand for structured project management skills such as PMP in the local job market.",
-    "_researched": 1,
-    "city_spotlight": "<p>San Francisco's employer base includes Salesforce, Wells Fargo, Visa Inc., Levi Strauss & Co.. San Francisco's employer base is led by enterprise software and fintech companies headquartered downtown - Salesforce, Visa, Cloudflare, and Autodesk - alongside Wells Fargo's banking headquarters and a current wave of public-private downtown revitalization investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to San Francisco professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>San Francisco's enterprise software, cloud, financial services, and payments technology sectors demand project managers who can navigate complex, high-stakes initiatives. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, preparing you to earn the PMP credential on your timeline. For project managers in this competitive market, PMP certification opens doors to senior roles and competitive compensation across the region's leading employers.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:40.185606Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "4e478602f5e74e49",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp San Francisco, CA, PMP bootcamp San Francisco, PMP certification boot camp San Francisco, CA, PMP bootcamp near me, intensive PMP training San Francisco",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\",\n      \"name\": \"PMP Bootcamp in San Francisco, CA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in San Francisco, CA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in San Francisco, CA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#course\",\n      \"name\": \"PMP Bootcamp in San Francisco, CA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in San Francisco, CA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in San Francisco for Enterprise Software Leaders",
-      "text": "<p>San Francisco's enterprise software and fintech sector—anchored by companies like Salesforce, Visa, Cloudflare, and Autodesk—depends on project managers who can scale operations across global teams and complex technical environments. The PMP® certification has become the standard credential for professionals seeking to advance into leadership roles at these organizations and throughout the region's banking, payments, and cloud infrastructure industries. Whether you're managing cross-functional product launches, infrastructure rollouts, or financial technology implementations, the PMP® demonstrates your mastery of planning, execution, and risk management at a level that San Francisco employers actively seek.</p><p>Granite PM Academy delivers PMP® Bootcamp as a live-virtual, instructor-led program designed to satisfy all PMI® contact-hour requirements and prepare you for certification exam success. Our curriculum is taught by active certified practitioners with real-world experience in complex project environments, and the flexible format accommodates working professionals throughout San Francisco and beyond. By completing this intensive bootcamp, you'll earn the hours needed to apply for the PMP® credential, join a network of certified professionals, and position yourself competitively for advancement in your organization and across the Bay Area's dynamic project-management market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:43.631557Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "3af0dea11171c18c",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP certification for San Francisco's software and fintech leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-authorized credential path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. You earn required contact hours through live-virtual instruction that meets PMI's rigorous standards, positioning you for exam eligibility without compromise."
-        },
-        {
-          "heading": "Instructors actively practicing today",
-          "text": "Your instructors are certified project managers working in real enterprises right now. They bring current frameworks, real-world problem-solving, and field-tested techniques into every session—not outdated case studies."
-        },
-        {
-          "heading": "Exam prep built into bootcamp",
-          "text": "Live-virtual sessions integrate PMP exam strategy, question patterns, and confidence-building drills. You don't study separately; preparation is woven throughout, reducing study time after class ends."
-        },
-        {
-          "heading": "Credential valued by Bay Area employers",
-          "text": "Enterprise software, banking, and payments leaders in San Francisco—Salesforce, Wells Fargo, Visa—prioritize PMP-certified program and project managers. The credential unlocks roles and advancement in the region's fastest-growing sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:47.549950Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "24a8c07678596888",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP® Demand in San Francisco's Enterprise Tech Hub",
-      "text": "<p>San Francisco's concentration of enterprise software and financial-services headquarters creates sustained demand for certified project managers. Salesforce, Cloudflare, Autodesk, Wells Fargo, and Visa Inc. all maintain major operations in the city, managing complex product releases, infrastructure upgrades, and cross-functional initiatives that require structured project governance. Beyond corporate headquarters, the city's active downtown redevelopment—including the ~$40M Embarcadero Plaza and Sue Bierman Park transformation approved in July 2026 and the $14.5M Powell Street Improvement Project—demonstrates how public and private capital projects rely on PMP-certified professionals to coordinate budgets, timelines, and stakeholder alignment.</p><p>The PMP® credential carries measurable career value in this market. Nationally, PMP-certified project managers report median earnings substantially higher than their non-certified counterparts—a premium that holds across most regions and industries. In San Francisco's competitive landscape, where enterprise software, financial services, and payments technology dominate the employment base, that credential signals readiness for senior project leadership roles and positions you for advancement in organizations where project management maturity is a competitive advantage. Completing Granite PM Academy's PMP Bootcamp equips you with both the knowledge to pass the rigorous PMI® examination and the practical frameworks that San Francisco employers expect from certified practitioners.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:51.443052Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "c9ff064092af4bc9",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in San Francisco",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's baseline requirements—typically a high school diploma plus substantial hours leading projects—before you apply. Granite PM Academy's eligibility advisors can clarify whether your background qualifies."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. The instructor-led course covers all five process groups and ten knowledge areas tested on exam day. Flexible scheduling lets you complete hours around your current role at firms like Salesforce, Visa, or Wells Fargo."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing the bootcamp, submit your official PMP application directly to PMI, documenting your education and project experience. Pay PMI's exam fee at the time of application. Granite PM Academy provides guidance on the application portal and required documentation."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A sessions—to build confidence before test day. You'll take the four-hour, 180-question PMP exam at a Pearson VUE testing center in the Bay Area. Our instructors remain available to clarify concepts during your final review."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After passing, you earn the PMP credential valid for three years. Maintain it by earning professional development units (PDUs) through continuing education, volunteering, or giving talks. PMI's online platform tracks your progress toward renewal, keeping your credential current as your career advances."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:56.840382Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "11647cd8ab03d6aa",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for San Francisco software engineers moving into project management?",
-          "answer": "<p>Yes. Enterprise software and cloud-infrastructure companies headquartered in San Francisco—including Salesforce, Cloudflare, and Autodesk—routinely seek PMP-certified project managers to lead cross-functional teams and manage complex technical initiatives. While no city-specific salary premium has been independently verified, PMI's research shows PMP-certified professionals nationally report a median salary approximately $26,000 higher than non-certified peers, a differential that typically holds across major tech hubs.</p>"
-        },
-        {
-          "question": "Do San Francisco's financial-services employers require or prefer PMP certification?",
-          "answer": "<p>Large financial-services and payments-technology organizations based in San Francisco—such as Wells Fargo, Visa Inc., and other downtown institutions—actively recruit project managers with formal credentials like the PMP. These sectors rely on structured governance, regulatory compliance, and portfolio oversight, making PMP-certified professionals competitive candidates for mid- and senior-level roles managing mission-critical initiatives.</p>"
-        },
-        {
-          "question": "Can I attend the PMP Bootcamp live-virtual course while working in San Francisco?",
-          "answer": "<p>Yes. The PMP Bootcamp is delivered 100% live-virtual, so you can attend from your home, office, or any location with internet access. This format allows San Francisco professionals to complete the program without travel while maintaining full-time employment, and to engage in real-time instruction and group problem-solving with your cohort nationwide.</p>"
-        },
-        {
-          "question": "How does San Francisco's project-management job market affect when I should certify?",
-          "answer": "<p>San Francisco's active downtown redevelopment programs and dense concentration of enterprise software and financial-services headquarters create sustained demand for certified project managers. If you are planning a role transition or promotion within the next 6–12 months, pursuing PMP certification now positions you to compete for openings as they emerge, rather than preparing credentials after opportunity arises.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:02.777461Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "25024800bb1b102e",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>San Francisco's enterprise software and fintech sector—anchored by Salesforce, Visa, Cloudflare, and Wells Fargo—demands skilled project managers to lead complex digital and infrastructure initiatives. Downtown revitalization projects like the Embarcadero Plaza transformation underscore the city's ongoing investment in large-scale delivery programs. Granite PM Academy's live-virtual PMP Bootcamp equips San Francisco professionals with PMI certification and the credential recognition essential to advance in these competitive industries.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:04.553087Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "70b566ff36188882",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp San Francisco, CA, PMP bootcamp San Francisco, PMP certification boot camp San Francisco, CA, PMP bootcamp near me, intensive PMP training San Francisco",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\",\n      \"name\": \"PMP Bootcamp in San Francisco, CA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in San Francisco, CA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in San Francisco, CA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#course\",\n      \"name\": \"PMP Bootcamp in San Francisco, CA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in San Francisco, CA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-san-francisco-ca/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

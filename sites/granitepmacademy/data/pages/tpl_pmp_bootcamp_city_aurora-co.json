@@ -1,408 +1,409 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "aurora-co",
-  "slug": "pmp-bootcamp-aurora-co",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "aurora-co",
-    "city": "Aurora",
-    "state": "Colorado",
-    "SS": "CO",
-    "city_slug": "aurora-co",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier4",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "aurora-co",
+    "slug": "pmp-bootcamp-aurora-co",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "aurora-co",
+        "city": "Aurora",
+        "state": "Colorado",
+        "SS": "CO",
+        "city_slug": "aurora-co",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier4",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Aerospace & defense",
+            "Healthcare",
+            "Education",
+            "Government",
+            "Hospitality/tourism"
+        ],
+        "top_employers": [
+            "Buckley Space Force Base",
+            "Anschutz Medical Campus/University of Colorado Hospital",
+            "Children's Hospital Colorado",
+            "Aurora Public Schools",
+            "Cherry Creek Schools",
+            "Kaiser Permanente"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Aurora's economy anchors on Buckley Space Force Base and the Anschutz Medical Campus (University of Colorado Hospital, Children's Hospital Colorado), alongside large public employers like Aurora Public Schools and Cherry Creek Schools, with Kaiser Permanente adding private-sector scale.",
+        "notable_projects": [
+            "Gaylord Rockies Resort & Convention Center - $800M resort/convention complex, opened 2018",
+            "Anschutz Medical Campus build-out - ongoing expansion projected to reach 32,000 jobs at full build-out"
+        ],
+        "credential_demand": "A real mix of large defense/aerospace, hospital-system, and public-sector employers in Aurora commonly runs formal project offices, so PMP demand is plausible across healthcare construction/IT, base/defense contracting, and school-district capital projects.",
+        "_researched": 1,
+        "city_spotlight": "<p>Aurora's employer base includes Buckley Space Force Base, Anschutz Medical Campus/University of Colorado Hospital, Children's Hospital Colorado, Aurora Public Schools. Aurora's economy anchors on Buckley Space Force Base and the Anschutz Medical Campus (University of Colorado Hospital, Children's Hospital Colorado), alongside large public employers like Aurora Public Schools and Cherry Creek Schools, with Kaiser Permanente adding private-sector scale. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Aurora professionals seeking to advance their project management careers.</p>",
+        "city_image_alt": "Aurora, CO",
+        "city_image_credit": "Photo: Jeffrey Beall (Denverjeffrey), CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Aurora_Municipal_Center.JPG",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-aurora-co.webp"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Aurora's aerospace, defense, healthcare, and government sectors rely on skilled project managers to deliver complex initiatives. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's contact-hour education requirement, letting you earn your credential on your schedule while working. Completing your PMP positions you for leadership roles across Aurora's major employers and expands your earning potential in project-driven fields.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:25.612457Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "553868493070e461",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Aurora: Fast-Track Certification for Aerospace & Defense Leaders",
+            "text": "<p>Aurora's economy centers on Buckley Space Force Base and the Anschutz Medical Campus, two anchor employers where project management expertise directly impacts mission-critical work and patient outcomes. Aerospace and defense contractors, healthcare systems, and public education agencies across Aurora demand certified project managers who can lead complex, regulated initiatives with discipline and accountability. The PMP credential signals that capability to hiring managers and opens advancement paths in environments where federal compliance, safety, and resource efficiency are non-negotiable. Whether you're managing defense contracts, clinical workflows, or school district programs, the PMP sets you apart in Aurora's competitive, high-stakes job market.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp designed for working professionals who need certification without pausing their careers. As a PMI Authorized Training Partner, we provide instructor-led training that satisfies PMI contact-hour requirements and prepares you for the PMP exam through real-world scenarios taught by active certified practitioners. Our flexible virtual format means Aurora professionals can earn their credential on their schedule, from anywhere, while mastering the frameworks and tools that employers in aerospace, healthcare, and government immediately recognize and value. Your PMP certification is within reach—start your bootcamp journey today and advance your career in Aurora's growing project management market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:29.723463Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "ebe97562dccdfc75",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Bootcamp: Aurora's Edge in Defense, Healthcare, and Government",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Means Real Credential",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility—no questions, no delays. You earn the contact hours this credential demands while learning from a provider vetted by the Project Management Institute itself."
+                },
+                {
+                    "heading": "Live Instructors, Real Schedules",
+                    "text": "Every session runs live and virtual with active certified practitioners teaching in real time. No recordings, no self-paced workarounds. You ask questions, get immediate feedback, and complete your contact-hour requirement without stretching the timeline. Flexible scheduling fits working professionals."
+                },
+                {
+                    "heading": "Exam Prep Built Into Bootcamp",
+                    "text": "Study materials, practice exams, and test-taking strategy aren't add-ons—they're woven through the course. You leave ready to sit for the PMP exam, not scrambling for additional prep resources. Instructors walk through real-world scenarios so the exam feels familiar."
+                },
+                {
+                    "heading": "Credential Aurora's Employers Value",
+                    "text": "Aerospace & defense, healthcare systems, and government agencies across Aurora—including Buckley Space Force Base, UCHealth, and Children's Hospital Colorado—seek project managers with PMP certification. This bootcamp delivers the credential those sectors actively hire for and promote within."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:34.326586Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "b18ddace2ec4b117",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Across Aurora's Defense and Healthcare Hub",
+            "text": "<p>Aurora's economy anchors on Buckley Space Force Base and major healthcare systems—Anschutz Medical Campus, University of Colorado Hospital, and Children's Hospital Colorado—all of which depend on skilled project managers to execute complex operations and capital initiatives. The Anschutz Medical Campus continues its build-out toward a full 32,000-job campus, representing sustained demand for PMs across construction, IT infrastructure, and clinical operations. Aurora Public Schools and Cherry Creek Schools also run formal project offices managing bond initiatives and facilities upgrades. Kaiser Permanente and the hospitality sector (exemplified by the $800 million Gaylord Rockies Resort & Convention Center) further diversify PM opportunities across healthcare delivery, IT, and hospitality operations.</p><p>Earning a PMP® credential positions you competitively in Aurora's employer landscape. Nationally, certified project managers command a meaningful salary premium over non-certified peers—a gap that holds across most regions and industries. In a market where aerospace and defense contractors, hospital systems, and school districts operate structured project offices, the PMP® demonstrates the formal expertise these employers actively seek. Completing Granite PM Academy's PMP Bootcamp—delivered entirely live-virtual with flexible scheduling—equips you with the credential and rigor to advance into senior PM roles without disrupting your current work or location. For Aurora professionals targeting defense, healthcare construction, or public-sector capital projects, the PMP® is a direct pathway to higher responsibility and compensation.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:39.072663Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "b4ee71a42e303aee",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Aurora",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high school diploma plus five years of equivalent experience. Review PMI's official requirements to verify your qualifications before enrolling in Granite PM Academy's bootcamp."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Instruction",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Bootcamp. You'll complete the full PMI-required contact hours through interactive online sessions led by active certified practitioners, on a schedule that fits your Aurora-area work commitments."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing your bootcamp coursework, complete your official PMI application with proof of your education and project experience. Submit payment of the exam fee directly to PMI to activate your eligibility window and secure your testing appointment."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor office hours—to sharpen your knowledge. When ready, take the computer-based PMP® exam at a Pearson VUE testing center in or near Aurora on your scheduled date."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "After you earn your credential, commit to the three-year renewal cycle by earning Professional Development Units (PDUs) through PMI-approved activities, training, and project work. Plan early to meet your renewal deadline and keep your credential active throughout your career."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:43.634063Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "3bad50d27419f489",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Aurora aerospace and defense careers?",
+                    "answer": "<p>Aurora's largest employers—including Buckley Space Force Base and defense contractors—operate formal program and project management offices where PMP-certified professionals lead complex initiatives. The credential demonstrates mastery of standardized frameworks these organizations rely on for mission-critical work. While no Aurora-specific salary data exists independently, PMI data shows PMP-certified project managers earn a significant premium over non-certified peers nationally, a gap that typically holds across defense and government sectors where structured methodology is highly valued.</p>"
+                },
+                {
+                    "question": "Which Aurora industries and employers hire PMP-certified project managers?",
+                    "answer": "<p>Aurora's healthcare sector—anchored by Anschutz Medical Campus, University of Colorado Hospital, Children's Hospital Colorado, and Kaiser Permanente—frequently requires PMP certification for construction, IT infrastructure, and clinical IT projects. Buckley Space Force Base and defense contractors demand it for program delivery. Aurora Public Schools and Cherry Creek Schools use certified professionals for capital bond projects and district-wide initiatives. The mix of large aerospace, healthcare, and public-sector organizations creates consistent demand across multiple career paths.</p>"
+                },
+                {
+                    "question": "Can I take the PMP Bootcamp remotely from my Aurora workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is 100% live-virtual, so you can attend from your office, home, or any location with reliable internet. Many Aurora professionals in healthcare systems, school districts, and defense organizations join sessions during work hours or flex schedules. You'll interact with active instructors and peers in real time across the full course, with no travel required.</p>"
+                },
+                {
+                    "question": "Should Aurora project managers pursue PMP certification now or wait?",
+                    "answer": "<p>Aurora's competitive job market—spanning Buckley Space Force Base contracting, hospital system expansions, and school district capital projects—favors certified professionals immediately. Employers in these sectors regularly advertise PMP as preferred or required. Delaying certification means missing advancement and compensation opportunities in roles where your local market actively values the credential. The sooner you complete the bootcamp, the sooner you can position yourself for these openings.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:49.803541Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "9f94be1f881222db",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Aurora's economy centers on aerospace and defense at Buckley Space Force Base alongside the fast-expanding Anschutz Medical Campus, where ongoing development is projected to create 32,000 jobs—fueling sustained demand for skilled project managers across government, healthcare, and education sectors. Large public employers and private anchors like Kaiser Permanente amplify that need. Granite PM Academy's live-virtual PMP Bootcamp equips Aurora professionals with PMI certification on a flexible schedule, whether you're advancing in defense contracting, hospital system management, or school district operations.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:51.780825Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "c74d16763fecc45f",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & defense",
-      "Healthcare",
-      "Education",
-      "Government",
-      "Hospitality/tourism"
-    ],
-    "top_employers": [
-      "Buckley Space Force Base",
-      "Anschutz Medical Campus/University of Colorado Hospital",
-      "Children's Hospital Colorado",
-      "Aurora Public Schools",
-      "Cherry Creek Schools",
-      "Kaiser Permanente"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Aurora's economy anchors on Buckley Space Force Base and the Anschutz Medical Campus (University of Colorado Hospital, Children's Hospital Colorado), alongside large public employers like Aurora Public Schools and Cherry Creek Schools, with Kaiser Permanente adding private-sector scale.",
-    "notable_projects": [
-      "Gaylord Rockies Resort & Convention Center - $800M resort/convention complex, opened 2018",
-      "Anschutz Medical Campus build-out - ongoing expansion projected to reach 32,000 jobs at full build-out"
-    ],
-    "credential_demand": "A real mix of large defense/aerospace, hospital-system, and public-sector employers in Aurora commonly runs formal project offices, so PMP demand is plausible across healthcare construction/IT, base/defense contracting, and school-district capital projects.",
-    "_researched": 1,
-    "city_spotlight": "<p>Aurora's employer base includes Buckley Space Force Base, Anschutz Medical Campus/University of Colorado Hospital, Children's Hospital Colorado, Aurora Public Schools. Aurora's economy anchors on Buckley Space Force Base and the Anschutz Medical Campus (University of Colorado Hospital, Children's Hospital Colorado), alongside large public employers like Aurora Public Schools and Cherry Creek Schools, with Kaiser Permanente adding private-sector scale. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Aurora professionals seeking to advance their project management careers.</p>",
-    "city_image_alt": "Aurora, CO",
-    "city_image_credit": "Photo: Jeffrey Beall (Denverjeffrey), CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Aurora_Municipal_Center.JPG",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-aurora-co.webp"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Aurora's aerospace, defense, healthcare, and government sectors rely on skilled project managers to deliver complex initiatives. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's contact-hour education requirement, letting you earn your credential on your schedule while working. Completing your PMP positions you for leadership roles across Aurora's major employers and expands your earning potential in project-driven fields.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:25.612457Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "553868493070e461",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-aurora-co/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Aurora, CO, PMP bootcamp Aurora, PMP certification boot camp Aurora, CO, PMP bootcamp near me, intensive PMP training Aurora",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\",\n      \"name\": \"PMP Bootcamp in Aurora, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Aurora, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Aurora, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#course\",\n      \"name\": \"PMP Bootcamp in Aurora, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Aurora, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Aurora: Fast-Track Certification for Aerospace & Defense Leaders",
-      "text": "<p>Aurora's economy centers on Buckley Space Force Base and the Anschutz Medical Campus, two anchor employers where project management expertise directly impacts mission-critical work and patient outcomes. Aerospace and defense contractors, healthcare systems, and public education agencies across Aurora demand certified project managers who can lead complex, regulated initiatives with discipline and accountability. The PMP credential signals that capability to hiring managers and opens advancement paths in environments where federal compliance, safety, and resource efficiency are non-negotiable. Whether you're managing defense contracts, clinical workflows, or school district programs, the PMP sets you apart in Aurora's competitive, high-stakes job market.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp designed for working professionals who need certification without pausing their careers. As a PMI Authorized Training Partner, we provide instructor-led training that satisfies PMI contact-hour requirements and prepares you for the PMP exam through real-world scenarios taught by active certified practitioners. Our flexible virtual format means Aurora professionals can earn their credential on their schedule, from anywhere, while mastering the frameworks and tools that employers in aerospace, healthcare, and government immediately recognize and value. Your PMP certification is within reach—start your bootcamp journey today and advance your career in Aurora's growing project management market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:29.723463Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "ebe97562dccdfc75",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Bootcamp: Aurora's Edge in Defense, Healthcare, and Government",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Means Real Credential",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility—no questions, no delays. You earn the contact hours this credential demands while learning from a provider vetted by the Project Management Institute itself."
-        },
-        {
-          "heading": "Live Instructors, Real Schedules",
-          "text": "Every session runs live and virtual with active certified practitioners teaching in real time. No recordings, no self-paced workarounds. You ask questions, get immediate feedback, and complete your contact-hour requirement without stretching the timeline. Flexible scheduling fits working professionals."
-        },
-        {
-          "heading": "Exam Prep Built Into Bootcamp",
-          "text": "Study materials, practice exams, and test-taking strategy aren't add-ons—they're woven through the course. You leave ready to sit for the PMP exam, not scrambling for additional prep resources. Instructors walk through real-world scenarios so the exam feels familiar."
-        },
-        {
-          "heading": "Credential Aurora's Employers Value",
-          "text": "Aerospace & defense, healthcare systems, and government agencies across Aurora—including Buckley Space Force Base, UCHealth, and Children's Hospital Colorado—seek project managers with PMP certification. This bootcamp delivers the credential those sectors actively hire for and promote within."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:34.326586Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "b18ddace2ec4b117",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Across Aurora's Defense and Healthcare Hub",
-      "text": "<p>Aurora's economy anchors on Buckley Space Force Base and major healthcare systems—Anschutz Medical Campus, University of Colorado Hospital, and Children's Hospital Colorado—all of which depend on skilled project managers to execute complex operations and capital initiatives. The Anschutz Medical Campus continues its build-out toward a full 32,000-job campus, representing sustained demand for PMs across construction, IT infrastructure, and clinical operations. Aurora Public Schools and Cherry Creek Schools also run formal project offices managing bond initiatives and facilities upgrades. Kaiser Permanente and the hospitality sector (exemplified by the $800 million Gaylord Rockies Resort & Convention Center) further diversify PM opportunities across healthcare delivery, IT, and hospitality operations.</p><p>Earning a PMP® credential positions you competitively in Aurora's employer landscape. Nationally, certified project managers command a meaningful salary premium over non-certified peers—a gap that holds across most regions and industries. In a market where aerospace and defense contractors, hospital systems, and school districts operate structured project offices, the PMP® demonstrates the formal expertise these employers actively seek. Completing Granite PM Academy's PMP Bootcamp—delivered entirely live-virtual with flexible scheduling—equips you with the credential and rigor to advance into senior PM roles without disrupting your current work or location. For Aurora professionals targeting defense, healthcare construction, or public-sector capital projects, the PMP® is a direct pathway to higher responsibility and compensation.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:39.072663Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "b4ee71a42e303aee",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Aurora",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high school diploma plus five years of equivalent experience. Review PMI's official requirements to verify your qualifications before enrolling in Granite PM Academy's bootcamp."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Instruction",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Bootcamp. You'll complete the full PMI-required contact hours through interactive online sessions led by active certified practitioners, on a schedule that fits your Aurora-area work commitments."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing your bootcamp coursework, complete your official PMI application with proof of your education and project experience. Submit payment of the exam fee directly to PMI to activate your eligibility window and secure your testing appointment."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor office hours—to sharpen your knowledge. When ready, take the computer-based PMP® exam at a Pearson VUE testing center in or near Aurora on your scheduled date."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "After you earn your credential, commit to the three-year renewal cycle by earning Professional Development Units (PDUs) through PMI-approved activities, training, and project work. Plan early to meet your renewal deadline and keep your credential active throughout your career."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:43.634063Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "3bad50d27419f489",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Aurora aerospace and defense careers?",
-          "answer": "<p>Aurora's largest employers—including Buckley Space Force Base and defense contractors—operate formal program and project management offices where PMP-certified professionals lead complex initiatives. The credential demonstrates mastery of standardized frameworks these organizations rely on for mission-critical work. While no Aurora-specific salary data exists independently, PMI data shows PMP-certified project managers earn a significant premium over non-certified peers nationally, a gap that typically holds across defense and government sectors where structured methodology is highly valued.</p>"
-        },
-        {
-          "question": "Which Aurora industries and employers hire PMP-certified project managers?",
-          "answer": "<p>Aurora's healthcare sector—anchored by Anschutz Medical Campus, University of Colorado Hospital, Children's Hospital Colorado, and Kaiser Permanente—frequently requires PMP certification for construction, IT infrastructure, and clinical IT projects. Buckley Space Force Base and defense contractors demand it for program delivery. Aurora Public Schools and Cherry Creek Schools use certified professionals for capital bond projects and district-wide initiatives. The mix of large aerospace, healthcare, and public-sector organizations creates consistent demand across multiple career paths.</p>"
-        },
-        {
-          "question": "Can I take the PMP Bootcamp remotely from my Aurora workplace?",
-          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is 100% live-virtual, so you can attend from your office, home, or any location with reliable internet. Many Aurora professionals in healthcare systems, school districts, and defense organizations join sessions during work hours or flex schedules. You'll interact with active instructors and peers in real time across the full course, with no travel required.</p>"
-        },
-        {
-          "question": "Should Aurora project managers pursue PMP certification now or wait?",
-          "answer": "<p>Aurora's competitive job market—spanning Buckley Space Force Base contracting, hospital system expansions, and school district capital projects—favors certified professionals immediately. Employers in these sectors regularly advertise PMP as preferred or required. Delaying certification means missing advancement and compensation opportunities in roles where your local market actively values the credential. The sooner you complete the bootcamp, the sooner you can position yourself for these openings.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:49.803541Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "9f94be1f881222db",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Aurora's economy centers on aerospace and defense at Buckley Space Force Base alongside the fast-expanding Anschutz Medical Campus, where ongoing development is projected to create 32,000 jobs—fueling sustained demand for skilled project managers across government, healthcare, and education sectors. Large public employers and private anchors like Kaiser Permanente amplify that need. Granite PM Academy's live-virtual PMP Bootcamp equips Aurora professionals with PMI certification on a flexible schedule, whether you're advancing in defense contracting, hospital system management, or school district operations.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:51.780825Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "c74d16763fecc45f",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-aurora-co/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Aurora, CO, PMP bootcamp Aurora, PMP certification boot camp Aurora, CO, PMP bootcamp near me, intensive PMP training Aurora",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\",\n      \"name\": \"PMP Bootcamp in Aurora, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Aurora, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Aurora, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#course\",\n      \"name\": \"PMP Bootcamp in Aurora, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Aurora, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-aurora-co/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

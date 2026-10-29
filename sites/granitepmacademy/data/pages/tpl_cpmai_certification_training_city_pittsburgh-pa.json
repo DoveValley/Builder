@@ -1,0 +1,391 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "pittsburgh-pa",
+  "slug": "ai-training-pittsburgh-pa",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "pittsburgh-pa",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "pittsburgh-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Financial Services",
+      "Healthcare",
+      "Materials & Chemicals",
+      "Rail & Transportation Equipment",
+      "Higher Education"
+    ],
+    "top_employers": [
+      "PNC Financial Services Group",
+      "PPG Industries",
+      "UPMC",
+      "Highmark Health",
+      "Wabtec Corporation",
+      "University of Pittsburgh"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Pittsburgh's economy centers on PNC Financial Services Group and PPG Industries downtown, alongside two major health systems, UPMC and Highmark Health, with Wabtec anchoring rail/transit manufacturing and Carnegie Mellon and Pitt driving research and robotics investment.",
+    "notable_projects": [
+      "Hazelwood Green redevelopment - former steel mill site now home to Carnegie Mellon's Robotics Innovation Center, with a projected 4,500 permanent jobs",
+      "The Field at Hazelwood Green - multipurpose athletic facility by Tishman Speyer, the Richard King Mellon Foundation, and the Pittsburgh Steelers, slated to open 2026"
+    ],
+    "credential_demand": "Large financial-services, healthcare-system, and advanced-manufacturing employers coordinating complex capital projects - like the Hazelwood Green buildout - make PMP certification a reasonable differentiator for project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Pittsburgh's employer base includes PNC Financial Services Group, PPG Industries, UPMC, Highmark Health. Pittsburgh's economy centers on PNC Financial Services Group and PPG Industries downtown, alongside two major health systems, UPMC and Highmark Health, with Wabtec anchoring rail/transit manufacturing and Carnegie Mellon and Pitt driving research and robotics investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Pittsburgh professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMI-CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Pittsburgh's major employers in financial services, healthcare, and advanced manufacturing rely on certified project managers to coordinate complex, multi-stakeholder initiatives. Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that satisfy PMI's contact-hour education requirement, enabling you to earn this credential on a schedule that fits your current role. Completing your PMI-CPMAI positions you competitively for project leadership opportunities across Pittsburgh's largest organizations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:31.415447Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2ffe086aac77ef50",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Pittsburgh, PA",
+      "text": "<p>Pittsburgh's financial services and healthcare sectors—anchored by powerhouses like PNC Financial Services Group, UPMC, and Highmark Health—depend on certified project and program managers to coordinate complex initiatives across enterprise operations, digital transformation, and clinical delivery. The PMI-CPMAI (Certified Associate in Project Management) credential signals to employers in these industries that you possess foundational project management discipline and vocabulary aligned with PMI standards. For professionals in Pittsburgh looking to advance within these major employers or compete for roles in the city's robust financial services and healthcare ecosystems, the CPMAI is a credible stepping stone that demonstrates commitment to professional rigor and eligibility for more senior certifications.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual, instructor-led PMI-CPMAI Certification Training that meets the contact-hour requirements for your credential application. Our active certified practitioners bring real-world project management experience to every session, ensuring you learn not just theory but practical application. The live-virtual format means you can pursue your certification on your schedule without geographical constraints, and our structured curriculum prepares you systematically for the PMI-CPMAI exam. When you complete your training with Granite PM Academy, you'll have both the knowledge and the documented hours you need to apply for and earn your PMI-CPMAI—opening doors to career growth in Pittsburgh's competitive project-driven market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:35.376263Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f23820b8f0cebf7c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI certification for Pittsburgh's financial and healthcare leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI authorization — credential employers recognize",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI completion certificate satisfies contact-hour requirements and is recognized by employers across Pittsburgh's major industries, from financial services to healthcare."
+        },
+        {
+          "heading": "Live instruction fits working schedules",
+          "text": "Attend live-virtual classes on your schedule — no commute, no fixed classroom. Our instructor-led format delivers the direct interaction and real-time Q&A that prepare you for exam success while balancing work and study."
+        },
+        {
+          "heading": "Learn from active certified practitioners",
+          "text": "Your instructors hold active certifications and apply project and program management daily. They bring current case studies and practical insights, not just textbook theory, into every session."
+        },
+        {
+          "heading": "Pittsburgh employers value this credential",
+          "text": "PNC Financial Services, UPMC, PPG Industries, and other major Pittsburgh employers seek certified program and project managers. PMI-CPMAI validates the strategic leadership skills these organizations prioritize for advancement."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:39.132857Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "09356643897c2ac1",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Pittsburgh's Growth Sectors",
+      "text": "<p>Pittsburgh's major employers—PNC Financial Services Group, PPG Industries, UPMC, Highmark Health, Wabtec Corporation, and the University of Pittsburgh—regularly coordinate large-scale capital projects that demand certified project and program management expertise. The Hazelwood Green redevelopment, transforming a former steel mill into a hub for advanced manufacturing and innovation, exemplifies the complexity these organizations tackle. Similarly, The Field at Hazelwood Green, a multipurpose facility set to open in 2026, represents the kind of multistakeholder initiative where structured project-management credentials distinguish candidates competing for leadership roles in finance, healthcare systems, materials science, rail transportation, and higher education.</p><p>The PMP® certification has long commanded a measurable salary premium over non-certified peers across most U.S. regions, reflecting employer investment in rigorous credential standards. For professionals in Pittsburgh's financial-services and healthcare ecosystems—sectors that anchor the region's economy—completing PMI-CPMAI Certification Training through Granite PM Academy positions you to advance into roles managing complex portfolios and cross-functional teams. The credential signals to local hiring managers that you've mastered the frameworks and discipline these major employers expect, making it a practical differentiator as you build your career in one of the country's most active project-management markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:43.058861Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1efdb5f0dc15f169",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the PMI-CPMAI certification?",
+          "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+        },
+        {
+          "question": "Who should pursue the PMI-CPMAI in {city}?",
+          "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the PMI-CPMAI course?",
+          "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+        },
+        {
+          "question": "How is the PMI-CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Pittsburgh's financial services sector?",
+          "answer": "<p>Pittsburgh's major financial-services employers, including PNC Financial Services Group, regularly coordinate large-scale technology and infrastructure projects requiring disciplined portfolio and program management. PMI-CPMAI certification demonstrates competency in those frameworks. While no Pittsburgh-specific salary premium has been independently verified, PMI research shows certified project managers nationally earn a median of $135,000 versus $109,157 for non-certified peers—a gap that typically holds across regions and industries where complex capital projects dominate hiring.</p>"
+        },
+        {
+          "question": "Which Pittsburgh industries most value PMI-CPMAI project management credentials?",
+          "answer": "<p>Financial services (PNC), healthcare systems (UPMC, Highmark Health), advanced manufacturing (Wabtec Corporation, PPG Industries), and higher education (University of Pittsburgh) all manage multiphase capital projects and strategic initiatives where PMI certification is a recognized hiring preference. These sectors represent Pittsburgh's largest employers and frequently list PMP or related PMI credentials in project management job descriptions, making certification a meaningful differentiator for advancement.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual PMI-CPMAI training from my Pittsburgh workplace?",
+          "answer": "<p>Yes. All Granite PM Academy training is delivered live-virtual nationwide, allowing Pittsburgh professionals to join sessions from their office, home, or any location with reliable internet access. This format accommodates the scheduling constraints of professionals working at major Pittsburgh employers while maintaining real-time interaction with instructors and peers—no recorded-only or asynchronous alternative.</p>"
+        },
+        {
+          "question": "Should Pittsburgh project managers pursue PMI-CPMAI certification now or wait?",
+          "answer": "<p>Pittsburgh's job market for project and program management roles remains active across financial services, healthcare, and manufacturing—sectors with sustained capital-project pipelines like the Hazelwood Green development. Early certification positions you ahead of peers during hiring cycles and allows time to apply the credential toward advancement before industry demand shifts. Delaying typically only extends the timeline to salary-premium opportunities.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:49.350831Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8acaf8b10c9d6859",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Pittsburgh's financial services and healthcare sectors—anchored by PNC Financial Services Group, UPMC, and Highmark Health—drive consistent demand for skilled project managers. Major redevelopment initiatives like Hazelwood Green's robotics innovation hub add momentum to the local PM job market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Pittsburgh professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:50.885496Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "e1b616dacc2b590d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-pittsburgh-pa/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Pittsburgh, PA, AI courses Pittsburgh, CPMAI certification Pittsburgh, AI project management training Pittsburgh, PA, AI for project managers Pittsburgh",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\",\n      \"name\": \"PMI-CPMAI Certification Training in Pittsburgh, PA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Pittsburgh, PA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Pittsburgh, PA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Pittsburgh, PA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Pittsburgh, PA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-pittsburgh-pa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}",
+    "primary_keyword": "PMI-CPMAI Certification Training"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T03:33:15+00:00",
+  "template_version": "f6a3382b6a8f42a3fb45841d36f4e3b0"
+}

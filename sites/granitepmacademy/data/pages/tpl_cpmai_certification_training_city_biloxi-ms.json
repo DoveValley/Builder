@@ -1,348 +1,394 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "biloxi-ms",
-    "slug": "ai-training-biloxi-ms",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "biloxi-ms",
-        "city": "Biloxi",
-        "state": "Mississippi",
-        "SS": "MS",
-        "city_slug": "biloxi-ms",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Biloxi's project management landscape is anchored by large-scale casino and hospitality operations—including major properties like the Beau Rivage and Hard Rock—alongside defense contracts tied to Keesler Air Force Base and Ingalls Shipbuilding, creating steady demand for skilled PMs across gaming, military, maritime, and healthcare sectors. These diverse industries fuel consistent opportunities for credentialed project managers managing everything from resort renovations to infrastructure modernization. Granite PM Academy delivers live-virtual PMP Certification to Biloxi professionals, combining flexible scheduling with PMI-recognized credentials to advance your career in the Gulf Coast's growing project management market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Biloxi's maritime, gaming, and coastal construction sectors increasingly rely on project managers who can leverage AI tools for scheduling, resource optimization, and risk forecasting. Granite PM Academy delivers live-virtual, instructor-led AI training that satisfies PMI's contact-hour requirements for professional development. Mastering AI-driven project management positions you to command higher responsibility and compensation across Biloxi's competitive hospitality and infrastructure industries.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:05.332500Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "bb1936b8a1cbeb6a",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Biloxi",
-            "text": "<p>Biloxi's project management landscape is anchored by large-scale defense and military operations at Keesler Air Force Base and the Naval Construction Battalion Center, where AI-driven project delivery and predictive analytics are reshaping how teams manage complex, multi-million-dollar initiatives. Across hospitality, shipbuilding, and healthcare sectors, project managers in Biloxi face growing pressure to adopt intelligent tools for resource forecasting, risk mitigation, and stakeholder communication. AI competency is no longer optional for professionals competing for senior PM and program management roles in the region—it's a defining skill that separates candidates who can lead digital transformation from those managing projects by legacy methods alone.</p><p>Granite PM Academy delivers AI Training for Project Managers through live-virtual, instructor-led courses taught by active certified practitioners who bring real-world experience from industries matching Biloxi's own. As a PMI Authorized Training Partner, we ensure every course satisfies the contact-hour requirements for PMP® and CAPM® credential maintenance and advancement, so your investment counts toward professional growth recognized across defense contracting, hospitality operations, and maritime organizations. Our curriculum goes beyond theory—we focus on practical application of AI tools in schedule optimization, budget forecasting, and team collaboration, preparing you to add measurable value in your next project or promotion.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:09.185216Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "f9f5ef773f9111fe",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Project Managers in Biloxi",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Matters",
-                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP® or CAPM® training meets all official credential requirements. This accreditation guarantees contact-hour eligibility and exam readiness without the guesswork."
-                },
-                {
-                    "heading": "Live Instruction, Your Schedule",
-                    "text": "Our live-virtual instructor-led format delivers real contact hours from active certified practitioners—no recorded videos or self-paced gaps. You interact directly with instructors who manage projects today, fulfilling PMI requirements while you work."
-                },
-                {
-                    "heading": "Exam Prep Built In",
-                    "text": "Beyond classroom instruction, you receive structured exam-preparation support including practice questions, strategy coaching, and clarification on tricky concepts. This foundation significantly improves first-attempt pass confidence for PMP® and CAPM® candidates."
-                },
-                {
-                    "heading": "Credential Demand Across Biloxi's Major Sectors",
-                    "text": "Keesler Air Force Base, shipbuilding operations, casino resorts, and healthcare systems across the Gulf Coast actively recruit project and program managers with PMI credentials. Certification directly strengthens your candidacy within Biloxi's largest employers."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:13.516531Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c09edc9c1ad54f65",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers on the Mississippi Coast",
-            "text": "<p>Biloxi's economy runs on large-scale, complex projects—and that demand flows directly to certified project managers. Keesler Air Force Base drives steady hiring for PMs overseeing infrastructure modernization and facility upgrades, while the region's major casino operators, including Beau Rivage Resort & Casino and Hard Rock Hotel & Casino Biloxi, continuously fund property renovations and expansions that require skilled project leadership. Shipbuilding at Ingalls and healthcare systems across the coast round out a landscape where project managers with formal credentials command attention from employers managing multimillion-dollar capital initiatives and government contracts.</p><p>PMP and CAPM credentials carry real weight in Biloxi's defense, hospitality, and maritime sectors, particularly when you're competing for roles on large government or commercial projects. While certification isn't universally mandatory, it meaningfully strengthens your candidacy in a competitive local market—and pay tends to rise alongside project scale and complexity in industries like defense and shipbuilding. Completing AI Training for Project Managers through Granite PM Academy equips you with both the foundational PM knowledge and the AI literacy that modern Biloxi employers now expect, positioning you to advance faster in roles managing the region's next wave of infrastructure, hospitality, and defense initiatives.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:17.723600Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "a1928bb75d134b37",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Will AI training help my project management career at Biloxi defense or shipbuilding firms?",
-                    "answer": "<p>Yes. Keesler Air Force Base, Ingalls Shipbuilding, and Naval Construction Battalion Center Gulfport manage large-scale, complex projects where AI-enhanced planning, risk forecasting, and resource optimization directly reduce costs and timelines. Defense and maritime contractors increasingly value PMs who combine traditional certification with AI competency, especially for government contracting roles where demonstrating advanced capabilities strengthens your candidacy in Biloxi's competitive defense sector.</p>"
-                },
-                {
-                    "question": "Do Biloxi casino and hospitality employers prefer PMs with AI certification?",
-                    "answer": "<p>Casino resorts like Beau Rivage, Hard Rock, and Golden Nugget pursue continuous expansion and renovation projects requiring skilled project leadership. While PMP or CAPM credentials are generally favored for large capital projects in hospitality, adding AI training distinguishes you further—showing you can manage scheduling, budget forecasting, and stakeholder communication with modern tools. This edge matters in Biloxi's hospitality market where project complexity and guest-experience timelines demand precision.</p>"
-                },
-                {
-                    "question": "Can I attend the live-virtual AI project management course from my Biloxi workplace?",
-                    "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with stable internet. This flexibility suits Biloxi professionals balancing work at major employers—whether Keesler, Singing River Health System, the school district, or casino operations—without requiring time away from site or commute disruption. Confirm your workplace internet capacity beforehand if attending from an employer location.</p>"
-                },
-                {
-                    "question": "Is now the right time to pursue AI training for Biloxi project management jobs?",
-                    "answer": "<p>Demand for certified project managers in Biloxi remains steady across defense, healthcare, shipbuilding, and hospitality—all sectors expanding or modernizing operations. Compensation for experienced PMs in these industries typically exceeds regional averages due to project scale and complexity. Pursuing AI training now positions you ahead of competitors and demonstrates readiness for higher-responsibility roles, particularly valuable as employers compete for talent in a concentrated local market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:24.617686Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "082c218f4485f545",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Biloxi's project management demand flows from its unique blend of large-scale casino and hospitality operations alongside military and shipbuilding industries centered on Keesler Air Force Base and Ingalls Shipbuilding. Major resort renovations, defense infrastructure modernization, and maritime projects create sustained roles for skilled PMs across gaming, defense, healthcare, and public infrastructure sectors. Granite PM Academy delivers live-virtual AI Training for Project Managers to serve Biloxi professionals seeking competitive credentials in this dynamic market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:26.453604Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "8f13d222d1edd7d7",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "biloxi-ms",
+  "slug": "ai-training-biloxi-ms",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "biloxi-ms",
+    "city": "Biloxi",
+    "state": "Mississippi",
+    "SS": "MS",
+    "city_slug": "biloxi-ms",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-biloxi-ms/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Biloxi, MS, AI courses Biloxi, CPMAI certification Biloxi, AI project management training Biloxi, MS, AI for project managers Biloxi",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\",\n      \"name\": \"AI Training for Project Managers in Biloxi, MS — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Biloxi, MS for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Biloxi, MS\",\n            \"item\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#course\",\n      \"name\": \"AI Training for Project Managers in Biloxi, MS\",\n      \"description\": \"CPMAI certification training for project managers in Biloxi, MS who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Casino Gaming & Hospitality",
+      "Military & Defense (Keesler Air Force Base)",
+      "Shipbuilding & Maritime",
+      "Healthcare",
+      "Tourism & Convention Services",
+      "Seafood & Manufacturing"
+    ],
+    "top_employers": [
+      "Keesler Air Force Base",
+      "Beau Rivage Resort & Casino (MGM Resorts)",
+      "Hard Rock Hotel & Casino Biloxi",
+      "IP Casino Resort Spa",
+      "Golden Nugget Biloxi",
+      "Merit Health Biloxi",
+      "Memorial Hospital at Gulfport",
+      "Singing River Health System",
+      "Ingalls Shipbuilding (Huntington Ingalls Industries)",
+      "Biloxi Public School District",
+      "Naval Construction Battalion Center Gulfport"
+    ],
+    "salary_note": "Project manager compensation in Biloxi tends to track regional Gulf Coast averages, with higher pay typically found in defense, shipbuilding, and casino/hospitality sectors due to project complexity and scale. Specific figures vary widely by industry and experience, but demand for certified PMs remains steady given the concentration of large employers in construction, defense, and hospitality expansion projects.",
+    "market_blurb": "Biloxi's project management job market is shaped by its dual identity as a Gulf Coast casino/tourism hub and a center for military and shipbuilding operations. Large-scale hospitality renovations, defense contracts tied to Keesler Air Force Base, and maritime industry projects create consistent need for skilled project and program managers. Healthcare and public infrastructure projects further diversify opportunities for PM professionals in the area.",
+    "notable_projects": [
+      "Beau Rivage Resort & Casino renovation and expansion projects",
+      "Hard Rock Hotel & Casino Biloxi property upgrades",
+      "Keesler Air Force Base infrastructure and facility modernization projects",
+      "Mississippi Coast Coliseum and Convention Center renovations"
+    ],
+    "credential_demand": "PMP certification is generally viewed favorably by employers in Biloxi's defense, healthcare, and hospitality sectors, particularly for roles involving large capital projects or government contracting. While not always mandatory, PMP or CAPM credentials can strengthen candidacy in a competitive local job market for project management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Biloxi's project management market thrives at the intersection of defense operations—anchored by Keesler Air Force Base—and large-scale hospitality and shipbuilding enterprises. Casino renovations, military infrastructure modernization, and maritime projects create consistent demand for credentialed PMs across hospitality, defense, and healthcare sectors. Granite PM Academy delivers live-virtual PMP® Certification training to Biloxi professionals nationwide, enabling you to earn your credential while managing your Gulf Coast career.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Biloxi's shipbuilding, defense, gaming, and hospitality sectors rely on skilled project managers to coordinate complex, high-stakes operations. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with active certified instructors, meeting all PMI contact-hour education requirements on a flexible schedule. Earn your CPMAI credential to advance into supervisory and leadership roles across Biloxi's major employers and industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:52.091599Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4879221a37239b25",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Biloxi's Project Leaders",
+      "text": "<p>Biloxi's economy is anchored by large-scale defense and military operations centered at Keesler Air Force Base, alongside a thriving casino and hospitality sector managing continuous resort expansions and renovations. These industries—combined with active shipbuilding, healthcare infrastructure, and maritime projects—create steady demand for project managers who can navigate complex budgets, multi-disciplinary teams, and stringent compliance requirements. The PMI-CPMAI (Certified Associate in Project Management) credential validates your ability to support senior project managers and lead smaller initiatives, positioning you competitively within Biloxi's defense-contracting, hospitality, and industrial sectors where formal PM certification is increasingly expected.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner, offering live-virtual, instructor-led courses that satisfy contact-hour requirements for the credential. Our active certified practitioners bring real-world experience to every session, ensuring content directly applies to your role and career goals. You'll complete the training on a schedule that fits your work life, then move forward to sit for the PMI-CPMAI exam with the knowledge and confidence to earn your credential and advance in Biloxi's competitive project management marketplace.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:56.015043Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "84c366762aaafb8a",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CAPM Certification for Biloxi's Growing Project Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization—Your Credential's Foundation",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CAPM training meets PMI's rigorous standards. This partnership ensures your contact hours count toward certification eligibility and your credential carries full weight with Biloxi employers in defense, maritime, and hospitality sectors."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the exact contact hours required for PMI-CAPM eligibility without displacing your current role. Attend sessions from anywhere; interact in real time with active certified practitioners; complete your requirement on a timeline that works for Keesler, shipyard, casino, or healthcare operations."
+        },
+        {
+          "heading": "Exam Prep from Certified Practitioners",
+          "text": "Your instructors are active certified project managers—not trainers alone. They embed exam-preparation strategy directly into instruction, covering high-impact domains and common question patterns. You graduate with both knowledge and tested tactics for passing the PMI-CAPM exam on your first attempt."
+        },
+        {
+          "heading": "High Demand Across Biloxi's Major Industries",
+          "text": "Keesler Air Force Base, Ingalls Shipbuilding, and Biloxi's casino resorts all employ project and program managers overseeing complex operations. PMI-CAPM certification differentiates you for roles in these sectors and strengthens advancement prospects in defense contracting, maritime construction, and hospitality management."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:01.076240Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b24a362edee7b217",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers on the Mississippi Coast",
+      "text": "<p>Biloxi's economy rests on large-scale operations across defense, hospitality, and maritime industries—sectors where certified project managers are in steady demand. Keesler Air Force Base drives significant infrastructure and facility modernization work, while the region's major casino resorts, including Beau Rivage Resort & Casino and Hard Rock Hotel & Casino Biloxi, continue property upgrades and expansion initiatives that require skilled PM leadership. Ingalls Shipbuilding and regional healthcare systems round out the employer base, each managing complex projects that benefit from credentialed professionals who can coordinate budgets, timelines, and cross-functional teams.</p><p>Earning your PMI-CPMAI certification through Granite PM Academy positions you competitively in Biloxi's job market. PMP and CAPM credentials are viewed favorably by the defense, hospitality, and healthcare employers that anchor the local economy, particularly for roles involving government contracts or capital-intensive projects. While certification is not always mandatory, it strengthens your candidacy when competing for roles in a concentrated market dominated by large, mission-critical operations. Compensation for project managers in Biloxi tends to track Gulf Coast regional norms, with higher pay in defense, shipbuilding, and casino sectors due to project scale and complexity. Completing live-virtual PMI-CPMAI training with Granite PM Academy gives you the credentials and knowledge to advance into these higher-demand, better-compensated roles without relocating.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:05.553655Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0c1e9f9b24febc11",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Along Mississippi's Coast",
+      "text": "<p>Biloxi's largest employers—Keesler Air Force Base, Ingalls Shipbuilding, and the region's major casino resorts—all rely on certified project managers to oversee complex, high-stakes initiatives. Keesler's infrastructure and facility modernization projects demand PMs skilled in defense contracting protocols, while Beau Rivage Resort & Casino's ongoing renovation and expansion work requires hospitality-sector expertise in budget control and stakeholder coordination. Hard Rock Hotel & Casino Biloxi's property upgrades and the Mississippi Coast Coliseum and Convention Center renovations further illustrate the steady flow of capital projects where PMP or CAPM credentials strengthen a candidate's competitive edge in Biloxi's job market.</p><p>Compensation for certified project managers in Biloxi tracks regional Gulf Coast averages, with notably higher pay in defense, shipbuilding, and casino sectors due to project scale and complexity. PMP and CAPM credentials are viewed favorably—particularly for roles tied to government contracting or large capital projects—and can be decisive when competing for positions locally. Completing Granite PM Academy's PMI-CPMAI Certification Training equips you with skills and credentials that align directly with Biloxi employers' needs, positioning you to advance in a market where structured, certified project leadership remains in steady demand across defense, hospitality, and maritime industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:09.437004Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0c1e9f9b24febc11",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Biloxi project managers?",
+          "answer": "<p>Yes, especially if you work in Biloxi's defense, healthcare, or hospitality sectors where large capital projects and government contracting are common. PMP and CAPM credentials strengthen your candidacy in a competitive local job market, though they're not always mandatory. The credential signals rigor to employers at Keesler Air Force Base, Ingalls Shipbuilding, and the casino resorts driving project demand in the region.</p>"
+        },
+        {
+          "question": "Which Biloxi employers value PMI-CPMAI project management certification?",
+          "answer": "<p>Defense and shipbuilding operations, including Keesler Air Force Base and Ingalls Shipbuilding, view PMI credentials favorably for roles on complex, large-scale projects and government contracts. Biloxi's major hospitality employers—Beau Rivage, Hard Rock, Golden Nugget, and IP Casino Resort—also value certified PMs for ongoing resort expansions and operational projects. Healthcare systems including Merit Health and Singing River Health System increasingly seek certified professionals for capital initiatives.</p>"
+        },
+        {
+          "question": "What do project managers in Biloxi typically earn with certification?",
+          "answer": "<p>Biloxi project manager compensation tracks regional Gulf Coast averages, with notably higher pay in defense, shipbuilding, and casino/hospitality sectors due to project complexity and scale. Certified professionals, especially those with PMP or CAPM credentials, typically command stronger offers in these industries. Exact figures vary by experience and role, but demand for certified PMs remains steady given Biloxi's concentration of large employers in construction, defense, and hospitality expansion.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CPMAI training from my Biloxi workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMI-CPMAI training live-virtual nationwide, so you can join from your office, home, or any location with internet access. This format works well for Biloxi professionals balancing work at Keesler, shipyards, hospital systems, or casinos. Schedule training around your work calendar without travel time, and stay connected with active certified practitioners throughout your coursework.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:15.407653Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0156cbec16b06162",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Biloxi's project management demand is anchored in defense and shipbuilding alongside major hospitality operations—Keesler Air Force Base infrastructure modernization and Ingalls Shipbuilding create sustained demand for certified managers, while casino properties like Beau Rivage and Hard Rock drive large-scale renovation projects. Healthcare, tourism, and public infrastructure add further depth to the local PM job market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Biloxi professionals nationwide, enabling you to earn your credential on your schedule while pursuing opportunities across these thriving sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:17.502743Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3e30c40017206587",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Biloxi's project management demand flows from its distinctive dual economy: major casino and hospitality properties like Beau Rivage Resort & Casino drive continuous renovation and expansion work, while Keesler Air Force Base and Ingalls Shipbuilding anchor defense and maritime sectors with large-scale infrastructure and modernization projects. Healthcare and tourism services add further depth to PM career opportunities across the Gulf Coast. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Biloxi professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:19.505767Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3e30c40017206587",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-biloxi-ms/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Biloxi, MS, AI courses Biloxi, CPMAI certification Biloxi, AI project management training Biloxi, MS, AI for project managers Biloxi",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\",\n      \"name\": \"PMI-CPMAI Certification Training in Biloxi, MS | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Biloxi, MS for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Biloxi, MS\",\n            \"item\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Biloxi, MS\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Biloxi, MS who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-biloxi-ms/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-biloxi-ms/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

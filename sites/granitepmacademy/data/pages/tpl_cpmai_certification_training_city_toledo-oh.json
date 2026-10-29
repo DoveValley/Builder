@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "toledo-oh",
-    "slug": "ai-training-toledo-oh",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "toledo-oh",
-        "city": "Toledo",
-        "state": "Ohio",
-        "SS": "OH",
-        "city_slug": "toledo-oh",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Toledo's manufacturing backbone—from automotive production at the Stellantis Toledo Assembly Complex to glass innovation at Owens-Corning and First Solar—drives steady demand for project managers who can lead complex operations and facility upgrades. Healthcare systems like ProMedica and Mercy Health, alongside utilities and logistics employers, expand those opportunities across sectors. Granite PM Academy delivers live-virtual PMP® Certification to Toledo professionals ready to advance their careers.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Toledo's manufacturing and industrial sectors rely heavily on skilled project managers to coordinate complex production timelines and supply-chain initiatives. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI contact-hour requirements, enabling you to integrate artificial intelligence tools into your project workflow while earning recognized professional development credentials. Mastering AI-driven project management positions you to stand out in Toledo's competitive operations and engineering-focused job market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:49.481375Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "c421806a51b8ad6d",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Toledo, Ohio",
-            "text": "<p>Toledo's manufacturing sector—anchored by automotive assembly, glass production, and supplier operations at facilities like the Stellantis Toledo Assembly Complex and Owens-Illinois—relies on project managers who can navigate complex, technology-driven modernization initiatives. As these legacy manufacturers integrate artificial intelligence into supply chain planning, quality control, and production scheduling, the skillset required of Toledo's PM professionals has shifted. Managers who understand how to evaluate AI tools, allocate resources within AI-enabled workflows, and lead teams through automation transitions now command stronger career prospects. Healthcare systems like ProMedica and Mercy Health, alongside logistics providers serving the region, face similar pressures to adopt intelligent systems. AI training for project managers directly addresses this local demand, equipping professionals to translate emerging technology into competitive advantage for their employers.</p><p>Granite PM Academy delivers AI training for project managers through live-virtual, instructor-led cohorts taught by active certified practitioners with real-world experience in Toledo's key industries. As a PMI Authorized Training Partner, we structure every course to satisfy the contact-hour requirements for PMP®, CAPM®, and PMI® credential maintenance, so your learning time counts toward certification goals. Our curriculum bridges the gap between AI fundamentals and practical project application—covering prompt engineering for scheduling, risk analysis through machine learning, and team communication in AI-augmented environments. Whether you're managing at a manufacturing facility, healthcare network, or utility company, the framework translates immediately to your role. Enroll in a cohort that fits your schedule, and take the next step toward a credential that reflects your current market value in Toledo.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:54.788923Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "ff159a81051dcb37",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills for Toledo's Manufacturing and Healthcare Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Unlocks Credential Validity",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® credential earns recognition across Toledo's major employers—from Stellantis and Dana to ProMedica and Mercy Health. Authorization confirms instruction meets PMI standards, not a third-party claim."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Schedules",
-                    "text": "Live-virtual instructor-led sessions satisfy PMI contact-hour requirements without commuting across Toledo. Study alongside peers from utilities, logistics, and hospital systems while instructors—active certified practitioners—answer real-world questions based on current project challenges in your industry."
-                },
-                {
-                    "heading": "Exam-Ready Support from Practitioners",
-                    "text": "Granite instructors hold active PMP® or CAPM® certifications and work in project roles. They embed exam-preparation strategy into every session, clarify ambiguous concepts, and share how certification shaped their own careers in manufacturing, healthcare, and energy sectors hiring in Ohio."
-                },
-                {
-                    "heading": "Local Demand for Certified Project Leaders",
-                    "text": "Toledo's automotive, glass, healthcare, and logistics employers—including Owens Corning, Libbey Glass, and FirstEnergy—prioritize PMI credentials for advancement. Certification signals capability to manage complex projects and teams, competitive advantage in a competitive regional job market."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:59.470894Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f2f9a2b69aad973a",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Toledo's Industrial Hub",
-            "text": "<p>Toledo's manufacturing sector—anchored by automotive production at the Stellantis Toledo Assembly Complex and glass manufacturing at Owens Corning and Libbey Glass—drives consistent demand for skilled project managers. Beyond manufacturing, ProMedica and Mercy Health operate major healthcare systems where certified PMs oversee clinical expansion and facility upgrades, while ProMedica's transformation of the downtown riverfront and former Toledo Edison Steam Plant into modern corporate headquarters exemplifies the scale of infrastructure projects reshaping the city. Energy and utility employers like FirstEnergy, along with financial services firms, also actively recruit project managers to lead cross-functional teams and capital initiatives.</p><p>Earning a PMP or CAPM credential positions you competitively within Toledo's job market, where these certifications signal readiness to employers evaluating candidates for mid-to-senior roles. While compensation in Toledo tracks slightly below national metro averages, certified professionals with industry-specific experience—particularly in manufacturing, healthcare, and energy—typically command stronger offers and advance faster than uncertified peers. Completing Granite PM Academy's AI Training for Project Managers equips you with both the foundational PM knowledge that credential bodies recognize and the contemporary AI competencies that Toledo's evolving employers increasingly expect, directly addressing what local hiring managers seek as they invest in their next generation of project leaders.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:03.849335Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "91c5da3928aeb579",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Toledo manufacturing careers?",
-                    "answer": "<p>Yes. Toledo's dominant automotive and glass production employers—including Stellantis Toledo Assembly Complex, Owens Corning, and Owens-Illinois—increasingly rely on certified project managers to lead cross-functional initiatives around supply-chain optimization, quality systems, and Industry 4.0 adoption. AI training amplifies that value by equipping you to integrate emerging tools into planning and risk management, making you more competitive for mid-to-senior roles where manufacturing employers already favor PMP or CAPM credentials.</p>"
-                },
-                {
-                    "question": "Which Toledo employers actively hire certified AI-trained project managers?",
-                    "answer": "<p>ProMedica and Mercy Health systems value certification for coordinating complex clinical and infrastructure projects. Manufacturing leaders like Dana Incorporated and Stellantis Toledo Assembly prioritize certified PMs for cross-department initiatives. FirstEnergy and First Solar in the utility and energy sectors also view certification as a signal of readiness for formal PM roles. Healthcare, manufacturing, and energy sectors across Toledo show the strongest demand for credentialed candidates with emerging-technology competency.</p>"
-                },
-                {
-                    "question": "Do Toledo project managers earn more with AI and PMI credentials?",
-                    "answer": "<p>Toledo PM compensation tracks slightly below national metro averages but remains competitive within Ohio. Candidates holding PMP or CAPM credentials and industry-specific experience—especially in healthcare, manufacturing, or utilities—typically command stronger offers and faster advancement than non-certified peers. AI training adds practical differentiation; employers increasingly view it as evidence of readiness to lead modern, data-informed project delivery in fields like medical device manufacturing or renewable energy infrastructure.</p>"
-                },
-                {
-                    "question": "Can Toledo professionals take live-virtual AI training from their workplace?",
-                    "answer": "<p>Yes. Our live-virtual format is designed for working professionals who need flexibility. Whether you're at ProMedica, University of Toledo, a manufacturing plant, or a distributed office, you can join sessions from your workplace or home with stable internet. This is especially convenient for Toledo professionals balancing full-time roles at major employers while earning your credential—you attend without travel time or scheduling conflicts.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:10.569985Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "f5dd495844ad41d9",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Toledo's manufacturing heartland—anchored by automotive production at Stellantis and glass makers like Owens-Illinois—demands project managers who can orchestrate modernization initiatives across legacy facilities and new expansions. ProMedica's downtown riverfront transformation and healthcare system growth further fuel steady demand for skilled PMs across industrial, healthcare, and logistics sectors. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Toledo professionals navigating these complex, cross-functional environments.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:12.354841Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "03572941eb1e4edc",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "toledo-oh",
+  "slug": "ai-training-toledo-oh",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "toledo-oh",
+    "city": "Toledo",
+    "state": "Ohio",
+    "SS": "OH",
+    "city_slug": "toledo-oh",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-toledo-oh/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Toledo, OH, AI courses Toledo, CPMAI certification Toledo, AI project management training Toledo, OH, AI for project managers Toledo",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\",\n      \"name\": \"AI Training for Project Managers in Toledo, OH — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Toledo, OH for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Toledo, OH\",\n            \"item\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#course\",\n      \"name\": \"AI Training for Project Managers in Toledo, OH\",\n      \"description\": \"CPMAI certification training for project managers in Toledo, OH who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Manufacturing (automotive and glass production)",
+      "Healthcare and hospital systems",
+      "Higher education and public education",
+      "Logistics and transportation/distribution",
+      "Energy and utilities",
+      "Financial services and insurance"
+    ],
+    "top_employers": [
+      "ProMedica",
+      "Mercy Health",
+      "University of Toledo",
+      "Toledo Public Schools",
+      "Owens Corning",
+      "Owens-Illinois (O-I Glass)",
+      "Dana Incorporated",
+      "Stellantis Toledo Assembly Complex",
+      "First Solar",
+      "Libbey Glass",
+      "Fifth Third Bank",
+      "FirstEnergy"
+    ],
+    "salary_note": "Project manager compensation in Toledo tends to track slightly below national metro averages but remains competitive within Ohio, with manufacturing, healthcare, and energy employers often paying at the higher end of the local scale. Rather than a fixed figure, candidates with certification and industry-specific experience typically see stronger offers and faster advancement.",
+    "market_blurb": "Toledo's project management job market is shaped by its strong manufacturing base—especially automotive and glass production—alongside major healthcare systems and utility providers. As legacy employers modernize operations and invest in facility upgrades, demand for skilled project and program managers who can coordinate complex, cross-functional initiatives continues to grow. The city's mix of industrial, healthcare, and logistics employers offers varied opportunities for PM professionals at different experience levels.",
+    "notable_projects": [
+      "ProMedica's redevelopment of the downtown Toledo riverfront and former Toledo Edison Steam Plant into corporate headquarters",
+      "Stellantis Toledo Assembly Complex ongoing production line upgrades for Jeep vehicles",
+      "First Solar's expansion of manufacturing capacity in the Toledo/Perrysburg area",
+      "Toledo Zoo and Aquarium capital improvement and expansion projects"
+    ],
+    "credential_demand": "Employers in Toledo's manufacturing, healthcare, and utility sectors increasingly favor candidates holding PMP or CAPM credentials for formal project management roles, viewing certification as a signal of readiness for cross-departmental initiatives. While not universally required, certified candidates are generally more competitive in local postings for mid-to-senior PM positions.",
+    "_researched": 1,
+    "city_spotlight": "<p>Toledo's manufacturing heartland—anchored by automotive production at the Stellantis Toledo Assembly Complex and iconic glass makers like Owens-Illinois—relies on project managers to shepherd modernization and facility upgrades across legacy operations. Hospitals, utilities, and logistics employers add further demand for skilled coordinators of complex cross-functional work. Granite PM Academy delivers live-virtual PMP® Certification training to Toledo professionals seeking to formalize expertise and advance in this competitive, opportunity-rich market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Toledo's automotive, glass manufacturing, healthcare, and logistics sectors depend on skilled project managers to deliver complex, regulated initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, enabling you to earn this credential while managing your current role. For project managers in Toledo's major industries, PMI-CPMAI certification strengthens your qualifications and career mobility across employers like Stellantis, ProMedica, Owens Corning, and Dana Incorporated.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:52.971335Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "51be0018b70c4ef1",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Toledo's Manufacturing Leaders",
+      "text": "<p>Toledo's project management landscape is defined by its world-class manufacturing sector—automotive assembly, glass production, and supplier networks that anchor the region's economy. As companies like Stellantis Toledo Assembly Complex, Owens-Illinois, and Dana Incorporated modernize operations and pursue strategic facility upgrades, they depend on project managers who can navigate complex, capital-intensive initiatives across multiple functional teams. PMI-CPMAI certification demonstrates that you can lead at this level, preparing you to own strategic programs that drive competitive advantage in Toledo's industrial and manufacturing environment.</p><p>Granite PM Academy delivers PMI-CPMAI certification training through live-virtual, instructor-led sessions designed for working professionals. As a PMI Authorized Training Partner, we ensure every course satisfies the required contact hours and equips you with the frameworks, tools, and real-world case studies you need to earn your credential. Our instructors are active certified practitioners who bring current project experience into every session. Whether you're advancing within a Toledo-based manufacturer, healthcare system, or logistics operation, our flexible schedule and expert instruction position you to complete certification on your timeline and step into senior project leadership.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:56.570324Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "df2cd6c6bad868e7",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification Path for Toledo's Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Matters",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. This status ensures your training hours meet PMI's rigorous standards and count directly toward PMI-CPMAI eligibility—no delays, no questions about credential validity."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Instructor-led live-virtual sessions deliver the contact hours required for PMI-CPMAI certification while letting you train from home or office. Active certified practitioners teach real scenarios—not recordings or self-paced modules."
+        },
+        {
+          "heading": "Exam Readiness Built In",
+          "text": "Training includes focused exam-preparation support designed to close gaps before test day. Study materials, practice assessments, and instructor feedback help you sit for the PMI-CPMAI exam with confidence and clarity."
+        },
+        {
+          "heading": "Credential Valued in Toledo's Industries",
+          "text": "Toledo's manufacturing, healthcare, and logistics sectors increasingly require certified project managers. PMI-CPMAI certification strengthens your candidacy with ProMedica, Stellantis, Dana Incorporated, and other regional employers actively hiring skilled program and project professionals."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:00.279787Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "04e6e4a954b97c16",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Toledo",
+      "text": "<p>Toledo's manufacturing sector anchors demand for certified project managers. At Stellantis Toledo Assembly Complex, ongoing production line upgrades for Jeep vehicles require skilled PMs to coordinate cross-functional teams and manage timelines across major capital initiatives. Healthcare systems including ProMedica and Mercy Health similarly hire project managers for facility expansions, system implementations, and clinical workflows—roles where certification signals readiness to lead enterprise-wide efforts. University of Toledo, Toledo Public Schools, and utility providers like FirstEnergy round out a diverse employer base actively seeking candidates who hold PMP or CAPM credentials for mid-to-senior positions overseeing everything from IT deployment to infrastructure projects.</p><p>In Toledo's competitive market, the PMI-CPMAI certification differentiates candidates pursuing advancement. While project manager compensation in the region tracks slightly below national metro averages, certified professionals with industry-specific experience command stronger offers and faster career progression, particularly within manufacturing, healthcare, and energy sectors. Employers increasingly view PMI credentials as evidence of technical competency and readiness to lead cross-departmental initiatives—a preference that accelerates promotion timelines. Granite PM Academy's live-virtual PMI-CPMAI Certification Training allows Toledo professionals to earn recognized credentials on a schedule that fits working life, positioning you to compete effectively for local opportunities without relocating or sacrificing current employment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:04.862765Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "63e17e4ce2649585",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Toledo's Growing Sectors",
+      "text": "<p>Toledo's manufacturing backbone—anchored by Stellantis Toledo Assembly Complex, Owens Corning, and Dana Incorporated—drives consistent demand for certified project managers overseeing production upgrades, supply chain coordination, and capital initiatives. Beyond manufacturing, healthcare systems like ProMedica and Mercy Health employ project managers across facility expansion, digital infrastructure, and operational transformation; ProMedica's downtown riverfront redevelopment and conversion of the former Toledo Edison Steam Plant into corporate headquarters exemplify the scale of work certified PMs manage locally. Energy and utility employers, including FirstEnergy and First Solar's ongoing manufacturing expansion in the Toledo area, similarly seek professionals who can lead complex, cross-functional initiatives. These sectors form the backbone of local PM hiring.</p><p>Earning your PMI-CPMAI certification through Granite PM Academy positions you competitively in a market where certified candidates—particularly those with PMP or CAPM credentials—stand out for mid-to-senior project management roles. While Toledo's compensation for project managers generally tracks slightly below national metro averages, the spread widens notably when you hold formal certification and industry-specific experience; manufacturing, healthcare, and energy employers tend to offer stronger packages to credentialed candidates. Completing live-virtual training means you can pursue certification on your schedule while working full-time, and the credential signals to Toledo's largest employers that you are ready to lead the cross-departmental initiatives that drive their growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:09.380593Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "63e17e4ce2649585",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth it for Toledo project managers in manufacturing?",
+          "answer": "<p>Toledo's automotive and glass-production sectors increasingly expect formal PM credentials for mid-to-senior roles. Employers like Stellantis, Owens Corning, and O-I Glass view PMP and CAPM certification as a marker of cross-departmental readiness. While not universally mandatory, certified candidates advance faster and command stronger offers than non-certified peers—especially when paired with industry-specific experience in manufacturing or supply-chain environments.</p>"
+        },
+        {
+          "question": "Which Toledo employers value PMI project management certification most?",
+          "answer": "<p>ProMedica, Mercy Health, University of Toledo, and FirstEnergy actively seek certified project managers for formal roles. Manufacturing employers (Stellantis, Owens Corning, Dana, First Solar) also favor the credential for complex capital and process projects. Financial institutions like Fifth Third Bank prioritize certification for IT and operational initiatives. Across these sectors, the credential signals readiness for high-stakes, cross-functional work.</p>"
+        },
+        {
+          "question": "Can Toledo professionals take live-virtual PMI-CPMAI training from their workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual training runs 100% online, enabling you to attend from your Toledo office, home, or any location with internet access. This flexibility suits busy professionals at ProMedica, Stellantis, University of Toledo, and other major employers, allowing you to earn certification without travel or schedule disruption to your current role.</p>"
+        },
+        {
+          "question": "When should Toledo PMs pursue certification given the local job market?",
+          "answer": "<p>Toledo's manufacturing, healthcare, and utility sectors are actively recruiting certified project managers now. If you're aiming for promotion or a lateral move into a formal PM title—especially at Owens Corning, FirstEnergy, or hospital systems—completing certification before your next job search strengthens your candidacy significantly. Early certification also positions you to capture roles faster as demand remains steady across these sectors.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:15.162790Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4700598ddeb2c4aa",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Toledo's automotive and glass manufacturing sectors—anchored by employers like Stellantis Toledo Assembly Complex and Owens Corning—drive steady demand for project managers who can lead complex, cross-functional modernization and production initiatives. Healthcare systems, utilities, and logistics operations expand this opportunity further. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Toledo professionals, combining flexible scheduling with instruction from active certified practitioners.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:16.743631Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a9c2862b2dfcab6d",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Toledo's manufacturing sector—from automotive assembly at Stellantis to glass production and advanced solar manufacturing—drives steady demand for project managers who can lead cross-functional teams through modernization and capacity expansion. Major employers including ProMedica, Mercy Health, and utility providers equally need skilled practitioners to deliver complex initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Toledo professionals seeking to formalize credentials and advance in this opportunity-rich market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:18.549531Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a9c2862b2dfcab6d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-toledo-oh/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Toledo, OH, AI courses Toledo, CPMAI certification Toledo, AI project management training Toledo, OH, AI for project managers Toledo",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\",\n      \"name\": \"PMI-CPMAI Certification Training in Toledo, OH | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Toledo, OH for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Toledo, OH\",\n            \"item\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Toledo, OH\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Toledo, OH who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-toledo-oh/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-toledo-oh/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

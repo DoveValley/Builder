@@ -1,412 +1,413 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "washington-dc",
-  "slug": "pmp-certification-training-washington-dc",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "washington-dc",
-    "city": "Washington",
-    "state": "District of Columbia",
-    "SS": "DC",
-    "city_slug": "washington-dc",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "washington-dc",
+    "slug": "pmp-certification-training-washington-dc",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "washington-dc",
+        "city": "Washington",
+        "state": "District of Columbia",
+        "SS": "DC",
+        "city_slug": "washington-dc",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Federal Government",
+            "Finance",
+            "Media & Publishing",
+            "Nonprofit/International Development",
+            "Higher Education",
+            "Healthcare"
+        ],
+        "top_employers": [
+            "Fannie Mae",
+            "National Geographic Society",
+            "American Red Cross",
+            "The Washington Post",
+            "World Bank Group",
+            "Georgetown University",
+            "George Washington University",
+            "Howard University",
+            "Children's National Hospital"
+        ],
+        "salary_note": "Glassdoor reports $132,713/yr average for \"Project Manager PMP\" roles specifically in Washington, DC (about 10% above national average); BLS separately puts the broader project management specialist median in DC at $104,900/yr.",
+        "market_blurb": "Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National.",
+        "notable_projects": [
+            "Capital One Arena renovation - roughly $1B multi-phase renovation funded jointly by the DC government and Monumental Sports & Entertainment, targeted ahead of the 2027-28 NHL/NBA seasons",
+            "The Geneva - the largest office-to-residential conversion in DC history, 532 homes, broke ground January 2026"
+        ],
+        "credential_demand": "With large multi-year capital projects running in the District and a federal/nonprofit sector built around extensive multi-year programs, PMP certification is a plausible differentiator for project and program management roles.",
+        "_researched": 1,
+        "city_spotlight": "<p>Washington's employer base includes Fannie Mae, National Geographic Society, American Red Cross, The Washington Post. Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Washington professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Washington's federal, nonprofit, and healthcare sectors depend on skilled project managers to deliver complex initiatives across agencies and organizations like the World Bank Group, American Red Cross, and Children's National Hospital. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led contact hours required by PMI to sit for the credential, on a schedule that fits working professionals. Earning your PMP positions you competitively for leadership roles managing high-stakes projects in Washington's mission-driven employers.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:49.926015Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "030b1e3524e8d33f",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Washington for Federal and Enterprise Leaders",
+            "text": "<p>Washington's project management landscape is defined by federal agencies and major national institutions that demand rigorously credentialed leaders. Whether you work within government contracting, at the World Bank Group, Fannie Mae, or one of the District's leading universities and healthcare systems, employers across the capital's most influential sectors recognize the Project Management Professional (PMP)® credential as the standard for career advancement and operational credibility. The PMP® signals mastery of proven methodologies and positions you to lead complex, high-stakes initiatives in an environment where compliance, stakeholder alignment, and delivery excellence are non-negotiable.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training as a PMI Authorized Training Partner, meeting all contact-hour requirements and preparing you for exam success on your schedule. Our active certified practitioners bring real-world experience to every session, ensuring you learn frameworks that translate immediately to your role. Whether you're building PM capabilities in Washington or advancing your career across the nation, our program combines rigorous curriculum, live instruction, and flexible scheduling so you can earn your PMP® credential without disrupting your professional commitments. Start your journey toward certification and the career opportunities that follow.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:53.671697Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "bf318e0216b6911d",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Federal & Finance Leaders in DC",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Guarantees Credential Value",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® training meets PMI standards and prepares you to sit for the exam with confidence. Authorization matters—it signals rigor to employers like those across DC's federal and financial sectors."
+                },
+                {
+                    "heading": "Live-Virtual Instruction Fits Your Schedule",
+                    "text": "Attend instructor-led classes entirely online, completing the required contact hours at your own pace. Perfect for Washington professionals balancing demanding roles at major employers while earning the PMP® credential without commuting or relocating."
+                },
+                {
+                    "heading": "Learn From Active Certified Practitioners",
+                    "text": "Your instructors are working PMP®-certified professionals actively applying project-management frameworks in real projects. They bring current best practices and genuine problem-solving experience into every session, not just textbook theory."
+                },
+                {
+                    "heading": "Unlock Demand Across DC's Top Industries",
+                    "text": "Federal agencies, international development organizations, healthcare systems, and media companies in Washington actively hire PMP®-certified project managers. The credential strengthens your candidacy across government contracting, nonprofit leadership, and enterprise roles throughout the region."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:15:57.802365Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "aa71d25b22dc4223",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Washington, DC",
+            "text": "<p>Washington's economy rests on federal agencies, international development organizations, and major financial institutions—all of which depend on skilled project managers to oversee multi-year initiatives. Fannie Mae, the World Bank Group, and the American Red Cross employ certified project managers across finance, policy, and humanitarian programs. The District's largest capital projects illustrate this demand in real time: the Capital One Arena renovation, a roughly $1 billion multi-phase undertaking funded jointly by the DC government and Monumental Sports & Entertainment and targeted to complete ahead of the 2027–28 NHL/NBA seasons, and The Geneva, the largest office-to-residential conversion in DC history with 532 homes that broke ground in January 2026, both require PMP®-certified professionals to navigate scope, budget, and stakeholder coordination at scale.</p><p>The PMP® credential carries measurable weight in Washington's job market. Project managers holding PMP® certification in the District command compensation above the national median, and the depth of long-term federal, nonprofit, and capital projects creates consistent demand for professionals who can demonstrate formal expertise in risk management, resource planning, and program delivery. Completing PMP® Certification Training with Granite PM Academy—delivered entirely live-virtual to fit working professionals' schedules—positions you to compete for roles across the federal government, finance, media and publishing, higher education, and healthcare sectors that anchor the local economy. The certification signals readiness for the complex, compliance-heavy projects Washington employers prioritize.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:16:02.418731Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "e480574852a684df",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Washington, D.C.",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years. Document your professional history and education now—you'll need these details for your PMI application."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® training course. Attend sessions on your schedule, interact with active certified practitioners, and cover all five process groups and ten knowledge areas required by PMI."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, create your PMI account and submit your official PMP® application, including your education and experience credentials. Pay the PMI examination fee to secure your exam eligibility."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study guides, to reinforce course content. Schedule your proctored exam and demonstrate mastery of project-management principles across all knowledge domains."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "Renew your certification every three years by earning professional development units (PDUs) through approved training, volunteer work, or authorship. Plan your PDU strategy early to ensure continuous compliance with PMI standards."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:16:06.652302Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "355d6f496ad81bcb",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers in Washington, DC?",
+                    "answer": "<p>Washington's job market for project and program managers is shaped by federal agencies, multilateral institutions like the World Bank Group, and large nonprofits running multi-year initiatives—all of which prioritize PMP as a credential for advancement and credibility. While salaries vary by sector, certified professionals in the District command competitive compensation packages. For roles in government contracting, international development, or institutional program management, the PMP is often a stated or implicit requirement for senior positions.</p>"
+                },
+                {
+                    "question": "Which Washington employers value PMP certification most?",
+                    "answer": "<p>Organizations headquartered or heavily present in Washington—including Fannie Mae, the World Bank Group, American Red Cross, and major universities like Georgetown and George Washington—regularly seek PMP-certified professionals for portfolio and capital project roles. Federal contractors and nonprofit program offices also depend on PMI credentials to meet compliance and governance standards. Finance, healthcare systems like Children's National Hospital, and media organizations similarly recruit certified project managers for strategic initiatives.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training while working in Washington?",
+                    "answer": "<p>Yes. Granite PM Academy delivers all PMP certification training live-virtual nationwide, so Washington professionals can participate from their office, home, or anywhere with internet access. This format works well for the District's mix of on-site federal and nonprofit roles, remote consulting positions, and hybrid schedules—you set your own attendance location without travel to a classroom.</p>"
+                },
+                {
+                    "question": "When should Washington project managers pursue PMP certification?",
+                    "answer": "<p>Washington's economy runs on long-cycle programs and capital projects where promotion to senior PM or program director roles typically requires or strongly favors PMP credential. If you're within two to three years of career advancement in government, finance, healthcare, or international development, earning the certification before competing for those positions strengthens your candidacy. Early movers in expanding federal contracts or organizational restructuring also see faster ROI.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:16:12.694590Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "0c18d9037d00be29",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Washington's federal government anchors a dynamic market for project managers across finance, media, nonprofit leadership, and major institutions—from the World Bank Group to The Washington Post. Landmark initiatives like the Capital One Arena's $1B renovation and The Geneva's record office-to-residential conversion demonstrate sustained demand for skilled PMs. Granite PM Academy delivers live-virtual PMP Certification Training to Washington professionals nationwide, helping you earn PMI's most recognized credential on a schedule that fits your career.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:16:14.464076Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "3dbe0353e25ef214",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Federal Government",
-      "Finance",
-      "Media & Publishing",
-      "Nonprofit/International Development",
-      "Higher Education",
-      "Healthcare"
-    ],
-    "top_employers": [
-      "Fannie Mae",
-      "National Geographic Society",
-      "American Red Cross",
-      "The Washington Post",
-      "World Bank Group",
-      "Georgetown University",
-      "George Washington University",
-      "Howard University",
-      "Children's National Hospital"
-    ],
-    "salary_note": "Glassdoor reports $132,713/yr average for \"Project Manager PMP\" roles specifically in Washington, DC (about 10% above national average); BLS separately puts the broader project management specialist median in DC at $104,900/yr.",
-    "market_blurb": "Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National.",
-    "notable_projects": [
-      "Capital One Arena renovation - roughly $1B multi-phase renovation funded jointly by the DC government and Monumental Sports & Entertainment, targeted ahead of the 2027-28 NHL/NBA seasons",
-      "The Geneva - the largest office-to-residential conversion in DC history, 532 homes, broke ground January 2026"
-    ],
-    "credential_demand": "With large multi-year capital projects running in the District and a federal/nonprofit sector built around extensive multi-year programs, PMP certification is a plausible differentiator for project and program management roles.",
-    "_researched": 1,
-    "city_spotlight": "<p>Washington's employer base includes Fannie Mae, National Geographic Society, American Red Cross, The Washington Post. Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Washington professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Washington's federal, nonprofit, and healthcare sectors depend on skilled project managers to deliver complex initiatives across agencies and organizations like the World Bank Group, American Red Cross, and Children's National Hospital. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led contact hours required by PMI to sit for the credential, on a schedule that fits working professionals. Earning your PMP positions you competitively for leadership roles managing high-stakes projects in Washington's mission-driven employers.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:49.926015Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "030b1e3524e8d33f",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-washington-dc/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Washington, DC, PMP exam prep Washington, PMP course Washington DC, project management certification Washington, DC, PMI PMP training Washington",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\",\r\n      \"name\": \"PMP Certification Training in Washington, DC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Washington, DC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Washington, DC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#course\",\r\n      \"name\": \"PMP Certification Training in Washington, DC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Washington, DC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Washington for Federal and Enterprise Leaders",
-      "text": "<p>Washington's project management landscape is defined by federal agencies and major national institutions that demand rigorously credentialed leaders. Whether you work within government contracting, at the World Bank Group, Fannie Mae, or one of the District's leading universities and healthcare systems, employers across the capital's most influential sectors recognize the Project Management Professional (PMP)® credential as the standard for career advancement and operational credibility. The PMP® signals mastery of proven methodologies and positions you to lead complex, high-stakes initiatives in an environment where compliance, stakeholder alignment, and delivery excellence are non-negotiable.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training as a PMI Authorized Training Partner, meeting all contact-hour requirements and preparing you for exam success on your schedule. Our active certified practitioners bring real-world experience to every session, ensuring you learn frameworks that translate immediately to your role. Whether you're building PM capabilities in Washington or advancing your career across the nation, our program combines rigorous curriculum, live instruction, and flexible scheduling so you can earn your PMP® credential without disrupting your professional commitments. Start your journey toward certification and the career opportunities that follow.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:53.671697Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "bf318e0216b6911d",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Federal & Finance Leaders in DC",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Guarantees Credential Value",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® training meets PMI standards and prepares you to sit for the exam with confidence. Authorization matters—it signals rigor to employers like those across DC's federal and financial sectors."
-        },
-        {
-          "heading": "Live-Virtual Instruction Fits Your Schedule",
-          "text": "Attend instructor-led classes entirely online, completing the required contact hours at your own pace. Perfect for Washington professionals balancing demanding roles at major employers while earning the PMP® credential without commuting or relocating."
-        },
-        {
-          "heading": "Learn From Active Certified Practitioners",
-          "text": "Your instructors are working PMP®-certified professionals actively applying project-management frameworks in real projects. They bring current best practices and genuine problem-solving experience into every session, not just textbook theory."
-        },
-        {
-          "heading": "Unlock Demand Across DC's Top Industries",
-          "text": "Federal agencies, international development organizations, healthcare systems, and media companies in Washington actively hire PMP®-certified project managers. The credential strengthens your candidacy across government contracting, nonprofit leadership, and enterprise roles throughout the region."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:15:57.802365Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "aa71d25b22dc4223",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Washington, DC",
-      "text": "<p>Washington's economy rests on federal agencies, international development organizations, and major financial institutions—all of which depend on skilled project managers to oversee multi-year initiatives. Fannie Mae, the World Bank Group, and the American Red Cross employ certified project managers across finance, policy, and humanitarian programs. The District's largest capital projects illustrate this demand in real time: the Capital One Arena renovation, a roughly $1 billion multi-phase undertaking funded jointly by the DC government and Monumental Sports & Entertainment and targeted to complete ahead of the 2027–28 NHL/NBA seasons, and The Geneva, the largest office-to-residential conversion in DC history with 532 homes that broke ground in January 2026, both require PMP®-certified professionals to navigate scope, budget, and stakeholder coordination at scale.</p><p>The PMP® credential carries measurable weight in Washington's job market. Project managers holding PMP® certification in the District command compensation above the national median, and the depth of long-term federal, nonprofit, and capital projects creates consistent demand for professionals who can demonstrate formal expertise in risk management, resource planning, and program delivery. Completing PMP® Certification Training with Granite PM Academy—delivered entirely live-virtual to fit working professionals' schedules—positions you to compete for roles across the federal government, finance, media and publishing, higher education, and healthcare sectors that anchor the local economy. The certification signals readiness for the complex, compliance-heavy projects Washington employers prioritize.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:16:02.418731Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "e480574852a684df",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Washington, D.C.",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years. Document your professional history and education now—you'll need these details for your PMI application."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® training course. Attend sessions on your schedule, interact with active certified practitioners, and cover all five process groups and ten knowledge areas required by PMI."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After course completion, create your PMI account and submit your official PMP® application, including your education and experience credentials. Pay the PMI examination fee to secure your exam eligibility."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study guides, to reinforce course content. Schedule your proctored exam and demonstrate mastery of project-management principles across all knowledge domains."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "Renew your certification every three years by earning professional development units (PDUs) through approved training, volunteer work, or authorship. Plan your PDU strategy early to ensure continuous compliance with PMI standards."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:16:06.652302Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "355d6f496ad81bcb",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers in Washington, DC?",
-          "answer": "<p>Washington's job market for project and program managers is shaped by federal agencies, multilateral institutions like the World Bank Group, and large nonprofits running multi-year initiatives—all of which prioritize PMP as a credential for advancement and credibility. While salaries vary by sector, certified professionals in the District command competitive compensation packages. For roles in government contracting, international development, or institutional program management, the PMP is often a stated or implicit requirement for senior positions.</p>"
-        },
-        {
-          "question": "Which Washington employers value PMP certification most?",
-          "answer": "<p>Organizations headquartered or heavily present in Washington—including Fannie Mae, the World Bank Group, American Red Cross, and major universities like Georgetown and George Washington—regularly seek PMP-certified professionals for portfolio and capital project roles. Federal contractors and nonprofit program offices also depend on PMI credentials to meet compliance and governance standards. Finance, healthcare systems like Children's National Hospital, and media organizations similarly recruit certified project managers for strategic initiatives.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training while working in Washington?",
-          "answer": "<p>Yes. Granite PM Academy delivers all PMP certification training live-virtual nationwide, so Washington professionals can participate from their office, home, or anywhere with internet access. This format works well for the District's mix of on-site federal and nonprofit roles, remote consulting positions, and hybrid schedules—you set your own attendance location without travel to a classroom.</p>"
-        },
-        {
-          "question": "When should Washington project managers pursue PMP certification?",
-          "answer": "<p>Washington's economy runs on long-cycle programs and capital projects where promotion to senior PM or program director roles typically requires or strongly favors PMP credential. If you're within two to three years of career advancement in government, finance, healthcare, or international development, earning the certification before competing for those positions strengthens your candidacy. Early movers in expanding federal contracts or organizational restructuring also see faster ROI.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:16:12.694590Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "0c18d9037d00be29",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Washington's federal government anchors a dynamic market for project managers across finance, media, nonprofit leadership, and major institutions—from the World Bank Group to The Washington Post. Landmark initiatives like the Capital One Arena's $1B renovation and The Geneva's record office-to-residential conversion demonstrate sustained demand for skilled PMs. Granite PM Academy delivers live-virtual PMP Certification Training to Washington professionals nationwide, helping you earn PMI's most recognized credential on a schedule that fits your career.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:16:14.464076Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "3dbe0353e25ef214",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-washington-dc/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Washington, DC, PMP exam prep Washington, PMP course Washington DC, project management certification Washington, DC, PMI PMP training Washington",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\",\r\n      \"name\": \"PMP Certification Training in Washington, DC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Washington, DC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Washington, DC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#course\",\r\n      \"name\": \"PMP Certification Training in Washington, DC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Washington, DC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-washington-dc/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

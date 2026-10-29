@@ -1,406 +1,407 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "plano-tx",
-  "slug": "pmp-bootcamp-plano-tx",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "plano-tx",
-    "city": "Plano",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "plano-tx",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier2",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "plano-tx",
+    "slug": "pmp-bootcamp-plano-tx",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "plano-tx",
+        "city": "Plano",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "plano-tx",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier2",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Banking/financial services",
+            "Automotive corporate operations",
+            "Food & beverage",
+            "Telecom equipment",
+            "Government software",
+            "Retail corporate HQ"
+        ],
+        "top_employers": [
+            "JPMorgan Chase",
+            "Capital One",
+            "Toyota Motor North America",
+            "PepsiCo/Frito-Lay",
+            "Ericsson",
+            "Tyler Technologies",
+            "JCPenney"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Plano is one of the Dallas-Fort Worth area's largest corporate hubs, home to JPMorgan Chase and Capital One's large operations centers, Toyota Motor North America's headquarters, and PepsiCo/Frito-Lay, spanning banking, automotive, and consumer goods.",
+        "notable_projects": [
+            "Legacy West - major mixed-use corporate/retail development anchoring Toyota's North American HQ campus",
+            "Planned Dallas Stars NHL arena (targeted 2031), replacing The Shops at Willow Bend"
+        ],
+        "credential_demand": "With major bank operations centers, Toyota's North American HQ, and large-scale real estate projects like Legacy West and the planned Dallas Stars arena, PMP is a plausible, commonly recognized credential for Plano's corporate and infrastructure project roles.",
+        "_researched": 1,
+        "city_spotlight": "<p>Plano's employer base includes JPMorgan Chase, Capital One, Toyota Motor North America, PepsiCo/Frito-Lay. Plano is one of the Dallas-Fort Worth area's largest corporate hubs, home to JPMorgan Chase and Capital One's large operations centers, Toyota Motor North America's headquarters, and PepsiCo/Frito-Lay, spanning banking, automotive, and consumer goods. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Plano professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Plano's financial services, automotive, and technology sectors rely heavily on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact hours, allowing you to earn your PMP credential while maintaining your current work schedule. Completing this certification positions you competitively for advancement roles at the region's major employers and across industries where structured project delivery drives business outcomes.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:14.118583Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "e00b107d6d10048e",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Plano: Fast-Track Certification for Corporate PM Roles",
+            "text": "<p>Plano's role as a major operations and headquarters hub for financial services—home to JPMorgan Chase and Capital One's substantial regional centers—has created sustained demand for project managers who can lead complex, cross-functional initiatives across banking, technology, and corporate infrastructure. Professionals in Plano's banking and financial services sector, as well as those supporting the city's automotive, consumer goods, and telecom operations, increasingly find that the PMP® credential opens doors to senior project leadership roles and competitive compensation. Whether you're advancing within one of Plano's Fortune 500 operations or building portfolio strength across the Dallas-Fort Worth corporate market, an intensive PMP Bootcamp accelerates your timeline to certification while you remain employed.</p><p>Granite PM Academy delivers the PMP Bootcamp as a live-virtual, instructor-led program authorized by the Project Management Institute. Our curriculum covers all domains tested on the PMP® exam and satisfies the contact-hour requirements required for PMI® credential eligibility. Every course is taught by active certified practitioners who bring real-world project experience to each session, ensuring you learn not just theory but the practical frameworks used in competitive corporate environments. Upon completion, you'll be equipped to sit for the PMP® exam with confidence, positioning yourself for the advanced roles and career momentum that Plano's market demands.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:18.250496Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "bed4632a30dd1f83",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Path for Plano's Financial and Tech Talent",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Value",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP training meets PMI's rigorous standards, ensuring employers—especially in banking, automotive, and government software sectors hiring in Plano—recognize your certification as legitimate and current."
+                },
+                {
+                    "heading": "Live Instructors, Virtual Flexibility, Full Credits",
+                    "text": "Attend live-virtual sessions with active certified practitioners who deliver real-world project examples. The synchronous format satisfies PMI contact-hour requirements for PMP eligibility while letting you train from home or office without travel delays."
+                },
+                {
+                    "heading": "Expert-Led Exam Prep Built In",
+                    "text": "Your instructors are practicing project managers, not just trainers. They embed exam strategy, sample questions, and domain focus throughout the bootcamp, so you graduate test-ready with insights from professionals managing projects in industries Plano employers depend on."
+                },
+                {
+                    "heading": "Advance in Plano's High-Demand Industries",
+                    "text": "JPMorgan Chase, Capital One, Toyota Motor North America, Ericsson, and Tyler Technologies actively hire certified project managers in Plano. A PMI-authorized PMP credential strengthens your candidacy for program-leadership and operations roles across finance, automotive, telecom, and government software sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:22.618702Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "73a48f9e710ad5f8",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP demand across Plano's corporate headquarters",
+            "text": "<p>Toyota Motor North America's presence as a major employer anchors Plano's project-management landscape, alongside banking and financial-services operations centers operated by JPMorgan Chase and Capital One. Large-scale corporate infrastructure projects—including the Legacy West mixed-use development that supports Toyota's North American HQ campus and the planned Dallas Stars arena replacing The Shops at Willow Bend—require certified project managers to oversee budgets, timelines, and cross-functional teams. PepsiCo/Frito-Lay, Tyler Technologies, Ericsson, and JCPenney also maintain significant local operations where project-management expertise drives career advancement and operational success.</p><p>The PMP® credential is widely recognized across these industries and is a plausible, commonly sought qualification for mid-level and senior project roles in Plano's corporate and infrastructure sectors. Nationally, certified project managers earn a meaningful premium over their non-certified peers—a gap that holds across most regions and industries. Completing Granite PM Academy's PMP Bootcamp positions you to compete for these roles and advance your earning potential within Plano's robust employer base. Our live-virtual format lets you study on your own schedule while preparing for the credential that matters most in your market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:26.417919Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "577ce8bf77bebca0",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Plano",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience. Verify you meet the prerequisite hours and experience level before enrolling. Granite PM Academy's advisors can review your background and clarify requirements during a consultation call."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend synchronous instructor-led sessions on a schedule that fits working professionals. All coursework is online; no travel or in-person attendance required."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the bootcamp, file your PMP application with PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process. PMI will review and approve your eligibility before you schedule your test."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-prep resources, practice tests, and instructor support to build confidence. Schedule your proctored exam when ready. The test is computer-based and administered remotely, fitting the schedules of Plano professionals."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After earning your credential, commit to the standard 3-year renewal cycle by earning professional development units (PDUs). Granite PM Academy offers continuing education options to help you stay current and maintain your PMP standing."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:30.834955Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "02afa816ab30fd53",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Do JPMorgan Chase and Capital One in Plano value PMP certification?",
+                    "answer": "<p>Yes. Both major operations and corporate centers in Plano employ project managers across technology, operations, and infrastructure initiatives. PMP is widely recognized in banking and financial services as a credential that demonstrates structured methodology and stakeholder management—skills directly applicable to large-scale systems deployments, process improvement, and capital projects these employers frequently run.</p>"
+                },
+                {
+                    "question": "Is PMP bootcamp worth it for Plano project managers career-wise?",
+                    "answer": "<p>For Plano professionals in automotive, telecom, food and beverage, or government software sectors, PMP certification signals advanced capability and is commonly listed in job postings across the city's major employers. PMI reports that certified project managers earn a median salary premium over non-certified peers nationally—a gap that holds across most regions, making certification a plausible investment for long-term earning potential and advancement.</p>"
+                },
+                {
+                    "question": "Can I take Plano PMP bootcamp online from my workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP bootcamp is fully live-virtual, so you can attend from your office, home, or any location with reliable internet—ideal for professionals working at Plano corporate centers or in hybrid roles. The format allows you to stay in your local job without travel while earning the credential on a compressed schedule.</p>"
+                },
+                {
+                    "question": "When should Plano professionals pursue PMP certification for job growth?",
+                    "answer": "<p>Plano's robust project infrastructure—from Legacy West development to technology initiatives at major employers like Toyota, Ericsson, and Tyler Technologies—creates steady demand for credentialed project managers. Pursuing certification now aligns with hiring cycles in these industries and positions you ahead of candidates when roles open, particularly in roles requiring advanced PMBOK methodology knowledge.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:36.599808Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "ddd7373164c7ab06",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Plano's roster of major corporate operations—from JPMorgan Chase and Capital One's regional command centers to Toyota Motor North America's headquarters—creates consistent demand for skilled project managers across banking, automotive, and technology sectors. Large infrastructure projects like Legacy West underscore the need for certified PM expertise in this Dallas-Fort Worth hub. Granite PM Academy delivers live-virtual PMP Bootcamp training to Plano professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:12:38.353663Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "64925c1948324b66",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Banking/financial services",
-      "Automotive corporate operations",
-      "Food & beverage",
-      "Telecom equipment",
-      "Government software",
-      "Retail corporate HQ"
-    ],
-    "top_employers": [
-      "JPMorgan Chase",
-      "Capital One",
-      "Toyota Motor North America",
-      "PepsiCo/Frito-Lay",
-      "Ericsson",
-      "Tyler Technologies",
-      "JCPenney"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Plano is one of the Dallas-Fort Worth area's largest corporate hubs, home to JPMorgan Chase and Capital One's large operations centers, Toyota Motor North America's headquarters, and PepsiCo/Frito-Lay, spanning banking, automotive, and consumer goods.",
-    "notable_projects": [
-      "Legacy West - major mixed-use corporate/retail development anchoring Toyota's North American HQ campus",
-      "Planned Dallas Stars NHL arena (targeted 2031), replacing The Shops at Willow Bend"
-    ],
-    "credential_demand": "With major bank operations centers, Toyota's North American HQ, and large-scale real estate projects like Legacy West and the planned Dallas Stars arena, PMP is a plausible, commonly recognized credential for Plano's corporate and infrastructure project roles.",
-    "_researched": 1,
-    "city_spotlight": "<p>Plano's employer base includes JPMorgan Chase, Capital One, Toyota Motor North America, PepsiCo/Frito-Lay. Plano is one of the Dallas-Fort Worth area's largest corporate hubs, home to JPMorgan Chase and Capital One's large operations centers, Toyota Motor North America's headquarters, and PepsiCo/Frito-Lay, spanning banking, automotive, and consumer goods. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Plano professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Plano's financial services, automotive, and technology sectors rely heavily on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact hours, allowing you to earn your PMP credential while maintaining your current work schedule. Completing this certification positions you competitively for advancement roles at the region's major employers and across industries where structured project delivery drives business outcomes.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:14.118583Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "e00b107d6d10048e",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-plano-tx/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Plano, TX, PMP bootcamp Plano, PMP certification boot camp Plano, TX, PMP bootcamp near me, intensive PMP training Plano",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\",\n      \"name\": \"PMP Bootcamp in Plano, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Plano, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Plano, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#course\",\n      \"name\": \"PMP Bootcamp in Plano, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Plano, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Plano: Fast-Track Certification for Corporate PM Roles",
-      "text": "<p>Plano's role as a major operations and headquarters hub for financial services—home to JPMorgan Chase and Capital One's substantial regional centers—has created sustained demand for project managers who can lead complex, cross-functional initiatives across banking, technology, and corporate infrastructure. Professionals in Plano's banking and financial services sector, as well as those supporting the city's automotive, consumer goods, and telecom operations, increasingly find that the PMP® credential opens doors to senior project leadership roles and competitive compensation. Whether you're advancing within one of Plano's Fortune 500 operations or building portfolio strength across the Dallas-Fort Worth corporate market, an intensive PMP Bootcamp accelerates your timeline to certification while you remain employed.</p><p>Granite PM Academy delivers the PMP Bootcamp as a live-virtual, instructor-led program authorized by the Project Management Institute. Our curriculum covers all domains tested on the PMP® exam and satisfies the contact-hour requirements required for PMI® credential eligibility. Every course is taught by active certified practitioners who bring real-world project experience to each session, ensuring you learn not just theory but the practical frameworks used in competitive corporate environments. Upon completion, you'll be equipped to sit for the PMP® exam with confidence, positioning yourself for the advanced roles and career momentum that Plano's market demands.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:18.250496Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "bed4632a30dd1f83",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Path for Plano's Financial and Tech Talent",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Value",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP training meets PMI's rigorous standards, ensuring employers—especially in banking, automotive, and government software sectors hiring in Plano—recognize your certification as legitimate and current."
-        },
-        {
-          "heading": "Live Instructors, Virtual Flexibility, Full Credits",
-          "text": "Attend live-virtual sessions with active certified practitioners who deliver real-world project examples. The synchronous format satisfies PMI contact-hour requirements for PMP eligibility while letting you train from home or office without travel delays."
-        },
-        {
-          "heading": "Expert-Led Exam Prep Built In",
-          "text": "Your instructors are practicing project managers, not just trainers. They embed exam strategy, sample questions, and domain focus throughout the bootcamp, so you graduate test-ready with insights from professionals managing projects in industries Plano employers depend on."
-        },
-        {
-          "heading": "Advance in Plano's High-Demand Industries",
-          "text": "JPMorgan Chase, Capital One, Toyota Motor North America, Ericsson, and Tyler Technologies actively hire certified project managers in Plano. A PMI-authorized PMP credential strengthens your candidacy for program-leadership and operations roles across finance, automotive, telecom, and government software sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:22.618702Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "73a48f9e710ad5f8",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP demand across Plano's corporate headquarters",
-      "text": "<p>Toyota Motor North America's presence as a major employer anchors Plano's project-management landscape, alongside banking and financial-services operations centers operated by JPMorgan Chase and Capital One. Large-scale corporate infrastructure projects—including the Legacy West mixed-use development that supports Toyota's North American HQ campus and the planned Dallas Stars arena replacing The Shops at Willow Bend—require certified project managers to oversee budgets, timelines, and cross-functional teams. PepsiCo/Frito-Lay, Tyler Technologies, Ericsson, and JCPenney also maintain significant local operations where project-management expertise drives career advancement and operational success.</p><p>The PMP® credential is widely recognized across these industries and is a plausible, commonly sought qualification for mid-level and senior project roles in Plano's corporate and infrastructure sectors. Nationally, certified project managers earn a meaningful premium over their non-certified peers—a gap that holds across most regions and industries. Completing Granite PM Academy's PMP Bootcamp positions you to compete for these roles and advance your earning potential within Plano's robust employer base. Our live-virtual format lets you study on your own schedule while preparing for the credential that matters most in your market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:26.417919Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "577ce8bf77bebca0",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Plano",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience. Verify you meet the prerequisite hours and experience level before enrolling. Granite PM Academy's advisors can review your background and clarify requirements during a consultation call."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend synchronous instructor-led sessions on a schedule that fits working professionals. All coursework is online; no travel or in-person attendance required."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing the bootcamp, file your PMP application with PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process. PMI will review and approve your eligibility before you schedule your test."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-prep resources, practice tests, and instructor support to build confidence. Schedule your proctored exam when ready. The test is computer-based and administered remotely, fitting the schedules of Plano professionals."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After earning your credential, commit to the standard 3-year renewal cycle by earning professional development units (PDUs). Granite PM Academy offers continuing education options to help you stay current and maintain your PMP standing."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:30.834955Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "02afa816ab30fd53",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Do JPMorgan Chase and Capital One in Plano value PMP certification?",
-          "answer": "<p>Yes. Both major operations and corporate centers in Plano employ project managers across technology, operations, and infrastructure initiatives. PMP is widely recognized in banking and financial services as a credential that demonstrates structured methodology and stakeholder management—skills directly applicable to large-scale systems deployments, process improvement, and capital projects these employers frequently run.</p>"
-        },
-        {
-          "question": "Is PMP bootcamp worth it for Plano project managers career-wise?",
-          "answer": "<p>For Plano professionals in automotive, telecom, food and beverage, or government software sectors, PMP certification signals advanced capability and is commonly listed in job postings across the city's major employers. PMI reports that certified project managers earn a median salary premium over non-certified peers nationally—a gap that holds across most regions, making certification a plausible investment for long-term earning potential and advancement.</p>"
-        },
-        {
-          "question": "Can I take Plano PMP bootcamp online from my workplace?",
-          "answer": "<p>Yes. Granite PM Academy's PMP bootcamp is fully live-virtual, so you can attend from your office, home, or any location with reliable internet—ideal for professionals working at Plano corporate centers or in hybrid roles. The format allows you to stay in your local job without travel while earning the credential on a compressed schedule.</p>"
-        },
-        {
-          "question": "When should Plano professionals pursue PMP certification for job growth?",
-          "answer": "<p>Plano's robust project infrastructure—from Legacy West development to technology initiatives at major employers like Toyota, Ericsson, and Tyler Technologies—creates steady demand for credentialed project managers. Pursuing certification now aligns with hiring cycles in these industries and positions you ahead of candidates when roles open, particularly in roles requiring advanced PMBOK methodology knowledge.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:36.599808Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "ddd7373164c7ab06",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Plano's roster of major corporate operations—from JPMorgan Chase and Capital One's regional command centers to Toyota Motor North America's headquarters—creates consistent demand for skilled project managers across banking, automotive, and technology sectors. Large infrastructure projects like Legacy West underscore the need for certified PM expertise in this Dallas-Fort Worth hub. Granite PM Academy delivers live-virtual PMP Bootcamp training to Plano professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:12:38.353663Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "64925c1948324b66",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-plano-tx/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Plano, TX, PMP bootcamp Plano, PMP certification boot camp Plano, TX, PMP bootcamp near me, intensive PMP training Plano",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\",\n      \"name\": \"PMP Bootcamp in Plano, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Plano, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Plano, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#course\",\n      \"name\": \"PMP Bootcamp in Plano, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Plano, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-plano-tx/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

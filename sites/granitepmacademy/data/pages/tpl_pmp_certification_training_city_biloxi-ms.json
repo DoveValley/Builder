@@ -1,394 +1,423 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "biloxi-ms",
-    "slug": "pmp-certification-training-biloxi-ms",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "biloxi-ms",
-        "city": "Biloxi",
-        "state": "Mississippi",
-        "SS": "MS",
-        "city_slug": "biloxi-ms",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Biloxi's project management landscape is anchored by large-scale casino and hospitality operations—including major properties like the Beau Rivage and Hard Rock—alongside defense contracts tied to Keesler Air Force Base and Ingalls Shipbuilding, creating steady demand for skilled PMs across gaming, military, maritime, and healthcare sectors. These diverse industries fuel consistent opportunities for credentialed project managers managing everything from resort renovations to infrastructure modernization. Granite PM Academy delivers live-virtual PMP Certification to Biloxi professionals, combining flexible scheduling with PMI-recognized credentials to advance your career in the Gulf Coast's growing project management market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Biloxi's maritime, gaming, and hospitality sectors depend on skilled project managers to coordinate complex operations across vessel maintenance, casino expansions, and resort development. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that meets PMI's required contact hours, enabling you to earn this globally recognized credential without leaving the Coast. For project managers in Biloxi's competitive regional market, the PMP designation opens doors to leadership roles and measurably stronger compensation across these growth industries.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:34.664458Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "3eed0a8ecc2f2f2f",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Biloxi for Defense and Hospitality Leaders",
-            "text": "<p>Biloxi's project management landscape is anchored by Keesler Air Force Base and the region's major defense contracting operations, where PMP® certification has become essential for advancement into leadership roles managing complex, regulated initiatives. Alongside this military-industrial foundation, the city's thriving casino and hospitality sector—home to major resorts undertaking large-scale renovations and expansions—consistently demands certified project managers to oversee multi-million-dollar property improvements and guest experience initiatives. Healthcare systems, shipbuilding operations, and public infrastructure projects round out a diverse job market where professionals with formal PMP® credentials command measurable credibility with employers and qualify for higher-responsibility positions across Biloxi's largest employers.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led courses designed to fit working professionals' schedules while meeting all contact-hour requirements mandated by the Project Management Institute. Our instructors are active, certified practitioners with real-world experience in the industries that anchor Biloxi's economy—defense, hospitality, and maritime—so you learn from practitioners who understand your local market's demands. Whether you are advancing within Keesler Air Force Base, a major Biloxi resort, or a healthcare or shipbuilding organization, our comprehensive curriculum prepares you to pass the PMP® exam and earn the globally recognized credential that opens doors to senior project and program management roles.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:39.107501Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "7caded3e2e69e242",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification for Biloxi's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Path",
-                    "text": "Granite PM Academy holds PMI Authorization, ensuring your contact hours meet PMP® eligibility requirements without compromise. You earn recognized credentials through a partner PMI trusts to deliver rigorous, standardized instruction aligned with the PMBOK® Guide."
-                },
-                {
-                    "heading": "Live Instruction, Real Schedules",
-                    "text": "Our live-virtual instructor-led format fits working professionals in Biloxi. Attend sessions from your location, ask questions in real time, and complete contact-hour requirements without traveling or sacrificing your current job responsibilities."
-                },
-                {
-                    "heading": "Instructors Who Manage Today",
-                    "text": "Your instructors hold active PMP® certifications and manage real projects across defense, hospitality, and shipbuilding sectors. They bring current workplace experience, exam strategies, and mentorship—not just textbook theory—to every class."
-                },
-                {
-                    "heading": "Credential Built for Biloxi Employers",
-                    "text": "Keesler Air Force Base, Huntington Ingalls, and major casino resorts prioritize PMP®-certified program and project managers. This credential demonstrates the structured approach these organizations demand, positioning you competitively in Biloxi's largest hiring markets."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:43.400244Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f176096aa3f6b0d7",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers on Mississippi's Coast",
-            "text": "<p>Biloxi's economy centers on large-scale operations in defense, hospitality, and maritime industries—sectors that depend on certified project managers to oversee complex, high-stakes initiatives. Keesler Air Force Base drives steady demand for PMs skilled in government contracting and infrastructure modernization, while major casino and resort operators including Beau Rivage Resort & Casino and Hard Rock Hotel & Casino Biloxi continuously pursue property upgrades and expansion projects requiring professional project leadership. Healthcare systems such as Merit Health Biloxi and Singing River Health System, along with Ingalls Shipbuilding, also seek certified talent to manage capital projects and operational improvements. These employers actively hire PMs who can demonstrate structured methodology and PMI credentials.</p><p>A PMP® or CAPM® certification strengthens your candidacy in Biloxi's competitive local market, particularly for roles tied to government contracts, large construction initiatives, or hospitality sector expansions. While certification is not always mandatory, employers in defense, shipbuilding, and casino operations view the credential favorably when evaluating candidates for complex project leadership roles. Project manager compensation on the Gulf Coast typically reflects regional standards, with defense and shipbuilding sectors offering higher pay due to project scale and technical complexity. Completing PMP Certification Training through Granite PM Academy positions you to move into or advance within these high-demand sectors, equipping you with both the methodology and the credential that Biloxi's largest employers recognize and value.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:48.124400Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "8687621d64502017",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Biloxi",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-experience requirements for the PMP credential. Review your academic background and documented hours leading projects or project teams. PMI sets specific thresholds; Granite PM Academy's enrollment team can help you confirm readiness before enrolling."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Attend scheduled sessions from your Biloxi location; interact with certified instructors in real time, ask questions, and work through case studies. You'll earn the formal contact hours PMI requires to sit for the exam."
-                },
-                {
-                    "heading": "Submit Application & Exam Fee",
-                    "text": "After completing your contact hours, submit your PMI application directly through the PMI website. Provide your training documentation from Granite PM Academy and pay the designated exam fee. PMI processes applications within a standard timeframe; you'll receive approval to schedule your exam."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your exam at a PMI Pearson VUE testing center accessible to you. On test day, apply the knowledge and domain expertise you've developed throughout the course."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After earning your PMP, commit to the standard three-year renewal cycle. Earn professional development units (PDUs) through continuing education, volunteer work, or formal training. Renew your credential before expiration to keep your PMP active and demonstrate your ongoing commitment to project management excellence."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:53.718386Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "0c0ab956dca2dc2f",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth it for project managers working in Biloxi?",
-                    "answer": "<p>Yes, particularly if you work in defense, shipbuilding, healthcare, or casino hospitality—Biloxi's largest employment sectors. PMP credentials strengthen candidacy for roles involving large capital projects and government contracting, where employers like Keesler Air Force Base, Ingalls Shipbuilding, and major resort operators increasingly value certified project managers. While not always mandatory, the credential distinguishes you in a competitive local job market.</p>"
-                },
-                {
-                    "question": "Which Biloxi employers actively hire PMP-certified project managers?",
-                    "answer": "<p>Defense contractors, Ingalls Shipbuilding, Keesler Air Force Base, and major hospitality operators (Beau Rivage, Hard Rock, IP Casino Resort, Golden Nugget) hire certified PMs for complex projects. Healthcare systems including Merit Health Biloxi and Singing River Health System also value PMP credentials for capital expansion and IT initiatives. Naval Construction Battalion Center Gulfport and public school district projects further strengthen demand locally.</p>"
-                },
-                {
-                    "question": "Do project managers in Biloxi earn more with PMP certification?",
-                    "answer": "<p>Biloxi project manager compensation tracks Gulf Coast regional averages, with notably higher pay in defense, shipbuilding, and casino sectors due to project scale and complexity. While PMP certification alone doesn't guarantee raises, it positions you for higher-level roles and larger contracts—especially valuable in Biloxi's concentration of large employers where certified credentials can accelerate advancement and negotiating power.</p>"
-                },
-                {
-                    "question": "Can I take PMP certification training from my workplace in Biloxi?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to attend from your office, home, or workplace—ideal for Biloxi professionals balancing full-time roles at Keesler, shipbuilding facilities, hospitals, or resorts. You'll gain the flexibility to earn your credential without travel delays or scheduling conflicts common in the local hospitality and defense sectors.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:34:59.850008Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "c0e8a07c93e8251f",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Biloxi's project management demand stems from its unique convergence of casino and hospitality operations alongside military and shipbuilding sectors—Keesler Air Force Base and Ingalls Shipbuilding anchor major infrastructure and defense contracts, while properties like Beau Rivage Resort & Casino drive large-scale renovation projects. Healthcare and public infrastructure initiatives add further depth to local PM opportunities. Granite PM Academy delivers live-virtual PMP Certification Training to Biloxi professionals ready to advance their credentials and career trajectory.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:35:01.811287Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "1acc6a1c99cb5ea7",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "biloxi-ms",
+  "slug": "pmp-certification-training-biloxi-ms",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "biloxi-ms",
+    "city": "Biloxi",
+    "state": "Mississippi",
+    "SS": "MS",
+    "city_slug": "biloxi-ms",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-biloxi-ms/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Biloxi, MS, PMP exam prep Biloxi, PMP course Biloxi MS, project management certification Biloxi, MS, PMI PMP training Biloxi",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\",\r\n      \"name\": \"PMP Certification Training in Biloxi, MS | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Biloxi, MS. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Biloxi, MS\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#course\",\r\n      \"name\": \"PMP Certification Training in Biloxi, MS\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Biloxi, MS. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Casino Gaming & Hospitality",
+      "Military & Defense (Keesler Air Force Base)",
+      "Shipbuilding & Maritime",
+      "Healthcare",
+      "Tourism & Convention Services",
+      "Seafood & Manufacturing"
+    ],
+    "top_employers": [
+      "Keesler Air Force Base",
+      "Beau Rivage Resort & Casino (MGM Resorts)",
+      "Hard Rock Hotel & Casino Biloxi",
+      "IP Casino Resort Spa",
+      "Golden Nugget Biloxi",
+      "Merit Health Biloxi",
+      "Memorial Hospital at Gulfport",
+      "Singing River Health System",
+      "Ingalls Shipbuilding (Huntington Ingalls Industries)",
+      "Biloxi Public School District",
+      "Naval Construction Battalion Center Gulfport"
+    ],
+    "salary_note": "Project manager compensation in Biloxi tends to track regional Gulf Coast averages, with higher pay typically found in defense, shipbuilding, and casino/hospitality sectors due to project complexity and scale. Specific figures vary widely by industry and experience, but demand for certified PMs remains steady given the concentration of large employers in construction, defense, and hospitality expansion projects.",
+    "market_blurb": "Biloxi's project management job market is shaped by its dual identity as a Gulf Coast casino/tourism hub and a center for military and shipbuilding operations. Large-scale hospitality renovations, defense contracts tied to Keesler Air Force Base, and maritime industry projects create consistent need for skilled project and program managers. Healthcare and public infrastructure projects further diversify opportunities for PM professionals in the area.",
+    "notable_projects": [
+      "Beau Rivage Resort & Casino renovation and expansion projects",
+      "Hard Rock Hotel & Casino Biloxi property upgrades",
+      "Keesler Air Force Base infrastructure and facility modernization projects",
+      "Mississippi Coast Coliseum and Convention Center renovations"
+    ],
+    "credential_demand": "PMP certification is generally viewed favorably by employers in Biloxi's defense, healthcare, and hospitality sectors, particularly for roles involving large capital projects or government contracting. While not always mandatory, PMP or CAPM credentials can strengthen candidacy in a competitive local job market for project management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Biloxi's project management market thrives at the intersection of defense operations—anchored by Keesler Air Force Base—and large-scale hospitality and shipbuilding enterprises. Casino renovations, military infrastructure modernization, and maritime projects create consistent demand for credentialed PMs across hospitality, defense, and healthcare sectors. Granite PM Academy delivers live-virtual PMP® Certification training to Biloxi professionals nationwide, enabling you to earn your credential while managing your Gulf Coast career.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Biloxi's thriving casino, hospitality, shipbuilding, and defense sectors depend on skilled project managers to coordinate complex operations and budgets. Granite PM Academy delivers live-virtual PMP Certification Training that meets PMI's contact-hour requirements, taught by active certified practitioners, with flexible scheduling to fit your work calendar. Earning your PMP credential positions you for advancement and higher compensation across Biloxi's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:02.456169Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6cf06afebf5cc426",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Biloxi's Project Management Professionals",
+      "text": "<p>Biloxi's position as a major center for defense contracting and military operations—anchored by Keesler Air Force Base and the Naval Construction Battalion Center—creates a distinctive demand for formally credentialed project and program managers. Defense and shipbuilding projects demand rigorous scope, schedule, and compliance standards that the Project Management Institute's PMP® credential directly addresses. Beyond defense, Biloxi's thriving casino and hospitality sector, along with its maritime and healthcare industries, consistently pursue skilled project managers to lead large-scale renovations, infrastructure work, and operational initiatives. For professionals in Biloxi working across these sectors, PMP® Certification signals mastery of industry-standard frameworks and positions you competitively for advancement into senior management and higher compensation bands.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual PMP® Certification Training that meets all PMI contact-hour requirements and fits working professionals' schedules. Our instructors are active certified practitioners who bring real-world expertise to every session, ensuring you learn frameworks you can immediately apply. We guide you through the full PMI exam curriculum, prepare you for the rigorous assessment, and support your path to certification. Whether you're advancing within Biloxi's defense, hospitality, maritime, or healthcare sectors, our structured program equips you with the credential employers value and the confidence to earn your PMP®.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:06.645455Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "d56e6d236e88055e",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for Biloxi's Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP training meets PMI's rigorous standards, and upon completion, you'll hold a credential recognized by defense contractors, hospitality operators, and shipbuilders across the Gulf Coast."
+        },
+        {
+          "heading": "Live-Virtual Classes Fit Working Schedules",
+          "text": "Attend instructor-led PMP training online on your schedule. Our live-virtual format delivers the contact hours required for PMP eligibility while letting you balance work at Keesler, the casinos, or Ingalls Shipbuilding without relocating or commuting."
+        },
+        {
+          "heading": "Active Practitioners Lead Your Instruction",
+          "text": "Learn from instructors who hold active PMP or CAPM credentials and work as practicing project managers. Real-world experience translates to exam-focused teaching and practical frameworks you'll apply immediately in your Biloxi-area role."
+        },
+        {
+          "heading": "PMP Demand Across Biloxi's Major Industries",
+          "text": "Casino resorts, military operations, shipbuilding, and healthcare systems in Biloxi all employ project and program managers. The PMP credential opens advancement paths with employers like Beau Rivage, Hard Rock, Ingalls, and Singing River Health System."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:10.956112Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "47a67909e01c2515",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Biloxi's Defense and Hospitality Sectors",
+      "text": "<p>Biloxi's largest employers—Keesler Air Force Base, Ingalls Shipbuilding, and the region's major casino resorts—consistently hire project managers to oversee complex, high-stakes initiatives. Keesler's infrastructure and facility modernization projects demand rigorous planning and compliance expertise. Similarly, casino and hospitality operators like Beau Rivage Resort & Casino and Hard Rock Hotel & Casino Biloxi rely on certified project managers to execute property upgrades and expansions that span years and millions in budget. Healthcare systems including Merit Health Biloxi and Singing River Health System also employ PMs for capital facility projects and operational improvements. These industries create steady, visible demand for professionals who can demonstrate formal project management competency.</p><p>The PMP® credential is valued in Biloxi's defense, shipbuilding, and hospitality sectors, where government contracts and large capital projects make certification a genuine competitive advantage. While not universally required, the credential strengthens your candidacy significantly in a market where employers recognize its rigor and relevance. Project manager compensation in Biloxi tracks regional Gulf Coast levels, with higher pay typically found in defense and shipbuilding roles due to project scope and complexity. Completing your PMP Certification Training through Granite PM Academy—delivered live-virtual nationwide—positions you to meet local employer expectations and advance into more senior, better-compensated roles without interrupting your current work.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:15.255051Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "82b5630f8feb8581",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Biloxi",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Most candidates hold a bachelor's degree and have documented hours of direct project-leadership experience. Review PMI's specific criteria on their website, then contact Granite PM Academy to confirm your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend interactive sessions from your location at your own pace, covering the PMBOK® Guide framework, risk management, procurement, and exam domains. Our active certified practitioners deliver real-world context and prepare you thoroughly for the PMI exam."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the 35-hour course, submit your formal application directly to PMI, including your education, work experience, and Granite PM Academy's course completion certificate. Pay the PMI exam registration fee at that time. PMI will review and approve your eligibility before you can schedule your exam appointment."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-prep resources—practice tests, study guides, and Q&A sessions—to solidify your knowledge. Schedule your computer-based PMP exam through PMI's testing partner. You'll take the exam remotely or at an authorized testing center, answering 180 questions across five domains over three hours."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to the three-year renewal cycle by earning Professional Development Units (PDUs) through training, conference attendance, volunteer work, or self-directed learning. Renew your credential and fees with PMI before expiration to keep your PMP active and recognized across Biloxi's defense, maritime, hospitality, and healthcare sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:20.778437Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "840fa1d349201822",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Biloxi shipbuilding and defense careers?",
+          "answer": "<p>Yes. Huntington Ingalls Industries, Keesler Air Force Base, and related defense contractors in the Biloxi region actively seek certified project managers for large capital and government-contracted projects. PMP or CAPM credentials strengthen candidacy in this competitive sector, where project complexity and compliance requirements demand formal PM expertise. While not always mandatory, certification can lead to higher responsibility roles and improved earning potential in Biloxi's defense and maritime industries.</p>"
+        },
+        {
+          "question": "Which Biloxi employers value PMP certification most in their hiring?",
+          "answer": "<p>Biloxi's defense, shipbuilding, healthcare, and casino/hospitality sectors show the strongest preference for PMP-certified project managers. Keesler Air Force Base, Ingalls Shipbuilding, Merit Health Biloxi, and major resort operators (such as those running large convention or capital expansion projects) regularly seek candidates with PMI credentials. PMP or CAPM certification is viewed favorably for roles involving budget oversight, multi-year initiatives, or government compliance, making it especially valuable in these locally dominant industries.</p>"
+        },
+        {
+          "question": "What do project managers typically earn in Biloxi compared to national averages?",
+          "answer": "<p>Project manager compensation in Biloxi generally tracks Gulf Coast regional norms, though pay varies significantly by industry and experience. Defense, shipbuilding, and casino/hospitality sectors offer higher compensation due to project scale and complexity. While precise figures depend on employer, experience level, and role scope, certified PMs (PMP or CAPM) typically command competitive salaries in Biloxi's job market, particularly in large capital-project environments.</p>"
+        },
+        {
+          "question": "Can Biloxi professionals take live-virtual PMP training from their workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely online via live-virtual sessions, so you can attend from your workplace, home, or any location with internet access. This format suits Biloxi professionals balancing full-time roles at Keesler, Ingalls, hospitals, or resorts. You'll participate in real-time instruction and Q&A without traveling, making it easier to earn your credential while maintaining your current responsibilities.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:27.084529Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f9ad028218691e4a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Biloxi's project management market thrives on major defense and shipbuilding operations anchored by Keesler Air Force Base and Ingalls Shipbuilding, alongside substantial hospitality and casino projects from employers like Beau Rivage Resort & Casino and Hard Rock Hotel & Casino Biloxi. These sectors—military infrastructure modernization, large-scale resort renovations, and maritime construction—consistently demand certified project managers to lead complex, high-stakes initiatives. Granite PM Academy delivers live-virtual PMP® Certification Training to working professionals across Biloxi and nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:29.215485Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "7789e86c7e8ca0b6",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-biloxi-ms/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Biloxi, MS, PMP exam prep Biloxi, PMP course Biloxi MS, project management certification Biloxi, MS, PMI PMP training Biloxi",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\",\r\n      \"name\": \"PMP Certification Training in Biloxi, MS | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Biloxi, MS. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Biloxi, MS\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#course\",\r\n      \"name\": \"PMP Certification Training in Biloxi, MS\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Biloxi, MS. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-biloxi-ms/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

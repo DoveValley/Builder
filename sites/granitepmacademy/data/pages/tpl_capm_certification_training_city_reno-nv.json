@@ -1,390 +1,436 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "reno-nv",
-    "slug": "capm-certification-training-reno-nv",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "reno-nv",
-        "city": "Reno",
-        "state": "Nevada",
-        "SS": "NV",
-        "city_slug": "reno-nv",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Reno's logistics and advanced manufacturing sector—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—continues driving steady demand for certified project managers across construction, data centers, and infrastructure development. Major expansion projects at Switch's Citadel Campus and downtown's Neon Line District redevelopment underscore the region's need for skilled program leadership. Granite PM Academy delivers live-virtual PMP® Certification to Reno professionals ready to advance in this growing market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Reno's mining and technology sectors increasingly demand certified project managers to oversee complex operations and digital transformation initiatives. Granite PM Academy delivers live-virtual, instructor-led CAPM Certification & Boot Camp training that fulfills PMI's education requirements, preparing you to earn the Certified Associate in Project Management credential. Completing this boot camp positions you competitively for project coordinator and assistant project manager roles across Reno's growing industrial and tech-driven employers.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:25.719096Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "fbf897e5b9d5afa4",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Reno for Growing PM Demand",
-            "text": "<p>Reno's emergence as a advanced manufacturing and logistics powerhouse—anchored by Tesla's Gigafactory Nevada and Amazon's expanding distribution operations—has created sustained demand for certified project managers across supply chain, production, and infrastructure roles. Beyond these anchor employers, the city's construction boom tied to the Tahoe Reno Industrial Center, healthcare expansion at Renown Health, and data center growth at Switch have deepened the need for professionals who can manage complex, cross-functional initiatives. The Certified Associate in Project Management (CAPM®) credential signals to employers across Reno's diverse sectors that you possess foundational PM knowledge and discipline—a competitive advantage in a market where project management expertise directly supports operational scaling and business growth.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM® Certification & Boot Camp through live-virtual, instructor-led training that meets all PMI contact-hour requirements and fits working professionals' schedules. Our instructors are active certified practitioners who bring real-world project experience from industries represented across Reno, ensuring you learn frameworks and tools relevant to your local job market. We guide you through exam readiness with targeted preparation, interactive instruction, and the support needed to earn your credential confidently. Whether you're advancing within your current organization or positioning yourself for broader opportunities in Reno's growing PM landscape, CAPM® certification from Granite PM Academy opens doors and accelerates your career trajectory.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:30.381355Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "36960912e17f3027",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification Fast-Track for Reno's Growing Tech and Manufacturing Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training You Can Trust",
-                    "text": "Granite PM Academy delivers CAPM® preparation as a PMI Authorized Training Partner, ensuring your contact hours meet PMI eligibility requirements and your certification carries full weight with employers across Reno's logistics, manufacturing, and tech industries."
-                },
-                {
-                    "heading": "Live Instruction Fits Your Schedule",
-                    "text": "Our live-virtual instructor-led boot camp lets you complete required contact hours without traveling, a critical advantage for working professionals at Amazon, Tesla Gigafactory Nevada, and Switch's data centers who need flexibility without compromising rigor."
-                },
-                {
-                    "heading": "Instructors Actively Practice Project Management",
-                    "text": "Learn from certified practitioners currently managing real projects—not just trainers. Their hands-on experience in construction, healthcare, and advanced manufacturing gives you insights directly applicable to Reno's job market from day one."
-                },
-                {
-                    "heading": "CAPM Credential Opens Doors Locally",
-                    "text": "Reno's major employers—from Renown Health to Barrick Gold to the Washoe County School District—actively hire entry- and mid-level project managers. CAPM certification signals readiness and positions you competitively in a market where project-management skills command attention."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:34.804060Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "837853b16334fb83",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Reno's Industrial Boom",
-            "text": "<p>Reno's rapid industrial and infrastructure growth has created steady demand for certified project managers across multiple sectors. Tesla's Gigafactory Nevada expansion, Switch's Citadel Campus data center build-out, and ongoing improvements to Reno-Tahoe International Airport represent the scale of projects reshaping the region. Beyond these flagship initiatives, employers like Amazon, Panasonic, Renown Health, and the University of Nevada, Reno actively hire project managers to oversee construction, manufacturing, logistics, and facility operations. The city's advanced manufacturing, warehousing, and technology infrastructure sectors particularly value formalized project oversight, making credentials like CAPM increasingly visible in local job postings.</p><p>Completing your CAPM Certification & Boot Camp through Granite PM Academy positions you to compete effectively in Reno's growing market. While project manager compensation in the area tracks slightly below larger West Coast metros, it remains competitive within Nevada—and strong demand from construction, healthcare, manufacturing, and logistics employers continues to drive hiring. The CAPM credential is increasingly preferred or required in local postings, especially within sectors where structured project management practices are essential to success. By earning your certification here, you tap into a region where industrial and infrastructure investment is accelerating, and trained project professionals are valued assets to employers building Reno's next generation of facilities and operations.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:39.130158Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "5f6f5b5a6db969bd",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Reno",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary diploma or equivalent and can document the required project management education hours. Importantly, CAPM requires no prior work experience—making it accessible to career-changers and early-stage professionals entering Reno's growing tech and construction sectors."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses the required curriculum into a focused program, allowing you to balance certification study alongside your current commitments in Reno's fast-paced business environment."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI and submit your eligibility documentation through their online portal. Pay the associated exam fee at registration. Granite PM Academy staff can guide you through the application process to ensure accurate submission and timely approval."
-                },
-                {
-                    "heading": "Prepare and Sit for the CAPM Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study guides tailored to the CAPM blueprint. Schedule your proctored exam when ready, and test from a location convenient to you in the Reno area or online."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "After certification, earn professional development units throughout a three-year renewal cycle to sustain your credential. Granite PM Academy offers continuing education options that keep your skills current and aligned with evolving project-management practices."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:43.321550Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "8a8f633ee5ec845e",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Reno manufacturing and logistics careers?",
-                    "answer": "<p>Yes. Reno's advanced manufacturing sector—including EV battery production and large-scale logistics operations—increasingly values formalized project management credentials. CAPM certification demonstrates structured PM competency to employers in these growth industries and positions you competitively for roles where project oversight and PMI-recognized credentials are becoming preferred or required qualifications.</p>"
-                },
-                {
-                    "question": "Which Reno employers actively hire certified project managers?",
-                    "answer": "<p>Construction, healthcare, and manufacturing sectors in the Reno area actively seek project managers with formal credentials. Major regional employers in logistics, data centers, and infrastructure development list project management certification as a valued qualification. CAPM serves as a recognized entry point and often leads to advancement in these high-demand fields within the local job market.</p>"
-                },
-                {
-                    "question": "Can I attend CAPM boot camp training while working at Reno tech or healthcare employers?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM boot camp allows you to attend from your workplace or home, making it practical for Reno professionals balancing full-time roles at healthcare systems, data centers, or tech companies. Flexible scheduling lets you complete the program without disrupting your current employment while building credentials for your next promotion.</p>"
-                },
-                {
-                    "question": "Should Reno project managers get CAPM before pursuing PMP certification?",
-                    "answer": "<p>CAPM is an ideal starting point if you have limited formal PM experience or are entering the field at Reno's growing construction, manufacturing, or healthcare employers. It builds foundational knowledge and PMI credibility before advancing to PMP. In a market where formalized project oversight is increasingly expected, CAPM accelerates your timeline to meeting employer requirements and earning advancement opportunities.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:49.369504Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "41de166d9ea31f14",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Reno's project management landscape is anchored by advanced manufacturing and logistics growth, with Tesla's Gigafactory Nevada expansion and Amazon operations driving ongoing demand for certified professionals. Healthcare, gaming, and infrastructure redevelopment—including the Neon Line District—further broaden opportunities across sectors. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp training designed for Reno's working professionals seeking to advance their credentials and career prospects.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:51.105488Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "a119a07138f0dc6b",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "reno-nv",
+  "slug": "capm-certification-training-reno-nv",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "reno-nv",
+    "city": "Reno",
+    "state": "Nevada",
+    "SS": "NV",
+    "city_slug": "reno-nv",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-reno-nv/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Reno, NV, CAPM boot camp Reno, CAPM training Reno, NV, CAPM classes Reno NV, CAPM exam prep Reno",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\",\n      \"name\": \"CAPM Certification & Boot Camp in Reno, NV | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Reno, NV. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Reno, NV\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Reno, NV\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Reno, NV. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Logistics and warehousing/distribution",
+      "Advanced manufacturing and battery/EV production",
+      "Data centers and technology",
+      "Healthcare",
+      "Gaming, hospitality and tourism",
+      "Construction and infrastructure development"
+    ],
+    "top_employers": [
+      "Tesla (Gigafactory Nevada)",
+      "Amazon",
+      "Switch",
+      "Renown Health",
+      "University of Nevada, Reno",
+      "Washoe County School District",
+      "Panasonic",
+      "IGT (International Game Technology)",
+      "Peppermill Resort Spa Casino",
+      "Grand Sierra Resort and Casino",
+      "Barrick Gold (Reno office)",
+      "Patagonia (distribution center)"
+    ],
+    "salary_note": "Project manager pay in the Reno area tends to track slightly below larger West Coast metros like San Francisco or Seattle but is competitive within Nevada, reflecting strong demand from manufacturing, logistics, and construction employers rather than a specific published figure.",
+    "market_blurb": "Reno's project management job market has grown alongside its expansion as a logistics and advanced manufacturing hub, driven by large-scale employers like Tesla and Amazon alongside a resilient gaming and hospitality sector. Construction and infrastructure growth tied to the Tahoe Reno Industrial Center and downtown redevelopment continue to create steady demand for certified project and program managers across industries.",
+    "notable_projects": [
+      "Tesla Gigafactory Nevada expansion",
+      "Switch Citadel Campus data center expansion",
+      "Reno-Tahoe International Airport terminal and infrastructure improvements",
+      "Downtown Reno's Neon Line District redevelopment"
+    ],
+    "credential_demand": "PMP certification is increasingly listed as a preferred or required qualification in Reno-area job postings, particularly within construction, healthcare, and manufacturing sectors where formalized project oversight is valued. Overall demand for trained project management professionals remains steady given the region's ongoing industrial and infrastructure growth.",
+    "_researched": 1,
+    "city_spotlight": "<p>Reno's logistics and advanced manufacturing sector—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—continues to expand, creating steady demand for certified project managers across supply chain, production, and infrastructure roles. Downtown redevelopment and major data center projects add further momentum to the local PM job market. Granite PM Academy delivers live-virtual PMP Certification training to Reno professionals seeking to advance their careers in these high-growth industries.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-reno-nv.webp",
+    "city_image_alt": "Reno, Nevada, NV",
+    "city_image_credit": "Photo: Trevor Bexon, CC BY 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Reno,_Nevada_(16931715632).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Reno's advanced manufacturing, logistics, data center, and gaming sectors rely on skilled project managers to coordinate complex operations and capital investments. Granite PM Academy delivers live-virtual, instructor-led CAPM Certification Training that fulfills PMI's contact-hour education requirement, enabling you to sit for the exam on your schedule. Earning your CAPM credential positions you to advance into mid-level PM roles across Reno's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:37.428177Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "20cddd6a97dc2cde",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Reno's Growing Project Management Market",
+      "text": "<p>Reno's emergence as a logistics and advanced manufacturing powerhouse has reshaped demand for certified project managers across the region. Major operations like Tesla's Gigafactory Nevada and Amazon's distribution footprint require professionals who can manage complex, large-scale initiatives—and the CAPM® certification has become a credential that employers in Reno actively seek when staffing project coordinator and junior management roles. Beyond manufacturing, construction tied to the Tahoe Reno Industrial Center, healthcare expansion at Renown Health, and ongoing downtown redevelopment create consistent opportunities for certified professionals. For early-career project managers and those transitioning into the field, the CAPM® provides the foundational framework and PMI® recognition that differentiates candidates in Reno's competitive job market.</p><p>Granite PM Academy delivers CAPM® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that satisfy the Project Management Institute's contact-hour requirements for this credential. Our instructors are active certified practitioners who bring real-world project experience to every class, ensuring you learn frameworks and tools used in actual practice—not just theory. The live-virtual format means you can earn your CAPM® on a schedule that fits your life, whether you're in Reno, elsewhere in Nevada, or anywhere across the nation. Upon completion, you'll be eligible to sit for the CAPM® exam and take your next step toward a career in project management.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:41.622329Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "108995af8924b935",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification: Fast-Track Your Reno Career",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Counts",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM training meets PMI's rigorous standards, ensuring your credential is recognized across Reno's major employers—from Tesla's Gigafactory to Amazon and healthcare systems—without question."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Live-virtual instructor-led sessions satisfy PMI's contact-hour requirement while letting you work full-time. No self-paced videos or asynchronous content. Real instructors, real-time interaction, and the flexibility Reno professionals need to balance career and certification."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Your instructors are active certified practitioners managing live projects—not academics or retired trainers. They bring current methodologies, real conflict resolution, and practical examples directly into every session, preparing you for how work actually happens."
+        },
+        {
+          "heading": "Credential Built for Reno's Job Market",
+          "text": "Logistics, manufacturing, data centers, construction, and gaming operations across Reno increasingly seek CAPM-certified team members. The certification signals readiness for coordinator and assistant PM roles where these industries are actively hiring—and moving your career forward locally."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:45.876843Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f83a7098766a27de",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Reno's Growing Industrial Hub",
+      "text": "<p>Reno's advanced manufacturing and logistics sectors are driving steady demand for certified project managers. Tesla's Gigafactory Nevada expansion and Switch's Citadel Campus data center buildout represent the kind of large-scale, complex initiatives that require skilled project oversight—and employers across manufacturing, warehousing, and construction actively seek professionals who can demonstrate structured project governance. Amazon, Panasonic, and local construction firms involved in infrastructure improvements like the Reno-Tahoe International Airport terminal upgrades similarly rely on certified practitioners to keep timelines, budgets, and stakeholder expectations aligned. Healthcare systems and government agencies in the region also value formalized project management credentials as they undertake their own operational and capital initiatives.</p><p>The CAPM® credential positions you competitively in a market where PMP® certification is increasingly preferred or required—particularly in construction, healthcare, and manufacturing roles. While Reno's project manager compensation tends to run slightly below larger West Coast metros, the region's strong demand from industrial, logistics, and infrastructure employers keeps salaries competitive within Nevada and reflects genuine career growth potential. Completing CAPM Certification Training through Granite PM Academy gives you a recognized credential that aligns with what local hiring managers are actively seeking, helping you stand out as you advance into project coordinator and project manager roles within Reno's expanding economic base.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:49.938889Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "15a7a311540e67ff",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Reno",
+      "steps_items": [
+        {
+          "heading": "Verify Your Eligibility",
+          "text": "CAPM requires a secondary degree (high school diploma, associate, or equivalent) and completion of a secondary education requirement — no prior project management work experience needed. This accessibility makes CAPM ideal for Reno professionals entering the field across logistics, advanced manufacturing, data centers, and other growing sectors."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course. Our intensive format compresses structured project management education into a focused schedule, allowing you to master CAPM foundations while maintaining your current work commitments in Reno's dynamic job market."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and submit your certification application, confirming your educational eligibility and paying the associated exam fee. Granite PM Academy staff can guide you through the online submission process to ensure accuracy and timeliness."
+        },
+        {
+          "heading": "Prepare and Pass the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study materials aligned to CAPM's knowledge domains. Schedule your proctored exam at a test center or online, and demonstrate your readiness to manage projects professionally."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "Earn professional development units (PDUs) over a three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing education options to help you stay current and advance toward the PMP or other PMI credentials as your career evolves."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:35:54.714742Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "6700c675989c7648",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth getting in Reno's manufacturing and logistics sector?",
+          "answer": "<p>Yes. Reno's rapid growth in advanced manufacturing (including EV battery production), warehousing, and distribution has created strong demand for formally trained project managers. PMP and CAPM credentials are increasingly listed as preferred or required qualifications in local job postings across these sectors, where structured project oversight directly impacts operational efficiency and scalability. The credential strengthens your profile in Reno's expanding industrial job market.</p>"
+        },
+        {
+          "question": "Which Reno employers value CAPM or PMP project management certifications most?",
+          "answer": "<p>Construction, healthcare, and advanced manufacturing employers in the Reno area actively seek certified project managers. Major local industries—including data centers, logistics hubs, and EV/battery production—depend on disciplined project delivery. Healthcare systems like Renown Health also prioritize formal project credentials for clinical and operational initiatives. Certification signals capability in environments where formalized oversight is essential to success.</p>"
+        },
+        {
+          "question": "Can I attend Reno CAPM certification training from my workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy delivers all CAPM training live-virtually, so you can attend from your workplace, home, or any location with reliable internet—ideal for Reno professionals balancing work and certification study. This format accommodates your local schedule while giving you access to active certified practitioners without travel time or location constraints.</p>"
+        },
+        {
+          "question": "When should I pursue CAPM certification given Reno's current job market?",
+          "answer": "<p>Now is a favorable time. Reno's ongoing industrial and infrastructure growth sustains steady demand for trained project management professionals across construction, healthcare, manufacturing, and logistics sectors. Completing CAPM certification positions you to capitalize on local hiring momentum while building a credential that tracks alongside PMP in Reno-area hiring requirements and career advancement pathways.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:36:00.247646Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "75a9423882e25eb2",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Reno's advanced manufacturing and logistics sectors—anchored by Tesla's Gigafactory Nevada and Amazon operations—are driving sustained demand for certified project managers across construction, data centers, and infrastructure development. Major employers including Switch, Renown Health, and the University of Nevada, Reno regularly seek CAPM-credentialed professionals to lead complex initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training to Reno professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:36:02.066495Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "2b3d689dd33657c9",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-reno-nv/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Reno, NV, CAPM boot camp Reno, CAPM training Reno, NV, CAPM classes Reno NV, CAPM exam prep Reno",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\",\n      \"name\": \"CAPM Certification Training in Reno, NV | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Reno, NV. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Reno, NV\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#course\",\n      \"name\": \"CAPM Certification Training in Reno, NV\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Reno, NV. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-reno-nv/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

@@ -1,0 +1,393 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "philadelphia-pa",
+  "slug": "ai-training-philadelphia-pa",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "philadelphia-pa",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "philadelphia-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Telecommunications & Media",
+      "Healthcare",
+      "Higher Education",
+      "Insurance",
+      "Retail",
+      "Energy/Utilities"
+    ],
+    "top_employers": [
+      "Comcast",
+      "University of Pennsylvania/Penn Medicine",
+      "Children's Hospital of Philadelphia",
+      "Thomas Jefferson University/Jefferson Health",
+      "Independence Blue Cross",
+      "Aramark",
+      "Urban Outfitters/URBN",
+      "PECO Energy"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. General (non-PMP) Project Manager averages in Philadelphia run roughly $95,000-$104,000/yr across ZipRecruiter, Glassdoor, Built In, and Indeed.",
+    "market_blurb": "Philadelphia's economy centers on telecommunications/media through Comcast, an outsized healthcare and higher-education base anchored by the University of Pennsylvania alongside CHOP and Jefferson Health, plus insurance, retail, and utilities.",
+    "notable_projects": [
+      "New $1.3B privately-financed arena for the 76ers and Flyers at the South Philadelphia Sports Complex, announced January 2025, targeted to open by 2030"
+    ],
+    "credential_demand": "The concentration of large academic medical centers, a Fortune 500 telecom/media company, and major health systems makes PMP certification plausibly valued for hospital capital projects, IT/digital transformation, and corporate program work.",
+    "_researched": 1,
+    "city_spotlight": "<p>Philadelphia's employer base includes Comcast, University of Pennsylvania/Penn Medicine, Children's Hospital of Philadelphia, Thomas Jefferson University/Jefferson Health. Philadelphia's economy centers on telecommunications/media through Comcast, an outsized healthcare and higher-education base anchored by the University of Pennsylvania alongside CHOP and Jefferson Health, plus insurance, retail, and utilities. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Philadelphia professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMI-CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Philadelphia's healthcare and higher-education sectors—anchored by Penn Medicine, Children's Hospital, and Jefferson Health—rely on project managers to coordinate complex clinical initiatives and institutional operations. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's required contact hours, enabling you to earn credentials on a schedule that fits working life. The PMI-CPMAI designation strengthens your candidacy for advancement in Philadelphia's largest employers and positions you competitively across the region's growing project-management roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:31.250624Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "55dd2165e29de3f1",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Philadelphia",
+      "text": "<p>Philadelphia's telecommunications and media sector, anchored by industry leaders like Comcast, drives sustained demand for skilled project managers who can navigate complex infrastructure, digital transformation, and cross-functional delivery. Beyond that anchor, the city's robust healthcare ecosystem—spanning academic medical centers, hospital networks, and insurance operations—creates equally urgent needs for professionals who can manage regulatory compliance, technology integration, and large-scale clinical initiatives. The PMI-CPMAI credential signals mastery of agile and hybrid frameworks that these sectors depend on, positioning Philadelphia professionals to advance into senior roles and command competitive compensation in a market where project management expertise remains scarce relative to demand.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction that meets all contact-hour requirements for this credential. Our active certified practitioners bring real-world experience in managing complex, uncertainty-driven projects and teach the tools, mindsets, and decision frameworks the credential demands. Whether you are early in your project management career or transitioning into agile delivery, our structured program prepares you to pass the exam and apply certified practices immediately in Philadelphia's dynamic industries. Enroll in a cohort that fits your schedule, complete your contact hours with expert instructors, and earn recognition that opens doors across telecommunications, healthcare, insurance, and beyond.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:35.456966Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ffe1c5e8d7d7186d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Philadelphia's Healthcare & Telecom Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Credential Weight",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMI-CPMAI training meets all official requirements. This credential carries the credibility employers across Philadelphia's healthcare systems, insurance firms, and telecom companies expect and value."
+        },
+        {
+          "heading": "Live Virtual, Real Contact Hours",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI-CPMAI eligibility without rigid classroom schedules. Study from anywhere in the Philadelphia region while meeting all PMI prerequisites—flexibility that fits working professionals."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Instructors bring current certifications and hands-on project experience into every session. You gain real-world insights into program and project management practices, not outdated textbook theory."
+        },
+        {
+          "heading": "Credential Aligned with Philly's Top Employers",
+          "text": "Major Philadelphia employers—Comcast, Penn Medicine, Jefferson Health, Independence Blue Cross, and PECO Energy—actively hire certified program and project managers. PMI-CPMAI strengthens your profile for these organizations and the industries driving the region's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:39.399369Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d0d569c4d4e19f47",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across Philadelphia's Major Industries",
+      "text": "<p>Philadelphia's largest employers—Comcast, University of Pennsylvania/Penn Medicine, Children's Hospital of Philadelphia, and Independence Blue Cross—consistently hire certified project managers to lead capital initiatives, digital transformations, and complex care delivery programs. The region's concentration of Fortune 500 telecom and media operations, academic medical centers, and integrated health systems creates sustained demand for PMP® certification across telecommunications, healthcare, higher education, and insurance sectors. The recently announced $1.3 billion privately-financed arena project at the South Philadelphia Sports Complex, targeted to open by 2030, exemplifies the scale of infrastructure and program work where certified project managers play central roles.</p><p>Completing PMI-CPMAI Certification Training through Granite PM Academy positions you competitively in a market where PMP®-certified professionals report significantly higher earning power than non-certified peers across most regions, a premium that reflects both credential rigor and employer demand. In Philadelphia specifically, project managers command salaries in the $95,000–$104,000 range, with certification opening pathways to higher compensation and leadership roles in hospital capital projects, IT modernization, and enterprise program management. The credential signals mastery of frameworks that healthcare systems, energy providers, and large retailers in this city depend on to deliver projects on time and within scope—a credential that translates directly to career advancement in Philadelphia's competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:43.473380Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "63036a9f575eaccb",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the PMI-CPMAI certification?",
+          "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+        },
+        {
+          "question": "Who should pursue the PMI-CPMAI in {city}?",
+          "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the PMI-CPMAI course?",
+          "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+        },
+        {
+          "question": "How is the PMI-CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Philadelphia healthcare project managers?",
+          "answer": "<p>Philadelphia's concentration of major academic medical centers and health systems—including Penn Medicine, Jefferson Health, and Children's Hospital of Philadelphia—makes PMP certification particularly valuable for capital projects, clinical IT implementations, and system-wide digital transformations. PMI's Earning Power Survey reports PMP-certified practitioners earn a median of $135,000 nationally versus $109,157 for non-certified peers, a premium that extends across most regions including healthcare. For Philadelphia professionals managing complex hospital or research initiatives, certification often accelerates advancement into senior program and portfolio leadership roles.</p>"
+        },
+        {
+          "question": "Which Philadelphia industries and employers value PMI-CPMAI certification most?",
+          "answer": "<p>Philadelphia's largest employers across telecommunications, healthcare, higher education, insurance, and energy sectors—including Comcast, Independence Blue Cross, University of Pennsylvania, and PECO Energy—regularly seek PMP-certified practitioners for enterprise-scale projects and digital transformation initiatives. The city's robust healthcare ecosystem and Fortune 500 telecom presence create strong demand for certified professionals managing complex, multi-stakeholder programs. Certification is especially valued in roles requiring regulatory compliance, budget oversight, and cross-functional coordination across these industries.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Philadelphia workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI Certification Training is delivered 100% live-virtual, allowing you to participate from your office, home, or any location with reliable internet—whether you work in Center City, University City, or anywhere in the Philadelphia region. The live-virtual format accommodates the schedules of professionals at Comcast, healthcare systems, nonprofit institutions, and other major employers without requiring travel to a physical classroom. You'll interact with instructors and peers in real time while maintaining your work location and routine.</p>"
+        },
+        {
+          "question": "Should Philadelphia project managers pursue PMP certification now or wait?",
+          "answer": "<p>Philadelphia's job market for project managers—with general roles averaging roughly $95,000–$104,000 annually—shows consistent demand across healthcare, tech, and corporate sectors. Early certification positions you to move into higher-compensated certified roles and specialized program leadership faster than peers who delay. Given the city's active hiring by large employers in telecommunications, insurance, and health systems, completing certification sooner rather than later improves your competitive standing for advancement and role transitions within Philadelphia's professional market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:50.170676Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b526a294dc7f23f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Philadelphia's economy is anchored by telecommunications and media giants like Comcast, alongside a major healthcare and higher-education cluster featuring the University of Pennsylvania, Children's Hospital of Philadelphia, and Jefferson Health—sectors where skilled project managers drive strategy and operations. The region's ongoing projects, including a $1.3B privately-financed arena for the 76ers and Flyers opening by 2030, further underscore demand for certified PM expertise. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Philadelphia professionals, combining flexible scheduling with rigorous preparation for this credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:11:52.084828Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "c939188485da6c92",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-philadelphia-pa/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Philadelphia, PA, AI courses Philadelphia, CPMAI certification Philadelphia, AI project management training Philadelphia, PA, AI for project managers Philadelphia",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\",\n      \"name\": \"PMI-CPMAI Certification Training in Philadelphia, PA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Philadelphia, PA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Philadelphia, PA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Philadelphia, PA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Philadelphia, PA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-philadelphia-pa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}",
+    "primary_keyword": "PMI-CPMAI Certification Training"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T03:33:15+00:00",
+  "template_version": "f6a3382b6a8f42a3fb45841d36f4e3b0"
+}

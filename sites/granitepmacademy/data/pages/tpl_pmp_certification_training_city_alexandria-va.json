@@ -1,402 +1,403 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "alexandria-va",
-  "slug": "pmp-certification-training-alexandria-va",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "alexandria-va",
-    "city": "Alexandria",
-    "state": "Virginia",
-    "SS": "VA",
-    "city_slug": "alexandria-va",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier3",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "alexandria-va",
+    "slug": "pmp-certification-training-alexandria-va",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "alexandria-va",
+        "city": "Alexandria",
+        "state": "Virginia",
+        "SS": "VA",
+        "city_slug": "alexandria-va",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier3",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Federal science policy/research administration",
+            "Intellectual property/federal law",
+            "Higher education/tech research"
+        ],
+        "top_employers": [
+            "National Science Foundation (headquarters)",
+            "U.S. Patent and Trademark Office (headquarters)",
+            "Virginia Tech Innovation Campus"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Alexandria hosts the headquarters of two major federal agencies - the National Science Foundation and the U.S. Patent and Trademark Office - plus Virginia Tech's new Innovation Campus at the redeveloped Potomac Yard.",
+        "notable_projects": [
+            "Potomac Yard redevelopment - former rail yard converted to mixed-use, including the Potomac Yard Metro station (opened 2023) and Virginia Tech's new Innovation Campus (opened January 2025)"
+        ],
+        "credential_demand": "Federal agencies and research/technology institutions headquartered in Alexandria commonly run structured program and acquisition-management work, where PMP is a widely recognized credential.",
+        "_researched": 1,
+        "city_spotlight": "<p>Alexandria's employer base includes National Science Foundation (headquarters), U.S. Patent and Trademark Office (headquarters), Virginia Tech Innovation Campus. Alexandria hosts the headquarters of two major federal agencies - the National Science Foundation and the U.S. Patent and Trademark Office - plus Virginia Tech's new Innovation Campus at the redeveloped Potomac Yard. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Alexandria professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Alexandria's concentration of federal science policy, intellectual property law, and research administration roles demands project managers who can navigate complex compliance and stakeholder requirements. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education required for this credential through instructor-led instruction designed around working professionals' schedules. Earning your PMP positions you for advancement in Alexandria's mission-driven organizations where certified project leadership directly impacts career trajectory and organizational impact.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:08.321842Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "5136f25263349486",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Alexandria for Federal and Research Leaders",
+            "text": "<p>Alexandria's concentration of federal research and policy agencies—anchored by the National Science Foundation headquarters and the U.S. Patent and Trademark Office, alongside Virginia Tech's Innovation Campus—creates a distinctive demand for project managers who can navigate complex, mission-critical initiatives. Professionals in these sectors manage initiatives spanning scientific research, intellectual property administration, and technology development, where structured project governance and documented competency directly influence funding decisions, regulatory outcomes, and innovation timelines. The PMP® credential is increasingly expected among project leaders in Alexandria's federal and research-driven organizations, signaling mastery of planning, execution, and stakeholder management at a scale these employers require.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes designed to fit working professionals' schedules nationwide. Our program satisfies PMI's contact-hour requirements and is taught by active certified practitioners who bring real-world expertise to every session. Whether you're managing research grants, overseeing technology initiatives, or coordinating multi-disciplinary teams in Alexandria's innovation ecosystem, our training equips you with the frameworks and knowledge to earn your PMP® credential and advance your career in these high-impact sectors.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:12.146201Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "09b778c9f5f891f5",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Alexandria's Federal Research Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your completion satisfies PMI's official contact-hour requirement for PMP® eligibility. No separate paperwork or verification needed—your training record flows directly to PMI."
+                },
+                {
+                    "heading": "Live-Virtual, Schedule-Flexible Learning",
+                    "text": "Attend instructor-led classes entirely online, designed for working professionals managing demanding schedules. You'll interact with instructors and cohort members in real time while maintaining flexibility around federal project cycles and research timelines."
+                },
+                {
+                    "heading": "Instructors Who Practice Project Management",
+                    "text": "Your instructors are active, certified project management practitioners—not academic instructors teaching theory alone. They bring current examples from real-world program delivery, making frameworks and tools immediately applicable to your work."
+                },
+                {
+                    "heading": "Credential Valued by NSF, USPTO, and Tech Research",
+                    "text": "The PMP® credential is recognized across Alexandria's major employers—NSF, USPTO, and Virginia Tech Innovation Campus—as evidence of structured program and project leadership. Federal science policy and intellectual property administration increasingly require or prefer PMP®-certified managers for advancement."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:16.070240Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "4eb96c39848bacce",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Alexandria's Federal Science Hub",
+            "text": "<p>Alexandria's concentration of federal research and policy leadership creates consistent demand for certified project managers. The National Science Foundation and U.S. Patent and Trademark Office—both headquartered here—depend on skilled program and acquisition managers to oversee complex, multi-year initiatives. Similarly, Virginia Tech's Innovation Campus, which opened in January 2025, and the ongoing Potomac Yard redevelopment demonstrate how major institutional projects reshape the local economy. Organizations managing these efforts routinely seek professionals with formal project-management credentials to lead cross-functional teams, manage budgets, and ensure regulatory compliance.</p><p>Earning your PMP® certification positions you competitively within Alexandria's federal and research-technology sectors, where the credential is widely recognized and valued. Nationally, PMP®-certified project managers report substantially higher earning potential compared to non-certified peers—a premium that typically holds across regions and industries. By completing PMP Certification Training through Granite PM Academy, you gain both the credential employers in Alexandria actively pursue and the structured knowledge to advance into senior program-management roles where compensation and responsibility grow together. The flexibility of live-virtual training means you can earn your certification while managing your current workload, preparing yourself to step into higher-demand positions as they open in Alexandria's competitive market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:20.075879Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "9d10e1e5a6955ff8",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Alexandria",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour thresholds for your educational background, then gather evidence of your project leadership work. Granite PM Academy's team can clarify eligibility questions before you enroll in training."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions from anywhere, on a schedule that fits your career in federal science policy, intellectual property law, or higher education research. All 35 required contact hours are delivered by active certified practitioners in real time."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing training, apply directly to PMI with your verified project experience and education credentials. Pay PMI's exam fee and await application approval. Granite PM Academy guides you through documentation requirements so your submission is complete and accepted promptly."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor review sessions—to build confidence. Schedule your exam with Pearson VUE at a testing center or via remote proctoring. Our instructors remain available to answer final questions before you test."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "Earn Professional Development Units (PDUs) every three years to renew your certification. PMI recognizes training, volunteer work, and published contributions. Granite PM Academy offers continuing education courses to help you stay current and advance your standing in Alexandria's competitive project-management field."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:25.105377Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "dbee65599fb3ce65",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Alexandria federal research careers?",
+                    "answer": "<p>Yes. Alexandria hosts the National Science Foundation and U.S. Patent and Trademark Office, both of which rely heavily on structured program and acquisition management. PMP is widely recognized by federal agencies and research institutions for roles overseeing grants, policy initiatives, and technology projects. Nationally, PMP-certified project managers report a median salary premium of approximately $26,000 over non-certified peers, a gap that holds across most regions and is particularly relevant in federal and research-focused markets.</p>"
+                },
+                {
+                    "question": "Which Alexandria employers value PMP project management certification most?",
+                    "answer": "<p>Federal science policy and research administration, intellectual property/federal law, and higher education technology research are the dominant industries in Alexandria. Organizations in these sectors—including federal agencies headquartered locally, patent offices, and the Virginia Tech Innovation Campus—regularly manage structured programs and acquisitions where PMP is a recognized credential for advancement, leadership roles, and competitive hiring.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Alexandria workplace?",
+                    "answer": "<p>Yes. Granite PM Academy delivers all PMP certification training live-virtual nationwide, so you can attend from your office, home, or any location with a reliable internet connection. This format works well for Alexandria professionals juggling federal or research-institution schedules, allowing you to complete certification without commuting or relocating during the training period.</p>"
+                },
+                {
+                    "question": "When should Alexandria project managers pursue PMP certification?",
+                    "answer": "<p>Federal and research employers in Alexandria often embed PMP into career progression frameworks and promotion cycles. If you're managing grants, acquisitions, or research initiatives, pursuing certification early strengthens your candidacy for senior roles and aligns with how these organizations evaluate leadership capability. Timing certification with internal promotion windows or role transitions maximizes your competitive advantage in Alexandria's federal and research-focused job market.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:30.529128Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "56e34398f4f13832",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Alexandria's federal research and intellectual property sector—anchored by NSF and USPTO headquarters—creates sustained demand for skilled project managers overseeing complex policy, innovation, and compliance initiatives. The Potomac Yard redevelopment, now home to Virginia Tech's Innovation Campus (opened January 2025), further amplifies project management opportunities across higher education and tech research. Granite PM Academy delivers live-virtual PMP® Certification Training to Alexandria professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:32.316021Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "ccec342ec79c1c75",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Federal science policy/research administration",
-      "Intellectual property/federal law",
-      "Higher education/tech research"
-    ],
-    "top_employers": [
-      "National Science Foundation (headquarters)",
-      "U.S. Patent and Trademark Office (headquarters)",
-      "Virginia Tech Innovation Campus"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Alexandria hosts the headquarters of two major federal agencies - the National Science Foundation and the U.S. Patent and Trademark Office - plus Virginia Tech's new Innovation Campus at the redeveloped Potomac Yard.",
-    "notable_projects": [
-      "Potomac Yard redevelopment - former rail yard converted to mixed-use, including the Potomac Yard Metro station (opened 2023) and Virginia Tech's new Innovation Campus (opened January 2025)"
-    ],
-    "credential_demand": "Federal agencies and research/technology institutions headquartered in Alexandria commonly run structured program and acquisition-management work, where PMP is a widely recognized credential.",
-    "_researched": 1,
-    "city_spotlight": "<p>Alexandria's employer base includes National Science Foundation (headquarters), U.S. Patent and Trademark Office (headquarters), Virginia Tech Innovation Campus. Alexandria hosts the headquarters of two major federal agencies - the National Science Foundation and the U.S. Patent and Trademark Office - plus Virginia Tech's new Innovation Campus at the redeveloped Potomac Yard. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Alexandria professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Alexandria's concentration of federal science policy, intellectual property law, and research administration roles demands project managers who can navigate complex compliance and stakeholder requirements. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education required for this credential through instructor-led instruction designed around working professionals' schedules. Earning your PMP positions you for advancement in Alexandria's mission-driven organizations where certified project leadership directly impacts career trajectory and organizational impact.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:08.321842Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "5136f25263349486",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-alexandria-va/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Alexandria, VA, PMP exam prep Alexandria, PMP course Alexandria VA, project management certification Alexandria, VA, PMI PMP training Alexandria",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\",\r\n      \"name\": \"PMP Certification Training in Alexandria, VA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Alexandria, VA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Alexandria, VA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#course\",\r\n      \"name\": \"PMP Certification Training in Alexandria, VA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Alexandria, VA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Alexandria for Federal and Research Leaders",
-      "text": "<p>Alexandria's concentration of federal research and policy agencies—anchored by the National Science Foundation headquarters and the U.S. Patent and Trademark Office, alongside Virginia Tech's Innovation Campus—creates a distinctive demand for project managers who can navigate complex, mission-critical initiatives. Professionals in these sectors manage initiatives spanning scientific research, intellectual property administration, and technology development, where structured project governance and documented competency directly influence funding decisions, regulatory outcomes, and innovation timelines. The PMP® credential is increasingly expected among project leaders in Alexandria's federal and research-driven organizations, signaling mastery of planning, execution, and stakeholder management at a scale these employers require.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes designed to fit working professionals' schedules nationwide. Our program satisfies PMI's contact-hour requirements and is taught by active certified practitioners who bring real-world expertise to every session. Whether you're managing research grants, overseeing technology initiatives, or coordinating multi-disciplinary teams in Alexandria's innovation ecosystem, our training equips you with the frameworks and knowledge to earn your PMP® credential and advance your career in these high-impact sectors.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:12.146201Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "09b778c9f5f891f5",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Alexandria's Federal Research Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your completion satisfies PMI's official contact-hour requirement for PMP® eligibility. No separate paperwork or verification needed—your training record flows directly to PMI."
-        },
-        {
-          "heading": "Live-Virtual, Schedule-Flexible Learning",
-          "text": "Attend instructor-led classes entirely online, designed for working professionals managing demanding schedules. You'll interact with instructors and cohort members in real time while maintaining flexibility around federal project cycles and research timelines."
-        },
-        {
-          "heading": "Instructors Who Practice Project Management",
-          "text": "Your instructors are active, certified project management practitioners—not academic instructors teaching theory alone. They bring current examples from real-world program delivery, making frameworks and tools immediately applicable to your work."
-        },
-        {
-          "heading": "Credential Valued by NSF, USPTO, and Tech Research",
-          "text": "The PMP® credential is recognized across Alexandria's major employers—NSF, USPTO, and Virginia Tech Innovation Campus—as evidence of structured program and project leadership. Federal science policy and intellectual property administration increasingly require or prefer PMP®-certified managers for advancement."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:16.070240Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "4eb96c39848bacce",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Alexandria's Federal Science Hub",
-      "text": "<p>Alexandria's concentration of federal research and policy leadership creates consistent demand for certified project managers. The National Science Foundation and U.S. Patent and Trademark Office—both headquartered here—depend on skilled program and acquisition managers to oversee complex, multi-year initiatives. Similarly, Virginia Tech's Innovation Campus, which opened in January 2025, and the ongoing Potomac Yard redevelopment demonstrate how major institutional projects reshape the local economy. Organizations managing these efforts routinely seek professionals with formal project-management credentials to lead cross-functional teams, manage budgets, and ensure regulatory compliance.</p><p>Earning your PMP® certification positions you competitively within Alexandria's federal and research-technology sectors, where the credential is widely recognized and valued. Nationally, PMP®-certified project managers report substantially higher earning potential compared to non-certified peers—a premium that typically holds across regions and industries. By completing PMP Certification Training through Granite PM Academy, you gain both the credential employers in Alexandria actively pursue and the structured knowledge to advance into senior program-management roles where compensation and responsibility grow together. The flexibility of live-virtual training means you can earn your certification while managing your current workload, preparing yourself to step into higher-demand positions as they open in Alexandria's competitive market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:20.075879Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "9d10e1e5a6955ff8",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Alexandria",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour thresholds for your educational background, then gather evidence of your project leadership work. Granite PM Academy's team can clarify eligibility questions before you enroll in training."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions from anywhere, on a schedule that fits your career in federal science policy, intellectual property law, or higher education research. All 35 required contact hours are delivered by active certified practitioners in real time."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing training, apply directly to PMI with your verified project experience and education credentials. Pay PMI's exam fee and await application approval. Granite PM Academy guides you through documentation requirements so your submission is complete and accepted promptly."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor review sessions—to build confidence. Schedule your exam with Pearson VUE at a testing center or via remote proctoring. Our instructors remain available to answer final questions before you test."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "Earn Professional Development Units (PDUs) every three years to renew your certification. PMI recognizes training, volunteer work, and published contributions. Granite PM Academy offers continuing education courses to help you stay current and advance your standing in Alexandria's competitive project-management field."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:25.105377Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "dbee65599fb3ce65",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Alexandria federal research careers?",
-          "answer": "<p>Yes. Alexandria hosts the National Science Foundation and U.S. Patent and Trademark Office, both of which rely heavily on structured program and acquisition management. PMP is widely recognized by federal agencies and research institutions for roles overseeing grants, policy initiatives, and technology projects. Nationally, PMP-certified project managers report a median salary premium of approximately $26,000 over non-certified peers, a gap that holds across most regions and is particularly relevant in federal and research-focused markets.</p>"
-        },
-        {
-          "question": "Which Alexandria employers value PMP project management certification most?",
-          "answer": "<p>Federal science policy and research administration, intellectual property/federal law, and higher education technology research are the dominant industries in Alexandria. Organizations in these sectors—including federal agencies headquartered locally, patent offices, and the Virginia Tech Innovation Campus—regularly manage structured programs and acquisitions where PMP is a recognized credential for advancement, leadership roles, and competitive hiring.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Alexandria workplace?",
-          "answer": "<p>Yes. Granite PM Academy delivers all PMP certification training live-virtual nationwide, so you can attend from your office, home, or any location with a reliable internet connection. This format works well for Alexandria professionals juggling federal or research-institution schedules, allowing you to complete certification without commuting or relocating during the training period.</p>"
-        },
-        {
-          "question": "When should Alexandria project managers pursue PMP certification?",
-          "answer": "<p>Federal and research employers in Alexandria often embed PMP into career progression frameworks and promotion cycles. If you're managing grants, acquisitions, or research initiatives, pursuing certification early strengthens your candidacy for senior roles and aligns with how these organizations evaluate leadership capability. Timing certification with internal promotion windows or role transitions maximizes your competitive advantage in Alexandria's federal and research-focused job market.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:30.529128Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "56e34398f4f13832",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Alexandria's federal research and intellectual property sector—anchored by NSF and USPTO headquarters—creates sustained demand for skilled project managers overseeing complex policy, innovation, and compliance initiatives. The Potomac Yard redevelopment, now home to Virginia Tech's Innovation Campus (opened January 2025), further amplifies project management opportunities across higher education and tech research. Granite PM Academy delivers live-virtual PMP® Certification Training to Alexandria professionals nationwide, enabling you to earn your credential on your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:32.316021Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "ccec342ec79c1c75",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-alexandria-va/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Alexandria, VA, PMP exam prep Alexandria, PMP course Alexandria VA, project management certification Alexandria, VA, PMI PMP training Alexandria",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\",\r\n      \"name\": \"PMP Certification Training in Alexandria, VA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Alexandria, VA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Alexandria, VA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#course\",\r\n      \"name\": \"PMP Certification Training in Alexandria, VA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Alexandria, VA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alexandria-va/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

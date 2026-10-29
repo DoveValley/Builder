@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "little-rock-ar",
-    "slug": "ai-training-little-rock-ar",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "little-rock-ar",
-        "city": "Little Rock",
-        "state": "Arkansas",
-        "SS": "AR",
-        "city_slug": "little-rock-ar",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Healthcare systems like UAMS and Baptist Health anchor Little Rock's robust project management demand, where professionals increasingly lead complex, multi-department initiatives across state government, financial services, and logistics. Major infrastructure efforts—including the I-30/I-40 interchange reconstruction and UAMS campus modernization—underscore the value of structured PM credentials in this market. Granite PM Academy delivers live-virtual PMP® Certification designed for Little Rock professionals seeking to advance their careers and meet employer expectations.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Little Rock's healthcare and government sectors rely heavily on project managers to navigate complex regulatory and operational initiatives. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that meets PMI's contact-hour requirements, enabling you to master artificial intelligence applications in planning, risk management, and team coordination. Earn credentials that directly strengthen your competitive position in Arkansas's growing demand for digitally fluent project leaders.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:04.846790Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "7fca5356af4e807c",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Little Rock",
-            "text": "<p>Little Rock's healthcare sector—anchored by major systems like UAMS, Baptist Health, and CHI St. Vincent—faces intensifying pressure to deliver complex, coordinated care initiatives across multiple departments and locations. Project managers in these organizations increasingly need to understand how artificial intelligence can streamline workflows, reduce bottlenecks, and improve cross-functional collaboration. Beyond healthcare, Little Rock's government agencies, financial institutions, and logistics operations are equally invested in managers who can evaluate AI tools, integrate them into project timelines, and lead teams through technology-driven change. AI competency is no longer peripheral to project management in Little Rock; it's becoming a baseline expectation for advancement.</p><p>Granite PM Academy delivers AI Training for Project Managers through live-virtual, instructor-led sessions designed to fit the schedules of working professionals across Little Rock's diverse industries. As a PMI Authorized Training Partner, we ensure every course satisfies the contact-hour requirements for PMP, CAPM, and other PMI credentials, taught by active certified practitioners who bring real-world experience managing modern projects. Our curriculum equips you to assess AI applications, manage AI-enabled initiatives, and communicate the business value of intelligent tools to senior leadership—the precise skills Little Rock employers are actively seeking. Upon completion, you'll hold a recognized certification and the practical competency to advance your career in this market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:09.325750Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "8ff324312e972269",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills That Move Project Managers Forward in Little Rock",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Ensures Credential Weight",
-                    "text": "Granite PM Academy's authorization from the Project Management Institute means your PMP® or CAPM® carries recognized weight with Little Rock employers—UAMS, Baptist Health, and state agencies specifically value PMI-credentialed managers. You gain a credential that opens doors locally."
-                },
-                {
-                    "heading": "Live Instructors Who Still Lead Projects",
-                    "text": "Our instructors are active certified practitioners managing real projects in healthcare, logistics, and government sectors. They teach current practices, not theory alone—you learn how AI integrates into project workflows the way your future employer actually uses it."
-                },
-                {
-                    "heading": "Contact Hours Met Without Scheduling Chaos",
-                    "text": "Live-virtual instructor-led classes mean you attend from home while earning the contact hours PMI requires. No recorded videos or self-paced gaps—real-time instruction fits working professionals in Little Rock who can't relocate or take extended leave."
-                },
-                {
-                    "heading": "Credential Demand Among Little Rock's Major Employers",
-                    "text": "Healthcare systems (UAMS, Baptist, CHI St. Vincent), financial services (Simmons Bank, Arkansas Blue Cross), and Entergy Arkansas actively recruit PMP® and CAPM® holders. This certification directly aligns with hiring patterns in your region's largest industries and payroll bases."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:13.494117Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "d58c4bba2a299a6d",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Little Rock's Growing Sectors",
-            "text": "<p>Healthcare and government agencies dominate project management hiring in Little Rock, with UAMS, Baptist Health, and CHI St. Vincent regularly seeking certified professionals to lead clinical expansions, facility modernizations, and IT infrastructure projects. The State of Arkansas and Little Rock Air Force Base similarly depend on structured project leadership for mission-critical work, including ongoing infrastructure upgrades at the Air Force Base and the large-scale 30 Crossing interchange reconstruction managed by the Arkansas Department of Transportation. Financial services employers—Simmons Bank, Arkansas Blue Cross and Blue Shield, and Bank of America's Little Rock operations—also maintain steady demand for PMs overseeing digital transformation, compliance, and operational initiatives. These sectors value certified credentials as markers of discipline and accountability.</p><p>The local PM market rewards certification, even if salaries track slightly below national norms due to cost of living. In healthcare, government, and finance—Little Rock's core hiring verticals—PMP® certification and related credentials are frequently listed as preferred qualifications, translating into genuine competitive advantage and stronger negotiating power for certified professionals. Completing AI Training for Project Managers at Granite PM Academy positions you to meet that regional credential demand while building skills directly applicable to Little Rock's current project landscape, from campus expansions to enterprise technology initiatives. The credential opens doors across industries where employers increasingly expect formalized project governance.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:18.061625Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "289878551a08f6e5",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management certification worth it for Little Rock healthcare careers?",
-                    "answer": "<p>Yes. Little Rock's healthcare sector—anchored by UAMS, Baptist Health, and CHI St. Vincent—increasingly integrates AI into clinical workflows, research, and operations. PMs who understand AI tools gain competitive advantage in these large, mission-critical environments. While base PM salaries in Little Rock track slightly below national averages due to lower cost of living, certified professionals in healthcare can command stronger local packages, especially when AI fluency is demonstrated.</p>"
-                },
-                {
-                    "question": "Which Little Rock employers actively hire AI-trained project managers?",
-                    "answer": "<p>Healthcare systems (UAMS, Baptist Health, CHI St. Vincent), financial institutions (Arkansas Blue Cross and Blue Shield, Simmons Bank), government agencies, and Entergy Arkansas routinely manage complex, data-driven projects where AI skills matter. These sectors value credentials that signal PM competence plus emerging technical awareness. While not every posting explicitly requires certification, PMP and related credentials are frequently listed as preferred in Little Rock's government, finance, and healthcare hiring.</p>"
-                },
-                {
-                    "question": "Can Little Rock project managers attend live-virtual AI training during work hours?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows Little Rock professionals to join from their office, home, or hybrid workspace without travel. This flexibility is especially valuable for PMs at Bank of America's Little Rock operations, State of Arkansas offices, and healthcare systems where schedules are demanding. You can maintain productivity while earning certification—no need to take extended time off or commute.</p>"
-                },
-                {
-                    "question": "Should I get certified now in Little Rock's current job market?",
-                    "answer": "<p>Strong demand exists now. Little Rock's government, healthcare, and financial sectors are actively recruiting credentialed PMs, and competition for roles is solid but not oversaturated. Certifying today positions you ahead of the curve as AI adoption accelerates in these industries. Delaying typically means competing against a growing candidate pool; acting now leverages your local market advantage.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:24.148107Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "fdbe8634133151e9",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Little Rock's healthcare sector—anchored by UAMS, Baptist Health, and CHI St. Vincent—drives steady demand for project managers who can coordinate complex, multi-department initiatives across clinical and operational functions. State government, financial services, and logistics employers similarly value professionals equipped with structured PM expertise and current certifications. Granite PM Academy serves Little Rock professionals with live-virtual AI Training for Project Managers, designed to build the skills employers in your market actively seek.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:25.910116Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "70f9454c1fd3d4cc",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "little-rock-ar",
+  "slug": "ai-training-little-rock-ar",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "little-rock-ar",
+    "city": "Little Rock",
+    "state": "Arkansas",
+    "SS": "AR",
+    "city_slug": "little-rock-ar",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-little-rock-ar/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Little Rock, AR, AI courses Little Rock, CPMAI certification Little Rock, AI project management training Little Rock, AR, AI for project managers Little Rock",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\",\n      \"name\": \"AI Training for Project Managers in Little Rock, AR — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Little Rock, AR for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Little Rock, AR\",\n            \"item\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#course\",\n      \"name\": \"AI Training for Project Managers in Little Rock, AR\",\n      \"description\": \"CPMAI certification training for project managers in Little Rock, AR who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Healthcare",
+      "Government/Public Administration",
+      "Financial Services & Insurance",
+      "Logistics & Transportation",
+      "Aerospace & Defense",
+      "Retail & Distribution"
+    ],
+    "top_employers": [
+      "UAMS (University of Arkansas for Medical Sciences)",
+      "Baptist Health",
+      "CHI St. Vincent",
+      "Arkansas Blue Cross and Blue Shield",
+      "Entergy Arkansas",
+      "Simmons Bank",
+      "Dillard's, Inc.",
+      "Windstream Holdings",
+      "Acxiom",
+      "State of Arkansas",
+      "Little Rock Air Force Base",
+      "Bank of America (Little Rock operations)"
+    ],
+    "salary_note": "Project manager pay in Little Rock tends to track slightly below national averages due to a lower cost of living, but demand is strong enough that certified PMs in healthcare, finance, and government sectors can command competitive local salaries.",
+    "market_blurb": "As Arkansas's capital and largest city, Little Rock offers a steady project management job market anchored by healthcare systems, state government, financial institutions, and logistics operations. Employers increasingly seek professionals who can manage complex, multi-department initiatives, making structured PM training and certification a valuable differentiator in this market.",
+    "notable_projects": [
+      "30 Crossing (I-30/I-40 interchange reconstruction, Arkansas Department of Transportation)",
+      "UAMS campus expansion and facility modernization projects",
+      "Little Rock Air Force Base infrastructure and mission support upgrades",
+      "Downtown Little Rock riverfront and technology park development initiatives"
+    ],
+    "credential_demand": "While not every posting explicitly requires it, PMP certification is frequently listed as preferred or advantageous for project management roles in Little Rock's healthcare, government, and financial sectors, reflecting solid ongoing demand for credentialed professionals.",
+    "_researched": 1,
+    "city_spotlight": "<p>Little Rock's healthcare sector—anchored by UAMS, Baptist Health, and CHI St. Vincent—drives demand for PMs who can orchestrate complex, multi-department initiatives across clinical and administrative operations. State government, financial services, and major infrastructure projects like the I-30/I-40 interchange reconstruction further elevate the market value of structured project management expertise. Granite PM Academy delivers live-virtual PMP® Certification training to Little Rock professionals nationwide, helping you earn the credential employers in this region actively seek.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Healthcare and government agencies across Little Rock rely on project managers to deliver critical initiatives on time and within budget. Granite PM Academy's live-virtual PMI-CPMAI Certification Training satisfies PMI's contact-hour education requirement through instructor-led instruction, available nationwide on a schedule that fits working professionals. Earning your CPMAI credential positions you for advancement in Little Rock's largest employment sectors and strengthens your qualifications across the region's healthcare systems, state agencies, and major enterprises.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:32.876708Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ff1c8159b4923140",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Little Rock, Arkansas",
+      "text": "<p>Little Rock's healthcare sector—anchored by major systems like UAMS, Baptist Health, and CHI St. Vincent—drives consistent demand for project managers who can coordinate complex, cross-functional initiatives across clinical, operational, and administrative departments. Alongside government agencies, financial institutions, and logistics operations, these employers increasingly prioritize candidates with structured, recognized project management credentials. The PMI-CPMAI certification demonstrates mastery of agile and hybrid methodologies, positioning you to lead the dynamic, fast-moving projects that define Little Rock's professional market and differentiate your career within it.</p><p>Granite PM Academy delivers PMI-CPMAI certification training through live-virtual, instructor-led sessions that meet all contact-hour requirements and fit the schedules of working professionals in Little Rock and beyond. Our instructors are active certified practitioners who bring real-world expertise into every class, ensuring the frameworks and tools you learn translate directly to your workplace. We are a PMI Authorized Training Partner, meaning your training hours count toward PMI certification eligibility. Whether you are advancing within healthcare, government, finance, or another sector, our program supports you from enrollment through credential achievement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:36.519926Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9c87b2083f0b7a31",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification Training for Little Rock's Healthcare & Government Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI training meets all official requirements and is recognized by employers across Little Rock's healthcare systems, state agencies, and federal installations who hire certified program managers."
+        },
+        {
+          "heading": "Live Virtual Instruction, Full Contact Hours",
+          "text": "Instructor-led live-virtual sessions deliver the contact hours required for PMI-CPMAI eligibility without commute time. Study alongside peers nationwide while maintaining work schedules common in Little Rock's logistics, retail, and defense sectors."
+        },
+        {
+          "heading": "Certified Practitioners Teaching Real-World Application",
+          "text": "Your instructors are active certified practitioners applying program management daily in enterprise environments. They bring practical examples and troubleshooting beyond textbooks—directly relevant to the complexity of programs at UAMS, Baptist Health, Entergy, and similar organizations."
+        },
+        {
+          "heading": "Credential Demand Among Little Rock Employers",
+          "text": "Healthcare systems, state government, financial services, and aerospace/defense employers in the Little Rock area increasingly seek PMI-certified program managers. The PMI-CPMAI credential strengthens your candidacy for advancement and specialized program leadership roles in these high-demand sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:40.804776Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "cd9cfd1c7da0c2a4",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Little Rock",
+      "text": "<p>Healthcare organizations anchor project management demand across Little Rock, with UAMS, Baptist Health, and CHI St. Vincent regularly seeking certified professionals to oversee clinical expansions, facility modernizations, and operational initiatives. Beyond healthcare, government agencies—particularly the Arkansas Department of Transportation managing major infrastructure work like the 30 Crossing I-30/I-40 interchange reconstruction—employ project managers to deliver complex, multi-year programs. Financial services employers including Simmons Bank and Arkansas Blue Cross and Blue Shield, as well as logistics and aerospace operations tied to Little Rock Air Force Base, round out a diverse hiring landscape that values structured project delivery expertise.</p><p>While project manager compensation in Little Rock tracks slightly below national averages due to the region's lower cost of living, demand for certified professionals remains strong, especially in healthcare, government, and finance where employers frequently seek or prefer PMP® credentials. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for these roles and advance into leadership positions where credential holders command competitive local salaries. The certification signals to Little Rock employers that you meet a recognized standard for planning, execution, and stakeholder management—skills that directly translate to the infrastructure, clinical, and mission-critical projects driving the city's economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:44.628277Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "bbc3cd0f16d700e9",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Little Rock",
+      "text": "<p>Healthcare and government sectors anchor Little Rock's demand for certified project managers. UAMS, Baptist Health, and CHI St. Vincent manage complex clinical, research, and facility initiatives that require disciplined project oversight—from campus expansions and modernization efforts to mission-critical care delivery systems. Beyond healthcare, the State of Arkansas, Little Rock Air Force Base, and major financial institutions including Simmons Bank and Arkansas Blue Cross and Blue Shield regularly seek certified professionals to lead cross-functional teams. The 30 Crossing project, a large-scale I-30/I-40 interchange reconstruction managed by the Arkansas Department of Transportation, exemplifies the scale and sophistication of infrastructure work underway locally—the kind of initiative that benefits from proven project management credentials.</p><p>Project managers in Little Rock operate in a market where PMP® certification is frequently listed as preferred or advantageous, particularly in healthcare, government, and financial services roles. While compensation tends to track slightly below national averages due to the region's lower cost of living, demand for credentialed professionals remains strong enough to support competitive salaries for skilled practitioners in those sectors. Completing PMI-CPMAI Certification Training through Granite PM Academy—delivered live-virtually and designed around PMI's rigorous standards—positions you to compete effectively for roles across Little Rock's major employers and positions you to advance as organizations expand their project portfolios and raise their standards for leadership capability.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:48.751703Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "bbc3cd0f16d700e9",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth it for Little Rock project managers?",
+          "answer": "<p>Yes, especially in Little Rock's healthcare, government, and financial sectors, where credential preference is documented in job postings. While PM salaries track slightly below national averages due to lower cost of living, certified professionals in these industries command competitive local compensation. The credential signals capability to employers like UAMS, Baptist Health, and state agencies, strengthening advancement and salary negotiation prospects in a solid local demand market.</p>"
+        },
+        {
+          "question": "Which Little Rock employers value PMP and project management certifications?",
+          "answer": "<p>Major Little Rock employers—UAMS, Baptist Health, CHI St. Vincent, Arkansas Blue Cross and Blue Shield, Entergy Arkansas, and state government agencies—frequently list PMP or related certifications as preferred qualifications. Healthcare systems and government bodies especially rely on certified project managers to lead complex initiatives. Financial services firms including Simmons Bank and local Bank of America operations also recognize certification as an asset for managing enterprise projects.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual course from my Little Rock workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual training is fully remote and can be attended from any location with internet access—including your workplace, home, or any quiet space in Little Rock. This flexibility lets you balance certification training with your current job without commuting to a physical classroom, making it practical for busy professionals in the area.</p>"
+        },
+        {
+          "question": "How does Little Rock's job market affect when I should pursue CPMAI certification?",
+          "answer": "<p>Little Rock's strong, ongoing demand for credentialed project managers in healthcare, finance, government, and aerospace sectors means the credential pays dividends year-round. However, demand typically peaks in Q1 and Q4 when healthcare systems and government agencies launch major budget cycles. Pursuing certification before these seasons positions you competitively for emerging roles and internal advancement opportunities.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:54.257623Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e459cc236e0f87a3",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Little Rock's healthcare sector—anchored by major systems including UAMS, Baptist Health, and CHI St. Vincent—drives steady demand for credentialed project managers who can coordinate complex, multi-department initiatives across clinical and operational expansions. Government agencies, financial institutions, and logistics employers throughout the capital city similarly seek professionals with structured PM credentials to lead enterprise-scale projects. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Little Rock professionals nationwide, helping you earn the credential that sets you apart in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:56.170491Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "cde6fe5af26d821b",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Little Rock's healthcare sector—anchored by UAMS, Baptist Health, and CHI St. Vincent—drives steady demand for project managers who can coordinate complex, multi-department initiatives across clinical and administrative operations. Government agencies, financial institutions, and logistics employers throughout the capital city similarly prioritize structured PM expertise. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Little Rock professionals seeking the credential and skills that set them apart in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:57.853403Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "cde6fe5af26d821b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-little-rock-ar/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Little Rock, AR, AI courses Little Rock, CPMAI certification Little Rock, AI project management training Little Rock, AR, AI for project managers Little Rock",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\",\n      \"name\": \"PMI-CPMAI Certification Training in Little Rock, AR | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Little Rock, AR for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Little Rock, AR\",\n            \"item\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Little Rock, AR\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Little Rock, AR who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-little-rock-ar/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-little-rock-ar/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

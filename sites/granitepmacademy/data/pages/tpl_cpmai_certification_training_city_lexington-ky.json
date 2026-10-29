@@ -1,348 +1,399 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "lexington-ky",
-    "slug": "ai-training-lexington-ky",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "lexington-ky",
-        "city": "Lexington",
-        "state": "Kentucky",
-        "SS": "KY",
-        "city_slug": "lexington-ky",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Lexington's healthcare and higher-education anchor — led by UK HealthCare and the University of Kentucky — drives consistent demand for project managers overseeing campus expansions, facility upgrades, and clinical initiatives. Manufacturing and logistics operations add depth, with roles spanning traditional and IT project management across automotive suppliers, distribution centers, and corporate headquarters. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Lexington professionals seeking to advance in this diversified, opportunity-rich market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Lexington's healthcare and life-sciences sector—anchored by major medical institutions and research organizations—increasingly relies on project managers to lead cross-functional initiatives. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI's contact-hour requirements, equipping you with practical AI applications for managing complex clinical and research projects. Master AI tools for risk forecasting, resource optimization, and stakeholder communication to advance your career in Lexington's fastest-growing professional market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:04.200374Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "4d7642abd5e2d609",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Lexington, Kentucky",
-            "text": "<p>Lexington's healthcare systems—anchored by UK HealthCare and Baptist Health Lexington—are driving urgent demand for project managers who can lead complex clinical transformations, digital health initiatives, and operational improvements in real time. These organizations increasingly rely on AI-assisted project delivery to streamline workflows, manage risk, and coordinate care across multiple teams. Beyond healthcare, Lexington's manufacturing stronghold, logistics hubs, and corporate operations at companies like Toyota, Valvoline, and Tempur Sealy are all integrating artificial intelligence into supply chain, quality, and program management. For project managers in Lexington, AI literacy is no longer a future skill—it's a competitive requirement now.</p><p>Granite PM Academy delivers instructor-led, live-virtual AI training designed specifically for project managers preparing for PMP®, CAPM®, or PMI® credentials. As a PMI Authorized Training Partner, we structure every course to meet the contact-hour requirements for certification eligibility, taught by active, certified practitioners who bring real-world experience from industries like healthcare and manufacturing. Our flexible schedule accommodates working professionals across Lexington's busy employer landscape, and our curriculum integrates AI tools and decision frameworks directly into project management workflows—not as theory, but as practical applications you'll use immediately. Upon completion, you'll be ready to sit for your PMI credential exam with both traditional PM competency and a working command of AI's role in modern project delivery.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:09.019316Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "af1eabde13c31d17",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Project Managers in Lexington",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Value",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your PMP or CAPM preparation meets rigorous standards. Employers across Lexington's healthcare, manufacturing, and logistics sectors recognize PMI credentials as the industry benchmark for advancement and salary growth."
-                },
-                {
-                    "heading": "Live Instruction, Flexible Virtual Schedule",
-                    "text": "Earn required contact hours through live-virtual instructor-led sessions that fit working professionals' schedules. Granite's synchronous format delivers real-time interaction with certified practitioners while eliminating commute time—critical for Lexington professionals balancing roles at UK HealthCare, Toyota Manufacturing, or Amazon."
-                },
-                {
-                    "heading": "Practitioners Teach, Exam Support Included",
-                    "text": "Your instructors are active certified project managers working in Lexington's industries today. Beyond coursework, you receive exam-preparation guidance and practice assessments designed to build confidence and improve first-attempt pass likelihood on the PMP or CAPM exam."
-                },
-                {
-                    "heading": "Local Demand Drives Career Growth Here",
-                    "text": "Lexington's major employers—from Valvoline and Tempur Sealy to Baptist Health and Lockheed Martin—actively hire credentialed project managers. A PMI certification positions you competitively for roles managing capital projects, process improvement, and digital transformation initiatives across the region's strongest industries."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:13.740993Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "9551b12c7d1eb0af",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Lexington's Growing Sectors",
-            "text": "<p>Lexington's healthcare systems—including UK HealthCare and Baptist Health Lexington—are among the region's largest employers and consistently seek certified project managers to lead clinical IT implementations, facility expansions, and operational improvements. Similarly, the city's advanced manufacturing base, anchored by companies like Tempur Sealy International and Trane Technologies, relies on PMs to oversee production upgrades and capital projects. Nearby in the Georgetown metro area, Toyota Motor Manufacturing Kentucky's ongoing electrification and manufacturing initiatives create sustained demand for PMs with automotive and operations experience. Downtown, initiatives like the Town Branch Commons urban greenway underscore how local government and development projects also value skilled project leadership.</p><p>In Lexington's competitive market, PMP® certification—commonly listed as preferred or required by the region's healthcare systems, manufacturers, and IT service providers—positions candidates for stronger offers and career advancement. While project manager compensation in Lexington tracks slightly below larger metros, the concentration of healthcare, manufacturing, and corporate headquarters creates a stable, well-defined demand for certified professionals. Completing AI Training for Project Managers through Granite PM Academy equips you with both the technical certification credentials employers expect and the emerging AI competencies that differentiate you in a field increasingly shaped by automation and data-driven decision-making. For Lexington professionals aiming to advance, that combination addresses both today's hiring requirements and tomorrow's workplace evolution.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:18.166964Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "84bd7531e946ecce",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for careers in Lexington?",
-                    "answer": "<p>Yes, especially given Lexington's concentration in healthcare systems, advanced manufacturing, and corporate IT operations—sectors where AI-augmented project delivery is becoming standard. Certified professionals in these industries are positioned for stronger offers. While experience remains the primary driver, adding AI competency to your PM toolkit increases your competitive edge in a market where certified candidates consistently outpace non-certified peers for leadership roles.</p>"
-                },
-                {
-                    "question": "Which Lexington employers value AI project management certification most?",
-                    "answer": "<p>UK HealthCare, Baptist Health, and Lexmark International actively recruit certified project managers, as do automotive suppliers and Trane Technologies. Manufacturing and healthcare operations—Lexington's economic anchors—increasingly require PMs who can manage technology-driven transformations. IT service providers and corporate headquarters like Valvoline and Tempur Sealy also favor certified candidates for complex, cross-functional initiatives.</p>"
-                },
-                {
-                    "question": "Should Lexington project managers get certified before or after a job change?",
-                    "answer": "<p>Timing depends on your current role. If you're already in a PM position at a Lexington manufacturer, healthcare system, or tech company, certification before transition strengthens your candidacy and salary negotiation. Entry-level candidates benefit from combining CAPM or PMP certification with hands-on experience, which Lexington's healthcare and automotive sectors offer readily. Certified candidates typically enter negotiations from a stronger position.</p>"
-                },
-                {
-                    "question": "Can I attend AI project management training from my Lexington workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you participate from your office, home, or job site without relocating or traveling. This flexibility suits Lexington professionals working across distributed healthcare networks, manufacturing facilities, and corporate campuses. You engage with instructors and peers in real time while maintaining your work schedule—ideal for employed professionals at UK, Lockheed Martin, or other major local employers.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:24.587611Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "33ec334487d7d16c",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Lexington's project management demand is rooted in healthcare expansion, higher education infrastructure, and advanced manufacturing—with UK HealthCare and University of Kentucky leading ongoing campus and facility upgrades that require skilled program leadership. Granite PM Academy delivers live-virtual AI Training for Project Managers to Lexington professionals seeking to advance their credentials and competitive positioning in a market where healthcare systems, automotive suppliers, and logistics operations consistently hire both traditional and IT project managers.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:26.452235Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "4c7a0c516e486833",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "lexington-ky",
+  "slug": "ai-training-lexington-ky",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "lexington-ky",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "SS": "KY",
+    "city_slug": "lexington-ky",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-lexington-ky/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Lexington, KY, AI courses Lexington, CPMAI certification Lexington, AI project management training Lexington, KY, AI for project managers Lexington",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\",\n      \"name\": \"AI Training for Project Managers in Lexington, KY — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Lexington, KY for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Lexington, KY\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#course\",\n      \"name\": \"AI Training for Project Managers in Lexington, KY\",\n      \"description\": \"CPMAI certification training for project managers in Lexington, KY who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Healthcare",
+      "Higher Education",
+      "Advanced Manufacturing/Automotive",
+      "Equine and Agribusiness",
+      "Logistics and Distribution",
+      "Information Technology/Business Services"
+    ],
+    "top_employers": [
+      "University of Kentucky",
+      "UK HealthCare",
+      "Baptist Health Lexington",
+      "Lexmark International",
+      "Valvoline Inc.",
+      "Tempur Sealy International",
+      "Trane Technologies",
+      "Toyota Motor Manufacturing Kentucky",
+      "Amazon",
+      "Lockheed Martin",
+      "Xerox",
+      "Fayette County Public Schools"
+    ],
+    "salary_note": "Project manager pay in Lexington tends to track slightly below larger metros like Louisville or Nashville but remains competitive given the concentration of manufacturing, healthcare, and corporate headquarters in the area. Demand is strongest for PMs with healthcare, manufacturing/automotive, or IT project experience, and certified candidates are generally positioned for stronger offers.",
+    "market_blurb": "Lexington's project management job market is anchored by its healthcare systems, the University of Kentucky, and a strong manufacturing base tied to automotive and consumer products companies like Toyota-area suppliers, Valvoline, and Tempur Sealy. Corporate headquarters operations and logistics/distribution centers add steady demand for both traditional and IT/business project managers. The city's mix of large employers and growing service sector supports consistent, if moderate-volume, hiring for project and program management roles.",
+    "notable_projects": [
+      "University of Kentucky ongoing campus and healthcare facility expansions",
+      "Toyota Motor Manufacturing Kentucky electrification and production upgrades in Georgetown (Lexington metro area)",
+      "Town Branch Commons urban greenway and park development in downtown Lexington",
+      "Blue Grass Airport terminal and infrastructure improvement projects"
+    ],
+    "credential_demand": "PMP certification is commonly listed as preferred or required in project management postings from Lexington's healthcare systems, manufacturers, and IT service providers, reflecting broader national trends favoring certified candidates. CAPM can help entry-level candidates stand out, though overall demand is driven more by industry experience than certification alone.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lexington's healthcare systems and University of Kentucky anchor steady demand for project managers across clinical operations, campus infrastructure, and research initiatives. Manufacturing and logistics employers—from automotive suppliers to distribution hubs—continuously seek certified professionals to lead production upgrades and supply-chain programs. Granite PM Academy serves Lexington professionals with live-virtual PMP Certification training, flexible scheduling, and instruction from active certified practitioners.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-lexington-ky.webp",
+    "city_image_alt": "LexingtonDowntown, KY",
+    "city_image_credit": "Photo: Madgeek1450 at English Wikipedia, Public domain",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:LexingtonDowntown.JPG"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Healthcare systems, advanced manufacturing, and logistics operations across Lexington depend on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that satisfy PMI's contact-hour education requirement, enabling you to earn this credential without geographic constraints. For project managers in Lexington's largest employers and fastest-growing sectors, this certification strengthens your credibility and positions you for leadership roles in organizations that value PMI credentials.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:17.477535Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "617218f1a8558e83",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Lexington, Kentucky",
+      "text": "<p>Lexington's healthcare systems—anchored by the University of Kentucky and UK HealthCare—drive consistent demand for credentialed project and program managers who can navigate complex, regulated environments. The PMI-CPMAI (Certified Practitioner in the Mosaic Framework) credential equips professionals to lead cross-functional initiatives across clinical operations, research administration, and capital projects that define modern healthcare delivery. Beyond healthcare, Lexington's robust manufacturing and logistics sectors, supported by major employers like Toyota Motor Manufacturing Kentucky and Amazon distribution centers, equally value certified project managers who can optimize workflows and manage enterprise initiatives. For professionals in Lexington working across these industries, PMI-CPMAI certification demonstrates mastery of adaptive, people-centered project delivery—a competitive advantage in a market where both traditional and agile methodologies are in play.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner, offering live-virtual, instructor-led instruction designed to fit working professionals' schedules nationwide, including Lexington. Our curriculum meets PMI's rigorous contact-hour requirements and is taught by active certified practitioners with real-world project experience. The flexible virtual format means you can prepare for certification without disrupting your career while maintaining the interactive, instructor-guided learning that ensures you grasp complex concepts and pass confidently. Upon completion, you'll hold a credential recognized across healthcare, manufacturing, technology, and distribution sectors—opening pathways to advancement in Lexington's dynamic project management job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:22.080435Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "d6a90335c4c09eb7",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Lexington's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Guarantee",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours count directly toward PMI-CPMAI eligibility. No gaps, no workarounds—your pathway to certification is recognized by the Project Management Institute from day one."
+        },
+        {
+          "heading": "Live Instruction That Fits Your Schedule",
+          "text": "Attend instructor-led training entirely online, synchronously with certified practitioners teaching in real time. Meet contact-hour requirements without relocating, and ask questions directly during every session—this isn't self-paced video content."
+        },
+        {
+          "heading": "Instructors Who Practice What They Teach",
+          "text": "Your instructors are active certified project managers applying PMI frameworks daily in their careers. They bring current workplace examples and troubleshoot real scenarios, not theoretical lecture slides."
+        },
+        {
+          "heading": "Credential Built for Lexington's Employers",
+          "text": "Healthcare, advanced manufacturing, logistics, and IT sectors across Lexington—from UK HealthCare to Toyota TMMK to Amazon—value PMI-certified project and program managers. PMI-CPMAI signals capability that local hiring managers recognize and reward."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:26.209431Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "788716892a401252",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lexington's Growing Sectors",
+      "text": "<p>Lexington's healthcare systems—UK HealthCare and Baptist Health Lexington among them—consistently hire certified project managers to oversee clinical expansions, IT infrastructure, and operational improvements. Similarly, the region's advanced manufacturing base, anchored by companies like Toyota Motor Manufacturing Kentucky and Trane Technologies, creates steady demand for PMs managing production upgrades and facility projects. Higher education is another major employer: the University of Kentucky's ongoing campus and healthcare facility expansions require skilled project leaders. Alongside these anchor employers, Lexmark International, Valvoline Inc., and logistics operators round out a diverse hiring landscape where certified candidates stand out in competitive applicant pools.</p><p>Project manager compensation in Lexington remains competitive relative to the cost of living, though it typically tracks slightly below larger metros like Louisville or Nashville. The credential advantage is clearest for candidates with healthcare, manufacturing, or IT experience—precisely the sectors driving local hiring. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet the PMP preference now common in postings from Lexington's healthcare systems and manufacturers, strengthening your negotiating position and career trajectory in a market where certification increasingly differentiates qualified candidates from the rest of the field.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:30.101202Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "416b2db848e8b6c8",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lexington's Growing Sectors",
+      "text": "<p>Lexington's healthcare systems—led by UK HealthCare and Baptist Health Lexington—consistently seek certified project managers to oversee facility expansions, IT implementations, and clinical operations. Beyond healthcare, the city's advanced manufacturing base, including Toyota Motor Manufacturing Kentucky's ongoing electrification and production upgrades in the Georgetown metro area, drives demand for PMs with automotive and operations expertise. University of Kentucky's continuous campus and healthcare facility development projects further anchor local hiring. Technology and logistics employers, including major distribution operations, round out a job market where certified candidates compete effectively for substantive roles.</p><p>Project manager compensation in Lexington remains competitive relative to local cost of living, though salaries track slightly below larger regional metros. The credential advantage is sharpest for candidates with healthcare, manufacturing, or IT backgrounds—industries where PMP certification is frequently listed as preferred or required in local postings. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet those stated expectations and differentiate yourself in interviews. The live-virtual format means you can earn your credential while working full-time in Lexington's job market, positioning yourself for stronger offers without interrupting your career momentum.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:33.992432Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "416b2db848e8b6c8",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Lexington project managers?",
+          "answer": "<p>Yes, particularly if you work in healthcare, manufacturing, or IT. Lexington's major employers—UK HealthCare, Baptist Health, automotive manufacturers, and tech-focused companies—increasingly list PMP or advanced certifications as preferred qualifications. Certified candidates typically position themselves for stronger offers in a competitive local market, especially when paired with relevant industry experience in these high-demand sectors.</p>"
+        },
+        {
+          "question": "Which Lexington employers value PMI project management certifications most?",
+          "answer": "<p>Healthcare systems (UK HealthCare, Baptist Health Lexington), advanced manufacturers (Toyota Motor Manufacturing Kentucky, Trane Technologies), and IT service providers actively seek certified project managers. Lockheed Martin, Valvoline, and Tempur Sealy also routinely list certification as preferred. Certification is most valued when combined with direct experience in your industry—healthcare PMs and manufacturing operations roles see the strongest competitive advantage.</p>"
+        },
+        {
+          "question": "When should Lexington professionals pursue PMI-CPMAI certification?",
+          "answer": "<p>Timing matters in Lexington's market. If you're targeting healthcare or manufacturing roles, certification now strengthens your candidacy as demand for certified PMs remains strong in those sectors. Entry-level professionals benefit from CAPM first; mid-career managers should prioritize PMP. Consider your industry transition goals—certifying before applying to roles at major employers like UK HealthCare or automotive suppliers often yields better outcomes than waiting.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training while working in Lexington?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to participate from your workplace or home, accommodating Lexington's typical business hours without requiring travel. This flexibility is ideal if you're balancing certification with full-time roles at local employers. Check course schedules to ensure session times align with your work availability and timezone needs.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:39.836682Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d56bc60567868963",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lexington's healthcare systems and University of Kentucky anchor steady demand for credentialed project managers, while automotive suppliers, Valvoline, and manufacturing operations create consistent roles across traditional and IT/business project management. Major campus expansions at UK and electrification upgrades at Toyota Motor Manufacturing Kentucky (Georgetown metro) exemplify the scope of work driving local hiring. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lexington professionals nationwide, fitting certification study around your work schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:41.785461Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d726c0a569bdb196",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lexington's healthcare and higher-education sectors—anchored by UK HealthCare, Baptist Health Lexington, and the University of Kentucky's ongoing campus and facility expansions—drive steady demand for skilled project managers across clinical, operational, and capital-delivery roles. Manufacturing and logistics hubs, including automotive suppliers and distribution centers, further strengthen the local PM job market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lexington professionals, enabling you to earn your credential on your schedule while building skills directly applicable to the region's largest employers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:43.680368Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d726c0a569bdb196",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-lexington-ky/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Lexington, KY, AI courses Lexington, CPMAI certification Lexington, AI project management training Lexington, KY, AI for project managers Lexington",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\",\n      \"name\": \"PMI-CPMAI Certification Training in Lexington, KY | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Lexington, KY for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Lexington, KY\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Lexington, KY\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Lexington, KY who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lexington-ky/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lexington-ky/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

@@ -1,390 +1,434 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "clarksville-tn",
-    "slug": "capm-certification-training-clarksville-tn",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "clarksville-tn",
-        "city": "Clarksville",
-        "state": "Tennessee",
-        "SS": "TN",
-        "city_slug": "clarksville-tn",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Clarksville's advanced manufacturing sector—led by companies like Hankook Tire America and LG Electronics alongside Fort Campbell's infrastructure needs—creates steady demand for skilled project managers overseeing facility expansions and modernization initiatives. Google's data center campus development and ongoing industrial investment further reinforce the local job market for credentialed PMs. Granite PM Academy serves Clarksville professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Clarksville's growing defense and aerospace sector creates steady demand for credentialed project managers who can manage complex, regulated initiatives. Granite PM Academy's live-virtual CAPM Boot Camp delivers PMI-required contact-hour instruction on your schedule, preparing you to sit for the Certified Associate in Project Management exam. Earn this foundational credential and position yourself for advancement within the region's largest employers and their supply-chain partners.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:08.748169Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "efeace5596a8c3e8",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Clarksville's Growing Project Management Demand",
-            "text": "<p>Clarksville's advanced manufacturing sector—led by major employers like Hankook Tire America and LG Electronics—relies heavily on skilled project managers to oversee production expansions, equipment upgrades, and operational initiatives. As these facilities scale operations and introduce new technologies, they increasingly seek professionals who can demonstrate formal project management competency. The CAPM® (Certified Associate in Project Management) credential, developed by the Project Management Institute, signals to manufacturers, logistics providers, and government contractors in Clarksville that you understand core scheduling, budgeting, and stakeholder communication practices. For professionals in manufacturing, healthcare, education, or the defense sector surrounding Fort Campbell, earning your CAPM in Clarksville positions you to advance into supervisory and program-management roles where employers actively recruit certified talent.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led CAPM Boot Camp through live-virtual sessions designed for working professionals in Clarksville who need flexibility without sacrificing depth. Our instructors are active certified practitioners—many with real-world experience in manufacturing, logistics, and government projects—who teach the frameworks and tools you'll use immediately on the job. The program satisfies PMI's contact-hour requirements for CAPM eligibility and prepares you to pass the CAPM exam with confidence. Whether you're looking to formalize your project experience, meet employer expectations, or open doors to new opportunities, Granite PM Academy makes earning your credential achievable while keeping you focused on Clarksville's competitive job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:12.989687Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "9c45ea00f923c9ed",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification Fast-Track for Clarksville Professionals",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Delivers",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your boot camp contact hours count directly toward CAPM eligibility. No extra verification steps or rejected applications—your certification path starts with recognized credentials."
-                },
-                {
-                    "heading": "Live Instructors, Real Experience",
-                    "text": "Our instructors hold active CAPM and PMP certifications and work as practicing project managers. You learn frameworks from professionals who apply them daily, not from trainers reading slides."
-                },
-                {
-                    "heading": "Exam Prep Built Into Training",
-                    "text": "The boot camp includes targeted exam-preparation support—practice questions, content review focused on test objectives, and guidance on time management during the exam. Preparation is woven throughout, not bolted on at the end."
-                },
-                {
-                    "heading": "Local Employers Hire CAPM Professionals",
-                    "text": "Fort Campbell, Hankook Tire America, Trane Technologies, and Clarksville's healthcare and manufacturing sectors actively seek certified project and program managers. CAPM credential strengthens your resume within the region's largest hiring industries."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:16.559401Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "7ba8985fe1cc3cf4",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing in Clarksville's Manufacturing Hub",
-            "text": "<p>Fort Campbell and Clarksville's advanced manufacturing sector drive steady demand for certified project managers. Major employers including Hankook Tire America, LG Electronics, and Trane Technologies operate large facilities here, with ongoing manufacturing plant expansions and facility modernization projects creating openings for skilled PMs. The Google data center campus development in Montgomery County represents another significant initiative drawing project management talent. Beyond manufacturing and tech infrastructure, the Clarksville-Montgomery County School System, Austin Peay State University, and local government agencies also employ project managers to oversee capital projects, system upgrades, and operational improvements.</p><p>While Clarksville's project manager compensation tracks slightly below larger metros like Nashville, the combination of strong local demand and a competitive talent pool makes certification a meaningful differentiator. Employers across manufacturing, defense-related contracting, and government sectors increasingly favor candidates with formal project management credentials like the CAPM®—a practical advantage as you advance in your career here. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you to meet that credential preference, strengthen your candidacy for roles at Clarksville's major employers, and build the foundational PM skills these industries value.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:20.155970Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "93d4a83b0cbc2064",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Clarksville",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and can complete the required project management education hours. No prior work experience is necessary—CAPM welcomes professionals new to the field and those transitioning into project-focused roles."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. This intensive format condenses core project management knowledge into a structured schedule designed for working professionals in the Clarksville area."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with the Project Management Institute and pay the associated exam fee. Granite PM Academy will guide you through the application process to ensure all eligibility documentation is submitted correctly."
-                },
-                {
-                    "heading": "Prepare and Sit for the CAPM Exam",
-                    "text": "Access exam-preparation resources and study materials provided by Granite PM Academy. Schedule your exam through PMI's testing partner and take the certification assessment on your preferred date and location."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "Earn professional development units during your three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing education options to support your ongoing project management development."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:24.226658Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "3c7de8496f74bb40",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Clarksville manufacturing and defense careers?",
-                    "answer": "<p>Yes. Clarksville's advanced manufacturing sector—including automotive and tire production—and Fort Campbell–related defense contracting increasingly favor certified project managers. While not every posting requires CAPM, employers in these industries view the credential as a competitive differentiator. Combined with your industry experience, CAPM positions you for leadership roles and better opportunity selection in a strong local PM market.</p>"
-                },
-                {
-                    "question": "Which Clarksville employers value CAPM certification most?",
-                    "answer": "<p>Manufacturing leaders like Hankook Tire America, LG Electronics, Trane Technologies, and Akebono Brake Corporation prioritize certified PMs for operational and supply-chain roles. Government agencies, CMCSS, and defense-linked contractors also increasingly prefer CAPM-credentialed candidates. Austin Peay State University and healthcare systems value formal credentials in administrative and capital-project roles. Local trend data shows growing credential preference across these sectors.</p>"
-                },
-                {
-                    "question": "Can I attend CAPM boot camp from my Clarksville workplace or home?",
-                    "answer": "<p>Yes. Our live-virtual boot camp format allows you to participate from your office, home, or any location with reliable internet—ideal if your employer (at Fort Campbell, a local manufacturer, or government office) restricts time away. You'll engage with instructors and peers in real time while keeping your schedule flexible around work demands in Clarksville's fast-paced industries.</p>"
-                },
-                {
-                    "question": "Should Clarksville project managers get CAPM before moving to PMP certification?",
-                    "answer": "<p>For Clarksville professionals early in their PM career or transitioning from operations roles, CAPM builds foundational skills and PMI recognition quickly—valuable as local manufacturing and defense sectors expand. If you already meet PMP eligibility, that may be your faster path. Either way, Clarksville's competitive PM market rewards formal credentials now; timing your certification to match hiring cycles in your target industry optimizes impact.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:29.960368Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "d01a3f60eac3583e",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Clarksville's manufacturing sector—led by Hankook Tire America and LG Electronics—drives sustained demand for project managers overseeing plant expansions and operational scaling. Fort Campbell's infrastructure modernization and ongoing Google data center development further expand opportunities for certified professionals across defense, logistics, and technology sectors. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp sessions designed for Clarksville working professionals seeking credentials that matter in this growing market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:31.793039Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "cc95d90aa080f456",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "clarksville-tn",
+  "slug": "capm-certification-training-clarksville-tn",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "clarksville-tn",
+    "city": "Clarksville",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "clarksville-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-clarksville-tn/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Clarksville, TN, CAPM boot camp Clarksville, CAPM training Clarksville, TN, CAPM classes Clarksville TN, CAPM exam prep Clarksville",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\",\n      \"name\": \"CAPM Certification & Boot Camp in Clarksville, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Clarksville, TN. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Clarksville, TN\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Clarksville, TN\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Clarksville, TN. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Advanced Manufacturing (automotive/tire)",
+      "Military and Defense (Fort Campbell)",
+      "Healthcare",
+      "Education",
+      "Government/Public Administration",
+      "Logistics and Distribution"
+    ],
+    "top_employers": [
+      "Fort Campbell",
+      "Austin Peay State University",
+      "Hankook Tire America",
+      "LG Electronics",
+      "Google",
+      "Trane Technologies",
+      "Clarksville-Montgomery County School System (CMCSS)",
+      "Montgomery County Government",
+      "Jostens",
+      "Akebono Brake Corporation"
+    ],
+    "salary_note": "Project manager pay in Clarksville tends to track slightly below larger metro areas like Nashville, but demand is strong due to manufacturing expansions and military-related contracting, making PM roles competitive for candidates with certification and industry experience.",
+    "market_blurb": "Clarksville's project management job market is shaped by its strong manufacturing base—anchored by companies like Hankook Tire and LG Electronics—as well as the economic influence of nearby Fort Campbell and steady growth in education, healthcare, and government sectors. As the city continues to attract industrial investment and infrastructure development, employers increasingly seek trained project and program managers to oversee expansions and operational initiatives.",
+    "notable_projects": [
+      "Hankook Tire America manufacturing plant expansions",
+      "Google data center campus development in Montgomery County",
+      "LG Electronics manufacturing facility operations and expansion",
+      "Fort Campbell infrastructure and facility modernization projects"
+    ],
+    "credential_demand": "While not every local job posting explicitly requires PMP or CAPM certification, employers in Clarksville's manufacturing, defense-related, and government sectors increasingly favor certified project managers, reflecting a broader regional trend toward formal project management credentials.",
+    "_researched": 1,
+    "city_spotlight": "<p>Clarksville's advanced manufacturing sector—led by major tire and automotive operations alongside Fort Campbell's defense infrastructure—drives steady demand for skilled project managers overseeing plant expansions and facility modernization. Google's data center development and growth across healthcare and education further strengthen job prospects for PMP-certified professionals in the region. Granite PM Academy delivers live-virtual PMP Certification to Clarksville professionals, combining flexible scheduling with PMI-standard preparation.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-clarksville-tn.webp",
+    "city_image_alt": "Downtown Clarksville TN, TN",
+    "city_image_credit": "Photo: GatewayPolitics, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Clarksville_TN.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Advanced manufacturing, defense, healthcare, and logistics dominate Clarksville's project-management landscape, creating steady demand for certified professionals across Fort Campbell, Hankook Tire America, LG Electronics, and other major employers. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction on your schedule, preparing you to sit for the CAPM exam. Earning your CAPM opens pathways to entry and mid-level project roles across Clarksville's largest industries, positioning you for career growth in a competitive regional market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:28.488191Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b96d2b3b4e12b22d",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Clarksville's Growing Project Management Market",
+      "text": "<p>Clarksville's advanced manufacturing sector—led by major employers like Hankook Tire America and LG Electronics—is driving sustained demand for skilled project managers who can oversee production expansions, supply chain initiatives, and operational improvements. Fort Campbell's military and defense presence, combined with ongoing growth in healthcare, education, and logistics, has created a robust job market where employers actively recruit professionals with formal project management credentials. The CAPM® (Certified Associate in Project Management) credential positions you to compete effectively for these roles, demonstrating your command of core project management methodologies and your readiness to lead teams through complex, high-stakes initiatives in Clarksville's dynamic industrial and institutional landscape.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our active certified practitioners guide you through the body of knowledge required to satisfy PMI's contact-hour requirements and prepare you to pass the CAPM exam with confidence. Whether you are advancing within manufacturing, defense, healthcare, government, or education sectors in Clarksville, our flexible virtual format ensures you can earn your credential without disrupting your career momentum, positioning you for promotion and new opportunities as your employer's projects grow.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:32.326808Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "49bb6a3fd90a4fe1",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Clarksville's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Pathway",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM training meets all PMI standards and contact-hour requirements. This authorization guarantees your coursework is recognized by the Project Management Institute and accepted toward your certification application."
+        },
+        {
+          "heading": "Live-Virtual Instruction, Real Expertise",
+          "text": "Learn from active certified practitioners in structured live-virtual sessions that satisfy PMI contact-hour requirements without classroom commutes. Instructors bring current, hands-on project-management experience into every session, bridging theory and the demands you'll face on the job."
+        },
+        {
+          "heading": "Comprehensive Exam Preparation Support",
+          "text": "Our CAPM training includes dedicated exam-preparation resources, practice assessments, and instructor feedback to build confidence before test day. You'll understand not just *what* to study, but *how* to apply concepts under exam conditions."
+        },
+        {
+          "heading": "Meet Clarksville's Project-Management Demand",
+          "text": "Fort Campbell, advanced manufacturing, healthcare, and logistics employers across Clarksville actively hire project and program managers. The CAPM credential positions you competitively for roles in these high-demand industries and strengthens your foundation for career advancement in the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:36.392618Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "cb745a6524cb1f1c",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Clarksville's Growing Industrial Hub",
+      "text": "<p>Clarksville's advanced manufacturing sector—anchored by tire, automotive, and electronics production—creates steady demand for certified project managers. Hankook Tire America and LG Electronics operate significant manufacturing facilities in the area, with ongoing plant expansions that require coordinated oversight of complex operations and capital projects. Fort Campbell, one of the region's largest employers, continuously pursues infrastructure and facility modernization initiatives that rely on skilled project managers familiar with defense-sector compliance and contracting standards. Beyond manufacturing and military contracting, Austin Peay State University, CMCSS, and Montgomery County Government also employ project managers to oversee institutional and public-sector initiatives. Together, these employers create a diversified job market where project management credentials are increasingly valued.</p><p>While project manager compensation in Clarksville generally tracks slightly below larger metros like Nashville, the credential gap works in your favor. Employers across manufacturing, defense, healthcare, and government sectors increasingly prefer certified project managers, and the combination of CAPM® Certification Training with relevant experience positions you competitively for roles with upward mobility. By completing CAPM® Certification through Granite PM Academy's live-virtual format, you gain recognized credentials without disrupting your current work schedule—and you enter Clarksville's job market at a moment when demand for formal project management credentials is strengthening across the region's key industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:40.660675Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "aaf4d4911bc18a5f",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Clarksville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "The CAPM requires a secondary degree and completion of project management education hours—no prior work experience necessary. This makes CAPM ideal for Clarksville professionals entering project management roles across advanced manufacturing, healthcare, defense, and government sectors. Verify your education meets PMI standards before enrolling."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's intensive, live-virtual instructor-led boot camp. Our nationwide online format fits working professionals' schedules, delivering all required project management education in a focused program. You'll engage with active certified practitioners and cover the full CAPM exam body of knowledge."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your education, apply directly to PMI with proof of your completed contact hours. Pay the associated exam fee to activate your candidacy. Our team guides you through the application process to ensure accuracy and timely submission."
+        },
+        {
+          "heading": "Prepare and Sit for the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, review materials, and instructor support—to build confidence. The CAPM exam tests your knowledge of project management processes and best practices. Schedule your proctored exam when you feel ready."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "CAPM credentials renew on a three-year cycle. Earn professional development units (PDUs) through training, certifications, or project work to maintain your status. Staying current keeps your credential active and demonstrates ongoing commitment to professional growth in Clarksville's competitive job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:45.506111Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "5313e9f5c3fcfff5",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Clarksville project managers?",
+          "answer": "<p>Yes. Clarksville's manufacturing, defense, and government sectors increasingly favor certified project managers, even when not explicitly required. Strong demand from employers like Hankook Tire, LG Electronics, and Fort Campbell–related contractors means CAPM holders stand out in a competitive local market. Certification signals formal methodology training that employers value when hiring or promoting into project management roles.</p>"
+        },
+        {
+          "question": "Which Clarksville employers actively hire certified project managers?",
+          "answer": "<p>Major local employers across manufacturing (automotive and tire), military contracting, healthcare, education, and government administration increasingly seek candidates with project management credentials. Organizations including Trane Technologies, the Clarksville-Montgomery County School System, and defense-sector contractors recognize CAPM as a credible marker of capability. This reflects a regional trend toward formalizing project management discipline in these industries.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CAPM training while working in Clarksville?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your workplace, home, or any location with internet access. This flexibility is ideal for Clarksville professionals balancing full-time roles at local employers while pursuing certification. You participate in real-time instruction and interact with instructors and peers without traveling to a physical classroom.</p>"
+        },
+        {
+          "question": "Should I pursue CAPM certification now or wait in Clarksville's job market?",
+          "answer": "<p>Pursue it now. Clarksville's ongoing manufacturing expansions and government sector growth are creating demand for project managers faster than the local supply of certified candidates. Completing CAPM before competing for these roles positions you to capitalize on strong hiring activity. Waiting risks missing opportunities as employers increasingly prioritize certified candidates.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:50.795708Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ae34d872a4e790b3",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Clarksville's advanced manufacturing sector—led by Hankook Tire America and LG Electronics—drives consistent demand for skilled project managers overseeing facility expansions and operational improvements. Fort Campbell and growth across education, healthcare, and government further fuel opportunities for credentialed PM professionals managing infrastructure and strategic initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training to Clarksville professionals nationwide, aligning your credentials with the city's employer needs.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:52.485875Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9b7dd3c31826d958",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-clarksville-tn/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Clarksville, TN, CAPM boot camp Clarksville, CAPM training Clarksville, TN, CAPM classes Clarksville TN, CAPM exam prep Clarksville",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\",\n      \"name\": \"CAPM Certification Training in Clarksville, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Clarksville, TN. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Clarksville, TN\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#course\",\n      \"name\": \"CAPM Certification Training in Clarksville, TN\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Clarksville, TN. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-clarksville-tn/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

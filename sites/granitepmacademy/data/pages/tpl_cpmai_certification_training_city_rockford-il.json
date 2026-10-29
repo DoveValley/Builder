@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "rockford-il",
-    "slug": "ai-training-rockford-il",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "rockford-il",
-        "city": "Rockford",
-        "state": "Illinois",
-        "SS": "IL",
-        "city_slug": "rockford-il",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Rockford's advanced manufacturing and aerospace sectors—anchored by employers like Woodward Inc. and Collins Aerospace—drive consistent demand for skilled project managers overseeing complex modernization and production initiatives. The city's expanding logistics hub, including UPS air operations and Chicago Rockford International Airport infrastructure growth, further elevates opportunities for professionals managing large-scale, multi-phase projects. Granite PM Academy delivers live-virtual PMP® Certification training designed for Rockford's working professionals seeking to advance in these high-opportunity industries.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Rockford's manufacturing and distribution sector demands project managers who can lead teams through rapid automation and supply-chain modernization. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that fulfills PMI contact-hour requirements while equipping you to integrate artificial intelligence into real-world workflows. Earning this credential positions you to command higher responsibility and compensation in a region where AI-enabled project leadership is becoming a competitive advantage.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:27.806891Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "1b9ff6958f050f77",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Rockford, Illinois",
-            "text": "<p>Rockford's advanced manufacturing and aerospace sector—anchored by industry leaders like Woodward Inc. and Collins Aerospace—demands project managers who can navigate increasingly complex, technology-driven operations. As these employers modernize facilities, integrate automation, and manage multi-phase capital projects, the ability to leverage artificial intelligence for scheduling, risk forecasting, and resource optimization has become a competitive advantage. Professionals in Rockford's manufacturing, healthcare, and logistics industries face real pressure to stay current with tools and methodologies that improve project outcomes and reduce delivery risk. AI training equips you with practical skills to apply machine learning and intelligent automation within your own project environment—whether you're managing a plant modernization, hospital expansion, or supply-chain initiative.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for working project managers. Our courses satisfy the contact-hour requirements for PMP® and CAPM® credential advancement and are taught by active, certified practitioners who bring real-world experience from industries like those that define Rockford's economy. You'll work through scenarios that mirror the challenges your peers face at local employers, learning how to integrate AI responsibly into planning, execution, and stakeholder communication. Whether you're pursuing initial certification or maintaining your PMP® credential, our structured curriculum and flexible schedule support your professional growth without disrupting your career momentum in Rockford's competitive job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:32.202044Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "7b3d03b576169dee",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills That Rockford's Advanced Manufacturing Leaders Need",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization—Credential That Counts",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP or CAPM certification earns recognition across Rockford's aerospace and manufacturing sectors. Employers like Woodward Inc. and Collins Aerospace value PMI-authorized pathways because they guarantee content rigor and compliance with global standards."
-                },
-                {
-                    "heading": "Live Instruction Meets Your Schedule",
-                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI certification while letting you work full-time at Mercyhealth, UPS, or Ingersoll Machine Tools. No asynchronous videos—real instructors, real interaction, real accountability for your exam readiness."
-                },
-                {
-                    "heading": "Working Practitioners as Your Instructors",
-                    "text": "Your instructors hold active PMI certifications and manage real projects in Rockford's healthcare, logistics, and public-sector organizations. They teach AI-integrated workflows from experience, not textbooks, so you learn what actually works in your industry."
-                },
-                {
-                    "heading": "Credential Demand Across Rockford Employers",
-                    "text": "PMP and CAPM credentials open doors at Rockford's largest employers—Mercyhealth, OSF HealthCare, UPS, and the City of Rockford all hire certified project managers. Certification signals readiness to lead complex initiatives in healthcare delivery, supply-chain optimization, and municipal programs."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:37.190315Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c00a68b70d0100f7",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Rockford's Industrial Hub",
-            "text": "<p>Rockford's advanced manufacturing and aerospace sector drives steady demand for certified project managers. Employers like Woodward Inc. and Collins Aerospace regularly recruit PMs to oversee complex engineering and production initiatives, while the ongoing expansion of UPS Rockford's air hub operations and Chicago Rockford International Airport's cargo infrastructure projects create additional openings in logistics and operations management. Healthcare systems including Mercyhealth and OSF HealthCare also actively seek certified talent to lead capital projects and process improvements across their expanding campus developments. City of Rockford and Rockford Public Schools similarly hire project managers for infrastructure and administrative modernization efforts, broadening opportunities beyond the private sector.</p><p>The PMP® credential is increasingly valued among Rockford employers who manage complex, high-stakes projects in manufacturing, healthcare, and logistics. While project manager compensation in Rockford remains competitive within the region's industrial landscape, certification signals the advanced planning and stakeholder-management skills that local employers need—and actively seek. Completing AI Training for Project Managers through Granite PM Academy equips you with both traditional and emerging technical competencies that resonate in Rockford's evolving job market, positioning you to advance into leadership roles as the region's major employers continue to invest in infrastructure, automation, and operational excellence.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:41.114048Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "c6a01215acbd879d",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI training worth it for project managers in Rockford's manufacturing sector?",
-                    "answer": "<p>Yes. Rockford's aerospace and advanced manufacturing employers—including major players in precision equipment and components—increasingly seek PMs who can lead complex, data-driven process-improvement and capital projects. AI training equips you to manage automation initiatives, supply-chain optimization, and digital transformation work that directly supports these industries' competitive positioning and internal advancement.</p>"
-                },
-                {
-                    "question": "Which Rockford employers value PMP certification and AI project management skills?",
-                    "answer": "<p>Healthcare systems (Mercyhealth, OSF HealthCare), aerospace and manufacturing firms, logistics operators including UPS, and the City of Rockford actively recruit certified project managers for infrastructure, IT, and operational-excellence initiatives. PMP certification signals your readiness to manage capital projects and regulatory compliance—credentials these sectors prioritize when filling mid-level and senior PM roles.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual AI project management training from my Rockford workplace?",
-                    "answer": "<p>Yes. Our live-virtual delivery lets you join from your office, home, or any location with stable internet, making it practical for Rockford professionals balancing full-time work. Many local PM candidates attend during flexible work schedules or coordinate with employers who support professional development—check with your organization about tuition assistance or flexible hours during the course.</p>"
-                },
-                {
-                    "question": "How does Rockford's job market affect when I should earn AI PM certification?",
-                    "answer": "<p>Rockford's steady demand for certified project managers across manufacturing, healthcare, and logistics means the job market rewards early credential holders. If you're employed, earning certification now strengthens your internal promotion prospects and external market position before competing for roles at Woodward, Collins Aerospace, or healthcare systems. If you're between roles, certification accelerates your hiring timeline in these growth sectors.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:47.285352Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "366d925a734b4222",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Rockford's aerospace and advanced manufacturing sectors—anchored by employers like Woodward Inc. and Collins Aerospace—drive steady demand for project managers who can oversee complex, multi-phase initiatives from plant modernization to infrastructure expansion. With major projects underway at Chicago Rockford International Airport and across the city's logistics hub, skilled PMs command strong career prospects. Granite PM Academy delivers live-virtual AI Training for Project Managers to Rockford professionals seeking competitive credentials and practical tools.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:49.110782Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "f6762b62a6aa25ee",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "rockford-il",
+  "slug": "ai-training-rockford-il",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "rockford-il",
+    "city": "Rockford",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "rockford-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-rockford-il/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Rockford, IL, AI courses Rockford, CPMAI certification Rockford, AI project management training Rockford, IL, AI for project managers Rockford",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\",\n      \"name\": \"AI Training for Project Managers in Rockford, IL — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Rockford, IL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Rockford, IL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#course\",\n      \"name\": \"AI Training for Project Managers in Rockford, IL\",\n      \"description\": \"CPMAI certification training for project managers in Rockford, IL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Advanced Manufacturing & Aerospace",
+      "Healthcare Systems",
+      "Logistics & Air Cargo",
+      "Automotive & Heavy Equipment",
+      "Education & Public Administration",
+      "Insurance & Financial Services"
+    ],
+    "top_employers": [
+      "Woodward Inc.",
+      "Collins Aerospace",
+      "Mercyhealth",
+      "OSF HealthCare",
+      "UW Health",
+      "Rockford Public Schools",
+      "City of Rockford",
+      "Ingersoll Machine Tools",
+      "Nicor Gas",
+      "UPS",
+      "Rockford Park District",
+      "Rock Valley College"
+    ],
+    "salary_note": "Project manager compensation in Rockford tends to track slightly below Chicago-metro averages but remains competitive given the concentration of aerospace, manufacturing, and healthcare employers actively recruiting certified PM talent.",
+    "market_blurb": "Rockford's project management job market is closely tied to its strong manufacturing, aerospace, and healthcare sectors, with additional demand driven by the city's growing role as a logistics and air-cargo hub. Employers across these industries regularly seek professionals who can manage complex, multi-phase projects, from plant modernization to hospital expansions.",
+    "notable_projects": [
+      "Chicago Rockford International Airport cargo and infrastructure expansion",
+      "UPS Rockford air hub operations growth",
+      "Mercyhealth Rockton Avenue and Riverside hospital campus development",
+      "Downtown Rockford redevelopment initiatives (e.g., Amerock and Ziock building renovations)"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Rockford's manufacturing, healthcare, and logistics employers, as it signals readiness to manage complex capital and process-improvement projects; overall demand for trained project management professionals remains steady across the region's industrial base.",
+    "_researched": 1,
+    "city_spotlight": "<p>Rockford's aerospace and advanced manufacturing sectors—anchored by employers like Collins Aerospace and Woodward Inc.—drive consistent demand for project managers skilled in complex, multi-phase operations. Healthcare expansion projects and the growth of Chicago Rockford International Airport's cargo hub add further momentum to the local PM job market. Granite PM Academy serves Rockford professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Advanced manufacturing, aerospace, healthcare, and logistics employers across Rockford rely on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, enabling you to earn credentials recognized by the region's largest employers. Completing this certification positions project managers in Rockford to advance into leadership roles and command competitive compensation in high-demand sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:59.859606Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "eecd18288f18043a",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Rockford's Project Leaders",
+      "text": "<p>Rockford's advanced manufacturing and aerospace sectors—anchored by major employers like Woodward Inc. and Collins Aerospace—drive consistent demand for certified project managers who can oversee complex, multi-phase operations from conception through completion. The PMI-CPMAI (Certified Associate in Project Management) credential equips professionals in Rockford to manage the intricate timelines, budgets, and cross-functional teams that plant modernization initiatives, equipment installations, and aerospace production expansions require. Beyond manufacturing, Rockford's growing logistics hub and thriving healthcare systems create additional career pathways for certified practitioners. Whether you work in healthcare administration, supply-chain operations, or industrial management, PMI-CPMAI certification demonstrates your readiness to lead projects that drive measurable results in Rockford's most competitive industries.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMI-CPMAI Certification Training that meets all contact-hour requirements and fits working professionals' schedules nationwide. Our active certified practitioners bring real-world expertise to every session, ensuring you learn frameworks and tools directly applicable to the projects you manage. Upon completion of our training program and successful examination, you'll hold a credential recognized by employers across Rockford's manufacturing, healthcare, logistics, and education sectors. Enroll today to accelerate your path to PMI-CPMAI certification and position yourself for advancement in Rockford's dynamic project-management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:03.897909Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2e8974cbc817c391",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Advance Your Career in Rockford's Advanced Manufacturing Hub",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization—Credential Employers Trust",
+          "text": "Our PMI Authorized Training Partner status ensures your PMI-CPMAI training meets the Institute's rigorous standards. Employers across Rockford's manufacturing, aerospace, and healthcare sectors recognize PMI credentials as proof of verified project-management competency and commitment to professional development."
+        },
+        {
+          "heading": "Live Instruction Meets Your Schedule",
+          "text": "Attend live-virtual instructor-led sessions that satisfy contact-hour requirements for the PMI-CPMAI credential without commuting. Our flexible online format lets you earn certification while managing work and personal commitments in and around Rockford."
+        },
+        {
+          "heading": "Learn From Active Practitioners",
+          "text": "Your instructors are certified project and program managers actively working in the field. You'll gain real-world insights into practical application—not theory alone—and build a foundation grounded in how professionals tackle projects today."
+        },
+        {
+          "heading": "Open Doors at Rockford's Top Employers",
+          "text": "Woodward Inc., Collins Aerospace, Mercyhealth, and OSF HealthCare actively recruit project managers with PMI credentials. The PMI-CPMAI credential strengthens your candidacy for advancement in Rockford's aerospace, manufacturing, and healthcare sectors—industries driving regional employment growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:08.206527Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "baf7099931c4e6ba",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Rockford's Industrial Hub",
+      "text": "<p>Rockford's aerospace and advanced manufacturing sector anchors steady demand for certified project managers. Employers like Woodward Inc. and Collins Aerospace routinely seek PMP-credentialed professionals to lead complex production and engineering initiatives. Beyond manufacturing, Mercyhealth and OSF HealthCare—two of the region's largest employers—require skilled project managers to oversee capital expansions and process-improvement efforts; Mercyhealth's ongoing hospital campus development at Rockton Avenue and Riverside exemplifies the scale of projects managed locally. Logistics operations are equally active: the UPS Rockford air hub continues to expand, creating roles for supply-chain and operations project managers. City and educational institutions, including Rockford Public Schools and the City of Rockford, also hire certified professionals for infrastructure and administrative initiatives.</p><p>The PMI-CPMAI certification signals to Rockford's manufacturing, healthcare, and logistics employers that you are equipped to manage the capital projects and process-improvement work central to their operations. While project manager compensation in the region remains competitive relative to the concentration of aerospace and healthcare employers actively recruiting certified talent, it typically tracks slightly below Chicago-metro rates—a factor offset by lower cost of living and steady regional demand. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to advance into these roles and demonstrates your commitment to the credentials these employers increasingly value when evaluating candidates for promotion and leadership.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:12.822741Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "20b4502a9e0c8b19",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Rockford's Industrial Hub",
+      "text": "<p>Rockford's aerospace and manufacturing sector anchors steady demand for certified project managers. Employers like Woodward Inc. and Collins Aerospace rely on PMP-credentialed professionals to oversee complex production and engineering initiatives, while logistics growth—particularly UPS's expanding Rockford air hub operations—has created PM roles in supply-chain and cargo-handling infrastructure. Healthcare systems including Mercyhealth and OSF HealthCare are equally active hirers, managing capital projects such as the Mercyhealth Rockton Avenue and Riverside hospital campus development, as well as process-improvement initiatives that benefit from certified project leadership. City and regional employers, from Rockford Public Schools to the City of Rockford itself, also seek certified professionals for infrastructure and administrative projects.</p><p>The PMP credential is increasingly valued in Rockford's manufacturing, healthcare, and logistics sectors as a marker of readiness to lead complex, high-stakes initiatives. Project manager compensation in the region remains competitive relative to the strength of the local industrial base, even as it typically tracks slightly below Chicago-metro levels. Completing PMI-CPMAI Certification Training with Granite PM Academy positions you to compete effectively for these roles and advance into senior project leadership within Rockford's established employer network. Live-virtual training removes scheduling friction, allowing you to earn your credential while maintaining employment or other commitments.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:17.093091Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "20b4502a9e0c8b19",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth it for Rockford manufacturing and aerospace careers?",
+          "answer": "<p>Yes. Rockford's advanced manufacturing and aerospace sector—anchored by major employers like Woodward Inc. and Collins Aerospace—increasingly values PMP certification as evidence of readiness to lead complex capital projects and process-improvement initiatives. The credential signals competence in a competitive labor market and can support advancement into senior project and program management roles within the region's industrial base.</p>"
+        },
+        {
+          "question": "Which Rockford employers actively hire certified project managers?",
+          "answer": "<p>Healthcare systems (Mercyhealth, OSF HealthCare), aerospace and advanced manufacturing (Woodward Inc., Collins Aerospace, Ingersoll Machine Tools), logistics and air cargo operations, and public administration all actively recruit PMP-certified professionals in Rockford. These sectors depend on certified talent to manage capital deployment, regulatory compliance, and operational transformation—making certification a meaningful differentiator in local hiring.</p>"
+        },
+        {
+          "question": "How do Rockford project manager salaries compare to other regions?",
+          "answer": "<p>Project manager compensation in Rockford tracks slightly below Chicago-metro averages but remains competitive given the region's concentration of aerospace, manufacturing, and healthcare employers. The cost of living advantage in Rockford offsets the wage differential, and certified PMP professionals in established roles within these sectors command strong earning potential and career mobility.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual CPMAI training from my Rockford workplace?",
+          "answer": "<p>Yes. All Granite PM Academy training is delivered live-virtual nationwide, so you can attend from your workplace, home, or any location with internet access. This flexibility works well for Rockford professionals balancing full-time roles at manufacturing plants, healthcare facilities, or other employers while earning your certification on your own schedule.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:22.238344Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c1784d3a8effb7cd",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Rockford's aerospace and advanced manufacturing sectors drive sustained demand for skilled project managers overseeing complex modernization and expansion initiatives. Major employers like Woodward Inc. and Collins Aerospace, alongside logistics growth at Chicago Rockford International Airport, regularly recruit professionals certified in structured project governance. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Rockford professionals, enabling you to earn your credential on your schedule while building expertise valued across the region's core industries.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:23.905885Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3c37778843f8eaef",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Rockford's aerospace and advanced manufacturing sectors—anchored by employers like Woodward Inc. and Collins Aerospace—drive consistent demand for skilled project managers overseeing complex modernization and production initiatives. Healthcare expansion projects, logistics infrastructure growth tied to Chicago Rockford International Airport, and ongoing downtown redevelopment add further PM opportunities across the region. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Rockford professionals nationwide, enabling you to earn your credential while managing your local career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:25.705709Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3c37778843f8eaef",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-rockford-il/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Rockford, IL, AI courses Rockford, CPMAI certification Rockford, AI project management training Rockford, IL, AI for project managers Rockford",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\",\n      \"name\": \"PMI-CPMAI Certification Training in Rockford, IL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Rockford, IL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Rockford, IL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Rockford, IL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Rockford, IL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rockford-il/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-rockford-il/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

@@ -1,404 +1,405 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "henderson-nv",
-  "slug": "pmp-bootcamp-henderson-nv",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "henderson-nv",
-    "city": "Henderson",
-    "state": "Nevada",
-    "SS": "NV",
-    "city_slug": "henderson-nv",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier3",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "henderson-nv",
+    "slug": "pmp-bootcamp-henderson-nv",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "henderson-nv",
+        "city": "Henderson",
+        "state": "Nevada",
+        "SS": "NV",
+        "city_slug": "henderson-nv",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier3",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Professional sports",
+            "Advanced manufacturing (CNC machine tools, titanium)",
+            "Financial services/data centers",
+            "Logistics/distribution",
+            "Healthcare"
+        ],
+        "top_employers": [
+            "Las Vegas Raiders (headquarters & Intermountain Healthcare Performance Center)",
+            "Haas Automation",
+            "Barclays (services center)",
+            "Google (data center)",
+            "St. Rose Dominican Hospitals/Dignity Health",
+            "TIMET"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Henderson's economy has diversified well beyond tourism, anchored by the Las Vegas Raiders' headquarters and training facility, Haas Automation's large manufacturing campus, a Google data center, and Barclays' services operations.",
+        "notable_projects": [
+            "Las Vegas Raiders headquarters and Intermountain Healthcare Performance Center (opened 2021)",
+            "Haas Automation's manufacturing campus expansion (2.4 million sq. ft., approximately 1,400 jobs)"
+        ],
+        "credential_demand": "Large facility build-outs like Haas Automation's expanding campus and the Raiders' performance center are the kind of capital projects where PMP certification is plausibly sought after among Henderson's manufacturing and corporate project managers.",
+        "_researched": 1,
+        "city_spotlight": "<p>Henderson's employer base includes Las Vegas Raiders (headquarters & Intermountain Healthcare Performance Center), Haas Automation, Barclays (services center), Google (data center). Henderson's economy has diversified well beyond tourism, anchored by the Las Vegas Raiders' headquarters and training facility, Haas Automation's large manufacturing campus, a Google data center, and Barclays' services operations. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Henderson professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Henderson's advanced manufacturing sector—from precision CNC tooling to titanium production—demands project managers who can navigate complex supply chains and multi-phase operations. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour requirements, preparing you to earn the PMP credential on your schedule. For manufacturing and logistics professionals in Henderson, PMP certification directly positions you for leadership roles managing high-stakes, high-precision projects.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:21.280461Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "c43651c03af45861",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Henderson: Fast-Track Certification for Project Managers",
+            "text": "<p>Henderson's economy is anchored by world-class operations—from the Las Vegas Raiders' headquarters and performance center to Haas Automation's advanced manufacturing campus and Google's data center presence. These organizations demand project managers who can lead cross-functional teams, manage complex timelines, and deliver results under pressure. The Project Management Professional (PMP) credential is the industry standard that validates your ability to do exactly that. For Henderson professionals working in sports operations, manufacturing, logistics, data services, or healthcare, PMP certification opens doors to higher-responsibility roles and competitive compensation in a market where skilled project leaders are actively recruited.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed to fit your schedule while meeting all PMI contact-hour requirements for eligibility. Our active certified practitioners bring real-world experience into every session, translating complex frameworks into practical application you can use immediately. The intensive format compresses learning into weeks rather than months—ideal for Henderson professionals who want to advance their careers without extended classroom commitments. Upon completion, you'll be exam-ready and positioned to submit your PMP application with confidence, moving closer to the credential that employers in Henderson and beyond recognize as essential for career progression.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:24.938350Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "6ea0ec12f5dd4b9f",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Path for Henderson's Growing PM Market",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Means Real Credential",
+                    "text": "Our bootcamp is PMI Authorized Training Partner status—your 35 contact hours count directly toward PMP® eligibility. No separate applications or verification delays. You earn recognized training credentials that PMI accepts immediately."
+                },
+                {
+                    "heading": "Live Instructors, Flexible Virtual Schedule",
+                    "text": "Live-virtual, instructor-led classes mean real-time interaction and immediate feedback—no recorded playback gaps. Fit bootcamp sessions around work and family in Henderson without commuting to a classroom."
+                },
+                {
+                    "heading": "Learn From Active Practitioners",
+                    "text": "Your instructors are working certified PMs who apply PMP® frameworks daily. Real-world examples, current best practices, and candid answers to your toughest project-delivery questions come from the field, not theory alone."
+                },
+                {
+                    "heading": "Build Your Edge in Henderson's Job Market",
+                    "text": "Professional sports, advanced manufacturing, logistics, and data-center operations in Henderson demand credentialed program leaders. PMP® signals serious capability to employers like those across the valley—and Granite's exam-prep support and job-market context give you the confidence to pass and step into a higher-tier role."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:29.467260Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "951aae6243889c9b",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Growing in Henderson",
+            "text": "<p>Henderson's advanced manufacturing and corporate services sector actively recruits certified project managers. Haas Automation's ongoing campus expansion—a 2.4 million square foot undertaking that created approximately 1,400 jobs—exemplifies the scale of capital projects where PMP® certification is valued among local operations and program leaders. Similarly, the Las Vegas Raiders headquarters and Intermountain Healthcare Performance Center, which opened in 2021, required the kind of coordinated, large-scale planning where certified project managers contribute directly. Barclays' services center, Google's data center operations, and St. Rose Dominican Hospitals also employ project managers overseeing everything from infrastructure upgrades to process improvements across healthcare, financial services, and tech-enabled logistics.</p><p>The PMP® credential carries measurable weight in Henderson's job market. Nationally, PMP®-certified professionals report median earnings substantially higher than their non-certified counterparts—a premium that holds across most regions and industries. For Henderson project managers, especially those working on the kind of facility build-outs and operational expansions that define the local economy, that credential can be the difference between advancing into senior roles and remaining in entry-level positions. Granite PM Academy's live-virtual PMP® Bootcamp lets you earn your certification on a schedule that fits Henderson's working professionals, positioning you to compete for those higher-responsibility, higher-compensation roles without relocating or sacrificing your current job.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:33.880903Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "a59b1075c8180280",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Henderson",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your PMI Eligibility",
+                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your academic background and documented hours leading projects or managing teams. Granite PM Academy's enrollment team can help you assess readiness before you commit."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Instruction",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions from anywhere—no travel required. Our active certified practitioners cover the full PMBOK framework, exam domains, and real-world scenarios across your flexible schedule."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Once you complete your contact hours, apply directly to PMI with your education and experience documentation. Pay the official PMI exam fee at that time. Granite PM Academy provides guidance on the application portal and required evidence to streamline your submission."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-prep resources—practice questions, study guides, and instructor Q&A sessions—to build confidence. Schedule your four-hour proctored exam through PMI's testing partner. Our instructors remain available to address final questions before test day."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After you earn your PMP, commit to the standard three-year renewal cycle by earning and reporting professional development units (PDUs). Granite PM Academy offers ongoing webinars and courses that count toward your PDU requirement, keeping your credential current and your skills sharp."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:38.956744Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "73cc24b2a4de19be",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Henderson's manufacturing and advanced industry roles?",
+                    "answer": "<p>Yes. Henderson's advanced manufacturing sector—particularly CNC machine tool production and titanium processing—regularly undertakes large capital expansion and facility projects where PMP-certified leaders manage timelines, budgets, and cross-functional teams. PMI data shows PMP-certified project managers earn a median premium over non-certified peers, a gap that holds across most regions. For Henderson professionals managing or coordinating major facility buildouts or equipment deployments, the credential strengthens both immediate project credibility and long-term earning potential.</p>"
+                },
+                {
+                    "question": "Which Henderson employers and industries actively seek PMP-certified project managers?",
+                    "answer": "<p>Henderson's largest employers span sectors where PMP certification is particularly valued: professional sports organizations managing major infrastructure projects, advanced manufacturing firms overseeing campus expansions and equipment deployments, financial services centers coordinating large-scale technology initiatives, and healthcare systems executing facility buildouts and service expansions. Data center operators and logistics providers similarly benefit from certified project leadership. If you work in or target any of these sectors, PMP certification signals readiness for complex, high-stakes initiatives.</p>"
+                },
+                {
+                    "question": "Can I attend the live-virtual PMP Bootcamp from my Henderson workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is delivered entirely live-virtual, so you join from any location with a reliable internet connection—your office, home, or elsewhere. Henderson professionals with demanding schedules can attend without relocating or commuting to a classroom. The live format allows real-time interaction with instructors and peers while maintaining the flexibility to fit the bootcamp around your work commitments.</p>"
+                },
+                {
+                    "question": "How does Henderson's local job market timing affect when to pursue PMP certification?",
+                    "answer": "<p>Henderson's major employers—from Raiders facilities to Haas Automation's ongoing expansions to Barclays and Google's operations—maintain steady project pipelines. Rather than wait for a specific market shift, many Henderson professionals earn certification proactively to position themselves for the next project leadership role or internal promotion. Early certification also allows you to build your credential track record before competition intensifies for high-visibility initiatives.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:45.677826Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "b7c15768925a4329",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Henderson's economy centers on advanced manufacturing, professional sports, and financial services—anchored by Haas Automation's 2.4-million-square-foot campus and the Las Vegas Raiders' 2021-opened headquarters and performance facility. Organizations managing complex operations across these sectors demand certified project managers to coordinate multimillion-dollar initiatives and cross-functional teams. Granite PM Academy delivers live-virtual PMP® Bootcamp to Henderson professionals nationwide, enabling you to earn your certification without classroom constraints.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:47.509478Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "d055aa177947deb8",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Professional sports",
-      "Advanced manufacturing (CNC machine tools, titanium)",
-      "Financial services/data centers",
-      "Logistics/distribution",
-      "Healthcare"
-    ],
-    "top_employers": [
-      "Las Vegas Raiders (headquarters & Intermountain Healthcare Performance Center)",
-      "Haas Automation",
-      "Barclays (services center)",
-      "Google (data center)",
-      "St. Rose Dominican Hospitals/Dignity Health",
-      "TIMET"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Henderson's economy has diversified well beyond tourism, anchored by the Las Vegas Raiders' headquarters and training facility, Haas Automation's large manufacturing campus, a Google data center, and Barclays' services operations.",
-    "notable_projects": [
-      "Las Vegas Raiders headquarters and Intermountain Healthcare Performance Center (opened 2021)",
-      "Haas Automation's manufacturing campus expansion (2.4 million sq. ft., approximately 1,400 jobs)"
-    ],
-    "credential_demand": "Large facility build-outs like Haas Automation's expanding campus and the Raiders' performance center are the kind of capital projects where PMP certification is plausibly sought after among Henderson's manufacturing and corporate project managers.",
-    "_researched": 1,
-    "city_spotlight": "<p>Henderson's employer base includes Las Vegas Raiders (headquarters & Intermountain Healthcare Performance Center), Haas Automation, Barclays (services center), Google (data center). Henderson's economy has diversified well beyond tourism, anchored by the Las Vegas Raiders' headquarters and training facility, Haas Automation's large manufacturing campus, a Google data center, and Barclays' services operations. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Henderson professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Henderson's advanced manufacturing sector—from precision CNC tooling to titanium production—demands project managers who can navigate complex supply chains and multi-phase operations. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour requirements, preparing you to earn the PMP credential on your schedule. For manufacturing and logistics professionals in Henderson, PMP certification directly positions you for leadership roles managing high-stakes, high-precision projects.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:21.280461Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "c43651c03af45861",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-henderson-nv/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Henderson, NV, PMP bootcamp Henderson, PMP certification boot camp Henderson, NV, PMP bootcamp near me, intensive PMP training Henderson",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\",\n      \"name\": \"PMP Bootcamp in Henderson, NV | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Henderson, NV. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Henderson, NV\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#course\",\n      \"name\": \"PMP Bootcamp in Henderson, NV\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Henderson, NV. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Henderson: Fast-Track Certification for Project Managers",
-      "text": "<p>Henderson's economy is anchored by world-class operations—from the Las Vegas Raiders' headquarters and performance center to Haas Automation's advanced manufacturing campus and Google's data center presence. These organizations demand project managers who can lead cross-functional teams, manage complex timelines, and deliver results under pressure. The Project Management Professional (PMP) credential is the industry standard that validates your ability to do exactly that. For Henderson professionals working in sports operations, manufacturing, logistics, data services, or healthcare, PMP certification opens doors to higher-responsibility roles and competitive compensation in a market where skilled project leaders are actively recruited.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed to fit your schedule while meeting all PMI contact-hour requirements for eligibility. Our active certified practitioners bring real-world experience into every session, translating complex frameworks into practical application you can use immediately. The intensive format compresses learning into weeks rather than months—ideal for Henderson professionals who want to advance their careers without extended classroom commitments. Upon completion, you'll be exam-ready and positioned to submit your PMP application with confidence, moving closer to the credential that employers in Henderson and beyond recognize as essential for career progression.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:24.938350Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "6ea0ec12f5dd4b9f",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Path for Henderson's Growing PM Market",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Means Real Credential",
-          "text": "Our bootcamp is PMI Authorized Training Partner status—your 35 contact hours count directly toward PMP® eligibility. No separate applications or verification delays. You earn recognized training credentials that PMI accepts immediately."
-        },
-        {
-          "heading": "Live Instructors, Flexible Virtual Schedule",
-          "text": "Live-virtual, instructor-led classes mean real-time interaction and immediate feedback—no recorded playback gaps. Fit bootcamp sessions around work and family in Henderson without commuting to a classroom."
-        },
-        {
-          "heading": "Learn From Active Practitioners",
-          "text": "Your instructors are working certified PMs who apply PMP® frameworks daily. Real-world examples, current best practices, and candid answers to your toughest project-delivery questions come from the field, not theory alone."
-        },
-        {
-          "heading": "Build Your Edge in Henderson's Job Market",
-          "text": "Professional sports, advanced manufacturing, logistics, and data-center operations in Henderson demand credentialed program leaders. PMP® signals serious capability to employers like those across the valley—and Granite's exam-prep support and job-market context give you the confidence to pass and step into a higher-tier role."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:29.467260Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "951aae6243889c9b",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Growing in Henderson",
-      "text": "<p>Henderson's advanced manufacturing and corporate services sector actively recruits certified project managers. Haas Automation's ongoing campus expansion—a 2.4 million square foot undertaking that created approximately 1,400 jobs—exemplifies the scale of capital projects where PMP® certification is valued among local operations and program leaders. Similarly, the Las Vegas Raiders headquarters and Intermountain Healthcare Performance Center, which opened in 2021, required the kind of coordinated, large-scale planning where certified project managers contribute directly. Barclays' services center, Google's data center operations, and St. Rose Dominican Hospitals also employ project managers overseeing everything from infrastructure upgrades to process improvements across healthcare, financial services, and tech-enabled logistics.</p><p>The PMP® credential carries measurable weight in Henderson's job market. Nationally, PMP®-certified professionals report median earnings substantially higher than their non-certified counterparts—a premium that holds across most regions and industries. For Henderson project managers, especially those working on the kind of facility build-outs and operational expansions that define the local economy, that credential can be the difference between advancing into senior roles and remaining in entry-level positions. Granite PM Academy's live-virtual PMP® Bootcamp lets you earn your certification on a schedule that fits Henderson's working professionals, positioning you to compete for those higher-responsibility, higher-compensation roles without relocating or sacrificing your current job.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:33.880903Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "a59b1075c8180280",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Henderson",
-      "steps_items": [
-        {
-          "heading": "Confirm Your PMI Eligibility",
-          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your academic background and documented hours leading projects or managing teams. Granite PM Academy's enrollment team can help you assess readiness before you commit."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Instruction",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions from anywhere—no travel required. Our active certified practitioners cover the full PMBOK framework, exam domains, and real-world scenarios across your flexible schedule."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "Once you complete your contact hours, apply directly to PMI with your education and experience documentation. Pay the official PMI exam fee at that time. Granite PM Academy provides guidance on the application portal and required evidence to streamline your submission."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-prep resources—practice questions, study guides, and instructor Q&A sessions—to build confidence. Schedule your four-hour proctored exam through PMI's testing partner. Our instructors remain available to address final questions before test day."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After you earn your PMP, commit to the standard three-year renewal cycle by earning and reporting professional development units (PDUs). Granite PM Academy offers ongoing webinars and courses that count toward your PDU requirement, keeping your credential current and your skills sharp."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:38.956744Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "73cc24b2a4de19be",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Henderson's manufacturing and advanced industry roles?",
-          "answer": "<p>Yes. Henderson's advanced manufacturing sector—particularly CNC machine tool production and titanium processing—regularly undertakes large capital expansion and facility projects where PMP-certified leaders manage timelines, budgets, and cross-functional teams. PMI data shows PMP-certified project managers earn a median premium over non-certified peers, a gap that holds across most regions. For Henderson professionals managing or coordinating major facility buildouts or equipment deployments, the credential strengthens both immediate project credibility and long-term earning potential.</p>"
-        },
-        {
-          "question": "Which Henderson employers and industries actively seek PMP-certified project managers?",
-          "answer": "<p>Henderson's largest employers span sectors where PMP certification is particularly valued: professional sports organizations managing major infrastructure projects, advanced manufacturing firms overseeing campus expansions and equipment deployments, financial services centers coordinating large-scale technology initiatives, and healthcare systems executing facility buildouts and service expansions. Data center operators and logistics providers similarly benefit from certified project leadership. If you work in or target any of these sectors, PMP certification signals readiness for complex, high-stakes initiatives.</p>"
-        },
-        {
-          "question": "Can I attend the live-virtual PMP Bootcamp from my Henderson workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is delivered entirely live-virtual, so you join from any location with a reliable internet connection—your office, home, or elsewhere. Henderson professionals with demanding schedules can attend without relocating or commuting to a classroom. The live format allows real-time interaction with instructors and peers while maintaining the flexibility to fit the bootcamp around your work commitments.</p>"
-        },
-        {
-          "question": "How does Henderson's local job market timing affect when to pursue PMP certification?",
-          "answer": "<p>Henderson's major employers—from Raiders facilities to Haas Automation's ongoing expansions to Barclays and Google's operations—maintain steady project pipelines. Rather than wait for a specific market shift, many Henderson professionals earn certification proactively to position themselves for the next project leadership role or internal promotion. Early certification also allows you to build your credential track record before competition intensifies for high-visibility initiatives.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:45.677826Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "b7c15768925a4329",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Henderson's economy centers on advanced manufacturing, professional sports, and financial services—anchored by Haas Automation's 2.4-million-square-foot campus and the Las Vegas Raiders' 2021-opened headquarters and performance facility. Organizations managing complex operations across these sectors demand certified project managers to coordinate multimillion-dollar initiatives and cross-functional teams. Granite PM Academy delivers live-virtual PMP® Bootcamp to Henderson professionals nationwide, enabling you to earn your certification without classroom constraints.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:47.509478Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "d055aa177947deb8",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-henderson-nv/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Henderson, NV, PMP bootcamp Henderson, PMP certification boot camp Henderson, NV, PMP bootcamp near me, intensive PMP training Henderson",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\",\n      \"name\": \"PMP Bootcamp in Henderson, NV | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Henderson, NV. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Henderson, NV\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#course\",\n      \"name\": \"PMP Bootcamp in Henderson, NV\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Henderson, NV. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-henderson-nv/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

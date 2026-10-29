@@ -1,394 +1,422 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "new-haven-ct",
-    "slug": "pmp-certification-training-new-haven-ct",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "new-haven-ct",
-        "city": "New Haven",
-        "state": "Connecticut",
-        "SS": "CT",
-        "city_slug": "new-haven-ct",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Yale New Haven Health System and Yale University anchor New Haven's robust project management market, where healthcare expansion, biotech innovation, and major campus initiatives create steady demand for certified professionals. Recent projects like the Yale New Haven Hospital York Street Campus expansion exemplify the scale of opportunity for skilled project managers across the city's medical, academic, and research sectors. Granite PM Academy delivers live-virtual PMP® Certification to New Haven professionals seeking to advance their careers in this thriving market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>New Haven's life sciences and healthcare sectors depend on professionals who can coordinate complex regulatory timelines and cross-functional teams. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led instruction and PMI contact hours required to sit for the PMP exam, with flexible scheduling that fits working professionals. Earn your PMP credential and position yourself for advancement into leadership roles where project management expertise commands recognition and competitive compensation across Connecticut's growing innovation economy.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:06.504389Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "bac9d1860160a01e",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in New Haven for Healthcare and Research Leaders",
-            "text": "<p>New Haven's project management landscape is shaped by its powerhouse healthcare and research institutions, particularly Yale University and Yale New Haven Health System, where complex clinical, research, and infrastructure initiatives demand skilled certified project managers. Whether you're coordinating biotech research programs at Alexion Pharmaceuticals, managing hospital expansion projects, or overseeing academic research initiatives, the PMP® certification signals to these anchor employers that you possess the discipline, methodology, and credibility to lead critical initiatives. In a city where Yale New Haven Hospital, the health system, and research-driven organizations compete for talent and manage multimillion-dollar projects, PMP® certification differentiates you and opens pathways to leadership roles with measurably higher responsibility and career growth potential.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led PMP® Certification Training through live-virtual sessions designed for working professionals in New Haven. Our active certified practitioners teach real-world project management practices that apply immediately to healthcare operations, research administration, biotech development, and institutional management—the sectors driving New Haven's economy. We structure our programs to satisfy the contact-hour requirements mandated by PMI, prepare you thoroughly for the PMP® exam, and equip you with tools and frameworks used by project leaders at Yale and beyond. When you earn your PMP® through Granite PM Academy, you join a globally recognized credential that accelerates your career in New Haven's dynamic, opportunity-rich professional environment.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:10.655418Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "21aefe2f72f1dee1",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification: New Haven's Path to Healthcare and Research Leadership",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your PMP training meets rigorous global standards. Employers at Yale University, Yale New Haven Health System, and Alexion Pharmaceuticals recognize PMI credentials as the authentic mark of professional project management competency."
-                },
-                {
-                    "heading": "Live-Virtual Format Fits Your Schedule",
-                    "text": "Earn required contact hours through live instructor-led sessions you attend from home or office. This format lets New Haven professionals balance certification training with full-time roles in healthcare, biotechnology, and advanced manufacturing without relocating or sacrificing career continuity."
-                },
-                {
-                    "heading": "Practitioners Teaching Real-World Application",
-                    "text": "Granite instructors are active PMP-certified project managers working in industries spanning life sciences, government, and higher education. Their current experience in New Haven's dominant sectors means examples and case studies reflect challenges you'll face on actual projects."
-                },
-                {
-                    "heading": "Credential Demand Among New Haven Employers",
-                    "text": "Yale New Haven Health System, Alexion Pharmaceuticals, and government agencies actively hire PMP-certified professionals for program oversight and complex initiative leadership. The PMP demonstrates you meet the rigor these large, regulated employers require for mid-to-senior project roles."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:15.233693Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f846fed56ec11c75",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing Across New Haven",
-            "text": "<p>New Haven's healthcare and biotech sectors drive substantial demand for certified project managers. Yale New Haven Health System and Yale New Haven Hospital anchor the region's largest employment base, overseeing complex operational and capital initiatives—including the York Street Campus expansion—that require rigorous project oversight. Alexion Pharmaceuticals (part of AstraZeneca's Rare Disease division) and its 100 College Street headquarters represent the city's growing life-sciences footprint, where standardized project management practices have become central to drug development and facility management. Yale University's ongoing science and engineering facility expansions further illustrate how higher-education and research institutions in New Haven depend on skilled project professionals to deliver multimillion-dollar initiatives on schedule.</p><p>The PMP and CAPM certifications are increasingly referenced in New Haven-area job postings across healthcare systems, biotech firms, and universities—signaling that employers view standardized credentials as markers of capability for mid- to senior-level roles. While certification is not universally required, it meaningfully strengthens your candidacy in a competitive regional market. Project manager compensation in the New Haven area tracks regional Connecticut averages, with healthcare, biotech, and higher-education employers typically offering the most competitive packages. Completing PMP Certification Training through Granite PM Academy positions you to advance within these established industries and positions you to qualify for roles where certification preference translates to career momentum and improved earning potential.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:19.635396Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "a5880308f26f6f18",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in New Haven",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. New Haven professionals typically hold a bachelor's degree and documented project-leadership experience. Review PMI's full eligibility criteria to confirm your qualifications before enrolling."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our New Haven cohorts cover the PMBOK® Guide framework and real-world application across Connecticut's healthcare, manufacturing, and insurance sectors. Earn your required contact hours on a schedule that fits your work calendar."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "File your official PMI PMP application after course completion and pay the PMI exam fee. Granite PM Academy guides you through the submission process to ensure accuracy. PMI reviews and approves your eligibility before you schedule your exam."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, live review sessions, and study guides—to build confidence. Schedule your proctored PMP exam at a local New Haven testing center. Our instructors remain available to answer final questions before test day."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "Renew your credential every three years by earning professional development units (PDUs) through training, conference attendance, and volunteer project-management work. Granite PM Academy offers ongoing PDU-eligible courses to help you stay current and advance within New Haven's competitive project-management market."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:24.097847Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "073600fc7fbbc17a",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth it for New Haven healthcare project managers?",
-                    "answer": "<p>Yes. Yale New Haven Health System and Yale New Haven Hospital increasingly seek standardized project management practices, and PMP certification strengthens candidacy for mid- to senior-level roles in healthcare settings. The credential signals capability in complex, regulated environments where clinical and operational projects demand rigor. Compensation in New Haven healthcare tends toward the higher end of regional Connecticut ranges, particularly for certified professionals managing high-stakes initiatives.</p>"
-                },
-                {
-                    "question": "Which New Haven employers value PMP or CAPM certification most?",
-                    "answer": "<p>Healthcare systems (Yale New Haven Health, hospitals), biotech firms (Alexion/AstraZeneca), and higher-education institutions (Yale University, Southern Connecticut State University) actively reference PMP and CAPM in job postings. Insurance carriers like Anthem Blue Cross and Blue Shield of Connecticut and utilities such as United Illuminating Company also favor the credential. These sectors rely on structured project delivery and view certification as evidence of professional capability.</p>"
-                },
-                {
-                    "question": "Can I attend PMP training classes while working in New Haven?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows New Haven professionals to join from their workplace, home, or office. This flexibility suits the schedules of project managers at Yale, biotech companies, healthcare systems, and government roles throughout the city—no commute required to attend instructor-led sessions. You can balance your current role with certification preparation without disruption.</p>"
-                },
-                {
-                    "question": "When should New Haven project managers pursue PMP certification?",
-                    "answer": "<p>Early timing matters in New Haven's competitive market. With healthcare, biotech, and higher-education employers increasingly citing PMP and CAPM in job descriptions, obtaining certification before seeking mid- to senior-level roles strengthens your profile. Professionals at organizations like Alexion, Yale University, or the City of New Haven benefit from earning the credential while employed, building credibility for promotion and mobility within the local job market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:30.204834Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "1558d777e4a467c5",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>New Haven's healthcare and biotech sectors—anchored by Yale New Haven Health System and Alexion Pharmaceuticals—drive steady demand for certified project managers overseeing hospital expansions, research initiatives, and infrastructure projects like the York Street Campus build-out. Academic institutions and city agencies add further depth to career opportunities for PMP-credential holders. Granite PM Academy delivers live-virtual PMP Certification Training to New Haven professionals seeking competitive advantage in this robust market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:08:31.805952Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "10b4ee1fda820d30",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "new-haven-ct",
+  "slug": "pmp-certification-training-new-haven-ct",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "new-haven-ct",
+    "city": "New Haven",
+    "state": "Connecticut",
+    "SS": "CT",
+    "city_slug": "new-haven-ct",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-new-haven-ct/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training New Haven, CT, PMP exam prep New Haven, PMP course New Haven CT, project management certification New Haven, CT, PMI PMP training New Haven",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\",\r\n      \"name\": \"PMP Certification Training in New Haven, CT | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in New Haven, CT. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in New Haven, CT\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#course\",\r\n      \"name\": \"PMP Certification Training in New Haven, CT\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in New Haven, CT. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Healthcare and biotechnology",
+      "Higher education and research",
+      "Pharmaceuticals and life sciences",
+      "Insurance and financial services",
+      "Advanced manufacturing",
+      "Government and public administration"
+    ],
+    "top_employers": [
+      "Yale University",
+      "Yale New Haven Health System",
+      "Yale New Haven Hospital",
+      "City of New Haven",
+      "Alexion Pharmaceuticals (AstraZeneca Rare Disease)",
+      "Knights of Columbus",
+      "Southern Connecticut State University",
+      "United Illuminating Company",
+      "Gateway Community College",
+      "Anthem Blue Cross and Blue Shield of Connecticut"
+    ],
+    "salary_note": "Project manager compensation in the New Haven area tends to track regional Connecticut averages, with healthcare, biotech, and higher-education employers offering the most competitive packages; exact figures vary widely by industry and experience level, so candidates should expect a range rather than a fixed number.",
+    "market_blurb": "New Haven's project management job market is anchored by its strong healthcare, higher education, and biotech sectors, particularly around Yale University and Yale New Haven Health. Demand for skilled project and program managers is steady as hospitals, research institutions, and city infrastructure initiatives continue to expand. The city's mix of academic, medical, and civic employers creates diverse opportunities for certified project management professionals.",
+    "notable_projects": [
+      "Yale New Haven Hospital York Street Campus expansion",
+      "Downtown Crossing / Route 34 redevelopment project",
+      "100 College Street (Alexion/AstraZeneca headquarters building)",
+      "Yale University science and engineering facility expansions"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly referenced in New Haven-area job postings, especially within healthcare systems, biotech firms, and higher education institutions seeking standardized project management practices. While not universally required, certification often strengthens candidacy for mid- to senior-level project management roles in the region.",
+    "_researched": 1,
+    "city_spotlight": "<p>New Haven's healthcare and biotech sectors—anchored by Yale University, Yale New Haven Health System, and Alexion Pharmaceuticals—drive steady demand for certified project managers overseeing hospital expansions, research initiatives, and infrastructure projects like the York Street Campus redevelopment. The city's diverse employer base across medicine, higher education, and civic agencies creates multiple career pathways for PMP® professionals. Granite PM Academy delivers live-virtual PMP® Certification to New Haven professionals nationwide, with flexible scheduling and instructor-led training designed for working adults.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Yale University, Yale New Haven Health System, and Connecticut's thriving pharmaceutical and biotechnology sector rely on project managers who demonstrate mastery of industry-standard practices. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to earn credentials on a schedule that fits your professional life. Completing your PMP positions you to advance into higher-responsibility roles across New Haven's healthcare, research, and life sciences employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:52:56.131760Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1ea37f9a2c46d5c6",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for New Haven's Healthcare and Research Leaders",
+      "text": "<p>Yale New Haven Health System and Yale University's research enterprise drive New Haven's steady demand for skilled project and program managers. In a city where healthcare delivery, biomedical innovation, and academic research anchor the economy, the Project Management Professional (PMP)® credential has become essential for professionals seeking leadership roles and career advancement. Hospital expansions, clinical trials, research initiatives, and infrastructure projects across New Haven's major employers all require certified project managers who can navigate complex timelines, budgets, and cross-functional teams. Whether you work in healthcare administration, life sciences, higher education, or the public sector, PMP® certification signals to your employer and peers that you meet a rigorous, globally recognized standard for managing projects from planning through closure.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led courses designed to fit working professionals' schedules. Our curriculum satisfies the PMI contact-hour requirement and is taught by active certified practitioners with real-world project experience across multiple industries. You'll study proven project management frameworks, practice exam-style questions, and gain confidence in the PMBOK® Guide methodology—all from anywhere, on your own terms. Upon completion of our training and successful passage of the PMP® exam, you'll hold a credential recognized by employers throughout New Haven and nationwide, positioning yourself for advancement in your current role or new opportunities in project management leadership.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:00.325675Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "81192274086e1b7d",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for New Haven's Healthcare and Life Sciences Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP® training meets PMI's rigorous curriculum and delivery standards. Employers across New Haven's healthcare systems, pharmaceutical firms, and research institutions recognize PMI authorization as the mark of legitimate, high-quality certification preparation."
+        },
+        {
+          "heading": "Live Virtual Training, Full Contact Hours",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® eligibility without disrupting your work schedule at Yale, Alexion, or other major New Haven employers. You attend real-time sessions with active certified practitioners, ask questions in the moment, and build the knowledge foundation the exam demands."
+        },
+        {
+          "heading": "Active Practitioners Teach Real Application",
+          "text": "Your instructors are working certified project managers—not trainers reading slides. They bring current experience managing complex initiatives in regulated industries, healthcare operations, and enterprise environments similar to those across New Haven's largest employers, translating PMP® theory into actionable practice."
+        },
+        {
+          "heading": "Credential Matches New Haven's Growing PM Demand",
+          "text": "Yale New Haven Health System, Anthem Blue Cross, government agencies, and advanced manufacturers across the region actively hire PMP®-certified professionals for program leadership and portfolio roles. The PMP® credential positions you competitively for career advancement and higher compensation in New Haven's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:05.128826Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5e67c6df37f407b7",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in New Haven",
+      "text": "<p>Yale New Haven Health System and Yale University anchor New Haven's demand for certified project managers across healthcare, biotechnology, and higher education. The Yale New Haven Hospital York Street Campus expansion and ongoing science and engineering facility projects at Yale University represent the scale of initiatives requiring skilled project leadership in the region. Alexion Pharmaceuticals (AstraZeneca Rare Disease), headquartered at 100 College Street, similarly relies on certified professionals to manage complex product development and operational initiatives. The City of New Haven, Southern Connecticut State University, and United Illuminating Company also actively seek project managers with formal credentials to oversee infrastructure, research, and service delivery projects.</p><p>PMP® and CAPM® certifications are increasingly valued in New Haven-area job postings—particularly within healthcare systems, biotech firms, and academic institutions that are standardizing project management practices. While not universally required, holding a credential strengthens your candidacy for mid- to senior-level roles and often correlates with more competitive compensation packages, especially in the region's strongest sectors. Project manager salaries in New Haven track regional Connecticut averages, with healthcare, biotech, and higher-education employers typically offering the most attractive packages; exact figures vary by industry and experience. Completing PMP Certification Training through Granite PM Academy positions you to meet this credential demand and advance your career in one of Connecticut's most dynamic job markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:08.912175Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "3bdbfd16af7effc1",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in New Haven",
+      "steps_items": [
+        {
+          "heading": "Confirm Your PMI Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific education and hours-of-experience thresholds for the PMP credential. Gather proof of your qualifying work history and educational credentials before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our certified practitioners deliver real-world project-management frameworks and exam-focused content via interactive online sessions. Complete all required contact hours on a schedule that fits your work commitments at Yale New Haven Health System, Alexion Pharmaceuticals, or your current employer."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After training completion, create your PMI account and submit your official PMP application with documentation of education and experience. Pay the required examination fee directly to PMI. Allow time for PMI's review and approval before scheduling your exam date."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice exams and targeted study guides. Schedule your computer-based PMP exam through Pearson VUE at a testing center or approved remote location. Our instructors remain available to clarify complex concepts before your exam day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) every three years to renew your credential. PMI accepts PDUs from training, volunteer work, publications, and conference attendance. Plan your ongoing learning across the standard renewal cycle to keep your certification active and competitive in New Haven's healthcare, insurance, and advanced-manufacturing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:13.967124Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5b3b6d9be0dc6595",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for New Haven healthcare project managers?",
+          "answer": "<p>Yes. Yale New Haven Health System and Yale New Haven Hospital increasingly reference PMP and CAPM credentials in mid- to senior-level project management job postings. Certification demonstrates standardized capability in complex clinical, operational, and IT projects—competitive advantages in a region where healthcare employers actively seek formalized project governance. Certification often strengthens candidacy without being universally required.</p>"
+        },
+        {
+          "question": "Which New Haven employers value PMP certification most?",
+          "answer": "<p>Healthcare systems (Yale New Haven Health, Yale New Haven Hospital), biotech firms (Alexion Pharmaceuticals), higher-education institutions (Yale University, Southern Connecticut State University), and insurance carriers (Anthem Blue Cross and Blue Shield of Connecticut) increasingly reference PMP certification in job postings. These sectors prioritize standardized project management practices, making the credential particularly valuable in New Haven's largest employment sectors.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in New Haven?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training as live-virtual sessions, allowing New Haven professionals to participate from their workplace, home, or any location with internet access. This format is ideal for those juggling roles at Yale, Yale New Haven Health, municipal agencies, or other employers—no commute required, full interactivity maintained.</p>"
+        },
+        {
+          "question": "Does New Haven's job market affect when I should pursue PMP certification?",
+          "answer": "<p>Timing matters strategically. PMP and CAPM credentials are increasingly referenced in New Haven-area postings, particularly within healthcare, biotech, and higher education—three of the region's strongest employment sectors. If you're currently in or targeting these industries, certification can strengthen candidacy now; demand for standardized project management capability in these fields continues to grow.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:18.998338Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c9d5d47285123fee",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>New Haven's project management demand centers on healthcare, research, and biotech—Yale University, Yale New Haven Health System, and Alexion Pharmaceuticals anchor a market where hospitals, academic institutions, and infrastructure projects like the Yale New Haven Hospital York Street Campus expansion create steady opportunities for certified professionals. The PMP credential opens doors across this diverse employer landscape. Granite PM Academy delivers live-virtual PMP Certification Training to New Haven professionals nationwide, fitting flexible schedules while you advance your career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:20.818684Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "1b460d67cb2da5bb",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-new-haven-ct/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training New Haven, CT, PMP exam prep New Haven, PMP course New Haven CT, project management certification New Haven, CT, PMI PMP training New Haven",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\",\r\n      \"name\": \"PMP Certification Training in New Haven, CT | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in New Haven, CT. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in New Haven, CT\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#course\",\r\n      \"name\": \"PMP Certification Training in New Haven, CT\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in New Haven, CT. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-new-haven-ct/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

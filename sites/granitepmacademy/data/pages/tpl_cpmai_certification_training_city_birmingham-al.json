@@ -1,0 +1,392 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "birmingham-al",
+  "slug": "ai-training-birmingham-al",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "birmingham-al",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "birmingham-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Healthcare",
+      "Banking & Financial Services",
+      "Insurance",
+      "Utilities/Energy",
+      "Metals & Manufacturing"
+    ],
+    "top_employers": [
+      "UAB/UAB Hospital",
+      "Regions Financial Corporation",
+      "Blue Cross and Blue Shield of Alabama",
+      "Alabama Power Company",
+      "Encompass Health",
+      "O'Neal Industries"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Birmingham's economy is led by UAB's hospital and research complex, Regions Financial's banking headquarters, Blue Cross and Blue Shield of Alabama, and Alabama Power, alongside active redevelopment of former industrial sites into mixed-use districts.",
+    "notable_projects": [
+      "The Star Uptown - $300-340M mixed-use redevelopment of the former Carraway Hospital campus",
+      "Coca-Cola UNITED new headquarters - $330M investment along the I-20/59 corridor",
+      "Western Corridor Transformation - redevelopment of the former Ensley Works U.S. Steel site and Birminport into a logistics/manufacturing center"
+    ],
+    "credential_demand": "Large healthcare-system, banking, and utility headquarters running sizable capital and redevelopment projects make PMP a plausible credential for project managers in Birmingham's job market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Birmingham's employer base includes UAB/UAB Hospital, Regions Financial Corporation, Blue Cross and Blue Shield of Alabama, Alabama Power Company. Birmingham's economy is led by UAB's hospital and research complex, Regions Financial's banking headquarters, Blue Cross and Blue Shield of Alabama, and Alabama Power, alongside active redevelopment of former industrial sites into mixed-use districts. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Birmingham professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMI-CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Healthcare, financial services, and manufacturing organizations across Birmingham rely on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy's PMI-CPMAI Certification Training is delivered live-virtual with an instructor-led format that satisfies PMI's contact-hour requirements for this credential, giving you flexibility to earn while working. Completing your CPMAI positions you competitively for advancement in Birmingham's largest employers and strengthens your credentials across the region's most active industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:03.903677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a1cdf1c5bf1f9852",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Birmingham, AL",
+      "text": "<p>Birmingham's economy is anchored by UAB's hospital and research complex, a sprawling healthcare enterprise that drives demand for skilled project managers across clinical operations, infrastructure development, and research initiatives. Healthcare organizations of this scale depend on certified professionals who can manage complex, multi-stakeholder initiatives—from facility expansions to technology implementations—where regulatory compliance and operational continuity are non-negotiable. The PMI-CPMAI Certification validates your ability to navigate these high-stakes environments. Beyond healthcare, Birmingham's financial services headquarters, energy utilities, and manufacturing sector all employ project managers in roles where PMI credentials accelerate career progression and salary potential. Whether you work for one of the city's major employers or a growing firm in the redeveloped mixed-use districts, earning your CPMAI signals to local recruiters and leadership that you meet national standards for practice and professional development.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual, instructor-led PMI-CPMAI Certification Training designed for working professionals. Our curriculum satisfies the contact-hour requirement mandated by PMI and is taught by active certified practitioners who bring real-world experience to every module. You attend sessions on a flexible schedule from anywhere, eliminating barriers to professional development while maintaining the rigor of in-person instruction. Upon completion of our training and after meeting PMI eligibility requirements, you'll be prepared to sit for the certification exam and join Birmingham's community of credentialed project managers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:08.314434Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b473715951ee29a2",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Birmingham's Healthcare & Finance Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your PMI-CPMAI training meets all official PMI standards. Employers across Birmingham's healthcare, banking, and manufacturing sectors recognize PMI credentials as the industry benchmark for program and portfolio management expertise."
+        },
+        {
+          "heading": "Live Instruction Meets All Contact Hour Requirements",
+          "text": "Our live-virtual instructor-led format delivers the exact contact hours required for PMI-CPMAI eligibility without commute barriers. Attend real-time sessions from anywhere, ask questions directly, and complete the credential pathway on a schedule that fits working professionals in Birmingham's fast-paced industries."
+        },
+        {
+          "heading": "Instructors Bring Active Certification Experience",
+          "text": "Your instructors are active certified practitioners—not classroom theorists—who apply PMI frameworks daily. They translate real-world program-management challenges into practical lessons, so you graduate ready to lead complex initiatives in healthcare systems, financial institutions, utilities, and manufacturing environments."
+        },
+        {
+          "heading": "Credential Aligns With Birmingham's Hiring Demand",
+          "text": "UAB Hospital, Regions Financial, Blue Cross and Blue Shield of Alabama, Alabama Power, and Encompass Health actively seek certified program and portfolio managers. PMI-CPMAI positions you competitively for advancement in Birmingham's largest employers across healthcare delivery, financial services, insurance, and energy sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:12.968884Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a6c87cca3df9647f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Birmingham's Growth Industries",
+      "text": "<p>Birmingham's healthcare, banking, and utility sectors anchor significant demand for certified project managers. UAB and UAB Hospital, among the region's largest employers, oversee complex capital initiatives and clinical infrastructure projects that require rigorous project governance. Similarly, Regions Financial Corporation and Alabama Power Company manage enterprise-scale programs spanning technology, operations, and infrastructure modernization. Beyond these anchors, major redevelopment initiatives—such as The Star Uptown's $300–340M transformation of the former Carraway Hospital campus and Coca-Cola UNITED's $330M headquarters investment along the I-20/59 corridor—demonstrate the breadth of project activity driving local hiring for skilled project managers.</p><p>Earning the PMI-CPMAI Certification Training credential positions you competitively in a market where PMP-certified professionals command measurably higher compensation than their non-certified counterparts across most regions. Birmingham's concentration of healthcare systems, financial institutions, and utilities—all running sizable capital and redevelopment work—makes this credential a recognized asset for career advancement. Completing PMI-CPMAI Certification Training through Granite PM Academy, delivered live virtually, gives you the skills and credential recognized by the employers shaping Birmingham's economy, without requiring your schedule to fit a classroom calendar.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:16.833253Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "42cf037928becdc5",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the PMI-CPMAI certification?",
+          "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+        },
+        {
+          "question": "Who should pursue the PMI-CPMAI in {city}?",
+          "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the PMI-CPMAI course?",
+          "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+        },
+        {
+          "question": "How is the PMI-CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Birmingham's healthcare market?",
+          "answer": "<p>Birmingham's healthcare sector—anchored by UAB and UAB Hospital—relies heavily on project managers to oversee capital expansion, clinical IT systems, and facility redevelopment. PMP-certified professionals typically command a salary premium over non-certified peers across most regions, making the credential a strategic investment if you manage projects in hospital administration, medical device integration, or healthcare infrastructure.</p>"
+        },
+        {
+          "question": "Which Birmingham employers value PMP certification most for project managers?",
+          "answer": "<p>Large organizations headquartered in Birmingham—including banking institutions, insurance carriers, utilities, and metal-fabrication firms—regularly initiate major capital and operational projects requiring certified project management expertise. Healthcare systems, financial-services firms, and energy companies in particular seek PMP-credentialed managers for compliance, stakeholder confidence, and delivery accountability on high-stakes initiatives.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual PMI-CPMAI training from my Birmingham workplace?",
+          "answer": "<p>Yes. All Granite PM Academy training is delivered live-virtual nationwide, so you can join from your office, home, or any location with internet connectivity. This flexibility allows Birmingham professionals to complete certification training without travel while maintaining your work schedule and local employment responsibilities.</p>"
+        },
+        {
+          "question": "When should Birmingham project managers pursue PMI-CPMAI certification for career advancement?",
+          "answer": "<p>Birmingham's competitive job market for project managers—particularly in healthcare, banking, and utilities—rewards certification early in your career trajectory. If you're managing cross-functional teams or budget-significant projects at UAB, Regions, Alabama Power, or similar organizations, pursuing certification now positions you ahead of peers and strengthens your candidacy for senior project leadership roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:21.911757Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ef07a7f32d59bdfa",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Birmingham's economy centers on UAB's hospital and research complex, Regions Financial, and major infrastructure projects like the $330M Coca-Cola UNITED headquarters and The Star Uptown redevelopment—all requiring skilled project managers across healthcare, banking, and mixed-use development. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Birmingham professionals seeking to advance credentials in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:23.352187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b458c242c1b6209a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-birmingham-al/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Birmingham, AL, AI courses Birmingham, CPMAI certification Birmingham, AI project management training Birmingham, AL, AI for project managers Birmingham",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-birmingham-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-birmingham-al/\",\n      \"name\": \"PMI-CPMAI Certification Training in Birmingham, AL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Birmingham, AL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Birmingham, AL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-birmingham-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-birmingham-al/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Birmingham, AL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Birmingham, AL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-birmingham-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-birmingham-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-birmingham-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-birmingham-al/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-birmingham-al/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}",
+    "primary_keyword": "PMI-CPMAI Certification Training"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T03:33:15+00:00",
+  "template_version": "f6a3382b6a8f42a3fb45841d36f4e3b0"
+}

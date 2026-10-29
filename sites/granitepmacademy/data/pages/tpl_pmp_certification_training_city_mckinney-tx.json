@@ -1,406 +1,407 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "mckinney-tx",
-  "slug": "pmp-certification-training-mckinney-tx",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "mckinney-tx",
-    "city": "McKinney",
-    "state": "Texas",
-    "SS": "TX",
-    "city_slug": "mckinney-tx",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier4",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "mckinney-tx",
+    "slug": "pmp-certification-training-mckinney-tx",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "mckinney-tx",
+        "city": "McKinney",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "mckinney-tx",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier4",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Aerospace & defense",
+            "Insurance & financial services",
+            "Wire & cable manufacturing",
+            "Logistics"
+        ],
+        "top_employers": [
+            "Raytheon Intelligence & Space",
+            "Globe Life (relocating headquarters, 3,000+ employees)",
+            "Independent Financial",
+            "Prysmian Group/Encore Wire"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "McKinney's employer base includes Raytheon Intelligence & Space, Independent Financial, and wire/cable manufacturer Prysmian (which acquired McKinney-based Encore Wire), plus a major incoming Globe Life headquarters relocation and a $919 million LITEON investment.",
+        "notable_projects": [
+            "LITEON - $919 million investment announced for McKinney, 600+ projected new jobs",
+            "Globe Life headquarters relocation to McKinney (3,000+ employees)",
+            "Prysmian/Encore Wire manufacturing expansion"
+        ],
+        "credential_demand": "A defense contractor, a major incoming corporate headquarters relocation, and a large manufacturing investment all point to real, near-term demand for certified project managers to run capital and relocation projects in McKinney.",
+        "_researched": 1,
+        "city_spotlight": "<p>McKinney's employer base includes Raytheon Intelligence & Space, Globe Life (relocating headquarters, 3,000+ employees), Independent Financial, Prysmian Group/Encore Wire. McKinney's employer base includes Raytheon Intelligence & Space, Independent Financial, and wire/cable manufacturer Prysmian (which acquired McKinney-based Encore Wire), plus a major incoming Globe Life headquarters relocation and a $919 million LITEON investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to McKinney professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>McKinney's aerospace, defense, financial services, and logistics sectors depend on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills the Project Management Institute's required contact hours, preparing you to sit for the PMP exam. Earning your PMP credential positions you competitively for advancement roles within the region's major employers and across industries that value certified project leadership.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:29.704307Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "459667b1f861eea6",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in McKinney, TX",
+            "text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, creates sustained demand for rigorously credentialed project managers. Professionals managing complex, regulated programs in defense contracting, alongside those in the city's growing financial services and manufacturing operations, face competitive hiring and advancement requirements that the PMP® credential directly addresses. As Globe Life's major headquarters relocation brings thousands of new roles to McKinney, and as investments like LITEON's $919 million commitment reshape the local economy, employers across these sectors increasingly expect or require PMP® certification for mid-level and senior project leadership positions. The credential signals mastery of industry-standard processes and risk management—capabilities that employers in McKinney's industrial base actively seek.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led instruction as a PMI Authorized Training Partner, meeting the contact-hour requirements mandated by the Project Management Institute. Our active certified practitioners bring real-world project experience into every session, ensuring you learn from practitioners who have navigated the challenges your certification will help you solve. The flexible live-virtual format removes commute barriers while maintaining the rigor of in-person instruction, letting you prepare for the PMP® exam while managing work and personal commitments. Upon completion, you'll hold a credential recognized globally and valued across McKinney's most demanding industries—opening doors to higher-impact roles and compensation growth aligned with your expertise.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:34.168698Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "38f0b0ab2d344bf6",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for McKinney's Aerospace and Defense Sector",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Guarantees Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP® training meets PMI's rigorous standards, ensuring employers—including Raytheon and other defense contractors—recognize your certification as legitimate and current."
+                },
+                {
+                    "heading": "Live Instruction Fits Your Working Schedule",
+                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® eligibility without forcing you to relocate or attend in-person sessions. Complete your training while maintaining your current role in McKinney."
+                },
+                {
+                    "heading": "Instructors Bring Real-World PM Experience",
+                    "text": "Your instructors are active certified practitioners managing projects across industries. Their firsthand knowledge of scope, risk, and stakeholder challenges translates directly into exam readiness and on-the-job capability."
+                },
+                {
+                    "heading": "Meet Demand Among McKinney's Leading Employers",
+                    "text": "Raytheon Intelligence & Space, Globe Life, and logistics firms in the McKinney area actively hire certified project and program managers. The PMP® credential strengthens your candidacy and earning potential within these high-growth sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:37.795458Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "8ccf93b5c699e7a5",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in McKinney's Growth Wave",
+            "text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, represents one of the region's most active employers of certified project managers. Equally significant is the influx of major corporate and industrial projects reshaping the city's economic footprint. Globe Life's relocation of its headquarters to McKinney—bringing 3,000+ employees—and LITEON's $919 million advanced manufacturing investment have created immediate, high-stakes demand for PMs capable of orchestrating large-scale relocation and capital projects. Wire and cable manufacturers including Prysmian Group and Encore Wire add another layer of hiring demand in operations and facility expansion. These employers across aerospace, insurance and financial services, and manufacturing all depend on certified professionals to lead complex, time-sensitive initiatives.</p><p>A PMP® certification positions you squarely in the career path these employers prioritize. Nationally, PMP-certified project managers command a measurable salary advantage over their non-certified counterparts—a premium that reflects both the rigor of the credential and the real value it delivers in roles managing multimillion-dollar projects and organizational transitions. In McKinney's current market, where defense contractors, incoming corporate headquarters, and major manufacturing expansions are all competing for qualified talent, that credential becomes a concrete asset. Granite PM Academy's live-virtual PMP Certification Training lets you earn the credential on your schedule while preparing specifically for the demands you'll face in McKinney's fastest-growing sectors.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:42.252409Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "4bd240bb504313c8",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in McKinney",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your PMI Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Review PMI's full criteria and gather documentation of your work history before applying. Granite PM Academy staff can clarify eligibility questions at no cost."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all sessions at times that fit your McKinney schedule; no travel required. You'll master the PMBOK framework and exam domains while earning the contact hours PMI mandates before you sit for the exam."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the course, submit your formal PMP application directly to PMI, including proof of education and project experience. Pay PMI's exam fee at that time. Granite PM Academy provides step-by-step guidance on the application process so you avoid delays or errors."
+                },
+                {
+                    "heading": "Prepare and Pass the PMP Exam",
+                    "text": "Granite PM Academy's instructors support your exam readiness through practice questions, mock exams, and focused review of high-difficulty topics. Schedule your exam when you feel confident. Most candidates sit for the computer-delivered test at a testing center near McKinney within weeks of completing the course."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After earning your PMP, you'll renew every three years by earning professional development units (PDUs). Granite PM Academy and PMI offer many low-cost or free PDU opportunities—webinars, articles, volunteer work, and continuing education—so maintaining your credential fits any budget and schedule."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:47.606339Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "1b394cecdfc025d3",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth getting in McKinney given aerospace and defense growth?",
+                    "answer": "<p>Yes. McKinney's major aerospace and defense employer, along with incoming large corporate relocations and manufacturing investments, are driving near-term demand for certified project managers to lead capital and relocation initiatives. Nationally, PMP-certified professionals report a median salary premium of approximately $26,000 annually over non-certified peers, according to PMI's 14th Edition Earning Power Salary Survey—a gap that holds consistently across most regions and industries.</p>"
+                },
+                {
+                    "question": "Which McKinney employers actively hire PMP-certified project managers?",
+                    "answer": "<p>McKinney's strongest demand for certified PMs spans aerospace and defense, insurance and financial services, wire and cable manufacturing, and logistics. Major employers including a significant defense contractor, Globe Life's relocating headquarters operation, and large-scale manufacturing firms routinely staff certified project managers for complex programs, relocation projects, and supply-chain initiatives. These sectors all value PMI credentials for demonstrating structured governance and risk management.</p>"
+                },
+                {
+                    "question": "Can I attend PMP training in McKinney while working full-time locally?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual PMP certification training allows you to attend from your workplace, home, or any location with internet access—no travel required. This format is ideal for McKinney professionals balancing full-time roles at local employers while completing coursework and exam prep on your own schedule.</p>"
+                },
+                {
+                    "question": "Should McKinney project managers certify now before the job market tightens?",
+                    "answer": "<p>Timing favors early action. Globe Life's headquarters relocation bringing 3,000+ employees, defense contractor expansion, and ongoing manufacturing growth all signal strong near-term hiring for certified PMs. Completing your PMP credential now positions you ahead of increased demand and positions you competitively for higher-responsibility roles and compensation that incoming projects will create in McKinney's market.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:53.281869Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "073da105fb2ed7c5",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, drives consistent demand for skilled project managers. Add the incoming Globe Life headquarters relocation (3,000+ employees) and LITEON's $919 million manufacturing investment, and the city's need for PMP-certified professionals across defense, financial services, and industrial sectors is clear. Granite PM Academy delivers live-virtual PMP Certification Training to McKinney professionals nationwide, with flexible scheduling and PMI-aligned curriculum designed for working adults pursuing this industry-standard credential.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:55.033788Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "45e3b66c9f431a5b",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & defense",
-      "Insurance & financial services",
-      "Wire & cable manufacturing",
-      "Logistics"
-    ],
-    "top_employers": [
-      "Raytheon Intelligence & Space",
-      "Globe Life (relocating headquarters, 3,000+ employees)",
-      "Independent Financial",
-      "Prysmian Group/Encore Wire"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "McKinney's employer base includes Raytheon Intelligence & Space, Independent Financial, and wire/cable manufacturer Prysmian (which acquired McKinney-based Encore Wire), plus a major incoming Globe Life headquarters relocation and a $919 million LITEON investment.",
-    "notable_projects": [
-      "LITEON - $919 million investment announced for McKinney, 600+ projected new jobs",
-      "Globe Life headquarters relocation to McKinney (3,000+ employees)",
-      "Prysmian/Encore Wire manufacturing expansion"
-    ],
-    "credential_demand": "A defense contractor, a major incoming corporate headquarters relocation, and a large manufacturing investment all point to real, near-term demand for certified project managers to run capital and relocation projects in McKinney.",
-    "_researched": 1,
-    "city_spotlight": "<p>McKinney's employer base includes Raytheon Intelligence & Space, Globe Life (relocating headquarters, 3,000+ employees), Independent Financial, Prysmian Group/Encore Wire. McKinney's employer base includes Raytheon Intelligence & Space, Independent Financial, and wire/cable manufacturer Prysmian (which acquired McKinney-based Encore Wire), plus a major incoming Globe Life headquarters relocation and a $919 million LITEON investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to McKinney professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>McKinney's aerospace, defense, financial services, and logistics sectors depend on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills the Project Management Institute's required contact hours, preparing you to sit for the PMP exam. Earning your PMP credential positions you competitively for advancement roles within the region's major employers and across industries that value certified project leadership.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:29.704307Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "459667b1f861eea6",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-mckinney-tx/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training McKinney, TX, PMP exam prep McKinney, PMP course McKinney TX, project management certification McKinney, TX, PMI PMP training McKinney",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in McKinney, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in McKinney, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#course\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in McKinney, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in McKinney, TX",
-      "text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, creates sustained demand for rigorously credentialed project managers. Professionals managing complex, regulated programs in defense contracting, alongside those in the city's growing financial services and manufacturing operations, face competitive hiring and advancement requirements that the PMP® credential directly addresses. As Globe Life's major headquarters relocation brings thousands of new roles to McKinney, and as investments like LITEON's $919 million commitment reshape the local economy, employers across these sectors increasingly expect or require PMP® certification for mid-level and senior project leadership positions. The credential signals mastery of industry-standard processes and risk management—capabilities that employers in McKinney's industrial base actively seek.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led instruction as a PMI Authorized Training Partner, meeting the contact-hour requirements mandated by the Project Management Institute. Our active certified practitioners bring real-world project experience into every session, ensuring you learn from practitioners who have navigated the challenges your certification will help you solve. The flexible live-virtual format removes commute barriers while maintaining the rigor of in-person instruction, letting you prepare for the PMP® exam while managing work and personal commitments. Upon completion, you'll hold a credential recognized globally and valued across McKinney's most demanding industries—opening doors to higher-impact roles and compensation growth aligned with your expertise.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:34.168698Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "38f0b0ab2d344bf6",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for McKinney's Aerospace and Defense Sector",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Guarantees Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP® training meets PMI's rigorous standards, ensuring employers—including Raytheon and other defense contractors—recognize your certification as legitimate and current."
-        },
-        {
-          "heading": "Live Instruction Fits Your Working Schedule",
-          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® eligibility without forcing you to relocate or attend in-person sessions. Complete your training while maintaining your current role in McKinney."
-        },
-        {
-          "heading": "Instructors Bring Real-World PM Experience",
-          "text": "Your instructors are active certified practitioners managing projects across industries. Their firsthand knowledge of scope, risk, and stakeholder challenges translates directly into exam readiness and on-the-job capability."
-        },
-        {
-          "heading": "Meet Demand Among McKinney's Leading Employers",
-          "text": "Raytheon Intelligence & Space, Globe Life, and logistics firms in the McKinney area actively hire certified project and program managers. The PMP® credential strengthens your candidacy and earning potential within these high-growth sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:37.795458Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "8ccf93b5c699e7a5",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in McKinney's Growth Wave",
-      "text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, represents one of the region's most active employers of certified project managers. Equally significant is the influx of major corporate and industrial projects reshaping the city's economic footprint. Globe Life's relocation of its headquarters to McKinney—bringing 3,000+ employees—and LITEON's $919 million advanced manufacturing investment have created immediate, high-stakes demand for PMs capable of orchestrating large-scale relocation and capital projects. Wire and cable manufacturers including Prysmian Group and Encore Wire add another layer of hiring demand in operations and facility expansion. These employers across aerospace, insurance and financial services, and manufacturing all depend on certified professionals to lead complex, time-sensitive initiatives.</p><p>A PMP® certification positions you squarely in the career path these employers prioritize. Nationally, PMP-certified project managers command a measurable salary advantage over their non-certified counterparts—a premium that reflects both the rigor of the credential and the real value it delivers in roles managing multimillion-dollar projects and organizational transitions. In McKinney's current market, where defense contractors, incoming corporate headquarters, and major manufacturing expansions are all competing for qualified talent, that credential becomes a concrete asset. Granite PM Academy's live-virtual PMP Certification Training lets you earn the credential on your schedule while preparing specifically for the demands you'll face in McKinney's fastest-growing sectors.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:42.252409Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "4bd240bb504313c8",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in McKinney",
-      "steps_items": [
-        {
-          "heading": "Confirm Your PMI Eligibility",
-          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Review PMI's full criteria and gather documentation of your work history before applying. Granite PM Academy staff can clarify eligibility questions at no cost."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all sessions at times that fit your McKinney schedule; no travel required. You'll master the PMBOK framework and exam domains while earning the contact hours PMI mandates before you sit for the exam."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing the course, submit your formal PMP application directly to PMI, including proof of education and project experience. Pay PMI's exam fee at that time. Granite PM Academy provides step-by-step guidance on the application process so you avoid delays or errors."
-        },
-        {
-          "heading": "Prepare and Pass the PMP Exam",
-          "text": "Granite PM Academy's instructors support your exam readiness through practice questions, mock exams, and focused review of high-difficulty topics. Schedule your exam when you feel confident. Most candidates sit for the computer-delivered test at a testing center near McKinney within weeks of completing the course."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After earning your PMP, you'll renew every three years by earning professional development units (PDUs). Granite PM Academy and PMI offer many low-cost or free PDU opportunities—webinars, articles, volunteer work, and continuing education—so maintaining your credential fits any budget and schedule."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:47.606339Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "1b394cecdfc025d3",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth getting in McKinney given aerospace and defense growth?",
-          "answer": "<p>Yes. McKinney's major aerospace and defense employer, along with incoming large corporate relocations and manufacturing investments, are driving near-term demand for certified project managers to lead capital and relocation initiatives. Nationally, PMP-certified professionals report a median salary premium of approximately $26,000 annually over non-certified peers, according to PMI's 14th Edition Earning Power Salary Survey—a gap that holds consistently across most regions and industries.</p>"
-        },
-        {
-          "question": "Which McKinney employers actively hire PMP-certified project managers?",
-          "answer": "<p>McKinney's strongest demand for certified PMs spans aerospace and defense, insurance and financial services, wire and cable manufacturing, and logistics. Major employers including a significant defense contractor, Globe Life's relocating headquarters operation, and large-scale manufacturing firms routinely staff certified project managers for complex programs, relocation projects, and supply-chain initiatives. These sectors all value PMI credentials for demonstrating structured governance and risk management.</p>"
-        },
-        {
-          "question": "Can I attend PMP training in McKinney while working full-time locally?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP certification training allows you to attend from your workplace, home, or any location with internet access—no travel required. This format is ideal for McKinney professionals balancing full-time roles at local employers while completing coursework and exam prep on your own schedule.</p>"
-        },
-        {
-          "question": "Should McKinney project managers certify now before the job market tightens?",
-          "answer": "<p>Timing favors early action. Globe Life's headquarters relocation bringing 3,000+ employees, defense contractor expansion, and ongoing manufacturing growth all signal strong near-term hiring for certified PMs. Completing your PMP credential now positions you ahead of increased demand and positions you competitively for higher-responsibility roles and compensation that incoming projects will create in McKinney's market.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:53.281869Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "073da105fb2ed7c5",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>McKinney's aerospace and defense sector, anchored by Raytheon Intelligence & Space, drives consistent demand for skilled project managers. Add the incoming Globe Life headquarters relocation (3,000+ employees) and LITEON's $919 million manufacturing investment, and the city's need for PMP-certified professionals across defense, financial services, and industrial sectors is clear. Granite PM Academy delivers live-virtual PMP Certification Training to McKinney professionals nationwide, with flexible scheduling and PMI-aligned curriculum designed for working adults pursuing this industry-standard credential.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:55.033788Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "45e3b66c9f431a5b",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-mckinney-tx/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training McKinney, TX, PMP exam prep McKinney, PMP course McKinney TX, project management certification McKinney, TX, PMI PMP training McKinney",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in McKinney, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in McKinney, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#course\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in McKinney, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

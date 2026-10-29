@@ -1,390 +1,436 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "durham-nc",
-    "slug": "capm-certification-training-durham-nc",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "durham-nc",
-        "city": "Durham",
-        "state": "North Carolina",
-        "SS": "NC",
-        "city_slug": "durham-nc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Durham's project management market thrives within the Research Triangle Park ecosystem, anchored by Duke University, Duke Health, and major life sciences firms like IQVIA and Biogen that drive sustained demand for skilled PMs. Capital-intensive initiatives—from Duke's campus expansion to the American Tobacco Campus redevelopment—create real career momentum for certified project managers across healthcare, biotech, and technology sectors. Granite PM Academy serves Durham professionals with live-virtual PMP® Certification training aligned to local industry needs.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Durham's thriving life sciences and biotech sector demands skilled project coordinators who can manage regulatory timelines and cross-functional teams. Granite PM Academy's CAPM Certification & Boot Camp delivers live-virtual, instructor-led training that fulfills PMI's contact-hour requirements, positioning you to earn the Certified Associate in Project Management credential. Completing CAPM opens doors to higher-visibility roles and competitive salaries within Durham's growing research and pharmaceutical companies.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:52.781163Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a12873cb7310a9ad",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Durham, NC",
-            "text": "<p>Durham's project management opportunity is anchored in Duke University and Duke Health—two of the region's largest employers—alongside a thriving life sciences and biotechnology corridor that includes IQVIA, GlaxoSmithKline, and Biogen. These organizations depend on skilled project managers to coordinate complex initiatives across research, clinical operations, IT infrastructure, and regulatory compliance. For professionals working in Durham's healthcare, pharmaceutical, or research sectors, the CAPM® certification signals foundational PM expertise and positions you for advancement in roles where structured project delivery directly supports institutional mission and growth.</p><p>Granite PM Academy delivers CAPM® Certification & Boot Camp through live-virtual, instructor-led training delivered by active certified practitioners who bring real-world PM experience to every session. As a PMI® Authorized Training Partner, we satisfy the contact-hour requirements mandated by the Project Management Institute for CAPM® eligibility and exam readiness. Our boot camp format condenses core concepts—scope, schedule, cost, quality, and risk—into an intensive, cohesive program designed to help you master the CAPM® exam on your schedule. Upon completion, you'll hold a credential recognized across Durham's major employers and throughout the Research Triangle region, opening pathways to PM roles and competitive advancement.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:57.062652Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "6d61ac2e50ad4358",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification Path Built for Durham's Life Sciences Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training You Can Trust",
-                    "text": "Granite PM Academy's CAPM® boot camp is delivered by a PMI Authorized Training Partner, ensuring your credential meets global standards. You complete all required contact hours through live-virtual instruction, positioning you for immediate exam eligibility without gaps or delays."
-                },
-                {
-                    "heading": "Learn From Active Certified Practitioners",
-                    "text": "Your instructors hold current PMI certifications and work as project managers in Durham's life sciences, healthcare, and government sectors. Real-world examples from IQVIA, Duke Health, and local biotech firms replace theory—you see how frameworks apply to projects you'll actually manage."
-                },
-                {
-                    "heading": "Comprehensive Exam Prep Included",
-                    "text": "Boot camp tuition covers practice exams, study guides, and instructor office hours focused on high-risk CAPM® test domains. You graduate ready to pass, not guessing. Most participants report confidence in scheduling their exam within 30 days of course completion."
-                },
-                {
-                    "heading": "Stand Out in Durham's Talent Pipeline",
-                    "text": "Duke University, IQVIA, and GSK actively hire project coordinators and program managers holding CAPM® certification. The credential signals readiness for the rigor these employers demand, opening faster advancement in life sciences, healthcare IT, and research administration roles across the region."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:01.367635Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "59be6f196738c111",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Durham's Life Sciences Hub",
-            "text": "<p>Durham's concentration of life sciences, healthcare, and technology employers creates sustained demand for certified project managers. Duke University Health System, IQVIA, GlaxoSmithKline, and Biogen regularly hire PMs to oversee complex initiatives—from clinical trials and pharmaceutical development to infrastructure projects like Duke University's ongoing campus expansion and the American Tobacco Campus redevelopment in downtown Durham. These organizations view project management certification as a key differentiator when filling roles that require coordinating cross-functional teams, managing timelines, and delivering measurable outcomes in regulated environments.</p><p>The CAPM credential positions you competitively in a market where employers across healthcare systems, life sciences firms, and IT organizations concentrated in the Research Triangle Park area actively seek certified talent. Project managers here command compensation that reflects the regional demand for skilled professionals—certified practitioners typically earn premiums over non-credentialed peers, though ranges vary by industry and experience. Completing Granite PM Academy's CAPM Certification & Boot Camp equips you with the framework and credentials that Durham-area employers recognize and often require, giving you a meaningful edge as you advance into program and project leadership roles in this high-demand market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:05.194827Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "616d2afdbf4b3250",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your CAPM Certification Path in Durham",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "CAPM requires a secondary degree and completion of project management education hours. The credential demands no prior work experience, making it accessible to career-changers and early-stage professionals entering Durham's growing tech and healthcare sectors."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses foundational PM knowledge into an accelerated schedule, allowing you to move quickly toward exam readiness without lengthy part-time courses."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Once your contact hours are documented, apply directly to PMI and remit the examination fee. Granite PM Academy provides guidance through the application process so you meet all submission requirements accurately."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources to review PMBOK® Guide content, practice test formats, and reinforce key concepts. Schedule your CAPM exam when you feel confident in your readiness."
-                },
-                {
-                    "heading": "Maintain Your Credential",
-                    "text": "After earning CAPM, renew it every three years by earning professional development units (PDUs). Granite PM Academy offers ongoing courses and resources to help you stay current and advance toward PMP® certification."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:08.871852Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "377526fdeac32e1a",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Durham project managers?",
-                    "answer": "<p>Yes—particularly if you work in or aim to join Durham's dominant sectors: healthcare, life sciences, pharmaceuticals, or technology. Employers like Duke University Health System, IQVIA, and GSK actively seek certified project managers. CAPM demonstrates foundational PM competency and often serves as a stepping stone to PMP, positioning you competitively in a market where credentials differentiate candidates for advancement and specialized roles.</p>"
-                },
-                {
-                    "question": "Which Durham employers value CAPM or PMP certification most?",
-                    "answer": "<p>Healthcare systems, pharmaceutical and biotech firms (including IQVIA and Biogen), and IT organizations across the Research Triangle Park region prioritize PM credentials in job postings. Duke University, NC Central University, and government agencies including the City of Durham and Durham County also recognize CAPM as a credential that strengthens candidacy for project coordination and program management roles.</p>"
-                },
-                {
-                    "question": "Can I attend Granite PM's Durham CAPM boot camp from my workplace?",
-                    "answer": "<p>Yes. Our live-virtual boot camp format allows Durham professionals to join from their office, home, or any location with reliable internet. This flexibility is especially valuable for those working at Duke, IQVIA, IBM, or other major Durham employers who may have limited flexibility for off-site travel during the workweek.</p>"
-                },
-                {
-                    "question": "Should I get CAPM certified now or wait in Durham's job market?",
-                    "answer": "<p>Durham's competitive project-management market—driven by strong demand from healthcare, life sciences, and IT sectors—rewards certified professionals sooner rather than later. If you're currently employed or job-searching, CAPM certification can accelerate your eligibility for higher-level roles and salary progression. The Research Triangle's sustained growth in these industries makes now an opportune time to credential.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:14.887991Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "0aa6cb0bf6d48bed",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Durham's project management market thrives within the Research Triangle Park ecosystem, anchored by Duke University, Duke Health, and major life sciences firms like IQVIA and Biogen that fuel consistent demand for skilled PMs. Current initiatives—from Duke's campus expansion to the American Tobacco Campus redevelopment—underscore the region's growth trajectory across healthcare, biotech, and technology sectors. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp instruction tailored to Durham professionals pursuing this high-demand credential.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:16.630754Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "38e9db33660fa11b",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "durham-nc",
+  "slug": "capm-certification-training-durham-nc",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "durham-nc",
+    "city": "Durham",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "durham-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-durham-nc/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Durham, NC, CAPM boot camp Durham, CAPM training Durham, NC, CAPM classes Durham NC, CAPM exam prep Durham",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\",\n      \"name\": \"CAPM Certification & Boot Camp in Durham, NC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Durham, NC. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Durham, NC\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Durham, NC\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Durham, NC. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Life Sciences & Biotechnology",
+      "Healthcare",
+      "Higher Education & Research",
+      "Information Technology",
+      "Pharmaceuticals",
+      "Government/Public Administration"
+    ],
+    "top_employers": [
+      "Duke University",
+      "Duke University Health System",
+      "IQVIA",
+      "IBM",
+      "GlaxoSmithKline",
+      "Blue Cross Blue Shield of North Carolina",
+      "City of Durham",
+      "Durham County Government",
+      "North Carolina Central University",
+      "Biogen",
+      "Cisco Systems",
+      "Fidelity Investments"
+    ],
+    "salary_note": "Project manager compensation in Durham tends to track closely with the broader Research Triangle Park market, which is competitive due to concentrated demand from healthcare, life sciences, and technology employers. Certified project managers (PMP) generally command a premium over non-certified peers, though exact figures vary widely by industry and experience level.",
+    "market_blurb": "Durham's project management job market benefits from its position within the Research Triangle Park region, home to a dense cluster of pharmaceutical, biotech, healthcare, and technology organizations. Demand for skilled project and program managers is driven largely by Duke University/Duke Health, major life sciences firms, and a growing tech sector, making the city a strong regional hub for PM careers.",
+    "notable_projects": [
+      "Apple's Research Triangle Park campus and engineering hub expansion",
+      "Duke University capital construction and campus expansion projects",
+      "American Tobacco Campus redevelopment in downtown Durham",
+      "Downtown Durham revitalization and mixed-use development initiatives"
+    ],
+    "credential_demand": "PMP certification is widely recognized and often preferred or required in Durham-area job postings, particularly within healthcare systems, pharmaceutical/life sciences companies, and IT organizations concentrated in the Research Triangle Park area. Employers in these sectors frequently view PMP or CAPM credentials as a differentiator for project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Durham's Research Triangle Park region anchors a thriving life sciences and technology hub where Duke University, IQVIA, and major pharmaceutical firms drive consistent demand for skilled project managers. Capital construction at Duke, the American Tobacco Campus redevelopment, and Apple's regional engineering expansion create sustained PM opportunities across healthcare, biotech, and tech sectors. Granite PM Academy delivers live-virtual PMP® Certification to Durham professionals nationwide, helping you earn the credential employers in your market actively seek.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-durham-nc.webp",
+    "city_image_alt": "Carolina Theatre in Durham, NC",
+    "city_image_credit": "Photo: Maria Miracoli, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Carolina_Theatre_(Durham_Auditorium_1924).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Durham's life sciences, healthcare, and research sectors—anchored by Duke University, Duke University Health System, and IQVIA—rely on project managers to coordinate complex initiatives across regulatory, clinical, and operational domains. Granite PM Academy delivers live-virtual, instructor-led CAPM Certification Training that fulfills PMI's contact-hour education requirement, preparing you to sit for the exam and launch or advance a project management career in these high-demand industries. CAPM credentials open doors to roles managing cross-functional teams and budgets in Durham's fastest-growing professional sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:54.629435Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "931c78c73c0c2a97",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Durham for Project Managers",
+      "text": "<p>Durham's project management market is anchored by Duke University and Duke University Health System, two of the region's largest employers, alongside a thriving cluster of life sciences and pharmaceutical organizations that drive consistent demand for certified project and program managers. Professionals working within these sectors—whether managing clinical research initiatives, infrastructure projects, or cross-functional tech deployments—benefit measurably from the Certified Associate in Project Management (CAPM®) credential. This entry-level certification validates core project management competencies recognized across Durham's largest industries and positions career-focused professionals to advance into supervisory and leadership roles within the Research Triangle Park region's robust PM job market.</p><p>Granite PM Academy delivers CAPM® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed to fit working professionals' schedules. Our courses satisfy all contact-hour requirements mandated by the Project Management Institute and are taught by active certified practitioners who bring real-world project experience to every session. By completing Granite PM Academy's CAPM® program, you will be prepared to sit for the PMI certification exam and join Durham's community of credentialed project managers ready to contribute to organizations across healthcare, biotech, higher education, and technology.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:58.199450Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9e05d4ea938be480",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Durham's Life Sciences & Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Legitimacy",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM training meets PMI's rigorous curriculum standards, and your completion certificate satisfies the contact-hour requirement to sit for the CAPM exam—no guesswork about eligibility."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Live-virtual instructor-led classes let you earn your CAPM without relocating or commuting. Attend from Durham, learn in real time with active certified practitioners, and complete the contact-hour requirement without sacrificing your current role at IQVIA, Duke Health, or elsewhere."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "Your instructors are working project and program managers holding active certifications. They embed exam-preparation strategy, real-world scenarios, and critical-path thinking into every module—so you're ready to pass on your first attempt, not just completing contact hours."
+        },
+        {
+          "heading": "Launch Your Career in Durham's Growth Sectors",
+          "text": "Life sciences, biotech, healthcare, and IT roles across Duke University, GSK, Biogen, and IQVIA increasingly require or favor project-management credentials. The CAPM proves your capability to employers hiring in Durham and positions you for advancement in fast-growing industries anchored here."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:02.623666Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "eb75afa832bfd463",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Durham's Growing Markets",
+      "text": "<p>Durham's healthcare, life sciences, and technology sectors are among the region's largest employers of certified project managers. Duke University Health System, IQVIA, and GSK regularly seek credentialed professionals to lead clinical initiatives, research programs, and operational improvements. Beyond ongoing organizational work, major local undertakings—including Duke University's capital construction and campus expansion projects, the American Tobacco Campus redevelopment, and downtown Durham's mixed-use development initiatives—create sustained demand for skilled project and program managers who can navigate complex timelines, budgets, and stakeholder coordination across these evolving landscapes.</p><p>The Research Triangle Park market commands competitive compensation for project managers, and the gap between certified and non-certified professionals is measurable and widely recognized. Employers in Durham's concentrated healthcare, pharmaceutical, and IT sectors actively prefer or require PMP and CAPM credentials for advancement into project leadership roles. Completing CAPM Certification Training through Granite PM Academy positions you to meet that standard and strengthen your candidacy in a job market where certification is a genuine differentiator. By earning your credential, you align yourself with employer expectations across Durham's most dynamic industries and unlock clearer paths to higher-responsibility—and higher-compensation—roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:06.516470Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "b0b1ed9e291bae6c",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Durham",
+      "steps_items": [
+        {
+          "heading": "Verify Your Eligibility",
+          "text": "CAPM requires only a secondary degree and completion of project management education—no work experience necessary. This makes the credential ideal for Durham professionals entering project management roles across life sciences, healthcare, higher education, and technology sectors. Confirm you meet PMI's educational requirements before enrolling."
+        },
+        {
+          "heading": "Complete 23 Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp-style course. Designed for working professionals, our intensive format delivers all required contact hours efficiently, allowing you to balance certification training with your current role while preparing thoroughly for exam success."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, apply directly to PMI and pay the associated exam fee. Granite PM Academy will guide you through the application process, ensuring your credentials are submitted accurately and your exam eligibility is confirmed before your test date."
+        },
+        {
+          "heading": "Prepare and Test for CAPM",
+          "text": "Access Granite PM Academy's exam-preparation resources and practice assessments to build confidence in CAPM content. Schedule your proctored exam when ready, and leverage our instructor support to address final questions and solidify your readiness."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "CAPM credentials renew every three years through professional development units (PDUs). Plan your PDU activities early—whether through training, conference attendance, or volunteer project leadership—to keep your certification active and demonstrate ongoing commitment to project management excellence."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:11.099710Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "455b53530cd9e7c3",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth it for project managers in Durham?",
+          "answer": "<p>Yes, especially in Durham's dominant sectors. Healthcare systems, pharmaceutical firms, and life sciences employers in the Research Triangle Park region frequently list PMP or CAPM as preferred or required credentials for project management roles. CAPM positions you competitively for advancement at organizations like Duke University Health System, IQVIA, and Biogen, where certified professionals often command stronger advancement and compensation prospects than non-certified peers.</p>"
+        },
+        {
+          "question": "Which Durham employers actively hire CAPM or PMP certified professionals?",
+          "answer": "<p>Major Durham employers including Duke University Health System, pharmaceutical firms such as GlaxoSmithKline and Biogen, technology companies like IBM and Cisco Systems, and government agencies view PMP and CAPM credentials as meaningful differentiators. Life sciences and healthcare organizations concentrated here particularly value certified practitioners for clinical trial management, infrastructure projects, and IT implementations. Blue Cross Blue Shield of North Carolina and Fidelity Investments also regularly seek certified project managers.</p>"
+        },
+        {
+          "question": "When should Durham project managers pursue CAPM certification given the local job market?",
+          "answer": "<p>Durham's competitive life sciences, healthcare, and technology sectors mean that certified professionals fill open roles faster and advance into higher-responsibility positions sooner. If you are early in your career or transitioning into project management at a Research Triangle Park employer, completing CAPM certification before or shortly after starting can accelerate recognition and career momentum. The credential aligns closely with how Durham's largest employers evaluate internal promotion.</p>"
+        },
+        {
+          "question": "Can I attend CAPM certification training from my Durham workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual training format means you can participate from your office, home, or any location with internet access—no travel required. Many Durham professionals working at Duke, IQVIA, government offices, and other local employers attend courses during flexible scheduling windows that fit their work calendars, making certification attainable without disrupting your current role.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:16.690793Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a16d694c71af7f05",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Durham's project management demand is anchored by Duke University, Duke Health, and a robust life sciences ecosystem within Research Triangle Park—home to IQVIA, GSK, Biogen, and expanding tech operations. Major initiatives like Duke's capital construction projects and the American Tobacco Campus redevelopment drive sustained need for skilled PMs across healthcare, biotech, and higher education. Granite PM Academy delivers live-virtual CAPM Certification Training to Durham professionals seeking to advance their credentials and careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:18.413329Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "aa72bd92991d3fc5",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-durham-nc/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Durham, NC, CAPM boot camp Durham, CAPM training Durham, NC, CAPM classes Durham NC, CAPM exam prep Durham",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\",\n      \"name\": \"CAPM Certification Training in Durham, NC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Durham, NC. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Durham, NC\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#course\",\n      \"name\": \"CAPM Certification Training in Durham, NC\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Durham, NC. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-durham-nc/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

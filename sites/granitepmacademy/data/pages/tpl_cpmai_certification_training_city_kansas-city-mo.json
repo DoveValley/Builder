@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "kansas-city-mo",
-    "slug": "ai-training-kansas-city-mo",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "kansas-city-mo",
-        "city": "Kansas City",
-        "state": "Missouri",
-        "SS": "MO",
-        "city_slug": "kansas-city-mo",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier6"
-        ],
-        "city_spotlight": "<p>Kansas City's engineering and construction sector—anchored by firms like Burns & McDonnell and Black & Veatch—drives steady demand for certified project managers across infrastructure, healthcare IT, and logistics. Major initiatives including the Kansas City International Airport Single Terminal project and the Panasonic Energy battery plant expansion underscore local employers' need for PMP-credentialed leaders. Granite PM Academy delivers live-virtual PMP Certification to Kansas City professionals seeking to advance their careers.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Kansas City's healthcare and life-sciences sector increasingly relies on project managers who can leverage AI tools for workflow optimization and cross-functional coordination. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI contact-hour requirements, enabling you to earn recognized credentials while mastering AI applications directly applicable to clinical and operational projects. Master these emerging competencies now to stand out in a competitive regional market where AI literacy is becoming a differentiator for career advancement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:22.840636Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "22b316d860816972",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Kansas City",
-            "text": "<p>Kansas City's engineering and construction sector—anchored by powerhouses like Burns & McDonnell and Black & Veatch—has long driven demand for skilled project managers. Today, that demand is reshaping around artificial intelligence. As these firms and peers across healthcare, manufacturing, and logistics integrate AI into project planning, risk management, and resource optimization, Kansas City project managers face a critical choice: adapt to AI-enabled workflows or fall behind. AI training for project managers is no longer optional in a city where major infrastructure, healthcare IT, and automotive initiatives depend on professionals who can leverage machine learning and automation to deliver projects faster and smarter.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for working project managers seeking PMP®, CAPM®, or PMI-recognized credentials. Our courses satisfy the contact-hour requirements for certification, taught by active certified practitioners who bring real-world experience from industries that define Kansas City's economy. Whether you're managing complex construction projects, healthcare technology rollouts, or supply-chain initiatives, our AI curriculum teaches you to evaluate, implement, and oversee AI tools within project governance frameworks. Enroll in a schedule that fits your Kansas City workday, earn credentials that employers in your region actively seek, and position yourself as a certified professional ready to lead AI-augmented project teams into the next phase of your career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:27.485540Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "2f975ce9579503b4",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI-Ready Project Managers Kansas City Needs Now",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Means Credential Recognition",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMP® or CAPM® sits on employers' preferred lists. Kansas City's major firms—Burns & McDonnell, Black & Veatch, Cerner—prioritize candidates trained through authorized providers. This credential carries weight."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Schedules",
-                    "text": "Our live-virtual instructor-led format delivers contact hours on your terms—no pre-recorded videos or self-paced delays. Instructors actively practice project management in the industries hiring here: aerospace, healthcare, financial services, and logistics. Real expertise, real time."
-                },
-                {
-                    "heading": "Exam Prep Built Into Training",
-                    "text": "Pass-ready guidance doesn't end when instruction does. Granite PM Academy includes targeted exam-preparation support alongside content delivery, so you sit for the PMP® or CAPM® confident. Local professionals rely on this integrated approach to succeed."
-                },
-                {
-                    "heading": "Certification Aligns With KC Employer Demand",
-                    "text": "Engineering, construction, healthcare IT, and manufacturing employers across Kansas City actively hire PMP®-certified and CAPM®-certified professionals. Garmin, Ford Motor Company, T-Mobile, and Honeywell value certified project managers. Your credential opens doors with the region's largest employers."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:32.285270Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "a49fa33dca7f8f67",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Kansas City's Growth Industries",
-            "text": "<p>Kansas City's engineering and construction sector anchors steady demand for certified project managers. Burns & McDonnell and Black & Veatch—two of the region's largest employers—regularly seek PMP-credentialed professionals to lead complex initiatives. That demand extends across healthcare IT, where Cerner (now Oracle Health) and Children's Mercy Hospital manage portfolios requiring structured governance, and into manufacturing, where Ford's Kansas City Assembly Plant and General Motors' Fairfax Assembly Plant depend on disciplined project delivery. High-visibility local projects like the Kansas City International Airport New Single Terminal project and the Panasonic Energy battery plant development in the Kansas City metro area exemplify the scale and sophistication of work happening here—work that relies on project managers who can demonstrate formal expertise.</p><p>The PMP credential is well regarded among Kansas City's major employers, often listed as preferred or required for mid-to-senior project management roles in engineering, construction, and healthcare IT. Certified professionals in these sectors enjoy compensation premiums relative to uncertified peers, and the credential signals the structured methodology that large regional employers value. By completing AI Training for Project Managers through Granite PM Academy, you gain both the technical foundation and the credential that opens doors at the organizations defining Kansas City's economy. In a competitive Midwest market, this training positions you to advance into the roles where Kansas City's growth is happening now.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:37.013709Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "fe160275bdfb24d3",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Kansas City engineering careers?",
-                    "answer": "<p>Yes. Kansas City's engineering and construction sector—anchored by major firms like Burns & McDonnell and Black & Veatch—increasingly values PMP certification and structured AI competency in project delivery. AI training strengthens your ability to manage complex, data-driven projects in these industries, making you competitive for mid-to-senior roles where certification is often preferred or required.</p>"
-                },
-                {
-                    "question": "Which Kansas City employers actively hire certified project managers?",
-                    "answer": "<p>PMP certification is well regarded across Kansas City's largest sectors: engineering (Burns & McDonnell, Black & Veatch, Honeywell), healthcare IT (Cerner/Oracle Health, Children's Mercy Hospital, University of Kansas Health System), and manufacturing (Ford, GM). The Federal Reserve Bank of Kansas City and T-Mobile also value structured project management credentials for internal advancement.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual AI training while working at a Kansas City company?",
-                    "answer": "<p>Yes. Our live-virtual format is designed for working professionals in Kansas City. You can attend sessions from your office, home, or any location with internet access, making it practical for employees at firms across the metro area—from downtown financial services to suburban tech and manufacturing centers.</p>"
-                },
-                {
-                    "question": "When should Kansas City project managers pursue AI certification given local job demand?",
-                    "answer": "<p>Kansas City's steady demand for certified project managers—particularly in healthcare IT, engineering, and construction—means timing matters less than readiness. However, pursuing certification before seeking promotion or changing roles maximizes your advantage. The earlier you build AI and structured PM skills, the sooner you become competitive for the premium roles Kansas City employers are actively filling.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:42.704258Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "a5370cf4c719deb7",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Kansas City's engineering and construction sector—led by national firms like Burns & McDonnell and Black & Veatch—anchors strong demand for certified project managers across infrastructure, healthcare IT, and logistics. Recent initiatives including the KCI Airport Single Terminal project and Meta's data center development underscore employers' need for skilled leadership on complex initiatives. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Kansas City professionals advancing their careers in these growth sectors.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:18:44.473477Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "30b5e2d822e7e620",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "kansas-city-mo",
+  "slug": "ai-training-kansas-city-mo",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "kansas-city-mo",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "SS": "MO",
+    "city_slug": "kansas-city-mo",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-kansas-city-mo/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Kansas City, MO, AI courses Kansas City, CPMAI certification Kansas City, AI project management training Kansas City, MO, AI for project managers Kansas City",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\",\n      \"name\": \"AI Training for Project Managers in Kansas City, MO — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Kansas City, MO for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Kansas City, MO\",\n            \"item\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#course\",\n      \"name\": \"AI Training for Project Managers in Kansas City, MO\",\n      \"description\": \"CPMAI certification training for project managers in Kansas City, MO who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Engineering & Construction",
+      "Healthcare & Health IT",
+      "Financial Services & Insurance",
+      "Logistics, Rail & Supply Chain",
+      "Telecommunications & Technology",
+      "Manufacturing (Automotive & Aerospace)"
+    ],
+    "top_employers": [
+      "Burns & McDonnell",
+      "Black & Veatch",
+      "Cerner (Oracle Health)",
+      "H&R Block",
+      "Garmin",
+      "Ford Motor Company (Kansas City Assembly Plant)",
+      "General Motors (Fairfax Assembly Plant)",
+      "T-Mobile (formerly Sprint)",
+      "Children's Mercy Hospital",
+      "Federal Reserve Bank of Kansas City",
+      "Honeywell (Kansas City National Security Campus)",
+      "University of Kansas Health System"
+    ],
+    "salary_note": "Project manager pay in the Kansas City area tends to be competitive with other Midwest metros, with premiums for PMP-certified candidates in engineering, construction, and healthcare IT sectors; exact figures vary widely by industry and experience level.",
+    "market_blurb": "Kansas City's project management job market is anchored by its strong engineering and construction base—home to national firms like Burns & McDonnell and Black & Veatch—alongside growing demand from healthcare, finance, and logistics sectors given the city's central rail and transportation hub status. Employers across these industries increasingly seek certified project managers to lead large infrastructure, IT, and manufacturing initiatives.",
+    "notable_projects": [
+      "Kansas City International Airport (KCI) New Single Terminal project",
+      "Panasonic Energy electric vehicle battery plant in De Soto, Kansas (Kansas City metro area)",
+      "KC Streetcar Main Street Extension",
+      "Meta data center development in Kansas City, Missouri"
+    ],
+    "credential_demand": "PMP certification is well regarded among Kansas City's major engineering, construction, and healthcare employers, often listed as preferred or required for mid-to-senior project management roles, reflecting steady overall demand for structured project management expertise in the region.",
+    "_researched": 1,
+    "city_spotlight": "<p>Kansas City's engineering and construction sector—anchored by national firms like Burns & McDonnell and Black & Veatch—is driving strong demand for certified project managers across infrastructure, healthcare IT, and logistics. Major initiatives including the KCI New Single Terminal and Panasonic Energy's Kansas City–area battery plant underscore the region's need for PMP-credentialed leaders. Granite PM Academy serves Kansas City professionals with live-virtual PMP Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Kansas City's engineering, construction, and aerospace sectors depend on project managers who can demonstrate advanced credential credentials. Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that satisfy PMI's contact-hour education requirement, letting you earn your credential without interrupting your work schedule. The CPMAI credential strengthens your competitive standing for leadership roles across the region's major employers and complex infrastructure projects.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:44.513287Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d09417467c22002b",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Kansas City Project Managers",
+      "text": "<p>Kansas City's dominance in engineering and construction—anchored by national powerhouses like Burns & McDonnell and Black & Veatch—has made project management expertise central to the region's economy. Yet demand for certified project managers extends far beyond construction. Healthcare systems like Children's Mercy Hospital and the University of Kansas Health System, financial services firms including H&R Block and the Federal Reserve Bank of Kansas City, and major manufacturers such as Ford and General Motors all compete for skilled PMs to lead complex infrastructure, IT, and operational initiatives. The PMI-CPMAI (Certified Associate in Project Management) credential signals to these employers that you possess foundational competency in recognized project management practices—a credential increasingly expected for career advancement across Kansas City's diverse industries.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit the schedules of working professionals. Our program satisfies the contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners with real-world experience applying project management principles. You'll gain practical knowledge in scope, time, cost, quality, and stakeholder management while preparing to sit for the PMI-CPMAI exam. Upon completion, you'll hold a credential recognized across Kansas City's engineering, healthcare, finance, logistics, and technology sectors—positioning you for roles with greater responsibility and earning potential. Start your certification journey with Granite PM Academy today.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:48.733922Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "3524e0843c3f0aa2",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Kansas City's Engineering Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Integrity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets all official PMI requirements and prepares you for exam eligibility with no additional documentation hurdles or delays in your certification journey."
+        },
+        {
+          "heading": "Live Virtual Instruction Fits Working Schedules",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI-CPMAI eligibility while letting you stay employed and remain in Kansas City. Attend sessions from your office or home without travel constraints or rigid on-site demands."
+        },
+        {
+          "heading": "Active Practitioners Lead Your Training",
+          "text": "Your instructors are certified professionals actively working in project and program management, not trainers reading slides. They bring real-world problem-solving and current best practices into every session, grounding theory in scenarios you will face on the job."
+        },
+        {
+          "heading": "Credential Matches Kansas City Employer Demand",
+          "text": "Engineering firms, healthcare systems, aerospace manufacturers, and financial institutions across Kansas City—including Burns & McDonnell, Cerner, Honeywell, and the Federal Reserve Bank—actively hire certified project managers. PMI-CPMAI strengthens your candidacy in a competitive local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:53.051768Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e7016db2b71833df",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Kansas City",
+      "text": "<p>Kansas City's engineering and construction sector anchors strong demand for certified project managers. Burns & McDonnell and Black & Veatch, two global engineering powerhouses headquartered here, regularly hire PMP-certified professionals for complex infrastructure and energy projects. Beyond these firms, major employers across healthcare IT, financial services, and manufacturing—including Cerner (Oracle Health), the Federal Reserve Bank of Kansas City, and Ford Motor Company's Kansas City Assembly Plant—actively seek credentialed project managers to lead strategic initiatives. Current local undertakings like the Kansas City International Airport New Single Terminal project and the Panasonic Energy battery plant development in the Kansas City metro area exemplify the scale of work where structured project management expertise directly impacts career advancement.</p><p>The PMP credential is well regarded among Kansas City's largest employers, often listed as preferred or required for mid-to-senior project management roles—a reflection of steady demand for disciplined, proven methodologies across engineering, construction, and healthcare IT sectors. Project managers holding this certification command competitive compensation in the region, with measurable premiums relative to non-certified peers, particularly in specialized industries. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet those expectations and qualify for roles that drive your career forward in a market where credential recognition is concrete and widespread.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:56.835192Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "54b1bd49c9ae42b2",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Kansas City",
+      "text": "<p>Kansas City's engineering and construction sector anchors strong demand for certified project managers. Burns & McDonnell and Black & Veatch—two of the region's largest employers—routinely seek PMP-certified professionals to lead complex infrastructure and energy projects. That demand extends into healthcare IT at Cerner (Oracle Health), financial services at the Federal Reserve Bank of Kansas City, and advanced manufacturing across Ford Motor Company's Kansas City Assembly Plant and General Motors's Fairfax Assembly Plant. Current initiatives like the Kansas City International Airport's New Single Terminal project and the Panasonic Energy electric vehicle battery plant development in the Kansas City metro area underscore the steady flow of large-scale project work that depends on disciplined project management expertise.</p><p>PMP certification is well regarded among Kansas City's major employers and often listed as preferred or required for mid-to-senior project management roles—particularly in engineering, construction, and healthcare IT, where certified professionals command competitive compensation relative to other Midwest metros. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential demand and advance your career in a market where structured project management expertise remains a sustained asset. The combination of rigorous PMI-aligned coursework and live-virtual flexibility means you can earn your credential while staying engaged in your current work, preparing you to compete for Kansas City's most rewarding project leadership positions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:00.613756Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "54b1bd49c9ae42b2",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Kansas City's job market?",
+          "answer": "<p>Yes. Kansas City's engineering, construction, and healthcare IT sectors—anchored by major employers like Burns & McDonnell, Black & Veatch, and Cerner—actively seek PMP-certified project managers for mid-to-senior roles. The credential is often listed as preferred or required, and certified candidates typically command competitive compensation premiums in these high-demand industries. Certification signals structured expertise that aligns with employer expectations across the region.</p>"
+        },
+        {
+          "question": "Which Kansas City employers value PMP and CPMAI certification most?",
+          "answer": "<p>Engineering and construction firms (Burns & McDonnell, Black & Veatch), healthcare IT organizations (Cerner, Children's Mercy Hospital, University of Kansas Health System), and manufacturing operations (Ford Kansas City Assembly, General Motors Fairfax Assembly) prioritize PMP certification for project leadership roles. T-Mobile and Honeywell also recognize structured project management credentials. Demand is steady across these sectors, reflecting the region's industrial and technical employer base.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual CPMAI training from my Kansas City office?",
+          "answer": "<p>Yes. All Granite PM Academy training is delivered live-virtual nationwide, so you can attend from your workplace, home office, or anywhere with reliable internet. This format works well for Kansas City professionals balancing full-time roles at major employers while pursuing certification—no commute required, and you maintain your regular work schedule.</p>"
+        },
+        {
+          "question": "When should Kansas City project managers pursue CPMAI certification?",
+          "answer": "<p>The best timing depends on your role and industry. If you're advancing toward mid-to-senior project management at an engineering, construction, or healthcare employer, earlier certification strengthens your candidacy and earning potential. Kansas City's steady demand for certified practitioners means the credential pays dividends quickly. Consider your employer's promotion timeline and certification preferences when planning enrollment.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:06.417165Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a4909aed32e21e6a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Kansas City's engineering and construction sector—anchored by national firms Burns & McDonnell and Black & Veatch—drives consistent demand for certified project managers across infrastructure, healthcare IT, and logistics roles. Major employers like Cerner, H&R Block, and Ford Motor Company actively recruit PMs to lead large-scale initiatives, while landmark projects such as the KCI New Single Terminal and Panasonic Energy battery plant expansion underscore the region's growth. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Kansas City professionals nationwide, helping you meet employer requirements and advance your career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:08.383974Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "284bce1d8faf593d",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Kansas City's engineering and construction sector—anchored by national firms like Burns & McDonnell and Black & Veatch—drives steady demand for certified project managers across infrastructure, healthcare, and logistics. Major initiatives including the Kansas City International Airport single-terminal project and the Panasonic Energy battery plant underscore the region's need for credentialed PM leadership. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Kansas City professionals seeking to advance their careers in this competitive, infrastructure-focused market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:10.018812Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "284bce1d8faf593d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-kansas-city-mo/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Kansas City, MO, AI courses Kansas City, CPMAI certification Kansas City, AI project management training Kansas City, MO, AI for project managers Kansas City",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\",\n      \"name\": \"PMI-CPMAI Certification Training in Kansas City, MO | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Kansas City, MO for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Kansas City, MO\",\n            \"item\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Kansas City, MO\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Kansas City, MO who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-kansas-city-mo/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

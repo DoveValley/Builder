@@ -1,390 +1,434 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "aiken-sc",
-    "slug": "capm-certification-training-aiken-sc",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "aiken-sc",
-        "city": "Aiken",
-        "state": "South Carolina",
-        "SS": "SC",
-        "city_slug": "aiken-sc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "city_spotlight": "<p>Aiken's project management demand centers on the Savannah River Site and its federal contractor network, where large-scale nuclear, environmental, and engineering projects drive steady hiring for certified professionals. Beyond the nuclear sector, healthcare systems, manufacturing plants, and government agencies throughout the Augusta-Aiken metro area actively recruit PMs for facility upgrades and operational initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Aiken professionals seeking to advance in this competitive, opportunity-rich market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Aiken's energy and nuclear sector drives steady demand for credentialed project coordinators and junior managers. Granite PM Academy's live-virtual CAPM Boot Camp delivers PMI contact-hour education on an instructor-led schedule that fits working professionals, preparing you to sit for the CAPM exam while building the foundational skills that employers in the region's industrial and utility sectors actively seek.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:13.212162Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "03d0c7723bb43cf7",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Aiken's Project Management Professionals",
-            "text": "<p>Aiken's project management landscape is fundamentally shaped by the Savannah River Site and its network of federal contractors, where large-scale engineering, environmental remediation, and construction projects create consistent demand for credentialed professionals. The CAPM® Certification validates your readiness to step into project coordinator and assistant project manager roles across these mission-critical initiatives—and across Aiken's healthcare systems, advanced manufacturing facilities, and government agencies seeking skilled practitioners to lead facility upgrades, infrastructure projects, and operational improvements. For professionals in Aiken navigating a competitive job market where employers increasingly prefer or require PMI credentials, the CAPM is the entry point that distinguishes your resume and demonstrates your command of project management fundamentals.</p><p>Granite PM Academy delivers CAPM Certification & Boot Camp as a PMI Authorized Training Partner through live-virtual, instructor-led sessions taught by active certified practitioners who understand real-world project environments. Our boot camp format condenses the learning into an intensive, focused program that satisfies PMI's required contact hours and prepares you to sit for the CAPM exam with confidence. Whether you're advancing within the nuclear or environmental sector, stepping up in healthcare or manufacturing, or pursuing opportunities in Aiken's public sector, our structured curriculum and experienced instructors position you to earn your credential and accelerate your career in project management.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:17.580617Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "4fd44e5cc44263a6",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification Training Built for Aiken's Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Credential Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering the CAPM® certification with full recognition by the Project Management Institute. Your credential carries weight across Aiken's nuclear, manufacturing, and healthcare sectors."
-                },
-                {
-                    "heading": "Live Virtual Classes, Real Hours",
-                    "text": "Instructor-led sessions online satisfy PMI's contact-hour requirements for CAPM® eligibility. Attend from Aiken or anywhere, with active certified practitioners teaching real-world project scenarios—no self-paced shortcuts."
-                },
-                {
-                    "heading": "Expert Instructors, Active Practitioners",
-                    "text": "Your instructors manage live projects today in energy, manufacturing, and healthcare—the industries driving Aiken's economy. Learn frameworks tested on actual programs, not textbook theory alone."
-                },
-                {
-                    "heading": "Advance Your Career at Savannah River",
-                    "text": "CAPM® certification strengthens your profile at Savannah River Site contractors, Bridgestone, Aiken Regional Medical Centers, and government agencies hiring program coordinators. The credential unlocks advancement in Aiken's largest employers."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:21.853900Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "dfe12740d684d27d",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers at the Savannah River Site",
-            "text": "<p>Aiken's project management job market is fundamentally shaped by the Savannah River Site and its contractor ecosystem. Savannah River Nuclear Solutions, Savannah River Mission Completion, and the U.S. Department of Energy directly employ or contract with project managers overseeing some of the region's most complex infrastructure work—including the Salt Waste Processing Facility and Plutonium Processing Facility projects. Beyond the nuclear and environmental remediation sector, certified project managers find steady demand at Bridgestone Americas' manufacturing operations, Aiken Regional Medical Centers, and the Aiken County Public School District, each managing capital projects, equipment upgrades, and facility initiatives that require structured oversight and skilled leadership.</p><p>A CAPM credential positions you competitively in Aiken's federal- and industrial-heavy job market, where PMP certification is already highly regarded among Savannah River Site contractors and government-affiliated employers. Earning your CAPM through Granite PM Academy's boot camp format—designed to fit working schedules—gives entry-level and mid-career professionals a credential that employers actively seek when staffing project roles tied to federal contracts and engineering work. Salaries for certified project managers in the Central Savannah River Area track regional standards, with a clear premium for those holding recognized credentials on federal or nuclear projects. In a competitive local market, CAPM certification demonstrates your readiness to step into project leadership, making you stand out to hiring managers across Aiken's diverse sectors.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:26.199517Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "567345bda4d76abf",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Aiken",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary diploma or equivalent and can document the required project management education hours. No work experience is necessary—a major advantage for career-changers and recent graduates entering Aiken's growing project-driven sectors."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses CAPM fundamentals into a focused schedule, letting you balance certification with your current Aiken-area role while learning from experienced practitioners."
-                },
-                {
-                    "heading": "Submit PMI Application",
-                    "text": "Register with the Project Management Institute and pay the examination fee through PMI's official portal. Granite PM Academy's team can guide you through each field to ensure a smooth, error-free submission."
-                },
-                {
-                    "heading": "Prepare and Test",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor feedback—to build confidence. Schedule your CAPM exam when ready; testing accommodates your availability and learning pace."
-                },
-                {
-                    "heading": "Maintain Your Credential",
-                    "text": "Earn professional development units across a three-year renewal cycle to keep your CAPM active. Granite PM Academy offers ongoing PDU courses and resources tailored to Aiken professionals managing real-world projects."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:30.276387Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "b3cdee2803c7f071",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Aiken project management careers?",
-                    "answer": "<p>Yes, especially if you work in or aim for roles at the Savannah River Site, its contractors, or other federal and industrial employers in the CSRA. CAPM demonstrates foundational project management competency and helps entry-level and mid-career professionals stand out in a competitive market dominated by nuclear energy, advanced manufacturing, and government contracting—sectors where certified credentials directly influence hiring and promotion decisions.</p>"
-                },
-                {
-                    "question": "Which Aiken employers value CAPM and PMP certification most?",
-                    "answer": "<p>Savannah River Site contractors, Savannah River Nuclear Solutions, the U.S. Department of Energy, and engineering-focused private employers prioritize or require PMP certification; CAPM is highly valued for candidates entering those pipelines. Healthcare systems, manufacturing facilities like Bridgestone and Kimberly-Clark, and government agencies in Aiken County also recognize CAPM as a credential that strengthens project management applications, particularly for federal and compliance-heavy projects.</p>"
-                },
-                {
-                    "question": "Do Aiken professionals earn more with CAPM or PMP certification?",
-                    "answer": "<p>Project management salaries in Aiken track regional CSRA averages, with a notable premium for PMP-certified professionals working on federal or nuclear-related contracts at the Savannah River Site. While exact compensation varies by employer, sector, and experience, certified project managers remain in strong demand and typically command higher pay than non-certified peers—especially in roles tied to government and industrial project work.</p>"
-                },
-                {
-                    "question": "Can I attend the CAPM boot camp while working in Aiken?",
-                    "answer": "<p>Yes. The live-virtual format allows Aiken professionals to participate from their workplace, home, or any location with internet access—ideal if you're balancing a job at the Savannah River Site, a regional manufacturer, healthcare system, or government office. Virtual attendance removes commute barriers and lets you maintain your regular work schedule while earning the certification.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:36.733352Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "e6b5eda29549ee45",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Aiken's project management demand is anchored by the Savannah River Site and its federal contractor network, where large-scale nuclear remediation, environmental, and engineering projects create steady openings for certified professionals. Healthcare systems, manufacturing facilities like Bridgestone Americas, and local government agencies also compete for qualified project managers to lead facility upgrades and operational initiatives across the Augusta-Aiken metro. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp to equip Aiken professionals with the credential employers in these sectors actively seek.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:48:38.560192Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "6574549ab3913a7d",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "aiken-sc",
+  "slug": "capm-certification-training-aiken-sc",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "aiken-sc",
+    "city": "Aiken",
+    "state": "South Carolina",
+    "SS": "SC",
+    "city_slug": "aiken-sc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-aiken-sc/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Aiken, SC, CAPM boot camp Aiken, CAPM training Aiken, SC, CAPM classes Aiken SC, CAPM exam prep Aiken",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\",\n      \"name\": \"CAPM Certification & Boot Camp in Aiken, SC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Aiken, SC. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Aiken, SC\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Aiken, SC\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Aiken, SC. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Nuclear energy and environmental remediation (Savannah River Site)",
+      "Advanced manufacturing",
+      "Healthcare",
+      "Government and public administration",
+      "Education",
+      "Equine and hospitality services"
+    ],
+    "top_employers": [
+      "Savannah River Nuclear Solutions",
+      "Savannah River Mission Completion",
+      "U.S. Department of Energy (Savannah River Site)",
+      "Bridgestone Americas Tire Manufacturing",
+      "Aiken Regional Medical Centers",
+      "Aiken County Public School District",
+      "University of South Carolina Aiken",
+      "City of Aiken",
+      "Aiken County Government",
+      "Kimberly-Clark (Beech Island facility)"
+    ],
+    "salary_note": "Project management salaries in Aiken tend to track regional averages for the CSRA (Central Savannah River Area), with a premium for professionals holding PMP certification who work on federal or nuclear-related contracts at the Savannah River Site. Exact figures vary widely by employer and sector, but demand for experienced, certified project managers remains strong.",
+    "market_blurb": "Aiken's project management job market is closely tied to the Savannah River Site and its network of federal contractors, which drive steady demand for professionals skilled in managing large-scale engineering, environmental, and construction projects. Beyond the nuclear sector, healthcare systems, manufacturing plants, and local government agencies in Aiken also seek qualified project managers to oversee facility upgrades, IT initiatives, and operational improvements. As part of the broader Augusta-Aiken metro area, the city offers a mix of public-sector and private-industry opportunities for certified project management professionals.",
+    "notable_projects": [
+      "Savannah River Site Salt Waste Processing Facility (SWPF)",
+      "Savannah River Plutonium Processing Facility (SRPPF)",
+      "Savannah River National Laboratory research and infrastructure expansions",
+      "Bridgestone Americas Aiken County plant modernization and expansion"
+    ],
+    "credential_demand": "PMP certification is highly regarded among Savannah River Site contractors and other engineering- and government-affiliated employers in the Aiken area, often listed as a preferred or required qualification for project management roles. CAPM and related credentials also help entry-level candidates stand out in a competitive local job market tied to federal and industrial project work.",
+    "_researched": 1,
+    "city_spotlight": "<p>Aiken's project management demand is anchored by the Savannah River Site and its federal contractor network, where large-scale nuclear, environmental remediation, and engineering projects create steady demand for certified professionals. Healthcare systems, advanced manufacturing, and government agencies across the Augusta-Aiken metro area also actively recruit project managers for facility upgrades and operational initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Aiken professionals, enabling them to meet the credential requirements driving advancement in these sectors.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-aiken-sc.webp",
+    "city_image_alt": "Aiken County Courthouse Aug 2007, SC",
+    "city_image_credit": "Photo: The original uploader was Festiva76 at English Wikipedia., Public domain",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Aiken_County_Courthouse_Aug_2007.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Aiken's nuclear energy, advanced manufacturing, and healthcare sectors rely on certified project managers to coordinate complex, regulated initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training with an active certified instructor, meeting PMI's required contact hours and preparing you to sit for the CAPM exam. Earning your CAPM credential positions you for advancement in Aiken's mission-critical industries, where employers value formal project management credentials.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:35.275852Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "74495a787eb8277c",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Aiken's Project Management Professionals",
+      "text": "<p>Aiken's project management job market is anchored by the Savannah River Site and its network of federal contractors, where large-scale engineering, environmental remediation, and construction projects create consistent demand for credentialed professionals. The CAPM® (Certified Associate in Project Management) credential is particularly valuable in this landscape—it validates your readiness to manage complex initiatives within the structured frameworks that federal and energy-sector employers expect. Beyond the nuclear and environmental sectors, Aiken's healthcare systems, advanced manufacturing facilities, and government agencies are equally invested in hiring project managers who hold recognized certification. Whether you work in remediation, healthcare operations, manufacturing, or the public sector, the CAPM demonstrates your commitment to professional standards and positions you competitively in Aiken's multi-sector job market.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner, offering live-virtual, instructor-led courses that satisfy the PMI contact-hour requirement for this credential. Our instructors are active certified practitioners with real-world project management experience, ensuring every lesson connects theory to practice. The live-virtual format means you train on your schedule without travel, making it accessible whether you're based in Aiken or the broader Augusta metro region. Upon successful completion of our training and the PMI exam, you'll hold a credential recognized across industries—opening doors to advancement, higher earning potential, and leadership opportunities in your field. Start your CAPM journey with Granite PM Academy today.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:39.575411Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9d0391f7014aa3c9",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Launch Your PM Career at Savannah River Site",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM training satisfies PMI's contact-hour requirement for eligibility, ensuring your certification is recognized by employers across Aiken's nuclear, manufacturing, and healthcare sectors."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend live-virtual instructor-led sessions that fit working professionals. Active certified practitioners teach real-world scenarios, not recorded lectures. You gain the hands-on learning and direct feedback required to master CAPM content and exam strategy."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Granite PM Academy integrates rigorous exam-preparation support throughout the course—practice questions, strategy sessions, and targeted review. You graduate ready to sit for the CAPM exam with confidence and clarity."
+        },
+        {
+          "heading": "Credential Valued by Aiken Employers",
+          "text": "CAPM certification signals project-management readiness to major Aiken employers—Savannah River Nuclear Solutions, Bridgestone, Aiken Regional Medical Centers, and government agencies. The credential opens pathways to coordinator and entry-level PM roles in high-demand fields."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:43.596876Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d3666572c506aacb",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers at Aiken's Federal & Industrial Hub",
+      "text": "<p>The Savannah River Site anchors Aiken's project management landscape, driving consistent demand for certified professionals across nuclear energy, environmental remediation, and advanced research. Savannah River Nuclear Solutions, Savannah River Mission Completion, and contractors supporting the U.S. Department of Energy regularly hire project managers to oversee complex initiatives—from the Salt Waste Processing Facility to the Plutonium Processing Facility and ongoing Savannah River National Laboratory infrastructure expansions. Beyond the federal sector, Bridgestone Americas' Aiken County manufacturing operations and Aiken Regional Medical Centers represent additional employers actively seeking professionals who can lead interdisciplinary teams and manage budgets, timelines, and regulatory compliance. For entry-level candidates, demonstrating CAPM certification signals readiness to step into these roles.</p><p>In Aiken's competitive market, CAPM certification strengthens your position significantly. PMP® certification commands a premium among Savannah River Site contractors and government-affiliated employers, and holding the CAPM® credential as an emerging professional helps you stand out when competing for project coordinator and junior project manager positions. Salaries for certified project managers in the Central Savannah River Area tend to track regional averages, with demonstrable upside for those pursuing PMP® credentials on federal or nuclear contracts. Completing Granite PM Academy's live-virtual CAPM Certification Training equips you with PMI-aligned knowledge and exam preparation, positioning you to advance rapidly in a job market where federal contracting experience and formal credentials directly influence hiring and promotion decisions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:48.227906Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "42fbf381da02d32f",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Aiken",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and documented project management education—no work experience necessary. This makes the credential accessible to career-changers and early-career professionals entering Aiken's nuclear energy, advanced manufacturing, and healthcare sectors. Verify your education history and you're ready to proceed."
+        },
+        {
+          "heading": "Complete 23 Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course. Delivered entirely online, this intensive format fits working professionals' schedules while covering PMI's full curriculum. You'll engage with active certified practitioners and complete all required contact hours in a concentrated timeframe."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, apply directly to PMI with proof of your education hours and secondary degree. Pay the associated exam fee and await PMI's verification. This step formally registers you as a CAPM candidate and clears you to sit for the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce key concepts. Schedule your proctored exam through PMI's testing partner. The computer-based test assesses your grasp of project management fundamentals and professional responsibility."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After certification, earn professional development units (PDUs) over a three-year renewal cycle to keep your CAPM active. Pursue training, volunteer roles, or professional activities aligned with PMI's continuing-education standards. Renewal demonstrates your commitment to staying current in project management practice."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:53.332291Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "d8d7ea0b649b471f",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Aiken project management careers?",
+          "answer": "<p>Yes. The Savannah River Site and its contractor network represent a major employment hub for project managers in Aiken, and PMP certification—the credential CAPM leads toward—is often preferred or required for advancement on federal and nuclear-related contracts. CAPM demonstrates foundational PM competency and helps entry-level professionals compete in a job market heavily influenced by government and industrial project demands. Early certification can accelerate your path to higher-level roles and salary growth in Aiken's project-driven sectors.</p>"
+        },
+        {
+          "question": "Which Aiken employers value CAPM and project management credentials most?",
+          "answer": "<p>Employers at and around the Savannah River Site—including Savannah River Nuclear Solutions and Savannah River Mission Completion—prioritize certified project managers for engineering and remediation work. Advanced manufacturing firms like Bridgestone Americas, healthcare systems such as Aiken Regional Medical Centers, and government agencies also actively seek PM-certified candidates. CAPM is recognized as a stepping stone to PMP, the credential these employers most value for career progression and specialized project leadership roles.</p>"
+        },
+        {
+          "question": "What salary range should Aiken project managers with CAPM expect locally?",
+          "answer": "<p>Project management salaries in Aiken track regional Central Savannah River Area (CSRA) averages, with a notable premium for certified professionals working on federal or nuclear-related contracts at the Savannah River Site. Exact compensation varies by employer, sector, and experience level. Demand for experienced, certified project managers remains strong across healthcare, manufacturing, government, and education. CAPM certification typically strengthens your negotiating position and eligibility for higher-paying roles.</p>"
+        },
+        {
+          "question": "Can I attend CAPM training classes while working at Aiken area employers?",
+          "answer": "<p>Yes. Granite PM Academy delivers all CAPM training live-virtual, so you can attend from your workplace, home, or any location with internet access. This flexibility suits Aiken professionals balancing full-time roles at the Savannah River Site, manufacturing facilities, healthcare systems, or government offices. You set your own schedule around work commitments and can complete the program without travel or time away from your job.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:31:59.749078Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ef208eae0f63b29d",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Aiken's project management market centers on the Savannah River Site and its federal contractor network, where large-scale nuclear, environmental remediation, and engineering projects create steady demand for certified professionals. Healthcare systems, manufacturing plants like Bridgestone Americas, and local government agencies also seek qualified project managers for facility upgrades and operational initiatives. Granite PM Academy delivers live-virtual CAPM® Certification Training to Aiken professionals pursuing credentials that unlock leadership roles across these sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:01.401630Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "ac8121666f96c28b",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-aiken-sc/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Aiken, SC, CAPM boot camp Aiken, CAPM training Aiken, SC, CAPM classes Aiken SC, CAPM exam prep Aiken",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\",\n      \"name\": \"CAPM Certification Training in Aiken, SC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Aiken, SC. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Aiken, SC\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#course\",\n      \"name\": \"CAPM Certification Training in Aiken, SC\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Aiken, SC. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-aiken-sc/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

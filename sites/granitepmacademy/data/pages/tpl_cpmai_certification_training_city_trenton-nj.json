@@ -1,348 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "trenton-nj",
-    "slug": "ai-training-trenton-nj",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "trenton-nj",
-        "city": "Trenton",
-        "state": "New Jersey",
-        "SS": "NJ",
-        "city_slug": "trenton-nj",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Trenton's project management demand centers on state government agencies, healthcare systems, and infrastructure modernization—from NJ Transit's Trenton Transit Center capital improvements to Capital Health System's ongoing initiatives. Employers like the State of New Jersey and PSE&G actively recruit PMP-certified professionals to lead complex public and private projects. Granite PM Academy delivers live-virtual PMP Certification training to Trenton professionals seeking the credential that unlocks career advancement in this steady, government-anchored job market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Trenton's pharmaceutical and life-sciences sector relies heavily on cross-functional teams managing complex regulatory and clinical projects, making AI competency a competitive edge for project managers in the region. Granite PM Academy delivers live-virtual, instructor-led AI training that satisfies PMI's contact-hour requirements, equipping you to lead smarter decisions and streamline workflows across regulated environments. Master AI tools that employers in Trenton's biotech and healthcare corridors increasingly expect from certified practitioners.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:50.912664Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a152380a17eb9816",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Trenton, NJ",
-            "text": "<p>As New Jersey's capital, Trenton's project management landscape is defined by state government agencies managing complex, mission-critical initiatives alongside healthcare systems and insurance firms operating at enterprise scale. Professionals at the State of New Jersey, Capital Health System, NJM Insurance Group, and other major Trenton employers increasingly recognize that artificial intelligence is reshaping how projects are planned, monitored, and delivered. Whether you're coordinating public-sector infrastructure modernization, healthcare delivery transformation, or financial services operations, understanding how to integrate AI tools into your project workflows has become essential to staying competitive and advancing your career in Trenton's steady, regulated job market.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training specifically designed for project managers seeking to master this emerging competency. Our courses are taught by active certified practitioners who bring real-world experience from projects like yours, and they satisfy the contact-hour requirements needed to earn or maintain your PMP®, CAPM®, or other PMI credentials. By enrolling with us, you'll gain practical skills in AI application within the project management discipline while earning recognized credentials that employers in Trenton's public, healthcare, and financial sectors actively value. Start your certification journey today and position yourself as a forward-thinking leader in your organization.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:55.146330Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "22d91198895c0710",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI skills for New Jersey's government and healthcare leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-authorized instructor expertise",
-                    "text": "Our instructors hold active PMP® or CAPM® certifications and work in project roles across state, local, and healthcare sectors. You learn from practitioners managing real initiatives at organizations like Capital Health System and NJ Transit, not theory alone."
-                },
-                {
-                    "heading": "Live virtual format, contact hours met",
-                    "text": "Attend instructor-led sessions from your office or home on a schedule built for working professionals. This format satisfies PMI's contact-hour requirement for PMP® and CAPM® eligibility, so you advance toward certification without classroom commute."
-                },
-                {
-                    "heading": "Exam readiness built in",
-                    "text": "Granite includes structured exam-preparation modules covering domains, question types, and time-management strategies. Practice exams and instructor feedback before test day boost confidence and performance on your actual PMP® or CAPM® exam."
-                },
-                {
-                    "heading": "Credential demand in Trenton's employers",
-                    "text": "The State of New Jersey, Mercer County Government, NJ Transit, and utilities like PSE&G prioritize project managers with PMI credentials. Earning PMP® or CAPM® certification directly strengthens your candidacy for advancement and roles managing critical public and health initiatives locally."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:00.119025Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "ca09b587c27b465d",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in New Jersey's Capital",
-            "text": "<p>Trenton's public-sector and healthcare employers are among the region's largest hirers of certified project managers. The State of New Jersey, Capital Health System, and Mercer County Government all manage portfolios of initiatives requiring rigorous project governance—from the State House renovation and restoration to Trenton Water Works infrastructure upgrades and NJ Transit Trenton Transit Center capital improvements. Beyond government, NJM Insurance Group, Church & Dwight, and PSE&G maintain substantial operations in the area and increasingly seek professionals who can demonstrate structured project-delivery competencies. This concentration of employers across state administration, healthcare administration, and insurance operations creates sustained demand for credentials that signal mastery of standardized PM frameworks.</p><p>Earning a PMP® or CAPM® certification in Trenton positions you for advancement in a market where these credentials are increasingly referenced in job postings tied to state government and healthcare roles. While not universally required, certification is often cited as a preferred qualification that strengthens candidacy—particularly in sectors where compliance and governance standards are high. Trenton-area project manager compensation tracks competitive Mid-Atlantic scales tied to state and healthcare pay, meaning certified professionals typically command recognition that reflects their credential investment. Granite PM Academy's AI Training for Project Managers program equips you with both the technical PM knowledge and the emerging AI fluency that Trenton employers now expect, helping you stand out as you advance in a career rooted in the state's administrative and institutional core.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:04.798063Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "5516a0940e645911",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training valuable for Trenton state government careers?",
-                    "answer": "<p>Yes. New Jersey state government and Mercer County operations increasingly reference PMP and CAPM credentials in job postings, often as preferred qualifications for advancement into supervisory and complex program roles. AI training extends that advantage by equipping you to lead technology-integrated initiatives—a growing focus in public administration. Combined with standardized PM certification, it strengthens candidacy in Trenton's largest employment sector.</p>"
-                },
-                {
-                    "question": "Which Trenton employers most value AI and project management credentials?",
-                    "answer": "<p>State of New Jersey, Capital Health System, Mercer County Government, and NJM Insurance Group actively seek certified project managers for infrastructure, healthcare administration, and insurance operations. These sectors are increasingly adopting AI-driven workflow and governance standards. Healthcare and insurance roles particularly benefit from PM credentials paired with AI literacy, as both sectors modernize operations and compliance frameworks.</p>"
-                },
-                {
-                    "question": "Can I attend Granite PM Academy's live-virtual AI course from my Trenton workplace?",
-                    "answer": "<p>Yes. Our live-virtual format is designed for working professionals in office and hybrid environments. You can join from your workplace, home office, or any location with stable internet. Many Trenton-area professionals in government, healthcare, and utilities use this flexibility to balance certification with their current roles—no need to take time off.</p>"
-                },
-                {
-                    "question": "Should I pursue AI project management certification now in Trenton's job market?",
-                    "answer": "<p>Timing favors action. Trenton-area demand for certified project managers is steady across government, healthcare, and insurance sectors, and the addition of AI competency differentiates candidates as employers prioritize digital transformation. Completing certification before your next role or promotion cycle positions you ahead of peers and aligns with the region's shift toward standardized, technology-forward project governance.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:11.079232Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "876ee9a8eb408542",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Trenton's project management demand flows from state government agencies, healthcare systems, and infrastructure modernization—including initiatives like the NJ Transit Trenton Transit Center improvements and ongoing Water Works upgrades. Major employers like the State of New Jersey, Capital Health System, and NJM Insurance Group regularly seek skilled project managers to lead complex initiatives. Granite PM Academy serves Trenton professionals with live-virtual AI Training for Project Managers, designed to build expertise where local opportunity is strongest.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:12.664703Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "505a2385c9a0e775",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "trenton-nj",
+  "slug": "ai-training-trenton-nj",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "trenton-nj",
+    "city": "Trenton",
+    "state": "New Jersey",
+    "SS": "NJ",
+    "city_slug": "trenton-nj",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-trenton-nj/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Trenton, NJ, AI courses Trenton, CPMAI certification Trenton, AI project management training Trenton, NJ, AI for project managers Trenton",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\",\n      \"name\": \"AI Training for Project Managers in Trenton, NJ — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Trenton, NJ for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Trenton, NJ\",\n            \"item\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#course\",\n      \"name\": \"AI Training for Project Managers in Trenton, NJ\",\n      \"description\": \"CPMAI certification training for project managers in Trenton, NJ who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "State & local government/public administration",
+      "Healthcare",
+      "Insurance & financial services",
+      "Higher education",
+      "Manufacturing/industrial",
+      "Utilities & infrastructure"
+    ],
+    "top_employers": [
+      "State of New Jersey",
+      "Capital Health System",
+      "NJM Insurance Group",
+      "Church & Dwight",
+      "Thomas Edison State University",
+      "Mercer County Government",
+      "Trenton Public Schools",
+      "Henry J. Austin Health Center",
+      "NJ Transit",
+      "PSE&G"
+    ],
+    "salary_note": "Project manager pay in the Trenton area tends to track New Jersey state government and healthcare-sector pay scales, which are generally competitive with the broader Mid-Atlantic region; exact figures vary widely by industry and certification level, so candidates should expect a range rather than a fixed number.",
+    "market_blurb": "As the capital of New Jersey, Trenton's project management job market is anchored by state government agencies, healthcare systems, and insurance/financial firms headquartered or operating locally. Demand also comes from higher education institutions and utility providers managing modernization and infrastructure projects. The market benefits from steady public-sector contracting alongside private-sector employers like NJM Insurance Group and Church & Dwight.",
+    "notable_projects": [
+      "New Jersey State House renovation and restoration",
+      "Trenton Water Works infrastructure upgrades",
+      "Roebling Wire Works redevelopment (adaptive reuse project)",
+      "NJ Transit Trenton Transit Center capital improvements"
+    ],
+    "credential_demand": "PMP and CAPM credentials are increasingly referenced in Trenton-area postings tied to state government, healthcare administration, and insurance operations, reflecting a broader push toward standardized project governance. While not universally required, certification is often cited as a preferred qualification that strengthens candidacy in these sectors.",
+    "_researched": 1,
+    "city_spotlight": "<p>Trenton's project management demand is anchored by state government agencies, healthcare systems, and major employers like Capital Health System and NJM Insurance Group managing large-scale initiatives—from State House renovation to water infrastructure upgrades. The PMP credential is highly valued across public administration, healthcare, utilities, and financial services sectors driving steady hiring. Granite PM Academy delivers live-virtual PMP Certification training to Trenton professionals nationwide, with flexible scheduling and instruction aligned to PMI standards.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Public administration, healthcare, and infrastructure agencies across Trenton—from the State of New Jersey to Capital Health System and PSE&G—rely on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy's live-virtual PMI-CPMAI Certification Training delivers the instructor-led instruction and contact hours PMI requires, on a schedule that fits working professionals. Earning your PMI-CPMAI credential positions you to advance into higher-responsibility roles managing mission-critical projects in Trenton's government, health, and utility sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:54.015981Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ee86d420b4d7fb29",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Trenton's Government & Public Sector",
+      "text": "<p>As New Jersey's capital, Trenton's project management landscape is shaped by state government agencies, municipal departments, and public-sector contracting that demands rigorous credential standards. Professionals working within the State of New Jersey, Mercer County Government, and Trenton Public Schools—alongside healthcare systems and utilities managing critical infrastructure projects—operate in environments where PMI certification signals compliance, credibility, and advanced technical competency. The PMI-CPMAI credential demonstrates mastery of agile and adaptive methodologies increasingly adopted across public administration and regulated industries. For Trenton-based professionals seeking advancement in government procurement, healthcare delivery, or utility modernization, this certification strengthens your competitive position and validates your capability to lead complex, stakeholder-intensive initiatives.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed for working professionals. Our curriculum fulfills the contact-hour requirements mandated by PMI and is taught by active certified practitioners with real-world experience in project delivery and change management. Whether you are pursuing this credential to advance within Trenton's public sector or to meet organizational eligibility requirements, our flexible virtual format accommodates your schedule while maintaining the rigor and interactivity of in-person training. Upon completion and successful examination, you will hold a credential recognized by employers across government, healthcare, insurance, and infrastructure sectors—positioning you for leadership roles and expanded career opportunities in Trenton and beyond.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:42:58.512487Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "914a7e109dabcd3c",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Trenton's Growing Public Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy delivers PMI-authorized instruction aligned directly with PMI standards. Your training hours count toward PMI credential eligibility without third-party verification delays, giving you a clear path from classroom to certification exam."
+        },
+        {
+          "heading": "Live-Virtual Format, Full Contact Hours",
+          "text": "Attend instructor-led sessions online on your schedule. Every class hour satisfies PMI contact-hour requirements—no self-paced recordings or asynchronous substitutes. You complete the credential requirement while maintaining your work commitments."
+        },
+        {
+          "heading": "Instructors Are Active Practitioners",
+          "text": "Your instructors hold active PMI certifications and apply project management in real roles today. They teach current practices and troubleshoot real scenarios, not theory alone, preparing you for both exam success and immediate workplace application."
+        },
+        {
+          "heading": "Credential Demand in Trenton's Employers",
+          "text": "State of New Jersey agencies, Capital Health System, NJM Insurance Group, NJ Transit, and PSE&G all hire project and program managers—roles increasingly requiring formal PMI certification. This credential strengthens your candidacy across Trenton's largest public and private employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:02.579766Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1999480e5c06f5a0",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Trenton's Growing Sectors",
+      "text": "<p>Trenton's public administration and healthcare employers are among the region's largest hirers of project managers. The State of New Jersey, Capital Health System, and Mercer County Government regularly seek certified professionals to lead initiatives ranging from infrastructure modernization—such as the Trenton Water Works upgrades—to capital facility projects like the New Jersey State House restoration. Insurance and financial services firms, including NJM Insurance Group, and utilities like PSE&G also maintain active project portfolios that demand structured governance and skilled coordination. Manufacturing and higher-education institutions round out a diverse employer base, creating multiple pathways for certified project managers across industries.</p><p>In Trenton's competitive market, PMP® and CAPM® credentials increasingly strengthen candidacy, particularly within state government and healthcare operations, where standardized project governance is becoming standard practice. While certification is not universally mandated, employers in these sectors frequently list it as a preferred qualification that can accelerate advancement and expand earning potential. Compensation for project managers in the Trenton area generally aligns with New Jersey state and healthcare-sector scales, which remain competitive across the Mid-Atlantic region. Completing PMI-CPMAI Certification Training through Granite PM Academy—delivered entirely live-virtual to fit your schedule—positions you to meet that credential demand and qualify for roles that recognize certified expertise as a measurable asset in Trenton's growing project-driven economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:06.889687Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a477b029e722e804",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Trenton's Growing Sectors",
+      "text": "<p>State and local government remains the largest employer base for certified project managers in Trenton, with the State of New Jersey, Mercer County Government, and Trenton Public Schools all managing substantial operational portfolios that demand structured project governance. Real infrastructure and facility modernization work—including the New Jersey State House renovation and restoration, Trenton Water Works upgrades, and NJ Transit Trenton Transit Center capital improvements—creates immediate demand for professionals who can navigate complex timelines, budgets, and stakeholder coordination. Beyond government, Capital Health System and NJM Insurance Group anchor healthcare and financial services job markets where project management credentials are increasingly central to advancement and operational leadership roles.</p><p>The Trenton area's competitive advantage lies in its concentration of employers who value standardized project credentials. PMP and CAPM certifications are now frequently referenced in local postings within state administration, healthcare administration, and insurance operations—signaling that certification strengthens candidacy and can influence compensation trajectories, which in these sectors track the broader Mid-Atlantic region's competitive scales. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with credentials recognized across these dominant local industries while you maintain your current schedule through live-virtual instruction. For professionals already working in Trenton's government, healthcare, or administrative sectors, certification provides a clear pathway to project leadership roles and expanded earning potential without requiring relocation or classroom attendance.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:11.114991Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a477b029e722e804",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Trenton state government careers?",
+          "answer": "<p>Yes. New Jersey state government and Mercer County administration increasingly reference PMP and CAPM credentials in project management role postings, often listing certification as a preferred qualification. Standardized project governance frameworks are becoming the norm in public administration, making PMI credentials a meaningful differentiator when competing for advancement or new positions in the Trenton-based government sector.</p>"
+        },
+        {
+          "question": "Which Trenton employers most value project management PMI certifications?",
+          "answer": "<p>State of New Jersey agencies, Capital Health System, NJM Insurance Group, and Mercer County Government actively seek PMI-certified project managers. Healthcare administration and insurance operations in the Trenton area show strong credential preference, while NJ Transit and PSE&G infrastructure roles increasingly include certification in candidate qualifications. Certification strengthens your candidacy across these sectors without guaranteeing placement.</p>"
+        },
+        {
+          "question": "Can I take the live-virtual PMI-CPMAI course from my Trenton workplace?",
+          "answer": "<p>Yes. Granite PM Academy's training is 100% live-virtual and nationwide, so you can attend from your office, home, or any location with internet access. Many Trenton professionals in government and healthcare settings attend during work hours or outside them—check with your employer's remote-training policies. Virtual format makes it easy to balance certification with your current role.</p>"
+        },
+        {
+          "question": "When should Trenton project managers pursue PMI certification for job growth?",
+          "answer": "<p>Trenton's public administration and healthcare sectors are actively prioritizing standardized project governance, making now an advantageous time to certify. Credential demand in state government and healthcare administration is rising faster than in some industries, so early certification can position you ahead of competitors as these sectors continue formal PM adoption and hiring cycles accelerate.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:16.802946Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4453565a453936c0",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Trenton's project management demand is anchored in state government contracting, healthcare delivery, and insurance operations—sectors managing everything from State House renovations to infrastructure modernization across the Capital Health System and NJ Transit. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to working professionals throughout Trenton and beyond, enabling you to earn your credential on a schedule that fits your current role while you advance into certified leadership positions across these growth sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:18.751498Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "407c561edae60587",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Trenton's project management demand flows from state government agencies, healthcare systems, and major employers like NJM Insurance Group and PSE&G managing ongoing infrastructure and modernization initiatives. Recent capital projects—from the State House renovation to Trenton Water Works upgrades—underscore sustained demand for certified project leaders across public administration, healthcare, and utilities. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Trenton professionals, combining flexible scheduling with PMI-aligned curriculum to advance careers in this active market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:20.643992Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "407c561edae60587",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-trenton-nj/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Trenton, NJ, AI courses Trenton, CPMAI certification Trenton, AI project management training Trenton, NJ, AI for project managers Trenton",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\",\n      \"name\": \"PMI-CPMAI Certification Training in Trenton, NJ | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Trenton, NJ for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Trenton, NJ\",\n            \"item\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Trenton, NJ\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Trenton, NJ who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-trenton-nj/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-trenton-nj/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

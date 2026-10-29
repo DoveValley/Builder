@@ -1,401 +1,402 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "chandler-az",
-  "slug": "pmp-bootcamp-chandler-az",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "chandler-az",
-    "city": "Chandler",
-    "state": "Arizona",
-    "SS": "AZ",
-    "city_slug": "chandler-az",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier2",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "chandler-az",
+    "slug": "pmp-bootcamp-chandler-az",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "chandler-az",
+        "city": "Chandler",
+        "state": "Arizona",
+        "SS": "AZ",
+        "city_slug": "chandler-az",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier2",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Semiconductor manufacturing",
+            "IT product/services distribution",
+            "Chip packaging & testing",
+            "Electronics design"
+        ],
+        "top_employers": [
+            "Intel (Ocotillo Campus)",
+            "Microchip Technology",
+            "Insight Enterprises",
+            "Amkor Technology",
+            "NXP Semiconductors"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Chandler anchors Arizona's 'Silicon Desert' corridor, home to Intel's massive Ocotillo semiconductor campus, Microchip Technology's global headquarters, and Insight Enterprises' headquarters, alongside Amkor Technology and NXP along the Price Road tech corridor.",
+        "notable_projects": [
+            "Intel's $20 billion two-fab expansion of its Ocotillo Campus, described by Intel as the largest private investment of any kind in Arizona history"
+        ],
+        "credential_demand": "Multi-billion-dollar fab construction and expansion projects are inherently project-management-intensive, making PMP a plausibly strong credential in demand across Chandler's semiconductor and tech-manufacturing employer base.",
+        "_researched": 1,
+        "city_spotlight": "<p>Chandler's employer base includes Intel (Ocotillo Campus), Microchip Technology, Insight Enterprises, Amkor Technology. Chandler anchors Arizona's 'Silicon Desert' corridor, home to Intel's massive Ocotillo semiconductor campus, Microchip Technology's global headquarters, and Insight Enterprises' headquarters, alongside Amkor Technology and NXP along the Price Road tech corridor. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chandler professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Chandler's semiconductor manufacturing, chip packaging, and electronics design sectors demand project managers who can navigate complex, high-stakes technical workflows. Granite PM Academy's PMP Bootcamp delivers instructor-led, live-virtual training that fulfills PMI's contact-hour education requirement, enabling you to earn your PMP credential on a schedule that fits your role. For project managers in Chandler's advanced-technology industries, PMP certification strengthens your credentials for leadership positions and career advancement in roles where technical project delivery directly impacts company growth.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:52.970100Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "d0d97340be97568a",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Chandler: Train for Semiconductor & Tech Leadership",
+            "text": "<p>Chandler's position as the operational heart of Arizona's semiconductor and advanced electronics sector creates urgent demand for project managers who can lead complex, mission-critical initiatives. Intel's Ocotillo Campus, Microchip Technology's global headquarters, Amkor Technology, NXP Semiconductors, and Insight Enterprises collectively employ thousands of professionals in roles where PMP certification signals mastery of scope, schedule, risk, and resource management—competencies that directly impact product launches, manufacturing timelines, and supply-chain resilience. For professionals working in Chandler's tech corridor, the PMP® credential is not optional; it is a competitive differentiator that opens pathways to senior program management, technical leadership, and strategic roles within organizations that demand rigor and proven methodology.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP Bootcamp training that meets PMI's contact-hour requirements for PMP® eligibility and prepares you to pass the certification exam on your schedule. Our active certified practitioners bring real-world expertise in project delivery across industries, and our intensive format compresses months of self-study into a focused, interactive experience. Whether you are advancing your career in Chandler's semiconductor manufacturing ecosystem, IT services, or electronics design, our PMI Authorized Training Partner curriculum covers the PMBOK® Guide framework in depth, emphasizes practical application, and equips you with the knowledge and confidence to earn your PMP® credential and step into your next leadership role.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:57.666680Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "7c9aacb365241ee1",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Path for Chandler's Tech Workforce",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Guarantees Credential Validity",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP training meets strict Project Management Institute standards. This authorization confirms contact-hour requirements are satisfied and your certification pathway is recognized globally—critical for competing in Chandler's semiconductor and IT distribution sectors."
+                },
+                {
+                    "heading": "Live Virtual Instruction, Real Practitioner Knowledge",
+                    "text": "Our bootcamp delivers live-virtual instructor-led training with active PMP-certified practitioners who bring hands-on experience to every session. You earn required contact hours through interactive, real-time instruction—not self-paced modules—and gain practical insight into project challenges across manufacturing, tech, and engineering disciplines."
+                },
+                {
+                    "heading": "Exam Readiness Built Into Every Session",
+                    "text": "Dedicated exam-preparation support is woven throughout the bootcamp, covering the PMP exam domains and testing strategies. You'll work through practice questions, refine time-management skills, and leave confident in your ability to pass—not just attend a course."
+                },
+                {
+                    "heading": "Credential Aligned with Chandler's Employer Demand",
+                    "text": "Chandler's major employers—Intel, Microchip Technology, Amkor, and NXP—actively hire project and program managers holding PMP certification. This bootcamp positions you to meet those hiring requirements and advance your career within the region's thriving semiconductor, chip-packaging, and electronics-design industries."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:02.365326Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "b6cdcfd903291e06",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Chandler's Tech Hub",
+            "text": "<p>Chandler's economy centers on semiconductor manufacturing and advanced electronics, where Intel, Microchip Technology, Amkor Technology, NXP Semiconductors, and Insight Enterprises anchor the regional employment base. Intel's $20 billion two-fab expansion at its Ocotillo Campus—Arizona's largest private investment on record—exemplifies the scale and complexity of projects that drive demand for certified project managers across the city. Fab construction, equipment integration, supply chain coordination, and manufacturing ramp-up all demand rigorous project governance. Companies managing these initiatives actively seek PMP®-certified professionals who can navigate multi-year timelines, cross-functional teams, and capital-intensive deliverables.</p><p>The PMP® credential carries measurable career value in Chandler's market. Nationally, PMP®-certified project managers report a median salary significantly higher than their non-certified counterparts—a premium that holds across most regions and industries. Completing Granite PM Academy's PMP Bootcamp positions you to compete effectively for roles at the employers investing billions in Chandler's continued growth. The certification signals mastery of the frameworks and risk management disciplines that semiconductor, manufacturing, and tech-services companies require. Whether you're advancing within your current organization or moving into a new role, the PMP® credential strengthens your standing in a city where project management depth directly translates to career momentum.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:06.498629Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "fcbbaad5eb03d134",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Chandler",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high school diploma plus five years of experience. Review PMI's formal eligibility criteria now to confirm you meet the education and hours requirement before enrolling."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend all sessions synchronously with active certified practitioners. This PMI-required coursework prepares you for the exam while fitting the schedules of Chandler's working professionals in semiconductor, IT, and electronics sectors."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing bootcamp coursework, create your PMI account and submit your application detailing your project-management experience. Include your Granite PM Academy course completion certificate. Pay the PMI exam fee once your application is approved."
+                },
+                {
+                    "heading": "Prepare and Sit for Your Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to solidify your readiness. Schedule your exam at a Pearson VUE testing center. Granite PM Academy instructors remain available to answer final questions before your test date."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle by attending training, conferences, or publishing work related to project management. Renew your certification with PMI by the deadline to keep your PMP active and competitive in your local market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:11.310914Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "49ee3e278fdc1ecf",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers in Chandler's semiconductor industry?",
+                    "answer": "<p>Chandler's semiconductor and chip-manufacturing sector—home to major fabs and advanced packaging operations—relies heavily on complex, multi-phase projects where structured project management directly impacts delivery and cost control. PMP certification signals mastery of processes valued across design, fabrication, and supply-chain roles. While no city-specific salary premium has been independently verified for Chandler, PMI data shows certified project managers nationally earn a median $135,000 versus $109,157 for non-certified peers, a gap that typically holds across manufacturing and tech sectors.</p>"
+                },
+                {
+                    "question": "Which Chandler employers recognize or hire PMP-certified project managers?",
+                    "answer": "<p>Chandler's major employers—including semiconductor manufacturers, chip-packaging facilities, and IT product distributors—manage large-scale infrastructure, fab expansion, and product-launch initiatives that demand formal project-management credentials. Intel's Ocotillo Campus, Microchip Technology, Amkor Technology, NXP Semiconductors, and Insight Enterprises are among the region's largest employers. We do not speak for any employer's hiring preferences, but the scale and complexity of projects across these industries make PMP a plausibly strong credential in the local talent market.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP bootcamp from my Chandler workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy delivers the PMP Bootcamp entirely live-virtual, so you join from wherever you have internet access—your office, home, or any location in or outside Chandler. This format accommodates the schedules of working professionals in Chandler's semiconductor and tech sectors without requiring travel to a physical classroom. You interact with instructors and peers in real time while maintaining your work and personal commitments.</p>"
+                },
+                {
+                    "question": "When should Chandler professionals pursue PMP certification given current job market demand?",
+                    "answer": "<p>Chandler's ongoing fab construction and semiconductor-industry expansion create sustained, project-heavy hiring. Career timing varies by your role and employer growth plans; however, securing PMP certification before a promotion cycle or job search positions you competitively. Many professionals in manufacturing and tech-distribution roles pursue bootcamp training during stable project phases or slower quarters to minimize workplace disruption while capitalizing on rising credential demand in the region.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:18.486368Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "73f3fb2773bd06e6",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Chandler is home to Intel's Ocotillo Campus and a constellation of semiconductor and tech leaders—Microchip Technology, Amkor, and NXP among them—anchoring Arizona's Silicon Desert. Intel's $20 billion two-fab expansion underscores the region's scale and project complexity, creating sustained demand for skilled project managers across manufacturing, chip design, and supply chain operations. Granite PM Academy delivers live-virtual PMP® Bootcamp to Chandler professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:20.455714Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "f0518ddc0073c722",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Semiconductor manufacturing",
-      "IT product/services distribution",
-      "Chip packaging & testing",
-      "Electronics design"
-    ],
-    "top_employers": [
-      "Intel (Ocotillo Campus)",
-      "Microchip Technology",
-      "Insight Enterprises",
-      "Amkor Technology",
-      "NXP Semiconductors"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Chandler anchors Arizona's 'Silicon Desert' corridor, home to Intel's massive Ocotillo semiconductor campus, Microchip Technology's global headquarters, and Insight Enterprises' headquarters, alongside Amkor Technology and NXP along the Price Road tech corridor.",
-    "notable_projects": [
-      "Intel's $20 billion two-fab expansion of its Ocotillo Campus, described by Intel as the largest private investment of any kind in Arizona history"
-    ],
-    "credential_demand": "Multi-billion-dollar fab construction and expansion projects are inherently project-management-intensive, making PMP a plausibly strong credential in demand across Chandler's semiconductor and tech-manufacturing employer base.",
-    "_researched": 1,
-    "city_spotlight": "<p>Chandler's employer base includes Intel (Ocotillo Campus), Microchip Technology, Insight Enterprises, Amkor Technology. Chandler anchors Arizona's 'Silicon Desert' corridor, home to Intel's massive Ocotillo semiconductor campus, Microchip Technology's global headquarters, and Insight Enterprises' headquarters, alongside Amkor Technology and NXP along the Price Road tech corridor. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chandler professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Chandler's semiconductor manufacturing, chip packaging, and electronics design sectors demand project managers who can navigate complex, high-stakes technical workflows. Granite PM Academy's PMP Bootcamp delivers instructor-led, live-virtual training that fulfills PMI's contact-hour education requirement, enabling you to earn your PMP credential on a schedule that fits your role. For project managers in Chandler's advanced-technology industries, PMP certification strengthens your credentials for leadership positions and career advancement in roles where technical project delivery directly impacts company growth.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:52.970100Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "d0d97340be97568a",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-chandler-az/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Chandler, AZ, PMP bootcamp Chandler, PMP certification boot camp Chandler, AZ, PMP bootcamp near me, intensive PMP training Chandler",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\",\n      \"name\": \"PMP Bootcamp in Chandler, AZ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Chandler, AZ. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Chandler, AZ\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#course\",\n      \"name\": \"PMP Bootcamp in Chandler, AZ\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Chandler, AZ. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Chandler: Train for Semiconductor & Tech Leadership",
-      "text": "<p>Chandler's position as the operational heart of Arizona's semiconductor and advanced electronics sector creates urgent demand for project managers who can lead complex, mission-critical initiatives. Intel's Ocotillo Campus, Microchip Technology's global headquarters, Amkor Technology, NXP Semiconductors, and Insight Enterprises collectively employ thousands of professionals in roles where PMP certification signals mastery of scope, schedule, risk, and resource management—competencies that directly impact product launches, manufacturing timelines, and supply-chain resilience. For professionals working in Chandler's tech corridor, the PMP® credential is not optional; it is a competitive differentiator that opens pathways to senior program management, technical leadership, and strategic roles within organizations that demand rigor and proven methodology.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP Bootcamp training that meets PMI's contact-hour requirements for PMP® eligibility and prepares you to pass the certification exam on your schedule. Our active certified practitioners bring real-world expertise in project delivery across industries, and our intensive format compresses months of self-study into a focused, interactive experience. Whether you are advancing your career in Chandler's semiconductor manufacturing ecosystem, IT services, or electronics design, our PMI Authorized Training Partner curriculum covers the PMBOK® Guide framework in depth, emphasizes practical application, and equips you with the knowledge and confidence to earn your PMP® credential and step into your next leadership role.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:57.666680Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "7c9aacb365241ee1",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Path for Chandler's Tech Workforce",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Guarantees Credential Validity",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP training meets strict Project Management Institute standards. This authorization confirms contact-hour requirements are satisfied and your certification pathway is recognized globally—critical for competing in Chandler's semiconductor and IT distribution sectors."
-        },
-        {
-          "heading": "Live Virtual Instruction, Real Practitioner Knowledge",
-          "text": "Our bootcamp delivers live-virtual instructor-led training with active PMP-certified practitioners who bring hands-on experience to every session. You earn required contact hours through interactive, real-time instruction—not self-paced modules—and gain practical insight into project challenges across manufacturing, tech, and engineering disciplines."
-        },
-        {
-          "heading": "Exam Readiness Built Into Every Session",
-          "text": "Dedicated exam-preparation support is woven throughout the bootcamp, covering the PMP exam domains and testing strategies. You'll work through practice questions, refine time-management skills, and leave confident in your ability to pass—not just attend a course."
-        },
-        {
-          "heading": "Credential Aligned with Chandler's Employer Demand",
-          "text": "Chandler's major employers—Intel, Microchip Technology, Amkor, and NXP—actively hire project and program managers holding PMP certification. This bootcamp positions you to meet those hiring requirements and advance your career within the region's thriving semiconductor, chip-packaging, and electronics-design industries."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:02.365326Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "b6cdcfd903291e06",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Chandler's Tech Hub",
-      "text": "<p>Chandler's economy centers on semiconductor manufacturing and advanced electronics, where Intel, Microchip Technology, Amkor Technology, NXP Semiconductors, and Insight Enterprises anchor the regional employment base. Intel's $20 billion two-fab expansion at its Ocotillo Campus—Arizona's largest private investment on record—exemplifies the scale and complexity of projects that drive demand for certified project managers across the city. Fab construction, equipment integration, supply chain coordination, and manufacturing ramp-up all demand rigorous project governance. Companies managing these initiatives actively seek PMP®-certified professionals who can navigate multi-year timelines, cross-functional teams, and capital-intensive deliverables.</p><p>The PMP® credential carries measurable career value in Chandler's market. Nationally, PMP®-certified project managers report a median salary significantly higher than their non-certified counterparts—a premium that holds across most regions and industries. Completing Granite PM Academy's PMP Bootcamp positions you to compete effectively for roles at the employers investing billions in Chandler's continued growth. The certification signals mastery of the frameworks and risk management disciplines that semiconductor, manufacturing, and tech-services companies require. Whether you're advancing within your current organization or moving into a new role, the PMP® credential strengthens your standing in a city where project management depth directly translates to career momentum.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:06.498629Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "fcbbaad5eb03d134",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Chandler",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high school diploma plus five years of experience. Review PMI's formal eligibility criteria now to confirm you meet the education and hours requirement before enrolling."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend all sessions synchronously with active certified practitioners. This PMI-required coursework prepares you for the exam while fitting the schedules of Chandler's working professionals in semiconductor, IT, and electronics sectors."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing bootcamp coursework, create your PMI account and submit your application detailing your project-management experience. Include your Granite PM Academy course completion certificate. Pay the PMI exam fee once your application is approved."
-        },
-        {
-          "heading": "Prepare and Sit for Your Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to solidify your readiness. Schedule your exam at a Pearson VUE testing center. Granite PM Academy instructors remain available to answer final questions before your test date."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle by attending training, conferences, or publishing work related to project management. Renew your certification with PMI by the deadline to keep your PMP active and competitive in your local market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:11.310914Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "49ee3e278fdc1ecf",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers in Chandler's semiconductor industry?",
-          "answer": "<p>Chandler's semiconductor and chip-manufacturing sector—home to major fabs and advanced packaging operations—relies heavily on complex, multi-phase projects where structured project management directly impacts delivery and cost control. PMP certification signals mastery of processes valued across design, fabrication, and supply-chain roles. While no city-specific salary premium has been independently verified for Chandler, PMI data shows certified project managers nationally earn a median $135,000 versus $109,157 for non-certified peers, a gap that typically holds across manufacturing and tech sectors.</p>"
-        },
-        {
-          "question": "Which Chandler employers recognize or hire PMP-certified project managers?",
-          "answer": "<p>Chandler's major employers—including semiconductor manufacturers, chip-packaging facilities, and IT product distributors—manage large-scale infrastructure, fab expansion, and product-launch initiatives that demand formal project-management credentials. Intel's Ocotillo Campus, Microchip Technology, Amkor Technology, NXP Semiconductors, and Insight Enterprises are among the region's largest employers. We do not speak for any employer's hiring preferences, but the scale and complexity of projects across these industries make PMP a plausibly strong credential in the local talent market.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP bootcamp from my Chandler workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy delivers the PMP Bootcamp entirely live-virtual, so you join from wherever you have internet access—your office, home, or any location in or outside Chandler. This format accommodates the schedules of working professionals in Chandler's semiconductor and tech sectors without requiring travel to a physical classroom. You interact with instructors and peers in real time while maintaining your work and personal commitments.</p>"
-        },
-        {
-          "question": "When should Chandler professionals pursue PMP certification given current job market demand?",
-          "answer": "<p>Chandler's ongoing fab construction and semiconductor-industry expansion create sustained, project-heavy hiring. Career timing varies by your role and employer growth plans; however, securing PMP certification before a promotion cycle or job search positions you competitively. Many professionals in manufacturing and tech-distribution roles pursue bootcamp training during stable project phases or slower quarters to minimize workplace disruption while capitalizing on rising credential demand in the region.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:18.486368Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "73f3fb2773bd06e6",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Chandler is home to Intel's Ocotillo Campus and a constellation of semiconductor and tech leaders—Microchip Technology, Amkor, and NXP among them—anchoring Arizona's Silicon Desert. Intel's $20 billion two-fab expansion underscores the region's scale and project complexity, creating sustained demand for skilled project managers across manufacturing, chip design, and supply chain operations. Granite PM Academy delivers live-virtual PMP® Bootcamp to Chandler professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:20.455714Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "f0518ddc0073c722",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-chandler-az/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Chandler, AZ, PMP bootcamp Chandler, PMP certification boot camp Chandler, AZ, PMP bootcamp near me, intensive PMP training Chandler",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\",\n      \"name\": \"PMP Bootcamp in Chandler, AZ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Chandler, AZ. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Chandler, AZ\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#course\",\n      \"name\": \"PMP Bootcamp in Chandler, AZ\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Chandler, AZ. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chandler-az/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

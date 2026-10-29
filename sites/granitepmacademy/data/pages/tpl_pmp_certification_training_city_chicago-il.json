@@ -1,412 +1,413 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "chicago-il",
-  "slug": "pmp-certification-training-chicago-il",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "chicago-il",
-    "city": "Chicago",
-    "state": "Illinois",
-    "SS": "IL",
-    "city_slug": "chicago-il",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "chicago-il",
+    "slug": "pmp-certification-training-chicago-il",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "chicago-il",
+        "city": "Chicago",
+        "state": "Illinois",
+        "SS": "IL",
+        "city_slug": "chicago-il",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Aviation/Airlines",
+            "Food & Beverage/CPG",
+            "Financial Services",
+            "Technology/Public-Safety Tech",
+            "Energy/Utilities",
+            "Higher Education & Healthcare"
+        ],
+        "top_employers": [
+            "United Airlines Holdings",
+            "McDonald's Corporation",
+            "Mondelez International",
+            "Kraft Heinz Company",
+            "Motorola Solutions",
+            "Northern Trust Corporation",
+            "Exelon Corporation",
+            "University of Chicago"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon.",
+        "notable_projects": [
+            "Obama Presidential Center - 19.3-acre Jackson Park campus, public opening scheduled June 2026, ~$850M",
+            "Bally's Chicago Casino - permanent resort under construction in River West, $1.6-1.74B, targeted 2027",
+            "CTA Red Line Extension - 5.6-mile extension from 95th/Dan Ryan to new 130th St station, $5.7B, broke ground April 2026"
+        ],
+        "credential_demand": "With this many large, multi-site corporate headquarters coordinating complex operations, supply chains, and IT/infrastructure programs, structured project-management skills and the PMP credential are plausibly in steady demand.",
+        "_researched": 1,
+        "city_spotlight": "<p>Chicago's employer base includes United Airlines Holdings, McDonald's Corporation, Mondelez International, Kraft Heinz Company. Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chicago professionals seeking to advance their project management careers.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_subtext": "<p>Chicago's aviation, financial services, and energy sectors depend on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction you can complete on a schedule that fits your work calendar. Earning your PMP credential positions you for advancement and competitive compensation across Chicago's largest employers and industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:13:59.664675Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "85a3d9b992739581",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Chicago's Project Management Professionals",
+            "text": "<p>Chicago's economy runs on large-scale operations—from United Airlines' global hub to McDonald's worldwide supply chains, Motorola Solutions' technology infrastructure, and the institutional complexity of the University of Chicago and Exelon's energy networks. These anchor employers and the industries they represent—aviation, food and beverage, financial services, technology, energy, and healthcare—all depend on skilled project managers to deliver results across multiple departments and geographies. Professionals managing projects in Chicago's corporate headquarters and major institutions face rising expectations for formal credentials. The PMP® certification from the Project Management Institute signals that you can lead complex initiatives, manage stakeholder relationships, and deliver on time and budget—skills that resonate across every sector that drives Chicago's economy.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual, instructor-led PMP® certification training designed to fit your schedule while meeting all contact-hour requirements for the credential. Our active certified practitioners bring real-world experience to every session, ensuring you learn project management frameworks that apply immediately to your role. Whether you're advancing your career at a Fortune 500 headquarters, a healthcare system, or a growing tech firm in Chicago, our structured curriculum prepares you to pass the PMP® exam and earn the credential employers in your market expect. Enroll today and take the next step toward your PMP® certification.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:03.907050Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "23691811c29f17d0",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Training for Chicago's Project Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Credential Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® certification training that meets PMI's rigorous standards. Your completion certificate satisfies PMI's contact-hour requirement, positioning you directly for exam eligibility without additional verification steps."
+                },
+                {
+                    "heading": "Live-Virtual Learning, Your Schedule",
+                    "text": "Attend instructor-led PMP® training from anywhere via live-virtual sessions that fit working professionals' calendars. No commute, no rigid classroom schedule—earn your required contact hours while maintaining your current role at Chicago employers like United, Motorola, or Northern Trust."
+                },
+                {
+                    "heading": "Practitioners Teaching Practitioners",
+                    "text": "Your instructors are active certified practitioners holding current PMP® or CAPM® credentials and real-world project experience. You learn from professionals who apply certification frameworks daily, not from trainers teaching theory alone."
+                },
+                {
+                    "heading": "Credential Match for Chicago's Job Market",
+                    "text": "Chicago's aviation, financial services, technology, energy, and healthcare sectors actively hire PMP®-certified project managers. The credential opens doors at major regional employers and strengthens your candidacy across industries where structured project governance is non-negotiable."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:08.052182Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "a2797961bff60997",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Chicago's Major Industries",
+            "text": "<p>Chicago's role as a global hub for aviation, food and beverage, financial services, and energy attracts major employers who depend on structured project management. United Airlines Holdings, McDonald's Corporation, Mondelez International, and Kraft Heinz Company all maintain significant operations in the city, coordinating complex supply chains, technology deployments, and multi-site initiatives. Beyond corporate headquarters, Chicago is home to large-scale infrastructure and development projects—including the Obama Presidential Center's 19.3-acre Jackson Park campus (targeted public opening June 2026, ~$850M budget) and the CTA Red Line Extension (5.6 miles, $5.7B, broke ground April 2026)—that require certified project managers to oversee budgets, timelines, and cross-functional teams.</p><p>The PMP credential carries measurable value in a market where employers expect rigorous, standards-based project governance. Nationally, PMP-certified project managers report a median salary premium over their non-certified counterparts, a gap that reflects steady demand across the industries anchored in Chicago. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual and designed to meet PMI's eligibility and contact-hour requirements—gives you the credential that Chicago's largest employers and fastest-growing initiatives actively seek. In a city where major projects and multi-site operations are the norm, the PMP positions you to advance into higher-responsibility roles and command competitive compensation.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:12.286305Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "781c52c84b9a21d5",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Chicago",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience before you apply. Review PMI's specific education and hours-of-experience thresholds for the PMP credential. Granite PM Academy's admissions team can walk you through your background to confirm you meet the baseline requirements."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. You'll attend interactive sessions on your schedule, covering the PMBOK Guide framework, risk management, stakeholder communication, and exam strategy. All training is conducted online, allowing you to learn from Chicago while maintaining your work commitments."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing the 35-hour course, submit your formal PMP application directly to PMI, including proof of your education and project experience. Pay the associated PMI exam fee at that time. PMI will review and approve your application before you're authorized to sit for the exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—including practice exams, strategy sessions, and Q&A support—to build confidence. Schedule your proctored exam through PMI's approved testing partner. The exam is computer-based and available at test centers throughout Chicago and online."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After earning your PMP, you'll enter a 3-year renewal cycle. Maintain your credential by earning professional development units (PDUs) through training, volunteering, or professional activities. Renew your certification and fees before expiration to keep your PMP active and recognized by employers across your local job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:17.443747Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "f894c733b282a201",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Chicago project managers?",
+                    "answer": "<p>Yes. Chicago's largest employers—United Airlines, McDonald's, Mondelez, Kraft Heinz, Motorola Solutions, Northern Trust, Exelon, and the University of Chicago—all manage complex, multi-site operations, supply chains, and IT programs that rely on structured project-management discipline. The PMP® credential signals mastery of those frameworks. Nationally, PMP-certified professionals report a median salary premium of approximately $26,000 over non-certified peers, a gap that holds across most regions including the Midwest, making certification a competitive advantage in Chicago's job market.</p>"
+                },
+                {
+                    "question": "Which Chicago industries most value PMP certification today?",
+                    "answer": "<p>Aviation and airlines, food &amp; beverage manufacturing, financial services, technology and public-safety tech, energy and utilities, and higher education and healthcare all maintain strong project-management demand in Chicago. Airlines coordinate fleet operations and infrastructure; CPG firms manage supply-chain and product-launch programs; financial services firms oversee IT and regulatory programs; and utilities manage large-scale infrastructure projects. In each sector, the PMP® demonstrates readiness for leadership roles in program and portfolio oversight.</p>"
+                },
+                {
+                    "question": "Can I attend PMP training from my Chicago workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP® Certification Training is delivered entirely live-virtual, allowing you to join from your office, home, or any location with internet access. This format works well for Chicago-based professionals balancing full-time roles at major employers or in competitive industries while completing the study commitment required for the credential. No travel to an in-person classroom is necessary.</p>"
+                },
+                {
+                    "question": "When should Chicago project managers schedule PMP certification?",
+                    "answer": "<p>Chicago's largest employers and growth sectors—aviation, CPG, financial services, energy, and healthcare—constantly cycle through strategic initiatives and infrastructure programs. Early certification positions you for promotion or transition into these high-demand roles before your peers complete the credential. Starting your training soon ensures you meet evolving project-management requirements and remain competitive as leadership pipelines in these industries mature.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:23.883460Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "5a534bd81ed71e6c",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Chicago's corporate headquarters—from United Airlines to McDonald's to Northern Trust—drive sustained demand for skilled project managers across aviation, food & beverage, and financial services. Major infrastructure initiatives, including the CTA Red Line Extension and the Obama Presidential Center, underscore the region's need for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Chicago professionals nationwide, helping you earn the globally recognized credential on your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:25.569896Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "ef0f122979dbdc5d",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aviation/Airlines",
-      "Food & Beverage/CPG",
-      "Financial Services",
-      "Technology/Public-Safety Tech",
-      "Energy/Utilities",
-      "Higher Education & Healthcare"
-    ],
-    "top_employers": [
-      "United Airlines Holdings",
-      "McDonald's Corporation",
-      "Mondelez International",
-      "Kraft Heinz Company",
-      "Motorola Solutions",
-      "Northern Trust Corporation",
-      "Exelon Corporation",
-      "University of Chicago"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon.",
-    "notable_projects": [
-      "Obama Presidential Center - 19.3-acre Jackson Park campus, public opening scheduled June 2026, ~$850M",
-      "Bally's Chicago Casino - permanent resort under construction in River West, $1.6-1.74B, targeted 2027",
-      "CTA Red Line Extension - 5.6-mile extension from 95th/Dan Ryan to new 130th St station, $5.7B, broke ground April 2026"
-    ],
-    "credential_demand": "With this many large, multi-site corporate headquarters coordinating complex operations, supply chains, and IT/infrastructure programs, structured project-management skills and the PMP credential are plausibly in steady demand.",
-    "_researched": 1,
-    "city_spotlight": "<p>Chicago's employer base includes United Airlines Holdings, McDonald's Corporation, Mondelez International, Kraft Heinz Company. Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chicago professionals seeking to advance their project management careers.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Certification Training in {city}, {SS}",
-      "hs_subtext": "<p>Chicago's aviation, financial services, and energy sectors depend on certified project managers to deliver complex initiatives on time and within budget. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction you can complete on a schedule that fits your work calendar. Earning your PMP credential positions you for advancement and competitive compensation across Chicago's largest employers and industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:13:59.664675Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "85a3d9b992739581",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-chicago-il/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Chicago, IL, PMP exam prep Chicago, PMP course Chicago IL, project management certification Chicago, IL, PMI PMP training Chicago",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\",\r\n      \"name\": \"PMP Certification Training in Chicago, IL | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Chicago, IL. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Chicago, IL\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#course\",\r\n      \"name\": \"PMP Certification Training in Chicago, IL\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Chicago, IL. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n    }\r\n  ]\r\n}",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
+        "primary_keyword": "PMP Certification Training"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Chicago's Project Management Professionals",
-      "text": "<p>Chicago's economy runs on large-scale operations—from United Airlines' global hub to McDonald's worldwide supply chains, Motorola Solutions' technology infrastructure, and the institutional complexity of the University of Chicago and Exelon's energy networks. These anchor employers and the industries they represent—aviation, food and beverage, financial services, technology, energy, and healthcare—all depend on skilled project managers to deliver results across multiple departments and geographies. Professionals managing projects in Chicago's corporate headquarters and major institutions face rising expectations for formal credentials. The PMP® certification from the Project Management Institute signals that you can lead complex initiatives, manage stakeholder relationships, and deliver on time and budget—skills that resonate across every sector that drives Chicago's economy.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual, instructor-led PMP® certification training designed to fit your schedule while meeting all contact-hour requirements for the credential. Our active certified practitioners bring real-world experience to every session, ensuring you learn project management frameworks that apply immediately to your role. Whether you're advancing your career at a Fortune 500 headquarters, a healthcare system, or a growing tech firm in Chicago, our structured curriculum prepares you to pass the PMP® exam and earn the credential employers in your market expect. Enroll today and take the next step toward your PMP® certification.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:03.907050Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "23691811c29f17d0",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Training for Chicago's Project Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Credential Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® certification training that meets PMI's rigorous standards. Your completion certificate satisfies PMI's contact-hour requirement, positioning you directly for exam eligibility without additional verification steps."
-        },
-        {
-          "heading": "Live-Virtual Learning, Your Schedule",
-          "text": "Attend instructor-led PMP® training from anywhere via live-virtual sessions that fit working professionals' calendars. No commute, no rigid classroom schedule—earn your required contact hours while maintaining your current role at Chicago employers like United, Motorola, or Northern Trust."
-        },
-        {
-          "heading": "Practitioners Teaching Practitioners",
-          "text": "Your instructors are active certified practitioners holding current PMP® or CAPM® credentials and real-world project experience. You learn from professionals who apply certification frameworks daily, not from trainers teaching theory alone."
-        },
-        {
-          "heading": "Credential Match for Chicago's Job Market",
-          "text": "Chicago's aviation, financial services, technology, energy, and healthcare sectors actively hire PMP®-certified project managers. The credential opens doors at major regional employers and strengthens your candidacy across industries where structured project governance is non-negotiable."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:08.052182Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "a2797961bff60997",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Chicago's Major Industries",
-      "text": "<p>Chicago's role as a global hub for aviation, food and beverage, financial services, and energy attracts major employers who depend on structured project management. United Airlines Holdings, McDonald's Corporation, Mondelez International, and Kraft Heinz Company all maintain significant operations in the city, coordinating complex supply chains, technology deployments, and multi-site initiatives. Beyond corporate headquarters, Chicago is home to large-scale infrastructure and development projects—including the Obama Presidential Center's 19.3-acre Jackson Park campus (targeted public opening June 2026, ~$850M budget) and the CTA Red Line Extension (5.6 miles, $5.7B, broke ground April 2026)—that require certified project managers to oversee budgets, timelines, and cross-functional teams.</p><p>The PMP credential carries measurable value in a market where employers expect rigorous, standards-based project governance. Nationally, PMP-certified project managers report a median salary premium over their non-certified counterparts, a gap that reflects steady demand across the industries anchored in Chicago. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual and designed to meet PMI's eligibility and contact-hour requirements—gives you the credential that Chicago's largest employers and fastest-growing initiatives actively seek. In a city where major projects and multi-site operations are the norm, the PMP positions you to advance into higher-responsibility roles and command competitive compensation.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:12.286305Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "781c52c84b9a21d5",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Chicago",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience before you apply. Review PMI's specific education and hours-of-experience thresholds for the PMP credential. Granite PM Academy's admissions team can walk you through your background to confirm you meet the baseline requirements."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. You'll attend interactive sessions on your schedule, covering the PMBOK Guide framework, risk management, stakeholder communication, and exam strategy. All training is conducted online, allowing you to learn from Chicago while maintaining your work commitments."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing the 35-hour course, submit your formal PMP application directly to PMI, including proof of your education and project experience. Pay the associated PMI exam fee at that time. PMI will review and approve your application before you're authorized to sit for the exam."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—including practice exams, strategy sessions, and Q&A support—to build confidence. Schedule your proctored exam through PMI's approved testing partner. The exam is computer-based and available at test centers throughout Chicago and online."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After earning your PMP, you'll enter a 3-year renewal cycle. Maintain your credential by earning professional development units (PDUs) through training, volunteering, or professional activities. Renew your certification and fees before expiration to keep your PMP active and recognized by employers across your local job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:17.443747Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "f894c733b282a201",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Chicago project managers?",
-          "answer": "<p>Yes. Chicago's largest employers—United Airlines, McDonald's, Mondelez, Kraft Heinz, Motorola Solutions, Northern Trust, Exelon, and the University of Chicago—all manage complex, multi-site operations, supply chains, and IT programs that rely on structured project-management discipline. The PMP® credential signals mastery of those frameworks. Nationally, PMP-certified professionals report a median salary premium of approximately $26,000 over non-certified peers, a gap that holds across most regions including the Midwest, making certification a competitive advantage in Chicago's job market.</p>"
-        },
-        {
-          "question": "Which Chicago industries most value PMP certification today?",
-          "answer": "<p>Aviation and airlines, food &amp; beverage manufacturing, financial services, technology and public-safety tech, energy and utilities, and higher education and healthcare all maintain strong project-management demand in Chicago. Airlines coordinate fleet operations and infrastructure; CPG firms manage supply-chain and product-launch programs; financial services firms oversee IT and regulatory programs; and utilities manage large-scale infrastructure projects. In each sector, the PMP® demonstrates readiness for leadership roles in program and portfolio oversight.</p>"
-        },
-        {
-          "question": "Can I attend PMP training from my Chicago workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy's PMP® Certification Training is delivered entirely live-virtual, allowing you to join from your office, home, or any location with internet access. This format works well for Chicago-based professionals balancing full-time roles at major employers or in competitive industries while completing the study commitment required for the credential. No travel to an in-person classroom is necessary.</p>"
-        },
-        {
-          "question": "When should Chicago project managers schedule PMP certification?",
-          "answer": "<p>Chicago's largest employers and growth sectors—aviation, CPG, financial services, energy, and healthcare—constantly cycle through strategic initiatives and infrastructure programs. Early certification positions you for promotion or transition into these high-demand roles before your peers complete the credential. Starting your training soon ensures you meet evolving project-management requirements and remain competitive as leadership pipelines in these industries mature.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:23.883460Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "5a534bd81ed71e6c",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Chicago's corporate headquarters—from United Airlines to McDonald's to Northern Trust—drive sustained demand for skilled project managers across aviation, food & beverage, and financial services. Major infrastructure initiatives, including the CTA Red Line Extension and the Obama Presidential Center, underscore the region's need for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Chicago professionals nationwide, helping you earn the globally recognized credential on your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:14:25.569896Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "ef0f122979dbdc5d",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-chicago-il/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Chicago, IL, PMP exam prep Chicago, PMP course Chicago IL, project management certification Chicago, IL, PMI PMP training Chicago",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\",\r\n      \"name\": \"PMP Certification Training in Chicago, IL | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Chicago, IL. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Chicago, IL\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#course\",\r\n      \"name\": \"PMP Certification Training in Chicago, IL\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Chicago, IL. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chicago-il/\"\r\n    }\r\n  ]\r\n}",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "596b492faedc573f4cda23aaf882d23d"
 }

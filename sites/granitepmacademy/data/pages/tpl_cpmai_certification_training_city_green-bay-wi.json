@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "green-bay-wi",
-    "slug": "ai-training-green-bay-wi",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "green-bay-wi",
-        "city": "Green Bay",
-        "state": "Wisconsin",
-        "SS": "WI",
-        "city_slug": "green-bay-wi",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Green Bay's manufacturing and logistics backbone—anchored by Schneider National, Georgia-Pacific, and ongoing expansions like Green Bay Packaging's containerboard mill—creates sustained demand for project managers who can navigate complex, cross-functional operations. Healthcare system growth and major developments like Titletown District further diversify career opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Green Bay's working professionals, aligned with the credentials employers across these sectors actively seek.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Green Bay's healthcare and manufacturing sectors increasingly rely on project managers who can integrate AI tools into planning and execution workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI contact-hour requirements for professional development. Mastering AI-driven project methodologies positions you to command higher responsibility and compensation in Green Bay's competitive, evolving job market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:01.979584Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "40b0c9e7069c4b86",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Green Bay, Wisconsin",
-            "text": "<p>Green Bay's manufacturing, paper, and packaging sectors—anchored by employers like Georgia-Pacific and Green Bay Packaging—are undergoing rapid digital transformation as they modernize operations and integrate automation into production workflows. Project managers leading these initiatives must now master both traditional delivery methods and emerging AI tools that optimize scheduling, resource allocation, and risk forecasting. In Green Bay, where facility expansions and cross-functional modernization projects are accelerating across manufacturing and logistics, certified project managers equipped with AI competencies are increasingly essential to competitive advantage. Professionals in this market who add AI expertise to their credentials position themselves as strategic partners in these capital-intensive, technologically demanding initiatives.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers preparing for PMP®, CAPM®, or PMI-PgMP® certification. Our courses meet the full contact-hour requirements for these credentials and are taught by active, certified practitioners who bring real-world experience from complex projects across manufacturing, healthcare, and logistics. Whether you're managing a production facility expansion in Green Bay or coordinating cross-enterprise logistics initiatives, our AI-focused curriculum translates cutting-edge tools into practical project applications. Complete your certification on a schedule that fits your career, with the confidence that comes from PMI-authorized instruction and industry-relevant content that directly applies to Green Bay's project-driven economy.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:06.365153Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "38fde7cfe9fb7a41",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills Meet PMI Standards in Green Bay",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Value",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your certification prep meets strict PMI standards. This recognition means employers—including Green Bay's largest firms—trust the rigor behind your credential from day one."
-                },
-                {
-                    "heading": "Live Instructors, Real Contact Hours",
-                    "text": "Our live-virtual instructor-led format delivers the contact hours PMI requires for PMP® and CAPM® eligibility. You earn certification-ready credentials without sacrificing work schedules that matter to Green Bay's healthcare systems and logistics leaders."
-                },
-                {
-                    "heading": "Instructors Still Managing Projects Today",
-                    "text": "Your instructors are active certified practitioners working in real projects—not retired trainers. They bring current AI applications and manufacturing-sector insights directly relevant to Wisconsin's paper, packaging, and food-processing operations."
-                },
-                {
-                    "heading": "Local Demand for AI-Ready PMs",
-                    "text": "Schneider National, Georgia-Pacific, Bellin Health, and other Green Bay employers are hiring project managers who blend PMI credentials with AI literacy. This training closes that gap and positions you competitively in a tight regional market."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:10.203203Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c5124d9bcaa6b62b",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Green Bay's Industrial Hub",
-            "text": "<p>Green Bay's manufacturing, logistics, and healthcare sectors actively recruit certified project managers to lead increasingly complex operations. Schneider National, headquartered locally and a global transportation and logistics leader, regularly seeks PMs to oversee supply-chain and infrastructure initiatives. Georgia-Pacific and Green Bay Packaging—cornerstones of the region's paper and containerboard industry—invest heavily in facility modernization, including the recent Green Bay Packaging containerboard mill expansion, projects that demand skilled project management oversight. Bellin Health and HSHS St. Vincent Hospital have similarly expanded their footprints, creating demand for PMs who can navigate healthcare facility development and operational launches. Even the Packers organization, through initiatives like the Titletown District mixed-use development, demonstrates how sports, entertainment, and hospitality employers in the region rely on structured project delivery.</p><p>While Green Bay's project manager compensation tends to run slightly below larger Midwest metros, the competitive local demand and the concentration of manufacturing, logistics, and healthcare employers headquartered here create genuine career momentum for credentialed professionals. Employers across these industries increasingly favor candidates with formal project management credentials—such as the PMP® or CAPM®—when filling mid-level and leadership roles, reflecting a shift toward disciplined project governance. Completing Granite PM Academy's AI Training for Project Managers positions you to enter or advance within this established job market, equipping you with both the AI-era skills modern employers expect and the formal credential that sets you apart in Green Bay's competitive hiring landscape.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:15.238464Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "28dd1f47766d3e57",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Green Bay manufacturing careers?",
-                    "answer": "<p>Green Bay's manufacturing sector—paper, packaging, and food processing—is increasingly adopting structured project delivery and AI-driven process optimization. Employers like Georgia-Pacific and Schreiber Foods value certifications that demonstrate both traditional PM discipline and emerging technology fluency. For mid-level and senior roles in these industries, formal credentials help justify advancement and often correlate with stronger compensation in a competitive local market.</p>"
-                },
-                {
-                    "question": "Which Green Bay employers hire project managers with AI certification?",
-                    "answer": "<p>Healthcare systems (Bellin Health, HSHS St. Vincent Hospital), logistics firms (Schneider National), and manufacturing operations across Green Bay increasingly seek project managers with formal credentials and AI competency. Financial services employers like Associated Bank and Nicolet National Bank also value certification when filling mid-level project roles. While not every posting explicitly requires it, regional demand for credentialed PMs is rising as employers standardize project governance.</p>"
-                },
-                {
-                    "question": "Can I attend Green Bay AI project management courses from my workplace?",
-                    "answer": "<p>Yes. Our live-virtual format allows Green Bay professionals to join from their office, home, or any location with stable internet—ideal for those balancing full-time roles at Schneider National, healthcare systems, or other major employers. You attend synchronously with peers across the region, maintaining the interaction and instructor access of a classroom without travel time to a physical campus.</p>"
-                },
-                {
-                    "question": "When should Green Bay project managers pursue AI certification in their career?",
-                    "answer": "<p>Green Bay's job market increasingly favors certified PMs for advancement into mid-level and leadership roles, particularly in healthcare, logistics, and manufacturing. If you're eyeing a promotion or planning a move within the competitive local market, pursuing certification before competing for those roles strengthens your candidacy and earning potential. Early timing—ideally while employed—also allows you to apply new skills immediately within your organization.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:21.554929Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "8b3553e568dbc3dc",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Green Bay's manufacturing and logistics heartland—anchored by Schneider National, Georgia-Pacific, and ongoing expansions like Green Bay Packaging's containerboard mill—creates steady demand for project managers who can orchestrate complex operations and cross-functional teams. Healthcare systems and major developments such as Titletown District amplify opportunities further. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Green Bay professionals seeking to advance their careers in these growth sectors.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:23.359663Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "e6f86d42e33aa2bc",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "green-bay-wi",
+  "slug": "ai-training-green-bay-wi",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "green-bay-wi",
+    "city": "Green Bay",
+    "state": "Wisconsin",
+    "SS": "WI",
+    "city_slug": "green-bay-wi",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-green-bay-wi/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Green Bay, WI, AI courses Green Bay, CPMAI certification Green Bay, AI project management training Green Bay, WI, AI for project managers Green Bay",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\",\n      \"name\": \"AI Training for Project Managers in Green Bay, WI — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Green Bay, WI for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Green Bay, WI\",\n            \"item\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#course\",\n      \"name\": \"AI Training for Project Managers in Green Bay, WI\",\n      \"description\": \"CPMAI certification training for project managers in Green Bay, WI who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Manufacturing (paper, packaging, and food processing)",
+      "Healthcare and health systems",
+      "Transportation and logistics",
+      "Financial services and insurance",
+      "Food and dairy production",
+      "Sports, entertainment, and hospitality"
+    ],
+    "top_employers": [
+      "Schneider National",
+      "Green Bay Packers",
+      "Schreiber Foods",
+      "Georgia-Pacific",
+      "KI (Krueger International)",
+      "Green Bay Packaging",
+      "Bellin Health",
+      "HSHS St. Vincent Hospital",
+      "Associated Bank",
+      "Nicolet National Bank",
+      "American Foods Group",
+      "Humana"
+    ],
+    "salary_note": "Project manager compensation in Green Bay tends to track slightly below larger Midwest metros like Milwaukee or Minneapolis, but demand is competitive given the concentration of manufacturing, logistics, and healthcare employers headquartered or operating locally. Employers increasingly value PM experience and certification when setting pay for mid- and senior-level roles.",
+    "market_blurb": "Green Bay's project management job market is shaped by its strong manufacturing, food processing, and paper/packaging base, alongside growing healthcare systems and logistics operations anchored by companies like Schneider National. As these sectors modernize operations and invest in facility expansions, demand for skilled project and program managers who can lead cross-functional initiatives continues to grow.",
+    "notable_projects": [
+      "Green Bay Packaging containerboard mill expansion",
+      "Titletown District mixed-use development (Green Bay Packers)",
+      "The Shipyard riverfront redevelopment in downtown Green Bay",
+      "Bellin Health and HSHS St. Vincent Hospital facility expansions"
+    ],
+    "credential_demand": "While not every Green Bay-area job posting explicitly requires PMP or CAPM certification, employers in manufacturing, healthcare, and logistics increasingly favor candidates with formal project management credentials for mid-level and leadership roles, reflecting a broader regional trend toward structured project delivery practices.",
+    "_researched": 1,
+    "city_spotlight": "<p>Green Bay's manufacturing and logistics backbone—anchored by leaders like Schneider National and Georgia-Pacific—drives steady demand for skilled project managers who can oversee modernization initiatives and facility expansions across paper, packaging, and food processing. Healthcare systems and mixed-use developments like Titletown District add further breadth to the market. Granite PM Academy delivers live-virtual PMP® Certification to Green Bay professionals seeking to formalize their credentials and advance in these growth sectors.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Green Bay's manufacturing, logistics, and healthcare sectors rely on skilled project managers to drive operations across paper production, packaging, food processing, and health systems. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's contact-hour education requirement, enabling you to earn this credential on a schedule that fits your work life. Completing your CPMAI positions you to advance into leadership roles and command higher responsibility across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:19.458484Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "073e13ef8b69b7a0",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Green Bay Project Managers",
+      "text": "<p>Green Bay's manufacturing, paper, and packaging sectors are undergoing significant modernization, driving sustained demand for skilled project managers who can lead complex, cross-functional initiatives across production, supply chain, and facility expansion projects. As major employers like Georgia-Pacific, Green Bay Packaging, and Schneider National invest in operational improvements and new capabilities, the ability to manage scope, schedule, and stakeholder alignment has become essential—and credentials that validate these competencies are increasingly sought by employers evaluating internal candidates for advancement. The PMI-CPMAI (Certified Practitioner of Management Analytics and Innovation) credential equips professionals in Green Bay with a recognized framework for data-driven decision-making and adaptive project leadership, directly addressing the needs of modernizing organizations across healthcare systems, food processing, and logistics operations.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed for working professionals. As a PMI Authorized Training Partner, we ensure every course satisfies the contact-hour requirements set by the Project Management Institute, and our instructors are active certified practitioners who bring real-world project leadership experience to every session. Whether you're pursuing your first PM credential or building on existing certifications, our flexible virtual format allows you to advance your career without geographic or scheduling barriers. Begin your journey toward PMI-CPMAI certification with Granite PM Academy today.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:23.675852Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ad1eb91d72485c80",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Green Bay's Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours count directly toward PMI-CPMAI eligibility. No workarounds or secondary validation needed—your training is recognized by the Project Management Institute from day one."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Earn your required contact hours through live-virtual instructor-led sessions you attend in real time, not self-paced modules. Schedule classes around your job at Schneider National, Georgia-Pacific, or other Green Bay employers without sacrificing interaction or accountability."
+        },
+        {
+          "heading": "Instructors Who Certify and Deliver",
+          "text": "Your instructors hold active PMI certifications and apply real-world project experience daily. They model the practices you'll use on your next program, not theory alone—and they guide your exam preparation with proven strategies."
+        },
+        {
+          "heading": "Local Demand Across Manufacturing, Healthcare, Logistics",
+          "text": "Green Bay's manufacturing, food processing, healthcare, and logistics leaders—including Bellin Health, American Foods Group, and Nicolet National Bank—prioritize certified project managers. PMI-CPMAI credentials strengthen your candidacy and earning potential in these growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:27.827662Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1a6b2690a88e6f80",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Green Bay",
+      "text": "<p>Green Bay's manufacturing and logistics backbone creates steady demand for certified project managers. Schneider National, headquartered here and a global transportation and logistics leader, regularly seeks PMs to oversee complex supply-chain and operational initiatives. Equally, the paper and packaging sector—anchored by employers like Georgia-Pacific and Green Bay Packaging—depends on structured project delivery; the recent Green Bay Packaging containerboard mill expansion exemplifies the scale of capital projects that require rigorous PM discipline. Healthcare systems including Bellin Health and HSHS St. Vincent Hospital are expanding facilities and modernizing operations, roles where certification strengthens candidacy. These industries, combined with food processing, financial services, and the Packers organization's mixed-use Titletown District development, create a competitive market for professionals with formal credentials.</p><p>While project manager compensation in Green Bay typically runs slightly below larger Midwest metros, the concentration of manufacturers, logistics operators, and healthcare employers creates strong competition for talent—and employers increasingly favor candidates holding PMP® or CAPM® certification when filling mid-level and leadership roles. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that expectation and stand out in Green Bay's job market. The credential signals to local employers that you can manage timelines, budgets, and stakeholder expectations using industry-standard frameworks, directly addressing the structured project-delivery practices now standard across the region's dominant sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:32.604708Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "185e32a120297f64",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Green Bay",
+      "text": "<p>Green Bay's manufacturing and logistics sector drives substantial demand for certified project managers. Schneider National, one of the region's largest employers, continuously manages complex transportation and supply-chain initiatives that require structured project oversight. Similarly, Schreiber Foods and Green Bay Packaging rely on certified professionals to coordinate production schedules, facility upgrades, and process improvements across their operations. Healthcare systems including Bellin Health and HSHS St. Vincent Hospital are equally active—both have pursued significant facility expansions in recent years that depend on rigorous project management. Beyond these anchors, financial institutions like Associated Bank and American Foods Group round out a diverse employer base where formal PM credentials increasingly differentiate candidates competing for mid-level and leadership roles.</p><p>PMI-CPMAI certification is worth pursuing in Green Bay because the market rewards it, even where it is not explicitly mandated. Project manager compensation in the region tends to run slightly below larger Midwest metros, but demand remains competitive and concentrated enough that employers—especially in manufacturing, healthcare, and logistics—now favor candidates who hold formal credentials when filling senior and management positions. Completing your PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that expectation. The credential signals to Green Bay employers that you understand industry-standard practices and are committed to professional development, strengthening your case for advancement and better roles within the local market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:36.902149Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "185e32a120297f64",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Green Bay's job market?",
+          "answer": "<p>Green Bay's concentration of manufacturing, logistics, and healthcare employers—including major operations by Schneider National, Georgia-Pacific, and Bellin Health—increasingly favors formal project management credentials for mid-level and leadership roles. While not every posting explicitly requires PMP or CAPM, employers in these sectors are adopting structured project delivery practices and using certification as a differentiator when setting compensation for experienced project managers. The credential positions you competitively in a regional market where demand for certified PM talent is growing.</p>"
+        },
+        {
+          "question": "Which Green Bay employers value project management certification most?",
+          "answer": "<p>Manufacturing (paper, packaging, and food processing), healthcare systems, and transportation/logistics companies headquartered or operating in Green Bay most actively seek certified project managers. Employers like Schneider National, Schreiber Foods, KI, and HSHS St. Vincent Hospital increasingly view formal credentials as evidence of structured methodology and leadership capability. Financial services and food production companies in the region also recognize certification as a plus for advancement and credibility in complex initiatives.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual CPMAI training from my Green Bay workplace?",
+          "answer": "<p>Yes. All Granite PM Academy training is 100% live-virtual and accessible from anywhere with internet—including your workplace, home office, or any location in Green Bay. This format lets you attend sessions without travel, work around your current job schedule, and start applying project management principles immediately to your local employer's initiatives. Many Green Bay professionals balance certification training alongside their ongoing roles.</p>"
+        },
+        {
+          "question": "Should Green Bay project managers pursue certification now or wait for market demand?",
+          "answer": "<p>Regional trends suggest certification timing favors acting sooner rather than later. Green Bay's established employers in manufacturing, healthcare, and logistics are already valuing credentials when hiring and promoting mid-level project managers. While compensation in Green Bay tracks slightly below larger Midwest metros, the competitive local demand for certified talent means early adoption of your credential can strengthen your position before the trend intensifies further across the region.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:43.128319Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8ce1cf70b7cf7abb",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Green Bay's manufacturing and food processing sectors—anchored by leaders like Schneider National and Georgia-Pacific—are modernizing operations and expanding facilities, creating sustained demand for skilled project managers. Healthcare systems and logistics operations are accelerating similar initiatives, widening career opportunities for professionals who can lead cross-functional teams through complex transformations. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Green Bay professionals seeking to advance in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:44.788228Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "88533e9e961ce89f",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Green Bay's manufacturing and logistics sectors—anchored by industry leaders like Schneider National and supported by robust paper, packaging, and food processing operations—are investing heavily in modernization and facility expansions that demand skilled project managers. Recent initiatives including containerboard mill upgrades and major healthcare facility projects underscore steady demand for certified professionals who can coordinate complex, cross-functional initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Green Bay professionals nationwide, helping you earn credentials valued across these growing sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:46.829995Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "88533e9e961ce89f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-green-bay-wi/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Green Bay, WI, AI courses Green Bay, CPMAI certification Green Bay, AI project management training Green Bay, WI, AI for project managers Green Bay",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\",\n      \"name\": \"PMI-CPMAI Certification Training in Green Bay, WI | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Green Bay, WI for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Green Bay, WI\",\n            \"item\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Green Bay, WI\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Green Bay, WI who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-green-bay-wi/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-green-bay-wi/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

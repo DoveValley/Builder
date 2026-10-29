@@ -1,390 +1,430 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "leavenworth-ks",
-    "slug": "capm-certification-training-leavenworth-ks",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "leavenworth-ks",
-        "city": "Leavenworth",
-        "state": "Kansas",
-        "SS": "KS",
-        "city_slug": "leavenworth-ks",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Leavenworth's project management market centers on Fort Leavenworth, the VA Medical Center, and federal and state correctional facilities—sectors where certified PMs drive complex, high-stakes initiatives. Recent projects like the Lansing Correctional Facility replacement and ongoing VA facility upgrades underscore steady demand for professionals with public-sector and defense-adjacent credentials. Granite PM Academy delivers live-virtual PMP® Certification to Leavenworth professionals seeking to advance in these mission-critical roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Leavenworth's military installations and defense contracting sector demand project managers versed in structured governance. Granite PM Academy's live-virtual CAPM Boot Camp delivers instructor-led training that satisfies PMI's contact-hour requirement, preparing you to pass the Certified Associate in Project Management exam on a schedule that fits working professionals. Earn credentials that open doors across federal contracting and local project-driven organizations.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:35.175761Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "c54620b7819270b3",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp for Leavenworth's Government & Defense Professionals",
-            "text": "<p>Fort Leavenworth's presence as the U.S. Army Combined Arms Center, along with Leavenworth's major federal and state correctional facilities, Veterans Affairs medical system, and local government agencies, creates a distinctive demand for project managers who understand complex, compliance-heavy environments. In these sectors—military, corrections, healthcare, and public administration—the CAPM (Certified Associate in Project Management) credential signals foundational rigor and PMI-aligned methodology that government hiring managers and facility administrators actively seek. For Leavenworth professionals working within or supporting these institutions, CAPM certification accelerates credibility and eligibility for advancement into roles that manage infrastructure projects, operational initiatives, and cross-functional teams.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM Certification & Boot Camp as an intensive, instructor-led program available in live-virtual format. Our certified practitioners teach real-world application of project management fundamentals, covering all domains of the CAPM exam while satisfying PMI's required contact hours. The boot camp structure compresses learning into an efficient timeline, allowing working professionals in Leavenworth to earn their certification without prolonged disruption to their careers. Upon completion, you'll be exam-ready and positioned to apply for roles that value certified, methodical project leadership—whether in defense, government, healthcare, or municipal settings where your certification directly strengthens your candidacy.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:39.863344Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "dbbf73efbf93ef20",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification for Leavenworth's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM boot camp meets all PMI standards for eligibility and contact hours. Your certification carries full PMI credibility with employers across Leavenworth's federal, healthcare, and government sectors."
-                },
-                {
-                    "heading": "Live Instruction, Real-World Schedules",
-                    "text": "Our live-virtual instructor-led format lets you complete required contact hours on a schedule that fits working professionals—no self-paced recordings or asynchronous delays. Learn directly from instructors actively practicing project management in your industries today."
-                },
-                {
-                    "heading": "Exam Readiness from Active Practitioners",
-                    "text": "Your instructors are certified project managers working in defense, corrections, healthcare, and government—the sectors hiring in Leavenworth. They teach the CAPM body of knowledge alongside real-world scenarios you'll recognize in your career, plus structured exam-prep support to drive first-attempt success."
-                },
-                {
-                    "heading": "Credential Demand at Leavenworth Employers",
-                    "text": "Fort Leavenworth, the VA Medical Center, correctional facilities, and local government increasingly require or prefer CAPM for program-support and operations roles. This credential positions you competitively for advancement in Leavenworth's largest employers and strengthens your candidacy across military, healthcare, and public-administration career paths."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:44.301666Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "34186eb42a08c644",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers at Fort Leavenworth and Beyond",
-            "text": "<p>Fort Leavenworth's U.S. Army Combined Arms Center anchors Leavenworth's project management landscape, where structured program delivery and governance are central to mission success. Beyond the defense sector, the Dwight D. Eisenhower VA Medical Center, Saint Luke's Cushing Memorial Hospital, and the region's correctional facilities—including the completed Lansing Correctional Facility replacement project—all require skilled project managers to oversee complex infrastructure, modernization, and operational initiatives. These employers span federal, state, and healthcare institutions where CAPM and PMP certification demonstrates credibility in managing budgets, timelines, and stakeholder expectations.</p><p>CAPM certification positions you competitively in Leavenworth's steady, stability-focused job market. Government and defense employers in the region value candidates who hold recognized credentials and can demonstrate structured project delivery experience; compensation tracks Kansas City-area metro norms, offering reliable career growth rather than volatility. Completing Granite PM Academy's CAPM Certification & Boot Camp gives you the credentials and practical foundation these employers seek, whether you're entering project management or advancing within your current organization. In a market where institutional employers prioritize proven competence, your certification becomes a concrete differentiator.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:48.526695Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "8005d378d9d36ac9",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Leavenworth",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary diploma or equivalent and can complete the required contact hours in project management education. No prior work experience is necessary—CAPM welcomes career-changers and early-stage professionals entering the field."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses the full curriculum into a focused schedule, allowing you to finish education requirements while maintaining your current job or commitments."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI and submit your formal CAPM application, including proof of your completed education hours. Pay the associated exam fee through PMI's application portal to unlock your testing window."
-                },
-                {
-                    "heading": "Prepare and Take the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, review sessions, and study guides—to build confidence. Schedule your CAPM exam when ready and test at an authorized Pearson VUE center."
-                },
-                {
-                    "heading": "Maintain Your Credential",
-                    "text": "After certification, earn professional development units over a three-year renewal cycle to keep your CAPM active. Granite PM Academy supports ongoing PDU opportunities through additional courses and professional development offerings."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:52.973345Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "582256387670465f",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Leavenworth federal and defense careers?",
-                    "answer": "<p>Yes. Fort Leavenworth, the U.S. Army Combined Arms Center, and defense-contracting support roles increasingly prioritize structured project governance credentials. CAPM signals foundational PM competency to federal employers and positions you for advancement into PMP-level roles where Leavenworth's government and defense sectors concentrate their hiring.</p>"
-                },
-                {
-                    "question": "Which Leavenworth employers value CAPM and project management certification?",
-                    "answer": "<p>Fort Leavenworth, the VA Medical Center, Saint Luke's Cushing Memorial Hospital, Leavenworth County Government, and the City of Leavenworth all operate under formal project governance frameworks. Healthcare systems and federal agencies especially favor certified PMs for compliance and resource planning. CAPM demonstrates you understand those structures.</p>"
-                },
-                {
-                    "question": "Can I attend CAPM boot camp from my Leavenworth workplace?",
-                    "answer": "<p>Yes. Our live-virtual format lets you join from your office, home, or any location with reliable internet—ideal for Leavenworth professionals balancing Fort Leavenworth, hospital, or county workloads. Confirm your employer's video conferencing policy beforehand, particularly if you work within federal or secure facilities.</p>"
-                },
-                {
-                    "question": "When should Leavenworth project managers pursue CAPM certification?",
-                    "answer": "<p>Leavenworth's demand for certified PMs is steady across defense, healthcare, and public administration. Pursue CAPM before seeking promotion into coordinator or assistant PM roles, or immediately after hiring into your first PM-track position. Early timing builds credentials while you gain the experience needed to later pursue PMP certification.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:31:58.722531Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "dfce68d9ddbae1fa",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Fort Leavenworth and the region's federal and state correctional facilities anchor steady demand for certified project managers capable of navigating complex government and defense-sector initiatives. Healthcare systems, municipal government, and ongoing facility modernization projects create consistent opportunities for professionals holding the CAPM®. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp tailored to Leavenworth professionals seeking to advance in public-sector and mission-critical roles.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:00.348698Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "ca221309c639ccb3",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "leavenworth-ks",
+  "slug": "capm-certification-training-leavenworth-ks",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "leavenworth-ks",
+    "city": "Leavenworth",
+    "state": "Kansas",
+    "SS": "KS",
+    "city_slug": "leavenworth-ks",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-leavenworth-ks/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Leavenworth, KS, CAPM boot camp Leavenworth, CAPM training Leavenworth, KS, CAPM classes Leavenworth KS, CAPM exam prep Leavenworth",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\",\n      \"name\": \"CAPM Certification & Boot Camp in Leavenworth, KS | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Leavenworth, KS. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Leavenworth, KS\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Leavenworth, KS\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Leavenworth, KS. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Military/Defense (Fort Leavenworth)",
+      "Corrections/Government (federal and state correctional facilities)",
+      "Healthcare",
+      "Education",
+      "Public Administration/Local Government",
+      "Logistics and Manufacturing support"
+    ],
+    "top_employers": [
+      "Fort Leavenworth (U.S. Army Combined Arms Center)",
+      "Veterans Affairs Eastern Kansas Healthcare System (Dwight D. Eisenhower VA Medical Center)",
+      "United States Penitentiary Leavenworth",
+      "Lansing Correctional Facility",
+      "Saint Luke's Cushing Memorial Hospital",
+      "University of Saint Mary",
+      "Leavenworth County Government",
+      "City of Leavenworth",
+      "USD 453 Leavenworth Public Schools",
+      "CoreCivic (Leavenworth Detention Center)"
+    ],
+    "salary_note": "Project manager pay in Leavenworth tends to track broader Kansas City-area metro rates, with government, defense, and healthcare employers offering steady, competitive compensation rather than top-market salaries; demand is strongest for candidates with proven PMP-level project delivery experience.",
+    "market_blurb": "Leavenworth's project management job market is shaped heavily by its role as home to Fort Leavenworth and several major correctional and healthcare institutions, creating consistent demand for professionals who can manage complex government, military, and facility-based projects. Additional opportunities arise from local healthcare systems, higher education, and county/municipal government initiatives. The market is steady rather than explosive, favoring certified professionals with public-sector or defense-adjacent project experience.",
+    "notable_projects": [
+      "Lansing Correctional Facility replacement project (new state prison completed in 2020)",
+      "Fort Leavenworth Combined Arms Center facility modernization and construction initiatives",
+      "Dwight D. Eisenhower VA Medical Center facility upgrades",
+      "Leavenworth riverfront and downtown redevelopment efforts"
+    ],
+    "credential_demand": "PMP and CAPM certifications are viewed favorably by Leavenworth-area employers, particularly those tied to federal, defense, and healthcare institutions where structured project governance is valued; general demand for certified project management skills appears steady rather than exceptionally high-volume.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fort Leavenworth and Leavenworth's federal and state correctional facilities anchor a steady demand for project managers who can navigate complex government and military initiatives. Healthcare systems, county government, and public education add consistent opportunities for certified professionals with public-sector experience. Granite PM Academy delivers live-virtual PMP® Certification to Leavenworth professionals pursuing advancement in these mission-critical fields.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Leavenworth's major employers—from Fort Leavenworth and the Dwight D. Eisenhower VA Medical Center to federal and state correctional facilities—depend on skilled project managers to deliver critical initiatives. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement and exam readiness you need to earn your CAPM credential, all on a schedule that fits working professionals. Completing your CAPM positions you to advance into project leadership roles across Leavenworth's government, defense, healthcare, and public-administration sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:15.821376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e46d2f19e294618c",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training for Leavenworth's Project Management Professionals",
+      "text": "<p>Fort Leavenworth and Leavenworth's constellation of federal and state government agencies, correctional facilities, and healthcare institutions create a distinctive project management landscape where certified professionals command consistent career advantage. Managing complex initiatives within military, corrections, and public-sector environments demands rigor, compliance expertise, and frameworks that only formal credentialing validates. The Certified Associate in Project Management (CAPM®) credential from the Project Management Institute recognizes the foundational competencies that employers across Leavenworth's largest sectors—from the U.S. Army Combined Arms Center to regional healthcare systems and county government—actively seek in their professional teams.</p><p>Granite PM Academy delivers live-virtual CAPM® Certification Training nationwide, taught by active certified practitioners who bring real-world project delivery experience to every session. Our PMI Authorized Training Partner curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and prepares you thoroughly for the CAPM® exam. Whether you are early in your project management career or transitioning into a government-adjacent field, our instructor-led approach combines structured learning with practical problem-solving, all on your schedule and from anywhere. Begin your path to certification with Granite PM Academy and position yourself for advancement within Leavenworth's stable, credential-respecting job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:19.860408Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "566f159a99ee3b2a",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Fort Leavenworth's Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering CAPM® certification training that meets PMI's rigorous standards. Your credential carries the full weight of PMI recognition—essential for advancement in federal, military, and government contracting roles across Leavenworth's largest employers."
+        },
+        {
+          "heading": "Live Virtual Instruction, Flexible Schedule",
+          "text": "Attend instructor-led CAPM® training from anywhere, on your schedule. Our live-virtual format satisfies all contact-hour requirements for certification eligibility while letting you balance work, family, and study—ideal for Leavenworth's professionals juggling complex roles in corrections, healthcare, and public administration."
+        },
+        {
+          "heading": "Instructors Who Practice What They Teach",
+          "text": "Your instructors are active certified practitioners—not just trainers. They bring real-world experience applying CAPM® frameworks and PMI standards daily, equipping you with practical knowledge you'll use immediately in your projects and gain confidence before the certification exam."
+        },
+        {
+          "heading": "Competitive Edge in Leavenworth's Job Market",
+          "text": "Fort Leavenworth, federal and state correctional facilities, and Leavenworth's healthcare and government employers increasingly value CAPM® certification for program coordinators and project specialists. This credential signals readiness for leadership and opens doors to higher-responsibility roles in your industry."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:24.335376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e43f75a333fe9844",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers at Fort Leavenworth and Beyond",
+      "text": "<p>Fort Leavenworth's Combined Arms Center anchors Leavenworth's project management job market, supported by major employers across defense, federal corrections, healthcare, and public administration. The U.S. Army's facility modernization and construction initiatives require structured project delivery expertise. Beyond the base, the Dwight D. Eisenhower VA Medical Center, Lansing Correctional Facility, and Leavenworth County Government all manage significant infrastructure and operational projects—from the completed Lansing Correctional Facility replacement project to ongoing downtown and riverfront redevelopment efforts. These organizations value certified project managers who can demonstrate governance discipline and proven delivery experience.</p><p>CAPM® certification positions you competitively in Leavenworth's steady, structured job market. While compensation tends to align with broader Kansas City-area metro levels rather than top-market rates, federal, defense, and healthcare employers in the region offer stability and long-term career growth. PMP and CAPM® credentials carry particular weight with Leavenworth-area employers where formal project methodology and compliance are non-negotiable. By completing Granite PM Academy's live-virtual CAPM® Certification Training, you gain the recognized credential and foundational knowledge these institutions seek—without geographic constraints. Your certification becomes portable across Leavenworth's largest hiring sectors and positions you for advancement as you build your project management portfolio.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:28.724477Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "922b03bbd19bbd24",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Leavenworth",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires only a secondary degree (high school diploma, associate degree, or equivalent) and completion of required project management education hours. No prior work experience is necessary—making CAPM ideal for career-changers and early-career professionals in Leavenworth's military, healthcare, and government sectors."
+        },
+        {
+          "heading": "Complete 23 Hours of PM Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course. Our intensive format covers the PMBOK® Guide framework across multiple sessions, delivered by active certified practitioners. Attend from anywhere—no travel required—while maintaining your Leavenworth work and personal schedule."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and complete the CAPM application, confirming your education credentials and eligibility. Pay the exam fee directly to PMI. Our team provides guidance on the application process to ensure accurate submission and faster approval."
+        },
+        {
+          "heading": "Prepare and Pass the CAPM Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and review sessions. Schedule your proctored exam through Pearson VUE at your convenience. Our instructors remain available to clarify complex topics before test day."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "After certification, earn professional development units (PDUs) over a three-year renewal cycle to keep your credential active. Track your PDUs through PMI's system, then renew before your certificate expires. Ongoing learning keeps you competitive in Leavenworth's growing project-driven organizations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:33.771796Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "db124a1bbaf811ee",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Leavenworth government and defense careers?",
+          "answer": "<p>Yes. Federal, defense, and public-sector employers in Leavenworth—including Fort Leavenworth, the VA Medical Center, and county government—prioritize structured project governance and formal credentials. CAPM demonstrates foundational PM competency and positions you competitively for roles managing compliance, infrastructure, and mission-critical initiatives where certification is often preferred or required for advancement.</p>"
+        },
+        {
+          "question": "Which Leavenworth employers value CAPM and PMP certifications most?",
+          "answer": "<p>Fort Leavenworth, the Dwight D. Eisenhower VA Medical Center, Saint Luke's Cushing Memorial Hospital, Leavenworth County Government, and correctional facilities view CAPM and PMP credentials favorably because their operations demand rigorous project delivery frameworks. Healthcare systems, defense installations, and government agencies particularly respect PMI certifications when managing budgets, timelines, and stakeholder coordination.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual CAPM training from my Leavenworth workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM training is delivered entirely online, so you can join from your office, home, or any location with internet access. Many Leavenworth professionals working in corporate offices, healthcare facilities, and government agencies attend during flexible scheduling windows without needing to travel or leave your workplace.</p>"
+        },
+        {
+          "question": "Should I get CAPM certified now or wait to pursue PMP in Leavenworth?",
+          "answer": "<p>Leavenworth's steady, credential-conscious job market rewards both early action and strategic sequencing. CAPM establishes your foundation immediately and keeps you competitive for mid-level roles. Many employers—especially in defense and healthcare—view CAPM as a logical stepping stone to PMP. Earning CAPM now accelerates your timeline to higher-level project leadership positions and stronger compensation as you gain experience.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:39.573927Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a28fcb55d84a4fd1",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Leavenworth and Leavenworth's network of federal and state correctional facilities anchor a steady project management market where government, military, and public-sector expertise commands premium value. Major employers including the VA Medical Center, Lansing Correctional Facility, and county/municipal departments consistently seek certified professionals to lead complex infrastructure and operational initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training to Leavenworth professionals nationwide, on a schedule built for working adults.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:34:41.384442Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "2d5a8bb4e8333fb3",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-leavenworth-ks/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Leavenworth, KS, CAPM boot camp Leavenworth, CAPM training Leavenworth, KS, CAPM classes Leavenworth KS, CAPM exam prep Leavenworth",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\",\n      \"name\": \"CAPM Certification Training in Leavenworth, KS | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Leavenworth, KS. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Leavenworth, KS\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#course\",\n      \"name\": \"CAPM Certification Training in Leavenworth, KS\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Leavenworth, KS. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-leavenworth-ks/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

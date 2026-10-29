@@ -1,348 +1,397 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "knoxville-tn",
-    "slug": "ai-training-knoxville-tn",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "knoxville-tn",
-        "city": "Knoxville",
-        "state": "Tennessee",
-        "SS": "TN",
-        "city_slug": "knoxville-tn",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Knoxville's project management landscape is shaped by energy and nuclear research leadership through TVA and Oak Ridge National Laboratory, alongside growth in healthcare, manufacturing, and infrastructure development. Major initiatives like TVA's Clinch River small modular reactor project and the University of Tennessee's Neyland Stadium renovation drive sustained demand for credentialed program managers. Granite PM Academy delivers live-virtual PMP Certification to Knoxville professionals seeking to advance in this dynamic market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Knoxville's growing energy and manufacturing sectors increasingly rely on project managers who understand AI's role in process optimization and risk management. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, letting you earn credentials without leaving your workplace. Master AI tools that Knoxville's largest employers now expect, and strengthen your competitiveness for advancement in roles that command deeper technical literacy.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:41.852340Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "353b98acbee1195d",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Knoxville",
-            "text": "<p>Knoxville's project management landscape is defined by its unmatched concentration in energy and nuclear research—anchored by the Tennessee Valley Authority and Oak Ridge National Laboratory—where complex, regulated programs demand expertise in emerging technologies and adaptive leadership. As artificial intelligence transforms how project teams plan, forecast, and mitigate risk across these mission-critical sectors, Knoxville's project managers face an immediate need to integrate AI literacy into their professional toolkit. Whether you manage infrastructure at TVA, oversee clinical workflows in Knoxville's healthcare systems, direct research administration at the University of Tennessee, or lead manufacturing operations, understanding AI's role in project delivery is no longer optional—it's a competitive advantage that signals capability to employers navigating rapid technological change.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers seeking the PMP®, CAPM®, or other PMI credentials. Our courses satisfy the contact-hour requirements for certification while being taught by active, credentialed practitioners who work in environments like yours. You'll learn to apply AI tools to real project challenges—schedule optimization, resource forecasting, stakeholder analysis—in a format that fits working professionals. Upon completion, you'll hold both the technical skills and the certification that Knoxville's top employers recognize and value as you advance your career in project leadership.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:46.560977Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "63f7392550e0161e",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Project Managers in Knoxville",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Recognition",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status means your certification path meets rigorous standards. Your credential carries weight with TVA, ORNL, and other major Knoxville employers who demand PMI-verified preparation and instruction."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Schedule",
-                    "text": "Our live-virtual instructor-led format lets you earn required contact hours while balancing work and family. Active certified practitioners teach real-world application—not recorded lectures—so you gain the practical skills Knoxville's construction, healthcare, and research sectors value."
-                },
-                {
-                    "heading": "Exam Readiness From Day One",
-                    "text": "Dedicated exam-preparation support built into every course ensures you enter the testing center confident. Mock exams, domain review, and instructor feedback help you pass on your first attempt and move into your next role faster."
-                },
-                {
-                    "heading": "Credential Matches Local Hiring Demand",
-                    "text": "Knoxville's energy, nuclear research, healthcare, and infrastructure sectors actively hire certified project managers. A PMI credential—PMP or CAPM—directly opens doors at organizations like KUB, Covenant Health, and the City, where project oversight skills command career advancement and competitive compensation."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:50.990281Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c9657d8160666913",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Knoxville's Energy Sector",
-            "text": "<p>Knoxville's project management demand is anchored in energy, nuclear research, and large-scale infrastructure work. The Tennessee Valley Authority (TVA) and Oak Ridge National Laboratory—two of the region's largest employers—regularly hire certified project managers to oversee complex, multi-phase initiatives like ORNL's exascale computing expansions and TVA's Clinch River Nuclear Site small modular reactor development. Beyond energy, the University of Tennessee's Neyland Stadium renovation and the City of Knoxville's East Riverfront redevelopment represent the kind of sophisticated, long-duration projects that require formal project management credentials. Healthcare systems, manufacturing firms like Regal Rexnord, and the Knox County Schools system also seek skilled PMs to manage capital projects and operational change.</p><p>In Knoxville's competitive market, PMP and CAPM credentials carry real weight—especially within engineering, energy, and healthcare organizations that evaluate candidates against formal PM standards. While exact compensation varies by industry and experience, project management salaries in the Southeast tend to be strongest for those with recognized credentials, and local employers increasingly list PMP or CAPM as preferred qualifications in job postings. Completing the AI Training for Project Managers at Granite PM Academy positions you to meet those expectations, equipping you with both certification-track knowledge and the technical competency modern Knoxville employers now expect. In a region where TVA, ORNL, and UT coordinate some of the nation's most demanding projects, that combination directly improves your hiring profile and advancement potential.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:42:55.153950Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "e19fdf11a8187d1f",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Do TVA and Oak Ridge employers in Knoxville value AI project management training?",
-                    "answer": "<p>Yes. Energy and nuclear research organizations like TVA and Oak Ridge National Laboratory manage large, complex projects where structured PM expertise—including emerging AI applications—strengthens candidate profiles. While PMP certification remains the primary credential these employers seek, AI training demonstrates your readiness to lead modernized project workflows. Both organizations increasingly favor candidates who combine traditional PM credentials with emerging technical competencies.</p>"
-                },
-                {
-                    "question": "Will AI PM training help me compete for Knoxville healthcare and manufacturing roles?",
-                    "answer": "<p>Absolutely. Knoxville's healthcare systems and manufacturing firms like Regal Rexnord actively recruit project managers who can integrate technology into operations. AI training signals you understand how to apply automation and data intelligence to scheduling, resource allocation, and risk management—skills these industries prioritize. Combined with formal PM certification, it strengthens your candidacy significantly in competitive local job markets.</p>"
-                },
-                {
-                    "question": "Can I take the AI PM course from my Knoxville workplace or office?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you attend from any location with reliable internet—including your workplace, home office, or a Knoxville library. This flexibility works well for professionals at UT, Covenant Health, KUB, or other major employers who need to balance training with ongoing project responsibilities without commuting to a physical classroom.</p>"
-                },
-                {
-                    "question": "Is now the right time for Knoxville PMs to add AI training before certification?",
-                    "answer": "<p>Yes, particularly if you're seeking PMP or CAPM credentials. Knoxville employers increasingly list formal PM certification as a preferred qualification. Adding AI training before or alongside your core certification strengthens your profile immediately and positions you ahead of candidates with certification alone—a meaningful edge in the local energy, healthcare, and engineering sectors where complex project delivery is the norm.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:00.694913Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "604df2f82bd05db4",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Knoxville's project management demand flows from anchors like TVA and Oak Ridge National Laboratory, where energy and nuclear research projects command seasoned program oversight. Healthcare systems, manufacturing, and the University of Tennessee's infrastructure initiatives—including Neyland Stadium's multi-phase renovation—add steady openings across sectors. Granite PM Academy delivers live-virtual AI Training for Project Managers to Knoxville professionals seeking the skills and credentials to lead complex work in this dynamic market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:43:02.785045Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "34204e497f66f2e8",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "knoxville-tn",
+  "slug": "ai-training-knoxville-tn",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "knoxville-tn",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "knoxville-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-knoxville-tn/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Knoxville, TN, AI courses Knoxville, CPMAI certification Knoxville, AI project management training Knoxville, TN, AI for project managers Knoxville",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\",\n      \"name\": \"AI Training for Project Managers in Knoxville, TN — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Knoxville, TN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Knoxville, TN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#course\",\n      \"name\": \"AI Training for Project Managers in Knoxville, TN\",\n      \"description\": \"CPMAI certification training for project managers in Knoxville, TN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Energy and nuclear research (TVA, Oak Ridge National Laboratory)",
+      "Healthcare and hospital systems",
+      "Higher education and research administration",
+      "Manufacturing and industrial engineering",
+      "Logistics, distribution, and transportation",
+      "Construction and infrastructure development"
+    ],
+    "top_employers": [
+      "Tennessee Valley Authority (TVA)",
+      "Oak Ridge National Laboratory (ORNL)",
+      "University of Tennessee, Knoxville",
+      "Covenant Health",
+      "University of Tennessee Medical Center",
+      "Knoxville Utilities Board (KUB)",
+      "Pilot Company",
+      "Regal Rexnord",
+      "City of Knoxville",
+      "Knox County Schools"
+    ],
+    "salary_note": "Project management salaries in the Knoxville area tend to be competitive with the broader Southeast region, particularly for roles tied to energy, engineering, and healthcare sectors, though exact figures vary widely by industry and experience level. Employers increasingly favor candidates with formal PM training or certification when setting compensation.",
+    "market_blurb": "Knoxville's project management job market is anchored by its strong presence in energy and nuclear research through TVA and Oak Ridge National Laboratory, along with major healthcare systems and the University of Tennessee. Growth in manufacturing, logistics, and infrastructure development continues to create steady demand for skilled project and program managers across both public and private sectors.",
+    "notable_projects": [
+      "TVA's Clinch River Nuclear Site small modular reactor development near Oak Ridge",
+      "Oak Ridge National Laboratory's ongoing exascale computing and research facility expansions",
+      "University of Tennessee's Neyland Stadium multi-phase renovation project",
+      "City of Knoxville's East Riverfront and downtown redevelopment initiatives"
+    ],
+    "credential_demand": "PMP certification is generally viewed as a strong differentiator among Knoxville-area employers, especially within engineering, energy, and healthcare organizations that manage large, complex projects. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Knoxville's project management market is anchored by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside major healthcare systems and University of Tennessee—creating steady demand for skilled PMs across public and private sectors. From the Clinch River small modular reactor development to downtown redevelopment initiatives, infrastructure and complex programs drive certification value here. Granite PM Academy delivers live-virtual PMP® Certification to Knoxville professionals, with flexible scheduling and PMI-aligned curriculum designed for working adults.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-knoxville-tn.webp",
+    "city_image_alt": "Four-market-square-tn1 in Knoxville, TN",
+    "city_image_credit": "Photo: Brian Stansberry, CC BY 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Four-market-square-tn1.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Energy, nuclear research, healthcare, and infrastructure projects across Knoxville's major employers—from TVA and Oak Ridge National Laboratory to Covenant Health and the University of Tennessee—depend on skilled project managers to deliver complex initiatives on time and within scope. Granite PM Academy's live-virtual PMI-CPMAI Certification Training satisfies PMI's contact-hour education requirement through instructor-led instruction you can complete from anywhere, equipping you with the credential that opens advancement opportunities across Knoxville's high-stakes project environments.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:59.856268Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d8ad8f0b9d0edacb",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Knoxville Project Managers",
+      "text": "<p>Knoxville's project management landscape is shaped fundamentally by its anchoring role in energy and nuclear research through the Tennessee Valley Authority and Oak Ridge National Laboratory, alongside robust healthcare systems, university research administration, and expanding manufacturing and logistics sectors. Professionals managing complex initiatives in these environments—whether coordinating capital projects at TVA, overseeing research programs at ORNL, or directing infrastructure and operational efforts across Knoxville's major employers—benefit significantly from PMI-CPMAI Certification Training. This credential demonstrates mastery of change and configuration management, disciplines essential in regulated, high-stakes environments where scope integrity and stakeholder alignment directly impact project success and organizational outcomes.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting all contact-hour requirements mandated by the Project Management Institute. Our instructors are active certified practitioners with real-world experience in complex project and program environments. Every Knoxville professional preparing for the PMI-CPMAI exam works directly with qualified instructors, accesses comprehensive curriculum materials, and completes the training needed to sit for certification with confidence. Upon completion, you'll hold a credential recognized across Knoxville's energy, healthcare, manufacturing, and infrastructure sectors—positioning you for advancement and expanded career opportunity.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:04.102580Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "fc8389e5b289f4b9",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification: Knoxville's Energy and Research Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner, ensuring your CPMAI training meets PMI's rigorous standards. This status guarantees curriculum alignment, instructor credentials, and recognition—critical for professionals in Knoxville's regulated energy and research sectors."
+        },
+        {
+          "heading": "Live Virtual, Contact Hours Included",
+          "text": "Earn required contact hours through live-virtual instructor-led sessions—no self-paced, no recordings alone. Synchronous learning ensures accountability and interaction, meeting PMI's contact-hour mandate while fitting the schedules of working professionals across Knoxville's healthcare, manufacturing, and infrastructure industries."
+        },
+        {
+          "heading": "Active Practitioners Teaching",
+          "text": "Your instructors are active certified practitioners applying project and program management daily. Real-world insight into complex delivery—from multi-site rollouts to cross-functional coordination—prepares you for the CPMAI exam and for leadership roles in Knoxville's most demanding sectors."
+        },
+        {
+          "heading": "Credential Valued by Knoxville Employers",
+          "text": "TVA, ORNL, Covenant Health, UTK, and major manufacturers actively seek certified program and portfolio managers. The CPMAI signals mastery of enterprise-level governance and strategic alignment—exactly what Knoxville's largest employers hire for and advance within."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:08.661036Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9bc29a5d67a7a856",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Knoxville's Energy and Research Hub",
+      "text": "<p>Knoxville's economy is anchored by energy and nuclear research, with the Tennessee Valley Authority (TVA) and Oak Ridge National Laboratory (ORNL) leading major infrastructure and technology initiatives that demand skilled project managers. TVA's Clinch River Nuclear Site small modular reactor development and ORNL's exascale computing and research facility expansions represent the kind of large, complex, multi-phase undertakings where certified project managers are essential to success. Beyond the energy sector, the University of Tennessee, Covenant Health, Knoxville Utilities Board, and the City of Knoxville's East Riverfront redevelopment initiatives all actively hire professionals with formal project management credentials to oversee their strategic operations and capital projects.</p><p>In Knoxville's competitive job market, a PMP or CAPM credential carries meaningful weight—particularly within engineering, energy, and healthcare organizations that frequently list formal PM certification as a preferred qualification. While salaries for project managers in the region track competitively with the broader Southeast, especially in energy and engineering roles, employers increasingly tie stronger compensation packages to candidates who bring recognized credentials. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to differentiate yourself among local employers and unlock advancement opportunities in the industries that define Knoxville's economy. Our live-virtual format lets you earn your credential on your schedule while maintaining your current role.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:13.012939Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1bfc63ef25a40ca6",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Knoxville's Energy & Research Hub",
+      "text": "<p>Knoxville's economy centers on large-scale energy and research operations that depend heavily on skilled project managers. The Tennessee Valley Authority (TVA) and Oak Ridge National Laboratory (ORNL)—both major regional employers—manage complex, multi-year initiatives requiring rigorous project oversight. ORNL's exascale computing and research facility expansions, alongside TVA's Clinch River Nuclear Site small modular reactor development, exemplify the scale of work that demands certified PM expertise. Beyond energy, the University of Tennessee's Neyland Stadium renovation and the City of Knoxville's East Riverfront redevelopment projects reflect ongoing demand for disciplined project management across healthcare, higher education, construction, and municipal infrastructure sectors.</p><p>In Knoxville's competitive market, PMP and CAPM credentials carry real weight—particularly within engineering, energy, and healthcare organizations that post project management roles. Employers here increasingly favor candidates with formal PM training when evaluating compensation and advancement potential. Completing PMI-CPMAI Certification Training through Granite PM Academy gives you the foundational credential and active practitioner instruction needed to stand out in a market where large, technically demanding projects are the norm. Whether you're targeting TVA, ORNL, Covenant Health, or one of the region's growing infrastructure initiatives, the certification directly addresses what local hiring managers are looking for in their project management teams.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:16.975898Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1bfc63ef25a40ca6",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Does PMI-CPMAI certification help project managers advance at TVA or Oak Ridge?",
+          "answer": "<p>Yes. Energy and nuclear research organizations like TVA and Oak Ridge National Laboratory regularly seek project managers with formal PM credentials to lead complex, regulated initiatives. PMI-CPMAI training equips you with frameworks and tools these employers value, and certification strengthens your candidacy for roles managing infrastructure, research, and operational projects in Knoxville's dominant industry sector.</p>"
+        },
+        {
+          "question": "Which Knoxville employers most value PMI project management certification?",
+          "answer": "<p>Engineering, energy, healthcare, and higher education employers in Knoxville—including Covenant Health, University of Tennessee, KUB, and manufacturing firms—increasingly list PMP or advanced PM credentials as preferred qualifications in job postings. PMI-CPMAI training signals readiness for large-scale, cross-functional projects common in these sectors, improving your competitiveness in the local market.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI worth completing now in the Knoxville job market?",
+          "answer": "<p>Yes, if you're pursuing a project management career in Knoxville. Formal PM training and certification are recognized differentiators by major local employers across energy, healthcare, and manufacturing. Completing certification positions you for better advancement and compensation conversations, especially within roles tied to infrastructure, research administration, or complex healthcare operations.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Knoxville workplace?",
+          "answer": "<p>Absolutely. Granite PM Academy delivers all PMI-CPMAI training as live-virtual sessions, so you can attend from your office, home, or any location with an internet connection. Many Knoxville professionals join from their workplaces at healthcare systems, utilities, universities, and corporate offices during flexible schedules that fit your role.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:22.542260Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a6e6e9b6384ea73d",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Knoxville's project management landscape is shaped by energy and nuclear research leadership through TVA and Oak Ridge National Laboratory, alongside expanding healthcare systems, higher education administration, and manufacturing sectors. Major infrastructure initiatives—from TVA's small modular reactor development to downtown redevelopment projects—sustain strong, ongoing demand for credentialed project managers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Knoxville professionals nationwide, enabling you to earn your credential on a flexible schedule while building skills directly relevant to the region's dynamic project-driven employers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:24.482878Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "6e175008d1be4b76",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Knoxville's project management demand is anchored by energy and nuclear research leadership through TVA and Oak Ridge National Laboratory, alongside robust healthcare systems and University of Tennessee operations. Major infrastructure initiatives—from TVA's Clinch River small modular reactor development to downtown riverfront redevelopment—create consistent opportunities for skilled program and project managers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Knoxville professionals seeking to advance their credentials and careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:26.179865Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "6e175008d1be4b76",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-knoxville-tn/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Knoxville, TN, AI courses Knoxville, CPMAI certification Knoxville, AI project management training Knoxville, TN, AI for project managers Knoxville",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\",\n      \"name\": \"PMI-CPMAI Certification Training in Knoxville, TN | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Knoxville, TN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Knoxville, TN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Knoxville, TN\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Knoxville, TN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-knoxville-tn/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-knoxville-tn/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

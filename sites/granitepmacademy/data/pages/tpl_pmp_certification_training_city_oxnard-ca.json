@@ -1,394 +1,422 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "oxnard-ca",
-    "slug": "pmp-certification-training-oxnard-ca",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "oxnard-ca",
-        "city": "Oxnard",
-        "state": "California",
-        "SS": "CA",
-        "city_slug": "oxnard-ca",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Oxnard's economy runs on Naval Base Ventura County, the Port of Hueneme, advanced manufacturing, and healthcare—all sectors where project managers drive operational success. Major employers like Haas Automation, St. John's Regional Medical Center, and the city's own infrastructure initiatives (including the GREAT water purification program) consistently seek certified professionals to lead complex initiatives. Granite PM Academy delivers live-virtual PMP® Certification designed for Oxnard professionals balancing work and study.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Oxnard's aerospace and defense sector relies on rigorously credentialed project managers to oversee complex, regulated programs. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's required contact-hour education, preparing you to sit for the PMP exam on your timeline. Earning your PMP® credential strengthens your competitive position across Oxnard's engineering-driven employers and opens pathways to senior leadership roles in mission-critical industries.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:22.848143Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "ad6cbee7cc56b19d",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Oxnard for Defense and Advanced Manufacturing Leaders",
-            "text": "<p>Oxnard's project management market is anchored by Naval Base Ventura County and the sophisticated operations of defense contractors, aerospace suppliers, and advanced manufacturers like Haas Automation—sectors where PMP® certification is often expected for supervisory and leadership roles. Beyond defense, the Port of Hueneme, agricultural processing facilities, and expanding healthcare systems throughout Oxnard create steady demand for credentialed project managers to oversee capital projects, supply-chain initiatives, and operational transformations. Professionals working in these industries recognize that PMP® certification signals mastery of formal project governance, risk management, and resource planning—skills that directly influence career advancement and compensation in Oxnard's competitive market.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led courses taught by active, certified practitioners with real-world experience in industries relevant to Oxnard's employers. As a PMI Authorized Training Partner, we ensure every course satisfies the contact-hour requirements mandated by the Project Management Institute for PMP® eligibility. Our curriculum balances theory with practical application, so you learn frameworks used by project leaders at Naval Base Ventura County, manufacturing operations, and healthcare systems in your region. Upon completion, you'll be equipped to sit for the PMP® exam with confidence and move forward in your certification journey.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:26.625924Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "180442eac4f9991c",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP® Certification for Oxnard's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets PMI's rigorous standards. Your contact hours count directly toward certification eligibility—no guesswork, no gaps."
-                },
-                {
-                    "heading": "Live Instruction, Your Schedule",
-                    "text": "Our live-virtual instructor-led format lets you earn required contact hours from Oxnard without travel delays. Real-time instructors answer questions as they arise; recorded sessions support flexible review for working professionals."
-                },
-                {
-                    "heading": "Practitioners Teaching Practitioners",
-                    "text": "Your instructors hold active PMP® credentials and manage projects daily—not just theory. They bring aerospace, manufacturing, healthcare, and port operations expertise directly into coursework, plus targeted exam-prep strategies."
-                },
-                {
-                    "heading": "Credential Demand at Major Oxnard Employers",
-                    "text": "Naval Base Ventura County, Port of Hueneme, Haas Automation, and regional healthcare systems hire project managers with PMP® credentials to lead complex initiatives. Certification strengthens your candidacy and earning potential locally."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:30.816153Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c6e90f0d216781a1",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Oxnard's Defense and Maritime Hub",
-            "text": "<p>Oxnard's economy centers on defense, advanced manufacturing, and maritime operations—sectors where certified project managers are actively recruited. Naval Base Ventura County directs substantial capital improvement and infrastructure projects that demand skilled PM leadership, while the Port of Hueneme's ongoing Wharf Improvement and modernization program represents the kind of large-scale infrastructure work where PMP® credentials strengthen candidacy significantly. Haas Automation and the P&G manufacturing plant also employ project managers to oversee complex production and facility initiatives. Beyond these anchor employers, the City of Oxnard's GREAT Program—a sophisticated water purification and groundwater recovery initiative—and the RiverPark mixed-use development illustrate how local public-sector and commercial projects rely on disciplined project management to deliver on time and within budget.</p><p>While PMP® certification is not universally mandated in Oxnard-area postings, it is frequently listed as preferred by defense, healthcare, and manufacturing employers competing for the same talent pool. Formal project management training positions you as a more competitive candidate in these high-value sectors, where employers recognize that certified professionals bring structured methodology and risk-management rigor to mission-critical work. Completing PMP Certification Training through Granite PM Academy equips you with credentials and frameworks that resonate with Oxnard's largest employers and positions you to advance into roles managing infrastructure, facility, and operational projects across the region's strongest industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:35.518202Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "6fac80c317f45052",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Oxnard",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Review PMI's education and project-management experience requirements for the PMP credential. Oxnard professionals in defense contracting, maritime operations, and engineering typically meet these standards. Gather documentation of your work history and formal education before applying."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our flexible schedule accommodates Oxnard's working professionals. You'll earn the required contact hours and gain practical knowledge directly applicable to local project environments."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "After course completion, submit your formal application to PMI and pay the exam fee. Granite PM Academy guides you through each step. PMI reviews your credentials and eligibility before exam authorization."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Access Granite PM Academy's exam-preparation resources, including practice tests and targeted study materials. Schedule your exam at a Pearson Vue testing center. Our instructors remain available to clarify concepts as you finalize your readiness."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "Earn Professional Development Units (PDUs) over the standard renewal cycle to keep your certification active. Granite PM Academy offers ongoing learning opportunities aligned with PMI standards. Staying current strengthens your competitive position in Oxnard's growing project-management sector."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:40.203020Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "ca17b523a37f7e88",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Oxnard defense and manufacturing careers?",
-                    "answer": "<p>Yes. Defense contractors at Naval Base Ventura County and advanced manufacturers like Haas Automation frequently list PMP or CAPM as preferred qualifications. While not universally mandatory, certification strengthens your candidacy significantly in these sectors, where employers actively compete for certified talent. The credential signals structured methodology expertise that aligns with defense compliance and manufacturing quality standards.</p>"
-                },
-                {
-                    "question": "Which Oxnard employers value project management certification most?",
-                    "answer": "<p>Defense, healthcare, manufacturing, and public-sector employers in Oxnard—including Naval Base Ventura County contractors, St. John's Regional Medical Center, The Wonderful Company, and City of Oxnard departments—frequently seek PMP-certified professionals. Port of Hueneme logistics and infrastructure roles also benefit from formal project management credentials. These sectors recognize certification as a differentiator in competitive hiring.</p>"
-                },
-                {
-                    "question": "Can I attend PMP training in Oxnard while working at my current job?",
-                    "answer": "<p>Yes. Granite PM Academy offers live-virtual course options that allow Oxnard professionals to participate from their workplace or home, accommodating the schedules of employees at Haas, Naval Base Ventura County contractors, healthcare systems, and other local employers. Flexible scheduling makes it feasible to balance certification training with full-time work commitments.</p>"
-                },
-                {
-                    "question": "When should Oxnard project managers pursue PMP certification for job advancement?",
-                    "answer": "<p>In Oxnard's competitive defense, healthcare, and manufacturing sectors, pursuing certification early—especially when transitioning into or advancing within these industries—maximizes its value. Many employers list it as preferred before hiring, so obtaining it proactively strengthens your candidacy. Regional hiring trends favor certified candidates, making timing an advantage rather than a requirement to meet later.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:45.010530Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "88e7c766170c416c",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Oxnard's project management demand spans naval defense operations, advanced manufacturing, and port logistics—with Naval Base Ventura County, Haas Automation, and the Port of Hueneme regularly seeking skilled program and project managers for infrastructure and operational initiatives. The PMP® credential positions Oxnard professionals to advance into leadership roles across these sectors. Granite PM Academy delivers live-virtual PMP Certification Training designed for working professionals in Oxnard, making it practical to earn your PMI credential while managing your current commitments.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:47.185612Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "332cfb4a003c743f",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "oxnard-ca",
+  "slug": "pmp-certification-training-oxnard-ca",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "oxnard-ca",
+    "city": "Oxnard",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "oxnard-ca",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-oxnard-ca/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Oxnard, CA, PMP exam prep Oxnard, PMP course Oxnard CA, project management certification Oxnard, CA, PMI PMP training Oxnard",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\",\r\n      \"name\": \"PMP Certification Training in Oxnard, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Oxnard, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Oxnard, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#course\",\r\n      \"name\": \"PMP Certification Training in Oxnard, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Oxnard, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Agriculture & food processing",
+      "Aerospace & defense (Naval Base Ventura County)",
+      "Advanced manufacturing (machine tools, consumer goods)",
+      "Healthcare",
+      "Maritime/logistics (Port of Hueneme)",
+      "Public sector/education"
+    ],
+    "top_employers": [
+      "Haas Automation",
+      "Naval Base Ventura County",
+      "Port of Hueneme (Oxnard Harbor District)",
+      "St. John's Regional Medical Center (Dignity Health)",
+      "Community Memorial Health System",
+      "The Wonderful Company",
+      "City of Oxnard",
+      "Oxnard Union High School District",
+      "Gold Coast Transit District",
+      "Procter & Gamble (Oxnard manufacturing plant)"
+    ],
+    "salary_note": "Project manager pay in the Oxnard area tends to track broader Southern California/Ventura County norms, with a premium for candidates who bring defense, manufacturing, or healthcare project experience. Employers in these sectors often compete for certified talent, making PMP or CAPM credentials a differentiator rather than a guarantee of a specific salary tier.",
+    "market_blurb": "Oxnard's project management job market is shaped by its mix of naval defense operations, agricultural and food-processing industries, advanced manufacturing, and a growing healthcare sector. Employers such as Naval Base Ventura County, Haas Automation, and local hospital systems regularly need project and program managers to oversee facilities, IT, and operational initiatives. The presence of the Port of Hueneme and ongoing municipal infrastructure work adds further demand for professionals skilled in project delivery and coordination.",
+    "notable_projects": [
+      "Port of Hueneme Wharf Improvement and modernization program",
+      "City of Oxnard's GREAT (Groundwater Recovery Enhancement and Treatment) Program for advanced water purification",
+      "Naval Base Ventura County capital improvement and infrastructure projects",
+      "RiverPark master-planned mixed-use development in Oxnard"
+    ],
+    "credential_demand": "While not universally required, PMP certification is frequently listed as preferred in Oxnard-area job postings tied to defense, healthcare, and manufacturing employers, reflecting broader regional hiring trends in Southern California. Even where not mandatory, formal project management training can strengthen candidacy for public-sector and infrastructure-related roles in the area.",
+    "_researched": 1,
+    "city_spotlight": "<p>Oxnard's project management demand spans naval defense, advanced manufacturing, healthcare, and maritime logistics—with employers including Naval Base Ventura County, Haas Automation, and Port of Hueneme actively seeking PMs to lead facilities, IT, and infrastructure initiatives. Major undertakings like the Port's wharf modernization and the City's GREAT water treatment program underscore the region's need for skilled project delivery professionals. Granite PM Academy delivers live-virtual PMP® Certification to Oxnard-based professionals pursuing this industry-recognized credential.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Oxnard's aerospace, defense, maritime, and advanced manufacturing sectors depend on skilled project managers to coordinate complex operations across Naval Base Ventura County, the Port of Hueneme, and major employers like Haas Automation. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour requirements, enabling you to earn the credential on your schedule while building the technical and leadership expertise these industries demand. A PMP certification positions you for advancement and competitive compensation in Oxnard's project-driven economy.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:11.531297Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4138e4b98a617d5f",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Oxnard's Project Management Professionals",
+      "text": "<p>Oxnard's defense and aerospace sector, anchored by Naval Base Ventura County, creates sustained demand for credentialed project managers who can navigate complex, regulated environments and oversee mission-critical initiatives. Beyond the base, Oxnard's advanced manufacturing firms, port operations, healthcare systems, and agricultural processing companies all rely on skilled project leaders to deliver facilities upgrades, supply-chain improvements, IT deployments, and operational restructuring. The PMP® credential—recognized globally and required or preferred by many federal contractors and large employers in these industries—signals to hiring managers that you understand how to scope, schedule, budget, and lead projects to completion. For professionals in Oxnard seeking advancement or entry into higher-responsibility roles, PMP Certification Training is an investment in both immediate marketability and long-term career trajectory within the region's largest employers.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP Certification Training to professionals nationwide, including those in Oxnard. Our courses meet all contact-hour requirements mandated by the Project Management Institute and are taught by active certified practitioners with real-world project experience. The live-virtual format lets you earn your certification on your schedule without relocating or commuting, while maintaining the direct interaction and expert guidance that makes instructor-led training effective. Upon completion, you'll be prepared to sit for the PMP® exam and join the ranks of certified professionals advancing projects and programs across Oxnard's vital industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:16.059441Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6eb2e15c161e7da9",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Oxnard's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization, Recognized Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® training that meets all PMI contact-hour requirements. Your certificate counts toward PMI credential eligibility—no gaps, no workarounds. Employers across Oxnard's defense, healthcare, and manufacturing sectors trust PMI credentials."
+        },
+        {
+          "heading": "Live Instruction, Work Around Your Schedule",
+          "text": "Attend live-virtual instructor-led classes from anywhere, at times that fit your job and life. No recorded videos or self-paced modules—you interact with instructors in real time, ask questions, and complete all required contact hours in a structured, cohesive cohort."
+        },
+        {
+          "heading": "Learn from Active Certified Practitioners",
+          "text": "Your instructors are working, certified project managers—not trainers reading slides. They bring current PM experience into every lesson, share real-world problem-solving, and prepare you to handle the scenarios you'll face on the exam and in your role."
+        },
+        {
+          "heading": "Credential Valued by Oxnard's Top Employers",
+          "text": "Naval Base Ventura County, Port of Hueneme, Haas Automation, and regional healthcare systems actively seek PMP®-certified program and project managers. The credential opens advancement pathways in defense, manufacturing, maritime logistics, and public-sector management—fields where Oxnard's major employers invest in certified talent."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:20.791204Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9cacef275facaaf5",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Oxnard's Defense and Maritime Hub",
+      "text": "<p>Oxnard's economy centers on defense, advanced manufacturing, maritime logistics, and healthcare—sectors where certified project managers are in consistent demand. Naval Base Ventura County drives significant capital improvement and infrastructure projects that require disciplined project oversight, while the Port of Hueneme's ongoing Wharf Improvement and modernization program creates roles for professionals who can manage complex maritime and logistics initiatives. Haas Automation, St. John's Regional Medical Center, and the City of Oxnard itself regularly seek project managers to lead operational and infrastructure work. Employers in these fields increasingly list PMP® or CAPM® credentials as preferred qualifications, reflecting the regional expectation that formal project management training distinguishes competitive candidates.</p><p>In the Oxnard job market, project manager compensation tracks broader Southern California norms, with employers in defense, healthcare, and manufacturing actively competing for certified talent. The credential alone does not guarantee a specific pay tier, but it meaningfully strengthens your candidacy—particularly for roles tied to public-sector, infrastructure, and regulated industries where methodical delivery and stakeholder communication are non-negotiable. Completing PMP Certification Training through Granite PM Academy positions you to meet those employer expectations, whether you are entering the field or advancing within it. Live-virtual instruction means you can earn your credential on a schedule that fits your Oxnard-area career and personal commitments.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:24.976391Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0486d2bfd88a0fe6",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Oxnard",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's eligibility criteria—typically a secondary degree plus years of project leadership experience, or a bachelor's degree with fewer years required. Verify your background meets the standard before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend all sessions synchronously from Oxnard or anywhere with internet access. This formal education fulfills PMI's mandatory contact-hour requirement and covers the PMBOK® Guide framework, exam domains, and real-world scenarios."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, create your PMI account and submit your PMP application directly to PMI. Document your project experience, education, and references as requested. Pay the exam fee and wait for PMI to audit and approve your application before scheduling your exam."
+        },
+        {
+          "heading": "Prepare and Pass the PMP Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and study guides to reinforce course material. Schedule your exam at a PMI-approved testing center. Sit for the computer-based PMP exam, which assesses your knowledge across the five process groups and ten knowledge areas."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, maintain your PMP by earning professional development units (PDUs) throughout a three-year renewal cycle. Engage in approved learning activities—training, volunteering, teaching, or publications—and renew your credential before expiration to keep it active and current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:30.167619Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "c4b39d05f13a31cf",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Oxnard project managers?",
+          "answer": "<p>Yes, particularly if you work in defense, healthcare, or advanced manufacturing. Employers like Naval Base Ventura County, St. John's Regional Medical Center, and Haas Automation frequently list PMP as preferred in job postings. While not universally mandatory, the credential strengthens your candidacy significantly and can differentiate you when competing for roles in these high-demand sectors where certified talent commands respect.</p>"
+        },
+        {
+          "question": "Do Oxnard defense and healthcare employers require PMP certification?",
+          "answer": "<p>PMP is often listed as preferred rather than required in Oxnard-area defense and healthcare postings. However, formal project management training and certification improve your competitiveness substantially—especially for roles supporting Naval Base Ventura County operations or healthcare system projects. In these sectors, the credential signals capability and commitment, making you a stronger candidate even when not explicitly mandatory.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in Oxnard?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP training via live-virtual instruction, so you can attend from your workplace, home, or any location with internet access. This format works well for Oxnard professionals balancing full-time roles at major employers—you join scheduled sessions without travel time, fitting professional development into your existing schedule.</p>"
+        },
+        {
+          "question": "When is the best time to pursue PMP certification in Oxnard's job market?",
+          "answer": "<p>Timing matters in Oxnard's competitive sectors. Defense, manufacturing, and healthcare hiring cycles often peak in Q2 and Q4. If you're planning a move or promotion within these industries, starting PMP training 2–3 months before target job searches gives you the credential when employers are actively recruiting. Early action positions you ahead of other candidates in these high-value fields.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:35.793555Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "08a64f0bb6f6eb7a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Oxnard's defense, maritime, and advanced manufacturing sectors—anchored by Naval Base Ventura County, Port of Hueneme, and Haas Automation—create steady demand for skilled project managers overseeing capital improvements, facility upgrades, and operational delivery. The PMP® credential is valued across these industries and the city's growing healthcare and public-sector employers. Granite PM Academy delivers live-virtual PMP Certification Training to Oxnard professionals, offering flexible scheduling and PMI-aligned coursework nationwide.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:53:37.545373Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "8a56c091f23ac7e6",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-oxnard-ca/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Oxnard, CA, PMP exam prep Oxnard, PMP course Oxnard CA, project management certification Oxnard, CA, PMI PMP training Oxnard",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\",\r\n      \"name\": \"PMP Certification Training in Oxnard, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Oxnard, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Oxnard, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#course\",\r\n      \"name\": \"PMP Certification Training in Oxnard, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Oxnard, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-oxnard-ca/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

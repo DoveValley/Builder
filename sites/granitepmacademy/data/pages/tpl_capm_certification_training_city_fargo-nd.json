@@ -1,390 +1,432 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "fargo-nd",
-    "slug": "capm-certification-training-fargo-nd",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "fargo-nd",
-        "city": "Fargo",
-        "state": "North Dakota",
-        "SS": "ND",
-        "city_slug": "fargo-nd",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Fargo's healthcare sector—anchored by Sanford Health and complemented by growing tech and manufacturing employers like Microsoft and CNH Industrial—regularly seeks skilled project managers for facility expansions, system implementations, and product development. The city's diversified, stable economy creates consistent demand for PMP-certified professionals across multiple industries. Granite PM Academy serves Fargo professionals with live-virtual PMP Certification training designed around working schedules.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Fargo's energy and advanced manufacturing sectors increasingly rely on structured project management to meet regulatory and operational demands. Granite PM Academy's live-virtual CAPM Certification & Boot Camp delivers the PMI-required contact hours through instructor-led instruction, preparing you to sit for the exam while fitting around your work schedule. Earning your CAPM credential positions you to move into formal project-management roles where Fargo employers actively seek certified professionals.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:55.055865Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "7d0fe0be6266ca23",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Fargo for Project Managers",
-            "text": "<p>Fargo's healthcare sector—anchored by major systems like Sanford Health and Essentia Health—drives consistent demand for credentialed project managers overseeing clinical implementations, facility expansions, and care delivery innovations. Beyond healthcare, the city's thriving technology employers, agribusiness leaders like CNH Industrial, and financial services firms all require skilled project professionals to manage complex initiatives. A CAPM® (Certified Associate in Project Management) credential demonstrates your ability to apply PMI's globally recognized frameworks, positioning you competitively in Fargo's stable, diversified job market where project management roles span healthcare IT, manufacturing optimization, agricultural technology, and insurance operations.</p><p>Granite PM Academy delivers CAPM® Certification & Boot Camp as a PMI Authorized Training Partner, offering live-virtual and instructor-led instruction tailored to working professionals in Fargo. Our courses satisfy the contact-hour requirements mandated by PMI for CAPM® eligibility, taught by active certified practitioners with real-world experience in the industries that hire in your region. You'll gain practical knowledge in project initiation, planning, execution, and monitoring—skills directly applicable whether you're supporting a healthcare system implementation or a technology rollout. Upon completion, you'll be prepared to sit for the CAPM® exam and take the next step in your project management career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:58.892188Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "b7a6519c309f1824",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Launch Your PM Career in Fargo's Growing Healthcare & Tech Sectors",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training, Recognized Credential",
-                    "text": "Granite PM Academy's CAPM® boot camp is delivered by a PMI Authorized Training Partner, ensuring your certification meets PMI's rigorous standards. Employers across Fargo—from Sanford Health to Microsoft—trust PMI credentials as proof of real project management competence."
-                },
-                {
-                    "heading": "Live Instruction Fits Your Schedule",
-                    "text": "Our live-virtual, instructor-led format lets you earn contact hours from home while maintaining your current job in Fargo. You interact directly with instructors and peers in real time, satisfying PMI's contact-hour requirement without campus commutes."
-                },
-                {
-                    "heading": "Learn From Active Practicing PMs",
-                    "text": "Granite instructors are current certified project managers working in industries like healthcare, tech, and manufacturing. They bring real examples from Fargo-area projects, showing you how CAPM® knowledge applies on the job from day one."
-                },
-                {
-                    "heading": "Position Yourself for Fargo's PM Demand",
-                    "text": "Healthcare giants Sanford and Essentia, plus tech employers and CNH Industrial, actively hire project managers with CAPM® credentials. The certification opens doors in Fargo's fastest-growing sectors and signals readiness to employers seeking structured, disciplined professionals."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:03.327661Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c79f1f3c08675d6b",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing Across Fargo",
-            "text": "<p>Fargo's healthcare sector anchors steady demand for certified project managers. Sanford Health and Essentia Health both operate major facilities and ongoing expansion projects in the region, requiring skilled PMs to oversee construction, IT infrastructure, and operational upgrades. Beyond healthcare, technology employers—including Microsoft's Fargo campus and growing local software operations—depend on certified professionals to manage IT projects and infrastructure builds. Manufacturing and agribusiness firms like CNH Industrial (Case IH), along with financial services institutions such as Noridian Mutual Insurance and Bell Bank, round out a diverse local employer base that increasingly values standardized project-delivery credentials.</p><p>The CAPM credential carries real weight in Fargo's job market. While not universally mandatory, certified candidates are frequently preferred for mid- to senior-level roles across healthcare, technology, and manufacturing—the sectors driving local hiring. Fargo's project manager compensation remains competitive relative to the region's cost of living, with healthcare and technology employers typically offering the strongest packages. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you to stand out among local applicants and move into roles where certification preference translates directly to career advancement and earning potential in this growing market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:07.055574Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "734434d2e7be9fbd",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Fargo",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and meet PMI's education requirement. No project management work experience is necessary—CAPM is designed for professionals new to the field who want to formalize their knowledge quickly."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses foundational project management knowledge into a structured schedule, preparing you thoroughly for exam content while fitting your professional calendar."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI and complete the CAPM application process. Granite PM Academy will guide you through submission requirements and help you pay the associated exam fee to officially sit for the credential exam."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources and practice materials to build confidence. On test day, you'll demonstrate mastery of project management fundamentals and earn your CAPM credential upon passing."
-                },
-                {
-                    "heading": "Maintain Your Credential",
-                    "text": "Commit to earning professional development units throughout your three-year certification cycle. Granite PM Academy offers continuing education resources to help you stay current and renew your CAPM when the cycle completes."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:11.422674Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "ba7631882234add7",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for project managers in Fargo?",
-                    "answer": "<p>Yes. Fargo's largest employers—Sanford Health, Essentia Health, Microsoft, and CNH Industrial—increasingly prefer or require CAPM or PMP certification for mid-level and senior project management roles. Healthcare, technology, and manufacturing sectors especially value standardized PM credentials. While not always mandatory, certified candidates are frequently prioritized in local job postings, and the credential positions you competitively in Fargo's steady, attractive PM job market.</p>"
-                },
-                {
-                    "question": "Which Fargo employers most value CAPM certification?",
-                    "answer": "<p>Healthcare systems like Sanford Health and Essentia Health, tech companies including Microsoft and Aldevron, and manufacturers such as CNH Industrial (Case IH) actively recruit certified project managers. Financial services firms—Noridian Mutual Insurance, Blue Cross Blue Shield of North Dakota, and Border States Electric—also recognize CAPM as a credential that signals capability in managing complex initiatives. NDSU and other regional organizations increasingly favor certified PMs for project-driven roles.</p>"
-                },
-                {
-                    "question": "Can I attend Fargo CAPM boot camp training while working full-time?",
-                    "answer": "<p>Yes. Our live-virtual boot camp format allows Fargo professionals to attend from home, your office, or any location with reliable internet. This flexibility lets you continue your current role while earning your CAPM certification, making it practical for employed PMs seeking credential advancement without workplace disruption or relocation.</p>"
-                },
-                {
-                    "question": "How does Fargo's job market affect the timing of CAPM certification?",
-                    "answer": "<p>Fargo's strong demand for certified PMs across healthcare, technology, and manufacturing means the credential remains valuable year-round, but pursuing it during a career transition or when seeking promotion maximizes return. Current local salary competitiveness and employer preference for certified candidates make early certification a smart move—the sooner you earn CAPM, the sooner you qualify for higher-demand roles and stronger compensation packages in Fargo's stable labor market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:17.499458Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "858aed10d83b4152",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives steady demand for skilled project managers overseeing facility expansions and system implementations. Beyond healthcare, the city's technology growth, agribusiness presence, and diversified employer base create multiple pathways for PM professionals. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp sessions designed for Fargo working professionals seeking to advance their credentials and career prospects.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:19.187991Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "4edb07ed5eaf93eb",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "fargo-nd",
+  "slug": "capm-certification-training-fargo-nd",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "fargo-nd",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "SS": "ND",
+    "city_slug": "fargo-nd",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-fargo-nd/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Fargo, ND, CAPM boot camp Fargo, CAPM training Fargo, ND, CAPM classes Fargo ND, CAPM exam prep Fargo",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\",\n      \"name\": \"CAPM Certification & Boot Camp in Fargo, ND | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Fargo, ND. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Fargo, ND\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Fargo, ND\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Fargo, ND. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Healthcare",
+      "Technology & Software",
+      "Agriculture & Agribusiness",
+      "Financial Services & Insurance",
+      "Manufacturing",
+      "Higher Education"
+    ],
+    "top_employers": [
+      "Sanford Health",
+      "Essentia Health",
+      "Microsoft",
+      "CNH Industrial (Case IH)",
+      "Noridian Mutual Insurance",
+      "Blue Cross Blue Shield of North Dakota",
+      "Aldevron",
+      "Bell Bank",
+      "North Dakota State University",
+      "Amazon",
+      "Border States Electric",
+      "Cardinal IG"
+    ],
+    "salary_note": "Project manager compensation in Fargo tends to be competitive relative to the region's cost of living, with healthcare, technology, and manufacturing employers often offering the strongest packages. Exact pay varies widely by industry and experience, but demand for certified PMs has kept salaries steady and attractive locally.",
+    "market_blurb": "Fargo's project management job market is anchored by its strong healthcare systems, growing technology sector, and established agribusiness and manufacturing base. Employers like Sanford Health, Microsoft, and CNH Industrial regularly need skilled project and program managers to oversee expansions, system implementations, and product development. The city's steady economic growth and diversified employer base make it a stable market for PM professionals.",
+    "notable_projects": [
+      "Fargo-Moorhead Metro Flood Diversion Project",
+      "Sanford Health facility expansions in Fargo",
+      "Microsoft Fargo campus growth and IT infrastructure projects",
+      "North Dakota State University research and facility expansions"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly valued by Fargo-area employers, particularly in healthcare, technology, and manufacturing, as organizations seek standardized project delivery practices. While not always mandatory, certified candidates are frequently preferred for mid- to senior-level project management roles in local job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fargo's healthcare sector—led by major systems like Sanford Health—drives steady demand for skilled project managers overseeing facility expansions and technology implementations. The city's diversified economy, spanning technology, agribusiness, manufacturing, and financial services, creates multiple pathways for PM professionals to advance. Granite PM Academy delivers live-virtual PMP® Certification to Fargo-area professionals, combining flexible scheduling with PMI-aligned rigor to support your career growth in this stable, growing market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Healthcare systems like Sanford Health and Essentia Health, along with technology firms, manufacturers, and financial services organizations across Fargo, routinely manage complex initiatives that demand structured project discipline. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction, preparing you to earn the CAPM credential on your timeline. For project coordinators and early-career professionals in Fargo's growing sectors, this certification validates foundational PM competency and strengthens advancement prospects.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:32:57.603778Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3595b392e397a226",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Fargo for Project Managers",
+      "text": "<p>Fargo's healthcare sector—anchored by major systems like Sanford Health and Essentia Health—drives consistent demand for certified project managers who can lead clinical implementations, facility expansions, and technology integrations. Beyond healthcare, Fargo's thriving technology and software companies, coupled with its established agribusiness and manufacturing employers, create a diversified job market where CAPM® certification signals competence and readiness to advance into larger program and portfolio roles. For professionals in Fargo working toward leadership positions or seeking to transition into project management, the CAPM® credential establishes foundational PMI® knowledge and demonstrates commitment to the discipline—assets that matter in a market where employers regularly invest in skilled practitioners.</p><p>Granite PM Academy delivers CAPM® Certification Training through live-virtual, instructor-led sessions designed to fit working schedules while meeting all PMI contact-hour requirements for eligibility and exam readiness. Our instructors are active certified practitioners who bring real-world experience to every module, ensuring you understand not just the theory but how project management principles apply in practice. Whether you're building your first credentials or advancing your career in Fargo's healthcare, technology, or industrial sectors, our structured curriculum and expert instruction prepare you to pass the CAPM® exam and step confidently into your next role.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:01.467703Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "20c7b93440d5482d",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification: Fargo's Path to Project Management",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantee",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM training meets PMI's rigorous standards, ensuring your contact hours count toward certification eligibility without question or delay."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend instructor-led CAPM training entirely online. Live-virtual sessions let you earn required contact hours while managing your current job at Sanford Health, Microsoft, CNH Industrial, or other Fargo employers."
+        },
+        {
+          "heading": "Instructors Who Certify Daily",
+          "text": "Learn from active certified practitioners—not just trainers. Your instructors hold current PMI credentials and apply project-management discipline in real roles, bringing authentic insight into exam content and professional practice."
+        },
+        {
+          "heading": "Credential Built for Fargo's Growth Industries",
+          "text": "Healthcare, technology, manufacturing, and financial services across Fargo all seek certified project managers. The CAPM® credential signals readiness to lead initiatives at major local employers and positions you for advancement in high-demand sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:05.241174Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7b87d9f860d25594",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Fargo",
+      "text": "<p>Healthcare organizations dominate Fargo's project management landscape, with Sanford Health and Essentia Health driving steady demand for certified project leaders managing facility expansions, IT infrastructure upgrades, and clinical operations initiatives. Beyond healthcare, Microsoft's local campus and technology-focused growth, alongside manufacturing powerhouses like CNH Industrial, create additional opportunities for PMs across software development, infrastructure, and production workflows. Financial services employers including Noridian Mutual Insurance and Blue Cross Blue Shield of North Dakota regularly hire project managers to oversee process improvements and digital transformation. The Fargo-Moorhead Metro Flood Diversion Project and similar large-scale regional undertakings underscore how public and private sectors alike depend on skilled project coordinators and managers to deliver complex initiatives on time and within scope.</p><p>CAPM® certification positions you competitively in Fargo's job market, where healthcare, technology, and manufacturing employers increasingly prefer certified candidates for mid- to senior-level roles. Project manager compensation in the region remains attractive relative to the local cost of living, with certified professionals often commanding stronger packages than their non-credentialed peers. Completing CAPM Certification Training through Granite PM Academy—delivered entirely online and structured around your schedule—equips you with PMI-recognized credentials that employers here actively seek. As Fargo's economy continues to diversify and expand, demand for standardized project delivery practices keeps growing, making this the right time to invest in a credential that opens doors across multiple industries and positions you for sustained career growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:09.697951Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "790cbd3a0697bf6e",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Fargo",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and completion of project management education hours—no prior work experience necessary. This makes CAPM ideal for Fargo professionals early in their careers or transitioning into project management roles across healthcare, technology, and other local industries."
+        },
+        {
+          "heading": "Complete 23 Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led CAPM boot camp. Our intensive format covers all domains of the CAPM Body of Knowledge, delivered by active certified practitioners over a compressed schedule designed for working professionals."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your education hours, submit your CAPM application directly to PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process to ensure your credentials are documented correctly."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—study guides, practice questions, and instructor support—to build confidence before your CAPM exam. You'll test your mastery of project management fundamentals and framework knowledge across all five process groups."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "CAPM certification is valid for three years. Maintain it by earning professional development units through continuing education, project work, or professional activities. Granite PM Academy offers ongoing PDU courses to support your renewal and career growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:13.962874Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "ce9743009d02def4",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Fargo project managers?",
+          "answer": "<p>Yes. Fargo's largest employers—Sanford Health, Essentia Health, Microsoft, CNH Industrial, and others—increasingly prefer or require CAPM or PMP certification for mid- to senior-level project roles. The credential signals standardized PM competency, which aligns with these organizations' drive toward consistent project delivery practices. Combined with Fargo's competitive PM compensation relative to regional cost of living, certification positions you to advance faster and earn stronger packages in healthcare, technology, manufacturing, and financial services.</p>"
+        },
+        {
+          "question": "Which Fargo industries value CAPM certification most?",
+          "answer": "<p>Healthcare, technology, and manufacturing dominate Fargo's employer base and show the strongest demand for certified project managers. Sanford Health, Essentia Health, Microsoft, and CNH Industrial frequently list CAPM or PMP as preferred qualifications in job postings. Financial services (Noridian, Blue Cross Blue Shield ND, Bell Bank) and higher education also recognize the credential. While not universally mandatory, certified candidates are regularly prioritized for advancement in these sectors.</p>"
+        },
+        {
+          "question": "Can I attend CAPM training in Fargo while working full-time?",
+          "answer": "<p>Yes. Granite PM Academy delivers all CAPM training live-virtual, so you attend from your workplace, home, or any location with reliable internet. This format accommodates Fargo professionals' full-time schedules without requiring travel or on-site commitments. Whether you work at a healthcare system, tech firm, or manufacturing facility, you can complete coursework around your daily responsibilities.</p>"
+        },
+        {
+          "question": "Should Fargo professionals get CAPM certified now or wait?",
+          "answer": "<p>Timing matters in Fargo's job market. Demand for certified PMs has kept salaries steady and attractive locally, especially as employers in healthcare and technology expand. If you're planning a career move or promotion in the next 12–18 months, certifying now positions you competitively before roles fill. Local hiring trends suggest certification strengthens candidacy sooner rather than later, particularly if you're targeting mid-level opportunities.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:20.150437Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "aec9d4cd988d1409",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives steady demand for skilled project managers overseeing facility expansions and system implementations. Beyond healthcare, the city's diversified economy spans technology, agribusiness, manufacturing, and financial services, creating multiple pathways for PM professionals to advance. Granite PM Academy delivers live-virtual CAPM® Certification Training to Fargo professionals seeking the credential employers across these sectors actively pursue.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:21.722234Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4567a5449cca78d6",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-fargo-nd/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Fargo, ND, CAPM boot camp Fargo, CAPM training Fargo, ND, CAPM classes Fargo ND, CAPM exam prep Fargo",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\",\n      \"name\": \"CAPM Certification Training in Fargo, ND | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Fargo, ND. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Fargo, ND\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#course\",\n      \"name\": \"CAPM Certification Training in Fargo, ND\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Fargo, ND. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fargo-nd/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

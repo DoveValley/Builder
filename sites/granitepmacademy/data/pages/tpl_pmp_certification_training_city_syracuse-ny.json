@@ -1,394 +1,424 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "syracuse-ny",
-    "slug": "pmp-certification-training-syracuse-ny",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "syracuse-ny",
-        "city": "Syracuse",
-        "state": "New York",
-        "SS": "NY",
-        "city_slug": "syracuse-ny",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Micron Technology's semiconductor megafab is transforming Syracuse's project management landscape, alongside healthcare expansion at SUNY Upstate Medical University and the I-81 Viaduct reconstruction driving demand for certified professionals. Local employers across advanced manufacturing, healthcare, defense, and infrastructure increasingly seek PMP-credentialed managers to lead complex initiatives. Granite PM Academy delivers live-virtual PMP Certification designed for Syracuse professionals balancing work and study.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Syracuse's healthcare and advanced manufacturing sectors depend on skilled project managers to coordinate complex initiatives across clinical operations and production environments. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour requirements, letting you earn your credential while managing your current role. A PMP qualification positions you to lead cross-functional teams and advance into management roles where demand remains strong across Central New York's largest employers.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:46.801520Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "f008303569364f78",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Syracuse for Advanced Manufacturing Leaders",
-            "text": "<p>Micron Technology's semiconductor campus expansion and concurrent growth across healthcare, defense, and infrastructure sectors have transformed Syracuse's project management landscape. Major employers like Lockheed Martin, SUNY Upstate Medical University, and Syracuse University are actively recruiting skilled program and project managers to lead complex, mission-critical initiatives. A PMP® certification positions Syracuse professionals to compete for these high-impact roles, demonstrating mastery of the globally recognized standards that employers in the region increasingly require. Whether you're advancing within legacy manufacturing, scaling healthcare delivery, or supporting emerging tech infrastructure, the PMP® credential signals your readiness to manage scope, risk, and stakeholder expectations at the level today's Syracuse employers demand.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led courses taught by active certified practitioners who understand real-world project challenges. As a PMI® Authorized Training Partner, we provide the structured contact-hour instruction required to meet PMI® eligibility requirements and prepare you to pass the PMP® exam with confidence. Our Syracuse-based professionals benefit from flexible scheduling designed for working adults, expert instruction grounded in current best practices, and direct access to instructors who can contextualize project management frameworks within your industry. Start your certification journey with Granite PM Academy and unlock the credentials that open doors across Syracuse's strengthening project management market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:51.167456Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "dea681249dded40f",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification Path Built for Syracuse Professionals",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Integrity",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your contact hours meet PMI's rigorous standards. You earn recognized credentials accepted across Micron, Lockheed Martin, and other Syracuse employers who demand PMI-vetted preparation."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Schedules",
-                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without forcing you to relocate or abandon your job. Attend from Syracuse, engage in real time, and complete certification on your timeline."
-                },
-                {
-                    "heading": "Practitioners Teach Current Best Practices",
-                    "text": "Granite instructors hold active PMP credentials and work as practicing project managers. They bring real-world case studies from aerospace, healthcare, and manufacturing—the industries driving Syracuse's economy—into every class session."
-                },
-                {
-                    "heading": "Local Demand Backs Your Investment",
-                    "text": "Advanced manufacturing, defense, healthcare, and higher education dominate Syracuse employment. Employers like SRC Inc., Crouse Health, and SUNY Upstate actively hire certified project managers. PMP certification directly positions you for roles these major local employers prioritize."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:55.413390Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "4fe497c878988352",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing in Syracuse",
-            "text": "<p>Micron Technology's semiconductor megafab development in Clay is reshaping the Syracuse region's advanced manufacturing landscape, creating urgent demand for skilled project managers who can coordinate complex, large-scale operations. Beyond semiconductors, SUNY Upstate Medical University, Excellus BlueCross BlueShield, and Crouse Health represent a robust healthcare sector that increasingly relies on certified project managers to oversee clinical IT deployments, facility expansions, and regulatory compliance initiatives. The I-81 Viaduct reconstruction—a transformative downtown infrastructure project—and ongoing mixed-use development initiatives further illustrate how construction and urban revitalization efforts across Syracuse are actively hiring project managers to keep timelines and budgets aligned.</p><p>PMP and CAPM® certifications carry genuine weight in Syracuse's job market, particularly as these major employers and projects scale up operations. While compensation for project managers in Syracuse tracks somewhat below larger metros like New York City or Boston, the gap is narrowing as demand intensifies across manufacturing, healthcare, and construction sectors. Completing PMP Certification Training through Granite PM Academy positions you to compete for roles where the credential is now listed as preferred or essential—giving you a measurable edge as Syracuse's economy strengthens and employers prioritize structured project governance. In a city where large-scale hiring is accelerating, the certification isn't just a credential; it's a direct pathway to the roles driving local growth.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:59.977645Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "0491eaf571575c44",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Syracuse",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Review PMI's education and project-management experience requirements for the PMP credential. Most professionals in Syracuse's healthcare and manufacturing sectors meet these thresholds. Gather documentation of your work history and formal education before proceeding."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training. Our Syracuse-based instructors deliver the required formal education on a schedule that fits working professionals. You'll gain frameworks, tools, and real-world case studies—not self-paced videos."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "After course completion, apply directly to PMI with your training certificate and project experience documentation. Pay the PMI exam fee at registration. Our training team will guide you through the portal and answer questions about the submission process."
-                },
-                {
-                    "heading": "Prepare and Sit for the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor office hours. Schedule your exam at a Pearson VUE testing center in the Syracuse area. We support you right up to test day."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle to keep your PMP active. Granite PM Academy offers ongoing workshops and webinars that count toward your PDU requirement, keeping your skills current in Syracuse's growing project-driven economy."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:45:04.877207Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "d2f684cc7c9ae137",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Syracuse project managers?",
-                    "answer": "<p>Yes. Syracuse's largest employers—including Micron Technology's expanding semiconductor operations, healthcare systems like SUNY Upstate and Crouse Health, and defense contractors such as Lockheed Martin and SRC Inc.—increasingly list PMP as preferred or required for advancement. As major projects like the Micron expansion and I-81 redevelopment drive demand for structured project management, certified professionals compete more effectively for roles and leadership positions across manufacturing, healthcare, and construction sectors.</p>"
-                },
-                {
-                    "question": "Which Syracuse employers value PMP and CAPM certifications most?",
-                    "answer": "<p>Manufacturing and semiconductor firms (Micron, Carrier, Anoplate), healthcare organizations (SUNY Upstate Medical, Crouse, St. Joseph's Health), defense and aerospace (Lockheed Martin, SRC, JMA Wireless), and infrastructure/construction firms actively seek certified project managers. Excellus BlueCross BlueShield, National Grid, and SUNY also frequently post roles favoring PMP. The credential signals capability in the complex, regulated environments these employers operate in.</p>"
-                },
-                {
-                    "question": "How do Syracuse project manager salaries compare to larger metro markets?",
-                    "answer": "<p>Project manager compensation in Syracuse tracks slightly below major metros like New York City or Boston, but is becoming increasingly competitive as Micron, healthcare systems, and other large employers expand hiring. Experienced, certified professionals—particularly those with PMP credentials—command higher premiums. As local demand for structured project management rises, salary growth potential for certified practitioners continues to improve.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMP training while working in Syracuse?",
-                    "answer": "<p>Yes. Our live-virtual format allows Syracuse professionals to join from their workplace or home, eliminating travel to a classroom. This flexibility is especially valuable for employees at dispersed organizations like National Grid, healthcare systems with multiple campuses, or manufacturing facilities outside the city center. You can maintain your work schedule while earning the hours and preparation needed for PMP or CAPM certification.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:45:11.218423Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "e1fc91cc432e24c9",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Syracuse's project management demand is accelerating as Micron Technology builds a semiconductor megafab in the metro area, while healthcare systems and the I-81 Viaduct reconstruction reshape the city's infrastructure landscape. Employers across advanced manufacturing, healthcare, and defense increasingly recruit trained project managers to lead these complex initiatives. Granite PM Academy delivers live-virtual PMP Certification Training to Syracuse professionals ready to advance their careers in this growing market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:45:13.156560Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "d500c43d262a2853",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "syracuse-ny",
+  "slug": "pmp-certification-training-syracuse-ny",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "syracuse-ny",
+    "city": "Syracuse",
+    "state": "New York",
+    "SS": "NY",
+    "city_slug": "syracuse-ny",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-syracuse-ny/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Syracuse, NY, PMP exam prep Syracuse, PMP course Syracuse NY, project management certification Syracuse, NY, PMI PMP training Syracuse",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\",\r\n      \"name\": \"PMP Certification Training in Syracuse, NY | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Syracuse, NY. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Syracuse, NY\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#course\",\r\n      \"name\": \"PMP Certification Training in Syracuse, NY\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Syracuse, NY. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Advanced manufacturing and semiconductors",
+      "Healthcare and biomedical services",
+      "Higher education and research",
+      "Defense and aerospace technology",
+      "Insurance, finance, and professional services",
+      "Construction and infrastructure development"
+    ],
+    "top_employers": [
+      "Micron Technology",
+      "SUNY Upstate Medical University",
+      "Syracuse University",
+      "Lockheed Martin",
+      "SRC Inc.",
+      "Excellus BlueCross BlueShield",
+      "National Grid",
+      "Crouse Health",
+      "St. Joseph's Health",
+      "JMA Wireless",
+      "Carrier Corporation",
+      "Anoplate Corporation"
+    ],
+    "salary_note": "Project manager compensation in Syracuse tends to track slightly below major metro markets like NYC or Boston but is becoming increasingly competitive as large employers such as Micron and healthcare systems expand hiring. Demand for experienced, certified project managers is rising, particularly in manufacturing, construction, and healthcare sectors.",
+    "market_blurb": "Syracuse's project management job market is strengthening, driven by major investments in advanced manufacturing, healthcare expansion, and infrastructure redevelopment. With Micron Technology's massive semiconductor campus underway nearby and ongoing healthcare and university projects, local employers increasingly seek trained project and program managers. The city's mix of legacy industry and emerging tech creates diverse opportunities for PM professionals.",
+    "notable_projects": [
+      "Micron Technology's semiconductor megafab development in Clay, NY (Syracuse metro area)",
+      "I-81 Viaduct Project — reconstruction of the elevated highway through downtown Syracuse",
+      "Downtown Syracuse revitalization and mixed-use development initiatives",
+      "JMA Wireless manufacturing and headquarters expansion in Syracuse"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly valued by Syracuse-area employers, especially as large-scale projects like the Micron expansion and I-81 redevelopment increase demand for structured project management expertise. Local job postings in manufacturing, healthcare, and construction sectors frequently list PMP certification as preferred or advantageous.",
+    "_researched": 1,
+    "city_spotlight": "<p>Micron Technology's semiconductor megafab development in Clay is reshaping Syracuse's project management landscape, with major healthcare expansions, infrastructure reconstruction, and defense contractors also driving demand for certified PMs across the metro area. These growth sectors—advanced manufacturing, healthcare, and infrastructure—actively recruit professionals who hold the PMP credential. Granite PM Academy delivers live-virtual PMP Certification training to Syracuse-area professionals, keeping your schedule flexible while you pursue the credential employers here value.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Advanced manufacturing, healthcare, defense, and infrastructure projects across Syracuse rely on skilled project managers to keep complex initiatives on track. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, preparing you to earn the PMP credential on your schedule. In a region where major employers value certified practitioners, the PMP opens doors to leadership roles and competitive compensation in project management.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:30.754281Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1f5cd892d1354b0e",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Syracuse for Today's Growing PM Market",
+      "text": "<p>Syracuse's project management landscape is being reshaped by Micron Technology's transformative semiconductor campus development and concurrent expansions across healthcare, higher education, and infrastructure—creating urgent demand for credentialed project managers across the region. Employers including SUNY Upstate Medical University, Lockheed Martin, SRC Inc., and National Grid are actively recruiting professionals who can lead complex, multi-disciplinary teams through large-scale initiatives. For Syracuse professionals working in advanced manufacturing, defense and aerospace, healthcare delivery, or construction and infrastructure, PMP Certification signals command of the industry-standard framework these organizations depend on—and substantively improves your standing in a job market where certified project managers are increasingly sought after.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual PMP Certification Training that meets all contact-hour requirements for eligibility and exam readiness. Our instructor-led curriculum is taught by active certified practitioners who bring real-world project experience to every session, and our flexible virtual format accommodates the schedules of working professionals in Syracuse and nationwide. Whether you're building your credential from scratch or advancing to PMP from entry-level certification, our structured approach and comprehensive materials prepare you for both the certification exam and the practical challenges you'll face in your role. Upon completion, you'll be equipped to apply for the PMP credential and position yourself for the career advancement that Syracuse's strengthening PM market now offers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:35.234989Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "c00af2915c37ba1f",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification: Advance Your Career in Syracuse's High-Growth Industries",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP training meets all PMI requirements. You'll receive official contact hours recognized by the Project Management Institute, positioning your credential as fully credible with employers across Syracuse's advanced manufacturing, healthcare, and defense sectors."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without commuting to a classroom. Attend sessions from anywhere in Syracuse—or remotely—while learning alongside peers and engaging directly with instructors in real time."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Your instructors are active, certified project management practitioners applying PMP principles in their own work. They bring current case studies, real-world problem-solving, and practical exam strategies—not just theory—to every session."
+        },
+        {
+          "heading": "Local Demand, Regional Employers",
+          "text": "Syracuse's major employers—Micron Technology, Lockheed Martin, SRC Inc., SUNY Upstate Medical University, and National Grid—actively hire certified project managers. The PMP credential is a competitive advantage in advanced manufacturing, aerospace, healthcare, and infrastructure development roles throughout the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:39.382959Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c86d50a5b1e8d54d",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Syracuse",
+      "text": "<p>Syracuse's advanced manufacturing sector—anchored by Micron Technology's semiconductor megafab development in nearby Clay—is reshaping local demand for certified project managers. Alongside this transformative expansion, SUNY Upstate Medical University, Excellus BlueCross BlueShield, and National Grid are actively recruiting professionals who can lead complex, multi-phase initiatives. The I-81 Viaduct reconstruction and ongoing downtown Syracuse revitalization projects further illustrate how infrastructure and development work continue to fuel hiring for structured, credentialed project leadership across construction, healthcare, and utilities sectors.</p><p>PMP® and CAPM® certifications have become increasingly valued by Syracuse employers as large-scale operations expand their infrastructure and staffing. While compensation for project managers in Syracuse remains competitive relative to regional standards, the credential accelerates advancement opportunities as manufacturing, healthcare, and construction sectors intensify their pursuit of experienced, certified talent. Completing PMP Certification Training through Granite PM Academy—delivered entirely live-virtual and aligned with PMI® standards—positions you to meet the rising bar set by local employers and positions you to compete effectively as Syracuse's project-driven economy continues to grow.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:43.040037Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d51a3d931a0a8e19",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Syracuse",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's dual-track requirements: one path combines a bachelor's degree with defined hours of direct project work; the alternative requires additional experience without the degree. Verify your background meets one pathway to proceed."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend interactive sessions from anywhere—no travel required. Our active certified practitioners guide you through the PMP framework, exam domains, and real-world applications. You'll earn the 35 contact hours PMI mandates for PMP eligibility."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After coursework, submit your formal PMP application directly to PMI with proof of education and experience. Pay the exam fee and await approval. PMI reviews your credentials to confirm you meet all requirements before you're authorized to schedule your exam appointment."
+        },
+        {
+          "heading": "Prepare and Pass Your Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and final-review sessions—to build confidence. Schedule your proctored exam through PMI's testing partner at a time and location convenient to you. Your preparation and performance on exam day determine your credential award."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn Professional Development Units (PDUs) over a standard three-year renewal cycle by taking courses, teaching, volunteering, or participating in PMI activities. Submit your PDU record before your certification expires to keep your PMP active and recognized by employers throughout Syracuse's leading sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:48.534789Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "87ff5f0b5113183a",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Syracuse project managers in manufacturing?",
+          "answer": "<p>Yes. Syracuse's advanced manufacturing sector—anchored by major employers and ongoing semiconductor expansion—increasingly requires or prefers PMP certification for project leadership roles. As large-scale projects expand, employers value certified professionals who can demonstrate structured methodology and risk management. Certification also positions you competitively as local PM compensation becomes more competitive, making the credential a practical investment for career advancement in this region's fastest-growing sector.</p>"
+        },
+        {
+          "question": "Which Syracuse employers actively hire PMP-certified project managers?",
+          "answer": "<p>Healthcare systems (SUNY Upstate Medical University, Crouse Health, St. Joseph's Health), defense and technology firms (Lockheed Martin, SRC Inc.), and manufacturers value PMP certification. Construction and infrastructure projects—including the I-81 redevelopment—create consistent demand for certified professionals. Insurance and finance sectors also list PMP as preferred. While certification alone doesn't guarantee employment, it strengthens candidacy across Syracuse's largest hiring sectors and meets stated preferences in local job postings.</p>"
+        },
+        {
+          "question": "Can I attend live PMP training from my Syracuse workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP training entirely live-virtual, so you can join from your Syracuse office, home, or any location with internet access. This format eliminates travel time and scheduling conflicts, making certification practical for working professionals in Syracuse's demanding manufacturing, healthcare, and construction sectors. You'll interact with active certified practitioners and peers in real time, just without geographic constraints.</p>"
+        },
+        {
+          "question": "Should Syracuse PMs pursue PMP certification before the Micron and I-81 projects scale up?",
+          "answer": "<p>Timing matters. Micron's expansion and the I-81 redevelopment are creating immediate demand for experienced, certified project managers across construction, manufacturing, and related services. Obtaining PMP or CAPM certification now positions you ahead of the surge in hiring and competitive pressure. Early certification also gives you leverage in salary negotiations as employers compete for qualified talent, making the credential especially valuable in the next 12–24 months.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:54.856040Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "44dfa10a314bec82",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Syracuse's project management market is accelerating, anchored by Micron Technology's semiconductor megafab development in the metro area and sustained growth in healthcare and infrastructure projects. Employers across advanced manufacturing, defense, and higher education actively recruit trained project managers to lead these complex initiatives. Granite PM Academy delivers live-virtual PMP® Certification Training to Syracuse professionals seeking to advance their credentials and capitalize on these expanding opportunities.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:54:56.401265Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0253e3042e4f7406",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-syracuse-ny/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Syracuse, NY, PMP exam prep Syracuse, PMP course Syracuse NY, project management certification Syracuse, NY, PMI PMP training Syracuse",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\",\r\n      \"name\": \"PMP Certification Training in Syracuse, NY | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Syracuse, NY. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Syracuse, NY\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#course\",\r\n      \"name\": \"PMP Certification Training in Syracuse, NY\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Syracuse, NY. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-syracuse-ny/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

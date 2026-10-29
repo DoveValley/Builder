@@ -1,0 +1,395 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "chicago-il",
+  "slug": "ai-training-chicago-il",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "chicago-il",
+    "city": "Chicago",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "chicago-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Aviation/Airlines",
+      "Food & Beverage/CPG",
+      "Financial Services",
+      "Technology/Public-Safety Tech",
+      "Energy/Utilities",
+      "Higher Education & Healthcare"
+    ],
+    "top_employers": [
+      "United Airlines Holdings",
+      "McDonald's Corporation",
+      "Mondelez International",
+      "Kraft Heinz Company",
+      "Motorola Solutions",
+      "Northern Trust Corporation",
+      "Exelon Corporation",
+      "University of Chicago"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon.",
+    "notable_projects": [
+      "Obama Presidential Center - 19.3-acre Jackson Park campus, public opening scheduled June 2026, ~$850M",
+      "Bally's Chicago Casino - permanent resort under construction in River West, $1.6-1.74B, targeted 2027",
+      "CTA Red Line Extension - 5.6-mile extension from 95th/Dan Ryan to new 130th St station, $5.7B, broke ground April 2026"
+    ],
+    "credential_demand": "With this many large, multi-site corporate headquarters coordinating complex operations, supply chains, and IT/infrastructure programs, structured project-management skills and the PMP credential are plausibly in steady demand.",
+    "_researched": 1,
+    "city_spotlight": "<p>Chicago's employer base includes United Airlines Holdings, McDonald's Corporation, Mondelez International, Kraft Heinz Company. Chicago's economy is anchored by major corporate headquarters - United Airlines, McDonald's, Mondelez International, Kraft Heinz, Motorola Solutions, and Northern Trust all run global or North American operations from the city - alongside large institutional employers like the University of Chicago and Exelon. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Chicago professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMI-CPMAI Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Chicago's aviation, financial services, and technology sectors rely on certified project managers to lead complex initiatives at scale. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training that meets PMI's contact-hour education requirement, taught by active certified practitioners and structured to fit working schedules. Earning your PMI-CPMAI credential positions you competitively for advancement across Chicago's major employers and industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:26.546569Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "707f5634f5e6dba0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Chicago Project Managers",
+      "text": "<p>Chicago's economy runs on the operational backbone of global corporate headquarters—from United Airlines' aviation network to McDonald's and Mondelez's consumer goods empires, and Northern Trust's financial infrastructure. These enterprises, along with major healthcare and energy institutions, depend on project managers who can navigate complexity, manage cross-functional teams, and deliver results on a continental or worldwide scale. The PMI-CPMAI (Certified Practitioner of the PMBOK® Guide – Agile) certification equips professionals in Chicago with both traditional and agile project-management frameworks, making them competitive for roles in the city's most demanding industries where hybrid methodologies are now standard.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet all contact-hour requirements for this credential. Our active certified practitioners bring real-world experience into every class, ensuring you learn not just theory but practical application relevant to your career stage. Whether you're preparing for your first certification or advancing your credentials, Granite PM Academy's flexible scheduling and expert instruction help you complete your training and move confidently toward PMI credential eligibility and professional recognition in Chicago's competitive project-management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:30.262603Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "e9199888297840c8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification Training for Chicago's Growing PM Demand",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Validity",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMI-CPMAI training meets strict PMI standards. You receive official recognition and direct eligibility to sit for the PMI-CPMAI exam without third-party verification delays."
+        },
+        {
+          "heading": "Live Virtual Instruction Meets Contact-Hour Requirements",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMI-CPMAI eligibility while letting you train from anywhere. Real-time interaction with instructors and peers replaces self-paced modules, ensuring accountability and deeper learning."
+        },
+        {
+          "heading": "Learn From Active Certified Practitioners",
+          "text": "Granite instructors are active certified practitioners applying PMI frameworks daily in real-world roles. Their current experience brings case studies and decision-making models directly into the classroom, not textbook theory alone."
+        },
+        {
+          "heading": "Chicago's Major Employers Are Hiring Certified Program Managers",
+          "text": "United Airlines Holdings, Exelon Corporation, Motorola Solutions, and Northern Trust Corporation actively recruit professionals with PMI credentials for program and project leadership roles. The PMI-CPMAI strengthens your candidacy across Chicago's aviation, energy, technology, and financial-services sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:34.381124Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a2653365920a8876",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across Chicago's Corporate Hub",
+      "text": "<p>Chicago's economy revolves around major corporate headquarters that manage operations across multiple continents and complex supply chains—a reality that creates sustained demand for certified project managers. United Airlines Holdings, McDonald's Corporation, Mondelez International, and Kraft Heinz Company all coordinate large-scale programs from their Chicago bases, from international logistics to product launches. Beyond corporate offices, landmark initiatives underscore that demand: the Obama Presidential Center's 19.3-acre Jackson Park campus (opening June 2026, ~$850M investment), the Bally's Chicago Casino construction project ($1.6–1.74B, targeted 2027), and the CTA Red Line Extension (5.6 miles, $5.7B, construction underway) all require skilled project managers to navigate timelines, budgets, and stakeholder coordination at scale.</p><p>The PMP® credential carries measurable earning power in Chicago's job market. Nationally, certified project managers report significantly higher median compensation than their non-certified peers, a premium that reflects across most regions where structured project-management expertise commands employer investment. For professionals working in aviation, consumer goods, financial services, energy, or higher education—all sectors with deep roots here—the PMI-CPMAI certification validates the competencies that employers actively seek. Completing the PMI-CPMAI Certification Training through Granite PM Academy positions you to compete for those roles and advance your career in a city where large-scale, multi-disciplinary programs are constant.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:38.940968Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "62cdb7f048607cd0",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the PMI-CPMAI certification?",
+          "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+        },
+        {
+          "question": "Who should pursue the PMI-CPMAI in {city}?",
+          "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the PMI-CPMAI course?",
+          "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+        },
+        {
+          "question": "How is the PMI-CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Chicago's project management market?",
+          "answer": "<p>Chicago's major corporate headquarters—including aviation, food and beverage, financial services, and energy sectors—regularly manage large-scale, multi-site operations and supply chains that demand structured project-management expertise. PMP-certified professionals report a median salary premium of approximately $26,000 annually over non-certified peers nationally, a differential that typically holds across most regions. The credential signals competency to employers like those concentrated in Chicago's Fortune 500 ecosystem.</p>"
+        },
+        {
+          "question": "Which Chicago industries and employers value the PMP credential most?",
+          "answer": "<p>United Airlines Holdings, Motorola Solutions, Exelon Corporation, Northern Trust, and Kraft Heinz—all major Chicago employers—operate complex projects spanning supply chain, IT infrastructure, regulatory compliance, and capital deployment. Financial services, energy utilities, aviation, and technology sectors particularly rely on certified project managers to coordinate cross-functional teams and meet strict timelines. Higher education and healthcare institutions in Chicago also routinely seek PMP-certified candidates for program and facilities management roles.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Chicago workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training entirely live-virtual, so you can participate from your office, home, or any location with internet access. This format eliminates commute time across Chicago's sprawling metro area and accommodates busy schedules at major employers throughout the region. You'll interact with instructors and peers in real time, just from your own workspace.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait for Chicago's job market timing?",
+          "answer": "<p>Chicago's steady demand for project management talent across aviation, financial services, CPG, and energy sectors makes certification a forward-focused investment regardless of short-term market cycles. Many professionals pursue the credential while employed—building credibility for promotion or mobility within their current organization—rather than waiting for external hiring surges. Early certification positions you competitively for opportunities as they emerge across Chicago's diverse corporate landscape.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:45.039729Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "774da1cc7dc1b0d1",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Chicago's economy runs on global operations—United Airlines, McDonald's, Mondelez International, and Northern Trust anchor the city alongside major institutional employers and infrastructure mega-projects like the Obama Presidential Center and CTA Red Line Extension. Project managers across aviation, food & beverage, financial services, and utilities drive these complex initiatives forward, creating sustained demand for certified talent. Granite PM Academy serves Chicago professionals with live-virtual PMI-CPMAI Certification Training, delivering flexible, expert-led preparation aligned with the city's rigorous project management standards.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:10:46.881626Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "dee70e89152f12c9",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-chicago-il/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Chicago, IL, AI courses Chicago, CPMAI certification Chicago, AI project management training Chicago, IL, AI for project managers Chicago",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chicago-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chicago-il/\",\n      \"name\": \"PMI-CPMAI Certification Training in Chicago, IL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Chicago, IL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Chicago, IL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-chicago-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chicago-il/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Chicago, IL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Chicago, IL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-chicago-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chicago-il/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-chicago-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-chicago-il/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-chicago-il/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}",
+    "primary_keyword": "PMI-CPMAI Certification Training"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T03:33:15+00:00",
+  "template_version": "f6a3382b6a8f42a3fb45841d36f4e3b0"
+}

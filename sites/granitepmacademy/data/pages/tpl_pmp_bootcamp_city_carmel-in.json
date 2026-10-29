@@ -1,408 +1,409 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "carmel-in",
-  "slug": "pmp-bootcamp-carmel-in",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "carmel-in",
-    "city": "Carmel",
-    "state": "Indiana",
-    "SS": "IN",
-    "city_slug": "carmel-in",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier4",
-      "expansion-2026"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "carmel-in",
+    "slug": "pmp-bootcamp-carmel-in",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "carmel-in",
+        "city": "Carmel",
+        "state": "Indiana",
+        "SS": "IN",
+        "city_slug": "carmel-in",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier4",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Insurance",
+            "Financial services",
+            "Auto remarketing/fintech",
+            "Energy grid operations",
+            "Building products/security"
+        ],
+        "top_employers": [
+            "CNO Financial Group (headquarters)",
+            "GEICO",
+            "OPENLANE (formerly KAR Global/Adesa)",
+            "Liberty Mutual",
+            "MISO (headquarters)",
+            "Allegion (headquarters)"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+        "market_blurb": "Carmel's Meridian Corridor hosts dozens of corporate headquarters, including national/global HQs for CNO Financial Group, OPENLANE, MISO, and Allegion, alongside large GEICO and Liberty Mutual operations, making it a genuine insurance-and-financial-services center.",
+        "notable_projects": [
+            "Carmel City Center - ~1 million sq ft, $300M mixed-use development anchored by the Palladium at the Center for the Performing Arts",
+            "Carmel's roundabout program (155 roundabouts built 1997-2025)"
+        ],
+        "credential_demand": "The concentration of insurance, financial-services, and energy-sector headquarters makes Carmel a plausible market for PMP-credentialed project managers, particularly in IT, operations, and enterprise-systems roles.",
+        "_researched": 1,
+        "city_spotlight": "<p>Carmel's employer base includes CNO Financial Group (headquarters), GEICO, OPENLANE (formerly KAR Global/Adesa), Liberty Mutual. Carmel's Meridian Corridor hosts dozens of corporate headquarters, including national/global HQs for CNO Financial Group, OPENLANE, MISO, and Allegion, alongside large GEICO and Liberty Mutual operations, making it a genuine insurance-and-financial-services center. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Carmel professionals seeking to advance their project management careers.</p>",
+        "city_image_alt": "Carmel, IN",
+        "city_image_credit": "Photo: TheSongbook, GFDL/CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:The_Palladium.jpg",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-carmel-in.webp"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_subtext": "<p>Carmel's financial services, insurance, and energy infrastructure sectors rely on skilled project managers to coordinate complex, mission-critical initiatives. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that fulfills PMI's contact-hour requirements for PMP certification, on a schedule that fits working professionals. Earn the credential that employers like CNO Financial Group, GEICO, and MISO value, and advance into higher-responsibility PM roles across Carmel's thriving business landscape.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:50.728617Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ce4a170a91bb7cb2",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Carmel: Project Manager Certification for Insurance and Finance Leaders",
+            "text": "<p>Carmel's Meridian Corridor is home to some of the nation's largest insurance and financial-services operations—CNO Financial Group, GEICO, Liberty Mutual, and OPENLANE among them—all competing for skilled project and program managers who can drive complex, cross-functional initiatives. In industries where regulatory compliance, digital transformation, and operational efficiency define success, the PMP credential has become the standard expectation for mid- to senior-level roles. Carmel professionals in these sectors know that earning your Project Management Professional certification directly strengthens your marketability and earning potential within your local job market, where demonstrated PM discipline and PMI standards carry real weight.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed to meet PMI's contact-hour requirements while fitting the schedules of working professionals. Our instructors are active certified practitioners with real-world experience applying PMP frameworks in demanding environments—they bring current, practical insight to every module. The bootcamp format compresses preparation into an intensive schedule, and upon completion, you'll have satisfied the educational prerequisite to sit for the PMP exam. Whether you're advancing within your current organization or positioning yourself for your next role in Carmel's competitive professional landscape, this certification positions you as a credible, standards-aligned project leader.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:55.103027Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "b72200dd5031c950",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Carmel's Insurance and Financial Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Guarantees Credential Validity",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP bootcamp meets all PMI standards for contact hours and content rigor. This authorization protects your investment and confirms employers recognize your certification immediately upon completion."
+                },
+                {
+                    "heading": "Live Instruction Meets Your Work Schedule",
+                    "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without forcing you into a classroom. Attend sessions from anywhere, retain real-time interaction with active certified practitioners, and complete bootcamp around your current role at CNO, OPENLANE, or another Carmel employer."
+                },
+                {
+                    "heading": "Exam Readiness From Day One",
+                    "text": "Instructors who actively hold PMP certification bring current exam knowledge and real-world project scenarios into every session. Dedicated exam-preparation support, practice tests, and strategy coaching throughout bootcamp significantly increase first-attempt pass confidence."
+                },
+                {
+                    "heading": "Match Carmel's High Demand for Project Leaders",
+                    "text": "Insurance, financial services, and energy-grid operations—Carmel's anchor industries—rely heavily on certified project managers. PMP certification positions you for roles managing critical initiatives at major regional employers and strengthens your market value in one of Indiana's strongest job markets for program and project leadership."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:10:59.494899Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "6ecc53ce762cbdc3",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Carmel's Corporate Hub",
+            "text": "<p>Carmel has emerged as headquarters for major financial-services, insurance, and energy-sector organizations—CNO Financial Group, MISO, and Allegion among them—all of which rely on certified project managers to lead IT infrastructure, operations, and enterprise initiatives. Beyond corporate roles, the city's defining infrastructure accomplishment—155 roundabouts engineered and constructed since 1997—and major developments like the Carmel City Center, a $300 million mixed-use project anchored by the Palladium, underscore the region's demand for professionals who can manage complex, multi-stakeholder programs. GEICO, Liberty Mutual, and OPENLANE add further breadth across insurance, financial services, and auto-remarking fintech, creating a talent market where PMP®-certified credentials carry measurable weight in hiring and advancement.</p><p>The PMP® credential commands a well-documented earnings premium across most regions, and that advantage extends into Carmel's concentrated insurance, financial-services, and energy-operations markets. Employers in these sectors prioritize candidates who can demonstrate formal, globally recognized project-management competency—precisely what the PMP® certification signals. Completing Granite PM Academy's PMP Bootcamp positions you to compete effectively for those roles and to command the professional credibility that accelerates your career trajectory in Carmel's corporate environment. Our live-virtual format means you train on your schedule without geographic constraints, then enter the local job market with a credential that translates directly into opportunity.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:04.266485Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "8103fc40cf2c3b75",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Bootcamp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Bootcamp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Carmel",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hours and years of hands-on project work needed, then document your background. Granite PM Academy's advisors can clarify eligibility during a brief consultation at no cost."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions from anywhere, learn from active certified practitioners, and cover the full PMBOK® Guide framework. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for exam content."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "File your PMP application directly with PMI, documenting your education and project experience. Pay the associated PMI exam fee upon approval. Granite PM Academy's support team can guide you through the submission process to ensure accuracy and prevent delays."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study guides, to build confidence. Schedule your exam with PMI's testing partner. Our instructors remain available to answer final questions before you take the computer-based PMP exam."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle to keep your PMP active. Pursue ongoing training, attend webinars, or contribute to project-management initiatives. Granite PM Academy offers PDU-eligible courses to support your continued professional growth."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:09.129787Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "5b2cd72613a7f07d",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Carmel insurance and financial services professionals?",
+                    "answer": "<p>Yes. Carmel's concentration of insurance headquarters (CNO Financial Group, GEICO, Liberty Mutual) and financial-services firms creates strong demand for credentialed project managers in IT, operations, and enterprise-systems roles. PMI data shows certified PMP professionals earn a median salary premium over non-certified peers across most regions—a gap that typically justifies the bootcamp investment within 2–3 years, particularly in Carmel's corporate environment.</p>"
+                },
+                {
+                    "question": "Which Carmel employers actively hire PMP-certified project managers?",
+                    "answer": "<p>Major employers including CNO Financial Group, GEICO, MISO (energy grid operations), Allegion (building products), and OPENLANE (auto remarketing fintech) regularly staff project-management roles in operations, technology, and enterprise transformation. While no single employer publicly mandates PMP certification, the credential strengthens candidacy for mid-to-senior roles across these sectors and improves advancement prospects within their project-delivery functions.</p>"
+                },
+                {
+                    "question": "Can I attend a live-virtual PMP bootcamp from my Carmel workplace or home office?",
+                    "answer": "<p>Yes. Granite PM Academy delivers the entire PMP Bootcamp as live-virtual instruction, allowing you to join from any location with reliable internet—including your Carmel office, home, or coworking space. This format lets you maintain your work schedule and avoid travel, while still engaging with instructors and peers in real time across the full bootcamp duration.</p>"
+                },
+                {
+                    "question": "How does Carmel's job market timing affect when to pursue PMP bootcamp certification?",
+                    "answer": "<p>Carmel's stable, headquarters-heavy corporate base—particularly in insurance, financial services, and energy operations—means project-management hiring remains relatively consistent year-round. However, many firms accelerate staffing in Q1 and Q3 for fiscal-year and operational-cycle projects. Completing bootcamp 6–8 weeks before your target application window positions you to capitalize on these cycles and enter the market with fresh credentials.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:15.279483Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "4669d2729976758b",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Carmel's Meridian Corridor anchors a thriving insurance and financial-services hub, home to CNO Financial Group headquarters, GEICO, Liberty Mutual, and dozens of allied firms—all requiring skilled project managers to lead complex initiatives. From enterprise infrastructure to major civic projects like the Carmel City Center mixed-use development, demand for PMP-certified professionals remains strong. Granite PM Academy delivers live-virtual PMP Bootcamp training to Carmel professionals nationwide, fitting certification prep into your schedule without travel.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:11:17.122013Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "7a9380c06b7efc20",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Insurance",
-      "Financial services",
-      "Auto remarketing/fintech",
-      "Energy grid operations",
-      "Building products/security"
-    ],
-    "top_employers": [
-      "CNO Financial Group (headquarters)",
-      "GEICO",
-      "OPENLANE (formerly KAR Global/Adesa)",
-      "Liberty Mutual",
-      "MISO (headquarters)",
-      "Allegion (headquarters)"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
-    "market_blurb": "Carmel's Meridian Corridor hosts dozens of corporate headquarters, including national/global HQs for CNO Financial Group, OPENLANE, MISO, and Allegion, alongside large GEICO and Liberty Mutual operations, making it a genuine insurance-and-financial-services center.",
-    "notable_projects": [
-      "Carmel City Center - ~1 million sq ft, $300M mixed-use development anchored by the Palladium at the Center for the Performing Arts",
-      "Carmel's roundabout program (155 roundabouts built 1997-2025)"
-    ],
-    "credential_demand": "The concentration of insurance, financial-services, and energy-sector headquarters makes Carmel a plausible market for PMP-credentialed project managers, particularly in IT, operations, and enterprise-systems roles.",
-    "_researched": 1,
-    "city_spotlight": "<p>Carmel's employer base includes CNO Financial Group (headquarters), GEICO, OPENLANE (formerly KAR Global/Adesa), Liberty Mutual. Carmel's Meridian Corridor hosts dozens of corporate headquarters, including national/global HQs for CNO Financial Group, OPENLANE, MISO, and Allegion, alongside large GEICO and Liberty Mutual operations, making it a genuine insurance-and-financial-services center. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Carmel professionals seeking to advance their project management careers.</p>",
-    "city_image_alt": "Carmel, IN",
-    "city_image_credit": "Photo: TheSongbook, GFDL/CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:The_Palladium.jpg",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-carmel-in.webp"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Bootcamp in {city}, {SS}",
-      "hs_subtext": "<p>Carmel's financial services, insurance, and energy infrastructure sectors rely on skilled project managers to coordinate complex, mission-critical initiatives. Granite PM Academy's PMP Bootcamp delivers live-virtual, instructor-led training that fulfills PMI's contact-hour requirements for PMP certification, on a schedule that fits working professionals. Earn the credential that employers like CNO Financial Group, GEICO, and MISO value, and advance into higher-responsibility PM roles across Carmel's thriving business landscape.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:50.728617Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ce4a170a91bb7cb2",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-carmel-in/",
+        "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Carmel, IN, PMP bootcamp Carmel, PMP certification boot camp Carmel, IN, PMP bootcamp near me, intensive PMP training Carmel",
+        "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Bootcamp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Bootcamp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\",\n      \"name\": \"PMP Bootcamp in Carmel, IN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Carmel, IN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Carmel, IN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#course\",\n      \"name\": \"PMP Bootcamp in Carmel, IN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Carmel, IN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
+        "primary_keyword": "PMP Bootcamp"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Bootcamp in Carmel: Project Manager Certification for Insurance and Finance Leaders",
-      "text": "<p>Carmel's Meridian Corridor is home to some of the nation's largest insurance and financial-services operations—CNO Financial Group, GEICO, Liberty Mutual, and OPENLANE among them—all competing for skilled project and program managers who can drive complex, cross-functional initiatives. In industries where regulatory compliance, digital transformation, and operational efficiency define success, the PMP credential has become the standard expectation for mid- to senior-level roles. Carmel professionals in these sectors know that earning your Project Management Professional certification directly strengthens your marketability and earning potential within your local job market, where demonstrated PM discipline and PMI standards carry real weight.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed to meet PMI's contact-hour requirements while fitting the schedules of working professionals. Our instructors are active certified practitioners with real-world experience applying PMP frameworks in demanding environments—they bring current, practical insight to every module. The bootcamp format compresses preparation into an intensive schedule, and upon completion, you'll have satisfied the educational prerequisite to sit for the PMP exam. Whether you're advancing within your current organization or positioning yourself for your next role in Carmel's competitive professional landscape, this certification positions you as a credible, standards-aligned project leader.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:55.103027Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "b72200dd5031c950",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Carmel's Insurance and Financial Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Guarantees Credential Validity",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP bootcamp meets all PMI standards for contact hours and content rigor. This authorization protects your investment and confirms employers recognize your certification immediately upon completion."
-        },
-        {
-          "heading": "Live Instruction Meets Your Work Schedule",
-          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without forcing you into a classroom. Attend sessions from anywhere, retain real-time interaction with active certified practitioners, and complete bootcamp around your current role at CNO, OPENLANE, or another Carmel employer."
-        },
-        {
-          "heading": "Exam Readiness From Day One",
-          "text": "Instructors who actively hold PMP certification bring current exam knowledge and real-world project scenarios into every session. Dedicated exam-preparation support, practice tests, and strategy coaching throughout bootcamp significantly increase first-attempt pass confidence."
-        },
-        {
-          "heading": "Match Carmel's High Demand for Project Leaders",
-          "text": "Insurance, financial services, and energy-grid operations—Carmel's anchor industries—rely heavily on certified project managers. PMP certification positions you for roles managing critical initiatives at major regional employers and strengthens your market value in one of Indiana's strongest job markets for program and project leadership."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:10:59.494899Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "6ecc53ce762cbdc3",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Carmel's Corporate Hub",
-      "text": "<p>Carmel has emerged as headquarters for major financial-services, insurance, and energy-sector organizations—CNO Financial Group, MISO, and Allegion among them—all of which rely on certified project managers to lead IT infrastructure, operations, and enterprise initiatives. Beyond corporate roles, the city's defining infrastructure accomplishment—155 roundabouts engineered and constructed since 1997—and major developments like the Carmel City Center, a $300 million mixed-use project anchored by the Palladium, underscore the region's demand for professionals who can manage complex, multi-stakeholder programs. GEICO, Liberty Mutual, and OPENLANE add further breadth across insurance, financial services, and auto-remarking fintech, creating a talent market where PMP®-certified credentials carry measurable weight in hiring and advancement.</p><p>The PMP® credential commands a well-documented earnings premium across most regions, and that advantage extends into Carmel's concentrated insurance, financial-services, and energy-operations markets. Employers in these sectors prioritize candidates who can demonstrate formal, globally recognized project-management competency—precisely what the PMP® certification signals. Completing Granite PM Academy's PMP Bootcamp positions you to compete effectively for those roles and to command the professional credibility that accelerates your career trajectory in Carmel's corporate environment. Our live-virtual format means you train on your schedule without geographic constraints, then enter the local job market with a credential that translates directly into opportunity.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:04.266485Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "8103fc40cf2c3b75",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Bootcamp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Bootcamp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Carmel",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hours and years of hands-on project work needed, then document your background. Granite PM Academy's advisors can clarify eligibility during a brief consultation at no cost."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions from anywhere, learn from active certified practitioners, and cover the full PMBOK® Guide framework. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for exam content."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "File your PMP application directly with PMI, documenting your education and project experience. Pay the associated PMI exam fee upon approval. Granite PM Academy's support team can guide you through the submission process to ensure accuracy and prevent delays."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study guides, to build confidence. Schedule your exam with PMI's testing partner. Our instructors remain available to answer final questions before you take the computer-based PMP exam."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle to keep your PMP active. Pursue ongoing training, attend webinars, or contribute to project-management initiatives. Granite PM Academy offers PDU-eligible courses to support your continued professional growth."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:09.129787Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "5b2cd72613a7f07d",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Carmel insurance and financial services professionals?",
-          "answer": "<p>Yes. Carmel's concentration of insurance headquarters (CNO Financial Group, GEICO, Liberty Mutual) and financial-services firms creates strong demand for credentialed project managers in IT, operations, and enterprise-systems roles. PMI data shows certified PMP professionals earn a median salary premium over non-certified peers across most regions—a gap that typically justifies the bootcamp investment within 2–3 years, particularly in Carmel's corporate environment.</p>"
-        },
-        {
-          "question": "Which Carmel employers actively hire PMP-certified project managers?",
-          "answer": "<p>Major employers including CNO Financial Group, GEICO, MISO (energy grid operations), Allegion (building products), and OPENLANE (auto remarketing fintech) regularly staff project-management roles in operations, technology, and enterprise transformation. While no single employer publicly mandates PMP certification, the credential strengthens candidacy for mid-to-senior roles across these sectors and improves advancement prospects within their project-delivery functions.</p>"
-        },
-        {
-          "question": "Can I attend a live-virtual PMP bootcamp from my Carmel workplace or home office?",
-          "answer": "<p>Yes. Granite PM Academy delivers the entire PMP Bootcamp as live-virtual instruction, allowing you to join from any location with reliable internet—including your Carmel office, home, or coworking space. This format lets you maintain your work schedule and avoid travel, while still engaging with instructors and peers in real time across the full bootcamp duration.</p>"
-        },
-        {
-          "question": "How does Carmel's job market timing affect when to pursue PMP bootcamp certification?",
-          "answer": "<p>Carmel's stable, headquarters-heavy corporate base—particularly in insurance, financial services, and energy operations—means project-management hiring remains relatively consistent year-round. However, many firms accelerate staffing in Q1 and Q3 for fiscal-year and operational-cycle projects. Completing bootcamp 6–8 weeks before your target application window positions you to capitalize on these cycles and enter the market with fresh credentials.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:15.279483Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "4669d2729976758b",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Carmel's Meridian Corridor anchors a thriving insurance and financial-services hub, home to CNO Financial Group headquarters, GEICO, Liberty Mutual, and dozens of allied firms—all requiring skilled project managers to lead complex initiatives. From enterprise infrastructure to major civic projects like the Carmel City Center mixed-use development, demand for PMP-certified professionals remains strong. Granite PM Academy delivers live-virtual PMP Bootcamp training to Carmel professionals nationwide, fitting certification prep into your schedule without travel.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T02:11:17.122013Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "7a9380c06b7efc20",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-carmel-in/",
-    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Carmel, IN, PMP bootcamp Carmel, PMP certification boot camp Carmel, IN, PMP bootcamp near me, intensive PMP training Carmel",
-    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Bootcamp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Bootcamp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\",\n      \"name\": \"PMP Bootcamp in Carmel, IN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Carmel, IN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Carmel, IN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#course\",\n      \"name\": \"PMP Bootcamp in Carmel, IN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Carmel, IN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-carmel-in/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T01:44:00+00:00",
-  "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "locked_blocks": [],
+    "generated_at": "2026-10-29T01:44:00+00:00",
+    "template_version": "eca5873178752643e9d468f8a59eaea5"
 }

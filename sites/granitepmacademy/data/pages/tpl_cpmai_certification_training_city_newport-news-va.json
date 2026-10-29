@@ -1,348 +1,393 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "newport-news-va",
-    "slug": "ai-training-newport-news-va",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "newport-news-va",
-        "city": "Newport News",
-        "state": "Virginia",
-        "SS": "VA",
-        "city_slug": "newport-news-va",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "city_spotlight": "<p>Newport News's project management market centers on Huntington Ingalls Industries' shipbuilding operations, where Ford-class aircraft carrier and Virginia-class submarine programs demand skilled program managers navigating complex, regulated contracts. Healthcare systems, aerospace research, and government agencies further expand PM opportunities across the region. Granite PM Academy delivers live-virtual PMP® Certification to Newport News professionals ready to advance in these high-demand sectors.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Newport News's shipbuilding and defense contracting sector demands project managers who can integrate emerging technologies into complex operations. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, giving you skills in AI applications, risk assessment, and team coordination—capabilities that command measurable advancement in this region's high-stakes industrial environment.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:51.858914Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "767fcb49d4cde2a7",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Newport News, Virginia",
-            "text": "<p>Newport News's project management landscape is shaped by Huntington Ingalls Industries and its complex, multi-year Navy shipbuilding contracts—work that demands leaders capable of orchestrating regulated, large-scale initiatives where delays and cost overruns carry consequences far beyond profit margins. As artificial intelligence transforms how teams forecast timelines, allocate resources, and mitigate risk across these intricate programs, project managers in Newport News face a clear imperative: those who understand AI's role in modern project delivery will command stronger advancement opportunities. Whether you work in shipbuilding, healthcare systems like Riverside or Sentara, research institutions such as Jefferson Lab, or government agencies across the region, AI literacy is no longer optional—it's the differentiator between managing projects competently and leading them strategically in a competitive talent market.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers pursuing PMP or CAPM certification. Our courses satisfy the contact-hour requirements mandated by the Project Management Institute and are taught by active certified practitioners who bring real-world experience from complex, regulated environments. You'll learn how to integrate AI tools into your planning, execution, and risk-management workflows—and earn credentials recognized globally by employers across Newport News's defense, healthcare, and research sectors. Begin your certification journey with instruction that speaks directly to the challenges you face, delivered on a schedule that fits your career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:32:56.674748Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "97d1ad72de5cc210",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI-Powered Project Management for Newport News Professionals",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Means Real Credential",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMP® or CAPM® training meets rigorous standards. You earn contact hours that count directly toward PMI certification eligibility—no workarounds, no delays in your credential timeline."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Schedule Format",
-                    "text": "Our live-virtual instructor-led classes let you learn from active certified practitioners while keeping your shipbuilding, defense, or healthcare job intact. Real-time interaction replaces recorded videos; instructors answer your questions as they arise, not days later."
-                },
-                {
-                    "heading": "Exam Prep Built Into Training",
-                    "text": "Rather than buying separate exam-prep courses, Granite integrates PMP® and CAPM® exam strategy throughout live instruction. Practice tests, question walkthroughs, and targeted review sessions happen during class, accelerating your readiness and confidence."
-                },
-                {
-                    "heading": "Defense & Shipbuilding Demand Local Hiring",
-                    "text": "Huntington Ingalls Industries, NASA Langley, and Jefferson Lab routinely seek certified project and program managers. A PMI credential opens doors across Newport News's dominant industries—defense, aerospace, and government contracting—where certification is often a competitive advantage or requirement."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:01.453621Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "6d9bafe4c159f550",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Shipbuilding and Defense",
-            "text": "<p>Newport News's economy is anchored by Huntington Ingalls Industries, whose Newport News Shipbuilding division designs and builds Ford-class aircraft carriers and Virginia-class submarines—among the most complex, multi-year government contracts in the nation. These programs, including the recent construction of CVN-79 John F. Kennedy and CVN-80 Enterprise, demand rigorous project oversight and attract certified project managers across engineering, supply chain, and program coordination roles. Beyond shipbuilding, Riverside Health System, Sentara Healthcare, NASA Langley Research Center, and Jefferson Lab's ongoing Continuous Electron Beam Accelerator Facility upgrades all require skilled project leadership. Government agencies and the City of Newport News also employ project managers to oversee capital improvement and infrastructure initiatives.</p><p>PMP and CAPM credentials carry particular weight in Newport News, especially within the defense and shipbuilding sector where employers frequently list these qualifications as preferred or required. The region's concentration of large, government-funded programs creates sustained demand for certified project managers, and compensation tends to reflect that demand—particularly in defense, engineering, and healthcare roles where certified professionals command competitive pay packages. Completing AI Training for Project Managers through Granite PM Academy equips you with both the technical foundation and the credential recognition that Newport News employers actively seek, positioning you to advance quickly in a market where rigorous project management directly supports the region's most essential industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:06.121566Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "e25b50dee5a35c5d",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Newport News shipbuilding careers?",
-                    "answer": "<p>Yes. Huntington Ingalls Industries and defense contractors managing multi-year, complex government contracts increasingly seek project managers who can integrate AI tools for scheduling, risk analysis, and resource optimization. Newport News shipbuilding roles demand rigorous oversight; AI competency differentiates candidates and supports the advanced project controls these contracts require. PMP and CAPM credentials paired with AI skills are strongly valued in this sector.</p>"
-                },
-                {
-                    "question": "Which Newport News employers prefer PMP or CAPM certification?",
-                    "answer": "<p>Defense and shipbuilding firms—notably those handling government contracts—list PMP or CAPM as preferred or required. Healthcare systems (Riverside Health System, Sentara Healthcare), NASA Langley, and Jefferson Lab also prioritize these credentials for program and project coordination roles. Engineering and aerospace sectors in the region consistently seek certified project managers for infrastructure and R&D initiatives.</p>"
-                },
-                {
-                    "question": "Do Newport News project managers earn more with AI and PMI credentials?",
-                    "answer": "<p>Competitive compensation for certified project managers in Newport News tracks closely with demand from large defense and shipbuilding contracts. Healthcare, defense, and engineering sectors typically offer above-average local pay for candidates holding PMP, CAPM, or advanced skills like AI project management. Exact figures vary by industry, experience, and role scope, but credentials consistently strengthen earning potential.</p>"
-                },
-                {
-                    "question": "Can I attend AI project management training from my Newport News workplace?",
-                    "answer": "<p>Yes. Our live-virtual format accommodates working professionals. Whether you're at Huntington Ingalls, a healthcare organization, Jefferson Lab, or any Newport News employer, you can participate from your workplace, home, or a flexible location. This flexibility supports the demanding schedules of defense, healthcare, and scientific professionals in the area without requiring time away from site.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:12.340038Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "f854c4a08af18b6e",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Newport News's project management demand is anchored by Huntington Ingalls Industries' shipbuilding operations, where complex, multi-year Navy contracts require skilled program managers to coordinate regulated, large-scale initiatives. Healthcare expansion and research facilities like Jefferson Lab further strengthen opportunities across the region. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Newport News professionals building expertise in this high-demand market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:33:14.283354Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "0bd112cd9deda6da",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "newport-news-va",
+  "slug": "ai-training-newport-news-va",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "newport-news-va",
+    "city": "Newport News",
+    "state": "Virginia",
+    "SS": "VA",
+    "city_slug": "newport-news-va",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-newport-news-va/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Newport News, VA, AI courses Newport News, CPMAI certification Newport News, AI project management training Newport News, VA, AI for project managers Newport News",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\",\n      \"name\": \"AI Training for Project Managers in Newport News, VA — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Newport News, VA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Newport News, VA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#course\",\n      \"name\": \"AI Training for Project Managers in Newport News, VA\",\n      \"description\": \"CPMAI certification training for project managers in Newport News, VA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Shipbuilding & Defense Manufacturing",
+      "Healthcare",
+      "Aerospace & Scientific Research",
+      "Government & Public Administration",
+      "Education",
+      "Logistics & Maritime Commerce"
+    ],
+    "top_employers": [
+      "Huntington Ingalls Industries (Newport News Shipbuilding)",
+      "Riverside Health System",
+      "Sentara Healthcare",
+      "Canon Virginia, Inc.",
+      "Thomas Jefferson National Accelerator Facility (Jefferson Lab)",
+      "Newport News Public Schools",
+      "City of Newport News",
+      "Christopher Newport University",
+      "NASA Langley Research Center",
+      "Huntington Ingalls Industries Technical Solutions"
+    ],
+    "salary_note": "Project manager compensation in Newport News tends to track closely with demand from the region's large defense and shipbuilding contracts, often making certified PMs competitive for above-average local pay. Exact figures vary widely by industry and experience, but healthcare, defense, and engineering sectors generally offer the most competitive packages in the area.",
+    "market_blurb": "Newport News's project management job market is anchored by its massive shipbuilding and defense industry, led by Huntington Ingalls Industries, alongside strong healthcare and research sectors. The presence of large-scale, multi-year Navy shipbuilding contracts creates steady demand for skilled project and program managers who can coordinate complex, regulated initiatives. Additional opportunities arise from regional healthcare systems, public education, and government agencies expanding infrastructure and services.",
+    "notable_projects": [
+      "Huntington Ingalls Industries' construction of Ford-class aircraft carriers (including CVN-79 John F. Kennedy and CVN-80 Enterprise)",
+      "Virginia-class submarine construction programs at Newport News Shipbuilding",
+      "Jefferson Lab's Continuous Electron Beam Accelerator Facility (CEBAF) upgrades",
+      "Christopher Newport University campus expansion and facilities projects"
+    ],
+    "credential_demand": "PMP certification is highly regarded among Newport News-area employers, particularly within the defense and shipbuilding sector where large, complex, multi-year government contracts require rigorous project oversight. CAPM and PMP credentials are frequently listed as preferred or required qualifications in local project coordination and management job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Newport News's project management market is defined by Huntington Ingalls Industries' shipbuilding operations—including Ford-class aircraft carrier construction—alongside robust healthcare, aerospace, and government sectors that all demand skilled program managers for complex, regulated initiatives. With major employers spanning defense manufacturing, Riverside Health System, NASA Langley, and Jefferson Lab, certified PMs command steady opportunities across multi-year, large-scale projects. Granite PM Academy delivers live-virtual PMP® Certification to Newport News professionals nationwide, letting you earn your credential on your schedule.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Newport News's shipbuilding, defense, and aerospace sectors demand rigorous project oversight across complex, regulated environments. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's contact-hour requirements, helping you meet the credential standard recognized across these capital-intensive industries. Earning your PMI-CPMAI positions you for advancement in program and portfolio leadership roles throughout the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:06.622171Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "397f628cb1513486",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:26+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Newport News, VA",
+      "text": "<p>Newport News's project management landscape is defined by its role as the nation's premier shipbuilding and defense hub, anchored by Huntington Ingalls Industries and its multi-year Navy contracts. These large-scale, highly regulated programs demand project managers who can orchestrate complex timelines, navigate strict compliance frameworks, and lead cross-functional teams through mission-critical deliverables. The PMI-CPMAI (Certified Associate in Project Management) credential equips professionals in Newport News with the foundational project management methodology and vocabulary that defense contractors, healthcare systems, research institutions, and government agencies in the region actively seek—positioning you to advance into roles managing the infrastructure, services, and initiatives that define the local economy.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet all contact-hour requirements for the credential. Our instructors are active certified practitioners who bring real-world project experience into every session, ensuring the frameworks and tools you learn apply directly to the kinds of initiatives you'll encounter in Newport News's industrial and public sectors. Whether you're launching your project management career or formalizing expertise you've already developed, our flexible virtual format lets you complete your training on a schedule that works alongside your current role—and emerge with the credential employers across Newport News recognize and value.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:10.719611Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6ff034620baf82ff",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Newport News's Defense and Shipbuilding Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization—Credential Employers Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your completion satisfies PMI's official contact-hour requirement for the CPMAI credential, ensuring your certification is recognized by Huntington Ingalls, Sentara, Jefferson Lab, and other major regional employers who value PMI-sanctioned preparation."
+        },
+        {
+          "heading": "Live Instruction, Flexible Virtual Schedule",
+          "text": "Earn CPMAI contact hours through live-virtual instructor-led training—no self-paced recordings. Attend on your schedule from anywhere, with real-time interaction and Q&A. No commute, no fixed classroom location, and you meet the credential's experiential learning requirement without breaking your current role."
+        },
+        {
+          "heading": "Instructors Who Certify and Deliver Daily",
+          "text": "Your instructors hold active PMI certifications and apply project-management practices in their own work. They bring real-world examples, troubleshoot your questions, and prepare you for exam scenarios—not theory alone—so you enter the exam confident and ready."
+        },
+        {
+          "heading": "Newport News Employers Hiring Certified Managers",
+          "text": "Shipbuilding, defense manufacturing, healthcare, aerospace, and government agencies across Newport News increasingly require or prefer CPMAI certification for program and project leadership roles. The credential strengthens your candidacy at Jefferson Lab, Riverside Health System, NASA Langley, and comparable regional employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:15.546901Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "919596cf26d7e494",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Newport News",
+      "text": "<p>Newport News Shipbuilding and its parent company Huntington Ingalls Industries anchor the region's demand for certified project managers. The construction of Ford-class aircraft carriers—including CVN-79 John F. Kennedy and CVN-80 Enterprise—along with Virginia-class submarine programs represent massive, multi-year government contracts requiring rigorous project oversight at every phase. Beyond defense manufacturing, Riverside Health System, Sentara Healthcare, NASA Langley Research Center, and Jefferson Lab's Continuous Electron Beam Accelerator Facility upgrades all employ project managers to coordinate complex, mission-critical work. Christopher Newport University's ongoing campus expansion and facilities projects further illustrate how deeply project management skills are woven into Newport News's economic fabric.</p><p>The PMP and CAPM credentials are highly regarded by Newport News employers, particularly in the defense and shipbuilding sector where they frequently appear as preferred or required qualifications in job postings. Project manager compensation in the area tracks closely with demand from large defense and government contracts, often positioning certified professionals competitively for above-average local pay—especially in healthcare, defense, and engineering roles. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the knowledge and credentials that Newport News employers actively seek, positioning you to advance into higher-responsibility and higher-compensation roles across the region's largest industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:19.181943Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1dee8ae5e4f517f4",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Newport News",
+      "text": "<p>Newport News Shipbuilding and the broader defense manufacturing sector anchor demand for certified project managers across the region. Huntington Ingalls Industries, Riverside Health System, Sentara Healthcare, and NASA Langley Research Center all rely on skilled project leaders to coordinate complex, mission-critical work. The construction of Ford-class aircraft carriers—including CVN-79 John F. Kennedy and CVN-80 Enterprise—and ongoing Virginia-class submarine programs at Newport News Shipbuilding exemplify the scale and sophistication of projects that depend on rigorous PM oversight. Healthcare networks, aerospace research facilities, and public-sector agencies round out a diverse employer base, each seeking professionals who can manage timelines, budgets, and stakeholder expectations across multi-year initiatives.</p><p>PMP and CAPM credentials carry substantial weight in Newport News's job market, particularly within defense and shipbuilding roles where federal contracts demand documented expertise in project governance. Compensation for certified project managers in the area tends to reflect strong regional demand, especially in healthcare, defense, and engineering sectors where above-average pay packages are common. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for these roles while gaining the globally recognized credential employers actively seek. Whether you are launching your PM career or advancing into senior positions, the certification directly aligns with how Newport News employers evaluate and promote project leadership talent.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:23.373052Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1dee8ae5e4f517f4",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Newport News defense and shipbuilding careers?",
+          "answer": "<p>Yes. Newport News's dominant shipbuilding and defense sector relies on large, complex, multi-year government contracts that demand rigorous project oversight. PMP and CAPM credentials are frequently listed as preferred or required qualifications in local project coordination and management job postings. Certification positions you competitively within the region's largest employers and typically leads to above-average compensation in defense, engineering, and healthcare sectors where certified PM expertise commands strong demand.</p>"
+        },
+        {
+          "question": "Which Newport News employers value PMI project management certification most?",
+          "answer": "<p>Huntington Ingalls Industries (Newport News Shipbuilding), NASA Langley Research Center, Jefferson Lab, Riverside Health System, and Sentara Healthcare are among the region's largest employers. The shipbuilding and defense sector particularly values PMP and CAPM credentials for managing government contracts and complex engineering initiatives. Healthcare and aerospace organizations in the area also actively seek certified project managers for operational and strategic initiatives.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training from my Newport News workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training as live-virtual instruction, allowing you to participate from your workplace, home, or any location with internet access. This flexibility accommodates Newport News professionals working in shipyards, hospitals, research facilities, and corporate offices, making it feasible to earn certification without disrupting your schedule or commuting to an offsite classroom.</p>"
+        },
+        {
+          "question": "When should Newport News professionals pursue PMI certification given local job demand?",
+          "answer": "<p>The strong demand for certified project managers in Newport News's defense, healthcare, and engineering sectors makes certification a strategic career move year-round. However, pursuing it before or during active job transitions maximizes visibility to local employers. Since large government contracts and organizational initiatives in the region continuously generate PM openings, early certification positions you to compete for roles as they become available rather than applying after the fact.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:29.285109Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "da4f4614b596af5d",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Newport News's project management market is driven by Huntington Ingalls Industries' complex, multi-year Navy shipbuilding contracts—including Ford-class aircraft carrier construction—alongside growing healthcare, research, and government sectors. These large-scale, regulated initiatives demand skilled program managers who can coordinate intricate timelines and stakeholder requirements. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Newport News professionals seeking credentials that open doors across shipbuilding, defense, and adjacent industries.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:31.000467Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d05ea1d9197f391d",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Newport News's project management market is defined by Huntington Ingalls Industries' shipbuilding operations, where Ford-class aircraft carrier construction and Virginia-class submarine programs demand skilled program managers to lead multi-year, heavily regulated initiatives. Healthcare systems, research facilities like Jefferson Lab, and government agencies further expand PM opportunities across the region. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Newport News professionals seeking to advance their credentials and career prospects in this dynamic market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:32.730915Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d05ea1d9197f391d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-newport-news-va/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Newport News, VA, AI courses Newport News, CPMAI certification Newport News, AI project management training Newport News, VA, AI for project managers Newport News",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\",\n      \"name\": \"PMI-CPMAI Certification Training in Newport News, VA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Newport News, VA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Newport News, VA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Newport News, VA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Newport News, VA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-newport-news-va/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-newport-news-va/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

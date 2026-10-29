@@ -1,348 +1,399 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "lincoln-ne",
-    "slug": "ai-training-lincoln-ne",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "lincoln-ne",
-        "city": "Lincoln",
-        "state": "Nebraska",
-        "SS": "NE",
-        "city_slug": "lincoln-ne",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Lincoln's insurance and financial services sector, anchored by major employers like Ameritas and Assurity Life Insurance, drives steady demand for credentialed project managers. State government operations and University of Nebraska-Lincoln expansions further fuel opportunities across public and academic settings. Granite PM Academy delivers live-virtual PMP® Certification to Lincoln professionals seeking to advance their careers in this growing market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Lincoln's insurance and financial-services sector relies heavily on skilled project managers to navigate complex regulatory and system implementations. Granite PM Academy delivers live-virtual, instructor-led AI training that meets PMI's contact-hour requirements and equips you to lead data-driven initiatives in your organization. Master AI tools and frameworks that competitive employers in Lincoln's market increasingly expect from certified project management professionals.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:04.081207Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "42e98132f0664c80",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Lincoln, Nebraska",
-            "text": "<p>Lincoln's insurance and financial services sector—home to major employers like Ameritas, Assurity Life Insurance, and Union Bank & Trust—relies heavily on skilled project managers to navigate complex digital transformations and regulatory compliance initiatives. As artificial intelligence becomes embedded in underwriting, claims processing, and customer analytics workflows, project managers in Lincoln face a critical skill gap. AI training equips you to lead teams through AI-enabled projects, assess AI tool adoption, manage data governance risks, and communicate technical capabilities to executive stakeholders. Whether you work in state government, healthcare systems like Bryan Health and CHI Health St. Elizabeth, or growing technology firms such as Hudl, understanding how to integrate AI into project delivery is no longer optional—it's a competitive necessity for career advancement.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers seeking to strengthen credentials like the PMP® or CAPM®. Our courses are taught by active certified practitioners with real-world experience in AI governance and project integration, and they satisfy the contact-hour requirements needed for PMI credential maintenance and advancement. We combine flexible scheduling with rigorous, standards-aligned content so working professionals in Lincoln can earn recognized credentials without disrupting their careers. Whether you're pursuing initial certification or advancing your portfolio, our AI training prepares you to lead with confidence in a rapidly evolving workplace.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:08.160132Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "075f19730115a913",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Training for Project Managers in Lincoln, Nebraska",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Weight",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® sits on your résumé with full institutional backing. Lincoln employers in government, healthcare, and insurance recognize PMI credentials as the gold standard—this training delivers that legitimacy from day one."
-                },
-                {
-                    "heading": "Live Instruction Fits Working Schedules",
-                    "text": "Virtual instructor-led sessions let you earn required contact hours without relocating or sacrificing your job at Nelnet, Bryan Health, or the State Capitol. Real-time interaction with active certified practitioners keeps your learning sharp and exam-ready on your own timeline."
-                },
-                {
-                    "heading": "Practitioners Teach Current Real-World Methods",
-                    "text": "Your instructors hold active PMP® or CAPM® certifications and manage live projects—not theory. You learn how government agencies, universities, and manufacturers in Lincoln actually run programs, giving you skills that land interviews and drive day-one impact."
-                },
-                {
-                    "heading": "Lincoln's Growing Demand for Certified Leads",
-                    "text": "Nebraska State Government, University of Nebraska–Lincoln, and healthcare systems are actively hiring credentialed project managers. The PMP® or CAPM® opens doors across insurance, agribusiness, and tech firms competing for talent in your market—Granite's exam prep keeps you ahead."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:17.586395Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "d16a72e8a909dcf6",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Lincoln's Growing Sectors",
-            "text": "<p>Lincoln's state government, healthcare systems, and financial-services employers actively seek certified project managers to lead complex initiatives. Nebraska State Government, Bryan Health, CHI Health St. Elizabeth, and Ameritas regularly staff projects requiring structured PM expertise—from the Nebraska State Capitol restoration and preservation work to campus expansions at the University of Nebraska-Lincoln and infrastructure improvements at Lincoln Airport. These organizations increasingly list PMP® certification or equivalent experience as a preferred qualification in job postings, particularly as they standardize project delivery practices across departments and divisions.</p><p>The credential carries real weight in Lincoln's market. While project manager compensation tracks slightly below national metro averages, the city's cost of living offsets that difference, and steady demand across insurance, healthcare, and government sectors keeps skilled PMs employed. Completing AI Training for Project Managers through Granite PM Academy positions you to meet the credential standards that healthcare systems, state agencies, and insurers now expect—giving you a tangible edge as Lincoln's employers continue investing in major projects and operational modernization. In a competitive field, the PMP® distinguishes you as committed to professional standards and structured delivery.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:21.735661Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "2b5f8fbf86a6f717",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is AI project management training worth it for Lincoln, Nebraska careers?",
-                    "answer": "<p>Yes, particularly if you work in Lincoln's growing healthcare, insurance, or state government sectors. These industries increasingly require standardized project delivery practices and value credentials that demonstrate both traditional PM rigor and emerging AI competency. Lincoln's competitive job market rewards professionals who combine PMP® credibility with practical AI skills, helping you stand out without relocating for higher salaries.</p>"
-                },
-                {
-                    "question": "Which Lincoln employers value AI and project management credentials most?",
-                    "answer": "<p>Healthcare systems like Bryan Health and CHI Health St. Elizabeth, financial services firms such as Ameritas and Assurity Life Insurance, and Nebraska State Government actively seek project managers with modern credentials. Insurance and higher-education sectors—anchored by University of Nebraska-Lincoln—increasingly list PMP® or equivalent experience as preferred qualifications, signaling strong local demand for certified talent.</p>"
-                },
-                {
-                    "question": "Can Lincoln project managers take live-virtual AI training from their workplace?",
-                    "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet, making it practical for Lincoln professionals balancing work schedules. This flexibility is especially valuable if your employer—whether in government, healthcare, or insurance—offers limited flexibility for off-site training during business hours.</p>"
-                },
-                {
-                    "question": "When should Lincoln PMs pursue AI certification given the local job market?",
-                    "answer": "<p>Lincoln's steady demand for project managers in healthcare, insurance, and government means certification remains valuable year-round. However, pursuing AI training now gives you a competitive edge as these sectors increasingly integrate AI into project workflows. Starting before your peers in Lincoln's market can accelerate advancement in roles where traditional PM skills alone no longer fully satisfy employer expectations.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:26.785537Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "a2b1cbc7c0a3ba65",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Lincoln's insurance and financial services sector—anchored by major employers like Ameritas, Assurity Life Insurance, and Union Bank & Trust—drives steady demand for skilled project managers across the region. State government operations, University of Nebraska-Lincoln's ongoing campus expansions, and growth in healthcare and technology firms have further diversified PM career paths. Granite PM Academy delivers live-virtual AI Training for Project Managers to Lincoln professionals ready to advance their credentials and impact.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:28.553903Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "028e3bf3fb834c6f",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "lincoln-ne",
+  "slug": "ai-training-lincoln-ne",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "lincoln-ne",
+    "city": "Lincoln",
+    "state": "Nebraska",
+    "SS": "NE",
+    "city_slug": "lincoln-ne",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-lincoln-ne/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Lincoln, NE, AI courses Lincoln, CPMAI certification Lincoln, AI project management training Lincoln, NE, AI for project managers Lincoln",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\",\n      \"name\": \"AI Training for Project Managers in Lincoln, NE — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Lincoln, NE for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Lincoln, NE\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#course\",\n      \"name\": \"AI Training for Project Managers in Lincoln, NE\",\n      \"description\": \"CPMAI certification training for project managers in Lincoln, NE who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Insurance and Financial Services",
+      "Government (State Capital)",
+      "Higher Education",
+      "Healthcare",
+      "Agribusiness and Manufacturing",
+      "Technology"
+    ],
+    "top_employers": [
+      "Nebraska State Government",
+      "University of Nebraska-Lincoln",
+      "Bryan Health",
+      "CHI Health St. Elizabeth",
+      "Lincoln Public Schools",
+      "Ameritas",
+      "Nelnet",
+      "Assurity Life Insurance",
+      "Union Bank & Trust",
+      "Duncan Aviation",
+      "Kawasaki Motors Manufacturing Corp., U.S.A.",
+      "Hudl"
+    ],
+    "salary_note": "Project manager compensation in Lincoln tends to track slightly below national metro averages but remains competitive given the city's lower cost of living, with insurance, healthcare, and higher-education sectors offering steady demand for PM talent.",
+    "market_blurb": "Lincoln, Nebraska's project management job market is anchored by its strong insurance and financial services sector, state government operations, and the University of Nebraska-Lincoln, all of which regularly seek skilled project and program managers. Growth in healthcare systems and technology firms like Hudl has further diversified opportunities for PM professionals in the area.",
+    "notable_projects": [
+      "Nebraska State Capitol restoration and preservation initiatives",
+      "University of Nebraska-Lincoln campus expansions, including new academic and research facilities",
+      "Lincoln Airport terminal and infrastructure improvements",
+      "West Haymarket district redevelopment"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Lincoln employers, particularly in healthcare, insurance, and government sectors, as organizations seek standardized project delivery practices; job postings often list PMP or equivalent experience as a preferred qualification.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lincoln's insurance and financial services sector—home to major employers like Ameritas, Assurity Life Insurance, and Nelnet—consistently demands skilled project managers to lead strategic initiatives. State government, UNL's campus expansions, and growing healthcare systems add further depth to the local PM job market. Granite PM Academy delivers live-virtual PMP® Certification to working professionals across Lincoln and nationwide, enabling you to earn your credential on your schedule.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-lincoln-ne.webp",
+    "city_image_alt": "Aerial view of the old Haymarket and West Haymarket, Lincoln, NE",
+    "city_image_credit": "Photo: Hanyou23, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_old_Haymarket_and_West_Haymarket,_Lincoln,_Nebraska,_USA.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Lincoln's State Government, higher education, healthcare, and insurance sectors all depend on skilled project managers to drive complex initiatives forward. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training that meets PMI's contact-hour education requirements, taught by active certified practitioners and structured around your schedule. Earn the credential employers in Lincoln's key industries recognize and trust to advance your project management career.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:27.802080Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2dcffbe8fbe378e2",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Lincoln's Project Leaders",
+      "text": "<p>Lincoln's insurance and financial services sector has long anchored demand for skilled project and program managers, and that need continues to grow across the state capital's diverse economy. As Nebraska State Government, major employers like Ameritas and Assurity Life Insurance, and expanding healthcare systems intensify their reliance on disciplined project delivery, the PMI Certified Associate in Project Management (PMI-CPMAI) credential has become a practical credential for professionals seeking advancement in Lincoln. This certification validates foundational project management competencies and demonstrates your readiness to contribute to increasingly complex initiatives—whether you work in insurance operations, government administration, healthcare delivery, or one of the technology and manufacturing firms that have strengthened the local job market in recent years.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting all PMI contact-hour requirements for the credential. Our active certified practitioners bring real-world project experience to every class, ensuring you learn frameworks and tools that apply immediately to your role. Whether you're early in your career or transitioning into project management, our structured curriculum prepares you to pass the PMI-CPMAI exam with confidence. As a PMI Authorized Training Partner, we guide you through every step—from eligibility and enrollment through exam readiness—so you can earn your credential and advance your career in Lincoln's growing project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:31.896078Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f8a40934395ec580",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Lincoln's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your certification carries the weight employers trust. Lincoln's state government, healthcare systems, and financial services firms recognize PMI credentials as the standard for project management competency."
+        },
+        {
+          "heading": "Live-Virtual Format Fits Working Schedules",
+          "text": "Earn your PMI-CPMAI through live-virtual instructor-led training that satisfies all contact-hour requirements without relocating. Attend from Lincoln while learning from active certified practitioners delivering real-world expertise in real time."
+        },
+        {
+          "heading": "Expert Instructors, Comprehensive Exam Prep",
+          "text": "Study under active certified practitioners who bring current project-management experience into every session. Granite includes structured exam-preparation support designed to build confidence and maximize first-attempt success on your certification test."
+        },
+        {
+          "heading": "Lincoln Employers Demand Certified Project Managers",
+          "text": "Insurance, financial services, healthcare, state government, and manufacturing sectors throughout Lincoln actively recruit PMP and CAPM professionals. The PMI-CPMAI credential positions you competitively for roles managing complex initiatives across these high-demand local industries."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:35.680492Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "085fe389e2d29927",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lincoln's Growing Sectors",
+      "text": "<p>Lincoln's state government operations, healthcare systems, and higher-education institutions are among the region's largest employers of project managers. The Nebraska State Government drives demand for certified PMs across capital planning and administrative modernization—particularly visible in the ongoing Nebraska State Capitol restoration and preservation initiatives. Similarly, Bryan Health and CHI Health St. Elizabeth rely on certified practitioners to oversee clinical expansions, technology implementations, and facility improvements. University of Nebraska-Lincoln's campus expansions, including new academic and research facilities, represent another significant pipeline for PM talent. Insurance and financial services firms including Ameritas and Nelnet also maintain steady project portfolios requiring structured delivery practices and formal credentials.</p><p>The PMP certification is increasingly valued among Lincoln employers as organizations across healthcare, insurance, and government seek standardized project delivery practices; job postings often list PMP or equivalent experience as a preferred qualification. While project manager compensation in Lincoln tracks slightly below national metro averages, the city's lower cost of living makes competitive salaries stretch further, and the insurance, healthcare, and higher-education sectors offer steady, reliable demand for PM talent. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that demand with credentials employers actively seek, positioning you for advancement in Lincoln's professional project-management market without requiring you to leave the region or sacrifice career momentum.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:39.484588Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "425ccc09c1f1a188",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lincoln's Growing Sectors",
+      "text": "<p>Lincoln's robust insurance and financial services sector—home to major employers like Ameritas, Assurity Life Insurance, and Union Bank & Trust—consistently seeks certified project managers to lead modernization initiatives and operational improvements. Beyond insurance, healthcare organizations including Bryan Health and CHI Health St. Elizabeth, along with the University of Nebraska-Lincoln's ongoing campus expansions and research facility development, represent significant sources of PM demand. State Government, as the region's largest employer, also pursues standardized project delivery practices. These organizations and institutions increasingly list PMP certification or equivalent experience as a preferred qualification, recognizing that formal credentialing signals capability in scope management, risk planning, and stakeholder coordination.</p><p>Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential demand in Lincoln's competitive market. Project manager compensation here tracks slightly below national metro averages but remains attractive when weighed against the region's lower cost of living—and the insurance, healthcare, and higher-education sectors offer steady, durable PM career pathways. Earning your certification demonstrates commitment to professional standards that Lincoln employers value, particularly as organizations modernize their delivery practices. Granite PM Academy's live-virtual format lets you complete rigorous preparation on your schedule while staying employed, making it a practical investment in your advancement within Lincoln's established, stable professional environment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:43.470126Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "425ccc09c1f1a188",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Lincoln's job market?",
+          "answer": "<p>Yes. Lincoln's major employers in healthcare (Bryan Health, CHI Health St. Elizabeth), state government, insurance (Ameritas, Assurity), and higher education increasingly list PMP or equivalent credentials as preferred qualifications. While PM compensation in Lincoln tracks slightly below national metro averages, the lower cost of living makes certified roles highly competitive. Certification signals standardized project delivery expertise that these sectors actively value.</p>"
+        },
+        {
+          "question": "Which Lincoln industries most demand PMP or advanced PM certification?",
+          "answer": "<p>Healthcare systems, state government agencies, insurance and financial services firms, and the University of Nebraska-Lincoln are strongest sources of PM demand. These sectors are moving toward standardized project methodologies and increasingly require or prefer PMP-level credentials. Manufacturing and agribusiness employers in the region also recognize certified project management as a differentiator for operations and product development roles.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training while working in Lincoln?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training live-virtual, so you attend from your Lincoln workplace, home, or any location with internet access. This format works well for Lincoln professionals balancing full-time roles at state agencies, health systems, or corporate offices while earning certification credentials on a schedule that fits your work calendar.</p>"
+        },
+        {
+          "question": "Should I pursue PMI-CPMAI certification now or wait in Lincoln's market?",
+          "answer": "<p>Now is a favorable time. Lincoln employers across healthcare, government, and insurance sectors are actively seeking standardized PM expertise as organizations scale project delivery. Waiting risks missing competitive advantage—certified candidates typically advance faster and access roles with better career trajectory. The lower cost of living also means investing in certification sooner pays dividends longer.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:49.100807Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ecbb81e5d2cbb5f1",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lincoln's insurance and financial services sector—anchored by employers like Ameritas, Assurity Life Insurance, and Nelnet—consistently demands skilled project managers. Add state government operations, University of Nebraska-Lincoln's campus expansions, and growth in healthcare and technology, and the region's PM job market remains robust. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to working professionals across Lincoln, enabling you to earn your credential while meeting local career demands.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:50.844568Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3599d1436c7419d0",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lincoln's insurance and financial services sector—home to major employers like Ameritas, Assurity Life Insurance, and Nelnet—consistently seeks skilled project managers to lead enterprise initiatives. State government operations, the University of Nebraska-Lincoln's expanding campus projects, and growing healthcare systems further strengthen demand for certified PM professionals across the region. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lincoln professionals nationwide, helping you earn the credential employers in your market value most.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:52.761116Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3599d1436c7419d0",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-lincoln-ne/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Lincoln, NE, AI courses Lincoln, CPMAI certification Lincoln, AI project management training Lincoln, NE, AI for project managers Lincoln",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\",\n      \"name\": \"PMI-CPMAI Certification Training in Lincoln, NE | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Lincoln, NE for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Lincoln, NE\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Lincoln, NE\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Lincoln, NE who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lincoln-ne/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lincoln-ne/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

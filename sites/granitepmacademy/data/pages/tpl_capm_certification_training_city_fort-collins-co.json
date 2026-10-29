@@ -1,390 +1,436 @@
 {
-    "template_id": "tpl_capm_certification_training_city",
-    "city_id": "fort-collins-co",
-    "slug": "capm-certification-training-fort-collins-co",
-    "title": "CAPM Certification & Boot Camp {city}",
-    "city_vars": {
-        "id": "fort-collins-co",
-        "city": "Fort Collins",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "fort-collins-co",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Fort Collins' project management demand spans technology, clean energy, higher education, and healthcare—anchored by Colorado State University, Woodward, Inc., and Advanced Energy Industries. Major initiatives like the Fort Collins Connexion broadband buildout and CSU's ongoing campus modernization create steady openings for skilled program and project managers. Granite PM Academy delivers live-virtual PMP Certification to Fort Collins professionals seeking structured credentials aligned with the region's robust private and public-sector project pipeline.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
-            "hs_subtext": "<p>Fort Collins' technology and engineering sectors increasingly rely on certified project managers to coordinate cross-functional teams and deliver products on schedule. Granite PM Academy's live-virtual CAPM Boot Camp delivers the PMI contact-hour education requirement through instructor-led training, enabling you to earn your Certified Associate in Project Management credential on a flexible schedule. For project coordinators and early-career managers in the region's competitive tech and manufacturing landscape, CAPM credentials open pathways to leadership roles and stronger earning potential.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#capm_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "CAPM certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:55.149899Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "f765902cc8cfd295",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "CAPM Certification & Boot Camp in Fort Collins",
-            "text": "<p>Fort Collins's technology and electronics manufacturing sector—home to industry leaders like Woodward and Broadcom—drives consistent demand for professionals who can demonstrate structured project management capability. Whether you're advancing within these high-precision industries, transitioning into Colorado State University's expanding research and administrative operations, or joining the city's accelerating clean energy and healthcare sectors, the CAPM® credential signals your readiness to lead initiatives from day one. In Fort Collins's competitive job market, CAPM certification distinguishes you as someone who has committed to formal methodology and earned recognition from the Project Management Institute—the globally trusted standard that employers across technology, manufacturing, and public agencies actively seek.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM Certification & Boot Camp through live-virtual, instructor-led sessions designed to fit working professionals in Fort Collins. Our curriculum covers all domains required for CAPM eligibility and completion, taught by active certified practitioners who bring real-world experience from the industries that define this region. We satisfy the contact-hour requirement in a focused timeframe, so you move efficiently from enrollment to exam readiness. Upon completion, you'll hold a credential recognized across every sector in Fort Collins—from Woodward's operations to UCHealth's program offices—and you'll be positioned to pursue roles that demand demonstrated project delivery capability.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:01:59.854371Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "fbadef6e9dc71ad6",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "CAPM Certification Pathway for Fort Collins Project Professionals",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Credentials",
-                    "text": "Granite PM Academy is an official PMI Authorized Training Partner, ensuring your CAPM® preparation meets rigorous standards. This partnership guarantees your contact hours count directly toward PMI certification eligibility without additional documentation hassles."
-                },
-                {
-                    "heading": "Live Instructors, Real Practitioners",
-                    "text": "Learn from active certified project managers working in Fort Collins industries today—not recording replays. Our instructors bring current aerospace, manufacturing, and clean energy experience into every session, translating theory into decisions you'll face immediately."
-                },
-                {
-                    "heading": "Exam Readiness Built In",
-                    "text": "Beyond contact-hour completion, you receive targeted exam-prep support: practice questions, strategy review, and performance feedback. Our structure bridges the gap between training completion and passing the CAPM® exam with confidence."
-                },
-                {
-                    "heading": "Hire-Ready Skills for Fort Collins Employers",
-                    "text": "Fort Collins employers—including Woodward, Inc., Advanced Energy Industries, and UCHealth—actively seek CAPM®-certified candidates for project coordinator and junior program-management roles. This credential directly signals capability to the region's dominant technology, manufacturing, and healthcare sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:04.173284Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "7d01380239a1baa7",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "23",
-                    "label": "PMI contact hours included with every CAPM course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Fort Collins",
-            "text": "<p>Fort Collins' technology and manufacturing sector drives consistent demand for certified project managers. Woodward, Inc.'s ongoing campus expansion and facility development requires skilled PMs to coordinate complex initiatives, while Advanced Energy Industries and Broadcom rely on structured project delivery across product development and operations. Beyond manufacturing, Colorado State University's capital construction and campus modernization projects, along with UCHealth Poudre Valley Hospital's facility expansions, represent major institutional employers actively seeking candidates who can manage multi-phase, cross-functional initiatives. The Fort Collins Connexion municipal broadband buildout further illustrates the region's appetite for professionals who can navigate large-scale infrastructure and technology projects.</p><p>Earning your CAPM credential positions you competitively within Fort Collins' job market, where PMP and CAPM certifications are increasingly valued as differentiators—especially in engineering, manufacturing, and healthcare administration. While compensation varies by industry and experience, project managers in Fort Collins tend to track Colorado Front Range averages, with roles in these sectors typically offering stronger offers when candidates hold recognized credentials. Completing Granite PM Academy's CAPM Certification & Boot Camp gives you the structured foundation and formal credential that Fort Collins employers cite in job postings and use to evaluate advancement potential. In a region where major employers are actively expanding facilities and launching significant initiatives, certification signals your readiness to lead projects at the scale and complexity this market demands.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:08.530697Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "f78a61a574e75e80",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual CAPM Boot Camp",
-                    "badge": "BEST VALUE",
-                    "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$795",
-                    "period": "per person",
-                    "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#capm_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "capm_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to CAPM Certification in Fort Collins",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you hold a secondary degree or equivalent and have completed the required project management education hours. The CAPM requires no prior work experience—ideal for Fort Collins professionals entering or transitioning into project management roles."
-                },
-                {
-                    "heading": "Complete 23 Contact Hours of Education",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required education into a focused learning experience, designed to fit working professionals' schedules while building practical PM knowledge."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "Register with PMI, document your eligibility, and pay the examination fee directly to PMI. Granite PM Academy guides you through the application process to ensure accuracy and timely submission."
-                },
-                {
-                    "heading": "Prepare and Sit for the CAPM Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce key concepts. Schedule your exam with Pearson Vue and complete the computer-based assessment on your timeline."
-                },
-                {
-                    "heading": "Maintain Your CAPM Credential",
-                    "text": "Earn professional development units across a three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing education opportunities aligned with PMI standards to support your ongoing professional growth."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:12.826341Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "capm_pathway",
-            "_ai_input_hash": "332160d252d50285",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CAPM Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need project management experience to take the CAPM?",
-                    "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
-                },
-                {
-                    "question": "Is the CAPM a good starting credential for {city} professionals?",
-                    "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
-                },
-                {
-                    "question": "How does the CAPM differ from the PMP?",
-                    "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
-                },
-                {
-                    "question": "Is this training delivered online?",
-                    "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
-                },
-                {
-                    "question": "Is CAPM certification worth pursuing for Fort Collins project managers?",
-                    "answer": "<p>Yes, especially in Fort Collins's engineering, manufacturing, and healthcare sectors. Major employers like Woodward, Inc., Advanced Energy Industries, and UCHealth Poudre Valley Hospital increasingly cite CAPM and PMP credentials as differentiators in job postings and promotion decisions. While not universally required, certification strengthens your candidacy for roles with structured project delivery demands and often supports negotiation for competitive Front Range compensation.</p>"
-                },
-                {
-                    "question": "Which Fort Collins employers value CAPM and project management credentials most?",
-                    "answer": "<p>Colorado State University, technology and electronics manufacturers, clean energy firms, aerospace suppliers, and healthcare systems rank certification highly. Broadcom, Otterbox, New Belgium Brewing, and local government (City of Fort Collins, Larimer County) also recognize CAPM as a credible foundation credential. Engineering and manufacturing roles in particular value demonstrated project management methodology knowledge.</p>"
-                },
-                {
-                    "question": "Can I attend Fort Collins CAPM boot camp classes while working remotely?",
-                    "answer": "<p>Yes. Our live-virtual format allows Fort Collins professionals to join from home, office, or any location with reliable internet. This flexibility suits Fort Collins's distributed workforce—especially those at CSU, tech companies, and healthcare organizations with flexible or hybrid arrangements. You remain fully engaged with instructors and peers regardless of your physical location.</p>"
-                },
-                {
-                    "question": "Should Fort Collins project managers certify now or wait for job opportunities?",
-                    "answer": "<p>Pursuing CAPM now strengthens your position in Fort Collins's competitive job market. Engineering, manufacturing, and healthcare roles are actively seeking certified candidates. Credentialing before a transition puts you ahead of internal and external applicants, particularly valuable on the Front Range where project-driven industries continue expanding and compensation rewards demonstrated methodology expertise.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:18.588341Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "9c6286c446a74723",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Fort Collins' project management demand is anchored by Colorado State University, Woodward, and a thriving clean-energy sector—industries where structured program delivery and capital project expertise command steady career opportunities. From UCHealth facility expansions to municipal broadband and campus modernization initiatives, local employers actively seek professionals with formal certification. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp sessions tailored for Fort Collins working professionals seeking to formalize their credentials and advance into higher-impact roles.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:02:20.815890Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "dd94cc09766924d7",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Launch Your PM Career from {city}",
-            "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#capm_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "fort-collins-co",
+  "slug": "capm-certification-training-fort-collins-co",
+  "title": "CAPM Certification Training {city}",
+  "city_vars": {
+    "id": "fort-collins-co",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "fort-collins-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/capm-certification-training-fort-collins-co/",
-        "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "meta_keywords": "CAPM certification Fort Collins, CO, CAPM boot camp Fort Collins, CAPM training Fort Collins, CO, CAPM classes Fort Collins CO, CAPM exam prep Fort Collins",
-        "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
-        "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
-        "og_image": "",
-        "service_name": "CAPM Certification & Boot Camp",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
-        "bc_label": "CAPM Certification & Boot Camp {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\",\n      \"name\": \"CAPM Certification & Boot Camp in Fort Collins, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Fort Collins, CO. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Fort Collins, CO\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Fort Collins, CO\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Fort Collins, CO. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n    }\n  ]\n}",
-        "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+    "industries": [
+      "Technology & Electronics Manufacturing",
+      "Clean Energy & Renewable Technology",
+      "Higher Education",
+      "Healthcare",
+      "Craft Brewing & Food/Beverage Production",
+      "Aerospace & Industrial Manufacturing"
+    ],
+    "top_employers": [
+      "Colorado State University",
+      "Woodward, Inc.",
+      "UCHealth Poudre Valley Hospital",
+      "Advanced Energy Industries",
+      "Broadcom",
+      "New Belgium Brewing",
+      "Anheuser-Busch",
+      "Otterbox",
+      "City of Fort Collins",
+      "Larimer County",
+      "Poudre School District",
+      "Bohemian Foundation"
+    ],
+    "salary_note": "Project manager pay in Fort Collins tends to track Colorado Front Range averages, with roles in engineering, manufacturing, and healthcare typically commanding the most competitive compensation; certified candidates (PMP) are generally positioned for stronger offers, though exact figures vary widely by industry and experience.",
+    "market_blurb": "Fort Collins's project management job market is shaped by its strong base in technology and electronics manufacturing, clean energy, higher education, and healthcare, anchored by Colorado State University and companies like Woodward and Advanced Energy Industries. The city's growing craft-beverage and outdoor-recreation sectors add further demand for skilled coordinators and program managers. Overall, the market reflects steady demand for structured project delivery across both private industry and public-sector initiatives.",
+    "notable_projects": [
+      "Fort Collins Connexion municipal broadband buildout",
+      "Woodward, Inc. campus expansion and facility development in Fort Collins",
+      "Colorado State University capital construction and campus modernization projects",
+      "UCHealth Poudre Valley Hospital facility expansions"
+    ],
+    "credential_demand": "PMP and CAPM credentials are increasingly valued by Fort Collins-area employers in engineering, manufacturing, and healthcare administration, where structured project delivery is essential; while not universally required, certification is often cited as a differentiator in local job postings and career advancement.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fort Collins's technology and clean-energy sectors—home to employers like Woodward and Advanced Energy Industries—drive steady demand for skilled project managers across private industry and public infrastructure initiatives. From Colorado State University's campus modernization to the Fort Collins Connexion broadband buildout, PMP-certified professionals command leadership roles in the city's most ambitious undertakings. Granite PM Academy delivers live-virtual PMP Certification training to Fort Collins professionals seeking to formalize their credentials and advance in a competitive, growth-oriented market.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-fort-collins-co.webp",
+    "city_image_alt": "Downtown Fort Collins Colorado, CO",
+    "city_image_credit": "Photo: Citycommunications at English Wikipedia, CC BY 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Collins_Colorado.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Fort Collins's advanced manufacturing, clean energy, and healthcare sectors depend on professionals who can coordinate complex projects across teams and timelines. Granite PM Academy delivers live-virtual CAPM Certification Training that fulfills PMI's contact-hour education requirement, preparing you to sit for the CAPM exam on your schedule. Earning your CAPM credential positions you for project coordinator and assistant project manager roles across the region's fastest-growing employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:19.925153Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ba96a01d63722af9",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "b94b510d8a403901d4e015501d62b58f"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification Training in Fort Collins for Growing Project Managers",
+      "text": "<p>Fort Collins' technology and electronics manufacturing sector—anchored by industry leaders like Woodward and Broadcom—drives consistent demand for professionals who can demonstrate structured project-delivery competency. The CAPM® (Certified Associate in Project Management) credential is the entry-level PMI® certification designed for early-career coordinators and program managers stepping into formal roles across these innovation-focused industries. Whether you're advancing within Colorado State University, UCHealth, Advanced Energy Industries, or the city's expanding craft-beverage and outdoor-recreation operations, CAPM certification signals to employers that you understand scope, schedule, budget, and risk management—skills that Fort Collins organizations increasingly expect from promotion-track candidates.</p><p>Granite PM Academy delivers live-virtual, instructor-led CAPM Certification Training that satisfies PMI's contact-hour requirements and fits the schedules of working professionals in Fort Collins and beyond. Our active certified practitioners bring real-world experience to every session, ensuring you learn not just theory but practical application relevant to today's project environments. Upon completion and successful examination, you'll hold a credential recognized across private industry and public-sector employers nationwide—opening pathways to higher responsibility and earning potential as you advance your career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:23.622168Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "d16146d5b78de852",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Fort Collins' growing project workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized credential path",
+          "text": "Granite PM Academy delivers PMI-authorized CAPM® training that satisfies all contact-hour requirements for exam eligibility. Your certification carries the weight of PMI's rigorous standard—the credential employers in aerospace, manufacturing, and clean energy across Fort Collins and beyond recognize and value."
+        },
+        {
+          "heading": "Live instruction, flexible schedule",
+          "text": "Attend instructor-led training sessions entirely online. Active certified practitioners guide you through real-world project scenarios in real time, answering questions as they arise. No pre-recorded videos; no rigid classroom commute—learn on your terms while meeting the contact hours PMI requires."
+        },
+        {
+          "heading": "Exam readiness built in",
+          "text": "Granite PM Academy instructors are practicing project managers who know what the CAPM® exam tests. Preparation materials, practice questions, and strategy sessions are integrated throughout your training, not bolted on as afterthoughts. Graduate ready to sit for the exam with confidence."
+        },
+        {
+          "heading": "Credential valued by Fort Collins employers",
+          "text": "Fort Collins' largest employers—Colorado State University, Woodward Inc., UCHealth, Advanced Energy Industries, and Broadcom—hire project and program managers across technology, manufacturing, healthcare, and renewable energy. The CAPM® credential signals to these and similar local firms that you've mastered foundational project disciplines."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:28.049541Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e78da3c825d5d454",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fort Collins",
+      "text": "<p>Fort Collins's thriving advanced manufacturing and engineering sector — anchored by companies like Woodward, Inc. and Broadcom — actively recruits certified project managers to oversee facility expansions, product development cycles, and technology deployments. Beyond manufacturing, Colorado State University's ongoing capital construction and campus modernization initiatives, combined with UCHealth Poudre Valley Hospital's facility expansion projects, create sustained demand for PMs who can manage complex timelines, budgets, and stakeholder coordination. The city's recent Fort Collins Connexion municipal broadband buildout further illustrates how local infrastructure and technology projects rely on structured project delivery — a hallmark of certified professionals.</p><p>In Fort Collins's competitive job market, CAPM® and PMP® credentials are increasingly cited as differentiators by employers in engineering, manufacturing, and healthcare administration, where methodical project execution directly impacts organizational success. While not universally required, certification is often the deciding factor in advancement and compensation offers, particularly as you move into mid-to-senior PM roles. Completing CAPM Certification Training through Granite PM Academy positions you to meet that credential demand and strengthen your candidacy across Fort Collins's largest growth sectors — giving you a concrete advantage as you pursue roles with the city's leading employers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:31.780773Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "ef483b68290e05c4",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification Training — Enrollment Options",
+      "pc_cols": "3",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "CAPM Certification",
+          "badge": "ENTRY LEVEL",
+          "desc": "Three-day live-virtual course satisfying PMI's 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "CAPM Bootcamp",
+          "badge": "FASTEST PATH",
+          "desc": "The same CAPM curriculum, compressed into a faster, more intensive 3-day format with longer daily sessions for professionals who want their credential sooner.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$995",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nAccelerated daily schedule\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Certification &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">Live-virtual sessions run on a 3-day schedule. Both satisfy PMI's 23-hour requirement and include our Pass Guarantee.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Certification\" tab=\"1\"]</div></div></div><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#ffffff;padding:72px 0;\"><div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\"><div style=\"flex:0 0 400px;max-width:400px;\"><h2 id=\"capm_boot_schedule\" style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">CAPM Bootcamp &mdash;<br><span style=\"color:#2563eb;\">Reserve Your Seat</span></h2><p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">The same credential, compressed into an accelerated 3-day format. Same Pass Guarantee, faster pace.</p></div><div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\"><style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>[course_card type=\"CAPM Bootcamp\" tab=\"1\"]</div></div></div></div>"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Fort Collins",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "CAPM requires a secondary degree and completion of project management education—but no prior work experience. If you hold a high school diploma, associate degree, or equivalent, you're already eligible to pursue certification, making CAPM ideal for career changers and early-stage professionals in Fort Collins's growing technology, energy, and manufacturing sectors."
+        },
+        {
+          "heading": "Complete 23 Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. This intensive format compresses the required contact hours into a focused, interactive experience. You'll learn PMBOK® fundamentals, practice real scenarios, and interact with active certified practitioners—all from your Fort Collins location, on a schedule that fits your work commitments."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your education, submit your formal application to PMI and pay the associated exam fee. Granite PM Academy guides you through the online submission process to ensure your credentials are verified and your eligibility confirmed before you sit for the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources to reinforce key concepts and build confidence. You'll take the computer-based CAPM exam at a Pearson VUE testing center. Our instructors remain available to clarify content and answer questions right up to exam day."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "CAPM certification is valid for three years. During this cycle, earn professional development units (PDUs) by attending training, conferences, or volunteering on project work. Renew by submitting your PDU record to PMI before expiration, keeping your credential current and competitive in Fort Collins's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:36.794454Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "01b834f5ba4543f6",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth it for Fort Collins project managers?",
+          "answer": "<p>Yes—CAPM is increasingly valued by Fort Collins employers in engineering, manufacturing, and healthcare, where structured project delivery is essential. Certified candidates often gain an edge in job postings and advancement, particularly at major regional employers. While not universally required, the credential signals disciplined methodology and positions you competitively in a market where PMP and CAPM credentials are cited as differentiators.</p>"
+        },
+        {
+          "question": "Which Fort Collins employers actively hire certified project managers?",
+          "answer": "<p>Fort Collins's largest employers—including Colorado State University, Woodward, UCHealth Poudre Valley Hospital, Advanced Energy Industries, Broadcom, and others in aerospace, clean energy, and manufacturing—increasingly seek CAPM and PMP-certified professionals. Certification is particularly valued in technology, electronics, renewable energy, and healthcare administration roles, where project governance and risk management are core competencies.</p>"
+        },
+        {
+          "question": "Can I attend CAPM certification training from my Fort Collins workplace?",
+          "answer": "<p>Yes. Granite PM Academy's CAPM training is 100% live-virtual and nationwide, so you can join from your office, home, or any location with internet access. This flexibility is ideal for Fort Collins professionals balancing work and study—many participants log in directly from their workplace during scheduled sessions.</p>"
+        },
+        {
+          "question": "Does Fort Collins's job market make CAPM certification timing important?",
+          "answer": "<p>Timing matters. Fort Collins's strong demand for certified project managers in engineering, healthcare, and clean energy means completing CAPM before a job search or promotion cycle can be strategic. The credential is increasingly cited in local postings, so obtaining it proactively—rather than reactively—often strengthens your positioning in a competitive regional market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:41.995888Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4a110b58e57e1520",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Collins's project management demand is anchored by Colorado State University, advanced manufacturing leaders like Woodward, Inc., and a thriving clean-energy sector that continues to expand. Major initiatives—from municipal broadband infrastructure to hospital facility upgrades and university campus modernization—require skilled practitioners who can manage complex timelines and stakeholder coordination. Granite PM Academy delivers live-virtual CAPM Certification Training to Fort Collins professionals seeking the PMI-recognized credential that opens doors across these growing industries.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:33:43.795534Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "7f7d678502e66aa5",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-fort-collins-co/",
+    "meta_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Fort Collins, CO, CAPM boot camp Fort Collins, CAPM training Fort Collins, CO, CAPM classes Fort Collins CO, CAPM exam prep Fort Collins",
+    "og_title": "CAPM Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification Training for {city}, {SS} professionals — a live-virtual, instructor-led course from a PMI Authorized Training Partner, with an accelerated Bootcamp option available. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification Training for professionals in {city}, {SS}, with an accelerated Bootcamp option, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\",\n      \"name\": \"CAPM Certification Training in Fort Collins, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Fort Collins, CO. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification Training in Fort Collins, CO\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#course\",\n      \"name\": \"CAPM Certification Training in Fort Collins, CO\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Fort Collins, CO. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-fort-collins-co/\"\n    }\n  ]\n}",
+    "primary_keyword": "CAPM Certification Training",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "07168c57d21af49668beb92fe0c744aa"
 }

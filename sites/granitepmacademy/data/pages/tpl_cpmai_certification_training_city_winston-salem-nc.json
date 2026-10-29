@@ -1,348 +1,395 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "winston-salem-nc",
-    "slug": "ai-training-winston-salem-nc",
-    "title": "AI Training {city}",
-    "city_vars": {
-        "id": "winston-salem-nc",
-        "city": "Winston-Salem",
-        "state": "North Carolina",
-        "SS": "NC",
-        "city_slug": "winston-salem-nc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "city_spotlight": "<p>Winston-Salem's healthcare and biotech sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and the expanding Wake Forest Innovation Quarter—drive consistent demand for skilled project managers across clinical, research, and campus development initiatives. Banking, advanced manufacturing, and logistics round out a diversified employer base that values PMP certification for career advancement. Granite PM Academy delivers live-virtual PMP Certification training to Winston-Salem professionals seeking to meet industry standards and unlock leadership roles.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "AI Training in {city}, {SS} for Project Managers",
-            "hs_subtext": "<p>Winston-Salem's healthcare and biotechnology sectors rely on project managers who can integrate AI tools into clinical trials, regulatory workflows, and operational planning. Granite PM Academy delivers live-virtual, instructor-led AI training that satisfies PMI's contact-hour requirements, equipping you to lead data-driven initiatives across the region's expanding life-sciences industry. Mastering AI-augmented project delivery positions you for advancement in roles where technical fluency and certification credibility matter most.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:51.190365Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "f41d5d05eb8a6f49",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "AI Training for Project Managers in Winston-Salem",
-            "text": "<p>Winston-Salem's healthcare sector—anchored by Novant Health, Atrium Health Wake Forest Baptist, and the region's growing biotechnology and life sciences ecosystem—is rapidly integrating artificial intelligence into clinical operations, research workflows, and administrative processes. Project managers leading initiatives in these organizations face a new imperative: understanding how to direct teams deploying AI tools, evaluate algorithmic risk, and manage the intersection of innovation and compliance. Beyond healthcare, Truist Financial, advanced manufacturers, and logistics firms across Winston-Salem are equally invested in AI-driven transformation. Professionals who master both traditional project management discipline and emerging AI capabilities position themselves as indispensable leaders in a city where healthcare innovation and financial services continue to drive economic growth.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training for project managers—taught by active certified practitioners who bring real-world experience from organizations navigating these exact transitions. Our curriculum satisfies the contact-hour requirements for PMP® and CAPM® credential maintenance and renewal, ensuring your investment in AI competency also advances your standing within the Project Management Institute framework. Whether you are managing a clinical informatics rollout at Novant Health, supporting digital transformation in banking, or leading manufacturing automation projects, our structured approach bridges the gap between AI fundamentals and practical project governance. Begin your pathway to AI-ready project management certification with Granite PM Academy, and strengthen your competitive position in Winston-Salem's evolving professional landscape.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:04:55.978732Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "1c386cee469fd843",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "AI Skills for Winston-Salem's Healthcare and Financial Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP or CAPM certification carries the authority employers like Truist Financial and Novant Health expect. This distinction matters when competing for roles managing complex initiatives across regulated industries."
-                },
-                {
-                    "heading": "Live Instruction Meets Your Contact-Hour Requirement",
-                    "text": "Our live-virtual instructor-led format satisfies PMI's contact-hour requirement for credential eligibility. Working professionals in Winston-Salem attend scheduled sessions from their location, balancing job demands at manufacturers like Corning and Hanesbrands while building certification-ready credentials."
-                },
-                {
-                    "heading": "Certified Practitioners Teach Current Methods",
-                    "text": "Your instructors are active, certified project managers—not theoretical educators. They bring real-world experience from biotech, logistics, and healthcare environments, translating Winston-Salem's industry practices directly into curriculum and exam-preparation guidance."
-                },
-                {
-                    "heading": "Local Demand Backs Your Investment",
-                    "text": "Major employers across Winston-Salem—from Atrium Health Wake Forest Baptist to Old Dominion Freight Line—actively hire credentialed project managers. The PMP and CAPM certifications position you competitively in a market where healthcare systems, financial institutions, and manufacturing operations prioritize certified leadership."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:00.591231Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "eba7a46d8cad48ee",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Winston-Salem",
-            "text": "<p>Winston-Salem's healthcare and financial-services sectors are among the region's largest employers of certified project managers. Truist Financial, Novant Health, and Atrium Health Wake Forest Baptist all manage complex, compliance-heavy initiatives that benefit from structured project delivery. Real local projects underscore this demand: the Wake Forest Innovation Quarter expansion—a major biotech and research campus redevelopment in downtown Winston-Salem—and the Business 40 reconstruction project through the city's core both require skilled project managers to coordinate timelines, budgets, and stakeholder alignment. Manufacturing employers, including Reynolds American and Hanesbrands, similarly depend on project professionals to oversee product launches and operational improvements. These organizations actively seek candidates with formal credentials and domain expertise.</p><p>A PMP® or CAPM® certification strengthens your candidacy across Winston-Salem's dominant industries, where regulatory compliance and predictable delivery matter most. While compensation in Winston-Salem generally tracks slightly below larger metros like Charlotte or Raleigh, the steady demand from healthcare systems, banking, and manufacturing keeps the local market competitive—and candidates who combine certification with IT, healthcare, or financial-services experience are positioned for stronger offers. Completing the AI Training for Project Managers program at Granite PM Academy gives you both the credential employers recognize and the modern toolkit to stand out in a market where digital transformation and data-driven decision-making are reshaping project delivery. That combination positions you to advance quickly in a city where qualified project managers remain in genuine demand.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:05.088972Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "b488ac98bd4f112f",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "AI Training for Project Managers — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual AI Training for PMs",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Will AI project management training boost my career at Truist, Novant, or other Winston-Salem employers?",
-                    "answer": "<p>Yes. Healthcare systems, banking, and financial-services firms dominating Winston-Salem's job market increasingly prioritize structured project delivery and regulatory compliance. Adding AI competency to PMP or CAPM credentials strengthens your profile for leadership roles, especially where automation and data-driven decision-making are reshaping operations. Truist, Novant Health, and similar major employers actively seek certified managers who can leverage emerging tools.</p>"
-                },
-                {
-                    "question": "Is AI training for project managers worth it in Winston-Salem's job market?",
-                    "answer": "<p>Yes, particularly if you work or plan to work in healthcare, banking, manufacturing, or logistics—industries that anchor Winston-Salem's economy. While PMP certification remains the foundation, adding AI literacy differentiates you in a competitive local market where demand for certified project managers is steady but not oversaturated. This combination can lead to stronger offers and faster advancement than credentials alone.</p>"
-                },
-                {
-                    "question": "Can I take AI project management courses while working full-time in Winston-Salem?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your office, home, or anywhere with internet access—ideal for professionals at Hanesbrands, Reynolds American, Corning, or any Winston-Salem employer. You maintain your work schedule while completing training on your timeline, making certification feasible without sacrificing income or job stability during the learning period.</p>"
-                },
-                {
-                    "question": "Should I pursue AI certification now or wait for more Winston-Salem job openings?",
-                    "answer": "<p>Pursue it now. Winston-Salem's healthcare, banking, and manufacturing sectors show consistent demand for certified project managers, and the credential typically strengthens candidacy within 6–12 months. Waiting risks falling behind peers already certified. Employers like Atrium Health Wake Forest Baptist and City of Winston-Salem increasingly value PMP and emerging credentials—positioning yourself ahead of the curve pays off in this steady, competitive market.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:11.452329Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "994c24767e93dbd0",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Winston-Salem's project management demand runs deep across healthcare, banking, and advanced manufacturing—anchored by Truist, Novant Health, and ongoing biotech expansion in the Innovation Quarter. Major initiatives like the Wake Forest Innovation Quarter redevelopment and downtown revitalization projects create steady openings for skilled PMs. Granite PM Academy delivers live-virtual AI Training for Project Managers to Winston-Salem professionals seeking to advance their careers in this growing market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T05:05:13.241264Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "6187512870afc771",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "winston-salem-nc",
+  "slug": "ai-training-winston-salem-nc",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "winston-salem-nc",
+    "city": "Winston-Salem",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "winston-salem-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-winston-salem-nc/",
-        "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Winston-Salem, NC, AI courses Winston-Salem, CPMAI certification Winston-Salem, AI project management training Winston-Salem, NC, AI for project managers Winston-Salem",
-        "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
-        "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "AI Training for Project Managers",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "AI Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\",\n      \"name\": \"AI Training for Project Managers in Winston-Salem, NC — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Winston-Salem, NC for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Winston-Salem, NC\",\n            \"item\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#course\",\n      \"name\": \"AI Training for Project Managers in Winston-Salem, NC\",\n      \"description\": \"CPMAI certification training for project managers in Winston-Salem, NC who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n    }\n  ]\n}",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Healthcare and biomedical research",
+      "Banking and financial services",
+      "Manufacturing (tobacco, textiles, and industrial products)",
+      "Higher education",
+      "Biotechnology and life sciences",
+      "Logistics and distribution"
+    ],
+    "top_employers": [
+      "Truist Financial",
+      "Novant Health",
+      "Atrium Health Wake Forest Baptist",
+      "Wake Forest University",
+      "Reynolds American (R.J. Reynolds Tobacco Company)",
+      "Hanesbrands",
+      "Krispy Kreme",
+      "Corning Incorporated",
+      "Herbalife Nutrition",
+      "City of Winston-Salem",
+      "Forsyth County Government",
+      "Old Dominion Freight Line"
+    ],
+    "salary_note": "Project manager compensation in Winston-Salem tends to track slightly below larger metros like Charlotte or Raleigh but remains competitive due to steady demand from healthcare systems, banking, and manufacturing employers. Candidates with PMP certification and healthcare, IT, or financial-services experience are generally positioned for stronger offers.",
+    "market_blurb": "Winston-Salem's project management job market is shaped by its strong healthcare, banking, and advanced manufacturing base, anchored by organizations like Truist, Novant Health, and Atrium Health Wake Forest Baptist. The city's ongoing growth in biotechnology and innovation districts, along with its legacy manufacturing and logistics sectors, continues to generate steady demand for project and program managers. Wake Forest University and the broader Piedmont Triad region also support a pipeline of PM talent moving into local industry roles.",
+    "notable_projects": [
+      "Wake Forest Innovation Quarter expansion (biotech and research campus redevelopment in downtown Winston-Salem)",
+      "Business 40 (I-40 Business) reconstruction project through downtown Winston-Salem",
+      "Wake Forest University School of Medicine's continued Innovation Quarter campus development",
+      "Truist Stadium and downtown redevelopment initiatives"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Winston-Salem employers in healthcare, banking, and manufacturing, where structured project delivery and regulatory compliance are priorities. While not universally required, holding a PMP or CAPM credential can strengthen candidacy for project coordinator and manager roles across the area's dominant industries.",
+    "_researched": 1,
+    "city_spotlight": "<p>Winston-Salem's healthcare and banking sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial—create steady demand for credentialed project managers. Major initiatives like the Wake Forest Innovation Quarter expansion and downtown redevelopment projects underscore the region's need for skilled PM leadership across biotech, manufacturing, and financial services. Granite PM Academy delivers live-virtual PMP® Certification training to Winston-Salem professionals seeking to advance their careers in this thriving market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Winston-Salem's healthcare, financial services, and manufacturing sectors depend on skilled project managers to drive complex initiatives across Novant Health, Truist Financial, and companies like Hanesbrands and Old Dominion Freight Line. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's required contact hours, enabling you to earn this credential on your schedule while meeting the education standards employers in your region value most. The PMI-CPMAI demonstrates your readiness to manage projects in environments where precision and structured methodology directly impact organizational outcomes.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:17.246622Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "50c3d816f64b4941",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:32+00:00",
-    "template_version": "0de1e214bdd389cff6ebef58bb167891"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Winston-Salem Project Managers",
+      "text": "<p>Winston-Salem's healthcare and banking sectors—anchored by major employers like Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial—depend on skilled project and program managers to deliver complex clinical, digital, and organizational initiatives. The PMI Certified Associate in Project Management (PMI-CPMAI) credential equips professionals in these industries with a structured framework for managing scope, schedule, and risk on real-world projects. For Winston-Salem professionals working in healthcare operations, financial services transformation, or the city's growing biotechnology and advanced manufacturing base, PMI-CPMAI certification demonstrates competency that employers recognize and value when making promotion and hiring decisions.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMI-CPMAI Certification Training nationwide, including for Winston-Salem professionals. Our courses satisfy the contact-hour requirement mandated by PMI and are taught by active certified practitioners with hands-on project experience. Whether you are beginning your project management career or transitioning into the discipline, our structured curriculum prepares you to sit for the PMI-CPMAI exam with confidence. Enroll in a schedule that fits your work life, complete your training entirely online, and move forward toward credential completion and career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:20.949263Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9755fed51a92323d",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification: Winston-Salem's Path to Credential Recognition",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI completion satisfies PMI's official requirements, so your credential carries immediate recognition with employers across Winston-Salem's major industries—from Truist Financial to Novant Health to manufacturing leadership."
+        },
+        {
+          "heading": "Live Virtual Instruction, Contact Hours Included",
+          "text": "Attend instructor-led sessions on your schedule via video conference. Every class delivers the contact hours PMI requires for PMI-CPMAI eligibility. No self-paced recordings or asynchronous modules—real-time instruction with active certified practitioners answering your questions in the moment."
+        },
+        {
+          "heading": "Exam Prep Built Into Your Training",
+          "text": "Your instructors are actively certified and practicing project managers who teach exam-focused content. Granite PM Academy integrates practice questions, strategy review, and confidence-building throughout the course, so you're ready for test day without separate cram sessions."
+        },
+        {
+          "heading": "Local Demand: Winston-Salem Employers Are Hiring",
+          "text": "Truist, Atrium Health, Wake Forest University, and Forsyth County Government actively recruit certified project and program managers. PMI-CPMAI demonstrates professional capability in these organizations' hiring criteria, positioning you competitively in a market where credential-holders advance faster into management roles."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:25.468292Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d15f40e83f07d88f",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Winston-Salem",
+      "text": "<p>Winston-Salem's healthcare and financial-services sectors are among the region's largest employers of certified project managers. Truist Financial, Novant Health, and Atrium Health Wake Forest Baptist rely on structured project delivery across operations, infrastructure, and technology initiatives. Beyond these anchor employers, the Wake Forest Innovation Quarter expansion—a major biotech and research campus redevelopment in downtown Winston-Salem—represents the kind of complex, regulated project work that drives demand for credentialed PMs. Manufacturing and logistics employers, including Hanesbrands and Old Dominion Freight Line, similarly depend on certified professionals to manage supply-chain, facility, and process-improvement projects. The Business 40 reconstruction through downtown and Wake Forest University's continued Innovation Quarter campus development further illustrate the breadth of local project activity across public, private, and institutional sectors.</p><p>Earning your PMI-CPMAI Certification Training credential through Granite PM Academy positions you competitively in a market where PMP and CAPM certifications are increasingly valued—especially for candidates with healthcare, IT, or financial-services backgrounds. Project manager compensation in Winston-Salem remains competitive despite tracking slightly below larger metros, sustained by steady demand from the region's dominant industries and the priority placed on regulatory compliance and structured delivery. Completing your certification equips you to advance from coordinator roles into manager and senior project roles across the healthcare systems, banking institutions, and manufacturing operations that define local employment. Live-virtual training means you gain the knowledge and credential without disrupting your current work or life in Winston-Salem.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:29.910238Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a52086cd647be4a5",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Roles Growing Across Winston-Salem's Healthcare and Finance Sectors",
+      "text": "<p>Winston-Salem's dominant employers—Novant Health, Atrium Health Wake Forest Baptist, Truist Financial, and Hanesbrands—routinely hire certified project managers to oversee complex initiatives spanning clinical operations, IT infrastructure, and supply-chain modernization. The Innovation Quarter expansion, a major biotech and research campus redevelopment in downtown Winston-Salem, and the ongoing Business 40 reconstruction project through the city center both exemplify the scale and scope of work where structured project delivery and PMP or CAPM credentials strengthen candidacy. These employers prioritize candidates who can demonstrate proficiency in regulatory compliance, stakeholder coordination, and risk management—core competencies that PMI-CPMAI Certification Training develops.</p><p>The credential carries particular weight in Winston-Salem's healthcare, banking, and manufacturing sectors, where demand for certified practitioners remains steady and competitive. While not universally required for entry-level roles, holding PMI certification positions you advantageously for advancement into project manager and senior coordinator positions, especially when paired with domain experience in financial services or biomedical research. Compensation for certified project managers in Winston-Salem remains competitive relative to local market conditions, reflecting the sustained hiring pressure from the region's anchoring institutions. Completing your PMI-CPMAI training through Granite PM Academy—delivered entirely live-virtual at your own pace—equips you with the credential and frameworks that local employers recognize and value.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:34.252004Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a52086cd647be4a5",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for project managers in Winston-Salem?",
+          "answer": "<p>Yes. Winston-Salem's largest employers—Truist Financial, Novant Health, Atrium Health Wake Forest Baptist, and manufacturers like Hanesbrands and Corning—increasingly prioritize PMP or CAPM credentials for project coordinator and manager roles. Healthcare systems and banking firms especially value the credential because structured project delivery and regulatory compliance are core operational needs. While not universally required, certification strengthens your candidacy and can support stronger compensation positioning in a market where demand remains steady.</p>"
+        },
+        {
+          "question": "Which Winston-Salem industries most value PMI project management certification?",
+          "answer": "<p>Healthcare, banking, and manufacturing dominate Winston-Salem's economy and show the strongest credential demand. Novant Health, Atrium Health Wake Forest Baptist, and Truist Financial rely on certified project managers to oversee complex, regulated initiatives. Manufacturing employers—Reynolds American, Hanesbrands, Corning, and logistics providers like Old Dominion Freight Line—also prioritize certification for supply-chain, operations, and quality projects. Biotechnology and higher-education sectors (Wake Forest University) round out the market.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training while working in Winston-Salem?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI certification training is 100% live-virtual, so you can attend from your office, home, or any location with internet access—no travel required. This format works well for Winston-Salem professionals balancing full-time roles at healthcare systems, financial institutions, or manufacturing companies. You'll interact with instructors and classmates in real time while maintaining your local work schedule.</p>"
+        },
+        {
+          "question": "When should Winston-Salem project managers pursue PMP certification?",
+          "answer": "<p>Timing depends on your career stage and employer. If you work for Truist, Novant, Atrium Health, or a major manufacturer, pursuing certification before seeking a promotion to senior project manager or program-management roles can strengthen your candidacy. Winston-Salem's steady demand for certified professionals means the credential remains valuable year-round, but obtaining it early—while in a coordinator or junior manager role—maximizes its impact on your earning potential and advancement timeline.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:40.435793Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ac4442df5c06ce2e",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Winston-Salem's healthcare and biomedical research sector—anchored by Novant Health, Atrium Health Wake Forest Baptist, and the expanding Wake Forest Innovation Quarter—drives consistent demand for skilled project managers across clinical operations, research infrastructure, and campus development. Major employers like Truist Financial and advanced manufacturers also fuel steady growth in PM roles throughout the Piedmont Triad. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Winston-Salem professionals seeking to formalize credentials and advance in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:42.271069Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "07ab9ea36e3502ea",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Winston-Salem's healthcare and biotech sectors—anchored by Novant Health, Atrium Health Wake Forest Baptist, and the expanding Wake Forest Innovation Quarter—are driving sustained demand for skilled project managers across clinical, research, and campus development initiatives. Banking, advanced manufacturing, and logistics sectors including Truist Financial and Old Dominion Freight Line further strengthen the region's PM job market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Winston-Salem professionals seeking to advance their credentials and career prospects.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:43:44.073314Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "07ab9ea36e3502ea",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-winston-salem-nc/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Winston-Salem, NC, AI courses Winston-Salem, CPMAI certification Winston-Salem, AI project management training Winston-Salem, NC, AI for project managers Winston-Salem",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\",\n      \"name\": \"PMI-CPMAI Certification Training in Winston-Salem, NC | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Winston-Salem, NC for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Winston-Salem, NC\",\n            \"item\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Winston-Salem, NC\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Winston-Salem, NC who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-winston-salem-nc/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

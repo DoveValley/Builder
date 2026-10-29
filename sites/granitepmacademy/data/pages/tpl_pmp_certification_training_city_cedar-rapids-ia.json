@@ -1,394 +1,428 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "cedar-rapids-ia",
-    "slug": "pmp-certification-training-cedar-rapids-ia",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "cedar-rapids-ia",
-        "city": "Cedar Rapids",
-        "state": "Iowa",
-        "SS": "IA",
-        "city_slug": "cedar-rapids-ia",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "city_spotlight": "<p>Cedar Rapids' aerospace and advanced manufacturing sector—anchored by Collins Aerospace and supported by agribusiness, insurance, and healthcare employers—creates steady demand for skilled project managers overseeing facility expansions, IT modernization, and infrastructure upgrades. The city's large corporate base and growing tech ecosystem mean PMP-certified professionals tap into diverse career pathways. Granite PM Academy serves Cedar Rapids professionals with live-virtual PMP Certification training aligned to PMI standards.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
-            "hs_subtext": "<p>Cedar Rapids's manufacturing and advanced-materials sector depends on skilled project managers to coordinate complex supply chains and production timelines. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, allowing you to earn your credential without relocating. For project managers in Cedar Rapids, the PMP designation strengthens your ability to lead cross-functional teams and advance into senior operations and program-leadership roles.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:03.449692Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "fcc33688f212b3a6",
-            "_ai_locked": true,
-            "id": "hero_split_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMP Certification Training in Cedar Rapids for Aerospace & Manufacturing Leaders",
-            "text": "<p>Cedar Rapids' aerospace and advanced manufacturing sector—anchored by Collins Aerospace and supported by a robust ecosystem of suppliers and related industries—depends on project managers who can lead complex production ramps, facility expansions, and supply-chain modernization initiatives. Whether you're overseeing plant upgrades at a major manufacturer, coordinating IT infrastructure projects across the region's insurance and healthcare employers, or managing agribusiness operations at companies like Cargill, the Project Management Professional (PMP) credential signals to your employer and peers that you meet a globally recognized standard for planning, executing, and controlling projects. In Cedar Rapids' competitive talent market, PMP certification distinguishes you for advancement into senior PM and program management roles where the region's largest employers actively invest.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual instructor-led PMP Certification Training designed around your schedule and Cedar Rapids' working professional lifestyle. Our courses satisfy the Project Management Institute's contact-hour requirements and are taught by active certified practitioners who bring real-world project experience to every session. You'll learn the frameworks, tools, and leadership principles that underpin successful project delivery—then apply them immediately in your role. Upon completion, you'll be fully prepared to sit for the PMP exam and take the next step in your project management career with a credential that opens doors across Cedar Rapids' diverse industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:07.854838Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "815df5d426eea33f",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMP Certification Path for Cedar Rapids Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Training Partner",
-                    "text": "Granite PM Academy holds PMI authorization to deliver PMP training that satisfies credential eligibility requirements. You receive official contact hours directly applicable to your PMP application — no separate documentation needed."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Your instructors hold active PMP® certification and work as practicing project managers in industries ranging from advanced manufacturing to healthcare. They teach frameworks you'll apply immediately, not theoretical abstractions."
-                },
-                {
-                    "heading": "Comprehensive Exam Readiness",
-                    "text": "Training includes exam-simulation tools, study materials, and instructor office hours to close knowledge gaps before your PMP test. Graduates report confident progression from training completion to exam registration."
-                },
-                {
-                    "heading": "Meet Cedar Rapids Employer Demand",
-                    "text": "Collins Aerospace, Cargill, UnityPoint Health, and other major Cedar Rapids employers actively hire certified project managers. PMP® certification accelerates advancement in manufacturing, healthcare, agribusiness, and IT roles across the region."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:11.629482Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "308a9e196ad672a2",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ],
-            "id": "stats_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Cedar Rapids",
-            "text": "<p>Cedar Rapids' advanced manufacturing and aerospace sector anchors steady demand for certified project managers. Collins Aerospace, a major regional employer, regularly manages facility expansions and modernization initiatives that require formalized project oversight. Beyond aerospace, Cargill and General Mills drive agribusiness and food-processing operations where PMP and CAPM credentials help professionals coordinate complex supply-chain and production projects. Insurance and financial services firms—including GreatAmerica Financial Services and Transamerica—also hire certified PMs for system implementations and capital projects. Additionally, ongoing infrastructure work like the Cedar Rapids Flood Control System, managed jointly by the U.S. Army Corps of Engineers and the City of Cedar Rapids, creates project-management opportunities across public and private sectors.</p><p>While project management salaries in Cedar Rapids track slightly below national metro averages, the region's manufacturing, insurance, and healthcare employers offer competitive compensation and strong benefits packages for certified professionals. PMP and CAPM credentials increasingly differentiate mid- to senior-level candidates in these industries, where large capital projects and system implementations demand structured PM discipline. Completing PMP Certification Training through Granite PM Academy positions you to stand out in a market where credential holders gain genuine advantage—especially if you're targeting roles at employers investing in modernization, grid infrastructure, or healthcare facility expansion. The credential is not always mandatory, but it remains a credible signal of expertise that Cedar Rapids employers actively value.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:15.904649Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "3492f4d58affeda4",
-            "_ai_locked": true,
-            "id": "ai_block_3"
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ],
-            "id": "pricing_cards_1"
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]",
-            "id": "custom_html_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Your Path to PMP Certification in Cedar Rapids",
-            "steps_items": [
-                {
-                    "heading": "Confirm Your Eligibility",
-                    "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Most candidates hold a bachelor's degree and have logged specific hours leading projects. Review PMI's full eligibility matrix to confirm your background qualifies before enrolling."
-                },
-                {
-                    "heading": "Complete 35 Contact Hours of Training",
-                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our Cedar Rapids-based instructors deliver all required contact hours online, letting you learn on a schedule that fits your work. You'll cover the PMBOK® Guide and exam domains in a structured, interactive format."
-                },
-                {
-                    "heading": "Submit Your PMI Application",
-                    "text": "After finishing the course, submit your PMP application directly to PMI and pay the associated exam fee. Granite PM Academy will guide you through the application process and verify your training completion. PMI will review your credentials and grant exam eligibility."
-                },
-                {
-                    "heading": "Prepare and Take the Exam",
-                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor Q&A sessions—to build confidence. Schedule your exam at a Pearson VUE testing center in Cedar Rapids or online. Our team remains available to answer final questions before test day."
-                },
-                {
-                    "heading": "Maintain Your PMP Credential",
-                    "text": "After earning your PMP, commit to the three-year renewal cycle by earning professional development units (PDUs). Granite PM Academy offers ongoing learning and PDU-eligible courses to support your continued growth and keep your credential active."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:21.183766Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "pmp_pathway",
-            "_ai_input_hash": "3c1b116cbae92914",
-            "_ai_locked": true,
-            "id": "ai_block_4"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
-                }
-            ],
-            "id": "testimonials_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth pursuing for Cedar Rapids manufacturing and aerospace careers?",
-                    "answer": "<p>Yes. Cedar Rapids's advanced manufacturing and aerospace sector—anchored by major employers managing complex capital projects and system integrations—increasingly values PMP credentials as a differentiator for mid- to senior-level roles. While not always mandatory, certification signals formalized project management discipline that aligns with employer expectations in this industry, potentially strengthening advancement and compensation prospects within the region.</p>"
-                },
-                {
-                    "question": "Which Cedar Rapids employers most value PMP and CAPM project management credentials?",
-                    "answer": "<p>Manufacturing, insurance, and healthcare employers in Cedar Rapids most actively seek certified project managers. These industries—represented by major regional employers managing large infrastructure, system implementations, and capital projects—view PMP and CAPM credentials as proof of structured methodology. Financial services and agribusiness firms also increasingly recognize certification when filling PM roles, though adoption varies by organization size and project scope.</p>"
-                },
-                {
-                    "question": "Can I attend PMP training live-virtual from my Cedar Rapids workplace or home office?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual instructor-led format allows Cedar Rapids professionals to attend from their workplace, home office, or any location with reliable internet. This flexibility is especially valuable for working professionals at Collins Aerospace, Cargill, healthcare systems, and other major Cedar Rapids employers who need to balance training with ongoing project responsibilities.</p>"
-                },
-                {
-                    "question": "How does the Cedar Rapids job market affect timing for PMP certification training?",
-                    "answer": "<p>Cedar Rapids's strong project management demand in manufacturing, insurance, and healthcare suggests pursuing certification sooner rather than later. Employers in these sectors regularly post PM roles requiring or preferring credentials; completing training before a job search or promotion opportunity can position you competitively. Healthcare and insurance employers in particular often accelerate hiring for certified PMs during system-upgrade and capital-project cycles.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:26.887195Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "2fa7b10388d247e5",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Cedar Rapids' aerospace and advanced manufacturing sector—anchored by Collins Aerospace and supported by agribusiness, insurance, and healthcare leaders—consistently demands skilled project managers for facility expansions, IT modernization, and infrastructure upgrades. As major employers invest in modernization and renewable energy initiatives, structured PM expertise remains a competitive advantage. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Cedar Rapids professionals seeking to advance in this active market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-31T04:44:28.855811Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "3b934f333bc4c8b8",
-            "_ai_locked": true,
-            "id": "map_info_1"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal",
-            "id": "cta_banner_1"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "cedar-rapids-ia",
+  "slug": "pmp-certification-training-cedar-rapids-ia",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "cedar-rapids-ia",
+    "city": "Cedar Rapids",
+    "state": "Iowa",
+    "SS": "IA",
+    "city_slug": "cedar-rapids-ia",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Cedar Rapids, IA, PMP exam prep Cedar Rapids, PMP course Cedar Rapids IA, project management certification Cedar Rapids, IA, PMI PMP training Cedar Rapids",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\",\r\n      \"name\": \"PMP Certification Training in Cedar Rapids, IA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Cedar Rapids, IA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Cedar Rapids, IA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#course\",\r\n      \"name\": \"PMP Certification Training in Cedar Rapids, IA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Cedar Rapids, IA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Advanced manufacturing & aerospace",
+      "Agribusiness & food processing",
+      "Insurance & financial services",
+      "Healthcare",
+      "Information technology",
+      "Education & professional services"
+    ],
+    "top_employers": [
+      "Collins Aerospace",
+      "Cargill",
+      "General Mills",
+      "PepsiCo (Quaker Oats)",
+      "ACT, Inc.",
+      "Transamerica",
+      "GreatAmerica Financial Services",
+      "Mercy Medical Center",
+      "UnityPoint Health – St. Luke's Hospital",
+      "CRST International",
+      "Alliant Energy",
+      "Kirkwood Community College"
+    ],
+    "salary_note": "Project management salaries in Cedar Rapids tend to track slightly below national metro averages but remain competitive within Iowa, with manufacturing, insurance, and healthcare employers often offering the strongest compensation and benefits packages for certified PMs.",
+    "market_blurb": "Cedar Rapids has a diverse, stable economy anchored by aerospace manufacturing, agribusiness, insurance, and healthcare, all of which regularly need skilled project and program managers to oversee plant expansions, IT modernization, and facility upgrades. As companies like Collins Aerospace and Cargill continue to invest locally, demand for structured project management expertise remains steady. The city's mix of large corporate employers and growing tech/startup activity (supported by organizations like NewBoCo) creates varied opportunities for PM professionals.",
+    "notable_projects": [
+      "Cedar Rapids Flood Control System (ongoing U.S. Army Corps of Engineers and City of Cedar Rapids flood mitigation program)",
+      "Collins Aerospace facility expansions and modernization projects",
+      "Alliant Energy renewable energy and grid infrastructure investments",
+      "The Eastern Iowa Airport terminal and infrastructure improvements"
+    ],
+    "credential_demand": "PMP and CAPM credentials are increasingly valued by Cedar Rapids-area employers in manufacturing, insurance, and healthcare, as these industries manage large capital projects and system implementations requiring formalized project management skills. While not always mandatory, certification is frequently viewed as a differentiator for mid- to senior-level PM roles in the region.",
+    "_researched": 1,
+    "city_spotlight": "<p>Cedar Rapids's aerospace and advanced manufacturing sector, anchored by employers like Collins Aerospace, drives steady demand for skilled project managers overseeing facility expansions and modernization initiatives. Add agribusiness, insurance, and healthcare into the mix—plus growing tech activity through NewBoCo—and Cedar Rapids professionals have diverse pathways to leverage PMP® certification. Granite PM Academy delivers live-virtual PMP Certification training to Cedar Rapids professionals nationwide, on a schedule built for working adults.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-cedar-rapids-ia.webp",
+    "city_image_alt": "National-Czech-and-Slovak-Museum-Library in Cedar Rapids, IA",
+    "city_image_credit": "Photo: ArtisticAbode, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:National-Czech-and-Slovak-Museum-Library_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Cedar Rapids's advanced manufacturing, aerospace, and financial services sectors depend on skilled project managers to coordinate complex, multi-phase initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills the Project Management Institute's contact-hour education requirement, preparing you to sit for the PMP exam on your schedule. Earning your PMP credential positions you competitively for leadership roles across Cedar Rapids's largest employers and growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:05.761777Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "208afc3aee23d0c6",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-08-31T04:24:31+00:00",
-    "template_version": "698847d3e800559828b468f3aa013c57"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Cedar Rapids for Aerospace & Manufacturing Leaders",
+      "text": "<p>Cedar Rapids is home to Collins Aerospace and a cluster of advanced manufacturing and aerospace operations that depend on rigorous project management to deliver complex, time-sensitive work. In this sector—and across the city's agribusiness, insurance, and healthcare employers—skilled project managers command consistent demand as organizations undertake plant expansions, supply-chain modernization, and major facility upgrades. The PMP® (Project Management Professional) credential, issued by the Project Management Institute, signals to employers in Cedar Rapids that you can lead cross-functional teams, manage risk, and deliver results on scope, schedule, and budget. For professionals in this region's manufacturing, logistics, and corporate environments, PMP Certification Training is a proven path to career advancement and higher earning potential.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP Certification Training nationwide, including to professionals in Cedar Rapids. Our curriculum satisfies the contact-hour requirement mandated by PMI for PMP eligibility and is taught by active certified practitioners with real-world project experience. We combine structured classroom instruction with practical exam preparation so you can pass the PMP® exam and apply your credentials immediately in your role. Whether you're at Collins Aerospace, a regional manufacturer, or any of Cedar Rapids's major employers, our flexible live-virtual format fits working professionals' schedules. Start your PMP Certification Training with Granite PM Academy and move toward the credential that opens doors across industries and organizations.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:10.157220Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "50b0624dbc501365",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for Cedar Rapids Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets PMI's rigorous standards. This authorization guarantees the curriculum and instruction align with PMI's Body of Knowledge, giving you a recognized credential valued across Cedar Rapids's manufacturing, healthcare, and technology sectors."
+        },
+        {
+          "heading": "Live-Virtual Format, Real Contact Hours",
+          "text": "Complete your required contact hours through live-virtual instructor-led sessions—no pre-recorded videos or self-paced shortcuts. Synchronous instruction lets you ask questions in real time and interact with fellow professionals, all while fitting training around your Cedar Rapids work schedule."
+        },
+        {
+          "heading": "Certified Practitioners as Instructors",
+          "text": "Your instructors are active certified project managers applying PMP® practices in their own roles. They bring current, field-tested insights into the credential's real-world application, not theoretical textbook knowledge, so you learn how successful practitioners solve problems Cedar Rapids employers face."
+        },
+        {
+          "heading": "Credential Demand Across Cedar Rapids Industries",
+          "text": "PMP® certification strengthens your candidacy at Cedar Rapids employers across aerospace, advanced manufacturing, healthcare systems, and financial services—sectors where project management rigor directly impacts operational success. The credential signals readiness for leadership roles increasingly common in this region's growing companies."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:14.564814Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "52c64e41cbfe0b58",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Cedar Rapids",
+      "text": "<p>Cedar Rapids's advanced manufacturing and aerospace sector drives substantial demand for certified project managers. Collins Aerospace, a cornerstone employer in the region, regularly manages facility expansions and modernization initiatives that require disciplined project oversight. Beyond aerospace, Cargill and General Mills anchor the agribusiness and food processing industries—sectors managing complex supply-chain projects, production-line implementations, and facility upgrades. Insurance and financial services employers such as GreatAmerica Financial Services and Transamerica also hire project managers to lead technology implementations and operational transformations. Healthcare organizations including Mercy Medical Center and UnityPoint Health – St. Luke's Hospital similarly depend on certified practitioners to oversee capital projects and system deployments. The Cedar Rapids Flood Control System, an ongoing U.S. Army Corps of Engineers partnership with the City of Cedar Rapids, and Alliant Energy's renewable energy grid investments further illustrate the breadth of project-driven work across the local economy.</p><p>PMP® and CAPM® credentials are increasingly valued by Cedar Rapids-area employers in manufacturing, insurance, and healthcare as a meaningful differentiator for mid- to senior-level project management roles. While certification is not always mandatory, it substantially strengthens candidacy in a competitive regional market and often correlates with stronger compensation and benefits packages, particularly within manufacturing and healthcare. Project management salaries in Cedar Rapids remain competitive within Iowa, though they tend to track slightly below national metro averages. Completing PMP Certification Training through Granite PM Academy—delivered entirely live-virtual—positions you to meet the formalized project management standards that Cedar Rapids employers increasingly expect, accelerating your advancement and professional credibility in roles managing the capital projects and system implementations that define the local economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:19.445187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "8479cf900cc2a198",
+      "_ai_locked": true,
+      "id": "ai_block_3"
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Cedar Rapids",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years of equivalent experience. Review PMI's full eligibility criteria to confirm you meet the education and professional-experience thresholds before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend interactive sessions on your schedule, ask questions in real time, and receive comprehensive instruction in all five PMBOK® process groups—no commute, no classroom constraints."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, create your PMI account and submit your PMP application directly to the Project Management Institute. Pay the associated exam fee and wait for PMI's approval—typically processed within two weeks—before scheduling your exam."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor guidance to reinforce key concepts. Schedule your proctored exam through PMI's testing partner and sit for the four-hour, 180-question computer-based test when you feel ready."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn Professional Development Units (PDUs) over a standard three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing-education courses and training that count toward PDU requirements, keeping your certification current and competitive."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:24.176568Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "2a234431024032ff",
+      "_ai_locked": true,
+      "id": "ai_block_4"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Cedar Rapids manufacturing and aerospace?",
+          "answer": "<p>Yes. Cedar Rapids's aerospace and advanced manufacturing sector—anchored by major employers managing complex capital projects and system implementations—increasingly views PMP certification as a differentiator for mid- to senior-level project management roles. While not always mandatory, the credential strengthens your candidacy and career trajectory in these industries, where formalized project management disciplines are central to operations and competitiveness.</p>"
+        },
+        {
+          "question": "Which Cedar Rapids employers value PMP and CAPM credentials most?",
+          "answer": "<p>Manufacturing, insurance, and healthcare employers in Cedar Rapids most actively seek PMP- and CAPM-certified professionals. These industries manage large-scale capital projects, system implementations, and operational initiatives requiring structured project management. Insurance and financial services firms, healthcare systems, and advanced manufacturers in the region recognize certification as proof of standardized competency and methodical execution capability.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training in Cedar Rapids from my workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format means you can join from your Cedar Rapids office, home, or any location with reliable internet access. This flexibility is ideal for working professionals at local employers—whether at a manufacturing plant, corporate office, or hospital—who need to balance certification training with their current responsibilities without traveling or relocating.</p>"
+        },
+        {
+          "question": "How does Cedar Rapids's job market affect when to get PMP certified?",
+          "answer": "<p>Cedar Rapids's competitive but slightly below-national-average PM compensation means timing your certification strategically matters. If you're targeting a promotion or role change within manufacturing, healthcare, or insurance—where demand for certified PMs is growing—pursuing certification sooner strengthens your internal and external mobility. Early certification positions you ahead of other candidates in a market where the credential increasingly differentiates mid-level candidates.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:29.568017Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a5943818e294b65a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Cedar Rapids' aerospace and advanced manufacturing sector—anchored by Collins Aerospace and supported by agribusiness, insurance, and healthcare employers—creates steady demand for skilled project managers overseeing facility expansions, modernization initiatives, and infrastructure upgrades. As the city's economy diversifies with growing tech activity and major projects like the Cedar Rapids Flood Control System move forward, PMP® certification has become a competitive credential for professionals advancing into leadership roles. Granite PM Academy delivers live-virtual PMP Certification Training to Cedar Rapids professionals nationwide, offering flexible scheduling and PMI-aligned instruction.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:50:31.424551Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a3fd576b79a9742c",
+      "_ai_locked": true,
+      "id": "map_info_1",
+      "_ai_injected_count": 1
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Cedar Rapids, IA, PMP exam prep Cedar Rapids, PMP course Cedar Rapids IA, project management certification Cedar Rapids, IA, PMI PMP training Cedar Rapids",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\",\r\n      \"name\": \"PMP Certification Training in Cedar Rapids, IA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Cedar Rapids, IA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Cedar Rapids, IA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#course\",\r\n      \"name\": \"PMP Certification Training in Cedar Rapids, IA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Cedar Rapids, IA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-cedar-rapids-ia/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T04:26:05+00:00",
+  "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }
