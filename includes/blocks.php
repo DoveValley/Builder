@@ -556,8 +556,16 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $hsImgCol = '';
             if ($photo) {
                 $photoSrc = photo_src($photo, $pathPrefix);
+                // Mirrors site-template.php's <link rel=preload fetchpriority=high> for this
+                // same image (only preloaded when this block is the page's lead AND there's
+                // no hs_bg_photo competing for the LCP slot — see that file's comment). PSI's
+                // "LCP request discovery" insight checks the <img> tag's own fetchpriority
+                // attribute directly, not just the preload link, so both need to agree —
+                // found via a real granitepmacademy.com pmp-bootcamp report flagging this
+                // exact image as the LCP element without it.
+                $hsIsLead = !$bgPhoto && !empty($GLOBALS['firstBlockHero']) && ($GLOBALS['firstBlockType'] ?? '') === 'hero_split';
                 $hsImgCol .= '<div class="hs-image-wrap">';
-                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_ratio_attrs($photo, 4, 3).img_srcset($photo, $pathPrefix).'style="'.img_focal_vars($photo).'object-position:var(--op);">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_ratio_attrs($photo, 4, 3).img_srcset($photo, $pathPrefix).($hsIsLead ? 'fetchpriority="high" ' : '').'style="'.img_focal_vars($photo).'object-position:var(--op);">';
                 if ($caption1 || $caption2) {
                     $hsImgCol .= '<div class="hs-caption">';
                     if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
@@ -1845,7 +1853,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             echo '</div>';
             if ($featImg) {
                 $featSrc = photo_src($featImg, $pathPrefix);
-                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . img_srcset($featImg, $pathPrefix, '100vw') . 'loading="lazy">';
+                // post_meta is blog.php's synthetic LEAD block on every post (see CLAUDE.md
+                // "Blog system") and site-template.php's hero-preload scan already treats this
+                // image as the page's LCP element — loading="lazy" here directly contradicted
+                // that, telling the browser to defer the exact image already being preloaded
+                // at fetchpriority=high. Found via the same PSI audit that caught hero_split's
+                // missing fetchpriority above.
+                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . img_srcset($featImg, $pathPrefix, '100vw') . 'fetchpriority="high">';
             }
             echo '</div>';
             break;
