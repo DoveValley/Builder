@@ -50,6 +50,25 @@ require_once __DIR__ . '/audit_settings.php';
 const CRAWL_OTHER_BOTS = ['bingbot', 'GPTBot', 'ClaudeBot', 'PerplexityBot', 'AhrefsBot',
                           'SemrushBot', 'YandexBot', 'Bytespider', 'Applebot', 'facebookexternalhit'];
 
+/**
+ * URLs Google (and ad-crawlers) probe opportunistically on every site regardless of
+ * whether it ever had one — NOT a URL Google remembers crawling before. A missing
+ * favicon.ico or ads.txt has zero ranking/indexing effect and will keep 404ing forever
+ * unless the file is actually added; it never "ages out" the way a stale content URL
+ * does. Found 2026-10-29: these two accounted for 167 of 167 "error" hits across 79
+ * (favicon) + 4 (ads.txt) of the 43 domains the banner called out that day — a real
+ * content 404 (a removed/renamed page Google is still re-checking after a city
+ * reassignment) existed on exactly 1 domain, 3 URLs. Counting every one of those 83
+ * domains as a "serving error" buried the one that was.
+ */
+const CRAWL_COSMETIC_404_PATHS = ['/favicon.ico', '/apple-touch-icon.png', '/ads.txt', '/robots.txt'];
+
+function crawl_url_is_cosmetic_404(string $url): bool
+{
+    $path = strtolower(trim(parse_url($url, PHP_URL_PATH) ?: $url));
+    return in_array($path, CRAWL_COSMETIC_404_PATHS, true);
+}
+
 function crawl_audit_db(): PDO
 {
     static $ready = false;
@@ -273,8 +292,19 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
         $urlCount[$r['domain']] = (int) $r['n'];
     }
 
+    // Per-domain: does its 404 total include at least one URL that ISN'T the
+    // opportunistic favicon/ads.txt kind? crawl_daily only has a day/domain total, not
+    // which URL — crawl_url is the only place that knows, since it is the one table
+    // keyed by URL. A domain whose every 404'd URL is cosmetic should never rank or
+    // count as a real problem; see CRAWL_COSMETIC_404_PATHS for why.
+    $realBadUrl = [];   // domain => true, at least one non-cosmetic 404
+    $st404 = $db->query("SELECT domain, url FROM crawl_url WHERE last_code = 404");
+    foreach ($st404->fetchAll(PDO::FETCH_ASSOC) as $r) {
+        if (!crawl_url_is_cosmetic_404($r['url'])) $realBadUrl[$r['domain']] = true;
+    }
+
     $out = ['days' => $days, 'total_hits' => 0, 'crawled' => 0, 'stale' => 0, 'never' => 0,
-            'uncollected' => 0, 'errors' => 0, 'collected_at' => '', 'rows' => []];
+            'uncollected' => 0, 'errors' => 0, 'cosmetic_errors' => 0, 'collected_at' => '', 'rows' => []];
     foreach (crawl_audit_targets() as $t) {
         $d = $t['domain'];
         if ($scope !== null && !isset($scope[$d])) continue;
@@ -289,7 +319,14 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
         $lastSeen = (string) ($c['last_line_at'] ?? '');
         $ageDays = $lastSeen !== '' ? (int) floor((time() - strtotime($lastSeen)) / 86400) : -1;
         $hits = (int) ($a['h'] ?? 0);
-        $err  = (int) ($a['c'] ?? 0) + (int) ($a['e'] ?? 0);
+        $s404 = (int) ($a['c'] ?? 0);
+        $s5xx = (int) ($a['e'] ?? 0);
+        // A 5xx is never cosmetic — that is the origin itself failing, not a crawler
+        // opportunistically poking a file the site was never going to have. Only a
+        // 404 can be downgraded to cosmetic, and only when crawl_url confirms every
+        // URL behind it is on the known-benign list.
+        $hasRealErr      = $s5xx > 0 || !empty($realBadUrl[$d]);
+        $hasCosmeticOnly = $s404 > 0 && !$hasRealErr;
 
         if ($c && ($c['last_run_at'] ?? '') > $out['collected_at']) $out['collected_at'] = $c['last_run_at'];
         $out['total_hits'] += $hits;
@@ -302,12 +339,15 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
             $out['stale']++;
         }
         if ($hits > 0) $out['crawled']++;
-        if ($err > 0)  $out['errors']++;
+        if ($hasRealErr)      $out['errors']++;
+        if ($hasCosmeticOnly) $out['cosmetic_errors']++;
 
         $out['rows'][] = [
             'domain' => $d, 'hits' => $hits, 'urls' => $urlCount[$d] ?? 0,
             's200' => (int) ($a['a'] ?? 0), 's304' => (int) ($a['b'] ?? 0),
-            's404' => (int) ($a['c'] ?? 0), 's5xx' => (int) ($a['e'] ?? 0),
+            's404' => $s404, 's5xx' => $s5xx,
+            'has_real_error'      => $hasRealErr,
+            'has_cosmetic_only'   => $hasCosmeticOnly,
             'impostors' => (int) ($a['i'] ?? 0),
             'last_seen' => $lastSeen, 'age_days' => $ageDays,
             'collected' => $collected,
@@ -319,11 +359,13 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
     usort($out['rows'], function ($x, $y) {
         // Problems first, and an uncollected domain is NOT a problem — it ranks last,
         // because the fix for it is "run the collector", not "investigate the site".
+        // A cosmetic-only 404 (favicon/ads.txt) ranks with the clean domains, not the
+        // real problems — see has_real_error / has_cosmetic_only above.
         $rank = function ($r) {
             if (!$r['collected']) return 4;
             if ($r['never']) return 0;
             if ($r['stale']) return 1;
-            return ($r['s404'] + $r['s5xx']) > 0 ? 2 : 3;
+            return $r['has_real_error'] ? 2 : 3;
         };
         return [$rank($x), -$x['hits']] <=> [$rank($y), -$y['hits']];
     });
@@ -345,7 +387,8 @@ function crawl_audit_render_rows(array $rows, array $cityInfo = []): string
                 <td><?= (int) $r['urls'] ?></td>
                 <td><?= (int) $r['s200'] ?></td>
                 <td><?= (int) $r['s304'] ?></td>
-                <td class="<?= $r['s404'] ? 'fa-bad' : '' ?>"><?= (int) $r['s404'] ?></td>
+                <td class="<?= $r['has_real_error'] && $r['s404'] ? 'fa-bad' : ($r['has_cosmetic_only'] ? 'fa-dim' : '') ?>"
+                    title="<?= $r['has_cosmetic_only'] ? 'favicon.ico / ads.txt only — ignorable' : '' ?>"><?= (int) $r['s404'] ?></td>
                 <td class="<?= $r['s5xx'] ? 'fa-bad' : '' ?>"><?= (int) $r['s5xx'] ?></td>
                 <td class="fa-dim"><?= (int) $r['impostors'] ?></td>
                 <td>

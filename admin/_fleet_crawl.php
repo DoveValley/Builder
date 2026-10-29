@@ -51,6 +51,10 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
                 <?php if ($fcr['errors']): ?>
                     <span style="color:#dc2626;font-weight:600">&middot; <?= (int) $fcr['errors'] ?> serving errors</span>
                 <?php endif; ?>
+                <?php if ($fcr['cosmetic_errors']): ?>
+                    <span style="color:#94a3b8" title="favicon.ico / ads.txt only — Google probes these on every site regardless of history, zero ranking impact">
+                        &middot; <?= (int) $fcr['cosmetic_errors'] ?> cosmetic 404s (favicon/ads.txt, ignorable)</span>
+                <?php endif; ?>
                 <?php if ($fcr['uncollected']): ?>
                     <span class="fa-warn">&middot; <?= (int) $fcr['uncollected'] ?> not collected yet</span>
                 <?php endif; ?>
@@ -64,7 +68,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
 
     <?php
     $fcrProblems = array_values(array_filter($fcr['rows'],
-        fn($r) => $r['collected'] && ($r['never'] || $r['stale'] || $r['s404'] || $r['s5xx'])));
+        fn($r) => $r['collected'] && ($r['never'] || $r['stale'] || $r['has_real_error'])));
     if ($fcrProblems): ?>
     <ul style="margin:10px 0 0 18px;font-size:.8rem;color:#4b5563;line-height:1.7">
         <?php foreach (array_slice($fcrProblems, 0, 12) as $r): ?>
@@ -72,7 +76,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
                 <?php if ($r['never']): ?>Googlebot has not appeared in the log window at all
                 <?php elseif ($r['stale']): ?>last seen <?= (int) $r['age_days'] ?>d ago
                 <?php endif; ?>
-                <?php if ($r['s404'] || $r['s5xx']): ?>
+                <?php if ($r['has_real_error']): ?>
                     <span style="color:#dc2626">serving
                         <?= $r['s404'] ? (int) $r['s404'] . '&times;404' : '' ?>
                         <?= $r['s5xx'] ? (int) $r['s5xx'] . '&times;5xx' : '' ?> to Googlebot</span>
@@ -132,6 +136,17 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
             &ldquo;Googlebot came 48 times yesterday and got clean 200s&rdquo; says far more than any index count.
             It also catches things no index check can: pages Google is fetching that <strong>404</strong>, pages it
             has never fetched at all, and server errors served only to the crawler.
+        </p>
+
+        <h4 style="margin:0 0 4px;font-size:.9rem">Cosmetic 404s don't count as serving errors</h4>
+        <p style="margin:0 0 14px">
+            <code>/favicon.ico</code> and <code>/ads.txt</code> get probed opportunistically on
+            <strong>every</strong> site, regardless of whether it ever had one &mdash; unlike a real content URL,
+            Google isn't remembering something it crawled before. A missing one has <strong>zero</strong>
+            ranking/indexing effect. Found 2026-10-29: these two accounted for the large majority of one week's
+            flagged domains, burying the single domain that had a real removed/renamed page underneath.
+            <strong>Serving errors</strong> in the banner now means a non-cosmetic 404 or any 5xx; a cosmetic-only
+            count shows separately, in grey, and never counts toward the red number.
         </p>
 
         <h4 style="margin:0 0 4px;font-size:.9rem">Googlebot is verified by IP, never by name</h4>
