@@ -1,0 +1,404 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "pittsburgh-pa",
+  "slug": "pmp-bootcamp-pittsburgh-pa",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "pittsburgh-pa",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "pittsburgh-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Financial Services",
+      "Healthcare",
+      "Materials & Chemicals",
+      "Rail & Transportation Equipment",
+      "Higher Education"
+    ],
+    "top_employers": [
+      "PNC Financial Services Group",
+      "PPG Industries",
+      "UPMC",
+      "Highmark Health",
+      "Wabtec Corporation",
+      "University of Pittsburgh"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Pittsburgh's economy centers on PNC Financial Services Group and PPG Industries downtown, alongside two major health systems, UPMC and Highmark Health, with Wabtec anchoring rail/transit manufacturing and Carnegie Mellon and Pitt driving research and robotics investment.",
+    "notable_projects": [
+      "Hazelwood Green redevelopment - former steel mill site now home to Carnegie Mellon's Robotics Innovation Center, with a projected 4,500 permanent jobs",
+      "The Field at Hazelwood Green - multipurpose athletic facility by Tishman Speyer, the Richard King Mellon Foundation, and the Pittsburgh Steelers, slated to open 2026"
+    ],
+    "credential_demand": "Large financial-services, healthcare-system, and advanced-manufacturing employers coordinating complex capital projects - like the Hazelwood Green buildout - make PMP certification a reasonable differentiator for project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Pittsburgh's employer base includes PNC Financial Services Group, PPG Industries, UPMC, Highmark Health. Pittsburgh's economy centers on PNC Financial Services Group and PPG Industries downtown, alongside two major health systems, UPMC and Highmark Health, with Wabtec anchoring rail/transit manufacturing and Carnegie Mellon and Pitt driving research and robotics investment. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Pittsburgh professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Pittsburgh's financial services, healthcare, and advanced manufacturing sectors rely on certified project managers to deliver complex initiatives on time and on budget. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's contact-hour requirements for PMP certification, enabling you to earn this globally recognized credential without interrupting your current role. Completing your PMP positions you competitively for senior project leadership across Pittsburgh's largest employers and fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:13.688169Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "c737a60cb2570717",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Pittsburgh: Fast-Track Certification for Project Managers",
+      "text": "<p>Pittsburgh's financial services and advanced manufacturing sectors—anchored by major employers like PNC Financial Services Group and Wabtec Corporation—depend on skilled project managers to deliver complex, cross-functional initiatives on time and within budget. Whether you're advancing within a Fortune 500 firm downtown, supporting healthcare operations across UPMC or Highmark Health's networks, or driving innovation in Pittsburgh's growing research and robotics ecosystem, the Project Management Professional (PMP)® credential signals mastery of the methodologies and leadership competencies that these organizations prioritize. An intensive bootcamp format compresses the learning curve, allowing you to earn your PMP® certification without prolonged part-time study interrupting your career momentum.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Bootcamp training as a PMI Authorized Training Partner, meeting all contact-hour requirements needed to sit for the PMP® exam. Our instructors are active certified practitioners who bring real-world problem-solving experience to every session, ensuring you learn frameworks and tools as they're applied in professional settings. The virtual delivery model gives Pittsburgh professionals the flexibility to complete rigorous, exam-focused training from anywhere—no commute, no scheduling conflicts—while maintaining the interactive accountability and expert guidance of a live classroom. Upon completion, you'll hold a credential recognized globally and valued by employers across your local market, positioning you for advanced roles and competitive compensation in project management.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:18.169943Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "3617f3c852c17d75",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Pittsburgh's Financial & Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility requirements, eliminating the need to source education credits elsewhere and accelerating your certification timeline."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Every instructor holds active PMP or CAPM certification and applies current project-management practices in their professional roles. You learn methodology from practitioners, not academics, with immediate answers to on-the-job scenarios you'll face."
+        },
+        {
+          "heading": "Virtual Format, Exam-Ready Support",
+          "text": "Live-virtual sessions fit working schedules without travel. Granite provides focused exam-preparation resources, practice exams, and post-bootcamp access to reinforce concepts—built into the program, not sold separately."
+        },
+        {
+          "heading": "Credential Valued by Pittsburgh Employers",
+          "text": "PNC, UPMC, Highmark, and other major Pittsburgh employers actively hire project managers with PMP certification across financial services, healthcare, and manufacturing. The credential directly strengthens applications for roles in your region's dominant industries."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:22.071505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "204ae33ea904e935",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Pittsburgh's Growth Industries",
+      "text": "<p>Pittsburgh's major employers—PNC Financial Services Group, PPG Industries, UPMC, Highmark Health, Wabtec Corporation, and the University of Pittsburgh—rely on certified project managers to oversee complex capital initiatives and operational programs. Financial services and healthcare systems in particular coordinate large-scale infrastructure and technology projects that demand rigorous planning and governance. The Hazelwood Green redevelopment exemplifies this demand: the transformation of a former steel mill into a mixed-use innovation campus, anchored by Carnegie Mellon's Robotics Innovation Center and the forthcoming Field at Hazelwood Green athletic facility, represents exactly the kind of multiphase, multistakeholder initiative that PMP®-certified professionals lead across the region.</p><p>Earning the PMP® credential—a globally recognized standard from the Project Management Institute—positions you as a qualified candidate for advancement in Pittsburgh's financial-services, healthcare, advanced-manufacturing, and higher-education sectors. While compensation varies by role and employer, nationally certified project managers command a meaningful salary premium over their non-certified peers, a gap that holds consistently across regions. Completing Granite PM Academy's PMP Bootcamp equips you with the knowledge and exam readiness to meet that credential standard, opening pathways to senior project and program roles in a city where large employers are actively managing transformative projects and competing for skilled leadership talent.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:26.041158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "59de984467d2bd0d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Pittsburgh",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and professional experience requirements for the PMP credential. Most candidates hold a bachelor's degree plus documented project-management experience, or an associate degree with additional hours. Review the full criteria on PMI's website, then contact Granite PM Academy to confirm your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Our course covers all five process groups and ten knowledge areas tested on the exam. Attend sessions on a schedule that fits your work commitments—whether that's full-time intensive or part-time modules. You'll earn the contact hours required by PMI to sit for the exam."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the bootcamp, create your PMI account and submit your PMP application, detailing your project-management experience and education. Pay the exam fee directly to PMI. Granite PM Academy's team can guide you through the application portal to ensure accuracy and avoid delays in PMI's approval process."
+        },
+        {
+          "heading": "Prepare and Pass the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence before test day. The PMP exam is proctored and computer-delivered; schedule your appointment at a testing center or via remote proctoring. Our instructors remain available to answer final questions as your exam date approaches."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, you'll hold the PMP credential for three years. During that cycle, earn professional development units (PDUs) by attending training, conferences, or volunteer project-management work. Granite PM Academy offers ongoing PDU-eligible courses to help you stay current and renew your certification when the three-year term ends."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:31.754819Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "f05337dfc2601763",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Do PNC, UPMC, and other major Pittsburgh employers require PMP certification?",
+          "answer": "<p>Large Pittsburgh employers in financial services, healthcare, and advanced manufacturing—including those managing complex capital projects like regional infrastructure initiatives—increasingly seek PMP® certification for project and program management roles. While not universally mandated, the credential is a recognized differentiator in competitive hiring for these sectors. Check individual job postings and speak with recruiters in your target industry to confirm current expectations.</p>"
+        },
+        {
+          "question": "Is PMP bootcamp worth it for Pittsburgh project management careers?",
+          "answer": "<p>PMP® certification holders report a median salary premium of approximately $26,000 annually versus non-certified peers, according to PMI research. In Pittsburgh's strong financial-services and healthcare markets, this credential can accelerate advancement into senior project roles and expand opportunities across the region's major employers. The investment typically yields returns within 18–24 months for career-focused professionals.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP bootcamp from my Pittsburgh workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP® bootcamp is delivered 100% live-virtual, allowing you to attend from your office, home, or any location with a reliable internet connection. This flexibility suits Pittsburgh professionals balancing full-time roles at major employers while pursuing certification without commute time or classroom scheduling conflicts.</p>"
+        },
+        {
+          "question": "When should Pittsburgh project managers pursue PMP certification?",
+          "answer": "<p>Pittsburgh's robust project-management market—driven by healthcare systems, financial institutions, and industrial manufacturers coordinating large-scale initiatives—means demand for certified professionals remains steady year-round. However, many professionals advance fastest by obtaining certification before competing for senior program-management or PMO leadership roles. Early certification also maximizes your salary-premium window over a longer career span in the region.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:37.638325Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "958064c136c45cc6",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Pittsburgh's financial and healthcare sectors—anchored by PNC Financial Services Group, UPMC, and Highmark Health—drive consistent demand for credentialed project managers across enterprise initiatives. The city's transformation is equally telling: Hazelwood Green, a former steel mill now home to Carnegie Mellon's Robotics Innovation Center, represents the kind of large-scale redevelopment where PMP-certified professionals lead cross-functional teams. Granite PM Academy serves Pittsburgh professionals with live-virtual PMP Bootcamp training, designed for working adults seeking PMI® certification on their own schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:39.547474Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d72e0d3a726212d2",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Pittsburgh, PA, PMP bootcamp Pittsburgh, PMP certification boot camp Pittsburgh, PA, PMP bootcamp near me, intensive PMP training Pittsburgh",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/\",\n      \"name\": \"PMP Bootcamp in Pittsburgh, PA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Pittsburgh, PA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Pittsburgh, PA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/#course\",\n      \"name\": \"PMP Bootcamp in Pittsburgh, PA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Pittsburgh, PA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pittsburgh-pa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

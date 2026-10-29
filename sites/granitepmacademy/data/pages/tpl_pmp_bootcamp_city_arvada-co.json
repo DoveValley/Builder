@@ -1,0 +1,398 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "arvada-co",
+  "slug": "pmp-bootcamp-arvada-co",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "arvada-co",
+    "city": "Arvada",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "arvada-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Residential/light industry",
+      "Professional & office services",
+      "Retail (Olde Town Arvada)"
+    ],
+    "top_employers": [],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Arvada is mainly a residential community with light industry and professional offices centered on Olde Town Arvada; no major corporate or institutional anchor employer specific to Arvada itself (as opposed to greater Jefferson County) could be independently verified.",
+    "notable_projects": [
+      "Candelas - master-planned community in northwest Arvada, ~7.1 million sq ft of future commercial space planned"
+    ],
+    "credential_demand": "Arvada's verified employer base is thin - largely residential/suburban rather than anchored by large employers - so demand is best framed around construction/real-estate project management for build-out of large developments like Candelas, rather than a major corporate base.",
+    "_researched": 1,
+    "city_spotlight": "<p>Arvada is mainly a residential community with light industry and professional offices centered on Olde Town Arvada; no major corporate or institutional anchor employer specific to Arvada itself (as opposed to greater Jefferson County) could be independently verified. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Arvada professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Arvada, CO",
+    "city_image_credit": "Photo: Hustvedt, CC BY-SA 3.0/GFDL",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Arvada_Olde_Town_Arvada_CO.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-arvada-co.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Arvada's mix of residential development, light industrial operations, and professional services creates steady demand for credentialed project managers across construction, operations, and office administration. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact hours and prepares you for the PMP exam on a schedule that fits working professionals. Earning your PMP certification positions you for advancement and higher compensation in Arvada's growing project management roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:25.688907Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d314b83af0b1e9a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Arvada: Accelerate Your PM Career",
+      "text": "<p>Arvada's professional services sector and growing light-industry operations depend on skilled project managers to coordinate complex initiatives across office functions, facility management, and operational oversight. As Arvada continues to develop its economy around Olde Town and surrounding professional hubs, organizations increasingly seek certified project managers who can demonstrate structured methodology and earned credentials. The PMP® certification—recognized globally as the gold standard in project management—signals to employers in Arvada's competitive market that you possess both the technical knowledge and real-world discipline their teams need. For professionals in this community, bootcamp-format training delivers focused, efficient credential prep without displacing your career momentum.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual, instructor-led PMP® Bootcamp that meets the Project Management Institute's required contact hours for exam eligibility. Our curriculum is taught by active certified practitioners who bring field experience to every session, ensuring you master both theory and practical application. Whether you're building your credential to advance within Arvada's professional-services landscape or positioning yourself for opportunities across the broader region, our bootcamp model compresses preparation into an intensive schedule while maintaining the depth and rigor PMI demands. Upon completion, you'll have satisfied the training requirement, gained exam-focused knowledge, and earned the confidence to pursue PMP® certification on your own timeline.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:30.075466Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a56cdee556e23a3a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Earn Your PMP in Arvada's Growing Professional Services Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP® training meets PMI's rigorous standards. You receive official contact hours recognized by PMI—no guesswork about eligibility. That authorization protects your investment and your career."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Every bootcamp instructor holds active PMP® certification and works as a practicing project manager. They teach current methodologies, not outdated theory. You learn from professionals who solve scope, schedule, and budget challenges every day—and can answer your specific questions live."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "Preparation for the PMP® exam is embedded throughout the bootcamp—not bolted on as an afterthought. Practice questions, domain review, test-taking strategy, and mock exams are woven into the curriculum. You graduate exam-ready, not hoping for the best on test day."
+        },
+        {
+          "heading": "Credential Opens Doors in Arvada's Office Market",
+          "text": "Professional and office services employers across the Arvada region increasingly require or prefer PMP® certification for project manager and program coordinator roles. The credential signals competence in planning, risk management, and stakeholder communication—skills that drive advancement and salary growth in your local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:34.606570Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "831afa19cdbba94d",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Arvada's Growth Market",
+      "text": "<p>Arvada's project-management demand centers on the residential and commercial build-out reshaping the city's footprint. Large-scale developments like Candelas—a master-planned community in northwest Arvada with approximately 7.1 million square feet of commercial space planned—require certified project managers to oversee site coordination, vendor management, and delivery timelines. Real-estate development firms, construction companies, and professional services organizations tied to Arvada's ongoing expansion actively seek PMP®-certified professionals who can command complex schedules and budgets across these high-stakes projects.</p><p>The PMP® credential carries measurable career value: nationally, certified project managers earn a notably higher median salary than their non-certified counterparts, a premium that reflects the credential's market recognition across most regions. In Arvada's suburban and light-industrial landscape, that advantage translates to stronger positioning for roles overseeing major developments and their supply chains. Completing Granite PM Academy's PMP Bootcamp—delivered live-virtual and designed around PMI® exam requirements—equips you with both the credential and the practical toolkit to advance into higher-responsibility project roles as Arvada continues to grow. The bootcamp format accelerates your preparation so you can enter the job market faster and capture those premium opportunities.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:38.655481Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a6f7870eb313b589",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Arvada",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's eligibility criteria—education level, years of work experience, and hours leading projects—to ensure you meet the baseline. Granite PM Academy can clarify whether your background qualifies."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Our structured course covers all PMBOK® Guide domains and PMI exam content. Attend sessions on your schedule; you'll earn the 35 required contact hours and receive your education certificate upon completion."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Once you've finished the bootcamp, apply directly to PMI through their portal. Provide your education certificate, project experience details, and required fees. PMI reviews applications to confirm eligibility before approving your exam attempt."
+        },
+        {
+          "heading": "Prepare and Pass the PMP Exam",
+          "text": "Granite PM Academy provides exam-prep support, including practice questions and focused review sessions. Study the materials, take mock exams, and refine your test-taking strategy. You'll sit for the computer-based exam at a Pearson VUE testing center when ready."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "PMP certification lasts three years. During each renewal cycle, earn Professional Development Units (PDUs) through approved activities—training, volunteer work, or published contributions. Renew your credential by submitting PDU documentation and the renewal fee to PMI."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:43.549783Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "3e209b655405ff10",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Arvada's construction sector?",
+          "answer": "<p>Yes. Arvada's growth in large residential developments like Candelas creates ongoing demand for credentialed project managers who can coordinate complex build-outs. The PMP® credential signals mastery of scope, schedule, and cost control—skills that directly reduce project risk and overhead. Nationally, PMP-certified managers earn a median premium over non-certified peers, a gap that translates across construction and real-estate project roles regardless of market size.</p>"
+        },
+        {
+          "question": "Which Arvada industries most value the PMP credential?",
+          "answer": "<p>Construction and real-estate development projects—particularly those managing multi-phase residential or commercial builds—are the strongest fit for PMP® certification in Arvada's economy. Professional services firms and office-based organizations also recognize the credential as a mark of structured project delivery. Smaller teams in these sectors often compete for contracts requiring certified project leadership, making the PMP® a meaningful differentiator.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP bootcamp from my Arvada workplace?",
+          "answer": "<p>Yes. Granite PM Academy's bootcamp is 100% live-virtual, so you can join from your office, home, or any location with internet access. This format works well for Arvada-based professionals balancing work and study—you attend real-time instructor-led sessions on your own schedule without traveling to a physical classroom. Check your employer's IT policies if joining from a work network.</p>"
+        },
+        {
+          "question": "Does Arvada's job market affect when I should get PMP certified?",
+          "answer": "<p>Timing matters. Arvada's growth in large-scale residential projects means demand for credentialed project managers peaks during active development phases. If you're targeting roles in ongoing builds like Candelas or similar multi-year projects, certifying before job applications gives you a competitive edge. For those in smaller firms or transitional roles, certification pairs well with active job searching to maximize credential visibility.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:49.605531Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "29193203c36d9e1f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Arvada's master-planned Candelas community represents significant commercial expansion opportunity, with millions of square feet of office and retail space under development alongside the city's established light-industry and professional-services sectors. Project managers driving these initiatives need PMP® certification to advance career prospects and credibility. Granite PM Academy delivers live-virtual PMP Bootcamp training to Arvada professionals nationwide, enabling flexible, accredited preparation on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:51.365325Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b970a88b0387246b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-arvada-co/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Arvada, CO, PMP bootcamp Arvada, PMP certification boot camp Arvada, CO, PMP bootcamp near me, intensive PMP training Arvada",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/\",\n      \"name\": \"PMP Bootcamp in Arvada, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Arvada, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Arvada, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/#course\",\n      \"name\": \"PMP Bootcamp in Arvada, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Arvada, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-arvada-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

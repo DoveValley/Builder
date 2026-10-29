@@ -1,0 +1,406 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "naperville-il",
+  "slug": "pmp-certification-training-naperville-il",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "naperville-il",
+    "city": "Naperville",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "naperville-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Healthcare",
+      "Telecommunications/networking technology",
+      "Energy",
+      "Banking & financial services"
+    ],
+    "top_employers": [
+      "Edward Hospital",
+      "Nokia (legacy Bell Labs/Alcatel-Lucent site)",
+      "BP America",
+      "BMO Harris Bank",
+      "Nalco"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Naperville's employer base includes Edward Hospital, a long-standing Nokia (formerly Bell Labs/Alcatel-Lucent) technology campus, BP America's and BMO Harris Bank's local offices, and Nalco, reflecting a mix of healthcare, telecom, energy, and banking employers.",
+    "notable_projects": [
+      "87th Street Bridge Replacement (City of Naperville infrastructure project)",
+      "Downtown Naperville Streetscape Improvements"
+    ],
+    "credential_demand": "A large hospital system, a telecom R&D/technology campus, and corporate offices for BP America and BMO Harris plausibly support real demand for certified project managers.",
+    "_researched": 1,
+    "city_spotlight": "<p>Naperville's employer base includes Edward Hospital, Nokia (legacy Bell Labs/Alcatel-Lucent site), BP America, BMO Harris Bank. Naperville's employer base includes Edward Hospital, a long-standing Nokia (formerly Bell Labs/Alcatel-Lucent) technology campus, BP America's and BMO Harris Bank's local offices, and Nalco, reflecting a mix of healthcare, telecom, energy, and banking employers. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Naperville professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Naperville's healthcare, energy, telecommunications, and financial services sectors depend on skilled project managers to deliver critical initiatives. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact hours required for this credential through instructor-led courses you can complete on a schedule that fits your career. Earning your PMP opens doors across Naperville's major employers and positions you for advancement in roles where certified project leadership commands real market value.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:31.765018Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7299518ce29aa959",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Naperville for Healthcare & Tech Professionals",
+      "text": "<p>Naperville's concentration of healthcare and advanced-technology employers—from Edward Hospital's clinical operations to Nokia's legacy technology campus—creates sustained demand for project managers who can navigate complex, regulated environments. Whether you're advancing within healthcare delivery, telecommunications infrastructure, energy management, or financial services, the Project Management Professional (PMP)® credential signals mastery of scope, risk, and stakeholder coordination that these industries rely on. Naperville professionals pursuing PMP Certification Training invest in a credential recognized across sectors, one that qualifies you for roles managing initiatives where precision and compliance matter most.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working schedules. Our curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners who bring real-world application to every module. You'll cover the PMBOK® Guide framework, exam strategy, and hands-on scenarios—all online, with no commute required. Upon completion, you'll be prepared to sit for the PMP examination and take the next step in your career with a credential that opens doors across Naperville's major employers and beyond.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:35.626459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ae48f0f05fbf15b7",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for Naperville's Healthcare & Energy Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Training",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® exam-prep courses that meet all PMI contact-hour requirements. Your certification counts with employers nationwide and locally—no shortcuts, no gaps in credential recognition."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Attend instructor-led PMP® training entirely online, live, without travel. Active certified practitioners teach real-world scenarios while you earn required contact hours from home or office—balancing work and certification prep."
+        },
+        {
+          "heading": "Expert Instructors, Exam-Ready Support",
+          "text": "Learn from active PMP®-certified practitioners who bring current project experience into every session. Exam-prep resources and instructor Q&A help you pass confidently, not just complete the course."
+        },
+        {
+          "heading": "Local Demand: Healthcare & Energy Employers",
+          "text": "Naperville's major employers in healthcare, energy, telecommunications, and banking hire certified project managers across operations, clinical programs, and infrastructure projects. PMP® certification strengthens your candidacy and career mobility in these high-growth sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:39.688396Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9abf20060d99dabc",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Naperville",
+      "text": "<p>Healthcare and technology anchors drive steady demand for certified project managers across Naperville. Edward Hospital, one of the region's largest employers, routinely manages clinical infrastructure, facility expansion, and digital health initiatives that require skilled program and project oversight. Nokia's legacy telecommunications and networking technology campus—rooted in the area's long history as a Bell Labs and Alcatel-Lucent hub—continues to support R&D and systems-integration work where certified PMs add measurable value. Meanwhile, corporate operations for BP America and BMO Harris Bank, along with Nalco's global presence, create ongoing demand for professionals who can coordinate cross-functional teams and deliver results on schedule and budget. Even Naperville's own infrastructure priorities, such as the 87th Street Bridge Replacement and Downtown Streetscape Improvements, underscore how project management expertise benefits the community—and how employers across healthcare, energy, banking, and technology reward those who bring formal credentials to their teams.</p><p>The PMP® credential carries real earning power in markets like Naperville's. Nationally, PMP-certified project managers report median salaries substantially higher than their non-certified peers—a premium that holds across most regions and industries. In a city where healthcare systems, telecom R&D centers, and financial-services offices compete for talent, certification signals mastery of scope, schedule, risk, and stakeholder management that employers actively seek. Granite PM Academy's live-virtual PMP Certification Training meets working professionals where they are, allowing you to complete coursework and exam preparation on your own schedule while staying employed in Naperville. By earning your PMP, you position yourself to advance into senior project and program leadership roles—and command the compensation and respect that credential brings in your local market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:44.941744Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1d818a44c41f9f6e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Naperville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your PMP Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years. Review PMI's full eligibility criteria to confirm you meet education and hours-worked thresholds before investing in training."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all sessions on your schedule, interact directly with certified practitioners, and build the project-management foundation required for exam eligibility and professional confidence."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing training, submit your PMP application directly to PMI, including your education, work history, and course completion proof. Pay PMI's exam fee and wait for application approval before scheduling your exam."
+        },
+        {
+          "heading": "Prepare and Take the PMP Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources to reinforce course material and practice test scenarios. Schedule your exam at an authorized Pearson VUE center and complete the computer-based assessment on your chosen date."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, renew your PMP every three years by earning professional development units (PDUs) through continuing education, volunteer work, or professional contributions. Granite PM Academy offers PDU-eligible courses to support your ongoing credential maintenance."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:49.377724Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "0bb01914b681314a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Naperville healthcare project managers?",
+          "answer": "<p>Edward Hospital and the broader healthcare sector in Naperville increasingly rely on certified project managers to oversee clinical IT implementations, facility upgrades, and care-delivery process improvements. The PMP credential signals mastery of industry-standard frameworks that healthcare administrators value when evaluating candidates for leadership roles. While no city-specific salary premium data exists independently, PMP-certified project managers nationally report a median earnings advantage over non-certified peers—a premium typically sustained across healthcare and other regulated industries.</p>"
+        },
+        {
+          "question": "Which Naperville employers hire PMP-certified project managers most often?",
+          "answer": "<p>Naperville's major employers—Edward Hospital, Nokia's R&D campus, BP America, BMO Harris Bank, and Nalco—operate in sectors where complex, multi-stakeholder projects are routine. Healthcare systems need certified leaders for technology and operational initiatives; telecom and energy companies demand rigor in product development and infrastructure work; financial services firms require certified project discipline for regulatory and digital transformation programs. Certification strengthens your candidacy across these industries.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Naperville workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP training live-virtually, so you can join instructor-led sessions from your office, home, or any location with internet access. This format suits Naperville professionals balancing full-time roles at major employers with certification study—you attend classes on your schedule without commuting to a physical classroom, making it easier to maintain your work responsibilities while pursuing the credential.</p>"
+        },
+        {
+          "question": "Should I get PMP certified now or wait for Naperville's job market to shift?",
+          "answer": "<p>Naperville's project-management demand is stable across healthcare, technology, energy, and banking—sectors unlikely to contract significantly. Certification typically takes 2–3 months of part-time study. Beginning now means you'll complete your credential while demand remains strong, positioning you to interview and advance as openings arise at local employers. Delaying rarely improves timing; starting immediately maximizes your competitive edge in your current role or your next opportunity.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:55.869597Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ec059e4efbc3a7a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Naperville's robust healthcare sector, anchored by Edward Hospital alongside major telecommunications, energy, and financial-services employers, creates steady demand for credentialed project managers across infrastructure and operational initiatives. The city's ongoing projects—including the 87th Street Bridge Replacement and Downtown Streetscape Improvements—underscore the region's need for skilled PMs. Granite PM Academy delivers live-virtual PMP® Certification Training to Naperville professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:57.608096Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "5376552bf2fa2cac",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-naperville-il/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Naperville, IL, PMP exam prep Naperville, PMP course Naperville IL, project management certification Naperville, IL, PMI PMP training Naperville",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\",\r\n      \"name\": \"PMP Certification Training in Naperville, IL | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Naperville, IL. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Naperville, IL\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/#course\",\r\n      \"name\": \"PMP Certification Training in Naperville, IL\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Naperville, IL. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-naperville-il/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "596b492faedc573f4cda23aaf882d23d"
+}

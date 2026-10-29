@@ -1,0 +1,401 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "frisco-tx",
+  "slug": "pmp-bootcamp-frisco-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "frisco-tx",
+    "city": "Frisco",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "frisco-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier2",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Beverage manufacturing corporate operations",
+      "Professional sports administration & golf",
+      "Sports/entertainment real estate",
+      "Mixed-use retail development"
+    ],
+    "top_employers": [
+      "Keurig Dr Pepper (Texas headquarters)",
+      "PGA of America (national headquarters)",
+      "Dallas Cowboys (The Star headquarters/practice facility)"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Frisco has rapidly become a corporate and sports-entertainment destination, hosting Keurig Dr Pepper's Texas headquarters, the PGA of America's relocated national headquarters at PGA Frisco, and the Dallas Cowboys' The Star campus.",
+    "notable_projects": [
+      "PGA Frisco - PGA of America's relocated national headquarters anchoring a 600-acre development with two championship golf courses (opened 2022)",
+      "Fields West mixed-use development, part of the larger 2,500+ acre Fields master-planned community",
+      "The Star - Dallas Cowboys' headquarters and practice facility"
+    ],
+    "credential_demand": "Frisco's pipeline of large mixed-use and sports-entertainment developments and corporate HQ build-outs makes PMP a plausibly relevant credential for real estate and corporate project management roles in the city.",
+    "_researched": 1,
+    "city_spotlight": "<p>Frisco's employer base includes Keurig Dr Pepper (Texas headquarters), PGA of America (national headquarters), Dallas Cowboys (The Star headquarters/practice facility). Frisco has rapidly become a corporate and sports-entertainment destination, hosting Keurig Dr Pepper's Texas headquarters, the PGA of America's relocated national headquarters at PGA Frisco, and the Dallas Cowboys' The Star campus. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Frisco professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Frisco's major employers—from Keurig Dr Pepper's beverage operations to the PGA of America and Dallas Cowboys organizations—depend on certified project managers to deliver complex, high-stakes initiatives. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills the Project Management Institute's required contact-hour education for PMP® certification eligibility, taught by active certified practitioners. Earning your PMP® credential positions you to advance into leadership roles managing enterprise-scale projects across these sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:19.012436Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "bac1ee2f67b27ec8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Frisco: Accelerate Your Project Management Career",
+      "text": "<p>Frisco's emergence as a corporate headquarters hub—anchored by major operations in beverage manufacturing, sports administration, and entertainment real estate—has created sustained demand for credentialed project managers who can lead complex, cross-functional initiatives. Organizations like those headquartered in Frisco expect their leaders and program managers to hold industry-recognized credentials. A PMP® certification signals to employers in this competitive market that you have mastered the frameworks, tools, and practices that drive successful project delivery at scale. For professionals in Frisco working across these growth sectors, the PMP® is a concrete credential that accelerates advancement and increases earning potential.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP® Bootcamp designed to prepare you for exam success while accommodating the schedules of working professionals nationwide. As a PMI Authorized Training Partner, we deliver instructor-led training that satisfies PMI's contact-hour requirements for PMP® eligibility, taught by active certified practitioners with hands-on experience. Our bootcamp format compresses essential study into a focused timeline, keeping you on track toward certification without disrupting your career. Upon completion, you'll earn a certificate of attendance that counts toward your PMP® credential application—your next step toward credentials that matter in Frisco's dynamic job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:23.044314Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "c0814d9f0e8230f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Frisco's Operations & Sports Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Worth",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. That means your PMP training meets PMI's rigorous standards and satisfies all eligibility requirements for exam application—no guesswork, no gaps."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Instructor-led virtual sessions let you earn required contact hours on your calendar. No pre-recorded videos; real-time instruction means you ask questions, get answers, and master concepts before exam day."
+        },
+        {
+          "heading": "Learn from Working Certified Practitioners",
+          "text": "Your instructors hold active PMP and CAPM certifications and apply project-management frameworks daily in their careers. You gain field-tested strategies, not textbook theory alone."
+        },
+        {
+          "heading": "Credential Demand in Beverage & Sports Management",
+          "text": "Major Frisco employers—including operations and corporate management roles in beverage manufacturing and sports administration—seek PMP-certified professionals to lead programs and manage complex initiatives. Certification aligns your profile with local hiring priorities."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:27.062572Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "36f463b3d27e94d4",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Frisco's Growth Market",
+      "text": "<p>Frisco's emergence as a corporate and sports-entertainment hub has created sustained demand for certified project managers. Keurig Dr Pepper operates its Texas headquarters here, overseeing complex beverage manufacturing and distribution operations that rely on disciplined project execution. The PGA of America's 2022 relocation of its national headquarters to the 600-acre PGA Frisco development—anchored by two championship golf courses—represents a decade-plus commitment to large-scale infrastructure and facility management. The Star, home to the Dallas Cowboys' headquarters and practice operations, similarly requires project managers to coordinate ongoing facility upgrades and event logistics. These anchors, alongside mixed-use developments like Fields West within the larger 2,500+ acre Fields master-planned community, illustrate the breadth of PM roles available across real estate, corporate operations, and sports administration in the city.</p><p>The PMP® credential carries measurable weight in Frisco's competitive market. Nationally, PMP-certified project managers report a median salary premium over their non-certified peers—a gap that holds across most regions and reflects the credential's value in structured environments. In a city where major employers are actively managing large-scale corporate build-outs, relocation projects, and mixed-use developments, the PMP® distinguishes candidates for leadership roles and higher compensation. Completing the PMP Bootcamp through Granite PM Academy equips you with the framework, exam readiness, and credential these employers recognize. Our live-virtual format lets you earn your certification while staying embedded in Frisco's job market, positioning you to step into roles that demand both technical skill and proven project-delivery discipline.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:31.750560Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c69364c975ccd53a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Frisco",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years. Document your hours and roles now. Granite PM Academy's advisors will review your background before enrollment to ensure you meet all prerequisites."
+        },
+        {
+          "heading": "Complete 35 Contact Hours Online",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp—instructor-led training delivered entirely online. Attend sessions on your schedule, interact with active certified practitioners, and cover the full PMBOK® Guide framework without traveling to a classroom. Completion of these hours is mandatory before applying to PMI."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the bootcamp, submit your formal application to PMI with proof of your education and project-management experience. Pay the associated examination fee directly to PMI. Granite PM Academy provides step-by-step guidance through the application portal so you avoid delays or rejections."
+        },
+        {
+          "heading": "Prepare and Pass Your Exam",
+          "text": "Granite PM Academy offers exam-preparation resources, practice questions, and strategy sessions to sharpen your readiness. You'll sit for the proctored PMP exam—a rigorous assessment of your knowledge and ability to manage complex projects across industries. Our support continues until you pass."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Your PMP credential lasts three years and requires you to earn professional development units (PDUs) to renew. Granite PM Academy offers ongoing PDU courses so you stay current with best practices and keep your certification active throughout your career in Frisco's competitive market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:37.045393Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "3cf3781b9691a535",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Frisco's corporate headquarters?",
+          "answer": "<p>Frisco hosts major corporate headquarters like Keurig Dr Pepper, where large-scale operational and supply-chain projects drive demand for credentialed PMs. Nationally, PMP-certified project managers report a median salary approximately $26,000 higher than non-certified peers (PMI's 14th Edition Earning Power Salary Survey). That premium typically holds across regions and industries, making the credential particularly relevant for advancement in Frisco's competitive headquarters and mixed-use development environment.</p>"
+        },
+        {
+          "question": "Which Frisco industries and employers most value the PMP credential?",
+          "answer": "<p>Frisco's growth in sports-entertainment real estate, mixed-use development, beverage manufacturing operations, and professional sports administration creates strong PMP demand. Organizations managing large capital projects—from retail-hospitality complexes to corporate facility expansions—increasingly require or prefer the credential for senior PM roles. The credential is especially valued where complex timelines, budgets, and cross-functional teams are the norm.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP bootcamp from my Frisco workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual bootcamp is delivered 100% online, so you can attend from your Frisco office, home, or any location with internet access. This format allows working professionals to earn their certification without relocating or traveling, fitting around corporate schedules across Frisco's major employers and project environments.</p>"
+        },
+        {
+          "question": "When should Frisco project managers pursue PMP certification given local job growth?",
+          "answer": "<p>Frisco's ongoing pipeline of large real-estate, sports-entertainment, and corporate headquarters projects creates consistent demand for certified PMs. Pursuing certification sooner rather than later positions you for advancement as competition for senior roles increases. The credential also strengthens your candidacy when employer-sponsored training or promotion cycles align with project expansion timelines in the city.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:42.880388Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "6a78639bfa957739",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Frisco's emergence as a corporate headquarters hub—anchored by Keurig Dr Pepper, the PGA of America's national headquarters at PGA Frisco, and the Dallas Cowboys' The Star—has created sustained demand for skilled project and program managers across beverage operations, sports administration, and mixed-use real estate development. PMP certification positions professionals to lead complex initiatives in these high-growth sectors. Granite PM Academy delivers live-virtual PMP Bootcamp to Frisco professionals nationwide, enabling you to earn your credential without disrupting your local career momentum.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:44.638787Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0fa9871368cc48d2",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-frisco-tx/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Frisco, TX, PMP bootcamp Frisco, PMP certification boot camp Frisco, TX, PMP bootcamp near me, intensive PMP training Frisco",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/\",\n      \"name\": \"PMP Bootcamp in Frisco, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Frisco, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Frisco, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/#course\",\n      \"name\": \"PMP Bootcamp in Frisco, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Frisco, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-frisco-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

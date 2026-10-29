@@ -1,0 +1,403 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "jacksonville-fl",
+  "slug": "pmp-bootcamp-jacksonville-fl",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "jacksonville-fl",
+    "city": "Jacksonville",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "jacksonville-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Insurance",
+      "Financial Services",
+      "Rail Transportation & Logistics",
+      "Homebuilding"
+    ],
+    "top_employers": [
+      "GuideWell Mutual Holding Corp. (Florida Blue)",
+      "Fidelity National Financial",
+      "CSX Corporation",
+      "Fidelity National Information Services (FIS)",
+      "Landstar System",
+      "Dream Finders Homes"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Jacksonville is a Fortune 500 hub for insurance and financial services, anchored by GuideWell/Florida Blue, Fidelity National Financial, and FIS, with CSX headquartering national freight-rail operations in the city and a wave of downtown riverfront redevelopment underway.",
+    "notable_projects": [
+      "Riverfront Plaza/RiversEdge redevelopment - Phase 1 delivered late 2025 on the former Jacksonville Landing site",
+      "Six new downtown waterfront parks under construction: Metropolitan Park, Riverfront Plaza, Music Heritage Garden, Shipyards West Park, RiversEdge, and St. Johns River Park"
+    ],
+    "credential_demand": "The concentration of large insurance, financial-services, and logistics headquarters running multi-year transformation and infrastructure programs makes PMP certification a plausible credential for project managers competing for roles in the city.",
+    "_researched": 1,
+    "city_spotlight": "<p>Jacksonville's employer base includes GuideWell Mutual Holding Corp. (Florida Blue), Fidelity National Financial, CSX Corporation, Fidelity National Information Services (FIS). Jacksonville is a Fortune 500 hub for insurance and financial services, anchored by GuideWell/Florida Blue, Fidelity National Financial, and FIS, with CSX headquartering national freight-rail operations in the city and a wave of downtown riverfront redevelopment underway. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Jacksonville professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Jacksonville's insurance, financial services, and logistics sectors rely on project managers who can demonstrate PMP certification. Granite PM Academy's live-virtual PMP Bootcamp delivers the PMI contact-hour education requirement through instructor-led training on a flexible schedule, preparing you to sit for the exam without disrupting your current role. Earning your PMP credential positions you for advancement and higher earning potential across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:22.289379Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fdba67eda6851ddb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Jacksonville: Accelerate Your Career in Insurance & Finance",
+      "text": "<p>Jacksonville's dominance as a Fortune 500 hub for insurance and financial services creates sustained demand for credentialed project managers. Major employers like GuideWell/Florida Blue, Fidelity National Financial, and Fidelity National Information Services (FIS) manage complex initiatives—from digital transformation and risk management to infrastructure modernization—that depend on professionals who can demonstrate PMP® competency. Whether you're advancing within one of these anchor organizations or pursuing opportunities across Jacksonville's thriving professional services sector, the Project Management Professional (PMP)® credential signals mastery of scope, budget, schedule, and stakeholder management that employers actively seek.</p><p>Granite PM Academy delivers intensive PMP® Bootcamp training as a PMI Authorized Training Partner, offered live-virtual with instructor-led instruction designed to fit working professionals' schedules. Our curriculum satisfies the contact-hour requirements mandated by PMI for PMP® eligibility and is taught by active certified practitioners who bring real-world expertise to every lesson. The bootcamp format accelerates your learning while maintaining rigor—you'll master the PMBOK® Guide frameworks, prepare strategically for the PMP® exam, and move toward certification on a timeline that lets you compete confidently in Jacksonville's competitive project-management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:25.978327Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "1906a7ed95608567",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP certification for Jacksonville's insurance and financial services leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI authorization guarantees credential legitimacy",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. That means your training hours count directly toward PMP eligibility with the Project Management Institute—no questions, no delays, no workarounds needed to sit for the exam."
+        },
+        {
+          "heading": "Live instruction fits working schedules",
+          "text": "Instructors lead all bootcamp sessions live and virtually, so you attend from your Jacksonville office or home without travel. You complete required contact hours on a schedule built for full-time professionals, not around commute times."
+        },
+        {
+          "heading": "Learn from active, certified practitioners",
+          "text": "Your instructors hold active PMP certification and apply project management daily in real organizations. They teach from working knowledge, not theory alone, and answer questions rooted in how you'll actually lead teams after certification."
+        },
+        {
+          "heading": "Meet employer demand in rail, financial services, insurance, and logistics",
+          "text": "Jacksonville's largest employers—including CSX, FIS, Florida Blue, and Landstar System—hire credentialed project managers for mission-critical initiatives. The PMP credential signals readiness for these roles and supports competitive advancement in the region's dominant industries."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:30.218490Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "54841dbf82851a12",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Jacksonville's Growing Markets",
+      "text": "<p>Jacksonville's economy is anchored by major financial services and insurance headquarters, including GuideWell Mutual Holding Corp. (Florida Blue), Fidelity National Financial, and Fidelity National Information Services (FIS), all of which run large-scale transformation and modernization programs that demand certified project leadership. Beyond the financial sector, CSX Corporation, Landstar System, and Dream Finders Homes employ project managers to oversee logistics, infrastructure, and real-estate initiatives. The city's downtown waterfront renaissance—including the Riverfront Plaza redevelopment on the former Jacksonville Landing site and six new downtown parks under construction—further illustrates the breadth of capital projects and program management work happening locally across public and private organizations.</p><p>PMP® certification carries measurable career weight in this market. National data shows certified project managers command a median salary advantage over non-certified peers—a premium that holds across most regions and industries. In Jacksonville's concentration of insurance, financial-services, and transportation companies executing multi-year transformation agendas, the PMP® credential directly addresses what hiring managers seek: demonstrated expertise in scope, schedule, risk, and stakeholder management at scale. Completing Granite PM Academy's live-virtual PMP Bootcamp positions you to compete confidently for project management roles across these dominant local sectors, whether you're advancing within an existing organization or pursuing new opportunities in the city's growing infrastructure and technology-driven business environment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:34.476491Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "bc7ad4cf91facd8e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Jacksonville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific prerequisites—typically a secondary degree plus years of verifiable project leadership. Granite PM Academy staff can help you assess whether your background meets the credential's entry requirements before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend instructor-led sessions from your home or office on a schedule that fits Jacksonville professionals balancing work and study. This formal education satisfies PMI's mandatory contact-hour requirement and builds your exam readiness."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the bootcamp, apply directly to PMI with your education and experience documentation. Pay PMI's examination fee to activate your candidacy. Granite PM Academy provides clear guidance on the application process and answers common questions so you submit a complete profile without delays."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to strengthen your readiness. Schedule your proctored exam through PMI's testing partner at a time that works for you. Exam day confirms your mastery of project-management domains and framework."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP® operates on a three-year renewal cycle. Earn professional development units (PDUs) through ongoing training, certifications, and project work to renew your credential. Granite PM Academy offers continuing-education courses and resources to help you sustain and advance your certification throughout your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:39.653656Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "43d3a79a15c4a055",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Jacksonville's insurance and financial services?",
+          "answer": "<p>Jacksonville hosts major insurance and financial-services headquarters—including Florida Blue, Fidelity National Financial, and FIS—that manage large-scale transformation and infrastructure programs. PMP-certified project managers report a median salary premium of approximately $26,000 annually over non-certified peers (PMI's 14th Edition Earning Power Salary Survey). In a market where these employers compete for talent on complex, regulated initiatives, the credential strengthens your candidacy for senior roles and leadership advancement.</p>"
+        },
+        {
+          "question": "Which Jacksonville employers most value PMP certification for project management roles?",
+          "answer": "<p>Insurance, financial services, rail transportation, and logistics—Jacksonville's largest employment sectors—prioritize PMP certification for project managers overseeing multi-year initiatives. CSX Corporation, Landstar System, and Fidelity National Information Services all run enterprise-scale programs where certified practitioners manage scope, budget, and stakeholder alignment. The credential signals readiness for the complexity these organizations demand.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP bootcamp from my Jacksonville workplace or home office?",
+          "answer": "<p>Yes. Granite PM Academy's PMP bootcamp is delivered 100% live-virtual, so you can attend from your workplace, home office, or anywhere with reliable internet. No travel or local classroom attendance is required. This format works well for Jacksonville professionals balancing full-time roles at major employers while pursuing certification on an accelerated schedule.</p>"
+        },
+        {
+          "question": "Should Jacksonville project managers pursue PMP certification now or wait for the next hiring cycle?",
+          "answer": "<p>Jacksonville's concentration of large financial-services, insurance, and logistics employers means PMP demand remains consistent year-round. However, candidates who complete certification before peak hiring or promotion cycles—typically mid-year and early fall—often gain advantage in competitive searches. Starting the bootcamp now positions you to claim the credential advantage when opportunities align with your career goals.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:45.203091Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "120fcde46b6770c5",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Jacksonville's Fortune 500 insurance and financial services sector—anchored by GuideWell, Fidelity National Financial, and FIS—relies on skilled project managers to lead enterprise initiatives and digital transformation. Add logistics powerhouse CSX and major downtown riverfront redevelopment projects underway, and demand for PMP-certified professionals remains strong across the region. Granite PM Academy delivers live-virtual PMP Bootcamp training to Jacksonville professionals nationwide, enabling you to earn your credential while advancing in this thriving market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:47.059825Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "dc189649251c07e5",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Jacksonville, FL, PMP bootcamp Jacksonville, PMP certification boot camp Jacksonville, FL, PMP bootcamp near me, intensive PMP training Jacksonville",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\",\n      \"name\": \"PMP Bootcamp in Jacksonville, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Jacksonville, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Jacksonville, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#course\",\n      \"name\": \"PMP Bootcamp in Jacksonville, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Jacksonville, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

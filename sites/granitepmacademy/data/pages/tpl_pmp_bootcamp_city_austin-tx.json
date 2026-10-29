@@ -1,0 +1,410 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "austin-tx",
+  "slug": "pmp-bootcamp-austin-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "austin-tx",
+    "city": "Austin",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "austin-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Technology",
+      "Higher Education",
+      "Automotive/Clean Tech Manufacturing",
+      "Semiconductors",
+      "State Government"
+    ],
+    "top_employers": [
+      "Tesla, Inc. (Gigafactory Texas)",
+      "Apple Inc.",
+      "Indeed.com",
+      "Bumble Inc.",
+      "National Instruments (Emerson)",
+      "University of Texas at Austin"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. Indeed lists average general Project Manager salary in Austin at $104,877/yr (not PMP-specific, though PMP is commonly listed among local PM job requirements).",
+    "market_blurb": "Austin's employer base is led by large technology/consumer-tech firms with a major local footprint - Tesla's global manufacturing headquarters, Apple's largest campus outside California, and Austin-headquartered Indeed and Bumble - alongside the University of Texas at Austin and sustained state highway infrastructure build-out.",
+    "notable_projects": [
+      "I-35 Capital Express (North, Central, South) - multi-billion-dollar TxDOT highway reconstruction through Austin",
+      "Waterloo Greenway Phase 2 - new Waller Creek park section downtown",
+      "Downtown Congress Avenue redesign - City of Austin redesign of its historic main street",
+      "183 North Project and Oak Hill Parkway Project - TxDOT highway/toll-lane projects"
+    ],
+    "credential_demand": "Austin's dense concentration of large engineering- and manufacturing-driven employers plus sustained public infrastructure work makes PMP plausibly valued for coordinating large technical and construction programs.",
+    "_researched": 1,
+    "city_spotlight": "<p>Austin's employer base includes Tesla, Inc. (Gigafactory Texas), Apple Inc., Indeed.com, Bumble Inc.. Austin's employer base is led by large technology/consumer-tech firms with a major local footprint - Tesla's global manufacturing headquarters, Apple's largest campus outside California, and Austin-headquartered Indeed and Bumble - alongside the University of Texas at Austin and sustained state highway infrastructure build-out. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Austin professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Austin, TX",
+    "city_image_credit": "Photo: Comrade Goose, CC BY 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Austin_Texas_Skyline.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-austin-tx.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Austin's technology, semiconductor, and advanced manufacturing sectors—anchored by major employers like Tesla, Apple, and National Instruments—rely on certified project managers to lead complex, mission-critical initiatives. Granite PM Academy's live-virtual PMP Bootcamp delivers the PMI contact-hour education requirement through instructor-led training on your schedule, preparing you to sit for the PMP exam. Earn your credential and position yourself for leadership roles across Austin's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:25.593286Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7d7dbf1727f555ff",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Austin for Tech and Manufacturing Leaders",
+      "text": "<p>Austin's explosive growth as a global manufacturing and technology hub—anchored by Tesla's Gigafactory Texas and Apple's largest campus outside Silicon Valley—has created sustained demand for skilled project managers who can lead complex, high-stakes initiatives. Professionals working across Austin's semiconductor, clean-tech manufacturing, and enterprise software sectors face intense pressure to deliver on aggressive timelines and coordinate cross-functional teams at scale. The PMP credential signals to employers in these fast-growing industries that you possess the discipline, methodologies, and governance practices required to manage projects in environments where delays and missteps carry real financial and operational consequences.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp taught by active certified practitioners with deep real-world experience in project delivery. As a PMI Authorized Training Partner, we design our instructor-led program to satisfy all contact-hour requirements for PMP eligibility, condensing months of self-study into a focused, accelerated format that fits working professionals' schedules. You'll work through exam-focused content, real-scenario problem-solving, and rigorous practice exams in an interactive classroom environment—all online, nationwide. Upon completion, you'll be positioned to sit for the PMP exam with confidence and move forward in your certification journey.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:29.596922Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "942e8bbd6b17c3ac",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Austin's Tech and Manufacturing Leaders Demand PMP Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP bootcamp instruction that satisfies PMI's contact-hour requirements. Your certification carries the authority employers across Austin's tech, automotive, and semiconductor sectors recognize and require."
+        },
+        {
+          "heading": "Live Virtual Instruction Fits Austin Schedules",
+          "text": "Attend instructor-led PMP training entirely online, synchronously with active certified practitioners. No commute, no fixed classroom—complete mandatory contact hours on a schedule that works for professionals balancing demanding roles at firms like Tesla, Apple, and Indeed."
+        },
+        {
+          "heading": "Exam Prep from Working Project Leaders",
+          "text": "Your instructors hold active PMP and CAPM credentials and work as project and program managers in real industries. They teach exam strategy, risk management, and stakeholder leadership grounded in hands-on experience, not theory alone."
+        },
+        {
+          "heading": "Credential Aligns with Austin's Hiring Demand",
+          "text": "Tesla's Gigafactory Texas, semiconductor manufacturers, and UT Austin's expanding research initiatives increasingly seek PMP-certified project managers. The credential directly addresses local employer requirements and strengthens your candidacy across Austin's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:33.698624Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "2c22815d145ac991",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across Austin's Tech and Infrastructure Boom",
+      "text": "<p>Austin's economy centers on large-scale technology and manufacturing operations—Tesla's Gigafactory Texas, Apple, and National Instruments all maintain significant local footprints and regularly seek certified project managers to oversee complex product development, facility expansion, and supply-chain initiatives. Beyond corporate demand, the city is undergoing sustained infrastructure transformation: the I-35 Capital Express multi-billion-dollar highway reconstruction, the Waterloo Greenway Phase 2 expansion downtown, and the TxDOT 183 North and Oak Hill Parkway projects all require skilled program and project coordinators. These initiatives—spanning technology, automotive manufacturing, and public works—create concrete, ongoing openings for PMP®-certified professionals who can manage budgets, timelines, and cross-functional teams at scale.</p><p>The PMP® credential carries measurable weight in this market. National data shows certified project managers command a meaningful salary premium over non-certified peers—a gap that typically holds across regions including Texas. Austin's project manager salaries reflect competitive local hiring, and employers increasingly list PMP® certification among preferred or required qualifications for mid- and senior-level roles. Completing the PMP Bootcamp through Granite PM Academy equips you with the certification and exam-readiness that Austin's largest employers and infrastructure programs actively seek, positioning you to advance into higher-responsibility, better-compensated roles in one of the nation's fastest-growing tech and manufacturing hubs.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:38.344183Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "659cbcce0a34d142",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Austin",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific requirements for your background—typically a bachelor's degree plus years of documented project leadership, or equivalent qualifications. Granite PM Academy's advisors can help you verify your credentials meet the standard before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend instructor-led sessions on your schedule—no travel to Austin required. You'll cover all domains of the PMBOK Guide, case studies, and exam strategy in an interactive format designed for working professionals."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, file your PMP application with PMI. Provide proof of your education, work experience, and course completion. Pay PMI's exam fee at the time of application. Granite PM Academy staff can guide you through the submission process to ensure accuracy."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and live review sessions—to reinforce your knowledge. Schedule your proctored exam at a testing center or online. Our instructors remain available to answer questions as you finalize your readiness for test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) every three years to renew your PMP. Granite PM Academy offers PDU-eligible courses and resources to help you stay current with project-management best practices and PMI standards throughout your certification cycle."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:43.333104Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "f3391f234fbbd963",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Austin's tech and manufacturing sector?",
+          "answer": "<p>Austin's concentration of large employers in technology, automotive manufacturing, semiconductors, and clean energy makes PMP highly relevant. These industries routinely coordinate complex technical and infrastructure programs where certified project managers are common job requirements. PMI data shows PMP-certified professionals earn a median premium over non-certified peers nationally—a gap that holds across most regions, including competitive markets like Austin's.</p>"
+        },
+        {
+          "question": "Which Austin employers value PMP certification for project management roles?",
+          "answer": "<p>Major Austin employers in engineering, manufacturing, higher education, and state government frequently list PMP among preferred credentials for project manager positions. Companies managing large-scale technical programs, infrastructure initiatives, and cross-functional teams especially prioritize the certification. University of Texas at Austin and state agencies similarly use PMP as a benchmark for coordinating complex initiatives.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual bootcamp while working in Austin?",
+          "answer": "<p>Yes. Our PMP Bootcamp is 100% live-virtual and nationwide, so you can attend from your Austin workplace, home, or anywhere with an internet connection. This format lets working professionals complete the intensive training without relocating or taking unpaid time away from the office.</p>"
+        },
+        {
+          "question": "How does Austin's job market affect when to pursue PMP bootcamp certification?",
+          "answer": "<p>Austin's sustained demand for project managers across technology, manufacturing, and infrastructure projects makes certification timing flexible—but earlier certification typically shortens your path to PMP-required roles and the salary premium associated with the credential. If your current or target employer lists PMP among job requirements, completing bootcamp soon aligns your credentials with active hiring cycles in the local market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:48.827467Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7fe7508c4357ab49",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Austin's technology sector—anchored by Tesla's global manufacturing headquarters, Apple's largest campus outside California, and homegrown firms Indeed and Bumble—drives sustained demand for skilled project managers across automotive, clean tech, and software development. Major infrastructure initiatives like the I-35 Capital Express multi-billion-dollar highway reconstruction further expand PM opportunities across public and private sectors. Granite PM Academy delivers live-virtual PMP Bootcamp training to Austin professionals, flexible scheduling that fits working schedules anywhere.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:50.541795Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "2feabd539574d764",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-austin-tx/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Austin, TX, PMP bootcamp Austin, PMP certification boot camp Austin, TX, PMP bootcamp near me, intensive PMP training Austin",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/\",\n      \"name\": \"PMP Bootcamp in Austin, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Austin, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Austin, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/#course\",\n      \"name\": \"PMP Bootcamp in Austin, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Austin, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-austin-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

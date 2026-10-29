@@ -1,0 +1,407 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "murfreesboro-tn",
+  "slug": "pmp-bootcamp-murfreesboro-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "murfreesboro-tn",
+    "city": "Murfreesboro",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "murfreesboro-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Higher education",
+      "Healthcare",
+      "Insurance",
+      "E-commerce/logistics",
+      "Government"
+    ],
+    "top_employers": [
+      "Middle Tennessee State University (MTSU)",
+      "Amazon Fulfillment Center",
+      "State Farm Insurance",
+      "Ascension Saint Thomas Rutherford",
+      "Alvin C. York Veterans Administration Medical Center"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Murfreesboro's economy centers on Middle Tennessee State University, an Amazon fulfillment center, State Farm Insurance, Ascension Saint Thomas Rutherford hospital, and the Alvin C. York VA Medical Center.",
+    "notable_projects": [
+      "MTSU Applied Engineering Building - opened November 2024",
+      "MTSU Kirksey Old Main & Rutledge Hall renovation - $53.4 million, targeted completion 2026"
+    ],
+    "credential_demand": "A real university with active capital construction, a hospital system, a VA medical center, and a large logistics facility all plausibly support project-management roles and PMP-relevant hiring in Murfreesboro.",
+    "_researched": 1,
+    "city_spotlight": "<p>Murfreesboro's employer base includes Middle Tennessee State University (MTSU), Amazon Fulfillment Center, State Farm Insurance, Ascension Saint Thomas Rutherford. Murfreesboro's economy centers on Middle Tennessee State University, an Amazon fulfillment center, State Farm Insurance, Ascension Saint Thomas Rutherford hospital, and the Alvin C. York VA Medical Center. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Murfreesboro professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Murfreesboro, TN",
+    "city_image_credit": "Photo: Pollinator, CC BY-SA 3.0/GFDL",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_murfreesboro9741.JPG",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-murfreesboro-tn.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Murfreesboro's healthcare, higher-education, and logistics sectors depend on skilled project managers to coordinate complex operations across their organizations. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that delivers the PMI contact-hour education requirement for the Project Management Professional credential, enabling you to complete certification on your schedule. Earning your PMP strengthens your qualifications for advancement and higher compensation within Murfreesboro's growing professional job market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:47.193051Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8f99490395fe0ddf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Murfreesboro: Intensive Certification for Project Managers",
+      "text": "<p>Murfreesboro's economy is anchored by Middle Tennessee State University, Amazon's regional fulfillment center, and major healthcare and government operations, all of which depend on skilled project managers to lead complex, cross-functional initiatives. Whether you work in higher education, logistics, insurance, or healthcare administration, the PMP® credential demonstrates mastery of the frameworks and processes these organizations use to deliver projects on time and within budget. For professionals in Murfreesboro seeking to advance into leadership roles or command competitive compensation, PMP® certification is a recognized differentiator that aligns directly with the skill gaps in your local job market.</p><p>Granite PM Academy delivers PMP® Bootcamp as a live-virtual, instructor-led program—designed for working professionals who need flexibility without sacrificing depth. As a PMI Authorized Training Partner, we satisfy all contact-hour requirements for PMP® eligibility and teach the course content through active certified practitioners who bring real-world experience to every session. Our intensive format condenses the material into a focused timeframe, allowing you to sit for the PMP® exam with confidence while balancing your current role. Upon completion, you'll hold a credential recognized globally and valued by Murfreesboro's largest employers, positioning you for meaningful career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:51.268186Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5e330e9248fbc22f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Murfreesboro's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is an authorized PMI training provider, meaning your bootcamp hours count directly toward PMP® eligibility requirements. No additional coursework or documentation needed—your certification path is streamlined and recognized by the Project Management Institute."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Learn from active PMP®-certified practitioners who apply project-management principles in their daily work across multiple industries. Their current experience translates into relevant case studies, practical troubleshooting, and exam strategies grounded in real-world scenarios."
+        },
+        {
+          "heading": "Live-Virtual Format, Full Contact Hours",
+          "text": "Attend instructor-led sessions online on a schedule that fits your work and life. The live-virtual delivery satisfies all PMI contact-hour requirements for PMP® certification, letting you study without relocating or rearranging your career."
+        },
+        {
+          "heading": "Credential Demand Among Local Employers",
+          "text": "Murfreesboro's largest employers—MTSU, Amazon, State Farm, Ascension Saint Thomas, and the VA Medical Center—actively hire project and program managers with PMP® credentials. The certification strengthens your candidacy across healthcare, higher education, logistics, insurance, and government sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:55.388234Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ebe9aefb1475454d",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Murfreesboro",
+      "text": "<p>Middle Tennessee State University's ongoing capital expansion—including the newly opened Applied Engineering Building and the $53.4 million renovation of Kirksey Old Main and Rutledge Hall—exemplifies the scale of project management activity anchoring Murfreesboro's job market. Beyond MTSU, major employers including Ascension Saint Thomas Rutherford, the Alvin C. York Veterans Administration Medical Center, Amazon Fulfillment Center, and State Farm Insurance all operate complex operations that rely on certified project managers to deliver infrastructure, healthcare initiatives, technology rollouts, and supply-chain improvements. These organizations across higher education, healthcare, logistics, insurance, and government sectors consistently seek professionals who can demonstrate mastery of structured project delivery.</p><p>The PMP® credential carries measurable weight in the marketplace: certified project managers report significantly higher earning power than their non-certified peers, a premium that holds across most U.S. regions and industries. In Murfreesboro's diverse employer base—from university construction programs to hospital network expansions to VA medical center operations—the credential signals readiness for leadership roles and positions you competitively for advancement. Completing the PMP Bootcamp through Granite PM Academy equips you with the frameworks and exam preparation needed to earn certification and step into higher-responsibility roles within the Murfreesboro job market, all through live-virtual instruction designed for working professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:59.689953Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "480073aec582535e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Murfreesboro",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific requirements for your educational background and years of supervised project work. Granite PM Academy's enrollment team will verify your qualifications before you enroll in the bootcamp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP bootcamp, delivered by active certified practitioners. Attend instructor-led sessions on your schedule—no travel required. All instruction meets PMI's alignment standards and counts toward your formal-education requirement for exam eligibility."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the bootcamp, submit your PMP application directly to PMI, documenting your education and project experience. Pay the associated exam fee through PMI's portal. Granite PM Academy provides guidance on application completion to ensure accuracy and speed your approval."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your proctored exam at a testing center or online. Most candidates sit within weeks of bootcamp completion; your readiness determines your timeline."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, earn Professional Development Units (PDUs) over a three-year renewal cycle to keep your credential active. Granite PM Academy and PMI offer PDU-bearing courses and activities. Plan your renewal strategy early to stay current without last-minute pressure."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:04.555625Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "a7b4e87040053623",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Murfreesboro project managers?",
+          "answer": "<p>Murfreesboro's major employers—MTSU, Amazon Fulfillment Center, Ascension Saint Thomas Rutherford, and the VA Medical Center—all operate complex projects requiring certified leadership. Nationally, PMP-certified professionals earn a median salary approximately $26,000 more than non-certified peers, according to PMI's Earning Power Salary Survey. That premium holds across most regions, making certification relevant whether you work in higher education, healthcare, logistics, or government.</p>"
+        },
+        {
+          "question": "Which Murfreesboro industries and employers hire PMP-certified professionals?",
+          "answer": "<p>Murfreesboro's active sectors—higher education (MTSU's ongoing capital construction), healthcare (Ascension Saint Thomas Rutherford), federal government (Alvin C. York Veterans Administration Medical Center), insurance (State Farm), and e-commerce logistics (Amazon Fulfillment Center)—all support project management roles. Each sector values structured methodologies and certified credentials to manage budgets, timelines, and cross-functional teams. Certification signals capability in these competitive local markets.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Bootcamp online from my Murfreesboro workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is 100% live-virtual, designed for working professionals. You can join from your office, home, or any location with internet access—no travel required. This format suits Murfreesboro professionals balancing full-time roles at MTSU, the hospital system, State Farm, or other major employers while earning your certification without disrupting your schedule.</p>"
+        },
+        {
+          "question": "When should Murfreesboro professionals pursue PMP certification for job market advantage?",
+          "answer": "<p>Murfreesboro's job market is active across healthcare, education, logistics, and government—sectors where project management demand is steady. Pursuing certification sooner rather than later positions you competitively for promotions and new roles within these established employers. The credential demonstrates commitment to professional standards, and the earlier you earn it, the longer you build the salary premium it supports across your career.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:10.616418Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "723dae6cbef94ceb",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Murfreesboro's economy centers on higher education, healthcare, and logistics—anchored by Middle Tennessee State University, Amazon's fulfillment center, and Ascension Saint Thomas Rutherford hospital. Major infrastructure projects, including MTSU's $53.4 million campus renovation targeted for 2026, create sustained demand for skilled project managers across these sectors. Granite PM Academy delivers live-virtual PMP® Bootcamp training to Murfreesboro professionals seeking to advance their credentials and career prospects in this growing market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:12.241426Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "084c88ec4438c810",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Murfreesboro, TN, PMP bootcamp Murfreesboro, PMP certification boot camp Murfreesboro, TN, PMP bootcamp near me, intensive PMP training Murfreesboro",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/\",\n      \"name\": \"PMP Bootcamp in Murfreesboro, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Murfreesboro, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Murfreesboro, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/#course\",\n      \"name\": \"PMP Bootcamp in Murfreesboro, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Murfreesboro, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-murfreesboro-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

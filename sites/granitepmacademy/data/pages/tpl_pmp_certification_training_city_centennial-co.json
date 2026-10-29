@@ -1,0 +1,407 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "centennial-co",
+  "slug": "pmp-certification-training-centennial-co",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "centennial-co",
+    "city": "Centennial",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "centennial-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier2",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Electronics distribution",
+      "Telecom/media",
+      "Health insurance",
+      "Aerospace/launch services",
+      "Healthcare"
+    ],
+    "top_employers": [
+      "Arrow Electronics",
+      "Comcast (regional HQ)",
+      "UnitedHealthcare",
+      "United Launch Alliance",
+      "CommonSpirit Health"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Centennial is home to Arrow Electronics' global headquarters along with major Comcast, UnitedHealthcare, United Launch Alliance, and CommonSpirit Health operations, giving it a mix of electronics distribution, telecom, aerospace, and healthcare employers.",
+    "notable_projects": [
+      "IKEA Centennial (opened 2011) - Colorado's first IKEA",
+      "Denver Summit FC (women's professional soccer) training center under development, with a temporary stadium planned for 2026"
+    ],
+    "credential_demand": "United Launch Alliance's aerospace launch programs and Arrow Electronics' global distribution operations are the kind of complex, deadline-driven work where PMP certification is plausibly valued in Centennial's project management job market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Centennial's employer base includes Arrow Electronics, Comcast (regional HQ), UnitedHealthcare, United Launch Alliance. Centennial is home to Arrow Electronics' global headquarters along with major Comcast, UnitedHealthcare, United Launch Alliance, and CommonSpirit Health operations, giving it a mix of electronics distribution, telecom, aerospace, and healthcare employers. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Centennial professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Centennial's aerospace, telecom, and healthcare sectors depend on rigorous project delivery, and the PMP certification signals mastery of the standards those industries demand. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's required contact hours and fits working schedules across time zones. Earning your PMP positions you for leadership roles and competitive compensation in Centennial's largest employers and their extended supply chains.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:36.284793Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9a9c02510fc6c900",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Centennial for Aerospace and Tech Leaders",
+      "text": "<p>Centennial's concentration of aerospace, electronics distribution, and telecom operations—anchored by United Launch Alliance, Arrow Electronics, and Comcast's regional headquarters—creates sustained demand for project managers who can navigate complex, regulated environments. Whether you're advancing within one of these industries or transitioning into Centennial's growing tech and healthcare sectors, PMP® certification signals mastery of scope, schedule, risk, and stakeholder management that employers in this market actively seek. The credential opens doors across CommonSpirit Health's operations, UnitedHealthcare's enterprise initiatives, and the high-stakes programs that define aerospace and defense work.</p><p>Granite PM Academy delivers PMP® certification training as a PMI Authorized Training Partner through live-virtual, instructor-led courses that fit working professionals' schedules. Our instructors are active certified practitioners who bring real-world experience into every session, ensuring you learn frameworks that apply immediately to your projects. We cover the full contact-hour requirement mandated by PMI and prepare you systematically for the PMP® exam. Whether you're based in Centennial or anywhere nationwide, you'll complete your training on your timeline and move forward with a credential that accelerates your career and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:40.121343Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ca82b95a8ac25d97",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Centennial's Aerospace and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets all PMI requirements and positions you for immediate exam eligibility. No guesswork on credentialing standards—you're learning from a partner recognized by the Institute itself."
+        },
+        {
+          "heading": "Live-Virtual, Flexible Scheduling",
+          "text": "Earn your contact hours through live-virtual instructor-led sessions that fit working schedules. No recorded modules or self-paced gaps—real-time instruction from active certified practitioners means you can ask questions, solve problems, and stay accountable throughout your certification journey."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Your instructors are active PMP® and CAPM® credential holders who teach real project challenges alongside exam strategy. Exam-preparation support is woven into every session, not added as an afterthought, so you graduate ready to pass."
+        },
+        {
+          "heading": "Credential Valued by Centennial Employers",
+          "text": "Major employers in Centennial's aerospace, telecom, healthcare, and distribution sectors actively recruit project managers with PMP certification. The credential signals readiness for leadership roles and higher compensation in industries that anchor the local economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:44.218714Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d89c2cdcead3f276",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Centennial",
+      "text": "<p>Centennial's economy centers on sectors where structured project management directly drives business outcomes. Arrow Electronics operates one of the world's largest technology distribution networks from the region, managing complex supply chains and logistics operations that depend on disciplined scheduling and resource control. Similarly, United Launch Alliance's aerospace and launch programs—headquartered locally—require rigorous project governance for mission-critical work. UnitedHealthcare, Comcast's regional operations, and CommonSpirit Health round out a diverse employer base spanning insurance, telecommunications, and healthcare administration. These organizations regularly hire project managers to oversee product rollouts, infrastructure upgrades, and cross-functional initiatives. The development of Denver Summit FC's training center and temporary stadium facility (planned for 2026) further illustrates the kind of capital and construction projects that bring certified PM expertise into local demand.</p><p>The PMP® certification signals to Centennial employers that you can manage scope, schedule, budget, and risk using a globally recognized framework. Industry data shows that PMP®-certified professionals command a meaningful salary premium compared to their non-certified peers—a gap that holds across most markets and industries. For candidates in Centennial's aerospace, distribution, healthcare, and telecom sectors, that credential can accelerate both hiring prospects and compensation growth. Completing PMP Certification Training through Granite PM Academy positions you to meet the eligibility requirements and sit for the PMI® examination, equipping you with the skills and credentials that Centennial's major employers actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:48.831511Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5e23d2790197387d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Centennial",
+      "steps_items": [
+        {
+          "heading": "Confirm Your PMP Eligibility",
+          "text": "The PMP requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years. Review PMI's full eligibility criteria now to confirm you meet education and experience requirements before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our nationwide cohorts meet on a schedule that fits working professionals. You'll complete the PMI-required 35 contact hours of formal education covering the PMBOK Guide and exam domains."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your 35 contact hours, submit your PMP application directly to PMI and pay the exam fee. Granite PM Academy provides guidance on the application process. PMI will review your experience and credentials before you're authorized to sit."
+        },
+        {
+          "heading": "Prepare and Pass Your Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—study guides, practice questions, and instructor support—to build confidence. Schedule your exam when ready through Pearson VUE. Our active certified practitioners have designed materials that reflect real-world project scenarios."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn Professional Development Units (PDUs) every three years to renew. Granite PM Academy offers ongoing training and resources to help you sustain and advance your credential throughout your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:53.506497Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b92496848d1061a0",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Centennial aerospace and defense project managers?",
+          "answer": "<p>Yes. Centennial's aerospace sector, anchored by major launch-services employers, depends on large-scale, regulated programs where PMP-certified leadership is valued. The credential signals mastery of scheduling, resource allocation, and risk management—core demands in space-industry projects. Nationally, PMP-certified project managers earn a median salary roughly $26,000 higher than non-certified peers, a premium that typically holds across technical and regulated industries.</p>"
+        },
+        {
+          "question": "Which Centennial employers hire PMP-certified project managers most?",
+          "answer": "<p>Arrow Electronics, Comcast's regional operations, UnitedHealthcare, United Launch Alliance, and CommonSpirit Health all manage complex, cross-functional initiatives where PMP certification strengthens candidate profiles. Electronics distribution, telecom, insurance, aerospace, and healthcare—Centennial's dominant sectors—consistently value the credential for roles overseeing budget, timelines, and stakeholder coordination at scale.</p>"
+        },
+        {
+          "question": "Can I attend PMP certification training while working in Centennial?",
+          "answer": "<p>Yes. Granite PM Academy delivers live-virtual instruction nationwide, so you can attend from your Centennial workplace, home, or any location with internet access. This format lets you stay employed full-time while earning your credential, eliminating travel time and scheduling conflicts common with in-person programs.</p>"
+        },
+        {
+          "question": "When should Centennial project managers pursue PMP certification?",
+          "answer": "<p>Centennial's job market—dominated by aerospace, healthcare, and large telecom operations—actively seeks certified leaders. If you're managing cross-functional teams, large budgets, or regulated deliverables at Arrow, Comcast, UnitedHealthcare, or similar employers, certification timing matters: pursue it before a promotion or job transition to maximize competitive advantage and salary growth in your next role.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:58.981586Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "4ac38f458a82419e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Centennial's concentration of aerospace, electronics distribution, and healthcare operations—from United Launch Alliance to Arrow Electronics and UnitedHealthcare—creates steady demand for skilled project managers across complex, regulated environments. The PMP® credential accelerates career growth in these sectors by demonstrating command of scope, schedule, and stakeholder management that large-scale operations require. Granite PM Academy delivers live-virtual PMP Certification Training to Centennial professionals nationwide, with flexible scheduling and PMI-aligned curriculum designed for working adults.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:00.821392Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "61c96659e48fd96e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-centennial-co/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Centennial, CO, PMP exam prep Centennial, PMP course Centennial CO, project management certification Centennial, CO, PMI PMP training Centennial",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\",\r\n      \"name\": \"PMP Certification Training in Centennial, CO | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Centennial, CO. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Centennial, CO\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/#course\",\r\n      \"name\": \"PMP Certification Training in Centennial, CO\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Centennial, CO. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-centennial-co/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "596b492faedc573f4cda23aaf882d23d"
+}

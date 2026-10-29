@@ -1,0 +1,408 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "lakewood-co",
+  "slug": "pmp-bootcamp-lakewood-co",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "lakewood-co",
+    "city": "Lakewood",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "lakewood-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Federal/state government",
+      "Healthcare",
+      "Medical device manufacturing",
+      "Banking/finance",
+      "Education",
+      "Mixed-use retail"
+    ],
+    "top_employers": [
+      "Denver Federal Center",
+      "Jefferson County School District R-1",
+      "State of Colorado",
+      "St. Anthony Hospital",
+      "Terumo BCT",
+      "FirstBank"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Lakewood's economy is led by government: the Denver Federal Center (the largest concentration of federal agencies outside Washington, D.C.) and the State of Colorado, alongside Jeffco Schools, St. Anthony Hospital, medical-device maker Terumo BCT, and Lakewood-headquartered FirstBank.",
+    "notable_projects": [
+      "Belmar - mixed-use redevelopment (retail, residential, arts district) built on the former Villa Italia Mall site"
+    ],
+    "credential_demand": "The heavy concentration of federal and state government employers at the Denver Federal Center makes Lakewood a plausible strong market for PMP - federal agencies are well known for favoring or requiring PMP for program/project roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lakewood's employer base includes Denver Federal Center, Jefferson County School District R-1, State of Colorado, St. Anthony Hospital. Lakewood's economy is led by government: the Denver Federal Center (the largest concentration of federal agencies outside Washington, D.C.) and the State of Colorado, alongside Jeffco Schools, St. Anthony Hospital, medical-device maker Terumo BCT, and Lakewood-headquartered FirstBank. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Lakewood professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Lakewood, CO",
+    "city_image_credit": "Photo: Buaidh, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Belmar_Square_banner.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-lakewood-co.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Lakewood's government, healthcare, and financial services sectors depend on certified project managers to deliver complex initiatives on time and on budget. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact hours for the Project Management Professional credential. Earning your PMP positions you competitively across Lakewood's largest employers and expands your earning potential in a market that values this certification.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:23.055049Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2ea416ff34bb3c68",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Lakewood: Intensive Training for Federal and State Leaders",
+      "text": "<p>Lakewood's economy is anchored by the Denver Federal Center—the largest concentration of federal agencies outside Washington, D.C.—alongside the State of Colorado, Jefferson County Schools, and major healthcare and financial institutions. Organizations across government, healthcare, and medical device manufacturing in this region rely on skilled project managers to deliver complex initiatives on time and on budget. The PMP® certification demonstrates mastery of the frameworks and governance these employers demand, positioning you competitively for roles that shape Lakewood's largest institutions and their mission-critical work.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering intensive, live-virtual PMP Bootcamp instruction to professionals nationwide. Our active certified practitioners guide you through the full PMBOK® framework, meeting all contact-hour requirements for PMP® eligibility in an accelerated format that fits working schedules. Whether you're advancing within government, healthcare, finance, or education, this bootcamp equips you with the knowledge and confidence to earn your PMP® credential and take on higher-level leadership roles in Lakewood's competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:26.439062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "8c09699d2b2f2631",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Lakewood's Federal and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your bootcamp hours count directly toward PMP eligibility. No separate applications or documentation delays—your enrollment with us satisfies PMI's contact-hour requirement from day one."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend instructor-led sessions live and virtually, fitting certification around your full-time role at Denver Federal Center, St. Anthony, or elsewhere. No recorded videos or self-paced gaps—real-time instruction ensures you master concepts and complete the contact-hour requirement simultaneously."
+        },
+        {
+          "heading": "Instructors Who Practice What They Teach",
+          "text": "Your trainers are active certified PMP professionals applying project management daily in the field. They bring current real-world case studies and problem-solving approaches into every session, grounding theory in the discipline you'll use on the job."
+        },
+        {
+          "heading": "Credential That Opens Federal and Healthcare Doors",
+          "text": "The PMP is in high demand among Lakewood's largest employers—Denver Federal Center, Jefferson County School District, and regional healthcare networks actively recruit certified project managers. Certification strengthens your candidacy for advancement and leadership roles across these sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:30.594518Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b8644a81553a523a",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lakewood",
+      "text": "<p>Lakewood's economy is anchored by federal and state government presence, particularly the Denver Federal Center, which concentrates agencies and programs that prioritize or require PMP® certification for project and program leadership roles. Beyond government, the city hosts significant employers in healthcare, medical device manufacturing, banking, and education—including St. Anthony Hospital, Terumo BCT, FirstBank, and Jefferson County School District R-1. The Belmar mixed-use redevelopment, built on the former Villa Italia Mall site, exemplifies the kind of complex, multi-stakeholder projects that demand certified project management expertise locally.</p><p>Earning your PMP® through Granite PM Academy positions you competitively in Lakewood's job market. While salary varies by role and experience, PMP® certification holders report meaningfully higher earning potential than their non-certified peers across most regions—a credential premium that reflects employers' confidence in certified practitioners. Completing the PMP Bootcamp equips you with the skills and credential that government agencies, healthcare systems, and major employers in the area actively seek, opening pathways to advancement in roles where project management discipline directly drives organizational success. Our live-virtual bootcamp format makes certification accessible regardless of your schedule, letting you advance your Lakewood career without geographical or time constraints.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:34.534405Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "45b44be6b1f1fd6b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Lakewood",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years. Verify your education and documented work history meet these thresholds before enrolling in Granite PM Academy's bootcamp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend all sessions synchronously from anywhere, engage directly with active certified practitioners, and cover the full PMBOK® Guide framework required by PMI."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing bootcamp coursework, submit your PMP application directly to PMI with proof of education and project experience. Pay PMI's exam fee at that time. Allow time for PMI to review and approve your eligibility."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor guidance to master the PMP content. Schedule your exam when ready, then take the computer-based test at an authorized Pearson VUE center near Lakewood."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning the PMP, maintain it by earning professional development units (PDUs) across PMI's standard three-year renewal cycle. Renew your credential before expiration to keep your competitive advantage in your local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:39.186677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "1bd883bf77262e70",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Does PMP certification help land project management roles at Denver Federal Center?",
+          "answer": "<p>Yes. The Denver Federal Center's concentration of federal agencies prioritizes PMP certification for program and project management positions. Federal employers commonly require or strongly prefer the credential, making certification valuable for Lakewood professionals targeting government contracts and roles. The bootcamp prepares you to meet these widely-expected qualifications.</p>"
+        },
+        {
+          "question": "Which Lakewood employers value PMP certification most?",
+          "answer": "<p>Federal and state government agencies—particularly at the Denver Federal Center—are the strongest markets. Healthcare systems like St. Anthony Hospital, medical device manufacturers such as Terumo BCT, and financial institutions including FirstBank also employ certified project managers. Jefferson County School District R-1 pursues structured project leadership. PMP opens doors across all these sectors.</p>"
+        },
+        {
+          "question": "Can I attend PMP Bootcamp from my Lakewood workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy's bootcamp is 100% live-virtual, delivered nationwide. You attend from any location with internet access—your office, home, or anywhere else. This flexibility lets Lakewood professionals integrate intensive certification training into their schedules without commuting or relocating during the program.</p>"
+        },
+        {
+          "question": "Is PMP worth getting now if I work in Lakewood's job market?",
+          "answer": "<p>For Lakewood professionals, timing is favorable. Federal and state employers in the area actively seek certified project managers, and the credential typically commands a meaningful salary premium nationally. If you're in government, healthcare, or finance—all major Lakewood industries—PMP positions you competitively for advancement and opens higher-responsibility roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:44.197017Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fe8f61e3a8bd80de",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As home to the Denver Federal Center—the largest concentration of federal agencies outside Washington, D.C.—Lakewood's economy runs on project and program leadership. Government, healthcare, medical-device manufacturing, banking, and education sectors all anchor major employers here, creating steady demand for credentialed project managers. Granite PM Academy delivers live-virtual PMP® Bootcamp to Lakewood professionals nationwide, with flexible scheduling and PMI-aligned curriculum designed for working adults pursuing this industry-recognized credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:45.983620Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "584f7e57d23685ae",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-lakewood-co/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Lakewood, CO, PMP bootcamp Lakewood, PMP certification boot camp Lakewood, CO, PMP bootcamp near me, intensive PMP training Lakewood",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/\",\n      \"name\": \"PMP Bootcamp in Lakewood, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Lakewood, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Lakewood, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/#course\",\n      \"name\": \"PMP Bootcamp in Lakewood, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Lakewood, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lakewood-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

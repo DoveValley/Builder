@@ -1,0 +1,405 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "greenville-sc",
+  "slug": "pmp-certification-training-greenville-sc",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "greenville-sc",
+    "city": "Greenville",
+    "state": "South Carolina",
+    "SS": "SC",
+    "city_slug": "greenville-sc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Healthcare",
+      "Tire & Rubber Manufacturing",
+      "Energy Equipment Manufacturing",
+      "Utilities"
+    ],
+    "top_employers": [
+      "Prisma Health",
+      "Michelin North America",
+      "GE Vernova",
+      "Duke Energy Corp.",
+      "Bon Secours St. Francis Health System"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Greenville serves as Michelin's North American headquarters and hosts GE Vernova's global gas turbine manufacturing operations, alongside Prisma Health as the area's largest employer and Duke Energy's regional utility presence.",
+    "notable_projects": [
+      "GE Vernova $160M investment to expand gas turbine manufacturing in Greenville, driven in part by AI data center power demand"
+    ],
+    "credential_demand": "Manufacturing expansion at GE Vernova and Michelin, combined with a large regional health system, point to steady local demand for PMP-certified project managers in industrial and healthcare program roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Greenville's employer base includes Prisma Health, Michelin North America, GE Vernova, Duke Energy Corp.. Greenville serves as Michelin's North American headquarters and hosts GE Vernova's global gas turbine manufacturing operations, alongside Prisma Health as the area's largest employer and Duke Energy's regional utility presence. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Greenville professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Greenville's healthcare, manufacturing, and energy sectors rely on skilled project managers to deliver complex initiatives across clinical systems, production facilities, and infrastructure upgrades. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour requirements, allowing you to earn your credential on a schedule that fits your work commitments. Completing your PMP positions you for leadership roles and competitive advancement across Greenville's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:04.498788Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "092a0ed953810235",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Greenville for Manufacturing Leaders",
+      "text": "<p>Greenville's position as Michelin's North American headquarters and home to GE Vernova's global gas turbine manufacturing operations has created sustained demand for skilled project managers who can lead complex, cross-functional teams in high-stakes industrial environments. Professionals working across Greenville's manufacturing, energy, healthcare, and utilities sectors recognize that the PMP® credential signals mastery of the standardized frameworks and methodologies that employers in these capital-intensive industries expect. Whether you're advancing within one of the region's major employers or building portable expertise for career mobility, PMP® Certification Training equips you with the discipline and language that drive credibility in Greenville's competitive job market.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI® Authorized Training Partner through live-virtual, instructor-led sessions that fit working professionals' schedules while meeting all contact-hour requirements for credential eligibility. Our instructors are active certified practitioners who bring real-world experience to every module, ensuring the frameworks you learn translate directly to the projects you manage. We guide you through exam readiness with structured curricula, hands-on problem-solving, and the support of peers pursuing the same credential. Upon completion, you'll hold a certification recognized globally and valued distinctly in Greenville's industrial and healthcare markets—positioning you for roles with greater scope, leadership opportunity, and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:08.772159Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "58877e46dee520cf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Greenville's Healthcare & Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® preparation that meets all PMI contact-hour requirements. Your certification sits on a foundation recognized globally by employers across Greenville's major industries."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Attend live-virtual instructor-led sessions that satisfy PMI contact-hour mandates without commuting. Active certified practitioners teach real-world scenarios while you complete coursework on a schedule that fits your job at Prisma Health, Michelin, or GE Vernova."
+        },
+        {
+          "heading": "Exam Prep Built In",
+          "text": "Dedicated exam-preparation support—practice tests, question reviews, and strategy coaching—is embedded in every course. Walk into the PMP® exam with confidence, not guesswork, backed by instructors who hold the credential you're pursuing."
+        },
+        {
+          "heading": "Credential Hiring Greenville Employers",
+          "text": "Healthcare systems, manufacturing, utilities, and energy firms in Greenville increasingly seek PMP®-certified project managers for leadership roles. The credential accelerates advancement and salary trajectory in industries where Greenville's top employers compete for qualified talent."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:12.912886Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "209ad206cc464d20",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Greenville's Growing Industrial Hub",
+      "text": "<p>Greenville's economy centers on major employers actively investing in expansion and modernization. Prisma Health and Bon Secours St. Francis Health System manage large-scale clinical and operational programs that depend on certified project managers to oversee everything from facility upgrades to digital health initiatives. Simultaneously, GE Vernova's $160 million commitment to expand gas turbine manufacturing in the region—driven partly by demand from AI data center power infrastructure—signals sustained hiring for PMs across capital projects and production rollouts. Michelin North America and Duke Energy Corp. round out a robust landscape where project leadership roles consistently open across manufacturing, healthcare delivery, and energy sectors.</p><p>The PMP® credential carries measurable weight in this market. Nationally, PMP-certified professionals report a median salary significantly higher than non-certified counterparts, a premium that persists across most geographic regions. Greenville's combination of healthcare system scale and industrial manufacturing expansion creates steady demand for certified project managers capable of managing complex, cross-functional initiatives. Completing PMP Certification Training through Granite PM Academy positions you to compete for these roles with a credential recognized by employers across healthcare, energy, and manufacturing—the industries shaping Greenville's growth. The investment in certification aligns directly with local career trajectory and earning potential in a city actively building its project-management infrastructure.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:17.156408Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "12b9c3b017dcdecc",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP® Certification in Greenville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific hours and years of experience requirements for your background. Granite PM Academy staff can clarify whether your credentials meet the standard or alternative pathway."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. All sessions are delivered online at scheduled times, with active certified practitioners leading instruction. You'll cover the full PMBOK® Guide curriculum and earn the 35 contact hours PMI requires before exam eligibility."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing coursework, submit your formal application directly to PMI with proof of education and experience hours. Pay PMI's exam fee at application. Granite PM Academy provides guidance on documentation to streamline your submission and approval."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study materials, and instructor office hours—to reinforce knowledge before your test date. Schedule your exam through PMI's testing partner. Our team remains available to answer questions as you prepare."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After passing, you'll earn the PMP® credential for a three-year cycle. During this period, earn Professional Development Units (PDUs) through training, conference attendance, and on-the-job practice. Granite PM Academy offers ongoing courses to help you meet your renewal requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:22.027223Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "ebd2577eca717478",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Greenville healthcare and manufacturing careers?",
+          "answer": "<p>Yes. Greenville's largest employers—Prisma Health, Bon Secours St. Francis, Michelin North America, and GE Vernova—regularly hire PMP-certified project managers for clinical program rollouts, equipment expansions, and capital projects. National data shows PMP-certified professionals earn a median salary premium over non-certified peers, and that advantage typically holds across industrial and healthcare sectors where Greenville's job market is strongest.</p>"
+        },
+        {
+          "question": "Which Greenville employers hire PMP-certified project managers most?",
+          "answer": "<p>Greenville's healthcare systems (Prisma Health, Bon Secours St. Francis) value certification for managing system-wide initiatives and technology implementations. Manufacturing and energy firms—Michelin North America, GE Vernova, and Duke Energy Corp.—seek PMP credentials for supply chain, capital, and operational project roles. These industries show steady local demand as both sectors expand regional footprints.</p>"
+        },
+        {
+          "question": "Can I take live-virtual PMP training from my Greenville workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP training live-virtual, so you can attend from your office, home, or any location with internet access. This flexibility works well for Greenville professionals balancing full-time roles at major employers while preparing for certification—no travel or scheduling conflicts required.</p>"
+        },
+        {
+          "question": "When should Greenville project managers get PMP certified given local job demand?",
+          "answer": "<p>Manufacturing expansion at GE Vernova and Michelin, combined with ongoing healthcare system growth, point to sustained demand for certified project managers in Greenville. Early certification positions you ahead of peers when promotions and new roles open—common in these high-growth sectors. Timing your training now aligns with where the market is heading.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:27.365486Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b208e556cdcf540f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Greenville's energy sector is surging—GE Vernova's $160M gas turbine manufacturing expansion reflects rising demand for skilled project managers across utilities, healthcare, and industrial operations. Prisma Health, Michelin North America, and Duke Energy lead a market where PMP-certified professionals drive complex initiatives. Granite PM Academy delivers live-virtual PMP Certification Training to Greenville professionals nationwide, flexible scheduling designed for working teams.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:28.944223Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3e515ad521263f48",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-greenville-sc/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Greenville, SC, PMP exam prep Greenville, PMP course Greenville SC, project management certification Greenville, SC, PMI PMP training Greenville",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\",\r\n      \"name\": \"PMP Certification Training in Greenville, SC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Greenville, SC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Greenville, SC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/#course\",\r\n      \"name\": \"PMP Certification Training in Greenville, SC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Greenville, SC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-greenville-sc/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "596b492faedc573f4cda23aaf882d23d"
+}

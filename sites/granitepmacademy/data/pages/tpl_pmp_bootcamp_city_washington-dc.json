@@ -1,0 +1,408 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "washington-dc",
+  "slug": "pmp-bootcamp-washington-dc",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "washington-dc",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "SS": "DC",
+    "city_slug": "washington-dc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Federal Government",
+      "Finance",
+      "Media & Publishing",
+      "Nonprofit/International Development",
+      "Higher Education",
+      "Healthcare"
+    ],
+    "top_employers": [
+      "Fannie Mae",
+      "National Geographic Society",
+      "American Red Cross",
+      "The Washington Post",
+      "World Bank Group",
+      "Georgetown University",
+      "George Washington University",
+      "Howard University",
+      "Children's National Hospital"
+    ],
+    "salary_note": "Glassdoor reports $132,713/yr average for \"Project Manager PMP\" roles specifically in Washington, DC (about 10% above national average); BLS separately puts the broader project management specialist median in DC at $104,900/yr.",
+    "market_blurb": "Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National.",
+    "notable_projects": [
+      "Capital One Arena renovation - roughly $1B multi-phase renovation funded jointly by the DC government and Monumental Sports & Entertainment, targeted ahead of the 2027-28 NHL/NBA seasons",
+      "The Geneva - the largest office-to-residential conversion in DC history, 532 homes, broke ground January 2026"
+    ],
+    "credential_demand": "With large multi-year capital projects running in the District and a federal/nonprofit sector built around extensive multi-year programs, PMP certification is a plausible differentiator for project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Washington's employer base includes Fannie Mae, National Geographic Society, American Red Cross, The Washington Post. Washington DC's employer base is anchored by the federal government alongside major national institutions headquartered in the District - Fannie Mae, the National Geographic Society, the American Red Cross, The Washington Post, and the World Bank Group - plus Georgetown, George Washington, and Howard universities and hospital systems like Children's National. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Washington professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Washington's Federal Government, finance, and international development sectors depend on skilled project managers to oversee complex initiatives across agencies like the World Bank Group and major employers throughout the region. Granite PM Academy's live-virtual PMP Bootcamp delivers the instructor-led training and PMI contact hours required to earn your PMP credential on an accelerated schedule. Completing your certification positions you for advancement into senior project leadership roles across Washington's mission-driven and high-stakes work environments.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:06.569376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "578b235d400e634e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Washington for Federal and Enterprise Leaders",
+      "text": "<p>Washington's project management landscape is uniquely shaped by the federal government and the national institutions headquartered throughout the District—from the World Bank Group and Fannie Mae to major media, healthcare, and nonprofit organizations. Professionals managing complex, mission-critical initiatives in these sectors face rigorous compliance, stakeholder coordination, and budget accountability demands that a PMP® credential directly addresses. Whether you're advancing within federal contracting, financial services, international development, or a major university or hospital system, the Project Management Professional certification signals mastery of standardized frameworks and earned credibility that these Washington employers actively seek and often require for senior PM roles.</p><p>Granite PM Academy delivers intensive PMP® Bootcamp training as a PMI Authorized Training Partner, offering live-virtual, instructor-led instruction that fits working professionals' schedules while meeting all PMI contact-hour requirements for PMP® eligibility. Our active certified practitioners bring real-world project experience to every session, translating best practices into scenarios you'll recognize in your own workplace. The bootcamp format accelerates your preparation timeline without sacrificing rigor, enabling you to sit for the PMP® exam with confidence and move into the certified project management roles Washington's largest employers prioritize.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:10.538433Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "3bd0be8fec27f87f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP certification for federal and nonprofit leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-authorized credential path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp delivers the structured, accredited preparation required to sit for the PMP® exam, ensuring your certification is recognized across federal agencies, foundations, and international development organizations."
+        },
+        {
+          "heading": "Live instruction, flexible schedule",
+          "text": "Attend live-virtual classes with certified instructors meeting PMI's contact-hour requirements. No recorded playback or self-paced modules—real-time interaction lets you ask questions, clarify complex frameworks, and master exam content on a schedule that fits working professionals."
+        },
+        {
+          "heading": "Instructors practicing today",
+          "text": "Your instructors are active PMP® and CAPM® certified practitioners applying project management daily. They bring current case studies and real problem-solving into every session, not theory from textbooks alone."
+        },
+        {
+          "heading": "Credential demand in Washington's hiring market",
+          "text": "Federal agencies, Fannie Mae, the World Bank Group, National Geographic Society, and healthcare systems across DC actively recruit PMP®-certified managers for program leadership roles. This credential directly aligns with how Washington's largest employers evaluate project management talent."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:14.498205Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b7a542ca6977b848",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Washington, DC",
+      "text": "<p>Washington's economy is anchored by federal agencies, international development organizations, and major media and financial institutions—all sectors where certified project managers are essential. Employers like the World Bank Group, Fannie Mae, the American Red Cross, and Georgetown University depend on skilled project leaders to oversee complex, multi-year initiatives. The Capital One Arena renovation—a roughly $1 billion multi-phase effort funded jointly by the DC government and Monumental Sports & Entertainment and targeted ahead of the 2027–28 NHL/NBA seasons—exemplifies the scale of capital projects reshaping the District. Similarly, large-scale conversions like The Geneva, the largest office-to-residential conversion in DC history, demand rigorous project management from planning through delivery. These undertakings reflect a local market where PMP® certification signals competence and commitment to employers evaluating candidates for leadership roles.</p><p>The demand for credentialed project managers in Washington outpaces many other markets. Federal, nonprofit, and international development sectors operate on multi-year program cycles that reward professionals who can demonstrate mastery of scope, schedule, and stakeholder management—precisely what the PMP® credential validates. Completing Granite PM Academy's PMP Bootcamp positions you to compete effectively for roles across finance, healthcare, higher education, and government sectors across the District. With competition strong and compensation reflecting the region's professional standards, earning your PMP® before entering or advancing in the Washington job market is a practical investment in your career trajectory.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:18.582316Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a1bc6a964ee50c21",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Washington, D.C.",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Verify your background meets one of these pathways before enrolling in Granite PM Academy's bootcamp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous online sessions designed for working professionals in Washington's federal, finance, and nonprofit sectors. All coursework is delivered remotely, allowing you to study while maintaining your current role."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, apply directly to PMI with proof of your education and experience. Pay the examination fee to schedule your PMP exam. PMI processes applications within one to two business days under standard review."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation materials, practice tests, and instructor support to solidify your knowledge. Schedule your exam through Pearson VUE at a test center or via proctored online delivery. Plan for a four-hour computer-based assessment."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn 60 Professional Development Units (PDUs) over a three-year cycle to keep your certification active. PDUs come from formal training, volunteer work, and professional contributions. Renew your credential and fee with PMI before your expiration date."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:23.249969Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d933b64d115ed4e9",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Washington, DC?",
+          "answer": "<p>Washington's job market—anchored by federal agencies, international development organizations, and major nonprofits—places high value on formal credentials for advancement into senior and program leadership roles. Multi-year capital and policy projects are the norm here, making PMP® certification a recognized differentiator. Professionals report that the credential opens doors to higher-responsibility positions and improves negotiating power, particularly within government contracting and mission-driven sectors that dominate the District.</p>"
+        },
+        {
+          "question": "Which Washington employers hire PMP-certified project managers?",
+          "answer": "<p>Major Washington employers in finance (Fannie Mae), media (The Washington Post), international development (World Bank Group), healthcare (Children's National Hospital), and the nonprofit sector actively seek PMP® holders for portfolio and program management roles. Universities including Georgetown and George Washington also employ certified project managers. Government contracting and federal agencies throughout the region use PMP® certification as a standard qualification for project leadership positions.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live bootcamp from my Washington office?",
+          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is delivered entirely live-virtual, so you can attend from your office, home, or any location with reliable internet. This format works well for Washington professionals balancing full-time roles at busy organizations—you stay in your time zone and avoid commute time while maintaining full engagement with instructors and cohort peers.</p>"
+        },
+        {
+          "question": "Should Washington project managers pursue PMP certification now or wait?",
+          "answer": "<p>Washington's federal, nonprofit, and financial sectors run continuous multi-year programs and capital projects, so demand for certified project managers remains steady year-round. If you're in or targeting these industries—or considering a move into senior program roles—there's no strategic advantage to delaying. Earlier certification means earlier eligibility for roles that list PMP® as preferred or required, and more time to demonstrate the credential's value in your current organization.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:29.362390Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f49fad875818a7e9",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Washington's federal government presence and major institutions—from the World Bank Group to Fannie Mae—create sustained demand for skilled project managers across finance, policy, and infrastructure. Landmark initiatives like the Capital One Arena renovation underscore the region's investment in large-scale, complex delivery. Granite PM Academy serves Washington professionals with live-virtual PMP Bootcamp training, enabling you to earn your credential on your schedule while advancing in this competitive market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:31.091957Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "19eb224d4c12452a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-washington-dc/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Washington, DC, PMP bootcamp Washington, PMP certification boot camp Washington, DC, PMP bootcamp near me, intensive PMP training Washington",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/\",\n      \"name\": \"PMP Bootcamp in Washington, DC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Washington, DC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Washington, DC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/#course\",\n      \"name\": \"PMP Bootcamp in Washington, DC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Washington, DC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-washington-dc/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

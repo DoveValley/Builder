@@ -1,0 +1,406 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "philadelphia-pa",
+  "slug": "pmp-bootcamp-philadelphia-pa",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "philadelphia-pa",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "philadelphia-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Telecommunications & Media",
+      "Healthcare",
+      "Higher Education",
+      "Insurance",
+      "Retail",
+      "Energy/Utilities"
+    ],
+    "top_employers": [
+      "Comcast",
+      "University of Pennsylvania/Penn Medicine",
+      "Children's Hospital of Philadelphia",
+      "Thomas Jefferson University/Jefferson Health",
+      "Independence Blue Cross",
+      "Aramark",
+      "Urban Outfitters/URBN",
+      "PECO Energy"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. General (non-PMP) Project Manager averages in Philadelphia run roughly $95,000-$104,000/yr across ZipRecruiter, Glassdoor, Built In, and Indeed.",
+    "market_blurb": "Philadelphia's economy centers on telecommunications/media through Comcast, an outsized healthcare and higher-education base anchored by the University of Pennsylvania alongside CHOP and Jefferson Health, plus insurance, retail, and utilities.",
+    "notable_projects": [
+      "New $1.3B privately-financed arena for the 76ers and Flyers at the South Philadelphia Sports Complex, announced January 2025, targeted to open by 2030"
+    ],
+    "credential_demand": "The concentration of large academic medical centers, a Fortune 500 telecom/media company, and major health systems makes PMP certification plausibly valued for hospital capital projects, IT/digital transformation, and corporate program work.",
+    "_researched": 1,
+    "city_spotlight": "<p>Philadelphia's employer base includes Comcast, University of Pennsylvania/Penn Medicine, Children's Hospital of Philadelphia, Thomas Jefferson University/Jefferson Health. Philadelphia's economy centers on telecommunications/media through Comcast, an outsized healthcare and higher-education base anchored by the University of Pennsylvania alongside CHOP and Jefferson Health, plus insurance, retail, and utilities. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Philadelphia professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Philadelphia's healthcare, insurance, and media sectors rely on skilled project managers to coordinate complex initiatives across large, distributed teams. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's contact-hour requirements for the PMP credential, enabling you to earn the certification on your schedule. Completing your PMP positions you competitively for advancement in Philadelphia's largest employers and strengthens your trajectory in these in-demand industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:13.145115Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "bca7d23c433288c8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Philadelphia for Growing Project Leaders",
+      "text": "<p>Philadelphia's telecommunications and media sector, anchored by major employers like Comcast, drives sustained demand for credentialed project managers across the region's economy. Beyond media, the city's outsized healthcare and higher-education ecosystem—spanning the University of Pennsylvania, Penn Medicine, Children's Hospital of Philadelphia, and Jefferson Health—creates particularly strong career pathways for PMP-certified professionals who can manage complex, regulated initiatives. Retail, insurance, utilities, and energy organizations throughout Philadelphia also compete for skilled project managers who can demonstrate mastery of industry-standard methodology. The PMP credential signals that mastery to hiring managers and positions you for advancement in roles where scope, budget, timeline, and stakeholder communication directly affect organizational outcomes.</p><p>Granite PM Academy delivers intensive PMP bootcamp training as a PMI Authorized Training Partner, offering live-virtual, instructor-led courses that fit working professionals' schedules and satisfy all contact-hour requirements for PMP eligibility. Our instructors are active certified practitioners who bring real-world experience to each session, ensuring you learn not just the framework but how to apply it in dynamic project environments. Upon completion, you'll be prepared to sit for the PMP exam with confidence, armed with both the conceptual foundation and practical problem-solving tools that employers in Philadelphia and nationwide actively seek. Your certification journey starts here.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:17.176820Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9d83736360ed87c6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Philadelphia's Healthcare & Telecom Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp completion satisfies PMI contact-hour requirements for PMP certification eligibility, ensuring your training counts toward credential requirements without gaps or resubmission."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Learn from active certified practitioners—not recorded videos or junior facilitators. Our live-virtual instructors bring current project-management experience into every session, translating frameworks into practical scenarios you'll face in healthcare delivery, telecom operations, and enterprise environments."
+        },
+        {
+          "heading": "Exam Prep Built Into Bootcamp",
+          "text": "Granite's PMP Bootcamp includes targeted exam-preparation support: practice exams, domain-focused reviews, and test-taking strategy. You finish bootcamp ready to sit for the PMP exam, not searching for additional prep resources."
+        },
+        {
+          "heading": "Credential Demand at Philadelphia Employers",
+          "text": "Major Philadelphia employers—Comcast, Penn Medicine, Independence Blue Cross, PECO Energy, and regional healthcare systems—actively hire and promote PMP-certified project and program managers. The credential accelerates advancement in telecommunications, healthcare operations, and utility management roles across the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:21.556595Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "18f4b0f91f1c431f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Philadelphia",
+      "text": "<p>Philadelphia's healthcare and telecommunications sectors are driving sustained demand for certified project managers. University of Pennsylvania/Penn Medicine, Children's Hospital of Philadelphia, and Jefferson Health oversee major capital expansions, IT modernization, and care-delivery initiatives that require rigorous project governance—work where PMP® certification is a recognized asset. Comcast, headquartered in the city, manages large-scale digital transformation and infrastructure programs across its national footprint. Beyond these anchors, the announced $1.3 billion privately-financed arena project for the 76ers and Flyers, targeted to open by 2030, represents the kind of complex, multi-year initiative where certified project managers command visibility and responsibility. Energy utilities, insurance carriers, and major retailers like Urban Outfitters and Aramark round out a diverse employer base actively seeking certified talent.</p><p>Project managers in Philadelphia typically earn in the $95,000–$104,000 range, but PMP®-certified professionals nationally report substantially higher compensation, with a persistent premium reflecting both credential rigor and employer demand. In markets like Philadelphia—where healthcare systems, academic institutions, and Fortune 500 corporations operate side by side—that certification premium is particularly pronounced for roles managing capital projects, clinical IT, and enterprise programs. Completing the PMP Bootcamp positions you to compete for those higher-value roles and signal readiness to employers who view the credential as proof of structured methodology and accountability. The combination of local employer concentration and the credential's portable recognition makes certification a direct pathway to career advancement in this region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:26.361931Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0ccfe9de1387da7d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Philadelphia",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a secondary degree plus documented project-management experience, or a high school diploma with additional experience. Review PMI's education and hours requirements, then gather your employment records and project documentation to verify you meet the credential prerequisites before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions taught by active certified practitioners, participate in real-world case studies, and engage directly with instructors. This formal education fulfills PMI's mandatory contact-hour requirement and prepares you for exam content."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the bootcamp, create your PMI account and submit your formal PMP application, documenting your project experience and education. Pay the associated exam fee to activate your application and secure your exam eligibility. PMI will review and approve your submission."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce core concepts. Schedule your proctored exam through PMI's testing partner. Sit for the PMP exam and receive your results, typically within 24 hours of completion."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) across the three-year renewal cycle to keep your credential active. Pursue training, certifications, volunteer service, or authorship that aligns with PMI's continuing-education framework. Renew your credential before it expires to preserve your competitive standing."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:31.452006Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "daeab1c33f91354b",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Philadelphia healthcare project managers?",
+          "answer": "<p>Philadelphia's concentration of major academic medical centers and health systems creates strong demand for PMP-certified professionals managing capital projects, IT infrastructure, and care transformation initiatives. While no city-specific salary premium data exists independently, the national PMP salary premium—$135,000 median versus $109,157 for non-certified peers—typically holds across most regions. Certification signals readiness for senior roles in hospital program management and health-system digital initiatives where employers like Penn Medicine and Children's Hospital compete for talent.</p>"
+        },
+        {
+          "question": "Do Philadelphia telecommunications and media employers value PMP bootcamp certification?",
+          "answer": "<p>Yes. Comcast's presence as a Fortune 500 telecom and media company makes PMP expertise especially valuable in Philadelphia's job market for IT transformation, network infrastructure, and corporate program roles. The credential demonstrates mastery of scope, risk, and stakeholder management—core competencies in large-scale media and technology projects. If you work in or target Philadelphia's telecom or digital-services sector, PMP bootcamp training aligns directly with employer demand and advancement pathways.</p>"
+        },
+        {
+          "question": "What do project managers typically earn in Philadelphia without PMP?",
+          "answer": "<p>General project managers in Philadelphia average roughly $95,000–$104,000 annually across recent ZipRecruiter, Glassdoor, Built In, and Indeed data. While this baseline is solid, PMP-certified peers nationally report a median of $135,000, reflecting the credential's value in corporate program work, healthcare, and energy/utilities sectors—all active in Philadelphia. The gap widens for senior roles and in industries where risk and compliance matter most.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP bootcamp from my Philadelphia workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP bootcamp is delivered entirely live-virtual, so you can attend from your office, home, or anywhere with reliable internet—making it practical for Philadelphia professionals balancing full-time roles at Comcast, Jefferson Health, Independence Blue Cross, or other major employers. This format eliminates commute time and lets you stay engaged with your team while earning your certification credential.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:37.639711Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "258d5675ce2a8979",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Philadelphia's telecommunications and media sector, anchored by Comcast, drives sustained demand for skilled project managers across the region's interconnected healthcare, higher-education, and insurance industries. The announced $1.3B privately-financed arena project at the South Philadelphia Sports Complex—opening by 2030—exemplifies the complex, multi-stakeholder initiatives requiring PMP-certified leadership. Granite PM Academy delivers live-virtual PMP Bootcamp to Philadelphia professionals seeking the credential and skills that employers like Penn Medicine, CHOP, and Jefferson Health prioritize for career advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:39.468071Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "c7bde9757dddbb90",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Philadelphia, PA, PMP bootcamp Philadelphia, PMP certification boot camp Philadelphia, PA, PMP bootcamp near me, intensive PMP training Philadelphia",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/\",\n      \"name\": \"PMP Bootcamp in Philadelphia, PA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Philadelphia, PA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Philadelphia, PA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/#course\",\n      \"name\": \"PMP Bootcamp in Philadelphia, PA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Philadelphia, PA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-philadelphia-pa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

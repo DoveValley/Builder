@@ -1,0 +1,402 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "sugar-land-tx",
+  "slug": "pmp-bootcamp-sugar-land-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "sugar-land-tx",
+    "city": "Sugar Land",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "sugar-land-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Energy services",
+      "Engineering & construction",
+      "Consumer food & beverage",
+      "Corporate finance"
+    ],
+    "top_employers": [
+      "SLB (Schlumberger)",
+      "CVR Energy, Inc.",
+      "Imperial Sugar Company",
+      "Minute Maid",
+      "Fluor Daniel"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Sugar Land's economy centers on energy services, with SLB (Schlumberger) operating a large campus and Fluor Daniel maintaining a major office, alongside Fortune 500 energy company CVR Energy and consumer brands Imperial Sugar and Minute Maid, both headquartered in the city.",
+    "notable_projects": [
+      "SLB (Schlumberger) 33-acre campus expansion, including 250,000 sq ft of Class A office space and a 100,000 sq ft amenities building",
+      "Sugar Land Town Square/Imperial master-planned development, including Constellation Field"
+    ],
+    "credential_demand": "Energy-services engineering firms and a Fortune 500 headquarters generally run large, complex capital projects, making certified project management credentials plausibly valuable in Sugar Land's energy-services/engineering-driven market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Sugar Land's employer base includes SLB (Schlumberger), CVR Energy, Inc., Imperial Sugar Company, Minute Maid. Sugar Land's economy centers on energy services, with SLB (Schlumberger) operating a large campus and Fluor Daniel maintaining a major office, alongside Fortune 500 energy company CVR Energy and consumer brands Imperial Sugar and Minute Maid, both headquartered in the city. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Sugar Land professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Energy services, engineering, and construction firms headquartered in Sugar Land—including industry leaders like SLB and Fluor Daniel—depend on PMP-certified project managers to deliver complex, high-stakes initiatives on time and within budget. Granite PM Academy's live-virtual PMP Bootcamp delivers the instructor-led training and PMI contact hours required for PMP certification, taught by active practitioners with real-world expertise. Earning your PMP credential positions you competitively for advancement across Sugar Land's largest employers and sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:44.406525Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "86fa089d71b7d42c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Sugar Land for Energy & Engineering Leaders",
+      "text": "<p>Sugar Land's economy is anchored by world-class energy services and engineering firms—Schlumberger operates a major campus here, Fluor Daniel maintains significant operations, and CVR Energy headquartered locally manages complex, mission-critical projects at scale. Professionals in these industries face intense pressure to deliver projects on time and within budget, and the Project Management Professional (PMP)® credential has become the standard credential that employers in energy and engineering recognize and reward. Whether you work for one of Sugar Land's Fortune 500 companies or a regional contractor, earning your PMP® certification positions you for advancement into senior project leadership roles where your ability to manage scope, schedule, and stakeholder expectations directly impacts organizational success.</p><p>Granite PM Academy delivers PMP® Bootcamp through live-virtual, instructor-led training designed for working professionals who need flexibility without compromising quality. As a PMI Authorized Training Partner, we provide the contact-hour instruction required to sit for the PMP® exam, taught by active certified practitioners with real-world project experience. Our intensive bootcamp format compresses learning into a focused timeframe, helping you master the PMBOK® Guide framework, tackle practice exams, and build confidence—all while maintaining your work schedule. Upon completion, you'll have the preparation and credentials pathway to pass the PMP® exam and advance your career in Sugar Land's competitive project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:48.504633Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0e723adae9d57750",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Energy & Engineering Leaders Choose PMP Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your bootcamp hours count directly toward PMP eligibility requirements, eliminating guesswork about credential acceptance and ensuring your investment meets the Project Management Institute's standards."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend instructor-led sessions live and virtual—no recorded videos, no self-paced gaps. Active certified practitioners teach real scenarios while you earn contact hours that satisfy PMP prerequisites, fitting your work schedule without compromising credential rigor."
+        },
+        {
+          "heading": "Exam Prep Built Into Bootcamp",
+          "text": "Your instructors guide you through PMP exam strategy, question formats, and content domains during the course. Hands-on practice and instructor feedback close knowledge gaps before test day, reducing anxiety and boosting confidence."
+        },
+        {
+          "heading": "Meet Sugar Land's PM Demand",
+          "text": "Energy services, engineering, and construction firms across Sugar Land—including major local employers—actively hire PMP-certified project managers. The credential signals competence to Schlumberger, Fluor Daniel, and engineering firms seeking professionals who can lead complex, regulated initiatives."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:52.713350Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9ac2034a82211b93",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Energy-Driven Sugar Land",
+      "text": "<p>Sugar Land's economy centers on energy services and engineering—industries where large-scale, capital-intensive projects are the norm. Schlumberger, a Fortune 500 headquarters in the city, anchors the market alongside CVR Energy, Inc., Fluor Daniel, and other engineering and construction firms that manage complex operations daily. The Schlumberger 33-acre campus expansion, featuring 250,000 square feet of Class A office space and a 100,000 square foot amenities building, exemplifies the scale of projects that demand certified project management leadership. Employers across energy services, engineering and construction, and related corporate functions actively seek professionals who can navigate multi-phase initiatives, coordinate distributed teams, and deliver on schedule and budget.</p><p>The PMP® credential carries measurable weight in markets like Sugar Land's, where energy-services and engineering firms routinely oversee projects of significant scope and complexity. Nationally, certified project managers earn a meaningful premium over non-certified peers—one that reflects both the rigor of the certification and the value employers place on demonstrated expertise. Completing the PMP Bootcamp through Granite PM Academy positions you to compete for roles in Sugar Land's dominant industries with a credential that resonates with local hiring practices. The live-virtual format lets you earn your certification without interrupting work or relocating, so you can advance your career on your own timeline while staying rooted in the Sugar Land market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:56.999113Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "53b409b3edf6e7e1",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Sugar Land",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific hour and year thresholds for your background—whether you hold a bachelor's degree, associate degree, or high school diploma. Verify your project experience qualifies before you apply."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Attend synchronous sessions taught by active certified practitioners. You'll cover the PMBOK Guide framework, exam domains, and real-world scenarios—all online, on a schedule that fits your Sugar Land–area work commitments."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing Granite PM Academy's course, submit your formal PMP application directly to PMI. You'll provide education and experience documentation and pay PMI's exam fee. Allow time for PMI to review and approve your application before scheduling your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor Q&A support—to solidify your knowledge. Once approved by PMI, schedule your computer-based exam at a Pearson VUE testing center. The exam assesses your mastery across the full PMP knowledge domains."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to the standard three-year renewal cycle. Earn Professional Development Units (PDUs) through approved training, conferences, volunteering, and on-the-job project work. Renew your credential before expiration to keep it active and recognized in your local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:02.282398Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "9793e043fda72dc0",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Sugar Land's energy sector?",
+          "answer": "<p>Sugar Land's economy centers on energy services and engineering—home to major employers like Schlumberger and Fluor Daniel that manage large, complex capital projects. A PMP credential signals mastery of frameworks these firms depend on. While no Sugar Land–specific salary data exists independently, PMI's national survey reports certified project managers earn a median premium of approximately $26,000 annually over non-certified peers, a gap that historically holds across most regions including energy-services hubs.</p>"
+        },
+        {
+          "question": "Which Sugar Land employers and industries value PMP project management certification?",
+          "answer": "<p>Sugar Land's largest employers—energy-services firms, engineering & construction companies, and their supply chains—regularly execute capital-intensive projects where certified project management is a competitive advantage. Fortune 500 headquarters and specialized engineering firms in the area commonly seek PMP-certified professionals for program leadership roles. Consumer food & beverage and corporate finance roles in the region may also benefit from the credential when projects involve cross-functional scope and stakeholder management.</p>"
+        },
+        {
+          "question": "Can Sugar Land professionals take live-virtual PMP bootcamp during work hours?",
+          "answer": "<p>Granite PM Academy's PMP Bootcamp runs entirely live-virtual, so you can attend from your Sugar Land office, home, or any location with internet access. Schedule flexibility means some professionals attend core hours during their workday or arrange compressed sessions around their employer's project calendar. Discuss timing options with our enrollment team to find a bootcamp cohort that fits your work schedule and project deadlines.</p>"
+        },
+        {
+          "question": "Should Sugar Land PMs get certified now or wait for job market conditions?",
+          "answer": "<p>Sugar Land's energy and engineering sectors operate on multi-year project cycles; demand for certified leadership remains consistent. Rather than wait for market shifts, early certification positions you for advancement within current major employers or lateral moves into similar roles at competing firms. Completing bootcamp before a high-visibility project or promotion conversation can strengthen your candidacy when timing matters most.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:08.470616Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2beb0a35b808c44e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Sugar Land's economy runs on energy infrastructure: Schlumberger operates a major 33-acre campus expansion here, while CVR Energy, Fluor Daniel, and other Fortune 500 firms anchor a robust project-management pipeline across energy services, engineering, and corporate operations. PMP certification is a direct credential match for this market. Granite PM Academy delivers live-virtual PMP Bootcamp nationwide, including to Sugar Land professionals seeking flexible, rigorous exam prep aligned with PMI standards.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:13:10.330461Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "bac79dbfce885217",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Sugar Land, TX, PMP bootcamp Sugar Land, PMP certification boot camp Sugar Land, TX, PMP bootcamp near me, intensive PMP training Sugar Land",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/\",\n      \"name\": \"PMP Bootcamp in Sugar Land, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Sugar Land, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Sugar Land, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/#course\",\n      \"name\": \"PMP Bootcamp in Sugar Land, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Sugar Land, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-sugar-land-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

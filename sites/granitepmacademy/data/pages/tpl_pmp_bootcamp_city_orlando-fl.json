@@ -1,0 +1,401 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "orlando-fl",
+  "slug": "pmp-bootcamp-orlando-fl",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "orlando-fl",
+    "city": "Orlando",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "orlando-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Hospitality/Tourism",
+      "Healthcare",
+      "Restaurants/Food Service",
+      "Theme Parks/Entertainment",
+      "Defense/Aerospace"
+    ],
+    "top_employers": [
+      "Orlando Health",
+      "Darden Restaurants",
+      "Universal Orlando Resort (original resort core)",
+      "Lockheed Martin Missiles and Fire Control"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Orlando's in-city economy centers on Orlando Health, a large downtown hospital system, and Darden Restaurants' corporate headquarters, with tourism/entertainment (Universal Orlando's original resort core) and a nearby defense-technology presence from Lockheed Martin Missiles and Fire Control.",
+    "notable_projects": [
+      "Kirkman Road Extension - $315M, 1.7-mile road project built to serve the Epic Universe theme park site, completed 2025"
+    ],
+    "credential_demand": "Large hospital-system operations and a defense/aerospace manufacturer both typically run formal, PMP-type project-management functions, so the credential is plausibly valued in Orlando's job market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Orlando's employer base includes Orlando Health, Darden Restaurants, Universal Orlando Resort (original resort core), Lockheed Martin Missiles and Fire Control. Orlando's in-city economy centers on Orlando Health, a large downtown hospital system, and Darden Restaurants' corporate headquarters, with tourism/entertainment (Universal Orlando's original resort core) and a nearby defense-technology presence from Lockheed Martin Missiles and Fire Control. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Orlando professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Orlando's hospitality, theme parks, healthcare, and defense sectors depend on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy's live-virtual PMP Bootcamp delivers the PMI contact-hour education requirement through instructor-led instruction, preparing you to sit for the PMP exam without sacrificing your work schedule. Earning your PMP credential opens doors across Orlando's largest employers and positions you for advancement in a market where certified practitioners command competitive advantage.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:49.289550Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "324e44b20df00a7f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Orlando: Intensive Certification for Project Leaders",
+      "text": "<p>Orlando's healthcare and corporate services sectors are driving unprecedented demand for credentialed project managers. Orlando Health, one of the region's largest employers, and Darden Restaurants' corporate operations depend on skilled professionals who can lead complex initiatives across clinical, operational, and enterprise-scale programs. The PMP (Project Management Professional) credential—recognized globally and mandated by many enterprise clients—directly addresses this market need. Professionals in Orlando pursuing advancement into senior project and program leadership roles find that PMP certification substantially increases their competitive standing, particularly within healthcare systems, large hospitality operations, and defense contractors active in the region.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Bootcamp designed to meet PMI's rigorous contact-hour requirements and prepare you to pass the PMP exam on your first attempt. Our instructors are active certified practitioners who bring real-world experience into every session, translating theory into the decision-making frameworks you'll use immediately in your role. As a PMI Authorized Training Partner, we ensure your training meets all PMI standards and documents the hours required for your application. Whether you're based in Orlando or working remotely, our flexible live-virtual format lets you complete your certification without relocating or pausing your career—positioning you to achieve the credential that opens doors to senior leadership and higher earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:53.291224Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4c47c8e54cca54d5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for Orlando's Theme Park and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Real Credibility",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. That means our PMP Bootcamp curriculum meets PMI standards and your completion satisfies the contact-hour requirement for the PMP credential—no guesswork about eligibility or acceptance."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Our live-virtual, instructor-led format lets you earn required contact hours without relocating or blocking your calendar for weeks. Attend from anywhere in Florida, balancing work and study on a schedule built for working professionals."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Your instructors are active certified PMP professionals, not retired trainers or academics. They bring real project experience and current exam insight—plus dedicated exam-preparation support—into every session so you're ready to pass."
+        },
+        {
+          "heading": "Credential Valued by Orlando's Major Employers",
+          "text": "Orlando Health, Universal Orlando Resort, Darden Restaurants, Lockheed Martin, and hospitality and defense firms across Central Florida actively hire and promote certified project managers. The PMP credential opens doors in healthcare operations, theme-park development, food-service expansion, and aerospace programs—industries that drive employment here."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:57.681536Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "49485e2fd661ff6f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP® Demand Across Orlando's Major Industries",
+      "text": "<p>Orlando Health, one of the region's largest employers, operates complex hospital systems and clinical networks that depend on certified project managers to coordinate everything from facility expansions to technology rollouts. Similarly, Lockheed Martin Missiles and Fire Control runs the kind of defense and aerospace operations where formal project-management credentials are standard. Darden Restaurants and Universal Orlando Resort also employ project managers to oversee everything from new locations and renovations to major capital initiatives—like the recent Kirkman Road Extension, a $315 million infrastructure project completed in 2025 to support the Epic Universe theme park site. These employers across hospitality, healthcare, and defense represent the core of Orlando's job market, and they actively seek professionals who can demonstrate structured PM expertise.</p><p>The PMP® certification carries measurable career value: nationally, PMP®-certified project managers report a median salary significantly higher than their non-certified peers, a premium that holds across most regions. In a city where large hospital systems and aerospace manufacturers depend on formal project governance, the credential signals readiness for senior-track roles and leadership responsibilities. Completing Granite PM Academy's PMP® Bootcamp equips you with the knowledge and exam preparation to earn this recognized qualification, positioning you to advance into the higher-compensation and higher-responsibility project roles that Orlando's major employers actively fill.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:01.907543Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "cc7c23dee84884f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Orlando",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour requirements for your background—typically a bachelor's degree plus several years leading projects, or equivalent experience without a degree. Gather your project documentation before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend instructor-led sessions on your schedule, engage in real-time Q&A, and access course materials designed to build exam readiness. This formal education fulfills PMI's mandatory contact-hour requirement."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Create your PMI account, document your eligibility, and submit your formal application through PMI's system. Pay the exam fee once PMI approves your credentials. Granite PM Academy supports you through this process to ensure accurate, complete submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor mentoring—to reinforce your bootcamp learning. Schedule your exam through PMI's testing partner. Take the computer-based test at an authorized testing center on your preferred date."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to a three-year renewal cycle. Earn Professional Development Units (PDUs) through continuing education, project work, and professional activities. Renew your credential before expiration to keep your competitive advantage in your local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:06.672294Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "2d6915308578b5a3",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Orlando healthcare project managers?",
+          "answer": "<p>Orlando's large hospital systems manage complex clinical, infrastructure, and IT projects where formal project-management credentials are valued. The PMP® credential demonstrates mastery of frameworks these organizations rely on. While no Orlando-specific salary data exists independently, PMI data shows certified project managers nationally earn a median premium over non-certified peers—a gap that holds across most regions, including healthcare delivery.</p>"
+        },
+        {
+          "question": "Which Orlando employers hire PMP-certified project managers most?",
+          "answer": "<p>Orlando's defense and aerospace sector, along with major hospital-system operations, typically run formal project-management functions where the PMP® credential is plausibly valued. Hospitality and theme-park operations also manage large-scale, multi-disciplinary projects. These industries anchor Orlando's job market and frequently seek professionals who demonstrate structured PM competency through recognized certification.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP bootcamp from my Orlando workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers the PMP Bootcamp entirely live-virtual, so you can attend from your workplace, home, or any location with internet access. This format suits Orlando professionals balancing full-time roles at major employers—you join sessions in real time without travel, making it practical for working project managers across the city's industries.</p>"
+        },
+        {
+          "question": "Should Orlando project managers pursue PMP certification now or wait?",
+          "answer": "<p>Orlando's job market—anchored by healthcare systems, defense contractors, and hospitality operators—shows steady demand for certified project managers. If your role involves coordinating cross-functional teams or managing budget and scope, pursuing certification now positions you competitively as employers in these sectors continue to value the PMP® credential and the structured methodology it represents.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:12.160350Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "048fbab71b2ec103",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Orlando's economy pivots on major healthcare and hospitality anchors—Orlando Health operates a sprawling downtown system, while Darden Restaurants and Universal Orlando Resort drive corporate and entertainment demand. Infrastructure projects like the $315M Kirkman Road Extension (completed 2025) to serve Epic Universe showcase the region's ongoing capital-project activity. Project managers across healthcare, theme parks, food service, and defense sectors compete for skilled leadership roles, making PMP® certification a strategic credential for career advancement in this dynamic market. Granite PM Academy delivers live-virtual PMP® Bootcamp training to Orlando professionals nationwide, with flexible scheduling to fit working schedules.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:14.270810Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "225f6ede2b5e5146",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-orlando-fl/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Orlando, FL, PMP bootcamp Orlando, PMP certification boot camp Orlando, FL, PMP bootcamp near me, intensive PMP training Orlando",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/\",\n      \"name\": \"PMP Bootcamp in Orlando, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Orlando, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Orlando, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/#course\",\n      \"name\": \"PMP Bootcamp in Orlando, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Orlando, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-orlando-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

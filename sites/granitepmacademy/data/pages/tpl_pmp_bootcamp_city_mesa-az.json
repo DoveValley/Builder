@@ -1,0 +1,408 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "mesa-az",
+  "slug": "pmp-bootcamp-mesa-az",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "mesa-az",
+    "city": "Mesa",
+    "state": "Arizona",
+    "SS": "AZ",
+    "city_slug": "mesa-az",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Aerospace/defense manufacturing",
+      "Healthcare",
+      "Education",
+      "Government",
+      "Aviation training"
+    ],
+    "top_employers": [
+      "Mesa Public Schools",
+      "Banner Health",
+      "The Boeing Company (AH-64 Apache production, Falcon Field)",
+      "City of Mesa",
+      "MD Helicopters",
+      "Lockheed Martin (Falcon Field)"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Mesa's largest employers are Banner Health and Mesa Public Schools, alongside a real, concentrated aerospace-defense manufacturing cluster at Falcon Field anchored by Boeing's AH-64 Apache helicopter line, MD Helicopters, and Lockheed Martin.",
+    "notable_projects": [
+      "Falcon Field aerospace/defense manufacturing cluster (Boeing AH-64 Apache line, MD Helicopters, Lockheed Martin)",
+      "CAE Oxford Aviation Academy at Falcon Field"
+    ],
+    "credential_demand": "Apache helicopter production and multiple defense contractors at Falcon Field are classic program-managed, milestone-driven manufacturing environments where PMP certification is genuinely valued, on top of Banner Health's large-scale healthcare operations.",
+    "_researched": 1,
+    "city_spotlight": "<p>Mesa's employer base includes Mesa Public Schools, Banner Health, The Boeing Company (AH-64 Apache production, Falcon Field), City of Mesa. Mesa's largest employers are Banner Health and Mesa Public Schools, alongside a real, concentrated aerospace-defense manufacturing cluster at Falcon Field anchored by Boeing's AH-64 Apache helicopter line, MD Helicopters, and Lockheed Martin. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Mesa professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Mesa, AZ",
+    "city_image_credit": "Photo: Ixnayonthetimmay, CC BY 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Mesa_Arizona.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-mesa-az.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Aerospace and defense manufacturing, aviation training, and healthcare organizations across Mesa depend on PMP-certified project managers to deliver complex programs on schedule. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that satisfies PMI's required contact-hour education for PMP certification eligibility. Earning your PMP credential positions you for leadership roles and competitive compensation in Mesa's largest industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:46.248376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "51e7b83c98beadbf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Mesa: Certification for Aerospace & Defense Project Managers",
+      "text": "<p>Mesa's aerospace and defense manufacturing sector—anchored by Boeing's AH-64 Apache helicopter production line, MD Helicopters, and Lockheed Martin operations at Falcon Field—creates sustained demand for credentialed project managers who can lead complex, regulated programs. Professionals in Mesa's manufacturing, defense contracting, and related industries face intense pressure to demonstrate formal PM expertise as a condition of advancement and contract eligibility. A PMP certification signals mastery of standardized project methodologies and risk management practices that directly apply to the high-stakes, multi-stakeholder environments these employers operate in. For Mesa-based professionals in aerospace, healthcare, government, and education sectors, the PMP credential opens pathways to senior leadership roles and positions you competitively in a market where credentials matter.</p><p>Granite PM Academy delivers PMP Bootcamp as a live-virtual, instructor-led program designed to compress preparation into an intensive schedule while meeting all PMI contact-hour requirements for PMP eligibility. Our instructors are active certified practitioners who bring real-world project delivery experience into every session, ensuring you learn both theory and application. The bootcamp format accommodates working professionals and fits around your existing responsibilities—no long commute, no fixed classroom location required. Upon completion, you'll be prepared to sit for the PMP exam and earn the credential that advances your career in Mesa's competitive project-driven industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:50.746670Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "eb4a63955eaa3fef",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Mesa's Aerospace and Defense Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP Bootcamp contact hours meet PMI's rigorous standards for exam eligibility. No uncertainty about credential validity—train with a partner PMI recognizes and trusts."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend classes live-virtual with active certified practitioners leading instruction. Work full-time while earning required contact hours through a format designed for working professionals—no recorded lectures, no asynchronous gaps."
+        },
+        {
+          "heading": "Real-World Instructors, Exam Focus",
+          "text": "Your instructors hold active PMP or CAPM certifications and practice project management daily. Bootcamp curriculum emphasizes exam-preparation strategies, practice questions, and domains that appear on the actual certification exam."
+        },
+        {
+          "heading": "Local Employer Demand for PMP",
+          "text": "Mesa's aerospace, defense, and healthcare employers—including major manufacturers and hospital systems—seek certified project managers for leadership roles. PMP credential signals readiness for program oversight and cross-functional accountability these industries demand."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:54.483510Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "efd2825a6a1b517f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Mesa's Aerospace Hub",
+      "text": "<p>Mesa's aerospace and defense sector anchors genuine demand for certified project managers. Boeing's Apache helicopter production line at Falcon Field, alongside MD Helicopters and Lockheed Martin operations in the same cluster, represents a concentration of program-managed, milestone-driven manufacturing where the PMP® credential carries real weight. Beyond defense contracting, Banner Health's large-scale healthcare operations, Mesa Public Schools' district initiatives, and the City of Mesa's infrastructure and administrative functions all employ project managers overseeing complex, multi-stakeholder initiatives. These employers—and the specialized training hub at Falcon Field, including CAE Oxford Aviation Academy—create a steady local market for professionals who can demonstrate structured project governance and delivery expertise.</p><p>The PMP® certification directly addresses what Mesa's dominant industries value most: the ability to manage scope, schedule, and resources in high-stakes environments. Nationally, certified project managers command a median salary advantage over their non-certified peers—a premium that holds across most regions and industries. For professionals in Mesa's aerospace, healthcare, and government sectors, completing the Granite PM Academy PMP Bootcamp positions you to compete for roles that demand this credential, accelerate promotion into senior program and portfolio leadership, and justify the salary expectations that certified expertise commands. The bootcamp's live-virtual format means you train at your own pace without interrupting your current role, making it a practical investment for working professionals ready to advance in Mesa's competitive project-management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:58.908866Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "68366de3998ae5f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP® Certification in Mesa",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's specific hour requirements for your background—typically a bachelor's degree plus project hours, or alternative combinations. Granite PM Academy's admissions team can help verify your qualifications before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. Attend synchronous sessions on your schedule—no travel required. All instruction covers PMI's current framework, domains, and exam content, preparing you thoroughly for certification."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and submit your formal application, documenting your education and project experience as required. Pay the PMI examination fee. Granite PM Academy's team can guide you through the application portal and answer questions about eligibility documentation."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor Q&A sessions—to solidify your readiness. Schedule your exam with PMI's testing partner. Test virtually or at a local center; Granite PM Academy's support continues right up to exam day."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "After earning your PMP®, commit to the standard three-year renewal cycle by earning Professional Development Units (PDUs) through training, conference attendance, volunteering, or published work. Granite PM Academy offers PDU-eligible courses to help you stay current and retain your credential."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:03.892312Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6eae5355ec632831",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Do aerospace and defense employers in Mesa value PMP certification?",
+          "answer": "<p>Yes. Mesa's concentration of aerospace and defense manufacturers—including Apache helicopter production and multiple contractors at Falcon Field—operate in program-managed, milestone-driven environments where PMP® certification is genuinely valued. These organizations prize professionals who can demonstrate formal project governance and risk management expertise. The credential signals readiness for roles managing complex, regulated programs typical of this sector.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Mesa healthcare project managers?",
+          "answer": "<p>Absolutely. Banner Health and other large healthcare systems in Mesa run capital projects, IT implementations, and operational transformations that demand structured project leadership. PMP® certification differentiates candidates for senior roles in these environments and aligns with healthcare's growing emphasis on program accountability. The credential enhances credibility when managing cross-functional teams and high-stakes timelines.</p>"
+        },
+        {
+          "question": "Can I attend live online PMP bootcamp Mesa from my workplace?",
+          "answer": "<p>Yes. Our live-virtual bootcamp is delivered entirely online, so you can attend from your workplace, home, or any location with internet access. Mesa professionals working at Boeing, Lockheed Martin, Banner Health, or the City of Mesa often join during or around business hours. Confirm your employer's policy on professional development during work time before enrolling.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now given Mesa's project management job market?",
+          "answer": "<p>Yes. Mesa's diverse employer base—spanning aerospace manufacturing, education, healthcare operations, and government—creates consistent demand for certified project managers. PMI data shows PMP® holders earn a meaningful premium over non-certified peers across most regions. Earning the credential positions you competitively regardless of which Mesa industry you target, and the bootcamp format allows you to complete it without lengthy delays.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:09.540948Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7271399b7cbba484",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Mesa's aerospace and defense sector—anchored by Boeing's AH-64 Apache production line and complemented by MD Helicopters and Lockheed Martin operations at Falcon Field—creates sustained demand for skilled project managers across manufacturing, supply chain, and program delivery. Healthcare systems and public schools add further PM career pathways. Granite PM Academy delivers live-virtual PMP Bootcamp to Mesa professionals nationwide, enabling you to earn your credential while managing work and local commitments.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:12:11.325161Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "539f53c70830eb8e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-mesa-az/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Mesa, AZ, PMP bootcamp Mesa, PMP certification boot camp Mesa, AZ, PMP bootcamp near me, intensive PMP training Mesa",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/\",\n      \"name\": \"PMP Bootcamp in Mesa, AZ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Mesa, AZ. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Mesa, AZ\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/#course\",\n      \"name\": \"PMP Bootcamp in Mesa, AZ\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Mesa, AZ. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mesa-az/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

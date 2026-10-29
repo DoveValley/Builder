@@ -1,0 +1,411 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "cary-nc",
+  "slug": "pmp-bootcamp-cary-nc",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "cary-nc",
+    "city": "Cary",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "cary-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Software/analytics",
+      "Insurance/financial services",
+      "Telecommunications",
+      "Medical technology",
+      "Video game development",
+      "Advanced manufacturing"
+    ],
+    "top_employers": [
+      "SAS Institute (headquarters)",
+      "MetLife",
+      "Verizon Business",
+      "Siemens Medical Solutions",
+      "HCLTech",
+      "Epic Games",
+      "Lord Corporation"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Cary's economy is anchored by SAS Institute, the world's largest privately held software company, alongside major operations for MetLife, Verizon Business, Siemens Medical Solutions, and HCLTech, reflecting the town's role as a Research Triangle Park-adjacent tech and corporate hub.",
+    "notable_projects": [
+      "SAS Institute world headquarters campus (25 buildings on ~900 acres)",
+      "Downtown Cary Park",
+      "Cary Arts Center (1939 WPA-built former high school, adaptively reused)"
+    ],
+    "credential_demand": "A dense concentration of large software, financial-services, and medical-technology employers plausibly drives real, ongoing demand for formally credentialed project managers in IT, product, and systems-implementation roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Cary's employer base includes SAS Institute (headquarters), MetLife, Verizon Business, Siemens Medical Solutions. Cary's economy is anchored by SAS Institute, the world's largest privately held software company, alongside major operations for MetLife, Verizon Business, Siemens Medical Solutions, and HCLTech, reflecting the town's role as a Research Triangle Park-adjacent tech and corporate hub. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Cary professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Cary, NC",
+    "city_image_credit": "Photo: Zajohnso, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Cary,_North_Carolina._Cary,_NC.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-cary-nc.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Cary's software, analytics, and advanced manufacturing sectors rely on PMP-certified professionals to lead complex initiatives at scale. Granite PM Academy's live-virtual PMP Bootcamp delivers instructor-led training that fulfills PMI's contact-hour requirement for the PMP credential, designed to fit working schedules across time zones. Earn the credential that these major regional employers—including SAS Institute, Epic Games, and Siemens Medical Solutions—prioritize when advancing project managers into leadership roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:52.329684Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5fbb50d379d3c4e0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Cary: Fast-Track Certification for Tech Leaders",
+      "text": "<p>SAS Institute's presence as the world's largest privately held software company has made Cary a magnet for enterprise-scale project and program management talent. Across SAS, MetLife, Verizon Business, Siemens Medical Solutions, and the growing ecosystem of tech firms anchoring Research Triangle Park's edge, demand for PMP-certified professionals consistently outpaces supply. Whether you're advancing within a Fortune 500 operation or moving into leadership roles at one of Cary's innovation-driven organizations, the Project Management Professional (PMP) credential signals mastery of the frameworks and discipline these employers expect. An intensive bootcamp accelerates your path to certification while you remain employed, compressing study into weeks rather than months.</p><p>Granite PM Academy delivers PMP bootcamp training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet all contact-hour requirements for PMP eligibility. Our curriculum is taught by active certified practitioners who bring real-world expertise to every module, ensuring you learn not theory alone but applied problem-solving that translates directly to your work. Whether you're in Cary or anywhere nationwide, our flexible bootcamp schedule fits working professionals. Upon completion, you'll hold the contact hours required to sit for the PMP exam—the final step toward a credential that expands your career options and earning potential across Cary's competitive tech and corporate landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:10:56.606376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "973c60b05002b23a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Cary's Analytics and Tech Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your bootcamp hours count directly toward PMP eligibility. No delays, no disputes—your contact hours are recognized by the Project Management Institute from day one."
+        },
+        {
+          "heading": "Live Instruction, Real Schedules",
+          "text": "Instructor-led live-virtual sessions let you earn required contact hours without relocating or rigid classroom constraints. Attend from Cary, work around your job, and complete the credential on a timeline that fits your career."
+        },
+        {
+          "heading": "Practitioners Teaching Current Skills",
+          "text": "Your instructors are active certified PMP and CAPM professionals who apply these frameworks daily in real projects. You learn not just theory, but the discipline and tools employers actually use to deliver on time and on budget."
+        },
+        {
+          "heading": "Credential Valued by Cary Employers",
+          "text": "SAS Institute, MetLife, Verizon Business, and other major Cary employers actively hire for project and program management roles. The PMP credential is a competitive advantage in software, insurance, telecommunications, and medical technology—the industries driving growth here."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:00.766492Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a296d31cdf33c2f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP® Careers in Cary's Tech & Services Hub",
+      "text": "<p>Cary's economy is anchored by SAS Institute, whose world headquarters spans nearly 900 acres across 25 buildings, alongside major operations from MetLife, Verizon Business, Siemens Medical Solutions, HCLTech, and Epic Games. These employers—spanning software analytics, insurance and financial services, telecommunications, medical technology, and video game development—routinely hire certified project managers to oversee IT infrastructure, product launches, systems implementations, and cross-functional initiatives. Recent civic investments like the adaptive reuse of the historic Cary Arts Center into a cultural anchor further illustrate the scale of project-delivery work underway across the region, creating steady demand for formally credentialed professionals who can manage scope, budget, and stakeholder alignment in complex environments.</p><p>The PMP® credential carries real earning power in this market. Nationally, PMP®-certified project managers command a median salary significantly higher than their non-certified counterparts—a premium that holds across most regions and industries. In Cary, where software, financial-services, and medical-technology employers concentrate their hiring, that credential difference translates into genuine competitive advantage. Completing the PMP Bootcamp through Granite PM Academy—delivered live-virtual and designed to fit working schedules—positions you to move into higher-responsibility roles and salary bands within the companies already operating here. The certification signals to hiring managers in these industries that you meet global standards for planning, execution, and risk management.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:05.327816Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "fef0ea4983cb5441",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Cary",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "The PMP credential requires a secondary degree plus documented project-management experience, or a high school diploma with additional experience. Review PMI's official requirements to confirm your education and work history meet the threshold before enrolling in formal training."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Our online format accommodates Cary's working professionals, combining interactive instruction, real-world case studies, and guided practice across multiple sessions. No travel or scheduling conflicts—learn from your location on your timeline."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the 35-hour course, submit your PMP application directly to PMI with proof of your education and project experience. Pay the associated exam fee once PMI approves your credentials. Our team provides guidance on documentation and the submission process."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides focused exam-preparation support, including practice questions, strategy sessions, and confidence-building resources. Schedule your PMP exam through PMI's testing partner when you feel ready. Most candidates complete the exam within weeks of finishing the bootcamp."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn Professional Development Units (PDUs) across a three-year renewal cycle to keep your PMP active. Granite PM Academy and PMI offer numerous pathways—continuing education, project work, volunteer activities, and mentoring all count toward your maintenance requirement."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:10.548426Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "dc84c95ae48ca187",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth getting in Cary given the local job market?",
+          "answer": "<p>Cary's concentration of software, analytics, financial-services, and medical-technology firms creates sustained demand for formally credentialed project managers. PMI data shows certified PMP professionals command a median salary premium of approximately $26,000 annually over non-certified peers nationally—a gap that typically holds across regions. For roles in IT, product, and systems implementation at major Cary employers, the credential strengthens both candidacy and negotiating power.</p>"
+        },
+        {
+          "question": "Which Cary industries and employers value the PMP credential most?",
+          "answer": "<p>Cary's largest employers—spanning software and analytics, insurance and financial services, telecommunications, medical technology, and advanced manufacturing—regularly seek PMP-certified professionals for program and product delivery roles. The credential is particularly valued in IT infrastructure, healthcare systems implementation, and enterprise software deployments, where formal project governance and risk management are non-negotiable. Certification signals readiness for these complex, high-stakes environments.</p>"
+        },
+        {
+          "question": "Can I attend the PMP bootcamp live-virtual while working in Cary?",
+          "answer": "<p>Yes. Granite PM Academy's bootcamp is delivered 100% live-virtual nationwide, so you attend from wherever you work—your office, home, or anywhere with internet access. This format accommodates Cary professionals' schedules without requiring travel or time away from your workplace. You engage with instructors and peers in real time while maintaining your current role and responsibilities.</p>"
+        },
+        {
+          "question": "When should Cary project managers pursue PMP certification for best timing?",
+          "answer": "<p>Cary's robust hiring cycle in software, medical-device, and financial-services sectors means certification can be strategically timed to align with promotion windows or role transitions. If you're planning a move within or between major local employers, completing bootcamp 2–3 months before your target transition strengthens your application and salary positioning. Early certification also accelerates advancement in your current organization.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:16.224677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c8c890fce16aa5a9",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Cary's economy centers on SAS Institute—the world's largest privately held software company—alongside major operations for MetLife, Verizon Business, and Siemens Medical Solutions. Project managers are essential across software analytics, financial services, telecommunications, and medical technology in this Research Triangle Park-adjacent hub. Granite PM Academy delivers live-virtual PMP® Bootcamp to Cary professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:17.819224Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d6ee1a14238c3009",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-cary-nc/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Cary, NC, PMP bootcamp Cary, PMP certification boot camp Cary, NC, PMP bootcamp near me, intensive PMP training Cary",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/\",\n      \"name\": \"PMP Bootcamp in Cary, NC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Cary, NC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Cary, NC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/#course\",\n      \"name\": \"PMP Bootcamp in Cary, NC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Cary, NC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-cary-nc/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}

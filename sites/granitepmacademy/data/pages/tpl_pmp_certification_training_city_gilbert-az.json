@@ -1,0 +1,412 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "gilbert-az",
+  "slug": "pmp-certification-training-gilbert-az",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "gilbert-az",
+    "city": "Gilbert",
+    "state": "Arizona",
+    "SS": "AZ",
+    "city_slug": "gilbert-az",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier4",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Education",
+      "Healthcare",
+      "Defense/aerospace",
+      "Professional services/consulting",
+      "Industrial manufacturing"
+    ],
+    "top_employers": [
+      "Gilbert Public Schools",
+      "Banner Health",
+      "Town of Gilbert",
+      "Northrop Grumman",
+      "Dignity Health",
+      "Deloitte",
+      "Silent Aire USA"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Gilbert's employer base is led by its school districts and the Banner Health/Dignity Health hospital systems, with Northrop Grumman's defense work, Deloitte's consulting practice, and Silent Aire USA's manufacturing operations providing a smaller but real corporate and industrial presence.",
+    "notable_projects": [
+      "SanTan Village - mixed-use regional shopping/commercial development"
+    ],
+    "credential_demand": "Northrop Grumman's defense-program work and Deloitte's project-based consulting are classic PMP fields, though Gilbert's employer base is otherwise dominated by schools, healthcare, and retail.",
+    "_researched": 1,
+    "city_spotlight": "<p>Gilbert's employer base includes Gilbert Public Schools, Banner Health, Town of Gilbert, Northrop Grumman. Gilbert's employer base is led by its school districts and the Banner Health/Dignity Health hospital systems, with Northrop Grumman's defense work, Deloitte's consulting practice, and Silent Aire USA's manufacturing operations providing a smaller but real corporate and industrial presence. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Gilbert professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Gilbert, AZ",
+    "city_image_credit": "Photo: Northwalker, CC0 (public domain)",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Gilbert_Arizona_Aerial_View_from_airplane.jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-gilbert-az.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Gilbert's healthcare, defense, and education sectors—anchored by employers like Banner Health, Northrop Grumman, and Gilbert Public Schools—depend on skilled project managers to deliver complex initiatives on time and budget. Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training that satisfies PMI's contact-hour education requirement, preparing you to pass the exam and lead high-stakes projects across these industries. Earning your PMP® credential positions you for advancement and competitive compensation in Gilbert's growing professional services and manufacturing landscape.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:03.452067Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "73ecc8e988df09eb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Gilbert's Growing Project Management Demand",
+      "text": "<p>Gilbert's healthcare sector—anchored by Banner Health and Dignity Health's major hospital systems—depends on skilled project managers to oversee clinical infrastructure, technology rollouts, and operational improvements that directly impact patient care. Beyond healthcare, the town's defense and aerospace operations at Northrop Grumman, coupled with consulting work through Deloitte and specialized manufacturing at Silent Aire USA, have created sustained demand for professionals who can earn and maintain PMP® certification. For Gilbert-based project managers and aspiring leaders in these industries, the PMP® credential signals mastery of scope, schedule, budget, and risk management—competencies that employers actively seek and reward when staffing complex initiatives.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed to fit your schedule while meeting all PMI contact-hour requirements for credential eligibility. Our active certified practitioners bring real-world experience to every session, ensuring you learn frameworks that translate directly to your role. Whether you're advancing within Gilbert's healthcare networks, supporting defense contractors, or scaling operations in professional services, our comprehensive curriculum prepares you to pass the PMP® exam with confidence and begin your certification journey immediately upon enrollment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:07.173308Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "827680fb079af395",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Training for Gilbert's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Curriculum",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® exam prep that meets PMI's rigorous standards. Our curriculum aligns directly with PMI's Project Management Body of Knowledge, ensuring you study what the exam tests."
+        },
+        {
+          "heading": "Live Virtual, Schedule Flexibility",
+          "text": "Attend instructor-led PMP® training entirely online, on your schedule. Our live-virtual format satisfies PMI's contact-hour requirements while letting Gilbert professionals balance work, family, and certification prep without commuting or rigid classroom constraints."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Learn from active certified practitioners holding current PMP® credentials and managing real-world projects. Our instructors bring field experience into every lesson, translating theory into the decision-making scenarios you'll face on the job and the exam."
+        },
+        {
+          "heading": "Gilbert's Defense & Healthcare Demand",
+          "text": "Northrop Grumman, Banner Health, Dignity Health, and Deloitte actively hire certified project managers in the Gilbert area across aerospace, healthcare, and professional services. The PMP® credential strengthens your candidacy for roles managing complex, high-stakes programs in these expanding sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:11.246125Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "8912c89b599c448e",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP® Careers Across Gilbert's Diverse Employers",
+      "text": "<p>Gilbert's largest employers span education, healthcare, defense, and professional services—sectors where certified project managers are in steady demand. Gilbert Public Schools manages ongoing infrastructure and technology initiatives that require skilled program oversight. Banner Health and Dignity Health operate complex clinical and administrative projects across multiple Arizona locations. Northrop Grumman's defense and aerospace work, along with Deloitte's project-intensive consulting practice, represent the industries where PMP® certification is most valued; both maintain significant operational footprints in the region. Even the Town of Gilbert's development and planning work, visible in projects like SanTan Village's mixed-use expansion, relies on coordinated project delivery—a domain where certified professionals command respect and responsibility.</p><p>The PMP® credential carries measurable career weight: certified project managers report median earnings substantially higher than their non-certified counterparts across most markets, a premium that reflects both demand and the complexity of roles PMP® holders typically fill. In Gilbert's employer landscape—where education and healthcare dominate but defense and consulting pockets create pockets of strong certification demand—earning your PMP® through Granite PM Academy's live-virtual format positions you to compete for higher-visibility roles and advance faster than peers without the credential. The training equips you with frameworks and language that resonate across industries, making you more versatile as Gilbert's job market evolves.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:15.824582Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f4a82550879abd96",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP® Certification in Gilbert",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years of equivalent experience. Review PMI's official eligibility criteria to confirm your qualifications before enrolling in Granite PM Academy's training program."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend all 35 required contact hours—delivered online at times that fit your Gilbert-area schedule—to satisfy PMI's formal-education prerequisite and build exam-ready knowledge."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, submit your PMP® application directly to PMI and pay the associated exam fee. Granite PM Academy will provide guidance on the application process to ensure accuracy and timely submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources and study materials to reinforce core competencies and test-taking strategy. Schedule your PMP® exam through PMI's authorized testing partner and sit for the four-hour, computer-based examination."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "After earning your PMP®, maintain your credential by earning professional development units (PDUs) throughout the standard three-year renewal cycle. Granite PM Academy offers ongoing training and resources to help you meet PMI's continuing-education requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:20.304533Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d11d470d740f5e83",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Gilbert healthcare and education careers?",
+          "answer": "<p>Gilbert's largest employers—Banner Health, Dignity Health, and Gilbert Public Schools—increasingly manage complex initiatives across operations, IT, and facilities. While PMP® certification is not universally required in education or healthcare, it strengthens credentials for advancement into program and operational leadership roles. Nationally, certified project managers report a median salary premium of roughly $26,000 annually over non-certified peers, a gap that holds across most regions and sectors.</p>"
+        },
+        {
+          "question": "Do Northrop Grumman and Deloitte in Gilbert require PMP certification?",
+          "answer": "<p>Northrop Grumman's defense programs and Deloitte's project-based consulting—both significant Gilbert employers—operate in industries where PMP® certification is highly valued and often preferred for mid- and senior-level roles. While neither employer mandates the credential at entry level, it accelerates hiring and promotion timelines in these sectors. Confirm current job postings and recruiter guidance for role-specific requirements.</p>"
+        },
+        {
+          "question": "Can I attend PMP training in Gilbert while working full-time locally?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP® certification training live-virtual, allowing Gilbert professionals to participate from home, office, or any location with internet access. This flexibility suits the schedules of working professionals at Gilbert's major employers—schools, healthcare systems, and corporations—who need to balance coursework with job responsibilities without relocating or commuting to a classroom.</p>"
+        },
+        {
+          "question": "When should Gilbert project managers get PMP certified to stay competitive?",
+          "answer": "<p>Gilbert's job market is split between traditional sectors (schools, healthcare, retail) with slower credential adoption and high-growth fields (defense, consulting) where PMP® certification accelerates advancement. If you work at or target Northrop Grumman, Deloitte, or similar firms, certification early in your career increases visibility and mobility. In education and healthcare, timing is flexible but certification remains an edge for promotion into program management roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:26.336714Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1db7c89c6c6dc8b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Gilbert's education and healthcare sectors drive strong demand for skilled project managers, with Gilbert Public Schools and Banner Health among the region's largest employers. Defense and consulting firms including Northrop Grumman and Deloitte add further depth to the local PM job market. Granite PM Academy delivers live-virtual PMP® Certification Training to Gilbert professionals nationwide, enabling you to earn your credential on your schedule while advancing your career in Arizona's fastest-growing communities.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:14:27.868723Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9d21c2ce53fb1157",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-gilbert-az/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Gilbert, AZ, PMP exam prep Gilbert, PMP course Gilbert AZ, project management certification Gilbert, AZ, PMI PMP training Gilbert",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\",\r\n      \"name\": \"PMP Certification Training in Gilbert, AZ | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Gilbert, AZ. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Gilbert, AZ\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/#course\",\r\n      \"name\": \"PMP Certification Training in Gilbert, AZ\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Gilbert, AZ. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-gilbert-az/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "596b492faedc573f4cda23aaf882d23d"
+}

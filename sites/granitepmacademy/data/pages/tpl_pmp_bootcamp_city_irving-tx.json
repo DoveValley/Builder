@@ -1,0 +1,406 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "irving-tx",
+  "slug": "pmp-bootcamp-irving-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "irving-tx",
+    "city": "Irving",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "irving-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier2",
+      "expansion-2026"
+    ],
+    "industries": [
+      "Healthcare distribution",
+      "Engineering & construction",
+      "Energy",
+      "Consumer goods manufacturing",
+      "Corporate headquarters/business services"
+    ],
+    "top_employers": [
+      "McKesson",
+      "Fluor Corporation",
+      "Kimberly-Clark",
+      "Caterpillar Inc.",
+      "Vistra Energy",
+      "Commercial Metals Company",
+      "Michaels Stores"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions.",
+    "market_blurb": "Irving's Las Colinas business district hosts one of the densest concentrations of major corporate headquarters in the country, including McKesson, Fluor, Kimberly-Clark, Caterpillar, Vistra Energy, and Commercial Metals, spanning healthcare distribution, engineering/construction, and energy.",
+    "notable_projects": [
+      "Caterpillar Inc.'s 2022 corporate headquarters relocation to Irving",
+      "Toyota Music Factory mixed-use entertainment development in Las Colinas",
+      "Irving Convention Center at Las Colinas"
+    ],
+    "credential_demand": "With multiple major corporate HQs running large capital programs, supply-chain operations, and engineering/construction portfolios, PMP certification is a plausible, commonly sought credential for Irving's corporate project and program management roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Irving's employer base includes McKesson, Fluor Corporation, Kimberly-Clark, Caterpillar Inc.. Irving's Las Colinas business district hosts one of the densest concentrations of major corporate headquarters in the country, including McKesson, Fluor, Kimberly-Clark, Caterpillar, Vistra Energy, and Commercial Metals, spanning healthcare distribution, engineering/construction, and energy. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Irving professionals seeking to advance their project management careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Bootcamp in {city}, {SS}",
+      "hs_subtext": "<p>Irving's healthcare distribution, engineering, energy, and manufacturing sectors depend on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills the Project Management Institute's contact-hour education requirement for PMP certification. Earning your PMP credential positions you to advance into higher-responsibility roles and command respect across Irving's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP Bootcamp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:22.125623Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ef9fe421675d6953",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Bootcamp in Irving: Intensive Certification for Project Leaders",
+      "text": "<p>Irving's dominance as a healthcare distribution and corporate services hub creates sustained demand for certified project managers across enterprise operations. With major employers like McKesson, Fluor Corporation, and Kimberly-Clark headquartered in the Las Colinas business district, professionals in Irving face competitive pressure to demonstrate advanced project management credentials. The PMP® certification signals mastery of scope, schedule, budget, and resource management—skills that drive value in complex, high-stakes initiatives common to manufacturing, construction, energy, and supply chain environments. For Irving-based professionals seeking advancement into senior project roles or leadership positions, PMP® certification directly addresses local hiring expectations and career mobility within the region's largest employers.</p><p>Granite PM Academy delivers PMP® Bootcamp as an intensive, live-virtual program taught by active certified practitioners who bring real-world project experience to every session. As a PMI Authorized Training Partner, we structure our bootcamp to satisfy the contact-hour requirements established by the Project Management Institute, preparing you to sit for the PMP® exam with confidence. Our instructor-led format compresses weeks of self-study into focused, interactive days—ideal for Irving professionals balancing full-time roles with certification goals. Upon completion, you'll hold a credential recognized globally and valued by Irving's leading enterprises, positioning you for promotions, expanded responsibilities, and stronger earning potential in your field.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:26.324256Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6c4822e36092854e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Irving's Healthcare and Industrial Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Matters",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your bootcamp hours count directly toward PMP eligibility. No additional documentation or verification delays—your path to certification is streamlined and recognized by the Project Management Institute."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Attend live-virtual instructor-led sessions that satisfy PMI contact-hour requirements without commuting or relocating. Active certified practitioners lead each class, bringing real-world experience to every lesson and exam-prep discussion."
+        },
+        {
+          "heading": "Exam Success Built In",
+          "text": "Granite's bootcamp includes structured exam-preparation support: practice assessments, focused review sessions, and guidance on test strategy. You'll finish training confident in your readiness, not wondering if you've covered everything."
+        },
+        {
+          "heading": "Local Demand, National Credential",
+          "text": "Irving's healthcare distribution, engineering, construction, and energy sectors actively hire certified project managers. PMP credential opens doors at employers like McKesson, Fluor, and Vistra—companies that value PMI-recognized expertise and structured PM discipline."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:30.339068Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "32a77cc1936f4917",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP® Careers in Irving's Major Corporate Hub",
+      "text": "<p>Irving's position as home to major corporate headquarters and industrial operations creates sustained demand for certified project managers. McKesson, Fluor Corporation, Kimberly-Clark, and Caterpillar Inc.—which relocated its global headquarters to Irving in 2022—all operate large capital programs, engineering portfolios, and supply-chain initiatives that depend on skilled project leadership. Recent local developments like the Toyota Music Factory mixed-use project in Las Colinas and ongoing work at the Irving Convention Center at Las Colinas further illustrate the breadth of construction and mixed-use portfolio management happening in the region. These employers and projects actively seek PMP®-certified professionals to lead complex, cross-functional teams.</p><p>The PMP® credential carries measurable career value in Irving's competitive market. Nationally, PMP®-certified project managers report median earnings significantly higher than their non-certified peers—a premium that typically translates across most regions and industries. In a city where healthcare distribution, engineering and construction, energy, and consumer goods manufacturing all maintain major operations, certification positions you as a qualified candidate for advancement into senior project and program management roles. Completing Granite PM Academy's PMP® Bootcamp—delivered live and virtually to fit working professionals—equips you with both the knowledge to pass the PMP® exam and the practical frameworks your Irving employers expect, accelerating your path to higher-level positions and compensation in the local market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:34.646563Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4ffe51e19fecafd0",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Bootcamp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Bootcamp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Irving",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's specific hour requirements for your background—typically a secondary degree plus documented project-leadership hours, or equivalent professional experience. Granite PM Academy's admissions team can clarify whether you meet the baseline to enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Bootcamp. Over a structured program, you'll cover the PMBOK® Guide framework, real-world application, and exam strategy. All sessions are delivered online, so you can complete your coursework while maintaining your professional schedule in Irving's competitive job market."
+        },
+        {
+          "heading": "Submit Your PMI Application and Fee",
+          "text": "After finishing your bootcamp coursework, formally apply through PMI's credential portal. You'll document your education, experience, and references for PMI's review process. Once approved, submit your exam fee to schedule your testing window—your gateway to sitting for the PMP exam."
+        },
+        {
+          "heading": "Prepare and Pass the PMP Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources, practice tests, and study guidance to reinforce bootcamp content. You'll sit for the computer-based PMP exam, which assesses your mastery of project-management domains and your readiness to lead complex initiatives in your industry."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "PMP certification requires renewal every three years through professional development units (PDUs). Plan to earn PDUs via continuing education, conference attendance, volunteer project leadership, or advanced training. Staying current keeps your credential active and demonstrates ongoing commitment to project-management excellence."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:40.112614Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d85a2ec5572a68e5",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers working in Irving?",
+          "answer": "<p>Yes. Irving's major employers—including healthcare distributors, energy firms, engineering contractors, and consumer goods manufacturers—routinely seek PMP-certified professionals for leadership roles managing complex capital programs and supply-chain initiatives. Nationally, PMP-certified project managers report a median salary advantage of approximately $26,000 over non-certified peers, a premium that holds across most regions including those with Irving's industry mix. The credential signals readiness for higher-responsibility roles at companies of this scale.</p>"
+        },
+        {
+          "question": "Which Irving industries most value PMP certification for advancement?",
+          "answer": "<p>Healthcare distribution, engineering and construction, energy, and manufacturing—all major sectors with headquarters or significant operations in Irving—consistently prioritize PMP certification for program and project management positions. These industries manage large-scale operations, regulatory compliance, and multi-year portfolios where structured project governance is critical. If your employer falls into one of these categories, certification strengthens your candidacy for senior project roles and cross-functional leadership opportunities.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP bootcamp from my Irving workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMP Bootcamp is entirely live-virtual and nationwide, so you can attend from your office, home, or anywhere with a reliable internet connection. Many Irving professionals attend during or around their work schedule. Confirm with your employer's IT security team that the platform meets your organization's requirements, especially if you're connecting from a corporate network.</p>"
+        },
+        {
+          "question": "When should Irving professionals pursue PMP certification in their career?",
+          "answer": "<p>The ideal timing depends on your current role and goals. If you're managing projects or programs at one of Irving's major employers and aiming for senior project manager, program director, or portfolio leadership roles, certification typically accelerates that transition. Early-career professionals with foundational project experience often pursue it to stand out in a competitive local market; mid-career professionals use it to formalize expertise and unlock management-level opportunities. Starting sooner positions you ahead of peers pursuing the same promotion track.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:46.279125Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b9b1503391816934",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Irving's Las Colinas business district concentrates major corporate headquarters—McKesson, Fluor, Kimberly-Clark, Caterpillar, and Vistra Energy among them—across healthcare distribution, engineering, and energy sectors where project management expertise is essential. Recent high-profile relocations and mixed-use developments underscore strong demand for certified PMs in the region. Granite PM Academy delivers live-virtual PMP® Bootcamp nationwide, enabling Irving professionals to earn their credential on a schedule that fits their career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T02:11:48.073605Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b9867e98233cc3af",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-irving-tx/",
+    "meta_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Irving, TX, PMP bootcamp Irving, PMP certification boot camp Irving, TX, PMP bootcamp near me, intensive PMP training Irving",
+    "og_title": "PMP Bootcamp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Bootcamp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Bootcamp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Bootcamp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Bootcamp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/\",\n      \"name\": \"PMP Bootcamp in Irving, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Irving, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Irving, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/#course\",\n      \"name\": \"PMP Bootcamp in Irving, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Irving, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-irving-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-10-29T01:44:00+00:00",
+  "template_version": "eca5873178752643e9d468f8a59eaea5"
+}
