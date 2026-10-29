@@ -463,6 +463,16 @@ $lastBlockType  = end($contentBlocks)['type'] ?? '';
 $firstBlockType = ($contentBlocks[0]['type'] ?? '');
 $lastBlockNoGap = in_array($lastBlockType,  ['custom_html','cta_banner','wide_banner','stats','hero','hero_split','hero_grid','links_grid','cta_card','map_info']);
 $firstBlockHero = in_array($firstBlockType, ['hero','hero_split','hero_grid','hero_video']);
+// blocks.php reads these back via $GLOBALS (hero_grid's lead-image check, hero_split's
+// fetchpriority check) to avoid changing render_content_block()'s signature. That only
+// works automatically when this file runs at true top-level scope — static_build.php
+// requires it from INSIDE build_static_site(), where a bare assignment stays a function-
+// local and never reaches $GLOBALS. Explicit assignment here makes it work in both the
+// live single-page path (page.php/index.php, already top-level, this is a harmless no-op)
+// and every static-built site — found because granitepmacademy.com's real build output
+// was missing fetchpriority=high despite the condition reading correctly in code review.
+$GLOBALS['firstBlockType'] = $firstBlockType;
+$GLOBALS['firstBlockHero'] = $firstBlockHero;
 $bcSettings     = $data['breadcrumbs'] ?? [];
 $bcEnabled      = $bcSettings['enabled'] ?? true;
 $bcPageHide     = !empty($seo['bc_hide'] ?? false);
