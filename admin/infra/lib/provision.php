@@ -182,6 +182,36 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     // decorative: the 'assign' step reads it to keep a domain on the box its zone's
     // account is bound to, so wiping it disarmed that guard, and the next assign
     // round-robined them onto unrelated boxes while their DNS stayed behind.
+    //
+    // ── GUARD: moving an ALREADY-ZONED domain to a different box, without also
+    //    fixing Cloudflare in this same call, creates the opposite-direction fault —
+    //    the zone/account keep describing the OLD box while the site moves to a new
+    //    one, same shape as 43 water-site/b5 domains found and fixed fleet-wide
+    //    2026-10-29 (tools/repair_stale_cf_zone.php). That one was a human moving a
+    //    box by hand for registrar/IP distribution, through exactly this routine
+    //    ($doSite with $account left null — multisite_api.php's "create_host_one" row
+    //    override is the confirmed path), with nothing here to notice the zone was
+    //    left behind. Refuse by construction rather than rely on every future caller
+    //    remembering to check: a caller that really means to move an already-zoned
+    //    domain's box must say so explicitly via opts['confirm_box_move'], and is then
+    //    responsible for reconciling the zone itself afterward — run
+    //    tools/repair_stale_cf_zone.php --domain=<domain> --apply (add --include-live
+    //    if it is already live) right after.
+    if ($doSite && $server && !$doCf) {
+        $existing     = infra_state_get_domain($domain);
+        $existingSid  = trim((string) ($existing['server_id'] ?? ''));
+        $existingZone = trim((string) ($existing['cf_zone_id'] ?? ''));
+        $newSid       = (string) ($server['id'] ?? '');
+        if ($existingZone !== '' && $existingSid !== '' && $existingSid !== $newSid && empty($opts['confirm_box_move'])) {
+            return ['ok' => false, 'lines' => [
+                "Host: ✗ refused — {$domain} already has a Cloudflare zone describing " . $existingSid
+                . ", and this call would move it to {$newSid} without touching Cloudflare. That leaves the "
+                . "zone stale — the exact bug fixed fleet-wide 2026-10-29. Pass confirm_box_move if this box "
+                . "move is deliberate, then run: php tools/repair_stale_cf_zone.php --domain={$domain} --apply"
+                . " (add --include-live if it is already live) to correct the zone afterward.",
+            ]];
+        }
+    }
     $prov = ['domain' => $domain];
     if ($server)  $prov['server_id']    = (string) ($server['id'] ?? '');
     if ($account) $prov['cf_account_id'] = (string) ($account['id'] ?? '');

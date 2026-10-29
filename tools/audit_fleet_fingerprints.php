@@ -10,13 +10,17 @@
  * ── WHAT A "FINGERPRINT" IS HERE ─────────────────────────────────────────────────
  * Every domain in one Cloudflare account shares ONE nameserver pair, so that pair links
  * it to the account's other domains. Its A record links it to everything else on its
- * box. cf_alloc.php binds one account to exactly one box precisely so both links land on
- * the SAME twenty domains — one island, linkable internally, linkable to nothing else.
+ * box. cf_alloc.php binds each account to exactly one box — but a box may legitimately
+ * carry MORE THAN ONE account (two, by design, confirmed with Scott 2026-10-29, to
+ * double a box's zone capacity) — precisely so that every account's links land on the
+ * SAME set of domains the box actually hosts: one island, linkable internally, linkable
+ * to nothing else, whether that island is backed by one account or two siblings.
  *
  * A fingerprint is therefore not "two domains are related" — inside an island that is
- * the accepted design. It is a link that CROSSES an island boundary, because that is
- * what chains islands into one connected web: A shares nameservers with B, B shares an
- * IP with C, and one discovered site unravels the fleet.
+ * the accepted design, and two sibling accounts sharing one box is still one island. It
+ * is a link that CROSSES an island boundary, because that is what chains islands into
+ * one connected web: A shares nameservers with B, B shares an IP with C, and one
+ * discovered site unravels the fleet.
  *
  * This checks both halves, and they are different questions:
  *
@@ -29,8 +33,11 @@
  *
  *   ACROSS DOMAINS — does the island structure hold?
  *     6. one nameserver pair must map to exactly one box
- *     7. one box IP must map to exactly one nameserver pair
- *     8. no account spanning two boxes, no box carrying two accounts
+ *     7. one box IP must map to accounts that are ALL bound to that same box — one
+ *        pair if the box has one account, two if it has its sanctioned sibling pair,
+ *        but never a pair from an account bound somewhere else
+ *     8. no account spanning two boxes; no box carrying an account NOT bound to it
+ *        (carrying several accounts that ARE all bound to it is the sanctioned shape)
  *
  *   CONTENT — the fingerprints that survive any amount of DNS hygiene
  *     9. an analytics id, GSC token, phone, address or business name reused on
@@ -99,7 +106,9 @@ say(str_repeat('─', 78));
 
 /* ── Where each zone really lives, and what Cloudflare says about it ───────────── */
 $zoneById = [];        // zone id => [account, zone record]
+$acctById = [];        // account id => account record, for the sibling-pairing check below
 foreach (infra_cf_accounts() as $a) {
+    $acctById[(string) ($a['id'] ?? '')] = $a;
     foreach (cf_list_zones($a) as $z) $zoneById[(string) $z['id']] = [$a, $z];
 }
 
@@ -178,10 +187,28 @@ say('ISLAND STRUCTURE');
 $nsToBox = []; $ipToNs = []; $acctToBox = []; $boxToAcct = [];
 foreach ($island as $d => $i) {
     if ($i['ns'] !== '') $nsToBox[$i['ns']][$i['box']] = true;
-    if ($i['ip'] !== '') $ipToNs[$i['ip']][$i['ns']] = true;
-    $acctToBox[$i['acct']][$i['box']] = true;
+    if ($i['ip'] !== '') $ipToNs[$i['ip']][$i['ns']] = $i['acct'];   // acct id, not just presence —
+    $acctToBox[$i['acct']][$i['box']] = true;                        // needed by the sibling check below
     $boxToAcct[$i['box']][$i['acct']] = true;
 }
+
+/* A box legitimately carries MORE THAN ONE Cloudflare account — cf_alloc.php's
+ * two-accounts-per-box capacity design, confirmed with Scott 2026-10-29. Two
+ * sibling accounts both bound to the SAME box are still one island: a domain
+ * under either one sits on the one physical box, so nothing chains outward.
+ * The real fault this pair of checks exists to catch is an account that is NOT
+ * bound to this box showing up here anyway — that is a genuine cross-island
+ * link, same as before. "All accounts here are bound to this exact box" is the
+ * sanctioned shape and must not be flagged; only an outsider among them is. */
+$allSiblings = function (array $acctIds, string $box) use ($acctById): bool {
+    foreach ($acctIds as $id) {
+        if (trim((string) ($acctById[$id]['server_id'] ?? '')) !== $box) return false;
+    }
+    return true;
+};
+$boxByIp = [];
+foreach ($boxes as $bid => $b) $boxByIp[(string) ($b['default_ip'] ?? $b['host'] ?? '')] = $bid;
+
 $crossed = 0;
 foreach ($nsToBox as $ns => $bx) {
     if (count($bx) < 2) continue;
@@ -189,11 +216,13 @@ foreach ($nsToBox as $ns => $bx) {
     $flag('(fleet)', 'one nameserver pair spans several boxes',
           $ns . ' → ' . implode(', ', array_map(fn($b) => $boxes[$b]['label'] ?? $b, array_keys($bx))));
 }
-foreach ($ipToNs as $ip => $nss) {
-    if (count($nss) < 2) continue;
+foreach ($ipToNs as $ip => $nsToAcct) {
+    if (count($nsToAcct) < 2) continue;
+    $boxHere = $boxByIp[$ip] ?? '';
+    if ($boxHere !== '' && $allSiblings(array_values($nsToAcct), $boxHere)) continue;
     $crossed++;
     $flag('(fleet)', 'one box IP serves several nameserver pairs',
-          $ip . ' → ' . count($nss) . ' different pairs, which links those accounts through this box');
+          $ip . ' → ' . count($nsToAcct) . ' different pairs, which links those accounts through this box');
 }
 foreach ($acctToBox as $a => $bx) {
     if (count($bx) < 2) continue;
@@ -202,6 +231,7 @@ foreach ($acctToBox as $a => $bx) {
 }
 foreach ($boxToAcct as $b => $as) {
     if (count($as) < 2) continue;
+    if ($allSiblings(array_keys($as), $b)) continue;
     $crossed++;
     $flag('(fleet)', 'one box carries several accounts',
           ($boxes[$b]['label'] ?? $b) . ' → ' . implode(', ', array_map('infra_cf_account_label', array_keys($as))));

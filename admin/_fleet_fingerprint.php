@@ -76,14 +76,16 @@ $ffpColour = $ffpLast === null ? '#94a3b8' : (($ffpLast['clean'] && !$ffpStale) 
         <p style="margin:0 0 10px">
             Every domain in one Cloudflare account shares <strong>one nameserver pair</strong>, so that pair ties
             it to that account's other domains. Its A record ties it to everything else on its <strong>box</strong>.
-            The fleet binds one account to exactly one box so that both ties land on the <em>same twenty
-            domains</em> &mdash; an island: linkable inside, linkable to nothing outside.
+            Each account binds to exactly one box &mdash; but a box may carry <strong>two</strong> accounts by
+            design, doubling its zone capacity &mdash; so that every tie from either account still lands on the
+            <em>same set of domains</em> the box actually hosts: one island, linkable inside, linkable to nothing
+            outside, whether that island has one account behind it or two siblings.
         </p>
         <p style="margin:0 0 14px">
             So a fingerprint is <strong>not</strong> &ldquo;two domains look related&rdquo; &mdash; inside one island
-            that is the design. It is a link that <strong>crosses</strong> an island boundary, because that is what
-            chains islands into a single web: A shares nameservers with B, B shares an IP with C, and one
-            discovered site unravels the fleet.
+            that is the design, and two sibling accounts sharing a box is still one island. It is a link that
+            <strong>crosses</strong> an island boundary, because that is what chains islands into a single web:
+            A shares nameservers with B, B shares an IP with C, and one discovered site unravels the fleet.
         </p>
 
         <h4 style="margin:0 0 4px;font-size:.9rem">What it checks</h4>
@@ -99,8 +101,11 @@ $ffpColour = $ffpLast === null ? '#94a3b8' : (($ffpLast['clean'] && !$ffpStale) 
         <p style="margin:0 0 2px"><em>Across domains &mdash; the island graph:</em></p>
         <ol start="6" style="margin:0 0 10px 20px">
             <li>One nameserver pair maps to exactly one box</li>
-            <li>One box IP maps to exactly one nameserver pair</li>
-            <li>No account spans two boxes; no box carries two accounts</li>
+            <li>One box IP maps to accounts that are <em>all</em> bound to that same box &mdash; one pair if the
+                box has a single account, two if it has its sanctioned sibling pair, never a pair from an
+                account bound elsewhere</li>
+            <li>No account spans two boxes; no box carries an account that isn't bound to it (carrying several
+                accounts that <em>are</em> all bound to it is the sanctioned two-per-box shape)</li>
         </ol>
         <p style="margin:0 0 2px"><em>Content &mdash; what survives any amount of DNS hygiene:</em></p>
         <ol start="9" style="margin:0 0 14px 20px">
