@@ -25,6 +25,16 @@ require_once __DIR__ . '/keywords.php';
  * Domains that are somebody else's directory rather than a local business.
  * Each one holding an organic slot is a slot you cannot take with a rank-and-rent
  * site, and they rank on domain authority you will never out-link.
+ *
+ * 'google.com' belongs here even though it isn't a directory: DataForSEO reports
+ * Google's own Maps/Business-Profile cards as type=organic with domain=google.com
+ * (confirmed live, 2026-10-30 — 6-7 of a 10-result page for "appliance repair
+ * {city}" were google.com on multiple real markets). Before this fix those fell
+ * through to the LOCAL bucket in infra_research_classify(), overstating how many
+ * real small-business competitors a market has. It belongs in this bucket, not
+ * folded into "local" or "national" — and arguably it's a HARDER slot than a
+ * real directory: this module's own docstring says "a well-built page can
+ * outrank" a directory, which is never true against a Google-owned SERP feature.
  */
 function infra_serp_directories(): array
 {
@@ -36,6 +46,7 @@ function infra_serp_directories(): array
         'trustedpros.com', 'manta.com', 'chamberofcommerce.com', 'superpages.com',
         'yellowbook.com', 'local.com', 'citysearch.com', 'alignable.com',
         'indeed.com', 'reddit.com', 'amazon.com', 'homeguide.com', 'wikipedia.org',
+        'google.com',
     ];
 }
 
