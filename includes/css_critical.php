@@ -187,6 +187,11 @@ const CSS_CRITICAL_BLOCK_MAP = [
     // section, so this doesn't carry the same "can never be verified" risk
     // custom_html has.
     'html_two_col'    => ['HTML TWO COLUMN BLOCK'],
+    'stage_cards'     => ['STAGE / CAREER PATH CARDS BLOCK'],
+    // "Email Banner" is a sub-section INSIDE the same fenced "CTA BANNER BLOCK"
+    // title cta_banner already uses (style.src.css:3423-3476) — same section
+    // name, no CSS surgery needed, just reusing the existing title.
+    'email_banner'    => ['CTA BANNER BLOCK (solid color, centered text)'],
     // custom_html deliberately has NO entry — never add one. Its content can be a
     // [shortcode] expanded by any plugin hooked to 'shortcode_content' (confirmed:
     // plugins/services_links/plugin.php renders full .block-links-grid/.lg-*
@@ -202,6 +207,16 @@ const CSS_CRITICAL_BLOCK_MAP = [
     // general one is not.
     'custom_html_services_links' => ['LINKS GRID BLOCK (bg image, heading, link buttons grid)',
                                       'LINKS GRID — LIGHT STYLE (white bg, gray bordered boxes)'],
+    // A second narrow, verified custom_html exception: content with no '['
+    // anywhere (so apply_course_shortcodes()/the 'shortcode_content' hook have
+    // nothing to expand — the rendered output is guaranteed to be exactly the
+    // stored HTML, byte for byte) AND no class="" attribute anywhere (so it
+    // introduces zero CSS dependencies, period — not "probably fine," provably
+    // zero). Common pattern: a raw inline-styled full-width CTA strip (found on
+    // granitepmacademy.com's homepage, two of these, zero shortcodes, zero
+    // classes). Needs only what every block already gets for free
+    // (.content-block from base) — see css_critical_block_type().
+    'custom_html_classless' => [],
     'blog_list'       => ['BLOG'],
     'post_meta'       => ['BLOG'],
 ];
@@ -234,6 +249,26 @@ function css_critical_block_type(array $block): string {
         $html = trim((string) ($block['html'] ?? ''));
         if (preg_match('/^\[services_links(?:\s[^\]]*)?\]$/', $html)) {
             return 'custom_html_services_links';
+        }
+        // Classless (beyond the always-base-covered wrapper): no '[' anywhere, so
+        // apply_course_shortcodes()/the 'shortcode_content' hook have nothing to
+        // expand — rendered output is guaranteed byte-identical to $html — AND
+        // every class="" attribute found uses only "content-block" (the raw-
+        // passthrough path's own wrapper, see the 'custom_html' case in
+        // render_content_block() — a block whose content already starts with
+        // class="content-block" gets echoed as-is instead of re-wrapped). Any
+        // OTHER class name found means real styling this can't verify, so it
+        // still falls through to the general unmapped case below.
+        if (strpos($html, '[') === false) {
+            $onlySafeClasses = true;
+            if (preg_match_all('/class="([^"]*)"/', $html, $m)) {
+                foreach ($m[1] as $classAttr) {
+                    foreach (preg_split('/\s+/', trim($classAttr)) as $cls) {
+                        if ($cls !== '' && $cls !== 'content-block') { $onlySafeClasses = false; break 2; }
+                    }
+                }
+            }
+            if ($onlySafeClasses) return 'custom_html_classless';
         }
     }
     return (string) $type;
