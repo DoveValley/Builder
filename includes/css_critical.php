@@ -13,11 +13,14 @@
  * page with missing CSS, which is a worse failure than just not optimizing it yet.
  *
  * Verified so far: the block types gannmoldremediation.com (mold-site) actually
- * renders, plus stats/testimonials/cards/team/comparison_table (added once their
- * real rendered class names were checked against style.src.css by hand) — not
- * all 41 registered block types. A page using ANY unmapped type (gallery,
- * custom_html, any other niche's own mix, a brand new block type) safely falls
- * back to style.css.
+ * renders, plus stats/testimonials/cards/team/comparison_table/hero/faq/
+ * cta_button/pricing_cards/html_two_col (added once their real rendered class
+ * names were checked against style.src.css by hand — including which classes
+ * they share with OTHER mapped types, like .cta-btn and .section-heading,
+ * which had to stay in the base bundle rather than move into any one type's
+ * section) — not all 41 registered block types. A page using ANY unmapped
+ * type (gallery, custom_html, any other niche's own mix, a brand new block
+ * type) safely falls back to style.css.
  *
  * Re-enabled after being force-disabled for a session (css_critical_for_types()
  * used to unconditionally `return null;`) over three bugs, all structural, now
@@ -160,7 +163,7 @@ const CSS_CRITICAL_BLOCK_MAP = [
                            'IMAGE CAPTIONS + CHART DATA TABLE (image_left, image_right, image_text, map_info)'],
     'trust_bar'       => [],   // fully inline-styled render, confirmed zero CSS classes of its own
     'image_text'      => ['IMAGE CAPTIONS + CHART DATA TABLE (image_left, image_right, image_text, map_info)'],
-    'feature_columns' => [],   // its CSS lives in the base "NEW BLOCK TYPES" section
+    'feature_columns' => ['FEATURE COLUMNS BLOCK'],
     'service_cards'   => ['SERVICE CARDS GRID (icon circle + heading + text, centered)',
                            'SKIN CONTRAST OVERRIDES (feature_split, tab_services, service_cards, faq_two_col, image_features, links_grid)'],
     'text'            => [],   // base "Public site main content" covers .content-text/.text-only
@@ -173,6 +176,17 @@ const CSS_CRITICAL_BLOCK_MAP = [
     // comparison_table case) — its only classes (content-block, container,
     // section-heading) already live in the base bundle, same as trust_bar/text above.
     'comparison_table' => [],
+    'hero'            => ['HERO BLOCK'],
+    'faq'             => ['FAQ BLOCK'],
+    'cta_button'      => ['CTA BUTTON BLOCK'],
+    'pricing_cards'   => ['PRICING CARDS BLOCK'],
+    // htc_left/htc_right are raw admin-authored HTML, unlike custom_html's content
+    // they never pass through apply_course_shortcodes()/the 'shortcode_content'
+    // filter_hook (confirmed in includes/blocks.php's html_two_col case) — no
+    // plugin can expand them into markup needing CSS outside this block's own
+    // section, so this doesn't carry the same "can never be verified" risk
+    // custom_html has.
+    'html_two_col'    => ['HTML TWO COLUMN BLOCK'],
     // custom_html deliberately has NO entry — never add one. Its content can be a
     // [shortcode] expanded by any plugin hooked to 'shortcode_content' (confirmed:
     // plugins/services_links/plugin.php renders full .block-links-grid/.lg-*
