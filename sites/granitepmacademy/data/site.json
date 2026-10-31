@@ -1849,7 +1849,7 @@
               "image": "",
               "alt": "",
               "heading": "PMI-PMOCP®",
-              "text": "20 PDUs total per 3-year cycle — a fixed split: 3 Ways of Working, 7 Power Skills, 10 Business Acumen."
+              "text": "30 PDUs total per 3-year cycle — minimum 3 Ways of Working, 7 Power Skills, and 10 Business Acumen (20 of the 30), with the remaining 10 from any area."
             }
           ]
         },
@@ -5998,30 +5998,32 @@
           "type": "feature_columns",
           "fc_heading": "PDU Requirements by Credential",
           "fc_bg_color": "#ffffff",
-          "fc_head_color": "#1a2e5a",
-          "fc_text_color": "#444444",
-          "fc_cols": "3",
-          "fc_items": [
+          "fc_heading_level": "h2",
+          "fc_subheading": "",
+          "fc_num_cols": 3,
+          "columns": [
             {
               "icon": "",
-              "icon_alt": "",
+              "image": "",
+              "alt": "",
               "heading": "PMP® — 60 PDUs",
               "text": "PMP holders must earn 60 PDUs every three years across Education and Giving Back categories. At least 35 PDUs must be in Education."
             },
             {
               "icon": "",
-              "icon_alt": "",
+              "image": "",
+              "alt": "",
               "heading": "CAPM® — 15 PDUs",
               "text": "CAPM holders must earn 15 PDUs every three years. At least 9 must be in Education, with up to 6 from Giving Back activities."
             },
             {
               "icon": "",
-              "icon_alt": "",
+              "image": "",
+              "alt": "",
               "heading": "PMI-CPMAI® — 30 PDUs",
               "text": "PMI-CPMAI holders must earn 30 PDUs every three years. At least 18 must be in Education, with up to 12 from Giving Back activities."
             }
-          ],
-          "skin": "subtle"
+          ]
         },
         {
           "type": "custom_html",
@@ -6145,7 +6147,8 @@
         "service_description": "",
         "primary_keyword": "PMP PDU Courses",
         "secondary_keywords": "project management PDU, PDU for PMP renewal, PMP recertification courses, PMP PDU training, 60 PDUs for PMP renewal, PMI Talent Triangle, PMP renewal fee, PMP certification renewal, PMP continuing education"
-      }
+      },
+      "last_modified": "2026-10-31"
     },
     "page_about": {
       "title": "About Granite PM Academy",
