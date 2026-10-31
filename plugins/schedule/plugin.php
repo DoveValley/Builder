@@ -10,18 +10,22 @@ register_plugin(
 );
 
 // Inject schedule CSS in <head> — but only on pages that actually use a course
-// shortcode. These are render-blocking stylesheets; loading them on every page of
-// a non-course site (e.g. appliance/pest) needlessly delayed first paint. The
-// _page_has_course_sc flag is set by site-template.php before this hook runs.
-// Both schedule.css and card.css load together since the card widget can appear
-// on the same page as the table widget.
+// shortcode. The _page_has_course_sc flag is set by site-template.php before
+// this hook runs. Inlined as a <style> block rather than two <link>s: both
+// files combined are ~11KB raw (a few KB minified), well under the size where
+// the earlier style.css inlining experiment (63KB) measurably regressed LCP —
+// see that comment in site-template.php. At this size, inlining removes two
+// render-blocking network round-trips entirely instead of just softening them
+// (PSI flagged these two tiny files costing ~450ms each under slow-4G
+// simulation — almost all round-trip latency, not transfer time, which
+// inlining eliminates outright). Both schedule.css and card.css load together
+// since the card widget can appear on the same page as the table widget.
 add_hook('head_styles', function(string $pfx): void {
     if (empty($GLOBALS['_page_has_course_sc'])) return;
     $cssBase = dirname(__DIR__, 2) . '/assets/css/';
-    $schVer  = (int) @filemtime($cssBase . 'schedule.css');
-    $cardVer = (int) @filemtime($cssBase . 'card.css');
-    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/schedule.css?v=' . $schVer . '">' . "\n";
-    echo '<link rel="stylesheet" href="' . h($pfx) . 'assets/css/card.css?v=' . $cardVer . '">' . "\n";
+    $css = (string) @file_get_contents($cssBase . 'schedule.css') . (string) @file_get_contents($cssBase . 'card.css');
+    if ($css === '') return;
+    echo '<style>' . css_minify($css) . '</style>' . "\n";
 });
 
 // Inject inline course data + JS before </body>, but only when shortcodes
