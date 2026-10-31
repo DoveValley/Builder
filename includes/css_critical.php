@@ -12,11 +12,26 @@
  * other entries' section-name lists for the pattern) — a wrong entry here ships a
  * page with missing CSS, which is a worse failure than just not optimizing it yet.
  *
- * Verified so far: exactly the block types gannmoldremediation.com (mold-site)
- * actually renders across its homepage, templated city pages, and the 4 static
- * pages (about-us, contact-us, privacy-policy, terms) — not all 39 registered
- * block types. A page using ANY unmapped type (gallery, stats, cards, team, any
- * other niche's own mix, a brand new block type) safely falls back to style.css.
+ * Verified so far: the block types gannmoldremediation.com (mold-site) actually
+ * renders, plus stats/testimonials/cards/team/comparison_table (added once their
+ * real rendered class names were checked against style.src.css by hand) — not
+ * all 41 registered block types. A page using ANY unmapped type (gallery,
+ * custom_html, any other niche's own mix, a brand new block type) safely falls
+ * back to style.css.
+ *
+ * Re-enabled after being force-disabled for a session (css_critical_for_types()
+ * used to unconditionally `return null;`) over three bugs, all structural, now
+ * fixed here: (1) the cache filename hashed only the page's type-list, so an
+ * edit to style.src.css with no type-list change could leave stale content
+ * served under an unchanged name — fixed by folding srcPath's mtime into the
+ * hash, so any source edit mints a new filename. (2) the cache dir
+ * (assets/css/pages/) is shared by every site built on this box, and parallel
+ * batch-build workers could race on the same filename with a direct
+ * file_put_contents() to the final path — fixed with a write-to-temp-then-
+ * rename() pattern, atomic on the same filesystem. (3) this directory was
+ * missing from the standard post-root-build chown step every other generated-
+ * artifact directory already gets — not a code fix, just don't skip it (see
+ * the build/deploy runbook).
  */
 
 /**
@@ -150,6 +165,14 @@ const CSS_CRITICAL_BLOCK_MAP = [
                            'SKIN CONTRAST OVERRIDES (feature_split, tab_services, service_cards, faq_two_col, image_features, links_grid)'],
     'text'            => [],   // base "Public site main content" covers .content-text/.text-only
     'contact_form'    => ['CONTACT FORM BLOCK'],
+    'stats'           => ['STATS / COUNTERS'],
+    'testimonials'    => ['TESTIMONIALS BLOCK'],
+    'cards'           => ['CARDS GRID'],
+    'team'            => ['TEAM BLOCK'],
+    // Every visual property is an inline style="" attribute (includes/blocks.php's
+    // comparison_table case) — its only classes (content-block, container,
+    // section-heading) already live in the base bundle, same as trust_bar/text above.
+    'comparison_table' => [],
     // custom_html deliberately has NO entry — never add one. Its content can be a
     // [shortcode] expanded by any plugin hooked to 'shortcode_content' (confirmed:
     // plugins/services_links/plugin.php renders full .block-links-grid/.lg-*
@@ -216,19 +239,34 @@ function css_critical_block_type(array $block): string {
  * @return array{path:string, mtime:int}|null
  */
 function css_critical_for_types(array $types, string $srcPath, string $cacheDir): ?array {
-    // TEMPORARILY DISABLED — three separate real bugs traced to this system in one
-    // session (silent permission failures leaving stale per-page CSS, a cache file
-    // shared across niches with identical block-type lists, and a page's rendered
-    // HTML referencing a hash that didn't match what the current block list
-    // actually needs). The function's own fail-open design (returning null falls
-    // every caller back to the always-correct full style.css) makes this the safe
-    // kill switch rather than ripping the feature out — re-enable once the exact
-    // mechanism behind the hash/filename mismatch is understood, not before.
-    return null;
-
     $unique = array_values(array_unique(array_filter($types, fn($t) => $t !== '')));
     foreach ($unique as $t) {
         if (!array_key_exists($t, CSS_CRITICAL_BLOCK_MAP)) return null;
+    }
+    sort($unique);
+
+    // Hash the SOURCE's mtime, not just which types are on the page — two pages
+    // sharing a type-set previously shared a filename forever, so an edit to
+    // style.src.css that didn't change any page's type-list could leave an old
+    // cached file (wrong content, right name) being served indefinitely anywhere
+    // that doesn't force a rebuild (a static-built page behind Cloudflare, e.g.).
+    // Tying the name to srcPath's mtime makes a stale-content-under-current-name
+    // state structurally impossible — any source edit mints a new filename, and
+    // old orphaned files are harmless (nothing references them anymore). Computed
+    // up front, before any section-parsing/minify work, so a cache hit (the
+    // common case — many pages share a type-set) skips that work entirely.
+    $srcMtime = @filemtime($srcPath) ?: 0;
+    $hash = substr(md5($srcMtime . '|' . implode(',', $unique)), 0, 12);
+    $outPath = rtrim($cacheDir, '/') . '/' . $hash . '.css';
+
+    // Already-current under this name — skip parsing/minifying entirely. Safe to
+    // trust existence alone (unlike the old type-only hash): the filename now
+    // encodes the exact source mtime + type-set, and css_minify() is
+    // deterministic, so a file present under this exact name can only have been
+    // written from this exact content.
+    if (is_file($outPath)) {
+        $outMtime = @filemtime($outPath);
+        if ($outMtime !== false) return ['path' => $outPath, 'mtime' => $outMtime];
     }
 
     $sections = css_parse_sections($srcPath);
@@ -240,27 +278,27 @@ function css_critical_for_types(array $types, string $srcPath, string $cacheDir)
     }
     $needed = array_unique($needed);
 
-    sort($unique);
-    $hash = substr(md5(implode(',', $unique)), 0, 12);
-    $outPath = rtrim($cacheDir, '/') . '/' . $hash . '.css';
-
-    // Always recompute and overwrite, rather than trusting outPath's mtime against
-    // srcPath's — this file is a build artifact of a batch process, not a per-request
-    // hot path, so the cost of always rewriting it is trivial. The old "skip if
-    // outPath looks newer than srcPath" check was found silently serving stale
-    // content across regens for reasons never fully pinned down (observed: a build
-    // that should have produced current CSS instead produced an older cached
-    // version, byte-for-byte, with no code or source-file change in between) —
-    // unconditional overwrite removes the whole class of bug instead of chasing
-    // the exact mechanism.
     $css = '';
     foreach ($sections as $name => $text) {
         if (in_array($name, $needed, true)) $css .= $text;
     }
     $minified = css_minify($css);
     if ($minified === '') return null;
+
     if (!is_dir($cacheDir)) @mkdir($cacheDir, 0775, true);
-    if (@file_put_contents($outPath, $minified) === false) return null;
+    // Write to a temp file in the same directory, then rename() into place —
+    // rename() is atomic on the same filesystem on Linux, so a concurrent reader
+    // (another request, or a parallel batch-build worker writing the identical
+    // filename) always sees either the old file or the fully-written new one,
+    // never a partial write. Closes the race that a direct file_put_contents()
+    // to the final path left open when multiple build workers can target the
+    // same shared assets/css/pages/ directory at once.
+    $tmpPath = $cacheDir . '/.tmp-' . getmypid() . '-' . bin2hex(random_bytes(4)) . '.css';
+    if (@file_put_contents($tmpPath, $minified) === false) return null;
+    if (!@rename($tmpPath, $outPath)) {
+        @unlink($tmpPath);
+        return null;
+    }
     $outMtime = @filemtime($outPath);
     return $outMtime !== false ? ['path' => $outPath, 'mtime' => $outMtime] : null;
 }
