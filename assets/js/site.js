@@ -4,8 +4,9 @@ if (stickyHeader) {
 function setOffset() {
 var topbar = document.querySelector('.site-topbar');
 var topbarH = topbar ? topbar.offsetHeight : 0;
+var stickyH = stickyHeader.offsetHeight;
 stickyHeader.style.top = topbarH + 'px';
-var totalH = topbarH + stickyHeader.offsetHeight;
+var totalH = topbarH + stickyH;
 document.documentElement.style.setProperty('--fixed-header-height', totalH + 'px');
 var main = document.querySelector('main');
 if (main) main.style.paddingTop = totalH + 'px';

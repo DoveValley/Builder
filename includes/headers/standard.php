@@ -26,7 +26,7 @@
             <div class="site-logo">
                 <?php if (!empty($header['logo'])): ?>
                     <?php $__logoPath = img_logo_variant($header['logo'], (int) $logoHeight); ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($__logoPath)) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($__logoPath, (int) $logoHeight) ?>style="<?= img_fixed_size_css($__logoPath, (int) $logoHeight) ?>display:block;"></a>
+                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($__logoPath)) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($__logoPath, (int) $logoHeight) ?><?= img_logo_srcset($header['logo'], (int) $logoHeight) ?>style="<?= img_fixed_size_css($__logoPath, (int) $logoHeight) ?>display:block;"></a>
                 <?php else: ?>
                     <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text"><?= h(($__brand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__brand : SITE_TITLE) ?></a>
                 <?php endif; ?>

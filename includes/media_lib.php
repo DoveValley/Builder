@@ -217,6 +217,26 @@ function img_logo_variant(string $storedPath, int $displayHeight): string {
     return $variantStored;
 }
 
+/**
+ * Density-descriptor srcset for a logo rendered via img_logo_variant() — that function
+ * only ever produces a 2x file, served unconditionally via plain src=, so a DPR-1 client
+ * downloads the full 2x bytes it can't render any sharper from (flagged by PageSpeed:
+ * "image larger than needed for displayed size" on granitepmacademy.com's header logo,
+ * 433x104 served at 217x52). Generates a matching 1x file the same self-healing way and
+ * returns both as a srcset attribute; empty string (renders exactly as before, single
+ * src=) if the two variants collapse to the same file — e.g. a source too small for a
+ * meaningful 2x variant in the first place.
+ */
+function img_logo_srcset(string $storedPath, int $displayHeight): string {
+    $path2x = img_logo_variant($storedPath, $displayHeight);
+    $path1x = img_logo_variant($storedPath, (int) round($displayHeight / 2));
+    if ($path1x === '' || $path2x === '' || $path1x === $path2x) return '';
+    $url1x = admin_upload_url_v($path1x);
+    $url2x = admin_upload_url_v($path2x);
+    if ($url1x === '' || $url2x === '') return '';
+    return 'srcset="' . h($url1x) . ' 1x, ' . h($url2x) . ' 2x" ';
+}
+
 /* Downscale to MAX_WIDTH if wider, then write webp. Aspect ratio is preserved. */
 function img_optimize(string $tmp, string $dest, string $mime): bool {
     if (!extension_loaded('gd')) {
