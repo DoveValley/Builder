@@ -847,6 +847,42 @@ $bucketCrosstab = $bucketLatest ? infra_city_bucket_crosstab($bucketLatest['rows
   <?php endif; ?>
 </div></div>
 
+<?php
+  $otherOutputTracked = [];
+  foreach ($bucketHistory as $h) $otherOutputTracked[$h['file']] = true;
+  $otherOutputFiles = [];
+  foreach (glob(BASE_DIR . '/uploads/downloads/' . $niche . '-*') ?: [] as $p) {
+      if (!is_file($p)) continue;
+      $fn = basename($p);
+      if (isset($otherOutputTracked[$fn])) continue;
+      $otherOutputFiles[$fn] = filemtime($p);
+  }
+  arsort($otherOutputFiles);
+?>
+<div class="ic-card" style="margin-top:14px"><div class="body">
+  <h2 style="margin-top:0;font-size:15px">Other outputs — <?= ih($niches[$niche]['label']) ?></h2>
+  <p style="font-size:13px;color:#6b7280;margin:4px 0 10px">One-off files for this niche that aren't a
+    regular "Run Data 3" result — ad-hoc exports, custom lists, anything built for a specific question.</p>
+  <?php if ($otherOutputFiles): ?>
+  <table><thead><tr><th>File</th><th>When</th><th></th></tr></thead><tbody>
+    <?php foreach ($otherOutputFiles as $fn => $mtime): ?>
+      <tr>
+        <td><?= ih($fn) ?></td>
+        <td style="font-size:11px;color:#6b7280"><?= ih(date('Y-m-d H:i', $mtime)) ?></td>
+        <td style="white-space:nowrap">
+          <a class="btn sec" style="padding:2px 8px;font-size:11px" target="_blank"
+             href="/uploads/downloads/<?= rawurlencode($fn) ?>">Open</a>
+          <a class="btn sec" style="padding:2px 8px;font-size:11px"
+             href="/uploads/downloads/<?= rawurlencode($fn) ?>" download>Download</a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody></table>
+  <?php else: ?>
+    <p style="font-size:13px;color:#9ca3af">Nothing here yet for this niche.</p>
+  <?php endif; ?>
+</div></div>
+
 <?php if ($niche === 'appliance'): ?>
 <div class="ic-card" style="margin-top:14px"><div class="body">
   <h2 style="margin-top:0;font-size:15px">Appliance-specific — brand push</h2>
