@@ -24,7 +24,13 @@ if ($niche === '' || !isset(infra_niches()[$niche])) {
 $runId = (string) ($_POST['run_id'] ?? '');
 $popFloor = (int) ($_POST['pop_floor'] ?? 15000);
 
-$result = infra_city_bucket_run($niche, $runId, $popFloor);
+$bucketParams = [
+    'exclude_above_pop' => $_POST['exclude_above_pop'] ?? null,
+    'demote_above_pop'  => $_POST['demote_above_pop'] ?? null,
+    'size_weight'       => $_POST['size_weight'] ?? null,
+];
+infra_bucket_params_save($niche, $bucketParams);
+$result = infra_city_bucket_run($niche, $runId, $popFloor, infra_bucket_params_load($niche));
 infra_set_flash($result['ok'] ? 'ok' : 'err',
     $result['ok'] ? $result['msg'] . ' Saved as ' . $result['file'] . ' (Downloads for Scott).' : $result['msg']);
 header('Location: ' . $back);

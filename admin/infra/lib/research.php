@@ -554,25 +554,29 @@ function infra_research_logsafe(float $v): float { return log(max($v, 1)); }
 function infra_research_score_and_grade(array &$candidates): void
 {
     $openVals   = array_map(fn($c) => $c['open_slots'] ?? 0.0, $candidates);
-    $localVals  = array_map(fn($c) => $c['local_competitors'] ?? 0.0, $candidates);
+    // Competition penalty = local_competitors + national_brands. Previously
+    // local_competitors alone, which never penalized national-chain-saturated
+    // markets at all despite national_brands being computed right alongside it
+    // — a real scoring bug, not a judgment call, fixed for every niche.
+    $diffVals   = array_map(fn($c) => ($c['local_competitors'] ?? 0.0) + ($c['national_brands'] ?? 0.0), $candidates);
     $volVals    = array_map(fn($c) => isset($c['volume']) ? infra_research_logsafe($c['volume']) : null, $candidates);
     $priceVals  = array_map(fn($c) => isset($c['price_avg']) && $c['price_avg'] > 0 ? infra_research_logsafe($c['price_avg']) : null, $candidates);
     $buyerVals  = array_map(fn($c) => isset($c['buyers']) ? sqrt(max(0, $c['buyers'])) : null, $candidates);
 
     [$mOpen, $sdOpen]     = infra_research_zstats($openVals);
-    [$mLocal, $sdLocal]   = infra_research_zstats($localVals);
+    [$mDiff, $sdDiff]     = infra_research_zstats($diffVals);
     [$mVol, $sdVol]       = infra_research_zstats(array_filter($volVals, fn($v) => $v !== null));
     [$mPrice, $sdPrice]   = infra_research_zstats(array_filter($priceVals, fn($v) => $v !== null));
     [$mBuyers, $sdBuyers] = infra_research_zstats(array_filter($buyerVals, fn($v) => $v !== null));
 
     foreach ($candidates as $id => &$c) {
         $zOpen   = (($c['open_slots'] ?? 0.0) - $mOpen) / $sdOpen;
-        $zLocal  = (($c['local_competitors'] ?? 0.0) - $mLocal) / $sdLocal;
+        $zDiff   = ((($c['local_competitors'] ?? 0.0) + ($c['national_brands'] ?? 0.0)) - $mDiff) / $sdDiff;
         $zVol    = isset($c['volume']) ? (infra_research_logsafe($c['volume']) - $mVol) / $sdVol : 0.0;
         $zPrice  = isset($c['price_avg']) && $c['price_avg'] > 0 ? (infra_research_logsafe($c['price_avg']) - $mPrice) / $sdPrice : 0.0;
         $zBuyers = isset($c['buyers']) ? (sqrt(max(0, $c['buyers'])) - $mBuyers) / $sdBuyers : 0.0;
 
-        $competition = 0.55 * $zOpen - 0.30 * $zLocal;
+        $competition = 0.55 * $zOpen - 0.30 * $zDiff;
         $demand      = $zVol;
         $money       = 0.70 * $zPrice + 0.30 * $zBuyers;
         $c['score']  = round(0.45 * $competition + 0.35 * $demand + 0.20 * $money, 3);
@@ -948,6 +952,46 @@ function infra_research_load_draft(string $niche): ?array
 function infra_research_save_draft(string $niche, array $fields): void
 {
     file_put_contents(infra_research_draft_path($niche), json_encode($fields, JSON_PRETTY_PRINT));
+}
+
+/* ---------------------------------------------------------------------------
+ * Data 3's population dampener — per-niche, not global. Every niche on this
+ * page is the same website-only/no-links/no-GBP model, but how far a niche
+ * can stretch into a big city varies with how much one job is worth (a
+ * $2,000 restoration job can absorb a slower, harder market; a $150 repair
+ * call can't) — so this is a tunable setting per niche, not a fixed rule.
+ * Same storage pattern as the draft above: one small JSON file, own slot.
+ * ------------------------------------------------------------------------- */
+
+function infra_bucket_params_defaults(): array
+{
+    return ['exclude_above_pop' => 1000000, 'demote_above_pop' => 400000, 'size_weight' => 0.30];
+}
+
+function infra_bucket_params_path(string $niche): string
+{
+    $dir = infra_research_dir() . '/drafts';
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return $dir . '/' . preg_replace('/[^a-z0-9_-]/i', '', $niche) . '-bucket-params.json';
+}
+
+function infra_bucket_params_load(string $niche): array
+{
+    $p = infra_bucket_params_path($niche);
+    $d = is_file($p) ? json_decode((string) file_get_contents($p), true) : null;
+    return is_array($d) ? array_merge(infra_bucket_params_defaults(), $d) : infra_bucket_params_defaults();
+}
+
+function infra_bucket_params_save(string $niche, array $params): void
+{
+    $d = infra_bucket_params_defaults();
+    $get = fn($key) => isset($params[$key]) && $params[$key] !== '' ? $params[$key] : $d[$key];
+    $clean = [
+        'exclude_above_pop' => max(0, (int) $get('exclude_above_pop')),
+        'demote_above_pop'  => max(0, (int) $get('demote_above_pop')),
+        'size_weight'       => max(0.0, min(1.0, (float) $get('size_weight'))),
+    ];
+    file_put_contents(infra_bucket_params_path($niche), json_encode($clean, JSON_PRETTY_PRINT));
 }
 
 /** Where a niche's held eLocal upload lives — fixed name, so a new upload always
@@ -1551,14 +1595,88 @@ function infra_city_bucket_history_add(string $niche, array $entry): void
 /**
  * @return array{ok:bool,msg:string,file:?string,count:?int}
  */
-function infra_city_bucket_run(string $niche, string $runId, int $popFloor): array
+/** Ideal population for the "right-sized, no-links/no-GBP" sweet spot — the
+ *  geometric midpoint of the matrix's own best band (75k-200k), used as the
+ *  peak of a continuous size-fit curve instead of discrete bucket labels, so
+ *  it works cleanly against whatever exclude/demote thresholds a niche picks. */
+const INFRA_BUCKET_IDEAL_POP = 122474.0;
+
+/**
+ * Score a pool of candidates: fold national_brands into the competition
+ * penalty (same fix as infra_research_score_and_grade(), recomputed here so
+ * an ALREADY-COMPLETED run can be re-bucketed under the new formula with no
+ * new API spend) and, when $withSize is true, add a continuous population
+ * size-fit term peaked at INFRA_BUCKET_IDEAL_POP. $sizeWeight is the only
+ * knob a niche needs to turn — the other three terms are renormalized around
+ * it so they still sum to 1 (e.g. size_weight 0.30 keeps competition 0.30,
+ * demand 0.25, money 0.15; turning size_weight up or down rescales the rest
+ * proportionally, rather than needing four separate sliders).
+ * Mutates $pool in place (adds 'revised_score','seo_difficulty'), returns a
+ * revised-score-descending id list.
+ */
+function infra_bucket_score_pool(array &$pool, bool $withSize, float $sizeWeight): array
+{
+    $BASE = ['competition' => 0.30, 'demand' => 0.25, 'money' => 0.15];
+    $total = array_sum($BASE) + ($withSize ? $sizeWeight : 0.0);
+    $w = array_map(fn($v) => $total > 0 ? $v / $total : 0.0, $BASE);
+    $wSize = $withSize && $total > 0 ? $sizeWeight / $total : 0.0;
+
+    $openVals  = array_map(fn($c) => $c['open_slots'] ?? 0.0, $pool);
+    $diffVals  = array_map(fn($c) => ($c['local_competitors'] ?? 0.0) + ($c['national_brands'] ?? 0.0), $pool);
+    $volVals   = array_map(fn($c) => isset($c['volume']) ? infra_research_logsafe($c['volume']) : null, $pool);
+    $priceVals = array_map(fn($c) => isset($c['price_avg']) && $c['price_avg'] > 0 ? infra_research_logsafe($c['price_avg']) : null, $pool);
+    $buyerVals = array_map(fn($c) => isset($c['buyers']) ? sqrt(max(0, $c['buyers'])) : null, $pool);
+
+    [$mOpen, $sdOpen]   = infra_research_zstats($openVals);
+    [$mDiff, $sdDiff]   = infra_research_zstats($diffVals);
+    [$mVol, $sdVol]     = infra_research_zstats(array_filter($volVals, fn($v) => $v !== null));
+    [$mPrice, $sdPrice] = infra_research_zstats(array_filter($priceVals, fn($v) => $v !== null));
+    [$mBuyers, $sdBuyers] = infra_research_zstats(array_filter($buyerVals, fn($v) => $v !== null));
+    if ($withSize) {
+        $sizeVals = array_map(fn($c) => -((log(max(1, (int) $c['population'])) - log(INFRA_BUCKET_IDEAL_POP)) ** 2), $pool);
+        [$mSize, $sdSize] = infra_research_zstats($sizeVals);
+    }
+
+    foreach ($pool as $id => &$c) {
+        $diff    = ($c['local_competitors'] ?? 0.0) + ($c['national_brands'] ?? 0.0);
+        $zOpen   = (($c['open_slots'] ?? 0.0) - $mOpen) / $sdOpen;
+        $zDiff   = ($diff - $mDiff) / $sdDiff;
+        $zVol    = isset($c['volume']) ? (infra_research_logsafe($c['volume']) - $mVol) / $sdVol : 0.0;
+        $zPrice  = isset($c['price_avg']) && $c['price_avg'] > 0 ? (infra_research_logsafe($c['price_avg']) - $mPrice) / $sdPrice : 0.0;
+        $zBuyers = isset($c['buyers']) ? (sqrt(max(0, $c['buyers'])) - $mBuyers) / $sdBuyers : 0.0;
+
+        $competition = 0.55 * $zOpen - 0.30 * $zDiff;
+        $demand      = $zVol;
+        $money       = 0.70 * $zPrice + 0.30 * $zBuyers;
+        $score = $w['competition'] * $competition + $w['demand'] * $demand + $w['money'] * $money;
+        if ($withSize) {
+            $sizeGoodness = -((log(max(1, (int) $c['population'])) - log(INFRA_BUCKET_IDEAL_POP)) ** 2);
+            $zSize = ($sizeGoodness - $mSize) / $sdSize;
+            $score += $wSize * $zSize;
+        }
+        $c['revised_score']  = round($score, 3);
+        $c['seo_difficulty'] = round($diff, 1);
+    }
+    unset($c);
+
+    $order = array_keys($pool);
+    usort($order, fn($a, $b) => $pool[$b]['revised_score'] <=> $pool[$a]['revised_score']);
+    return $order;
+}
+
+function infra_city_bucket_run(string $niche, string $runId, int $popFloor, ?array $bucketParams = null): array
 {
     $run = infra_research_load_run($runId);
     if (!$run || $run['niche'] !== $niche) return ['ok' => false, 'msg' => 'Run not found for this niche.', 'file' => null, 'count' => null];
     if ($run['phase'] !== 'done') return ['ok' => false, 'msg' => 'That run is not finished yet.', 'file' => null, 'count' => null];
 
+    $params = $bucketParams ?? infra_bucket_params_load($niche);
+    $excludeAbove = (int) $params['exclude_above_pop'];
+    $demoteAbove  = (int) $params['demote_above_pop'];
+    $sizeWeight   = (float) $params['size_weight'];
+
     $db = infra_state_db();
-    $out = [];
+    $kept = [];
     $belowBand = 0; $belowIncome = 0; $noIncome = 0;
     foreach ($run['candidates'] as $id => $c) {
         $pop = (int) $c['population'];
@@ -1577,75 +1695,77 @@ function infra_city_bucket_run(string $niche, string $runId, int $popFloor): arr
         elseif ($income >= 65000) $tier = 'OK';
         else { $belowIncome++; continue; }
 
-        $seoDifficulty = round(($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0), 1);
-        $out[] = [
-            null, $band, $tier, (string) $c['city'], (string) $c['ss'], $pop, $income,
-            $row['homeownership_pct'] !== null ? (float) $row['homeownership_pct'] : null,
-            (int) round($c['volume'] ?? 0), $seoDifficulty,
-            (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
-            round((float) ($c['score'] ?? 0), 3), (string) ($c['grade'] ?? ''),
+        $kept[$id] = $c + [
+            'band' => $band, 'tier' => $tier, 'pop' => $pop, 'income' => $income,
+            'homeownership' => $row['homeownership_pct'] !== null ? (float) $row['homeownership_pct'] : null,
         ];
     }
-    if (!$out) return ['ok' => false, 'msg' => 'Nothing survived the population/income filters — check the floor.', 'file' => null, 'count' => null];
+    if (!$kept) return ['ok' => false, 'msg' => 'Nothing survived the population/income filters — check the floor.', 'file' => null, 'count' => null];
 
-    // Real per-bucket order (median Score, not the theoretical income-first heuristic).
-    $buckets = [];
-    foreach ($out as $r) $buckets["{$r[2]}|{$r[1]}"][] = $r[12];
-    $order = [];
-    foreach ($buckets as $key => $scores) {
-        [$tier, $band] = explode('|', $key);
-        $order[] = ['label' => "$tier x $band", 'n' => count($scores), 'med_score' => round(infra_city_bucket_median($scores), 3)];
+    // Population dampener (per-niche tunable, see infra_bucket_params_*): too
+    // big gets left out entirely, big-but-not-hopeless gets pushed to the
+    // back of the line, everything else is ranked on its own real merit.
+    $excluded = $tier2 = $tier1 = [];
+    foreach ($kept as $id => $c) {
+        if ($c['pop'] >= $excludeAbove) $excluded[$id] = $c;
+        elseif ($c['pop'] >= $demoteAbove) $tier2[$id] = $c;
+        else $tier1[$id] = $c;
     }
-    usort($order, fn($a, $b) => $b['med_score'] <=> $a['med_score']);
-    $bucketRank = [];
-    foreach ($order as $i => $r) $bucketRank[$r['label']] = $i + 1;
-    foreach ($out as &$r) $r[0] = $bucketRank["{$r[2]} x {$r[1]}"] ?? 999;
-    unset($r);
-    usort($out, fn($a, $b) => [$a[0], -$a[12]] <=> [$b[0], -$b[12]]);
+
+    $tier1Order = $tier1 ? infra_bucket_score_pool($tier1, true, $sizeWeight) : [];
+    $tier2Order = $tier2 ? infra_bucket_score_pool($tier2, false, 0.0) : [];
+    $ranked = $tier1 + $tier2;   // merge scored data back together, keyed by id
+    $newOrder = array_merge($tier1Order, $tier2Order);
 
     $sheet = [[
-        'Build Order', 'Population Band', 'Income Tier', 'City', 'State', 'Population', 'Median Income',
-        'Homeownership %', 'Search Volume', 'SEO Difficulty', 'Local Buyers', '1P Avg $', 'Score', 'Grade',
+        'Build Order', 'Tier', 'Population Band', 'Income Tier', 'City', 'State', 'Population', 'Median Income',
+        'Homeownership %', 'Search Volume', 'SEO Difficulty', 'Local Buyers', '1P Avg $', 'Old Score', 'Revised Score', 'Grade',
     ]];
-    foreach ($out as $r) $sheet[] = $r;
-
-    $smallLabels = array_column(array_filter($order, fn($r) => $r['n'] < 20), 'label');
-    $standouts = [];
-    foreach ($smallLabels as $label) {
-        [$tier, , $band] = explode(' ', $label);
-        $rows = array_filter($out, fn($r) => $r[1] === $band && $r[2] === $tier);
-        usort($rows, fn($a, $b) => $b[12] <=> $a[12]);
-        foreach ($rows as $r) $standouts[] = ['bucket' => $label, 'city' => $r[3], 'state' => $r[4], 'pop' => $r[5], 'income' => $r[6], 'score' => $r[12], 'volume' => $r[8]];
+    $tier1Set = array_flip($tier1Order);
+    foreach ($newOrder as $i => $id) {
+        $c = $ranked[$id];
+        $sheet[] = [
+            $i + 1, isset($tier1Set[$id]) ? 'Main' : 'Demoted (big city)',
+            $c['band'], $c['tier'], (string) $c['city'], (string) $c['ss'], $c['pop'], $c['income'],
+            $c['homeownership'], (int) round($c['volume'] ?? 0), $c['seo_difficulty'],
+            (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
+            round((float) ($c['score'] ?? 0), 3), $c['revised_score'], (string) ($c['grade'] ?? ''),
+        ];
+    }
+    $excludedIds = array_keys($excluded);
+    usort($excludedIds, fn($a, $b) => ($excluded[$b]['score'] ?? 0) <=> ($excluded[$a]['score'] ?? 0));
+    foreach ($excludedIds as $id) {
+        $c = $excluded[$id];
+        $diff = ($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0);
+        $sheet[] = [
+            'EXCLUDED (too big)', 'Excluded', $c['band'], $c['tier'], (string) $c['city'], (string) $c['ss'],
+            $c['pop'], $c['income'], $c['homeownership'], (int) round($c['volume'] ?? 0), round($diff, 1),
+            (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
+            round((float) ($c['score'] ?? 0), 3), '', (string) ($c['grade'] ?? ''),
+        ];
     }
 
     $readme = [
         ["{$niche} City Bucket — Read Me"],
         [''],
         ['Built by Data 3\'s "Run Data 3" button from run ' . $runId . ', population floor ' . $popFloor . '.'],
-        ['Joins each candidate against Census City Data (income, homeownership) and buckets by population'
-            . ' band x income tier, same method as every other niche\'s bucketed export this session.'],
+        ['Joins each candidate against Census City Data (income, homeownership) — free local lookup, no API cost.'],
         [''],
         ["Below the {$popFloor} population floor: {$belowBand} cities."],
         ["Below the \$65k median income floor: {$belowIncome} cities."],
         ["Missing Census data: {$noIncome} cities."],
-        ['Final count: ' . count($out) . ' cities.'],
+        ['Kept: ' . count($tier1) . ' main + ' . count($tier2) . ' demoted + ' . count($excluded) . ' excluded = ' . count($kept) . ' total.'],
         [''],
-        ['REAL PRIORITY ORDER (median Score per bucket, not the theoretical income-first heuristic)'],
+        ['POPULATION DAMPENER (this niche\'s own settings, adjustable on the Data 3 form)'],
+        ["Excluded entirely at >= " . number_format($excludeAbove) . " population."],
+        ["Demoted to the back of the list at >= " . number_format($demoteAbove) . " population (ranked #" . (count($tier1Order) + 1) . "-#" . count($newOrder) . ", internally ordered by its own score)."],
+        ["Size-fit weight: {$sizeWeight} (how much being the right size counts vs. real measured competition/demand/money — the other three terms are rescaled around this one knob)."],
+        [''],
+        ['Ranking = 0.55x(open directory/map-pack slots) - 0.30x(real local+national competitor count) + demand(volume) + money(avg call price, buyer count) + size-fit (main tier only, peaked near 75k-200k population).'],
     ];
-    foreach ($order as $i => $r) {
-        $flag = $r['n'] < 20 ? " (small sample, n={$r['n']})" : " (n={$r['n']})";
-        $readme[] = [($i + 1) . '. ' . $r['label'] . $flag . ' — median Score ' . $r['med_score']];
-    }
-    if ($standouts) {
+    if ($excludedIds) {
         $readme[] = [''];
-        $readme[] = ['TINY-SAMPLE STANDOUTS'];
-        $last = null;
-        foreach ($standouts as $c) {
-            if ($c['bucket'] !== $last) { $readme[] = [$c['bucket']]; $last = $c['bucket']; }
-            $readme[] = ['  ' . $c['city'] . ', ' . $c['state'] . ' | pop ' . number_format($c['pop'])
-                . ' | income $' . number_format($c['income']) . ' | score ' . $c['score']
-                . ' | volume ' . number_format($c['volume']) . '/mo'];
-        }
+        $readme[] = ['EXCLUDED: ' . implode(', ', array_map(fn($id) => $excluded[$id]['city'] . ', ' . $excluded[$id]['ss'], $excludedIds))];
     }
 
     $fname = preg_replace('/[^a-z0-9-]/i', '', $niche) . '-city-bucket-' . date('Ymd-His') . '.xlsx';
@@ -1655,8 +1775,8 @@ function infra_city_bucket_run(string $niche, string $runId, int $popFloor): arr
 
     infra_city_bucket_history_add($niche, [
         'created_at' => date('c'), 'source_run_id' => $runId, 'pop_floor' => $popFloor,
-        'file' => $fname, 'count' => count($out),
+        'bucket_params' => $params, 'file' => $fname, 'count' => count($newOrder),
     ]);
 
-    return ['ok' => true, 'msg' => count($out) . ' cities bucketed.', 'file' => $fname, 'count' => count($out)];
+    return ['ok' => true, 'msg' => count($newOrder) . ' cities bucketed (' . count($excluded) . ' excluded).', 'file' => $fname, 'count' => count($newOrder)];
 }
