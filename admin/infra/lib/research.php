@@ -1592,6 +1592,59 @@ function infra_city_bucket_history_add(string $niche, array $entry): void
     file_put_contents(infra_city_bucket_history_path($niche), json_encode($rows, JSON_PRETTY_PRINT));
 }
 
+/** Fixed, absolute difficulty bands — unlike Grade (a per-niche percentile), SEO
+ *  Difficulty is a real count of competing businesses in the live SERP, so the same
+ *  cutoff means the same thing in every niche. */
+function infra_bucket_difficulty_group(float $diff): string
+{
+    if ($diff < 2) return 'Very Easy';
+    if ($diff < 4) return 'Easy';
+    if ($diff < 5) return 'Moderate';
+    if ($diff < 6) return 'Hard';
+    return 'Very Hard';
+}
+
+/** One cached copy of the latest Data 3 run's full per-city rows, separate from the
+ *  small history list above — the view needs the real rows to render the Difficulty x
+ *  Grade summary and the filterable table, and the xlsx alone can't be read back by PHP. */
+function infra_city_bucket_latest_path(string $niche): string
+{
+    $dir = infra_research_dir() . '/city_bucket_runs';
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return $dir . '/' . preg_replace('/[^a-z0-9_-]/i', '', $niche) . '-latest.json';
+}
+
+function infra_city_bucket_save_latest(string $niche, array $data): void
+{
+    file_put_contents(infra_city_bucket_latest_path($niche), json_encode($data, JSON_PRETTY_PRINT));
+}
+
+function infra_city_bucket_load_latest(string $niche): ?array
+{
+    $p = infra_city_bucket_latest_path($niche);
+    if (!is_file($p)) return null;
+    $d = json_decode((string) file_get_contents($p), true);
+    return is_array($d) ? $d : null;
+}
+
+/** Difficulty-group x Grade counts, Main tier only — a shape-of-the-list summary
+ *  above the full table, same scope as when this was first worked out by hand. */
+function infra_city_bucket_crosstab(array $rows): array
+{
+    $groups = ['Very Easy', 'Easy', 'Moderate', 'Hard', 'Very Hard'];
+    $grades = ['A', 'B', 'C', 'D', 'F'];
+    $counts = [];
+    foreach ($groups as $g) foreach ($grades as $gr) $counts[$g][$gr] = 0;
+    foreach ($rows as $r) {
+        if (($r['tier'] ?? '') !== 'main') continue;
+        $g = $r['difficulty_group'] ?? null;
+        $gr = $r['grade'] ?? null;
+        if ($g === null || $gr === null || !isset($counts[$g][$gr])) continue;
+        $counts[$g][$gr]++;
+    }
+    return ['groups' => $groups, 'grades' => $grades, 'counts' => $counts];
+}
+
 /**
  * @return array{ok:bool,msg:string,file:?string,count:?int}
  */
@@ -1722,14 +1775,24 @@ function infra_city_bucket_run(string $niche, string $runId, int $popFloor, ?arr
         'Homeownership %', 'Search Volume', 'SEO Difficulty', 'Local Buyers', '1P Avg $', 'Old Score', 'Revised Score', 'Grade',
     ]];
     $tier1Set = array_flip($tier1Order);
+    $cacheRows = [];
     foreach ($newOrder as $i => $id) {
         $c = $ranked[$id];
+        $isMain = isset($tier1Set[$id]);
         $sheet[] = [
-            $i + 1, isset($tier1Set[$id]) ? 'Main' : 'Demoted (big city)',
+            $i + 1, $isMain ? 'Main' : 'Demoted (big city)',
             $c['band'], $c['tier'], (string) $c['city'], (string) $c['ss'], $c['pop'], $c['income'],
             $c['homeownership'], (int) round($c['volume'] ?? 0), $c['seo_difficulty'],
             (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
             round((float) ($c['score'] ?? 0), 3), $c['revised_score'], (string) ($c['grade'] ?? ''),
+        ];
+        $cacheRows[] = [
+            'build_order' => $i + 1, 'tier' => $isMain ? 'main' : 'demoted',
+            'city' => (string) $c['city'], 'state' => (string) $c['ss'], 'pop' => $c['pop'],
+            'income' => $c['income'], 'volume' => (int) round($c['volume'] ?? 0),
+            'difficulty' => $c['seo_difficulty'], 'difficulty_group' => infra_bucket_difficulty_group((float) $c['seo_difficulty']),
+            'buyers' => (float) ($c['buyers'] ?? 0), 'price' => (float) ($c['price_avg'] ?? 0),
+            'revised_score' => $c['revised_score'], 'grade' => (string) ($c['grade'] ?? ''),
         ];
     }
     $excludedIds = array_keys($excluded);
@@ -1742,6 +1805,14 @@ function infra_city_bucket_run(string $niche, string $runId, int $popFloor, ?arr
             $c['pop'], $c['income'], $c['homeownership'], (int) round($c['volume'] ?? 0), round($diff, 1),
             (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
             round((float) ($c['score'] ?? 0), 3), '', (string) ($c['grade'] ?? ''),
+        ];
+        $cacheRows[] = [
+            'build_order' => null, 'tier' => 'excluded',
+            'city' => (string) $c['city'], 'state' => (string) $c['ss'], 'pop' => $c['pop'],
+            'income' => $c['income'], 'volume' => (int) round($c['volume'] ?? 0),
+            'difficulty' => round($diff, 1), 'difficulty_group' => infra_bucket_difficulty_group((float) $diff),
+            'buyers' => (float) ($c['buyers'] ?? 0), 'price' => (float) ($c['price_avg'] ?? 0),
+            'revised_score' => null, 'grade' => (string) ($c['grade'] ?? ''),
         ];
     }
 
@@ -1776,6 +1847,10 @@ function infra_city_bucket_run(string $niche, string $runId, int $popFloor, ?arr
     infra_city_bucket_history_add($niche, [
         'created_at' => date('c'), 'source_run_id' => $runId, 'pop_floor' => $popFloor,
         'bucket_params' => $params, 'file' => $fname, 'count' => count($newOrder),
+    ]);
+    infra_city_bucket_save_latest($niche, [
+        'created_at' => date('c'), 'source_run_id' => $runId, 'pop_floor' => $popFloor,
+        'rows' => $cacheRows,
     ]);
 
     return ['ok' => true, 'msg' => count($newOrder) . ' cities bucketed (' . count($excluded) . ' excluded).', 'file' => $fname, 'count' => count($newOrder)];

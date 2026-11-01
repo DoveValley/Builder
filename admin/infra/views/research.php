@@ -43,6 +43,13 @@ if ($bucketDefaultRunId) {
     if ($bucketDefaultRun) $bucketSuggestedFloor = infra_city_bucket_suggest_floor($bucketDefaultRun['candidates']);
 }
 $bucketParams = infra_bucket_params_load($niche);
+
+// Latest Data 3 run's full per-city rows (cached separately from the small
+// history list above, since the view needs real rows to render and the xlsx
+// itself can't be read back by PHP) — drives the Difficulty x Grade summary
+// and the filterable table below the "Run Data 3" form.
+$bucketLatest  = infra_city_bucket_load_latest($niche);
+$bucketCrosstab = $bucketLatest ? infra_city_bucket_crosstab($bucketLatest['rows']) : null;
 ?>
 
 <div style="margin-bottom:10px">
@@ -736,6 +743,86 @@ $bucketParams = infra_bucket_params_load($niche);
     but-workable demoted to the back), and a Build Order number so the whole list sorts into build-
     priority order with one click.
   </p>
+
+  <?php if ($bucketLatest && $bucketCrosstab): ?>
+  <h2 style="margin:14px 0 8px;font-size:15px">Difficulty &times; Grade — <?= ih($niches[$niche]['label']) ?>
+    <span style="font-weight:normal;font-size:12px;color:#6b7280">(Main tier, from the
+    <?= ih(substr($bucketLatest['created_at'], 0, 16)) ?> run)</span></h2>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px">
+    Difficulty is a fixed, absolute band (real competitor count in the live SERP — the same number
+    means the same thing in every niche). Grade is a percentile rank within this niche's own pool
+    (top 15% = A ... bottom 10% = F) and does not know about city size.
+  </p>
+  <?php
+    $ctCounts = $bucketCrosstab['counts'];
+    $ctRowTotals = []; $ctColTotals = array_fill_keys($bucketCrosstab['grades'], 0); $ctGrand = 0;
+    foreach ($bucketCrosstab['groups'] as $g) {
+        $ctRowTotals[$g] = array_sum($ctCounts[$g]);
+        foreach ($bucketCrosstab['grades'] as $gr) $ctColTotals[$gr] += $ctCounts[$g][$gr];
+        $ctGrand += $ctRowTotals[$g];
+    }
+  ?>
+  <table style="margin-bottom:14px"><thead><tr>
+      <th></th><?php foreach ($bucketCrosstab['grades'] as $gr): ?><th style="text-align:right"><?= ih($gr) ?></th><?php endforeach; ?>
+      <th style="text-align:right">Total</th>
+    </tr></thead><tbody>
+    <?php foreach ($bucketCrosstab['groups'] as $g): ?>
+      <tr>
+        <td><?= ih($g) ?></td>
+        <?php foreach ($bucketCrosstab['grades'] as $gr): ?><td style="text-align:right"><?= $ctCounts[$g][$gr] ?></td><?php endforeach; ?>
+        <td style="text-align:right;font-weight:600"><?= $ctRowTotals[$g] ?></td>
+      </tr>
+    <?php endforeach; ?>
+    <tr style="border-top:2px solid #e5e7eb">
+      <td style="font-weight:600">Total</td>
+      <?php foreach ($bucketCrosstab['grades'] as $gr): ?><td style="text-align:right;font-weight:600"><?= $ctColTotals[$gr] ?></td><?php endforeach; ?>
+      <td style="text-align:right;font-weight:700"><?= $ctGrand ?></td>
+    </tr>
+  </tbody></table>
+
+  <h2 style="margin:14px 0 8px;font-size:15px">All candidate cities — <?= ih($niches[$niche]['label']) ?>
+    <span style="font-weight:normal;font-size:12px;color:#6b7280">(<?= count($bucketLatest['rows']) ?> rows)</span></h2>
+  <div style="margin-bottom:8px;display:flex;gap:8px;flex-wrap:wrap">
+    <button type="button" class="btn sec" style="padding:4px 10px;font-size:12px" onclick="icBucketFilter('all')">All</button>
+    <button type="button" class="btn sec" style="padding:4px 10px;font-size:12px" onclick="icBucketFilter('fastwins')">Fast wins (Very Easy/Easy)</button>
+    <button type="button" class="btn sec" style="padding:4px 10px;font-size:12px" onclick="icBucketFilter('sweetspot')">Sweet spot (Easy+ &amp; A/B)</button>
+  </div>
+  <div style="max-height:600px;overflow:auto;border:1px solid #e5e7eb;border-radius:8px">
+  <table id="icBucketTable" style="margin:0"><thead style="position:sticky;top:0;background:#fff;z-index:1"><tr>
+      <th>#</th><th>Tier</th><th>City</th><th>State</th><th style="text-align:right">Pop</th>
+      <th style="text-align:right">Volume</th><th style="text-align:right">Difficulty</th><th>Difficulty Group</th>
+      <th>Grade</th><th style="text-align:right">Score</th>
+    </tr></thead><tbody>
+    <?php foreach ($bucketLatest['rows'] as $r): ?>
+      <tr data-tier="<?= ih($r['tier']) ?>" data-group="<?= ih($r['difficulty_group']) ?>" data-grade="<?= ih($r['grade']) ?>">
+        <td><?= $r['build_order'] !== null ? (int) $r['build_order'] : '—' ?></td>
+        <td style="font-size:11px;color:#6b7280"><?= ih(ucfirst($r['tier'])) ?></td>
+        <td><?= ih($r['city']) ?></td>
+        <td><?= ih($r['state']) ?></td>
+        <td style="text-align:right"><?= number_format((int) $r['pop']) ?></td>
+        <td style="text-align:right"><?= number_format((int) $r['volume']) ?></td>
+        <td style="text-align:right"><?= ih((string) $r['difficulty']) ?></td>
+        <td><?= ih($r['difficulty_group']) ?></td>
+        <td><?= ih($r['grade']) ?></td>
+        <td style="text-align:right"><?= $r['revised_score'] !== null ? ih((string) $r['revised_score']) : '—' ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody></table>
+  </div>
+  <script>
+  function icBucketFilter(mode) {
+    var easy = ['Very Easy', 'Easy'];
+    var goodGrade = ['A', 'B'];
+    document.querySelectorAll('#icBucketTable tbody tr').forEach(function (tr) {
+      var g = tr.getAttribute('data-group'), gr = tr.getAttribute('data-grade');
+      var show = true;
+      if (mode === 'fastwins') show = easy.indexOf(g) !== -1;
+      else if (mode === 'sweetspot') show = easy.indexOf(g) !== -1 && goodGrade.indexOf(gr) !== -1;
+      tr.style.display = show ? '' : 'none';
+    });
+  }
+  </script>
+  <?php endif; ?>
 
   <?php $bucketHistory = infra_city_bucket_history_load($niche); ?>
   <?php if ($bucketHistory): ?>
