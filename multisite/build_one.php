@@ -109,6 +109,18 @@ $params['email'] = 'info@' . preg_replace('#^https?://#i', '', rtrim($domain, '/
 // cities.json (filled by the Research cities step) so the schema still gets geo.
 $params = ms_fill_coords_from_cities($params, $masterId);
 
+// Structure-preset pool (an alternate home-page block skeleton, if the master has
+// one) — read directly off the master's own real directory, not through the
+// snapshot/working-dir clone, same way section_rotation.json's values are resolved
+// before build_one.php ever starts (ms_batch_saved_run_settings()), just read
+// in-process here instead of round-tripped through CLI flags, since the payload is
+// a full block array, not a handful of integers. Decoded once; ms_structure_preset_pick()
+// (differentiate.php) does the per-domain selection.
+$structurePresetsFile = BASE_DIR . '/sites/' . $masterId . '/multisite/structure_presets.json';
+$structurePresets = is_file($structurePresetsFile)
+    ? (json_decode((string) @file_get_contents($structurePresetsFile), true) ?: [])
+    : [];
+
 // Slugify per the documented convention: keep hyphens, other unsafe chars → '_'
 // (pmtraining-dallas.com → pmtraining-dallas_com).
 $domainSlug = ms_domain_slug($domain);
@@ -283,7 +295,7 @@ $rotation = [
     'landing_top'    => $rotLandingTop,
     'landing_bottom' => $rotLandingBottom,
 ];
-ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip, $rotation);
+ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip, $rotation, $structurePresets);
 
 // Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
 // image prune so any generated assets exist and are referenced.

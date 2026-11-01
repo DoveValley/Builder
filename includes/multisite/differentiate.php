@@ -140,6 +140,38 @@ function ms_meta_variant_pool_apply(array &$seo, string $domain, string $saltPre
     }
 }
 
+/**
+ * Picks an alternate home-page block SKELETON for this domain, if the master has
+ * any defined in multisite/structure_presets.json — a structural-lineage axis
+ * distinct from section-order rotation just below, which only reorders whatever
+ * blocks already exist. Index 0 always means "the master's own current
+ * content_blocks, unchanged" — stored presets start at 1 — so a master with no
+ * presets file, or an empty one for this scope, is completely untouched.
+ *
+ * Picked PER DOMAIN (ms_variant($domain, ...)), same as every other axis
+ * (palette/font/jitter/rotation) — a deliberate simplification from the original
+ * per-BATCH framing (goal: if one skeleton ever gets fingerprinted, only the
+ * domains that rolled it are exposed). Per-batch would need a batch id threaded
+ * through build_one.php's CLI args and its caller, which doesn't exist today;
+ * per-domain needs no new plumbing and still gives real blast-radius reduction —
+ * just distributed across the whole fleet rather than along batch boundaries.
+ *
+ * Runs BEFORE section-order rotation (section 5 below), so rotation then shuffles
+ * the middle of whichever skeleton this domain landed on, rather than the two
+ * axes fighting each other.
+ *
+ * @param array $presets Decoded multisite/structure_presets.json — $presets['home']
+ *        is a list of alternate content_blocks arrays (not including the master's
+ *        own, which is always implicitly index 0).
+ */
+function ms_structure_preset_pick(array $presets, string $domain, string $scope): ?array {
+    $pool = $presets[$scope] ?? null;
+    if (!is_array($pool) || !$pool) return null;
+    $pool = array_values($pool);
+    $idx = ms_variant($domain, count($pool) + 1, 'structure_preset_' . $scope);
+    return $idx === 0 ? null : $pool[$idx - 1];
+}
+
 /** GA4 gtag.js snippet for a measurement id. */
 function ms_ga4_snippet(string $id): string {
     $id = htmlspecialchars($id, ENT_QUOTES);
@@ -180,7 +212,7 @@ function ms_gsc_meta(string $token): string {
  * block with nothing to rotate either, so "core pages" were dropped from scope entirely rather
  * than kept as a bucket with nothing real in it.
  */
-function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = [], array $rotation = []): void {
+function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = [], array $rotation = [], array $structurePresets = []): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
     $data = json_decode(file_get_contents($sf), true);
@@ -318,6 +350,14 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
 
         // ── 4b. Search Console verification — per-site meta tag or none ────────
         $data['theme']['gsc_meta'] = ms_gsc_meta($params['gsc_verification'] ?? '');
+    }
+
+    // ── 4c. Structure preset — an alternate home-page skeleton, if the master has
+    // one, picked BEFORE rotation so rotation shuffles the middle of whichever
+    // skeleton this domain landed on, not the master's default every time.
+    $presetBlocks = ms_structure_preset_pick($structurePresets, $domain, 'home');
+    if ($presetBlocks !== null) {
+        $data['content_blocks'] = $presetBlocks;
     }
 
     // ── 5. Section-order rotation — one ordering per domain, computed live ──
