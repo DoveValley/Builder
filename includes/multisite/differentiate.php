@@ -169,6 +169,38 @@ function ms_structure_preset_pick(array $presets, string $domain, string $scope)
     return ms_pool_pick($pool, $domain, 'structure_preset_' . $scope, true);
 }
 
+/**
+ * Picks a per-domain hero BACKGROUND texture from a pre-authored pool, if one
+ * exists for the file currently in play. Separate axis from the leaf-hero AI
+ * photos above — this targets the background field (`hero_bg_image` / `hs_bg_photo`),
+ * which today is one shared file across every page carrying a given hero-type
+ * block (confirmed 2026-11-01: appliance's background is identical across home +
+ * all 127 leaf templates; appliance's and pest's current files were even
+ * byte-identical to EACH OTHER before this pool existed).
+ *
+ * $pools: decoded multisite/hero_bg_pool.json — map of "clone-relative original
+ * path" => [10 variant paths, index 0 is always the original unchanged] — see
+ * tools/generate_hero_bg_pool.php. A file with no pool entry is untouched, so
+ * this is a pure no-op for any master that hasn't run the authoring tool.
+ *
+ * No $includeUnchanged here (unlike the structure preset above) — every pool
+ * entry, including index 0, is an equally valid real texture, not a "disruptive
+ * change" needing a bias toward the status quo.
+ */
+function ms_hero_bg_pool_apply(array &$blocks, string $domain, array $pools, string $salt): void {
+    if (!$pools) return;
+    foreach ($blocks as &$b) {
+        if (!is_array($b) || strncmp($b['type'] ?? '', 'hero', 4) !== 0) continue;
+        foreach ($b as $k => $v) {
+            if (!is_string($k) || stripos($k, 'bg') === false) continue;
+            if (!is_string($v) || !isset($pools[$v])) continue;
+            $picked = ms_pool_pick($pools[$v], $domain, $salt . ':' . $v);
+            if ($picked !== null) $b[$k] = $picked;
+        }
+    }
+    unset($b);
+}
+
 /** GA4 gtag.js snippet for a measurement id. */
 function ms_ga4_snippet(string $id): string {
     $id = htmlspecialchars($id, ENT_QUOTES);
@@ -209,7 +241,7 @@ function ms_gsc_meta(string $token): string {
  * block with nothing to rotate either, so "core pages" were dropped from scope entirely rather
  * than kept as a bucket with nothing real in it.
  */
-function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = [], array $rotation = [], array $structurePresets = []): void {
+function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = [], array $rotation = [], array $structurePresets = [], array $heroBgPools = []): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
     $data = json_decode(file_get_contents($sf), true);
@@ -374,6 +406,11 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     // ── 5c. Meta/og/schema description variant pooling — one pick per domain ──
     if (isset($data['seo'])) ms_meta_variant_pool_apply($data['seo'], $domain, 'meta_variant_home');
 
+    // ── 5d. Hero background texture pooling — one pick per domain ───────────
+    if ($heroBgPools && !empty($data['content_blocks'])) {
+        ms_hero_bg_pool_apply($data['content_blocks'], $domain, $heroBgPools, 'hero_bg_home');
+    }
+
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);
@@ -399,6 +436,10 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
                 $saltKey = 'meta_variant_landing_' . basename($pf, '.json');
                 ms_meta_variant_pool_apply($pg['seo'], $domain, $saltKey);
                 $changed = true; // cheap no-op when the page has no pool yet; writing back is harmless
+            }
+            if ($heroBgPools && !empty($pg['content_blocks'])) {
+                ms_hero_bg_pool_apply($pg['content_blocks'], $domain, $heroBgPools, 'hero_bg_landing_' . basename($pf, '.json'));
+                $changed = true;
             }
             if (!$changed) continue;
             $t = $pf . '.tmp.' . getmypid();

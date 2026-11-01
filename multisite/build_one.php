@@ -121,6 +121,14 @@ $structurePresets = is_file($structurePresetsFile)
     ? (json_decode((string) @file_get_contents($structurePresetsFile), true) ?: [])
     : [];
 
+// Hero background texture pool — same read-once-here, decode-only pattern as the
+// structure presets above; ms_hero_bg_pool_apply() (differentiate.php) does the
+// per-domain pick. Missing/empty file = no pool for this master = pure no-op.
+$heroBgPoolFile = BASE_DIR . '/sites/' . $masterId . '/multisite/hero_bg_pool.json';
+$heroBgPools = is_file($heroBgPoolFile)
+    ? (json_decode((string) @file_get_contents($heroBgPoolFile), true) ?: [])
+    : [];
+
 // Slugify per the documented convention: keep hyphens, other unsafe chars → '_'
 // (pmtraining-dallas.com → pmtraining-dallas_com).
 $domainSlug = ms_domain_slug($domain);
@@ -295,7 +303,7 @@ $rotation = [
     'landing_top'    => $rotLandingTop,
     'landing_bottom' => $rotLandingBottom,
 ];
-ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip, $rotation, $structurePresets);
+ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip, $rotation, $structurePresets, $heroBgPools);
 
 // Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
 // image prune so any generated assets exist and are referenced.

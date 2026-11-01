@@ -113,6 +113,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <a href="#bulk-rows" style="color:#f9a8d4;font-weight:700;">&#128203; Bulk template rows</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
+    <a href="#hero-bg-pool" style="color:#86efac;font-weight:700;">🖼 Hero background pool</a>
     <a class="back" href="#ai-image-examples" style="color:#fd783b;">↓ AI image examples</a>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
@@ -208,6 +209,37 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             <h3 style="margin-top:0;">Ships alongside — the SEO guard</h3>
             <p class="note" style="margin-top:0;">A before/after check that renders each page with and without the variance and compares <strong>the page set, every H1, every title, every meta description, and the schema types</strong>. If any of those move, the variance is wrong and the run fails. That makes "the SEO held" a test result rather than a claim.</p>
         </div>
+    </section>
+
+    <section id="hero-bg-pool" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Hero background pool <span class="pill" style="background:#dcfce7;color:#166534;border-color:#bbf7d0;">✅ built 2026-11-01 · real files, wired into the build</span></h1>
+        <p class="sub">Every hero's background texture was one shared file reused across every page carrying that hero type — home + all 127 leaf templates for appliance, byte-identical to pest's own file before this. <code>tools/generate_hero_bg_pool.php</code> authors 10 variants per file (original + 9 crop/brightness/contrast jitters — no hue shift, since these are literal greyscale source files), and <code>ms_hero_bg_pool_apply()</code> (<code>includes/multisite/differentiate.php</code>) picks one per domain via <code>ms_variant()</code>, same mechanism as every other pool axis this fleet uses. They don't need to look different at a glance — just different enough that no two domains ship the exact same file.</p>
+        <?php
+        $__bgNiches = ['appliance-site' => 'Appliance', 'water-site' => 'Water', 'mold-site' => 'Mold', 'pest-template' => 'Pest'];
+        foreach ($__bgNiches as $__master => $__label):
+            $__poolFile = BASE_DIR . '/sites/' . $__master . '/multisite/hero_bg_pool.json';
+            $__pools = is_file($__poolFile) ? (json_decode((string) @file_get_contents($__poolFile), true) ?: []) : [];
+            if (!$__pools) continue;
+            foreach ($__pools as $__origKey => $__variants):
+        ?>
+            <div class="card" style="margin-top:16px;">
+                <h3 style="margin-top:0;"><?= $h($__label) ?> <span style="font-weight:400;color:#94a3b8;font-size:.8rem;"><?= $h($__origKey) ?> — <?= count($__variants) ?> variants</span></h3>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                    <?php foreach ($__variants as $__i => $__rel): ?>
+                        <div style="text-align:center;">
+                            <a href="/sites/<?= $h($__master) ?>/<?= $h($__rel) ?>" target="_blank">
+                                <img src="/sites/<?= $h($__master) ?>/<?= $h($__rel) ?>" alt="variant <?= $__i ?>"
+                                     style="width:190px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0;display:block;background:#f8fafc;">
+                            </a>
+                            <div style="font-size:.72rem;color:#64748b;margin-top:3px;"><?= $__i === 0 ? 'original (v0)' : 'v' . $__i ?></div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php
+            endforeach;
+        endforeach;
+        ?>
     </section>
 
     <section id="water-icons" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">

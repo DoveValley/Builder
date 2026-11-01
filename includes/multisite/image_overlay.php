@@ -257,7 +257,8 @@ function ms_overlay_hardlink_dir(string $src, string $dst): void {
 /** Stamp keyword + "City, ST" onto every hero image in a block list (by ref).
  *  Writes a per-page/per-domain output file and repoints the block field to it.
  *  Returns the number of images stamped. */
-function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, string $workingDir, string $pageKey, string $siteCitySlug, string $masterCitySlug, array $styleOverride): array {
+function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, string $workingDir, string $pageKey, string $siteCitySlug, string $masterCitySlug, array $styleOverride, string $seed = ''): array {
+    $domainHash = ms_domain_image_hash($seed);
     $out = [];
     foreach ($blocks as &$b) {
         if (!is_array($b)) continue;
@@ -297,7 +298,11 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         // keyword-derived name never depends on what the original pool file happened to be
         // called, so it can't inherit a stale place name the strip step was never told about.
         // Falls back to the old city-stripped name if $keyword is blank for some reason.
-        $sig = substr(md5($line1 . '|' . $line2 . '|' . json_encode($o)), 0, 8);
+        // $domainHash folded into the signature (not just appended to the name) so
+        // EVERY path below — keyword-named or the city-stripped fallback — ends up
+        // domain-unique via the same "__{pageKey}_{sig}" suffix every stamped file
+        // already gets; no need to touch the keyword-slug branch's own suffix.
+        $sig = substr(md5($domainHash . '|' . $line1 . '|' . $line2 . '|' . json_encode($o)), 0, 8);
         $keywordSlug = function_exists('slugify') ? slugify($keyword) : strtolower(trim(preg_replace('/[^a-z0-9]+/', '-', $keyword), '-'));
         if ($keywordSlug !== '') {
             $dir    = trim(dirname($rel), '.');
@@ -305,7 +310,7 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
             $suffix = $siteCitySlug !== '' ? '-' . $siteCitySlug : '';
             $cityRel = ($dir !== '' ? $dir . '/' : '') . $keywordSlug . $suffix . ($ext !== '' ? '.' . $ext : '');
         } else {
-            $cityRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
+            $cityRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug, $domainHash);
         }
         $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '_' . $sig . '$1', $cityRel);
         $outFile = $workingDir . '/' . $outRel;
@@ -499,9 +504,21 @@ function ms_perturb_image(string $src, string $out, string $seed, array $ranges 
     return $rc === 0 && is_file($out) && filesize($out) > 0;
 }
 
-/** Rebuild an uploads-relative path with the site city appended (and the master
- *  city stripped if present). Keeps the directory + extension. */
-function ms_city_image_path(string $rel, string $siteCitySlug, string $masterCitySlug = ''): string {
+/** Rebuild an uploads-relative path with the site city AND a short domain hash
+ *  appended (and the master city stripped if present). Keeps the directory +
+ *  extension.
+ *
+ * The domain hash closes a real gap found 2026-11-01: without it, two different
+ * domains that happen to share a city (and, for a pooled axis, the same pool
+ * pick) produce the byte-DIFFERENT (content is still perturbed per domain — see
+ * ms_perturb_image()'s own domain-seeded jitter) but NAME-IDENTICAL file —
+ * "hero-bg-light-bgv4-harrisburg-nc.webp" on two unrelated sites. A crawler
+ * comparing filenames across the fleet wouldn't need to open either file to
+ * notice the pattern. $domainHash is empty only when no domain is known (should
+ * not happen in practice — every real build has one), in which case the name is
+ * city-only, same as before this fix.
+ */
+function ms_city_image_path(string $rel, string $siteCitySlug, string $masterCitySlug = '', string $domainHash = ''): string {
     $dir  = trim(dirname($rel), '.');
     $ext  = pathinfo($rel, PATHINFO_EXTENSION);
     $stem = pathinfo($rel, PATHINFO_FILENAME);
@@ -514,14 +531,23 @@ function ms_city_image_path(string $rel, string $siteCitySlug, string $masterCit
     $stem = trim(preg_replace('/[-_]{2,}/', '-', $stem), '-_');
     if ($stem === '') $stem = 'img';
     $suffix = $siteCitySlug !== '' ? '-' . $siteCitySlug : '';
+    $suffix .= $domainHash !== '' ? '-' . $domainHash : '';
     return ($dir !== '' ? $dir . '/' : '') . $stem . $suffix . ($ext !== '' ? '.' . $ext : '');
 }
 
-/** Perturb one image and give it a city filename. Idempotent (skips if the target
- *  already exists). Leaves the source in place. Returns the new relative path, the
- *  original if unchanged, or null on failure. */
+/** Short, deterministic per-domain hash used to make varied/stamped filenames
+ *  unique per domain, not just per city — same domain always gets the same
+ *  hash, so rebuilds are stable. 6 hex chars, same length convention as the
+ *  other "short hash" uses in this codebase (e.g. image_ai.php's cache names). */
+function ms_domain_image_hash(string $seed): string {
+    return $seed !== '' ? substr(md5($seed), 0, 6) : '';
+}
+
+/** Perturb one image and give it a city+domain filename. Idempotent (skips if
+ *  the target already exists). Leaves the source in place. Returns the new
+ *  relative path, the original if unchanged, or null on failure. */
 function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCitySlug, string $masterCitySlug, array $ranges = []): ?string {
-    $newRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
+    $newRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug, ms_domain_image_hash($seed));
     if ($newRel === $rel) return $rel;
     $newFile = $baseDir . '/' . $newRel;
     if (is_file($newFile)) {
@@ -692,7 +718,7 @@ function ms_process_blocks_images(array &$blocks, array $ctx): array {
 
     $stamped = [];
     if ($doHero) {
-        $stamped = ms_stamp_blocks($blocks, $keyword, $cityLine, $baseDir, $pageKey, $citySlug, $mcs, $style);
+        $stamped = ms_stamp_blocks($blocks, $keyword, $cityLine, $baseDir, $pageKey, $citySlug, $mcs, $style, $seed);
     }
     $varied = 0;
     if ($doVary && $citySlug !== '') {
@@ -714,7 +740,12 @@ function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, str
     if ($siteCitySlug === '') return 0;
     $txt = @file_get_contents($file);
     if ($txt === false || !preg_match_all('#uploads/[A-Za-z0-9._/\-]+\.(?:jpe?g|png|webp)#i', $txt, $m)) return 0;
-    $suffix = '-' . $siteCitySlug;
+    // Must match ms_city_image_path()'s actual output shape exactly, domain hash
+    // included — checked against just "-{citySlug}" before the hash was added,
+    // which stopped matching ms_vary_one()-renamed files already written by the
+    // typed walk above and caused this sweep to re-rename (and re-suffix) them a
+    // second time. Found by an actual two-domain test build, not inspection.
+    $suffix = '-' . $siteCitySlug . (($dh = ms_domain_image_hash($seed)) !== '' ? '-' . $dh : '');
     $count = 0; $seen = [];
     foreach (array_unique($m[0]) as $raw) {
         $rel = ltrim($raw, '/');
