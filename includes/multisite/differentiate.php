@@ -189,9 +189,18 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     // merging into the existing one — two entities sharing one @id, which is what
     // broke the schema every real multisite domain shipped (found via a real
     // review of baileyrestoration.com's live schema, not a hypothetical).
+    // Only build a PostalAddress when a real street address is on file. city/SS/zip
+    // alone are NOT a physical premises — this is a no-GBP, no-storefront rank-and-rent
+    // model (see project_keyword_map_strategy.md), and those three fields are already
+    // correctly expressed below via areaServed without asserting a location. A
+    // PostalAddress keyed only on city/state used to get built for every row regardless
+    // (city/SS are always present), which is a fake NAP — found via a real schema audit
+    // 2026-11-01, not a hypothetical.
     $addr = [];
-    foreach ([['address','streetAddress'], ['city','addressLocality'], ['SS','addressRegion'], ['zip','postalCode']] as [$pk, $ak]) {
-        if (($params[$pk] ?? '') !== '') $addr[$ak] = $params[$pk];
+    if (($params['address'] ?? '') !== '') {
+        foreach ([['address','streetAddress'], ['city','addressLocality'], ['SS','addressRegion'], ['zip','postalCode']] as [$pk, $ak]) {
+            if (($params[$pk] ?? '') !== '') $addr[$ak] = $params[$pk];
+        }
     }
     $hasGeo    = ($params['lat'] ?? '') !== '' && ($params['lng'] ?? '') !== '';
     $hasRating = ($params['rating'] ?? '') !== '' && ($params['review_count'] ?? '') !== '';
