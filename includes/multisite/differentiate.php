@@ -116,15 +116,14 @@ function ms_strip_key_in_json_field(string $json, string $key): string {
  * the schema structure the way the LocalBusiness NAP merge above does.
  */
 function ms_meta_variant_pool_apply(array &$seo, string $domain, string $saltPrefix): void {
-    if (!empty($seo['meta_description_pool']) && is_array($seo['meta_description_pool'])) {
-        $pool = array_values($seo['meta_description_pool']);
-        $idx  = ms_variant($domain, count($pool), $saltPrefix . '_meta');
-        $seo['meta_description'] = (string) $pool[$idx];
+    $meta = ms_pool_pick($seo['meta_description_pool'] ?? [], $domain, $saltPrefix . '_meta');
+    if ($meta !== null) {
+        $seo['meta_description'] = (string) $meta;
     }
-    if (!empty($seo['og_description_pool']) && is_array($seo['og_description_pool'])) {
-        $pool   = array_values($seo['og_description_pool']);
-        $idx    = ms_variant($domain, count($pool), $saltPrefix . '_desc');
-        $picked = (string) $pool[$idx];
+
+    $desc = ms_pool_pick($seo['og_description_pool'] ?? [], $domain, $saltPrefix . '_desc');
+    if ($desc !== null) {
+        $picked  = (string) $desc;
         $oldText = (string) ($seo['og_description'] ?? '');
         $seo['og_description'] = $picked;
         if (($seo['service_description'] ?? null) === $oldText) {
@@ -167,9 +166,7 @@ function ms_meta_variant_pool_apply(array &$seo, string $domain, string $saltPre
 function ms_structure_preset_pick(array $presets, string $domain, string $scope): ?array {
     $pool = $presets[$scope] ?? null;
     if (!is_array($pool) || !$pool) return null;
-    $pool = array_values($pool);
-    $idx = ms_variant($domain, count($pool) + 1, 'structure_preset_' . $scope);
-    return $idx === 0 ? null : $pool[$idx - 1];
+    return ms_pool_pick($pool, $domain, 'structure_preset_' . $scope, true);
 }
 
 /** GA4 gtag.js snippet for a measurement id. */

@@ -78,6 +78,39 @@ function ms_variant(string $domain, int $count, string $salt = ''): int {
 }
 
 /**
+ * Generic per-domain pick from a pool of pre-authored options — the shared mechanism
+ * behind every "pool of real variants, pick one deterministically" axis (meta/og
+ * description pooling, structure presets, and any future one). Pulled out after two
+ * near-identical versions of this same logic were written separately for those two
+ * features — same root cause this codebase's own "duplicated API clients do not stay
+ * duplicates, they become different" rule warns about, just at a smaller scale.
+ *
+ * @param array $pool Candidate items (re-indexed internally, so keys don't matter).
+ * @param string $domain The per-domain hash seed (ms_variant()'s own stable hash).
+ * @param string $salt Distinguishes this pick from any other pick keyed on the same
+ *        domain (different fields, different scopes) so they don't all land on the
+ *        same index together.
+ * @param bool $includeUnchanged When true, reserves index 0 as "no pick" (returns
+ *        null) and offsets real items to 1..count — use when "keep the current/
+ *        default value" should be a real, equally-weighted option (structure
+ *        presets: most domains should stay on the proven default). When false
+ *        (the default), every pool item is a real option with no "unchanged" choice
+ *        — use when there's no reason to ever re-select whatever the pool exists to
+ *        move away from (description variants: the single original text).
+ * @return mixed|null The picked item; null if the pool is empty, or if
+ *         $includeUnchanged and index 0 was picked.
+ */
+function ms_pool_pick(array $pool, string $domain, string $salt, bool $includeUnchanged = false) {
+    $pool = array_values($pool);
+    if (!$pool) return null;
+    if ($includeUnchanged) {
+        $idx = ms_variant($domain, count($pool) + 1, $salt);
+        return $idx === 0 ? null : $pool[$idx - 1];
+    }
+    return $pool[ms_variant($domain, count($pool), $salt)];
+}
+
+/**
  * Generate up to ($total-1) alternate orderings of an arbitrary list (each a full
  * permutation of $items — not ids, not a page, just "a couple of swaps" applied to
  * whatever was handed in). Same swap shape as layout_generate_variants(), generalized
