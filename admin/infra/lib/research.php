@@ -1544,28 +1544,54 @@ function infra_city_bucket_median(array $a): float
     return $n % 2 ? $a[$m] : ($a[$m - 1] + $a[$m]) / 2;
 }
 
+/** Finer probe bands than INFRA_CITY_BUCKET_BANDS, used only to find where real demand
+ *  starts — the bucket bands themselves are too coarse (25k-75k) to tell a dead city
+ *  from a thin one, which is exactly what produced the v359 false-75k bug below. */
+const INFRA_CITY_FLOOR_PROBE_BANDS = [
+    15000  => [15000, 25000],
+    25000  => [25000, 30000],
+    30000  => [30000, 50000],
+    50000  => [50000, 75000],
+    75000  => [75000, 100000],
+    100000 => [100000, 200000],
+];
+
 /**
- * Runs the same per-band real search-volume check done by hand for every niche
- * in the 2026-10-26 session (see project_current_state.md v313, "step 0") —
- * returns the lowest population floor where median volume isn't near-zero.
- * This is a judgment call, not a hard rule (the original per-niche calls
- * weighed median AND %-at-zero together), so it's a DEFAULT for the input
- * field, not a silent decision — always shown and editable next to the button.
+ * Returns the lowest population floor where a city's odds of having real search volume
+ * stop looking like noise. Originally (through 2026-11-01, see project_current_state.md
+ * v313) this checked only the 15k-25k band's *median*, and only chose between 15000 or
+ * 75000 — a band that's 39-44% real demand / rest zero still medians to exactly 0, so it
+ * got read as "dead" alongside bands that really were dead. Found in v359 via
+ * wildlife-control (15k-25k = 12% nonzero, genuinely weak) vs. mold/restoration/roofing
+ * (15k-25k = 39-44% nonzero, very much not dead) both producing the same 75000 suggestion.
+ *
+ * Fixed version checks nonzero-rate — not median — across finer bands, and returns the
+ * lowest band whose rate clears a "not noise" floor. Bands with too few candidates to
+ * judge are skipped rather than trusted. Still a DEFAULT for the input field, not a
+ * silent decision — always shown and editable next to the button; Scott may still hand-
+ * tune within a band this can't see (it has no 25k-30k data point of its own, for example).
  */
 function infra_city_bucket_suggest_floor(array $candidates): int
 {
-    $vols15to25 = [];
-    foreach ($candidates as $c) {
-        if (infra_city_bucket_band_of((int) ($c['population'] ?? 0)) === '15k-25k') {
-            $vols15to25[] = (float) ($c['volume'] ?? 0);
+    $minRealRate = 0.15; // below this, a band reads as dead noise, not thin-but-real demand
+    $minSample = 5;      // fewer candidates than this and the rate itself is noise
+
+    $floors = array_keys(INFRA_CITY_FLOOR_PROBE_BANDS);
+    foreach (INFRA_CITY_FLOOR_PROBE_BANDS as $floor => [$lo, $hi]) {
+        $vols = [];
+        foreach ($candidates as $c) {
+            $pop = (int) ($c['population'] ?? 0);
+            if ($pop >= $lo && $pop < $hi) $vols[] = (float) ($c['volume'] ?? 0);
         }
+        if (count($vols) < $minSample) continue; // too few cities in this band to judge, keep climbing
+
+        $nonzeroRate = count(array_filter($vols, fn($v) => $v > 0)) / count($vols);
+        if ($nonzeroRate >= $minRealRate) return $floor;
     }
-    // Matches every real case found this session (v313): a niche's 15k-25k band either
-    // has real median volume (appliance/plumbing/pest/electrician/hvac/garage-door-repair,
-    // all 15k) or comes back at literal zero (restoration/mold/roofing, all 75k) — no
-    // niche landed in between, so this two-way split is what's actually been observed,
-    // not a guess at a third option.
-    return ($vols15to25 && infra_city_bucket_median($vols15to25) > 0) ? 15000 : 75000;
+
+    // Every probed band was dead, or too thin to judge at all — fall back to the top of
+    // the probe range rather than silently defaulting to the lowest number.
+    return end($floors);
 }
 
 /** Where a niche's bucket-run history lives — same idea as Past Runs for City Research
