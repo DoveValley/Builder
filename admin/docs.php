@@ -4938,6 +4938,27 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <p>Each is a real, separately cached AI call — a domain that already has all five cached costs nothing extra on a rebuild; only a fresh domain, or one with <code>--force</code>, pays for them. Cache extraction (<code>ms_footer_reword_extract_to_cache()</code>, <code>ms_blog_extract_to_cache()</code>) must run AFTER the main <code>ai_block</code> cache extraction in <code>build_one.php</code>, since that call overwrites the whole per-domain cache file.</p>
 </section>
 
+<section id="ms-meta-variants">
+    <h2>Meta / og / schema description pooling</h2>
+    <p class="bc-meta">✅ BUILT 2026-11-01 — content generated for all 4 niches. No batch-panel checkbox — always applies when a page has a pool, pure no-op otherwise.</p>
+    <p>Real severity measured 2026-11-01: <code>meta_description</code>, <code>og_description</code>, <code>service_description</code>, and the schema's embedded <code>description</code> were each a single fixed string per leaf-page template, shared identically across 96-100% of live domains carrying that template — the same kind of fleet-wide duplication as the legal/footer text the reword sub-steps above already fix, but for the one thing search engines actually index as the page's own summary.</p>
+    <h3>Authoring — a one-time tool, not a per-build AI call</h3>
+    <p>Unlike the reword sub-steps above (a live AI call per domain, every build), this is a <strong>pool-of-pre-authored-variants</strong> design — write a handful of genuinely different phrasings once per template, then pick one per domain deterministically, same mechanism as <a href="#spec-layout-skeletons">chart-group rotation</a>. No AI cost at build time, ever.</p>
+    <p><code>tools/generate_meta_variant_pools.php &lt;master_id&gt; [--count=4] [--pages=home,landing] [--limit=N] [--force]</code> — calls Claude (<code>ANTHROPIC_SMART</code>) once per page per field, asking for N variants that (1) preserve every <code>{token}</code> exactly, (2) keep the primary keyword + city near the FRONT of the string (the original bug: city was buried at the end, often past where a search snippet truncates), (3) read as genuinely distinct sentences, not synonym-swaps, and (4) follow that niche's own <code>niche_brief.json</code> <code>guardrails</code> string, loaded automatically — same text the reword prompts already respect. A variant that drops or alters a <code>{token}</code> is rejected for that field only; the rest of the page is unaffected.</p>
+    <div class="callout warn"><strong>The real per-city pages are NOT <code>data/pages/*.json</code>.</strong> Those files are deleted and regenerated from scratch on every single build, from the compiled registry <code>data/templates.json</code> (via <code>generate_city_pages_locked()</code>, <code>includes/generation/engine.php</code> — the same engine Granite's single-site system uses). The tool writes pools into <code>templates.json</code>'s own <code>seo</code> blocks (and <code>data/site.json</code> for the home page) for exactly this reason — a pool written to <code>data/pages/*.json</code> directly gets silently discarded before the next build ever sees it.</div>
+    <h3>Picking a variant — <code>ms_meta_variant_pool_apply()</code></h3>
+    <p>Runs in <code>includes/multisite/differentiate.php</code>, for the home page and inside the landing-page loop (independently of whether section-order rotation is on — a different feature sharing the same per-page loop). Picks one variant each from <code>meta_description_pool</code>/<code>og_description_pool</code> via <code>ms_variant()</code> (the domain's stable hash), overwrites <code>meta_description</code>, and applies the picked <code>og_description_pool</code> text to <code>og_description</code> AND <code>service_description</code> AND does a surgical string-replace inside the schema's still-unresolved JSON text (same convention as the LocalBusiness NAP merge next to it). A page with no pool yet is completely untouched — safe to run across the whole fleet regardless of which masters have been generated.</p>
+    <h3>Current real coverage</h3>
+    <table>
+        <tr><th>Master</th><th>Pages pooled</th></tr>
+        <tr><td>appliance-site</td><td>128 of 128 (home + all 127 templates)</td></tr>
+        <tr><td>water-site</td><td>31 of 31 (home + all 30 templates)</td></tr>
+        <tr><td>mold-site</td><td>23 of 23 (home + all 22 templates)</td></tr>
+        <tr><td>pest-template</td><td>33 of 33 (home + all 32 templates)</td></tr>
+    </table>
+    <p>Verified via real local builds on appliance and mold — picked text confirmed varied, tokens intact, schema updated — before trusting the mechanism at fleet scale. Not yet reflected on any live domain: a batch regenerate + redeploy is still a separate, later step.</p>
+</section>
+
 <section id="ms-landing">
     <h2>Per-deploy landing pages</h2>
     <p>Besides its single home/core city, a deploy can get extra service <strong>landing pages</strong> — one per nearby city — via the optional <code>landing_cities</code> column. Its value is a <code>;</code>-separated list of <code>City, ST</code> entries:</p>
@@ -5506,6 +5527,15 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3>DOM section order <span class="pri should">Should</span></h3>
     <p class="bc-meta">✅ BUILT (Home + Landing pages) — see <a href="#spec-layout-skeletons">2a</a></p>
     <p>Each page's own current blocks are reordered live by a seeded shuffle (<code>layout_rotate_blocks()</code>, <code>includes/layout_variations.php</code>) with configurable top/bottom pin counts — not a fixed set of hand-authored skeletons.</p>
+    <div class="callout warn"><strong>The real default when a batch has no saved <code>section_rotation.json</code> is top=20/bottom=20</strong> — on any normal page that pins the whole thing, i.e. rotation is OFF by default, not a gentle 1/1 shuffle. The two on/off checkboxes (<code>structure.home</code>/<code>structure.landing</code>) only matter once real pin counts are also set; flipping them on alone does nothing on a page under ~40 blocks.</div>
+    <p>Pin counts are set <strong>per batch</strong> (<code>sites/{master}/batches/{batch}/section_rotation.json</code>), not globally — different template shapes need different numbers to actually stay safe. Verified against every real block-count shape in each niche (not just one sample template) before setting, since leaf-page templates within one niche can vary in length and a number safe for one shape can leave real written content movable on another:</p>
+    <table>
+        <tr><th>Niche (batch)</th><th>Home</th><th>Landing</th><th>Notes</th></tr>
+        <tr><td>appliance (b3)</td><td>top 7 / bottom 4</td><td>top 8 / bottom 4</td><td>Landing verified against all 4 real shapes (13/14/15/16 blocks — 16 is the majority at 85 of 120 templates). Movable pool is always 1-4 blocks, always modular (FAQ pairs, related_links, custom_html) — trust_bar/CTA/written content never move.</td></tr>
+        <tr><td>water (b5)</td><td>off (20/20)</td><td>top 9 / bottom 2</td><td rowspan="3">Home left off deliberately for these three — their homepages are longer (18-20 blocks) and structurally messier than appliance's (several one-off specialty sections, and <code>map_info</code> isn't even the last block), not confidently verifiable without more review. Leaf pages are the much bigger exposure anyway (hundreds of pages/domain vs. one homepage).</td></tr>
+        <tr><td>mold (b2)</td><td>off (20/20)</td><td>top 9 / bottom 3</td></tr>
+        <tr><td>pest (b2)</td><td>off (20/20)</td><td>top 9 / bottom 2</td></tr>
+    </table>
 </section>
 
 <section id="ms-hosting">

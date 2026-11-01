@@ -235,7 +235,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in {city_state}\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Cockroach Exterminator",
-            "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches, german cockroach removal"
+            "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches, german cockroach removal",
+            "meta_description_pool": [
+                "Cockroach Exterminator help in {city_state}: get connected fast to local pros who address roach infestations and reduce bacteria risks. Call {phone}.",
+                "Need a Cockroach Exterminator near {city_state}? We connect you quickly with independent local providers who handle roach problems. Call {phone} today.",
+                "Cockroach Exterminator services linking {city_state} residents to local providers fast, since roaches carry bacteria indoors. Call {phone} now.",
+                "Searching for a Cockroach Exterminator in {city_state}? Our network connects you to responsive local providers who tackle infestations. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Cockroach Exterminator in {city_state}: get connected fast to an independent local provider offering roach treatment for homes and businesses.",
+                "Need a Cockroach Exterminator near {city_state}? We connect you quickly with a local provider who handles roach treatment for homes and businesses.",
+                "Searching for a Cockroach Exterminator in {city_state}? This site links you to an independent local provider ready to tackle roach problems fast.",
+                "Cockroach Exterminator services in {city_state} start here — we connect homes and businesses with a responsive local provider for roach treatment."
+            ]
         },
         "base_role": "Extermination",
         "layout_enabled": true,
@@ -526,7 +538,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Pest Control in {city_state}\",\n            \"serviceType\": \"Ant Pest Control\",\n            \"description\": \"Professional ant pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Ant Pest Control",
-            "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants"
+            "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants",
+            "meta_description_pool": [
+                "Ant Pest Control in {city_state}: get connected fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
+                "Need Ant Pest Control near {city_state}? We connect you quickly with independent local providers ready to tackle invading ant colonies. Call {phone}.",
+                "Ant Pest Control, {city_state}: colonies can number in the thousands — reach local providers fast through us by calling {phone}.",
+                "Searching for Ant Pest Control in {city_state}? We link you to responsive local providers who address ant colonies before they spread. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Ant Pest Control in {city_state}: {business} connects you with independent local providers for prompt ant treatment. Call {phone} to get started.",
+                "Need Ant Pest Control near {city_state}? {business} helps you quickly reach local providers offering targeted ant treatment services. Call {phone}.",
+                "{business} links {city_state} residents to independent ant pest control providers for fast, local service. Call {phone} for a connection today.",
+                "Ant Pest Control, {city_state} area: {business} is your fast, local connection to independent providers handling ant treatment. Call {phone} now."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -817,7 +841,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Fire Ant Exterminator in {city_state}\",\n            \"serviceType\": \"Fire Ant Extermination\",\n            \"description\": \"Professional fire ant exterminator services in {city_state}. Targeted fire ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Fire Ant Control",
-            "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
+            "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment",
+            "meta_description_pool": [
+                "Fire Ant Control in {city_state}: get connected with local providers who treat mounds and colonies to help protect people and pets. Call {phone}.",
+                "Need Fire Ant Control near {city_state}? We connect you with independent local providers who respond quickly to tackle mounds before stings happen. Call {phone}.",
+                "Fire Ant Control, {city_state}: our network links you to local pros who address ant mounds and colonies around your property. Call {phone} today.",
+                "Looking for Fire Ant Control in {city_state}? We'll connect you fast with local providers who handle mounds and colonies to reduce sting risks. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Fire Ant Control in {city_state}: connect with an independent local provider offering targeted treatment for homes and businesses near you.",
+                "Need Fire Ant Control near {city_state}? We connect you to local providers who treat fire ant problems at homes and businesses quickly.",
+                "Fire Ant Control, {city_state} made simple — get matched with a local provider ready to handle fire ant issues at your home or business.",
+                "Local Fire Ant Control for {city_state} residents: this service connects you with nearby independent providers for fast, targeted treatment."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -1107,7 +1143,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Carpenter Ant Exterminator in {city_state}\",\n            \"serviceType\": \"Carpenter Ant Extermination\",\n            \"description\": \"Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Carpenter Ant Control",
-            "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
+            "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage",
+            "meta_description_pool": [
+                "Carpenter Ant Control in {city_state}: get connected with local providers who help stop colonies from hollowing out wood and weakening frames. Call {phone}.",
+                "Need Carpenter Ant Control near {city_state}? We connect you fast with independent local providers who address wood-damaging colonies. Call {phone} today.",
+                "Carpenter Ant Control, {city_state} — find a local provider through us to tackle colonies before they hollow out and weaken wood structures. Call {phone}.",
+                "Looking for Carpenter Ant Control in {city_state}? We link homeowners to responsive local providers who deal with wood-hollowing ant colonies. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Carpenter Ant Control in {city_state}: connect with an independent local provider ready to help homes and businesses tackle an infestation quickly.",
+                "Need Carpenter Ant Control near {city_state}? We connect you with local providers who offer targeted treatment for homes and businesses in the area.",
+                "In {city_state}, Carpenter Ant Control starts with a fast connection to an independent local provider serving homes and businesses nearby.",
+                "Facing carpenter ants in {city_state}? Our network links you to local providers offering responsive Carpenter Ant Control for homes and businesses."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -1389,7 +1437,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Control in {city_state}\",\n            \"serviceType\": \"Bed Bug Control\",\n            \"description\": \"Professional bed bug control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Bed Bug Control",
-            "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs"
+            "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs",
+            "meta_description_pool": [
+                "Bed Bug Control in {city_state}: connect with local providers who understand these fast-multiplying, night-feeding pests. Call {phone} to get started.",
+                "Need Bed Bug Control near {city_state}? We connect you with independent local providers ready to address infestations in bedding and furniture. Call {phone}.",
+                "Bed Bug Control, {city_state}: find local providers who respond quickly to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
+                "Searching for Bed Bug Control in {city_state}? We link you to responsive local providers familiar with these fast-multiplying pests. Call {phone} today."
+            ],
+            "og_description_pool": [
+                "Bed Bug Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone} to get started.",
+                "Need Bed Bug Control near {city_state}? {business} links you fast to local, independent providers ready to help. Call {phone} today.",
+                "Bed Bug Control, {city_state} — {business} is your local connection to independent providers who handle targeted treatment. Call {phone}.",
+                "In {city_state}, {business} helps you find responsive, local providers for Bed Bug Control and targeted treatment. Call {phone} now."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -1684,7 +1744,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Termite Exterminator in {city_state}\",\n            \"serviceType\": \"Termite Extermination\",\n            \"description\": \"Professional termite exterminator services in {city_state}. Targeted termite control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Termite Treatment",
-            "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond"
+            "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond",
+            "meta_description_pool": [
+                "Termite Treatment in {city_state}: get connected fast to local providers who respond to termite damage before it spreads. Call {phone} today.",
+                "Need Termite Treatment near {city_state}? We connect you with local, responsive providers who can help stop termites from damaging your home. Call {phone}.",
+                "Termite Treatment, {city_state}: quickly find local independent providers ready to address termite problems. Call {phone} to get connected now.",
+                "Searching for Termite Treatment in {city_state}? We link you to responsive local providers who tackle termite issues before costly damage occurs. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Termite Treatment in {city_state} starts with a quick connection to an independent local provider serving homes and businesses in your area.",
+                "Need Termite Treatment near {city_state}? We connect you fast to a local, independent provider ready to handle homes and businesses nearby.",
+                "Searching for Termite Treatment in {city_state}? Get matched quickly with a local independent provider serving residential and commercial properties.",
+                "{city_state} Termite Treatment made simple — we link you to a responsive local provider who serves both homes and businesses in the area."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -1975,7 +2047,13 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Mosquito Exterminator in {city_state}\",\n            \"serviceType\": \"Mosquito Extermination\",\n            \"description\": \"Professional mosquito exterminator services in {city_state}. Targeted mosquito control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Mosquito Control",
-            "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment"
+            "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment",
+            "meta_description_pool": [
+                "Mosquito Control in {city_state}: get connected with local providers who help reduce disease-carrying mosquitoes breeding in standing water. Call {phone}.",
+                "Need Mosquito Control near {city_state}? We connect you with local providers who address mosquitoes breeding in standing water. Call {phone} today.",
+                "Mosquito Control serving {city_state} — find local providers ready to help cut down mosquito breeding in standing water. Call {phone} for a fast connection.",
+                "Looking for Mosquito Control in {city_state}? This service links you to local providers who tackle standing-water mosquito breeding. Call {phone} now."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -2261,7 +2339,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Pest Control in {city_state}\",\n            \"serviceType\": \"Flea Pest Control\",\n            \"description\": \"Professional flea pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Flea Pest Control",
-            "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
+            "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas",
+            "meta_description_pool": [
+                "Flea Pest Control in {city_state}: connect with local providers who treat fleas in carpets and pet bedding before infestations spread. Call {phone}.",
+                "Need Flea Pest Control near {city_state}? We help you find independent local providers to address flea problems in carpets and bedding. Call {phone}.",
+                "Flea Pest Control, {city_state} — get matched with local providers experienced in tackling fleas in carpets and pet areas. Call {phone} today.",
+                "Searching for Flea Pest Control in {city_state}? This network connects you to local providers who address flea issues in bedding and carpets. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Flea Pest Control in {city_state}: {business} connects you with local providers for prompt, targeted treatment. Call {phone} to get started.",
+                "Need Flea Pest Control near {city_state}? {business} links you fast to independent local providers ready to help. Call {phone} today.",
+                "Flea Pest Control, {city_state}-area: {business} helps you reach responsive local providers for targeted flea treatment. Call {phone} now.",
+                "Get connected to Flea Pest Control help in {city_state} through {business}, your link to local providers. Call {phone} for a fast response."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -2552,7 +2642,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Treatment in {city_state}\",\n            \"serviceType\": \"Tick Treatment\",\n            \"description\": \"Professional tick treatment services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Tick Treatment",
-            "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
+            "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks",
+            "meta_description_pool": [
+                "Tick Treatment in {city_state}: connect with local providers who help reduce tick activity around your property. Call {phone} to get started.",
+                "Need Tick Treatment near {city_state}? We connect you to local pros who address tick problems before they spread. Call {phone} today.",
+                "Tick Treatment, {city_state}: find local independent providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
+                "Looking for Tick Treatment in {city_state}? This network links you with local providers who tackle tick issues around your home. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Tick Treatment in {city_state}: {business} connects you with independent local providers for targeted service. Call {phone} to get started.",
+                "Need Tick Treatment near {city_state}? {business} quickly links you to local providers offering targeted treatment options. Call {phone} today.",
+                "{business} helps {city_state} residents find local Tick Treatment providers fast, offering targeted service. Reach out at {phone} for a connection.",
+                "Searching for Tick Treatment in {city_state}? {business} connects you to responsive local providers nearby. Call {phone} to get matched today."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -2842,7 +2944,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rat Exterminator in {city_state}\",\n            \"serviceType\": \"Rat Extermination\",\n            \"description\": \"Professional rat exterminator services in {city_state}. Targeted rat control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Rat Exterminator",
-            "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats, mouse exterminator, mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
+            "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats, mouse exterminator, mouse control, mice control, mice exterminator, mouse removal, get rid of mice",
+            "meta_description_pool": [
+                "Rat Exterminator help in {city_state}: get connected fast to local providers who deal with rats damaging wiring, walls, and food. Call {phone}.",
+                "Need a Rat Exterminator near {city_state}? We connect you with independent local providers who respond quickly to rat problems. Call {phone}.",
+                "Rat Exterminator services in {city_state} start with a call to {phone} — we link you to local providers who handle rat issues in homes fast.",
+                "Searching for a Rat Exterminator in {city_state}? Connect quickly with local, independent providers who address rat damage. Call {phone} today."
+            ],
+            "og_description_pool": [
+                "Rat Exterminator help in {city_state}: get connected with a local provider offering targeted rat treatment for homes and businesses near you.",
+                "Need a Rat Exterminator in {city_state}? We connect you fast to an independent local provider who treats rat problems at homes and businesses.",
+                "Rat Exterminator services in {city_state} start here — find a local provider ready to tackle rat issues at your home or business quickly.",
+                "Looking for a Rat Exterminator near {city_state}? This connects you with a local independent provider for prompt residential and commercial rat treatment."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -3132,7 +3246,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Mouse Exterminator in {city_state}\",\n            \"serviceType\": \"Mouse Extermination\",\n            \"description\": \"Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Mouse Exterminator",
-            "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice, mice extermination"
+            "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice, mice extermination",
+            "meta_description_pool": [
+                "Mouse Exterminator services in {city_state} connect you with local providers who address mice entering homes for warmth. Call {phone} to get started.",
+                "Need a Mouse Exterminator near {city_state}? We help connect homeowners dealing with mice to responsive local providers in the area. Call {phone}.",
+                "Mouse Exterminator help for {city_state} residents: get matched with local providers who handle mice seeking warmth indoors. Call {phone} now.",
+                "Looking for a Mouse Exterminator in {city_state}? We quickly connect you with independent local providers for mouse issues. Call {phone} today."
+            ],
+            "og_description_pool": [
+                "Mouse Exterminator services in {city_state}: get connected fast with an independent local provider who treats mice issues at homes and businesses.",
+                "Need a Mouse Exterminator near {city_state}? We connect you quickly to a local, independent provider offering targeted mouse treatment for your property.",
+                "In {city_state}, find a Mouse Exterminator through our referral network — fast connections to local providers serving homes and businesses alike.",
+                "Mouse Exterminator help in {city_state} starts here: this service links you to a responsive local provider who handles mouse treatment for your property."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -3418,7 +3544,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Pest Control in {city_state}\",\n            \"serviceType\": \"Spider Pest Control\",\n            \"description\": \"Professional spider pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Spider Pest Control",
-            "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
+            "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders",
+            "meta_description_pool": [
+                "Spider Pest Control in {city_state}: connect with local providers who help clear webs and reduce bites from corners and dark spaces. Call {phone}.",
+                "Need Spider Pest Control near {city_state}? We connect you fast to local providers who tackle webs and bite-prone spiders. Call {phone} today.",
+                "Spider Pest Control, {city_state} area: get linked to independent local providers addressing webs and biting spiders in dark corners. Call {phone}.",
+                "Searching for Spider Pest Control in {city_state}? We quickly connect homeowners to local providers who handle webs and spider activity. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Spider Pest Control in {city_state}: {business} connects you with local providers offering targeted treatment for spiders. Call {phone} to get started.",
+                "Need Spider Pest Control in {city_state}? {business} links homeowners to responsive local providers for spider treatment. Call {phone} today.",
+                "Spider Pest Control, {city_state} — {business} quickly connects you with independent local providers who handle spider treatment. Call {phone}.",
+                "Looking for Spider Pest Control near {city_state}? {business} puts you in touch with local, responsive providers for spider treatment. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -3704,7 +3842,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Pest Control in {city_state}\",\n            \"serviceType\": \"Scorpion Pest Control\",\n            \"description\": \"Professional scorpion pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Scorpion Pest Control",
-            "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions"
+            "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions",
+            "meta_description_pool": [
+                "Scorpion Pest Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
+                "Need Scorpion Pest Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
+                "Scorpion Pest Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
+                "Find Scorpion Pest Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Scorpion Pest Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
+                "Need Scorpion Pest Control near {city_state}? {business} quickly links you to responsive local providers for scorpion treatment. Call {phone}.",
+                "{business} offers fast Scorpion Pest Control connections in {city_state}, matching you with local providers for targeted treatment. Call {phone} today.",
+                "Searching for Scorpion Pest Control in {city_state}? {business} connects you to local, responsive providers ready to help. Call {phone} now."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -3994,7 +4144,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Exterminator in {city_state}\",\n            \"serviceType\": \"Wasp Extermination\",\n            \"description\": \"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Wasp Exterminator",
-            "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps"
+            "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps",
+            "meta_description_pool": [
+                "Wasp Exterminator help in {city_state}: get connected with local providers who handle aggressive nests before stings become a risk. Call {phone}.",
+                "Need a Wasp Exterminator near {city_state}? We connect you fast to independent local pros who deal with risky nests. Call {phone} now.",
+                "Wasp Exterminator services in {city_state} start with one call. We link you to local providers ready to address aggressive nests. Dial {phone}.",
+                "Searching for a Wasp Exterminator in {city_state}? We quickly connect you with local independent providers for aggressive nest issues. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Wasp Exterminator in {city_state}: connect quickly with an independent local provider offering wasp treatment for homes and businesses near you.",
+                "Need a Wasp Exterminator in {city_state}? We connect you to local, independent providers who handle wasp treatment for homes and businesses fast.",
+                "Searching for a Wasp Exterminator near {city_state}? Get matched with a responsive local provider who treats wasp problems at homes and businesses.",
+                "Wasp Exterminator services in {city_state} start with a fast connection to an independent local provider handling wasp treatment for your property."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -4280,7 +4442,13 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Yellow Jacket Exterminator in {city_state}\",\n            \"serviceType\": \"Yellow Jacket Extermination\",\n            \"description\": \"Professional yellow jacket exterminator services in {city_state}. Targeted yellow jacket control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Yellow Jacket Control",
-            "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
+            "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets",
+            "meta_description_pool": [
+                "Yellow Jacket Control in {city_state}: connect with local providers who address territorial nests before outdoor gatherings are at risk. Call {phone}.",
+                "Need Yellow Jacket Control near {city_state}? We connect you with local providers who handle territorial nests fast. Call {phone} today.",
+                "Yellow Jacket Control, {city_state}: get matched quickly with independent local providers who respond to territorial nest concerns. Call {phone}.",
+                "Find Yellow Jacket Control help in {city_state} fast—our network links you to local providers ready to tackle territorial nests. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -4566,7 +4734,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Silverfish Exterminator in {city_state}\",\n            \"serviceType\": \"Silverfish Extermination\",\n            \"description\": \"Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Silverfish Control",
-            "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
+            "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish",
+            "meta_description_pool": [
+                "Silverfish Control in {city_state}: connect with local providers who address infestations damaging paper, fabrics, and stored goods. Call {phone} today.",
+                "Need Silverfish Control near {city_state}? We help you find local providers fast to tackle pests before they damage fabrics and paper goods. Call {phone}.",
+                "Silverfish Control for {city_state} homes: get matched with independent local providers who handle infestations in humid storage areas. Call {phone} now.",
+                "Searching for Silverfish Control in {city_state}? This service connects you to local providers ready to respond quickly. Call {phone} for help."
+            ],
+            "og_description_pool": [
+                "Silverfish Control in {city_state} starts here — connect quickly with a local independent provider serving homes and businesses nearby.",
+                "Need Silverfish Control near {city_state}? We connect you fast to an independent local provider who handles homes and businesses in your area.",
+                "Searching for Silverfish Control in {city_state}? Get matched with a responsive local provider ready to treat homes and businesses.",
+                "In {city_state}, Silverfish Control is just a connection away — find a local independent provider serving homes and businesses in the area."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -4852,7 +5032,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Centipede Exterminator in {city_state}\",\n            \"serviceType\": \"Centipede Extermination\",\n            \"description\": \"Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Centipede Control",
-            "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes"
+            "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes",
+            "meta_description_pool": [
+                "Centipede Control in {city_state}: get connected with local providers who address these biting pests, often a sign of deeper infestation. Call {phone}.",
+                "Need Centipede Control near {city_state}? We connect you to independent local providers who handle these biting pests quickly. Call {phone} today.",
+                "{city_state} Centipede Control made simple — we link you to local independent providers who tackle these biting pests. Call {phone} to get started.",
+                "Centipede Control for {city_state} homes: find local, independent providers ready to address these biting pests fast. Call {phone} for a connection."
+            ],
+            "og_description_pool": [
+                "Centipede Control in {city_state} starts here: connect with an independent local provider who can respond quickly to homes and businesses dealing with centipedes.",
+                "Need Centipede Control near {city_state}? We connect you with a local, independent provider ready to help tackle centipede problems at your home or business.",
+                "In {city_state}, Centipede Control is just a call away — we link you to a responsive local provider serving homes and businesses in the area.",
+                "Looking for Centipede Control in {city_state}? Get connected fast to an independent local provider who handles centipede issues for homes and businesses."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -5138,7 +5330,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cricket Exterminator in {city_state}\",\n            \"serviceType\": \"Cricket Extermination\",\n            \"description\": \"Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Cricket Control",
-            "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
+            "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets",
+            "meta_description_pool": [
+                "Cricket Control in {city_state}: get connected to local providers who address indoor chirping and fabric damage. Call {phone} today.",
+                "Need Cricket Control near {city_state}? We connect you fast to independent local pros who handle chirping crickets and fabric damage. Call {phone}.",
+                "Cricket Control for {city_state} homes: quickly find local providers tackling indoor crickets and the fabric damage they cause. Dial {phone}.",
+                "Stop cricket chirping and fabric damage in {city_state} — our network links you to local Cricket Control providers. Call {phone} now."
+            ],
+            "og_description_pool": [
+                "Cricket Control in {city_state} starts here: connect with a local provider offering targeted treatment for homes and businesses near you.",
+                "Need Cricket Control in {city_state}? We connect you to independent local providers who treat crickets at homes and businesses in your area.",
+                "Searching for Cricket Control near {city_state}? Get connected fast to a local, independent provider offering targeted home and business treatment.",
+                "Cricket Control for {city_state} homes and businesses: this service connects you quickly to an independent local provider for targeted treatment."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -5425,7 +5629,13 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Stink Bug Exterminator in {city_state}\",\n            \"serviceType\": \"Stink Bug Extermination\",\n            \"description\": \"Professional stink bug exterminator services in {city_state}. Targeted stink bug control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Stink Bug Control",
-            "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs"
+            "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs",
+            "meta_description_pool": [
+                "Stink Bug Control in {city_state}: get connected fast with local providers who help manage odor-causing pests. Call {phone} to find help near you.",
+                "Need Stink Bug Control near {city_state}? We connect you with independent local providers who address these plant-damaging, odor-releasing pests. Call {phone}.",
+                "Stink Bug Control, {city_state}: this service links homeowners to local independent providers who tackle stink bug problems quickly. Call {phone} today.",
+                "Searching for Stink Bug Control in {city_state}? We help connect you to responsive local providers who deal with these odorous plant pests. Dial {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -5715,7 +5925,13 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Nest Removal in {city_state}\",\n            \"serviceType\": \"Wasp Nest Removal\",\n            \"description\": \"Professional wasp, hornet and yellow jacket nest removal in {city_state}. Targeted treatment for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Wasp Nest Removal",
-            "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator, wasp exterminator, wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps, hornet removal, hornet exterminator, hornet nest removal, hornet control, get rid of hornets, yellow jacket control, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
+            "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator, wasp exterminator, wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps, hornet removal, hornet exterminator, hornet nest removal, hornet control, get rid of hornets, yellow jacket control, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets",
+            "meta_description_pool": [
+                "Wasp Nest Removal in {city_state}: get connected with local providers who handle wasp, hornet, and yellow jacket nests. Call {phone} today.",
+                "Need Wasp Nest Removal near {city_state}? We connect you fast with independent local pros for wasp, hornet, and yellow jacket nests. Call {phone}.",
+                "Wasp Nest Removal, {city_state} — quickly find local providers to address wasp, hornet, and yellow jacket nests before colonies grow. Call {phone}.",
+                "Looking for Wasp Nest Removal in {city_state}? This service links you to local providers who tackle wasp, hornet, and yellow jacket nests. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -6001,7 +6217,13 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Hornet Exterminator in {city_state}\",\n            \"serviceType\": \"Hornet Extermination\",\n            \"description\": \"Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Hornet Removal",
-            "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
+            "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets",
+            "meta_description_pool": [
+                "Hornet Removal in {city_state}: connect with local providers who can clear nests before stings become a bigger problem. Call {phone} today.",
+                "Need Hornet Removal near {city_state}? We connect you with local providers ready to address hornet nests quickly. Call {phone} now.",
+                "Hornet Removal services for {city_state} residents: get matched fast with independent local providers to handle nests early. Call {phone}.",
+                "Looking for Hornet Removal in {city_state}? We help connect you to local providers who address nests before they grow worse. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -6287,7 +6509,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bee Exterminator in {city_state}\",\n            \"serviceType\": \"Bee Extermination\",\n            \"description\": \"Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Bee Removal",
-            "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
+            "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control",
+            "meta_description_pool": [
+                "Bee Removal in {city_state}: connect with local providers who handle colonies safely, balancing pollinator care with your household's safety. Call {phone}.",
+                "Need Bee Removal near {city_state}? We connect you to independent local providers experienced in humane colony handling. Call {phone} for a fast referral.",
+                "Bee Removal services for {city_state} homes: get matched with nearby providers who address colonies with care for people and pollinators alike. Call {phone}.",
+                "Searching for Bee Removal in {city_state}? We link you to responsive local providers who manage colonies with safety and pollinators in mind. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Bee Removal in {city_state}: connect quickly with an independent local provider who handles bee issues at homes and businesses nearby.",
+                "Need Bee Removal near {city_state}? We connect you with local, independent providers ready to respond fast for homes and businesses.",
+                "Bee Removal, {city_state} fast: get matched with a responsive local provider serving homeowners and businesses in your area.",
+                "Searching for Bee Removal in {city_state}? This connects you to independent local providers who address bee problems at homes and businesses."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -6606,7 +6840,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Termite Inspection in {city_state}\",\n            \"serviceType\": \"Termite Inspection\",\n            \"description\": \"Professional termite inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Termite Inspection",
-            "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection"
+            "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection",
+            "meta_description_pool": [
+                "Termite Inspection in {city_state}: connect with local providers who can spot early damage before it becomes costly. Call {phone} today.",
+                "Need a Termite Inspection near {city_state}? We connect you to independent local providers ready to help. Call {phone}.",
+                "Termite Inspection services for {city_state} homeowners — get matched with responsive local providers fast. Call {phone} now.",
+                "Looking for a Termite Inspection in {city_state}? We'll connect you with local providers who catch problems early. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Termite Inspection in {city_state}: {business} connects you with local providers for a thorough on-site inspection and clear written report. Call {phone}.",
+                "Need a Termite Inspection near {city_state}? {business} links you fast to local providers who inspect your property and detail findings in writing. Call {phone}.",
+                "{city_state} Termite Inspection made simple — {business} connects homeowners with responsive local providers for a detailed on-site report. Call {phone}.",
+                "Looking for Termite Inspection services in {city_state}? {business} quickly connects you to local providers offering thorough inspections and written reports. Call {phone}."
+            ]
         },
         "base_role": "Inspection",
         "layout_enabled": true,
@@ -6920,7 +7166,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Pest Inspection in {city_state}\",\n            \"serviceType\": \"Pest Inspection\",\n            \"description\": \"Professional pest inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Pest Inspection",
-            "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost"
+            "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost",
+            "meta_description_pool": [
+                "Pest Inspection in {city_state}: get connected with local providers who check for entry points and conditions that attract infestations. Call {phone}.",
+                "Need a Pest Inspection near {city_state}? We connect you fast with local providers who assess entry points and risk factors. Call {phone} today.",
+                "Pest Inspection services for {city_state} homes: find local, independent providers to spot entry points and infestation-prone conditions. Call {phone}.",
+                "Looking for a Pest Inspection in {city_state}? We'll connect you with responsive local providers to evaluate entry points and risks. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Pest Inspection in {city_state}: {business} connects you with local providers for a thorough on-site inspection and written report of findings. Call {phone}.",
+                "Need a Pest Inspection near {city_state}? {business} links you to local inspectors who provide a detailed on-site check and clear written report. Call {phone}.",
+                "{business} helps {city_state} residents find local providers for a professional pest inspection, including an on-site visit and written findings report. Call {phone}.",
+                "Looking for a Pest Inspection in {city_state}? {business} connects you fast with local providers offering on-site inspections and a written report. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -7238,7 +7496,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"WDI Inspection in {city_state}\",\n            \"serviceType\": \"WDI Inspection\",\n            \"description\": \"Professional wdi inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "WDI Inspection",
-            "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
+            "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection",
+            "meta_description_pool": [
+                "WDI Inspection services in {city_state}: get connected with local providers who document wood-destroying insect damage for real estate deals. Call {phone}.",
+                "Need a WDI Inspection near {city_state}? We connect you fast with independent local providers who handle wood-destroying insect documentation. Call {phone}.",
+                "{city_state} WDI Inspection help starts here—quickly reach local providers who assess and document wood-destroying insect damage. Call {phone} today.",
+                "Looking for a WDI Inspection in {city_state}? This network links you to local providers who document wood-destroying insect damage for real estate needs. Call {phone}."
+            ],
+            "og_description_pool": [
+                "WDI Inspection in {city_state}: {business} connects you with local providers for thorough on-site evaluations and a clear written report. Call {phone}.",
+                "Need a WDI Inspection in {city_state}? {business} links homeowners to independent local providers offering on-site evaluation and written findings. Call {phone}.",
+                "{business} helps {city_state} residents find WDI Inspection providers nearby for a detailed on-site review and a clear written report. Call {phone}.",
+                "Get connected to a WDI Inspection provider in {city_state} through {business} — on-site evaluation with a written report of findings. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -7529,7 +7799,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Residential Pest Control in {city_state}\",\n            \"serviceType\": \"Residential Pest Control\",\n            \"description\": \"Professional residential pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Residential Pest Control",
-            "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
+            "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control",
+            "meta_description_pool": [
+                "Residential Pest Control in {city_state}: connect with local providers who respond fast to keep household pests away. Call {phone} to get started.",
+                "Looking for Residential Pest Control near {city_state}? We'll connect you with responsive local providers ready to help. Call {phone} today.",
+                "{city_state} homeowners can find Residential Pest Control help fast—we connect you to independent local providers. Call {phone} now.",
+                "Get matched with local Residential Pest Control providers serving {city_state}, ready to address pest issues quickly. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Residential Pest Control in {city_state}: {business} connects you with local providers for fast response and recurring service options to help manage pests. Call {phone}.",
+                "Need Residential Pest Control in {city_state}? {business} links homeowners to responsive local providers offering treatment plans and follow-up visits. Call {phone}.",
+                "{city_state} Residential Pest Control made easy — {business} quickly connects you with independent local providers ready to address pest issues. Call {phone} today.",
+                "Residential Pest Control near {city_state}: {business} helps you reach local providers fast, with recurring service options available. Call {phone} to get connected."
+            ]
         },
         "base_role": "Category",
         "layout_enabled": true,
@@ -7820,7 +8102,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Pest Control in {city_state}\",\n            \"serviceType\": \"Commercial Pest Control\",\n            \"description\": \"Professional commercial pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Commercial Pest Control",
-            "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
+            "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control",
+            "meta_description_pool": [
+                "Commercial Pest Control in {city_state}: connect with local providers ready to help protect your business from infestations. Call {phone} today.",
+                "Need Commercial Pest Control near {city_state}? We'll connect you to independent local providers who respond fast to protect your reputation. Call {phone}.",
+                "Commercial Pest Control, {city_state}: find local providers through our network to address infestations before they become code violations. Call {phone}.",
+                "Businesses in {city_state} seeking Commercial Pest Control can connect with responsive local providers in our network. Call {phone} for help."
+            ],
+            "og_description_pool": [
+                "Commercial Pest Control in {city_state}: {business} connects you with local providers offering fast response and recurring service options. Call {phone}.",
+                "Need Commercial Pest Control near {city_state}? {business} quickly links your business with responsive local providers for ongoing pest management. Call {phone}.",
+                "{business} helps {city_state} businesses find Commercial Pest Control providers nearby, with fast local connections and recurring service plans. Call {phone}.",
+                "Commercial Pest Control, {city_state} businesses trust: {business} connects you fast to local providers for treatment and recurring upkeep. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -8110,7 +8404,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Pest Control in {city_state}\",\n            \"serviceType\": \"Emergency Pest Control\",\n            \"description\": \"Professional emergency pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Emergency Pest Control",
-            "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator"
+            "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator",
+            "meta_description_pool": [
+                "Emergency Pest Control in {city_state}: get connected fast to local providers ready to respond when infestations strike. Call {phone} today.",
+                "Need Emergency Pest Control near {city_state}? We connect you quickly with independent local providers who respond fast. Call {phone}.",
+                "{city_state} Emergency Pest Control starts with a quick connection to responsive local providers in your area. Call {phone} to get started.",
+                "Facing a sudden infestation in {city_state}? Our network links you to local Emergency Pest Control providers fast. Call {phone} now."
+            ],
+            "og_description_pool": [
+                "Emergency Pest Control in {city_state}: {business} connects you fast to independent local providers ready to respond. Call {phone} today.",
+                "Need Emergency Pest Control near {city_state}? {business} links you to responsive local providers who can help quickly. Reach us at {phone}.",
+                "{city_state} Emergency Pest Control, made simple: {business} puts you in touch with local providers fast, plus options for ongoing visits. Call {phone}.",
+                "Facing a pest emergency in {city_state}? {business} quickly connects you with independent local providers for prompt service. Call {phone} now."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -8396,7 +8702,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Restaurant Pest Control in {city_state}\",\n            \"serviceType\": \"Restaurant Pest Control\",\n            \"description\": \"Professional restaurant pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Restaurant Pest Control",
-            "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
+            "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control",
+            "meta_description_pool": [
+                "Restaurant Pest Control in {city_state}: get connected fast to local providers who help food service businesses avoid infestations, closures, and fines. Call {phone}.",
+                "Need Restaurant Pest Control near {city_state}? We connect you quickly with independent local providers serving food businesses at risk of pest-related shutdowns. Call {phone}.",
+                "Restaurant Pest Control, {city_state} — find local providers ready to help protect your food service business from infestation issues and fines. Call {phone} now.",
+                "Searching for Restaurant Pest Control in {city_state}? This connects you to independent local providers who assist restaurants in avoiding pest-related closures. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Restaurant Pest Control in {city_state}: {business} connects you with local providers for fast response and recurring service options. Call {phone}.",
+                "Need Restaurant Pest Control near {city_state}? {business} links you to responsive local providers who offer ongoing treatment plans. Call {phone} today.",
+                "{city_state} Restaurant Pest Control made simple — {business} quickly connects you with independent local providers offering recurring service. Call {phone}.",
+                "Searching for Restaurant Pest Control in {city_state}? {business} puts you in touch with fast, local providers offering treatment and recurring options. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -8710,7 +9028,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Pest Control Plans in {city_state}\",\n            \"serviceType\": \"Pest Control Plans\",\n            \"description\": \"Professional pest control plans services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Pest Control Plans",
-            "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans"
+            "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans",
+            "meta_description_pool": [
+                "Pest Control Plans in {city_state}: get connected to local providers offering ongoing service to help prevent infestations. Call {phone} today.",
+                "Looking for Pest Control Plans near {city_state}? We connect you with local providers who offer ongoing service instead of one-time fixes. Call {phone}.",
+                "{city_state} Pest Control Plans start with a call to {phone} — we'll connect you to independent local providers for ongoing prevention service.",
+                "Find Pest Control Plans serving {city_state} through our local referral network, linking you to providers offering ongoing care. Dial {phone} now."
+            ],
+            "og_description_pool": [
+                "Pest Control Plans in {city_state}: {business} connects you with responsive local providers offering recurring service options to help manage pests. Call {phone}.",
+                "Looking for Pest Control Plans near {city_state}? {business} quickly links you to independent local providers for ongoing pest management. Call {phone}.",
+                "{city_state} Pest Control Plans made simple — {business} connects homeowners with fast, local providers offering recurring treatment options. Call {phone} today.",
+                "Find trusted Pest Control Plans in {city_state} through {business}, connecting you to local providers with fast response and flexible recurring options. Call {phone}."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -9019,7 +9349,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Inspection in {city_state}\",\n            \"serviceType\": \"Bed Bug Inspection\",\n            \"description\": \"Professional bed bug inspection services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Bed Bug Inspection",
-            "secondary_keywords": "bed bug check, bed bug detection, do i have bed bugs, bed bug inspection before buying furniture"
+            "secondary_keywords": "bed bug check, bed bug detection, do i have bed bugs, bed bug inspection before buying furniture",
+            "meta_description_pool": [
+                "Bed Bug Inspection in {city_state}: get connected with local providers who check common hiding spots before any treatment begins. Call {phone}.",
+                "Need a Bed Bug Inspection near {city_state}? We connect you fast with local providers who identify what's actually in your home. Call {phone}.",
+                "Bed Bug Inspection services for {city_state} homes: find out what's really there before treatment, through local providers we connect you to. Call {phone}.",
+                "Looking for a Bed Bug Inspection in {city_state}? We link you to independent local providers who check the spots bed bugs hide. Call {phone} now."
+            ],
+            "og_description_pool": [
+                "Bed Bug Inspection in {city_state}: {business} connects you with local providers who check common hiding spots and give you a clear answer. Call {phone}.",
+                "Need a Bed Bug Inspection near {city_state}? {business} links you to local providers ready to inspect thoroughly and report findings. Call {phone}.",
+                "{city_state} Bed Bug Inspection made simple — {business} puts you in touch with local providers who check all the usual hiding spots. Call {phone} today.",
+                "Looking for a Bed Bug Inspection in {city_state}? {business} connects homeowners with local providers for a thorough, straightforward check. Call {phone}."
+            ]
         },
         "base_role": "Inspection",
         "layout_enabled": true,
@@ -9327,7 +9669,19 @@
             "bc_mid_url": "",
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Pest Control Cost in {city_state}\",\n            \"serviceType\": \"Pest Control Cost\",\n            \"description\": \"Pest control cost information in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Pest Control Cost",
-            "secondary_keywords": "pest control price, how much does pest control cost, pest control quote, average pest control cost"
+            "secondary_keywords": "pest control price, how much does pest control cost, pest control quote, average pest control cost",
+            "meta_description_pool": [
+                "Pest Control Cost in {city_state} varies by pest type, severity, and service frequency — connect with local providers now. Call {phone}.",
+                "Wondering about Pest Control Cost in {city_state}? We connect you with independent local providers for one-time or ongoing service. Call {phone}.",
+                "Pest Control Cost depends on pest type and severity. Get connected to local {city_state} providers fast — call {phone} today.",
+                "Get a sense of Pest Control Cost near {city_state}: pricing varies by pest and plan. We link you to local providers. Call {phone}."
+            ],
+            "og_description_pool": [
+                "Pest Control Cost in {city_state} depends on several factors — connect with a local provider for a real quote by calling {phone}.",
+                "Curious about Pest Control Cost in {city_state}? Get matched with an independent local provider for an accurate estimate at {phone}.",
+                "Pest Control Cost varies across {city_state} based on the job — call {phone} to get connected with a local provider for a quote.",
+                "Looking into Pest Control Cost near {city_state}? Dial {phone} and get linked to a local independent provider for a real quote."
+            ]
         },
         "layout_enabled": true,
         "layout_variants": [

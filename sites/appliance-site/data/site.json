@@ -440,7 +440,19 @@
         "twitter_handle": "",
         "og_type": "website",
         "robots_noindex": false,
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {city_state} property owners with independent local appliance repair providers for all major brands and appliances, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {city_state} property owners with independent local appliance repair providers for all major brands and appliances, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Appliance Repair in {city_state}: {business_short} links you to an independent local provider for all major brands, often available same-day. Call {phone}.",
+            "Need Appliance Repair near {city_state}? {business_short} connects you with a local independent provider for major brands, same-day service often available. Call {phone}.",
+            "Appliance Repair, {city_state} area — {business_short} puts you in touch with a local provider covering all major brands, often same-day. Reach us at {phone}.",
+            "Searching for Appliance Repair in {city_state}? {business_short} quickly connects you to an independent local provider for major brands. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Appliance Repair in {city_state}: {business} connects you with local providers for refrigerators, washers, dryers, ovens, and more. Same-day service often available. Call {phone}.",
+            "Need Appliance Repair in {city_state}? {business} links you to independent local providers who handle major brands and appliances. Call {phone} to get connected.",
+            "{business} helps {city_state} residents find local Appliance Repair providers for refrigerators, washers, dryers, and ovens. Fast connections, often same-day. Call {phone}.",
+            "Looking for Appliance Repair near {city_state}? {business} quickly connects you with independent local providers for all major appliances. Call {phone} today."
+        ]
     },
     "footer": {
         "logo": "uploads/logo_wells-appliance-repair-lufkin.png",

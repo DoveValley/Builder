@@ -100,6 +100,46 @@ function ms_strip_key_in_json_field(string $json, string $key): string {
     return $out === false ? $json : $out;
 }
 
+/**
+ * Picks one variant from each pool `tools/generate_meta_variant_pools.php` may have
+ * written (meta_description_pool / og_description_pool) and overwrites the live
+ * fields with it — deterministic per domain, same ms_variant() mechanism as palette/
+ * font/chart-group rotation. Purely additive: a page with no pool yet is untouched,
+ * so this is safe to call on every page regardless of whether the authoring tool has
+ * reached it. Real severity measured 2026-11-01: ~96-100% of live domains were
+ * sharing each leaf-page template's exact meta/og/schema description text.
+ *
+ * og_description's picked text also replaces service_description and the schema's
+ * embedded description — all three hold the SAME text by convention (confirmed at
+ * authoring time), so a surgical string-replace of the old literal for the new one
+ * inside the still-unresolved schema JSON text is enough; no need to parse/rebuild
+ * the schema structure the way the LocalBusiness NAP merge above does.
+ */
+function ms_meta_variant_pool_apply(array &$seo, string $domain, string $saltPrefix): void {
+    if (!empty($seo['meta_description_pool']) && is_array($seo['meta_description_pool'])) {
+        $pool = array_values($seo['meta_description_pool']);
+        $idx  = ms_variant($domain, count($pool), $saltPrefix . '_meta');
+        $seo['meta_description'] = (string) $pool[$idx];
+    }
+    if (!empty($seo['og_description_pool']) && is_array($seo['og_description_pool'])) {
+        $pool   = array_values($seo['og_description_pool']);
+        $idx    = ms_variant($domain, count($pool), $saltPrefix . '_desc');
+        $picked = (string) $pool[$idx];
+        $oldText = (string) ($seo['og_description'] ?? '');
+        $seo['og_description'] = $picked;
+        if (($seo['service_description'] ?? null) === $oldText) {
+            $seo['service_description'] = $picked;
+        }
+        if ($oldText !== '' && !empty($seo['schema']) && is_string($seo['schema'])) {
+            $seo['schema'] = str_replace(
+                json_encode($oldText, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+                json_encode($picked, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+                $seo['schema']
+            );
+        }
+    }
+}
+
 /** GA4 gtag.js snippet for a measurement id. */
 function ms_ga4_snippet(string $id): string {
     $id = htmlspecialchars($id, ENT_QUOTES);
@@ -294,6 +334,9 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
         );
     }
 
+    // ── 5c. Meta/og/schema description variant pooling — one pick per domain ──
+    if (isset($data['seo'])) ms_meta_variant_pool_apply($data['seo'], $domain, 'meta_variant_home');
+
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);
@@ -301,14 +344,26 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     // ── 5b. Landing pages ────────────────────────────────────────────────────
     // Live in their own files, so section 5 above never sees them — and landing pages are
     // where the keywords and most of the traffic are. Same function, same per-domain hash,
-    // its own top/bottom pin counts.
-    if (function_exists('layout_rotate_blocks') && empty($structureSkip['landing'])) {
+    // its own top/bottom pin counts. Meta-variant pooling (5c) runs here too, independently
+    // of whether section-order rotation is on — a different feature, same per-page loop.
+    {
+        $rotateOn = function_exists('layout_rotate_blocks') && empty($structureSkip['landing']);
         $lTop    = (int) ($rotation['landing_top'] ?? 1);
         $lBottom = (int) ($rotation['landing_bottom'] ?? 1);
         foreach (glob($workingDir . '/data/pages/*.json') ?: [] as $pf) {
             $pg = json_decode((string) @file_get_contents($pf), true);
-            if (!is_array($pg) || empty($pg['content_blocks'])) continue;
-            $pg['content_blocks'] = layout_rotate_blocks($pg['content_blocks'], $domain, $lTop, $lBottom, 'rotate_landing');
+            if (!is_array($pg)) continue;
+            $changed = false;
+            if ($rotateOn && !empty($pg['content_blocks'])) {
+                $pg['content_blocks'] = layout_rotate_blocks($pg['content_blocks'], $domain, $lTop, $lBottom, 'rotate_landing');
+                $changed = true;
+            }
+            if (isset($pg['seo'])) {
+                $saltKey = 'meta_variant_landing_' . basename($pf, '.json');
+                ms_meta_variant_pool_apply($pg['seo'], $domain, $saltKey);
+                $changed = true; // cheap no-op when the page has no pool yet; writing back is harmless
+            }
+            if (!$changed) continue;
             $t = $pf . '.tmp.' . getmypid();
             if (@file_put_contents($t, json_encode($pg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
                 @rename($t, $pf);

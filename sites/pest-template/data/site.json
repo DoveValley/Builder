@@ -659,7 +659,13 @@
     "bc_mid_url": "",
     "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with independent local pest control providers for cockroach, termite, mosquito, rodent, and wildlife control.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
     "primary_keyword": "Pest Control",
-    "secondary_keywords": ""
+    "secondary_keywords": "",
+    "meta_description_pool": [
+      "Pest Control in {city_state}: {business_short} quickly connects you with an independent local provider who handles roaches, ants, termites, rodents & more. Call {phone}.",
+      "Need Pest Control near {city_state}? {business_short} links you to a responsive local provider for ants, roaches, termites, rodents & other pests. Call {phone} today.",
+      "{city_state} Pest Control made simple — {business_short} puts you in touch with a nearby independent provider for roaches, ants, termites, rodents & more. Dial {phone}.",
+      "Searching for Pest Control in {city_state}? {business_short} connects you fast with a local independent provider covering roaches, ants, termites & rodents. Call {phone}."
+    ]
   },
   "footer": {
     "logo": "uploads/logo_littleton-pest-pros.png",

@@ -645,7 +645,19 @@
     "twitter_handle": "",
     "og_type": "website",
     "robots_noindex": false,
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with independent local water and storm damage restoration providers for 24/7 emergency water extraction, structural drying, and flood, storm, and sewage cleanup.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}"
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with independent local water and storm damage restoration providers for 24/7 emergency water extraction, structural drying, and flood, storm, and sewage cleanup.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+    "meta_description_pool": [
+      "Water Damage Restoration in {city_state}, available 24/7 — {business_short} quickly connects you with a local provider for extraction, drying and cleanup. Call {phone}.",
+      "Need Water Damage Restoration near {city_state}? {business_short} links you to a responsive local provider for extraction, drying and cleanup, day or night. Call {phone}.",
+      "{city_state} Water Damage Restoration help is a call away: {business_short} connects homeowners with local providers for extraction, drying and cleanup 24/7. Dial {phone}.",
+      "Fast Water Damage Restoration connections in {city_state}, any time of day. {business_short} links you with a local provider for extraction, drying and cleanup. Call {phone}."
+    ],
+    "og_description_pool": [
+      "Water Damage Restoration in {city_state}, available 24/7 — connect with local providers offering water extraction, flood cleanup, and structural drying services.",
+      "Need Water Damage Restoration near {city_state}? We connect you fast to local independent providers handling flood, storm, and water cleanup around the clock.",
+      "{city_state} Water Damage Restoration: get matched with local providers for emergency water extraction, storm cleanup, and drying — fast, 24/7 response.",
+      "24/7 Water Damage Restoration connections in {city_state} — reach local independent providers quickly for flood, storm, and water cleanup needs."
+    ]
   },
   "footer": {
     "logo": "uploads/logo_freeman-restoration.png",

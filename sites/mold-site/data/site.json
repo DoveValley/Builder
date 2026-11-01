@@ -674,7 +674,13 @@
     "bc_mid_url": "",
     "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with local mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\"\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
     "primary_keyword": "Mold Remediation",
-    "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation"
+    "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation",
+    "meta_description_pool": [
+      "Mold Remediation in {city_state}: {business_short} connects you with a local provider offering mold testing, removal, and moisture control. Call {phone}.",
+      "Need Mold Remediation near {city_state}? {business_short} links you to an independent local provider for inspection and removal services. Call {phone}.",
+      "Mold Remediation services for {city_state} homes start here — {business_short} connects you with a nearby provider for testing and removal. Call {phone}.",
+      "Looking for Mold Remediation in {city_state}? {business_short} puts you in touch with a local provider handling inspection, removal, and moisture control. Call {phone}."
+    ]
   },
   "footer": {
     "logo": "uploads/logo_elk-mold-pros.png",
