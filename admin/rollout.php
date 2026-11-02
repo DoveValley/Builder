@@ -1004,7 +1004,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             // checked again anyway, same reasoning as the server-side and build_upload.php
             // checks: a destructive flag refuses itself at every layer, never trusts the
             // layer above to have gotten it right.
-            if (!picked.build || !picked.upload || picked.logoOnly) return say('Wipe requires a full Build AND Upload in this same run — turn off Colors/fonts/logo/favicon only.');
+            if (picked.logoOnly) return say('Wipe requires a full Build AND Upload in this same run — turn off Colors/fonts/logo/favicon only.');
+            if (!picked.build || !picked.upload) return say('Wipe requires a full Build AND Upload in this same run — tick both.');
             if (sel.size > 5) return say('Wipe is limited to 5 domains at a time — tick fewer, or run it again for the rest.');
             msg += '\n\n⚠ WIPE SERVER FILES FIRST is ticked — every file already on the live server for:\n'
                  + [...sel].join('\n')

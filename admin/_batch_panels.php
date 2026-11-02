@@ -2875,10 +2875,10 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             d.domains.map(function (row) {
                 const boughtAt = new Date(row.owned_at.replace(' ', 'T') + 'Z');
                 const days = Math.max(0, Math.floor((now - boughtAt.getTime()) / 86400000));
-                return '<tr><td><input type="checkbox" class="ms-addn-cb" data-domain="' + row.domain +
-                    '" checked onchange="msAddnUpdateCount()"></td><td>' + row.domain + '</td><td>' +
-                    (row.registrar || '—') + '</td><td>' +
-                    row.owned_at + '</td><td>' + days + ' day' + (days === 1 ? '' : 's') + '</td></tr>';
+                return '<tr><td><input type="checkbox" class="ms-addn-cb" data-domain="' + esc(row.domain) +
+                    '" checked onchange="msAddnUpdateCount()"></td><td>' + esc(row.domain) + '</td><td>' +
+                    esc(row.registrar || '—') + '</td><td>' +
+                    esc(row.owned_at) + '</td><td>' + days + ' day' + (days === 1 ? '' : 's') + '</td></tr>';
             }).join('') + '</tbody></table>';
         msAddnUpdateCount();
     };
