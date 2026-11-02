@@ -401,6 +401,22 @@
         {
           "url": "/roof-leak-water-damage-{city_slug}",
           "text": "roof leak water damage"
+        },
+        {
+          "url": "/water-extraction-{city_slug}",
+          "text": "water extraction"
+        },
+        {
+          "url": "/basement-waterproofing-{city_slug}",
+          "text": "basement waterproofing"
+        },
+        {
+          "url": "/crawl-space-encapsulation-{city_slug}",
+          "text": "crawl space encapsulation"
+        },
+        {
+          "url": "/sump-pump-installation-{city_slug}",
+          "text": "sump pump installation"
         }
       ],
       "id": "related_links_home"
@@ -1136,6 +1152,22 @@
       {
         "name": "Water Damage Restoration Cost",
         "url": "/water-damage-restoration-cost-{city_slug}"
+      },
+      {
+        "name": "Water Extraction",
+        "url": "/water-extraction-{city_slug}"
+      },
+      {
+        "name": "Basement Waterproofing",
+        "url": "/basement-waterproofing-{city_slug}"
+      },
+      {
+        "name": "Crawl Space Encapsulation",
+        "url": "/crawl-space-encapsulation-{city_slug}"
+      },
+      {
+        "name": "Sump Pump Installation",
+        "url": "/sump-pump-installation-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

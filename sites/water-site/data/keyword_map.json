@@ -519,6 +519,78 @@
       "cpc": 46.77,
       "kd": 1,
       "value_weight": 22450
+    },
+    {
+      "primary": "water extraction {city}, {ST}",
+      "slug": "water-extraction",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "emergency water extraction",
+        "standing water removal",
+        "water removal",
+        "truck-mounted extraction",
+        "portable extraction"
+      ],
+      "pool": "pinned",
+      "volume": 19000,
+      "cpc": 12,
+      "kd": 0,
+      "value_weight": 228000
+    },
+    {
+      "primary": "basement waterproofing {city}, {ST}",
+      "slug": "basement-waterproofing",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "foundation waterproofing",
+        "basement sealing",
+        "interior drainage system",
+        "exterior waterproofing",
+        "groundwater management"
+      ],
+      "pool": "pinned",
+      "volume": 45000,
+      "cpc": 6,
+      "kd": 1,
+      "value_weight": 270000
+    },
+    {
+      "primary": "crawl space encapsulation {city}, {ST}",
+      "slug": "crawl-space-encapsulation",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "crawl space vapor barrier",
+        "crawl space moisture control",
+        "crawl space sealing",
+        "crawl space dehumidification",
+        "crawl space repair"
+      ],
+      "pool": "pinned",
+      "volume": 36000,
+      "cpc": 5,
+      "kd": 2,
+      "value_weight": 180000
+    },
+    {
+      "primary": "sump pump installation {city}, {ST}",
+      "slug": "sump-pump-installation",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "sump pump replacement",
+        "battery backup sump pump",
+        "basement flood prevention",
+        "sump pump repair",
+        "french drain installation"
+      ],
+      "pool": "pinned",
+      "volume": 28000,
+      "cpc": 4,
+      "kd": 5,
+      "value_weight": 112000
     }
   ],
   "updated_at": "2026-07-12T00:06:08+00:00",

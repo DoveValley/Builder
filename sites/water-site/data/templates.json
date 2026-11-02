@@ -10297,5 +10297,1273 @@
                 "map_info_1"
             ]
         ]
+    },
+    {
+        "id": "tpl_water_extraction",
+        "base": 0,
+        "title": "Water Extraction in {city_state} | {business_short}",
+        "slug_pattern": "water-extraction-{city_slug}",
+        "page_type": "template",
+        "service": "Water Extraction",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "{primary_keyword} in {city_state}",
+                "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} — available 24/7 to protect your home or business.</p>",
+                "hs_btn_text": "{phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo_alt": "Water extraction in {city_state} by {business}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#eef4fb",
+                "hs_photo": "sites/water-site/uploads/media/ai_9d0cf7_677391.webp",
+                "hs_bg_photo": "",
+                "hs_mobile_order": "img_first",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "hero_split_1"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "drying",
+                "html": "<!--water_drying-->"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "sites/water-site/uploads/media/ai_af51ab_422e96.webp",
+                "it_alt": "Technician using a truck-mounted extraction unit to remove standing water during water extraction in {city_state}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our {service} Process Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Contact {business}",
+                        "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "On-Site Assessment",
+                        "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Mitigation & Drying",
+                        "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Restoration & Repairs",
+                        "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1",
+                "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
+                "steps_style": "card"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_bg_custom": "#2563eb",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_seasonal}",
+                "it_alt": "{chart_group_seasonal_alt}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/water-site/uploads/media/stone-mansion-home-exterior-lufkin-tx.webp",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "it_caption": "{chart_group_seasonal_caption}",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "seasonal_calendar",
+                "ai_mode": "standalone",
+                "ai_render_as": "steps",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_4"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 3,
+                "rl_items": [
+                    {
+                        "url": "/water-mitigation-{city_slug}",
+                        "text": "water mitigation"
+                    },
+                    {
+                        "url": "/flood-damage-restoration-{city_slug}",
+                        "text": "flood damage restoration"
+                    },
+                    {
+                        "url": "/emergency-water-removal-{city_slug}",
+                        "text": "emergency water removal"
+                    },
+                    {
+                        "url": "/water-damage-repair-{city_slug}",
+                        "text": "water damage repair"
+                    },
+                    {
+                        "url": "/basement-water-damage-repair-{city_slug}",
+                        "text": "basement water damage repair"
+                    },
+                    {
+                        "url": "/sewage-cleanup-{city_slug}",
+                        "text": "sewage cleanup"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_bg_custom": "#0d2340",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#120575",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "Water Extraction in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Water extraction removes standing water fast with truck-mounted or portable pumps before it soaks into floors and walls. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "water extraction {city} {SS}, emergency water extraction {city}, water removal {city}, standing water removal {city}",
+            "og_title": "Water Extraction in {city_state} | {business}",
+            "og_description": "24/7 water extraction in {city_state}. Fast, professional local response.",
+            "og_image": "sites/water-site/uploads/media/ai_ca11d2_35625d.webp",
+            "service_name": "Water Extraction",
+            "service_type": "Water Extraction",
+            "service_area": "{city_state} and surrounding areas",
+            "service_description": "Water extraction for homes and businesses in {city_state}, using truck-mounted and portable pumps to remove standing water fast.",
+            "bc_label": "Water Extraction",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Extraction\",\n    \"name\": \"Water Extraction in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water extraction in {city_state} \\u2014 standing water removal, emergency water extraction and water removal.\"\n}",
+            "primary_keyword": "Water Extraction",
+            "secondary_keywords": "emergency water extraction, standing water removal, water removal, truck-mounted extraction, portable extraction",
+            "meta_description_pool": [
+                "Water Extraction in {city_state}: get connected fast to local providers who remove standing water before it spreads. Call {phone}.",
+                "Need Water Extraction near {city_state}? We connect you quickly with independent local providers equipped for standing water removal. Call {phone} today.",
+                "Water Extraction, {city_state}: fast local connections to providers using truck-mounted and portable pumps. Call {phone} now.",
+                "Searching for Water Extraction in {city_state}? We link you to responsive local providers ready to remove standing water fast. Call {phone}."
+            ]
+        },
+        "base_role": "Restoration",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "steps_1",
+                "ai_block_3",
+                "cta_banner_1",
+                "service_cards_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_3",
+                "ai_block_4",
+                "faq_two_col_1",
+                "service_cards_1",
+                "custom_html_1",
+                "cta_banner_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_2",
+                "ai_block_1",
+                "cta_banner_1",
+                "steps_1",
+                "ai_block_3",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ]
+        ]
+    },
+    {
+        "id": "tpl_basement_waterproofing",
+        "base": 0,
+        "title": "Basement Waterproofing in {city_state} | {business_short}",
+        "slug_pattern": "basement-waterproofing-{city_slug}",
+        "page_type": "template",
+        "service": "Basement Waterproofing",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "{primary_keyword} in {city_state}",
+                "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} — available 24/7 to protect your home or business.</p>",
+                "hs_btn_text": "{phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo_alt": "Basement waterproofing in {city_state} by {business}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#eef4fb",
+                "hs_photo": "sites/water-site/uploads/media/flooded-basement-staircase-interior-lufkin-tx.webp",
+                "hs_bg_photo": "",
+                "hs_mobile_order": "img_first",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "hero_split_1"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "drying",
+                "html": "<!--water_drying-->"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "sites/water-site/uploads/media/flooded-basement-water-extraction-lufkin-tx.webp",
+                "it_alt": "Technician sealing a basement wall and installing drainage as part of basement waterproofing in {city_state}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our {service} Process Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Contact {business}",
+                        "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "On-Site Assessment",
+                        "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Mitigation & Drying",
+                        "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Restoration & Repairs",
+                        "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1",
+                "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
+                "steps_style": "card"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_bg_custom": "#2563eb",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_flood}",
+                "it_alt": "{chart_group_flood_alt}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/water-site/uploads/media/flooded-basement-stairwell-reflection-lufkin-tx.webp",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "it_caption": "{chart_group_flood_caption}",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "seasonal_calendar",
+                "ai_mode": "standalone",
+                "ai_render_as": "steps",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_4"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 3,
+                "rl_items": [
+                    {
+                        "url": "/basement-water-damage-repair-{city_slug}",
+                        "text": "basement water damage repair"
+                    },
+                    {
+                        "url": "/flooded-basement-cleanup-{city_slug}",
+                        "text": "flooded basement cleanup"
+                    },
+                    {
+                        "url": "/sump-pump-installation-{city_slug}",
+                        "text": "sump pump installation"
+                    },
+                    {
+                        "url": "/crawl-space-encapsulation-{city_slug}",
+                        "text": "crawl space encapsulation"
+                    },
+                    {
+                        "url": "/water-mitigation-{city_slug}",
+                        "text": "water mitigation"
+                    },
+                    {
+                        "url": "/water-damage-inspection-{city_slug}",
+                        "text": "water damage inspection & assessment"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_bg_custom": "#0d2340",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#120575",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "Basement Waterproofing in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Basement waterproofing seals foundation walls and manages groundwater to keep basements dry long-term. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "basement waterproofing {city} {SS}, foundation waterproofing {city}, basement sealing {city}, interior drainage system {city}",
+            "og_title": "Basement Waterproofing in {city_state} | {business}",
+            "og_description": "24/7 basement waterproofing in {city_state}. Fast, professional local response.",
+            "og_image": "sites/water-site/uploads/media/flooded-basement-staircase-interior-lufkin-tx.webp",
+            "service_name": "Basement Waterproofing",
+            "service_type": "Basement Waterproofing",
+            "service_area": "{city_state} and surrounding areas",
+            "service_description": "Basement waterproofing for homes and businesses in {city_state}, including foundation sealing, interior drainage, and groundwater management.",
+            "bc_label": "Basement Waterproofing",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Basement Waterproofing\",\n    \"name\": \"Basement Waterproofing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 basement waterproofing in {city_state} \\u2014 foundation sealing, interior drainage systems and groundwater management.\"\n}",
+            "primary_keyword": "Basement Waterproofing",
+            "secondary_keywords": "foundation waterproofing, basement sealing, interior drainage system, exterior waterproofing, groundwater management",
+            "meta_description_pool": [
+                "Basement Waterproofing in {city_state}: connect with local providers who seal foundations and manage groundwater before it causes damage. Call {phone}.",
+                "Need Basement Waterproofing near {city_state}? We connect you with independent local providers offering interior and exterior solutions. Call {phone} today.",
+                "Basement Waterproofing, {city_state}: get matched fast with local providers who keep basements dry long-term. Call {phone}.",
+                "Looking for Basement Waterproofing in {city_state}? This network links you to local providers specializing in foundation sealing. Call {phone}."
+            ]
+        },
+        "base_role": "Restoration",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "cta_banner_1",
+                "steps_1",
+                "ai_block_4",
+                "ai_block_3",
+                "faq_two_col_1",
+                "service_cards_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_3",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "steps_1",
+                "ai_block_2",
+                "ai_block_3",
+                "cta_banner_1",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ]
+        ]
+    },
+    {
+        "id": "tpl_crawl_space_encapsulation",
+        "base": 0,
+        "title": "Crawl Space Encapsulation in {city_state} | {business_short}",
+        "slug_pattern": "crawl-space-encapsulation-{city_slug}",
+        "page_type": "template",
+        "service": "Crawl Space Encapsulation",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "{primary_keyword} in {city_state}",
+                "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} — available 24/7 to protect your home or business.</p>",
+                "hs_btn_text": "{phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo_alt": "Crawl space encapsulation in {city_state} by {business}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#eef4fb",
+                "hs_photo": "sites/water-site/uploads/media/ai_c8177f_7ae1c0.webp",
+                "hs_bg_photo": "",
+                "hs_mobile_order": "img_first",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "hero_split_1"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "drying",
+                "html": "<!--water_drying-->"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "sites/water-site/uploads/media/ai_56f418_5b5b02.webp",
+                "it_alt": "Technician installing a vapor barrier during crawl space encapsulation in {city_state}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our {service} Process Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Contact {business}",
+                        "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "On-Site Assessment",
+                        "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Mitigation & Drying",
+                        "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Restoration & Repairs",
+                        "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1",
+                "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
+                "steps_style": "card"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_bg_custom": "#2563eb",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_flood}",
+                "it_alt": "{chart_group_flood_alt}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/water-site/uploads/media/blue-house-exterior-lufkin-tx.webp",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "it_caption": "{chart_group_flood_caption}",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "seasonal_calendar",
+                "ai_mode": "standalone",
+                "ai_render_as": "steps",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_4"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 3,
+                "rl_items": [
+                    {
+                        "url": "/basement-waterproofing-{city_slug}",
+                        "text": "basement waterproofing"
+                    },
+                    {
+                        "url": "/flooded-basement-cleanup-{city_slug}",
+                        "text": "flooded basement cleanup"
+                    },
+                    {
+                        "url": "/basement-water-damage-repair-{city_slug}",
+                        "text": "basement water damage repair"
+                    },
+                    {
+                        "url": "/water-mitigation-{city_slug}",
+                        "text": "water mitigation"
+                    },
+                    {
+                        "url": "/attic-water-damage-repair-{city_slug}",
+                        "text": "attic water damage repair"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_bg_custom": "#0d2340",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#120575",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "Crawl Space Encapsulation in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Crawl space encapsulation seals out moisture and pests with a vapor barrier system to protect the structure above. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "crawl space encapsulation {city} {SS}, crawl space vapor barrier {city}, crawl space moisture control {city}, crawl space sealing {city}",
+            "og_title": "Crawl Space Encapsulation in {city_state} | {business}",
+            "og_description": "24/7 crawl space encapsulation in {city_state}. Fast, professional local response.",
+            "og_image": "sites/water-site/uploads/media/ai_c8177f_7ae1c0.webp",
+            "service_name": "Crawl Space Encapsulation",
+            "service_type": "Crawl Space Encapsulation",
+            "service_area": "{city_state} and surrounding areas",
+            "service_description": "Crawl space encapsulation for homes and businesses in {city_state}, sealing out moisture and pests with a vapor barrier system.",
+            "bc_label": "Crawl Space Encapsulation",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Crawl Space Encapsulation\",\n    \"name\": \"Crawl Space Encapsulation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 crawl space encapsulation in {city_state} \\u2014 vapor barrier installation, crawl space moisture control and sealing.\"\n}",
+            "primary_keyword": "Crawl Space Encapsulation",
+            "secondary_keywords": "crawl space vapor barrier, crawl space moisture control, crawl space sealing, crawl space dehumidification, crawl space repair",
+            "meta_description_pool": [
+                "Crawl Space Encapsulation in {city_state}: connect with local providers who install vapor barriers to stop moisture and pests. Call {phone}.",
+                "Need Crawl Space Encapsulation near {city_state}? We connect you with independent local providers fast. Call {phone} today.",
+                "Crawl Space Encapsulation, {city_state}: get matched with local providers who seal out moisture long-term. Call {phone}.",
+                "Searching for Crawl Space Encapsulation in {city_state}? This network links you to local providers ready to help. Call {phone}."
+            ]
+        },
+        "base_role": "Restoration",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_2",
+                "ai_block_1",
+                "cta_banner_1",
+                "steps_1",
+                "ai_block_3",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "ai_block_1",
+                "trust_bar_1",
+                "steps_1",
+                "ai_block_2",
+                "cta_banner_1",
+                "ai_block_3",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "steps_1",
+                "ai_block_3",
+                "cta_banner_1",
+                "service_cards_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ]
+        ]
+    },
+    {
+        "id": "tpl_sump_pump_installation",
+        "base": 0,
+        "title": "Sump Pump Installation in {city_state} | {business_short}",
+        "slug_pattern": "sump-pump-installation-{city_slug}",
+        "page_type": "template",
+        "service": "Sump Pump Installation",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "{primary_keyword} in {city_state}",
+                "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} — available 24/7 to protect your home or business.</p>",
+                "hs_btn_text": "{phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo_alt": "Sump pump installation in {city_state} by {business}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#eef4fb",
+                "hs_photo": "sites/water-site/uploads/media/ai_4a17d6_ef36af.webp",
+                "hs_bg_photo": "",
+                "hs_mobile_order": "img_first",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "hero_split_1"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "drying",
+                "html": "<!--water_drying-->"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "sites/water-site/uploads/media/ai_9782c0_d69df2.webp",
+                "it_alt": "Technician installing a sump pump system in a basement during sump pump installation in {city_state}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our {service} Process Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Contact {business}",
+                        "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "On-Site Assessment",
+                        "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Mitigation & Drying",
+                        "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Restoration & Repairs",
+                        "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1",
+                "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
+                "steps_style": "card"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_bg_custom": "#2563eb",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_seasonal}",
+                "it_alt": "{chart_group_seasonal_alt}",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/water-site/uploads/media/yellow-house-exterior-lufkin-tx.webp",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "it_caption": "{chart_group_seasonal_caption}",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "seasonal_calendar",
+                "ai_mode": "standalone",
+                "ai_render_as": "steps",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "ai_block_4"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 3,
+                "rl_items": [
+                    {
+                        "url": "/basement-waterproofing-{city_slug}",
+                        "text": "basement waterproofing"
+                    },
+                    {
+                        "url": "/basement-water-damage-repair-{city_slug}",
+                        "text": "basement water damage repair"
+                    },
+                    {
+                        "url": "/flooded-basement-cleanup-{city_slug}",
+                        "text": "flooded basement cleanup"
+                    },
+                    {
+                        "url": "/crawl-space-encapsulation-{city_slug}",
+                        "text": "crawl space encapsulation"
+                    },
+                    {
+                        "url": "/water-mitigation-{city_slug}",
+                        "text": "water mitigation"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "_ai_locked": false,
+                "_ai_generated": false,
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
+                "cb_subtext": "",
+                "cb_btn_text": "Call Now — {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_bg_custom": "#0d2340",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#120575",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "Sump Pump Installation in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Sump pump installation protects basements from groundwater intrusion by automatically pumping water away from the foundation. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "sump pump installation {city} {SS}, sump pump replacement {city}, battery backup sump pump {city}, basement flood prevention {city}",
+            "og_title": "Sump Pump Installation in {city_state} | {business}",
+            "og_description": "24/7 sump pump installation in {city_state}. Fast, professional local response.",
+            "og_image": "sites/water-site/uploads/media/sewage-cleanup-drying-fans-2-lufkin-tx.webp",
+            "service_name": "Sump Pump Installation",
+            "service_type": "Sump Pump Installation",
+            "service_area": "{city_state} and surrounding areas",
+            "service_description": "Sump pump installation and replacement for homes and businesses in {city_state}, including battery backup systems for basement flood prevention.",
+            "bc_label": "Sump Pump Installation",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Sump Pump Installation\",\n    \"name\": \"Sump Pump Installation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 sump pump installation in {city_state} \\u2014 sump pump replacement, battery backup systems and basement flood prevention.\"\n}",
+            "primary_keyword": "Sump Pump Installation",
+            "secondary_keywords": "sump pump replacement, battery backup sump pump, basement flood prevention, sump pump repair, french drain installation",
+            "meta_description_pool": [
+                "Sump Pump Installation in {city_state}: connect with local providers who install and replace systems that keep basements dry. Call {phone}.",
+                "Need Sump Pump Installation near {city_state}? We connect you with independent local providers, including battery backup options. Call {phone} today.",
+                "Sump Pump Installation, {city_state}: get matched fast with local providers who prevent basement flooding. Call {phone}.",
+                "Looking for Sump Pump Installation in {city_state}? This network links you to local providers ready to help. Call {phone}."
+            ]
+        },
+        "base_role": "Restoration",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_4",
+                "ai_block_3",
+                "faq_two_col_1",
+                "service_cards_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "steps_1",
+                "ai_block_2",
+                "ai_block_3",
+                "cta_banner_1",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "ai_block_1",
+                "trust_bar_1",
+                "steps_1",
+                "ai_block_2",
+                "cta_banner_1",
+                "ai_block_3",
+                "ai_block_4",
+                "service_cards_1",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "map_info_1"
+            ]
+        ]
     }
 ]
