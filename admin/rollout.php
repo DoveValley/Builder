@@ -15,6 +15,22 @@ if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_byt
 $active = ms_active_batch();
 if (!$active) { header('Location: sites.php'); exit; }
 $batch = ms_batch_meta($active['master_id'], $active['batch_id']) ?: ['name' => $active['batch_id']];
+
+// The Site Final Check popup's 3 mode lists (template/built/live) render identical <ol>
+// markup — only the registry rows and the mode string differ.
+function ro_cc_checklist_list(array $rows, string $mode): void {
+    ?>
+    <ol class="ro-cc-list" data-mode="<?= h($mode) ?>" style="margin:0 0 14px 20px;padding:0;">
+        <?php foreach ($rows as $r): ?>
+        <?php if ($r['skipped']): ?>
+        <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
+        <?php else: ?>
+        <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
+        <?php endif; ?>
+        <?php endforeach; ?>
+    </ol>
+    <?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,26 +169,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 reason stated right there, not just a gap.</p>
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">This master's template <span style="font-weight:400;color:#64748b;">— instant, free, no domain needed</span></h4>
-            <ol class="ro-cc-list" data-mode="template" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_checklist_popup_rows(cc_registry(), 'template') as $r): ?>
-                <?php if ($r['skipped']): ?>
-                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
-                <?php else: ?>
-                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            </ol>
+            <?php ro_cc_checklist_list(cc_checklist_popup_rows(cc_registry(), 'template'), 'template'); ?>
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First built domain <span style="font-weight:400;color:#64748b;">— needs this batch's first completed Build (not live yet — that's the point: catch it before Go Live)</span></h4>
-            <ol class="ro-cc-list" data-mode="built" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_checklist_popup_rows(cc_registry_built(), 'built') as $r): ?>
-                <?php if ($r['skipped']): ?>
-                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
-                <?php else: ?>
-                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            </ol>
+            <?php ro_cc_checklist_list(cc_checklist_popup_rows(cc_registry_built(), 'built'), 'built'); ?>
             <p style="margin:0 0 14px;color:#64748b;">Deliberately narrow for now: Google's own on-page SEO gate already runs
                 automatically on every build, but can't be re-run here — it needs the build's temporary working directory,
                 which is deleted right after the build finishes. Read its report in that build's own run log instead.
@@ -180,15 +180,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 pass, not a rushed one — not built yet.</p>
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First live domain <span style="font-weight:400;color:#64748b;">— needs this batch's first domain actually confirmed live (real HTTP requests to the real internet)</span></h4>
-            <ol class="ro-cc-list" data-mode="live" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_checklist_popup_rows(cc_registry_live(), 'live') as $r): ?>
-                <?php if ($r['skipped']): ?>
-                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
-                <?php else: ?>
-                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            </ol>
+            <?php ro_cc_checklist_list(cc_checklist_popup_rows(cc_registry_live(), 'live'), 'live'); ?>
             <p style="margin:0 0 10px;color:#64748b;">Deliberately narrow here too: broken-internal-link crawling and sitemap
                 completeness are real and valuable but need an actual crawler walking the live site — a separate, bigger
                 build, not a quick addition. External paid APIs (PageSpeed Insights, Rich Results Test, Search Console) are

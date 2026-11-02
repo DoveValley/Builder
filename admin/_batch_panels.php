@@ -26,6 +26,28 @@ $msRotSettings = ms_rotation_settings(ms_batch_file_read($masterId, $batchId, 's
 // UI" rule as the rotation numbers above — build_one.php never reads this file; only what's
 // checked at click time matters for a run.
 $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batchId, 'batch_options.json'));
+
+// The 5 CTM bulk-action cards below (Get numbers / Set routing / Release / Resync / Area code)
+// share identical wrapper, "background job" badge, and output/results footer markup — only the
+// description and controls in between actually differ. Pulled the shared shell into these two
+// so each card writes just its own distinct body between start()/end().
+function ms_ctm_card_start(string $prefix, string $heading): void {
+    ?>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;"><?= h($heading) ?></strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php
+}
+function ms_ctm_card_end(string $prefix): void {
+    ?>
+        <details id="ms-<?= h($prefix) ?>-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-<?= h($prefix) ?>-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-<?= h($prefix) ?>-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
+    </div>
+    <?php
+}
 ?>
 <!-- Shared ⓘ popup for this page and _batch_golive.php (included below) — a native
      title="" tooltip disappears the moment you move toward it, so it can't be read in
@@ -67,9 +89,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 <div class="card" id="ms-rows-card">
     <h3 style="margin-top:0;">Target list — edit rows directly</h3>
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
-        <strong style="font-size:.82rem;color:#1e3a5f;">Get CTM Phone Numbers</strong>
-        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php ms_ctm_card_start('ctm', 'Get CTM Phone Numbers'); ?>
         <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it in CTM → write the number into Phone.</span>
         <div class="hint" style="margin-top:6px;">
             The CTM dashboard label isn't just the bare domain — it's
@@ -91,15 +111,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Area code already typed in that row? Uses it. Blank? Looks it up. Would have to guess? Does nothing — never buys on a guess.
             </div>
         </div>
-        <details id="ms-ctm-details" style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
-            <pre id="ms-ctm-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-            <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
-        </details>
-    </div>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
-        <strong style="font-size:.82rem;color:#1e3a5f;">Set Call Routing</strong>
-        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php ms_ctm_card_end('ctm'); ?>
+    <?php ms_ctm_card_start('route', 'Set Call Routing'); ?>
         <span class="hint" style="margin-left:6px;">Where each checked row's EXISTING tracking number forwards to — a destination phone, not a new tracking number. Never touches the generated site, so this works on already-live domains with no rebuild. Replaces whatever that row routed to before (never two destinations ringing at once).</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-route-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -110,15 +123,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Uses the same checkboxes as Get CTM Phone Numbers above. A row with no tracking number yet still saves the destination — it applies automatically the moment that row's number gets bought.
             </div>
         </div>
-        <details id="ms-route-details" style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
-            <pre id="ms-route-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-            <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
-        </details>
-    </div>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
-        <strong style="font-size:.82rem;color:#1e3a5f;">Release CTM Numbers</strong>
-        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php ms_ctm_card_end('route'); ?>
+    <?php ms_ctm_card_start('release', 'Release CTM Numbers'); ?>
         <span class="hint" style="margin-left:6px;">The inverse of Get CTM Phone Numbers — for each checked row: find its tracking number in CTM by its Phone on file, release it back to the sub-account's pool, then clear Phone and Area Code here. Use for rows that got a number ahead of when they actually needed one (e.g. overflow rows added before their real go-live).</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-release-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -128,15 +134,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Uses the same checkboxes as Get CTM Phone Numbers above. Refuses a LIVE row — Phone is site content, and clearing it here never triggers a rebuild. A row with no phone on file is skipped as nothing to release, not an error you need to clear first.
             </div>
         </div>
-        <details id="ms-release-details" style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
-            <pre id="ms-release-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-            <div id="ms-release-results" style="margin-top:8px;font-size:.8rem;"></div>
-        </details>
-    </div>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
-        <strong style="font-size:.82rem;color:#1e3a5f;">Resync from CTM</strong>
-        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php ms_ctm_card_end('release'); ?>
+    <?php ms_ctm_card_start('resync', 'Resync from CTM'); ?>
         <span class="hint" style="margin-left:6px;">For a number bought by hand directly in CTM (not through Get CTM Phone Numbers) — paste its Phone into the row first, then check it here. Looks up the real number behind that Phone and brings CTM's dashboard label (its "description"), this row's Area Code, and call routing back into agreement with it. Also how a stale or wrong-account Phone gets caught.</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-resync-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -146,27 +145,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Never touches Phone itself, so there's no live/not-live distinction — same behavior either way. The most common case: domain NOT live yet, you bought the number directly in CTM and pasted it into Phone yourself, and you just want CTM's label (its "description" in the CTM dashboard) and this row's Area Code to actually match what you bought, without re-buying anything. Uses the same checkboxes as Get CTM Phone Numbers above. A row with a destination on file always gets routing re-applied to whatever number is in Phone now, replacing anything stale.
             </div>
         </div>
-        <details id="ms-resync-details" style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
-            <pre id="ms-resync-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-            <div id="ms-resync-results" style="margin-top:8px;font-size:.8rem;"></div>
-        </details>
-    </div>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
-        <strong style="font-size:.82rem;color:#1e3a5f;">Insert/verify primary area code selected</strong>
-        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+    <?php ms_ctm_card_end('resync'); ?>
+    <?php ms_ctm_card_start('areacode', 'Insert/verify primary area code selected'); ?>
         <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Real, billed check (Claude with real web search) — for each checked row, finds the true PRIMARY area code for that city, not a newer overlay.\n\nBLANK on file, not live: the primary code is WRITTEN onto the row — the only thing this does to params.csv, and only that one field.\n\nBLANK on file, LIVE row: only suggested, never written — a live row's data changes only through Correct &amp; Regenerate.\n\nSomething already on file (right or wrong): read-only either way. A wrong code is reported, never auto-changed — a human decides what to do with an existing number, same as every other CTM action here.\n\nA city already checked once, by ANY batch or niche, is never re-billed — fleet-wide cache in admin/infra/state/area_code_checks.json.">&#9432;</a>
         <span class="hint" style="margin-left:6px;">Uses the same checkboxes as Get CTM Phone Numbers above. Real API cost (a few cents) per NEW city only — already-checked cities are free.</span>
         <div style="margin-top:8px;">
             <button type="button" class="btn btn-primary" id="ms-areacode-btn" onclick="msAreaCodeCheck()">Insert/verify primary area code selected (<span id="ms-areacode-count">0</span> selected)</button>
             <span id="ms-areacode-msg" class="hint" style="margin-left:8px;"></span>
         </div>
-        <details id="ms-areacode-details" style="margin-top:8px;">
-            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
-            <pre id="ms-areacode-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-            <div id="ms-areacode-results" style="margin-top:8px;font-size:.8rem;"></div>
-        </details>
-    </div>
+    <?php ms_ctm_card_end('areacode'); ?>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
@@ -1221,9 +1208,9 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     const bpBatchId  = <?= json_encode($batchId ?? '') ?>;
     let msPollTimer = null;
 
-    // See admin/_batch_servers.php's esc() for why ' is escaped too — this file also
-    // interpolates values into single-quoted JS string literals inside onclick="...".
-    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    // esc() is window.esc from admin/_batch_servers.php's IIFE (included above, still
+    // the same page) — no local declaration needed, the scope chain resolves the
+    // plain `esc` calls throughout this script to it.
 
     // Click-to-open replacement for a native title="" tooltip, which vanishes the
     // instant the mouse moves toward it — can't be read in full or clicked into.

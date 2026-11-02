@@ -76,10 +76,9 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
     const csrf = <?= json_encode($csrfToken) ?>;
     let glRows = [];
 
-    // See admin/_batch_servers.php's esc() for why ' is escaped too — this file also
-    // interpolates domain values into single-quoted JS string literals inside
-    // onclick="...".
-    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    // esc() is window.esc from admin/_batch_servers.php's IIFE, which runs first on
+    // this page (batch.php) — no local declaration needed, the scope chain resolves
+    // the plain `esc` calls below to it.
 
     function ago(ts) {
         if (!ts) return '';

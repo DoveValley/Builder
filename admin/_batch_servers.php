@@ -69,7 +69,11 @@
     // literal inside a double-quoted onclick="..." attribute — a value containing an
     // apostrophe (e.g. a hand-edited server_id) would otherwise break out of that
     // string literal and inject markup/script into the admin page.
-    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    // On window (not a local function) because this script's IIFE runs first on the
+    // page (included before _batch_golive.php and _batch_panels.php's own script,
+    // both on the same batch.php page) — they call plain esc(...) with no local
+    // declaration of their own, which the scope chain resolves to this one.
+    window.esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); };
 
     window.msLoadServers = async function (refresh) {
         const box = document.getElementById('ms-srv-body');
