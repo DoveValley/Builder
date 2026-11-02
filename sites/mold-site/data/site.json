@@ -374,6 +374,10 @@
         {
           "url": "/air-quality-testing-{city_slug}",
           "text": "indoor air quality testing"
+        },
+        {
+          "url": "/emergency-mold-removal-{city_slug}",
+          "text": "emergency mold removal"
         }
       ],
       "id": "related_links_home_1"
@@ -1421,6 +1425,10 @@
       {
         "name": "Mold Removal Cost",
         "url": "/mold-removal-cost-{city_slug}"
+      },
+      {
+        "name": "Emergency Mold Removal",
+        "url": "/emergency-mold-removal-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",
