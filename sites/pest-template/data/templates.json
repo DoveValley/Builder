@@ -3461,8 +3461,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/scorpion-control-{city_slug}",
-                        "text": "scorpion control"
+                        "url": "/scorpion-pest-control-{city_slug}",
+                        "text": "scorpion pest control"
                     },
                     {
                         "url": "/silverfish-control-{city_slug}",
@@ -3609,10 +3609,10 @@
     },
     {
         "id": "tpl_scorpion_control",
-        "title": "Scorpion Control in {city_state} | {business_short}",
-        "slug_pattern": "scorpion-control-{city_slug}",
+        "title": "Scorpion Pest Control in {city_state} | {business_short}",
+        "slug_pattern": "scorpion-pest-control-{city_slug}",
         "page_type": "template",
-        "service": "Scorpion Control",
+        "service": "Scorpion Pest Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3621,13 +3621,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Scorpion Control in {city_state}",
+                "hs_heading": "Scorpion Pest Control in {city_state}",
                 "hs_subtext": "<p>Reliable scorpion pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Scorpion Control in {city_state}",
+                "hs_photo_alt": "Scorpion Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_28fc8f_8121b8.webp",
@@ -3652,7 +3652,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_52af6e_42ce96.webp",
-                "it_alt": "Scorpion Control in a {city_state} home",
+                "it_alt": "Scorpion Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -3826,34 +3826,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Scorpion Control in {city_state} | {business_short}",
+            "seo_title": "Scorpion Pest Control in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Scorpion control removes scorpions before their venomous stings put your family at risk. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "scorpion control {city} {SS}, scorpion pest control, scorpion exterminator, scorpion treatment",
-            "og_title": "Scorpion Control in {city_state} | {business}",
-            "og_description": "Professional scorpion control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "Scorpion pest control removes scorpions before their venomous stings put your family at risk. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "scorpion pest control {city} {SS}, scorpion control, scorpion exterminator, scorpion treatment",
+            "og_title": "Scorpion Pest Control in {city_state} | {business}",
+            "og_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Scorpion Control",
-            "service_type": "Scorpion Control",
+            "service_name": "Scorpion Pest Control",
+            "service_type": "Scorpion Pest Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional scorpion exterminator services in {city_state}. Targeted scorpion control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Control in {city_state}\",\n            \"serviceType\": \"Scorpion Control\",\n            \"description\": \"Professional scorpion control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Scorpion Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Pest Control in {city_state}\",\n            \"serviceType\": \"Scorpion Pest Control\",\n            \"description\": \"Professional scorpion pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Scorpion Pest Control",
             "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions",
             "meta_description_pool": [
-                "Scorpion Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
-                "Need Scorpion Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
-                "Scorpion Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
-                "Find Scorpion Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
+                "Scorpion Pest Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
+                "Need Scorpion Pest Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
+                "Scorpion Pest Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
+                "Find Scorpion Pest Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
             ],
             "og_description_pool": [
-                "Scorpion Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
-                "Need Scorpion Control near {city_state}? {business} quickly links you to responsive local providers for scorpion treatment. Call {phone}.",
-                "{business} offers fast Scorpion Control connections in {city_state}, matching you with local providers for targeted treatment. Call {phone} today.",
-                "Searching for Scorpion Control in {city_state}? {business} connects you to local, responsive providers ready to help. Call {phone} now."
+                "Scorpion Pest Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
+                "Need Scorpion Pest Control near {city_state}? {business} quickly links you to responsive local providers for scorpion treatment. Call {phone}.",
+                "{business} offers fast Scorpion Pest Control connections in {city_state}, matching you with local providers for targeted treatment. Call {phone} today.",
+                "Searching for Scorpion Pest Control in {city_state}? {business} connects you to local, responsive providers ready to help. Call {phone} now."
             ]
         },
         "layout_enabled": true,
