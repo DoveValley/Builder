@@ -6,12 +6,13 @@
  * than diffing two renders. Two reasons that is the better design: one build instead of two,
  * and a diff happily passes a page whose keyword was never in the H1 to begin with.
  *
- * The five checks, in the same words the batch card uses:
+ * The six checks, in the same words the batch card uses:
  *   1. every page keeps its primary keyword in the H1
  *   2. one H1 per page
  *   3. titles and meta descriptions present, fully resolved, and not duplicated
- *   4. schema types unchanged
- *   5. same set of pages as the master
+ *   4. the <title> leads with the primary keyword, not merely contains it
+ *   5. schema types unchanged
+ *   6. same set of pages as the master
  *   + the canonical points at this site's own domain
  *
  * Check 3 has two tiers. Missing, unresolved or duplicated is a FAILURE. Differing from the
@@ -60,6 +61,21 @@ function ms_seo_heading_has_keyword(string $heading, string $keyword): bool
         if ($w === $need[$i] && ++$i === count($need)) return true;
     }
     return false;
+}
+
+/**
+ * Does the title LEAD with the keyword — the keyword's words as the title's first words —
+ * rather than merely containing them somewhere past the business name? Deliberately stricter
+ * than ms_seo_heading_has_keyword(): an H1 naturally has "in {city}, {ST}" spliced in right
+ * after the keyword, which is fine, but a title that buries the keyword after "{business} | "
+ * has lost the front-loaded position search engines and SERP snippets weight most.
+ */
+function ms_seo_title_keyword_first(string $title, string $keyword): bool
+{
+    $need = ms_seo_words($keyword);
+    if (!$need) return true;                        // no keyword to check against
+    $have = ms_seo_words($title);
+    return array_slice($have, 0, count($need)) === $need;
 }
 
 /** The @type values inside every JSON-LD block in a page, flattened. */
@@ -168,7 +184,7 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
         $file = $outputDir . '/' . $rel;
         $label = $page['label'];
 
-        // 5 · same set of pages as the master
+        // 6 · same set of pages as the master
         if (!is_file($file)) {
             $out['failures'][] = "$label: the master has this page, the build does not";
             continue;
@@ -205,6 +221,17 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
                 $out['failures'][] = "$label: unresolved shortcode in the $what — \"$val\"";
             }
         }
+
+        // 4 · the title leads with the primary keyword, not just contains it somewhere after
+        // the business name. Same $keyword already resolved above for the H1 check.
+        if ($keyword !== '' && $title !== null && $title !== '') {
+            $titleText = html_entity_decode($title, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            if (!ms_seo_title_keyword_first($titleText, $keyword)) {
+                $out['failures'][] = "$label: <title> does not lead with the primary keyword "
+                                   . "(keyword: \"$keyword\" · title: \"" . trim($titleText) . "\")";
+            }
+        }
+
         // Did the title/meta actually stay what the master says they should be? Composed the
         // same way the renderer composes them — seo_title, else the page title, else the site
         // default (static_build.php:199) — then resolved through the same resolve_shortcodes()
@@ -251,7 +278,7 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
             }
         }
 
-        // 4 · schema types unchanged
+        // 5 · schema types unchanged
         $wantTypes = ms_seo_expected_types($seo['schema'] ?? '');
         if ($wantTypes) {
             $gotTypes = ms_seo_schema_types($html);

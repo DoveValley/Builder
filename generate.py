@@ -2628,6 +2628,11 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
                 'primary_keyword': topic.get('focus_keyword', ''),
                 'secondary_keywords': '',
                 'meta_keywords': '',
+                # Unresolved {business_short} token, same convention as every other seo_title
+                # in the fleet (resolved at render time by resolve_shortcodes()) — without
+                # this the <title> fell back to the bare editorial post title with no business
+                # name at all (site-template.php's seo_title -> title -> site-default chain).
+                'seo_title': title + ' | {business_short}',
                 'meta_description': ai.get('meta_description', ''),
                 'og_title': title,
                 'og_description': ai.get('meta_description', ''),

@@ -5131,11 +5131,12 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-seo-gate">
     <h2>The SEO gate</h2>
     <p class="bc-meta">✅ BUILT — always runs, <strong>reports, does not block</strong> (by design, for now)</p>
-    <p><code>ms_seo_gate()</code> (<code>includes/multisite/seo_gate.php</code>) is the last step in <code>build_one.php</code>, running on the BUILT output after everything else — it checks the real, rendered pages directly rather than diffing two renders (one build instead of two, and a diff would happily pass a page whose keyword was never in the H1 to begin with). Five checks, in the same words the batch panel uses:</p>
+    <p><code>ms_seo_gate()</code> (<code>includes/multisite/seo_gate.php</code>) is the last step in <code>build_one.php</code>, running on the BUILT output after everything else — it checks the real, rendered pages directly rather than diffing two renders (one build instead of two, and a diff would happily pass a page whose keyword was never in the H1 to begin with). Six checks, in the same words the batch panel uses:</p>
     <ol>
         <li>Every page keeps its primary keyword in the H1 — tested as an ordered word <em>subsequence</em>, not an exact substring, so "Water Damage Restoration in Overland Park, KS" correctly matches keyword "water damage restoration {city}, {ST}".</li>
         <li>Exactly one H1 per page.</li>
         <li>Titles and meta descriptions are present, fully resolved (no leftover <code>{shortcode}</code>), and not duplicated across pages. <strong>Two tiers here:</strong> missing/unresolved/duplicated is a FAILURE; differing from the value the master itself would compose for that page is only a WARNING — composed the exact same way the renderer composes it (<code>static_build.php</code> → <code>site-template.php</code>), so as not to become a second, drifting copy of the title rule.</li>
+        <li>The <code>&lt;title&gt;</code> <em>leads</em> with the primary keyword — the keyword's words as the title's first words, not merely present after the business name. Stricter than the H1 check on purpose: an H1 can have "in {city}, {ST}" spliced in right after the keyword, but a title that buries the keyword past "{business} | " has lost the front-loaded position search snippets weight most. Skipped on pages with no stored primary keyword (e.g. blog posts).</li>
         <li>Schema types are unchanged from the master.</li>
         <li>Same set of pages as the master (accounting for Page Pool exclusions).</li>
     </ol>

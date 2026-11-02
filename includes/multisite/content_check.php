@@ -16,7 +16,7 @@
  * Insights, Rich Results Test) — those are slow and cost real money per check, and belong in
  * their own job-queued tool later, not bolted onto this one.
  *
- * seo_gate.php's existing 5 checks are NOT wrapped here on purpose: ms_seo_gate() requires
+ * seo_gate.php's existing 6 checks are NOT wrapped here on purpose: ms_seo_gate() requires
  * already-built HTML output ("no built output to check" otherwise), which breaks the
  * "always fast, always runnable against raw template data" contract every check here keeps.
  */
@@ -844,7 +844,7 @@ function cc_issue_list_result(array $issues, string $recommendation): array {
  * fully separate functions/registry from cc_registry()/cc_run() above, on purpose —
  * zero risk of touching already-shipped, already-tested template-mode behavior.
  *
- * Scoped deliberately narrow for this first pass: ms_seo_gate() (Google's own 5-check
+ * Scoped deliberately narrow for this first pass: ms_seo_gate() (Google's own 6-check
  * gate, already run automatically on every build) can't be re-exposed here without new
  * plumbing — it reads $workingDir/data/site.json, and build_one.php deletes workingDir
  * right after the build finishes. Schema-identity/aggregateRating/areaServed checks need
