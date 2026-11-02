@@ -38240,5 +38240,269 @@
                 "map_info_1"
             ]
         ]
+    },
+    {
+        "id": "tpl_range_hood_repair",
+        "page_type": "template",
+        "title": "Range Hood Repair in {city_state} | {business_short}",
+        "slug_pattern": "range-hood-repair-{city_slug}",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "Range Hood Repair in {city_state}",
+                "hs_subtext": "<p>Fast, reliable Appliance Repair connections from {business}. We connect you with responsive local providers who respond quickly.</p>",
+                "hs_btn_text": "Call {phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo": "sites/appliance-site/uploads/media/ai_5b7e52_698df3.webp",
+                "hs_photo_alt": "Range Hood Repair in {city_state}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#f3f6f7",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "id": "hero_split_1",
+                "hs_mobile_order": "img_first",
+                "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_show_icons": false,
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
+                "_it_photo_prechart": "",
+                "it_caption": "{chart_group_age_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "range-hood",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "type_brands_mention",
+                "ai_mode": "standalone",
+                "ai_render_as": "text",
+                "skin": "light",
+                "heading_level": "h2",
+                "anchor": "brands_serviced",
+                "id": "ai_block_brands_serviced"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "common_problems",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "fc_num_cols": 3,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQ — {city_state}",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Need this appliance repaired in {city}? We'll connect you with a local provider.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 4,
+                "rl_items": [
+                    {
+                        "url": "/cooktop-repair-{city_slug}",
+                        "text": "cooktop repair"
+                    },
+                    {
+                        "url": "/oven-repair-{city_slug}",
+                        "text": "oven repair"
+                    },
+                    {
+                        "url": "/dishwasher-repair-{city_slug}",
+                        "text": "dishwasher repair"
+                    },
+                    {
+                        "url": "/appliance-repair-cost-{city_slug}",
+                        "text": "appliance repair cost"
+                    },
+                    {
+                        "url": "/emergency-appliance-repair-{city_slug}",
+                        "text": "emergency appliance repair"
+                    },
+                    {
+                        "url": "/commercial-appliance-repair-{city_slug}",
+                        "text": "commercial appliance repair"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "custom_html",
+                "skin": "",
+                "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\" cols=\"4\"]",
+                "id": "custom_html_type_self"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Appliance Repair Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Schedule your {city} repair today.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1",
+                "mi_map_link": "{city_map_link}",
+                "mi_map_link_text": "View {city_state} on Google Maps ↗"
+            }
+        ],
+        "seo": {
+            "seo_title": "Range Hood Repair in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Need Range Hood Repair? Range hood problems range from fan motor failure to lighting and grease filter issues. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "range hood repair {city} {SS}",
+            "og_title": "Range Hood Repair in {city_state} | {business}",
+            "og_description": "Professional range hood repair in {city_state} from {business}. Responsive local providers, often same-day. Call {phone}.",
+            "og_image": "",
+            "service_name": "Range Hood Repair",
+            "service_type": "Range Hood Repair",
+            "service_area": "{city}, {SS}",
+            "service_description": "Professional range hood repair in {city_state} from {business}. Responsive local providers, often same-day. Call {phone}.",
+            "bc_label": "",
+            "bc_mid_label": "",
+            "bc_mid_url": "",
+            "primary_keyword": "Range Hood Repair",
+            "secondary_keywords": "vent hood repair, exhaust fan repair, range hood fan not working, range hood light not working",
+            "brand": "",
+            "appliance_type": "Range Hood",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Range Hood Repair in {city_state}\",\n            \"serviceType\": \"Range Hood Repair\",\n            \"description\": \"Professional range hood repair in {city_state} from {business}. Responsive local providers, often same-day. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "brands_serviced": "Whirlpool, Maytag, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Wolf, Viking, Thermador, Miele",
+            "meta_description_pool": [
+                "Range Hood Repair in {city_state}: get connected with independent local providers who handle fan, light, and filter issues. Call {phone} to start.",
+                "Looking for Range Hood Repair near {city_state}? We connect you with local independent providers for fan motor and lighting problems. Call {phone}.",
+                "Range Hood Repair, {city_state}: from fan failure to lighting trouble, we link you to local independent providers fast. Reach us at {phone}.",
+                "{city_state} Range Hood Repair made easy — connect quickly with local independent providers who address fan and ventilation issues. Call {phone} now."
+            ],
+            "og_description_pool": [
+                "Range Hood Repair in {city_state}: {business} connects you with responsive local providers, often available same-day. Call {phone} to get started.",
+                "Need Range Hood Repair near {city_state}? {business} links you to independent local providers who respond quickly. Reach us at {phone}.",
+                "{business} helps {city_state} residents find local Range Hood Repair providers fast, with same-day availability common. Call {phone} today.",
+                "Fast Range Hood Repair connections in {city_state} through {business} — local providers respond quickly. Dial {phone} to get connected."
+            ]
+        },
+        "service": "Range Hood Repair",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "ai_block_1",
+                "trust_bar_1",
+                "custom_html_1",
+                "ai_block_2",
+                "ai_block_3",
+                "faq_two_col_1",
+                "cta_banner_1",
+                "custom_html_2",
+                "cta_banner_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "ai_block_1",
+                "custom_html_1",
+                "ai_block_2",
+                "ai_block_3",
+                "faq_two_col_1",
+                "cta_banner_1",
+                "custom_html_2",
+                "trust_bar_1",
+                "cta_banner_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "custom_html_1",
+                "cta_banner_1",
+                "ai_block_3",
+                "faq_two_col_1",
+                "custom_html_2",
+                "cta_banner_2",
+                "map_info_1"
+            ]
+        ]
     }
 ]

@@ -1328,6 +1328,10 @@
             {
                 "name": "Thermador Refrigerator Repair",
                 "url": "/thermador-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Range Hood Repair",
+                "url": "/range-hood-repair-{city_slug}"
             }
         ],
         "url_pattern": "/{service_slug}-{city_slug}",

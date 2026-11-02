@@ -2282,6 +2282,23 @@
             "cpc": 12.06,
             "kd": 6,
             "value_weight": 596970
+        },
+        {
+            "primary": "Range Hood Repair {city}, {ST}",
+            "slug": "range-hood-repair",
+            "section": "landing",
+            "tier": "medium-2",
+            "secondary": [
+                "vent hood repair",
+                "exhaust fan repair",
+                "range hood fan not working",
+                "range hood light not working"
+            ],
+            "pool": "rotate",
+            "volume": 1900,
+            "cpc": 3.5,
+            "kd": 0,
+            "value_weight": 6650
         }
     ],
     "page_pool": {
