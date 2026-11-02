@@ -34,6 +34,7 @@ require __DIR__ . '/../includes/multisite/differentiate.php';
 require __DIR__ . '/../includes/multisite/page_pool.php';
 require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
+require __DIR__ . '/../includes/multisite/slug_redirects.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 require_once __DIR__ . '/../includes/multisite/image_ai.php';
@@ -260,6 +261,20 @@ if ($landingCities && $skipped('landing')) {
         }
     } else {
         progress_log('  Could not launch generate_landing.php — deploy will have no landing pages.', 'warn');
+    }
+}
+
+// Slug redirects: only fires for a master that actually has a slug_redirects.json
+// (sites/{masterId}/multisite/) — every other master sees zero effect. Runs regardless
+// of whether landing pages were (re)built this pass, same as the master's own
+// structure/hero-bg pool reads above: it just resolves {city_slug} against this
+// domain's real city list and writes data/redirects.json, which static_build.php's
+// existing single-site mechanism (static_build.php:795) already turns into `Redirect
+// 301` lines in .htaccess.
+if ($landingCities) {
+    $redirCount = ms_apply_slug_redirects($workingDir, $masterId, $landingCities);
+    if ($redirCount > 0) {
+        progress_log("  Slug redirects: $redirCount rule(s) written for this domain's cities.");
     }
 }
 

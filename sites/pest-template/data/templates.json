@@ -164,8 +164,8 @@
                         "text": "emergency pest control"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     },
                     {
                         "url": "/pest-control-plans-{city_slug}",
@@ -301,10 +301,10 @@
     },
     {
         "id": "tpl_ant_exterminator",
-        "title": "Ant Pest Control in {city_state} | {business_short}",
-        "slug_pattern": "ant-pest-control-{city_slug}",
+        "title": "Ant Exterminator in {city_state} | {business_short}",
+        "slug_pattern": "ant-exterminator-{city_slug}",
         "page_type": "template",
-        "service": "Ant Pest Control",
+        "service": "Ant Exterminator",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -313,13 +313,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Ant Pest Control in {city_state}",
+                "hs_heading": "Ant Exterminator in {city_state}",
                 "hs_subtext": "<p>Reliable ant pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Ant Pest Control in {city_state}",
+                "hs_photo_alt": "Ant Exterminator in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_b01f9d_b6ed30.webp",
@@ -344,7 +344,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_9953a8_ea2b8c.webp",
-                "it_alt": "Ant Pest Control in a {city_state} home",
+                "it_alt": "Ant Exterminator in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -475,8 +475,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -522,34 +522,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Ant Pest Control in {city_state} | {business_short}",
+            "seo_title": "Ant Exterminator in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Ant pest control stops colonies that can number in the thousands before they invade food storage. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "ant pest control {city} {SS}, ant exterminator, ant control, ant treatment",
-            "og_title": "Ant Pest Control in {city_state} | {business}",
-            "og_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "An ant exterminator stops colonies that can number in the thousands before they invade food storage. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "ant exterminator {city} {SS}, ant pest control, ant control, ant treatment",
+            "og_title": "Ant Exterminator in {city_state} | {business}",
+            "og_description": "Professional ant extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Ant Pest Control",
-            "service_type": "Ant Pest Control",
+            "service_name": "Ant Exterminator",
+            "service_type": "Ant Exterminator",
             "service_area": "{city}, {SS}",
             "service_description": "Professional ant exterminator services in {city_state}. Targeted ant control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Pest Control in {city_state}\",\n            \"serviceType\": \"Ant Pest Control\",\n            \"description\": \"Professional ant pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Ant Pest Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Exterminator in {city_state}\",\n            \"serviceType\": \"Ant Exterminator\",\n            \"description\": \"Professional ant extermination services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Ant Exterminator",
             "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants",
             "meta_description_pool": [
-                "Ant Pest Control in {city_state}: get connected fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
-                "Need Ant Pest Control near {city_state}? We connect you quickly with independent local providers ready to tackle invading ant colonies. Call {phone}.",
-                "Ant Pest Control, {city_state}: colonies can number in the thousands — reach local providers fast through us by calling {phone}.",
-                "Searching for Ant Pest Control in {city_state}? We link you to responsive local providers who address ant colonies before they spread. Call {phone}."
+                "Ant Exterminator help in {city_state}: get connected fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
+                "Need an ant exterminator near {city_state}? We connect you quickly with independent local providers ready to tackle invading ant colonies. Call {phone}.",
+                "Ant Exterminator, {city_state}: colonies can number in the thousands — reach local providers fast through us by calling {phone}.",
+                "Searching for an ant exterminator in {city_state}? We link you to responsive local providers who address ant colonies before they spread. Call {phone}."
             ],
             "og_description_pool": [
-                "Ant Pest Control in {city_state}: {business} connects you with independent local providers for prompt ant treatment. Call {phone} to get started.",
-                "Need Ant Pest Control near {city_state}? {business} helps you quickly reach local providers offering targeted ant treatment services. Call {phone}.",
-                "{business} links {city_state} residents to independent ant pest control providers for fast, local service. Call {phone} for a connection today.",
-                "Ant Pest Control, {city_state} area: {business} is your fast, local connection to independent providers handling ant treatment. Call {phone} now."
+                "Ant Exterminator in {city_state}: {business} connects you with independent local providers for prompt ant treatment. Call {phone} to get started.",
+                "Need an ant exterminator near {city_state}? {business} helps you quickly reach local providers offering targeted ant treatment services. Call {phone}.",
+                "{business} links {city_state} residents to independent ant extermination providers for fast, local service. Call {phone} for a connection today.",
+                "Ant Exterminator, {city_state} area: {business} is your fast, local connection to independent providers handling ant treatment. Call {phone} now."
             ]
         },
         "layout_enabled": true,
@@ -758,8 +758,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/ant-pest-control-{city_slug}",
-                        "text": "ant pest control"
+                        "url": "/ant-exterminator-{city_slug}",
+                        "text": "ant extermination"
                     },
                     {
                         "url": "/carpenter-ant-control-{city_slug}",
@@ -778,8 +778,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -1064,8 +1064,8 @@
                         "text": "termite treatment"
                     },
                     {
-                        "url": "/ant-pest-control-{city_slug}",
-                        "text": "ant pest control"
+                        "url": "/ant-exterminator-{city_slug}",
+                        "text": "ant extermination"
                     },
                     {
                         "url": "/wdi-inspection-{city_slug}",
@@ -1080,8 +1080,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -1208,10 +1208,10 @@
     },
     {
         "id": "tpl_bed_bug_exterminator",
-        "title": "Bed Bug Control in {city_state} | {business_short}",
-        "slug_pattern": "bed-bug-control-{city_slug}",
+        "title": "Bed Bug Exterminator in {city_state} | {business_short}",
+        "slug_pattern": "bed-bug-exterminator-{city_slug}",
         "page_type": "template",
-        "service": "Bed Bug Control",
+        "service": "Bed Bug Exterminator",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -1220,13 +1220,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Bed Bug Control in {city_state}",
+                "hs_heading": "Bed Bug Exterminator in {city_state}",
                 "hs_subtext": "<p>Reliable bed bug control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Bed Bug Control in {city_state}",
+                "hs_photo_alt": "Bed Bug Exterminator in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_469108_3983e2.webp",
@@ -1251,7 +1251,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_ce76cf_f6df3a.webp",
-                "it_alt": "Bed Bug Control in a {city_state} home",
+                "it_alt": "Bed Bug Exterminator in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -1421,34 +1421,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Bed Bug Control in {city_state} | {business_short}",
+            "seo_title": "Bed Bug Exterminator in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Bed bug control targets bugs that feed at night and multiply quickly in bedding and furniture. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "bed bug control {city} {SS}, bed bug exterminator, bed bug treatment, bed bug removal",
-            "og_title": "Bed Bug Control in {city_state} | {business}",
-            "og_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "A bed bug exterminator targets bugs that feed at night and multiply quickly in bedding and furniture. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "bed bug exterminator {city} {SS}, bed bug control, bed bug treatment, bed bug removal",
+            "og_title": "Bed Bug Exterminator in {city_state} | {business}",
+            "og_description": "Professional bed bug extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Bed Bug Control",
-            "service_type": "Bed Bug Control",
+            "service_name": "Bed Bug Exterminator",
+            "service_type": "Bed Bug Exterminator",
             "service_area": "{city}, {SS}",
             "service_description": "Professional bed bug exterminator services in {city_state}. Targeted bed bug control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Control in {city_state}\",\n            \"serviceType\": \"Bed Bug Control\",\n            \"description\": \"Professional bed bug control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Bed Bug Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Exterminator in {city_state}\",\n            \"serviceType\": \"Bed Bug Exterminator\",\n            \"description\": \"Professional bed bug extermination services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Bed Bug Exterminator",
             "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs",
             "meta_description_pool": [
-                "Bed Bug Control in {city_state}: connect with local providers who understand these fast-multiplying, night-feeding pests. Call {phone} to get started.",
-                "Need Bed Bug Control near {city_state}? We connect you with independent local providers ready to address infestations in bedding and furniture. Call {phone}.",
-                "Bed Bug Control, {city_state}: find local providers who respond quickly to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
-                "Searching for Bed Bug Control in {city_state}? We link you to responsive local providers familiar with these fast-multiplying pests. Call {phone} today."
+                "Bed Bug Exterminator help in {city_state}: connect with local providers who understand these fast-multiplying, night-feeding pests. Call {phone} to get started.",
+                "Need a bed bug exterminator near {city_state}? We connect you with independent local providers ready to address infestations in bedding and furniture. Call {phone}.",
+                "Bed Bug Exterminator, {city_state}: find local providers who respond quickly to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
+                "Searching for a bed bug exterminator in {city_state}? We link you to responsive local providers familiar with these fast-multiplying pests. Call {phone} today."
             ],
             "og_description_pool": [
-                "Bed Bug Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone} to get started.",
-                "Need Bed Bug Control near {city_state}? {business} links you fast to local, independent providers ready to help. Call {phone} today.",
-                "Bed Bug Control, {city_state} — {business} is your local connection to independent providers who handle targeted treatment. Call {phone}.",
-                "In {city_state}, {business} helps you find responsive, local providers for Bed Bug Control and targeted treatment. Call {phone} now."
+                "Bed Bug Exterminator in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone} to get started.",
+                "Need a bed bug exterminator near {city_state}? {business} links you fast to local, independent providers ready to help. Call {phone} today.",
+                "Bed Bug Exterminator, {city_state} — {business} is your local connection to independent providers who handle targeted treatment. Call {phone}.",
+                "In {city_state}, {business} helps you find responsive, local providers for bed bug extermination and targeted treatment. Call {phone} now."
             ]
         },
         "layout_enabled": true,
@@ -1681,8 +1681,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -1964,12 +1964,12 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/tick-treatment-{city_slug}",
-                        "text": "tick treatment"
+                        "url": "/tick-control-{city_slug}",
+                        "text": "tick control"
                     },
                     {
-                        "url": "/flea-pest-control-{city_slug}",
-                        "text": "flea pest control"
+                        "url": "/flea-exterminator-{city_slug}",
+                        "text": "flea extermination"
                     },
                     {
                         "url": "/residential-pest-control-{city_slug}",
@@ -1984,8 +1984,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -2106,10 +2106,10 @@
     },
     {
         "id": "tpl_flea_exterminator",
-        "title": "Flea Pest Control in {city_state} | {business_short}",
-        "slug_pattern": "flea-pest-control-{city_slug}",
+        "title": "Flea Exterminator in {city_state} | {business_short}",
+        "slug_pattern": "flea-exterminator-{city_slug}",
         "page_type": "template",
-        "service": "Flea Pest Control",
+        "service": "Flea Exterminator",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2118,13 +2118,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Flea Pest Control in {city_state}",
+                "hs_heading": "Flea Exterminator in {city_state}",
                 "hs_subtext": "<p>Reliable flea pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Flea Pest Control in {city_state}",
+                "hs_photo_alt": "Flea Exterminator in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_67571c_acd121.webp",
@@ -2149,7 +2149,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_3947b0_0226b6.webp",
-                "it_alt": "Flea Pest Control in a {city_state} home",
+                "it_alt": "Flea Exterminator in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2256,8 +2256,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/tick-treatment-{city_slug}",
-                        "text": "tick treatment"
+                        "url": "/tick-control-{city_slug}",
+                        "text": "tick control"
                     },
                     {
                         "url": "/mosquito-control-{city_slug}",
@@ -2276,8 +2276,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -2323,34 +2323,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Flea Pest Control in {city_state} | {business_short}",
+            "seo_title": "Flea Exterminator in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Flea pest control clears fleas from pet bedding and carpets before they spread further. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "flea pest control {city} {SS}, flea exterminator, flea control, flea treatment",
-            "og_title": "Flea Pest Control in {city_state} | {business}",
-            "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "A flea exterminator clears fleas from pet bedding and carpets before they spread further. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "flea exterminator {city} {SS}, flea pest control, flea control, flea treatment",
+            "og_title": "Flea Exterminator in {city_state} | {business}",
+            "og_description": "Professional flea extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Flea Pest Control",
-            "service_type": "Flea Pest Control",
+            "service_name": "Flea Exterminator",
+            "service_type": "Flea Exterminator",
             "service_area": "{city}, {SS}",
             "service_description": "Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Pest Control in {city_state}\",\n            \"serviceType\": \"Flea Pest Control\",\n            \"description\": \"Professional flea pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Flea Pest Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Exterminator in {city_state}\",\n            \"serviceType\": \"Flea Exterminator\",\n            \"description\": \"Professional flea extermination services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Flea Exterminator",
             "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas",
             "meta_description_pool": [
-                "Flea Pest Control in {city_state}: connect with local providers who treat fleas in carpets and pet bedding before infestations spread. Call {phone}.",
-                "Need Flea Pest Control near {city_state}? We help you find independent local providers to address flea problems in carpets and bedding. Call {phone}.",
-                "Flea Pest Control, {city_state} — get matched with local providers experienced in tackling fleas in carpets and pet areas. Call {phone} today.",
-                "Searching for Flea Pest Control in {city_state}? This network connects you to local providers who address flea issues in bedding and carpets. Call {phone}."
+                "Flea Exterminator help in {city_state}: connect with local providers who treat fleas in carpets and pet bedding before infestations spread. Call {phone}.",
+                "Need a flea exterminator near {city_state}? We help you find independent local providers to address flea problems in carpets and bedding. Call {phone}.",
+                "Flea Exterminator, {city_state} — get matched with local providers experienced in tackling fleas in carpets and pet areas. Call {phone} today.",
+                "Searching for a flea exterminator in {city_state}? This network connects you to local providers who address flea issues in bedding and carpets. Call {phone}."
             ],
             "og_description_pool": [
-                "Flea Pest Control in {city_state}: {business} connects you with local providers for prompt, targeted treatment. Call {phone} to get started.",
-                "Need Flea Pest Control near {city_state}? {business} links you fast to independent local providers ready to help. Call {phone} today.",
-                "Flea Pest Control, {city_state}-area: {business} helps you reach responsive local providers for targeted flea treatment. Call {phone} now.",
-                "Get connected to Flea Pest Control help in {city_state} through {business}, your link to local providers. Call {phone} for a fast response."
+                "Flea Exterminator in {city_state}: {business} connects you with local providers for prompt, targeted treatment. Call {phone} to get started.",
+                "Need a flea exterminator near {city_state}? {business} links you fast to independent local providers ready to help. Call {phone} today.",
+                "Flea Exterminator, {city_state}-area: {business} helps you reach responsive local providers for targeted flea treatment. Call {phone} now.",
+                "Get connected to flea exterminator help in {city_state} through {business}, your link to local providers. Call {phone} for a fast response."
             ]
         },
         "layout_enabled": true,
@@ -2404,10 +2404,10 @@
     },
     {
         "id": "tpl_tick_control",
-        "title": "Tick Treatment in {city_state} | {business_short}",
-        "slug_pattern": "tick-treatment-{city_slug}",
+        "title": "Tick Control in {city_state} | {business_short}",
+        "slug_pattern": "tick-control-{city_slug}",
         "page_type": "template",
-        "service": "Tick Treatment",
+        "service": "Tick Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2416,13 +2416,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Tick Treatment in {city_state}",
+                "hs_heading": "Tick Control in {city_state}",
                 "hs_subtext": "<p>Reliable tick treatment for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Tick Treatment in {city_state}",
+                "hs_photo_alt": "Tick Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_2619c8_d4855f.webp",
@@ -2452,7 +2452,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_008923_1b85ce.webp",
-                "it_alt": "Tick Treatment in a {city_state} home",
+                "it_alt": "Tick Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -2559,8 +2559,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/flea-pest-control-{city_slug}",
-                        "text": "flea pest control"
+                        "url": "/flea-exterminator-{city_slug}",
+                        "text": "flea extermination"
                     },
                     {
                         "url": "/mosquito-control-{city_slug}",
@@ -2579,8 +2579,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -2626,34 +2626,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Tick Treatment in {city_state} | {business_short}",
+            "seo_title": "Tick Control in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Tick treatment removes ticks before they attach to skin and spread serious illnesses. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "tick treatment {city} {SS}, tick control, tick exterminator, tick yard treatment",
-            "og_title": "Tick Treatment in {city_state} | {business}",
-            "og_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "Tick control removes ticks before they attach to skin and spread serious illnesses. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "tick control {city} {SS}, tick treatment, tick exterminator, tick yard treatment",
+            "og_title": "Tick Control in {city_state} | {business}",
+            "og_description": "Professional tick control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Tick Treatment",
-            "service_type": "Tick Treatment",
+            "service_name": "Tick Control",
+            "service_type": "Tick Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional tick exterminator services in {city_state}. Targeted tick control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Treatment in {city_state}\",\n            \"serviceType\": \"Tick Treatment\",\n            \"description\": \"Professional tick treatment services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Tick Treatment",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Control in {city_state}\",\n            \"serviceType\": \"Tick Control\",\n            \"description\": \"Professional tick control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Tick Control",
             "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks",
             "meta_description_pool": [
-                "Tick Treatment in {city_state}: connect with local providers who help reduce tick activity around your property. Call {phone} to get started.",
-                "Need Tick Treatment near {city_state}? We connect you to local pros who address tick problems before they spread. Call {phone} today.",
-                "Tick Treatment, {city_state}: find local independent providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
-                "Looking for Tick Treatment in {city_state}? This network links you with local providers who tackle tick issues around your home. Call {phone}."
+                "Tick Control in {city_state}: connect with local providers who help reduce tick activity around your property. Call {phone} to get started.",
+                "Need Tick Control near {city_state}? We connect you to local pros who address tick problems before they spread. Call {phone} today.",
+                "Tick Control, {city_state}: find local independent providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
+                "Looking for Tick Control in {city_state}? This network links you with local providers who tackle tick issues around your home. Call {phone}."
             ],
             "og_description_pool": [
-                "Tick Treatment in {city_state}: {business} connects you with independent local providers for targeted service. Call {phone} to get started.",
-                "Need Tick Treatment near {city_state}? {business} quickly links you to local providers offering targeted treatment options. Call {phone} today.",
-                "{business} helps {city_state} residents find local Tick Treatment providers fast, offering targeted service. Reach out at {phone} for a connection.",
-                "Searching for Tick Treatment in {city_state}? {business} connects you to responsive local providers nearby. Call {phone} to get matched today."
+                "Tick Control in {city_state}: {business} connects you with independent local providers for targeted service. Call {phone} to get started.",
+                "Need Tick Control near {city_state}? {business} quickly links you to local providers offering targeted treatment options. Call {phone} today.",
+                "{business} helps {city_state} residents find local Tick Control providers fast, offering targeted service. Reach out at {phone} for a connection.",
+                "Searching for Tick Control in {city_state}? {business} connects you to responsive local providers nearby. Call {phone} to get matched today."
             ]
         },
         "layout_enabled": true,
@@ -2881,8 +2881,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -3183,8 +3183,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -3311,10 +3311,10 @@
     },
     {
         "id": "tpl_spider_control",
-        "title": "Spider Pest Control in {city_state} | {business_short}",
-        "slug_pattern": "spider-pest-control-{city_slug}",
+        "title": "Spider Control in {city_state} | {business_short}",
+        "slug_pattern": "spider-control-{city_slug}",
         "page_type": "template",
-        "service": "Spider Pest Control",
+        "service": "Spider Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3323,13 +3323,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Spider Pest Control in {city_state}",
+                "hs_heading": "Spider Control in {city_state}",
                 "hs_subtext": "<p>Reliable spider pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Spider Pest Control in {city_state}",
+                "hs_photo_alt": "Spider Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_586faf_c3cf56.webp",
@@ -3354,7 +3354,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_9d1667_4bbf42.webp",
-                "it_alt": "Spider Pest Control in a {city_state} home",
+                "it_alt": "Spider Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -3461,8 +3461,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/scorpion-pest-control-{city_slug}",
-                        "text": "scorpion pest control"
+                        "url": "/scorpion-control-{city_slug}",
+                        "text": "scorpion control"
                     },
                     {
                         "url": "/silverfish-control-{city_slug}",
@@ -3481,8 +3481,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -3528,34 +3528,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Spider Pest Control in {city_state} | {business_short}",
+            "seo_title": "Spider Control in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Spider pest control clears webs and reduces species that bite from corners and dark spaces. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "spider pest control {city} {SS}, spider control, spider exterminator, spider treatment",
-            "og_title": "Spider Pest Control in {city_state} | {business}",
-            "og_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "Spider control clears webs and reduces species that bite from corners and dark spaces. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "spider control {city} {SS}, spider pest control, spider exterminator, spider treatment",
+            "og_title": "Spider Control in {city_state} | {business}",
+            "og_description": "Professional spider control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Spider Pest Control",
-            "service_type": "Spider Pest Control",
+            "service_name": "Spider Control",
+            "service_type": "Spider Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional spider exterminator services in {city_state}. Targeted spider control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Pest Control in {city_state}\",\n            \"serviceType\": \"Spider Pest Control\",\n            \"description\": \"Professional spider pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Spider Pest Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Control in {city_state}\",\n            \"serviceType\": \"Spider Control\",\n            \"description\": \"Professional spider control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Spider Control",
             "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders",
             "meta_description_pool": [
-                "Spider Pest Control in {city_state}: connect with local providers who help clear webs and reduce bites from corners and dark spaces. Call {phone}.",
-                "Need Spider Pest Control near {city_state}? We connect you fast to local providers who tackle webs and bite-prone spiders. Call {phone} today.",
-                "Spider Pest Control, {city_state} area: get linked to independent local providers addressing webs and biting spiders in dark corners. Call {phone}.",
-                "Searching for Spider Pest Control in {city_state}? We quickly connect homeowners to local providers who handle webs and spider activity. Call {phone}."
+                "Spider Control in {city_state}: connect with local providers who help clear webs and reduce bites from corners and dark spaces. Call {phone}.",
+                "Need Spider Control near {city_state}? We connect you fast to local providers who tackle webs and bite-prone spiders. Call {phone} today.",
+                "Spider Control, {city_state} area: get linked to independent local providers addressing webs and biting spiders in dark corners. Call {phone}.",
+                "Searching for Spider Control in {city_state}? We quickly connect homeowners to local providers who handle webs and spider activity. Call {phone}."
             ],
             "og_description_pool": [
-                "Spider Pest Control in {city_state}: {business} connects you with local providers offering targeted treatment for spiders. Call {phone} to get started.",
-                "Need Spider Pest Control in {city_state}? {business} links homeowners to responsive local providers for spider treatment. Call {phone} today.",
-                "Spider Pest Control, {city_state} — {business} quickly connects you with independent local providers who handle spider treatment. Call {phone}.",
-                "Looking for Spider Pest Control near {city_state}? {business} puts you in touch with local, responsive providers for spider treatment. Call {phone}."
+                "Spider Control in {city_state}: {business} connects you with local providers offering targeted treatment for spiders. Call {phone} to get started.",
+                "Need Spider Control in {city_state}? {business} links homeowners to responsive local providers for spider treatment. Call {phone} today.",
+                "Spider Control, {city_state} — {business} quickly connects you with independent local providers who handle spider treatment. Call {phone}.",
+                "Looking for Spider Control near {city_state}? {business} puts you in touch with local, responsive providers for spider treatment. Call {phone}."
             ]
         },
         "layout_enabled": true,
@@ -3609,10 +3609,10 @@
     },
     {
         "id": "tpl_scorpion_control",
-        "title": "Scorpion Pest Control in {city_state} | {business_short}",
-        "slug_pattern": "scorpion-pest-control-{city_slug}",
+        "title": "Scorpion Control in {city_state} | {business_short}",
+        "slug_pattern": "scorpion-control-{city_slug}",
         "page_type": "template",
-        "service": "Scorpion Pest Control",
+        "service": "Scorpion Control",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3621,13 +3621,13 @@
         "content_blocks": [
             {
                 "type": "hero_split",
-                "hs_heading": "Scorpion Pest Control in {city_state}",
+                "hs_heading": "Scorpion Control in {city_state}",
                 "hs_subtext": "<p>Reliable scorpion pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source.</p>",
                 "hs_btn_text": "{phone}",
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Scorpion Pest Control in {city_state}",
+                "hs_photo_alt": "Scorpion Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
                 "hs_photo": "sites/pest-template/uploads/media/ai_28fc8f_8121b8.webp",
@@ -3652,7 +3652,7 @@
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
                 "it_photo": "sites/pest-template/uploads/media/ai_52af6e_42ce96.webp",
-                "it_alt": "Scorpion Pest Control in a {city_state} home",
+                "it_alt": "Scorpion Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
@@ -3759,8 +3759,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/spider-pest-control-{city_slug}",
-                        "text": "spider pest control"
+                        "url": "/spider-control-{city_slug}",
+                        "text": "spider control"
                     },
                     {
                         "url": "/centipede-control-{city_slug}",
@@ -3779,8 +3779,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -3826,34 +3826,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Scorpion Pest Control in {city_state} | {business_short}",
+            "seo_title": "Scorpion Control in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Scorpion pest control removes scorpions before their venomous stings put your family at risk. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "scorpion pest control {city} {SS}, scorpion control, scorpion exterminator, scorpion treatment",
-            "og_title": "Scorpion Pest Control in {city_state} | {business}",
-            "og_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+            "meta_description": "Scorpion control removes scorpions before their venomous stings put your family at risk. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "scorpion control {city} {SS}, scorpion pest control, scorpion exterminator, scorpion treatment",
+            "og_title": "Scorpion Control in {city_state} | {business}",
+            "og_description": "Professional scorpion control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
             "og_image": "",
-            "service_name": "Scorpion Pest Control",
-            "service_type": "Scorpion Pest Control",
+            "service_name": "Scorpion Control",
+            "service_type": "Scorpion Control",
             "service_area": "{city}, {SS}",
             "service_description": "Professional scorpion exterminator services in {city_state}. Targeted scorpion control for homes and businesses, with fast local response.",
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Pest Control in {city_state}\",\n            \"serviceType\": \"Scorpion Pest Control\",\n            \"description\": \"Professional scorpion pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
-            "primary_keyword": "Scorpion Pest Control",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Control in {city_state}\",\n            \"serviceType\": \"Scorpion Control\",\n            \"description\": \"Professional scorpion control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
+            "primary_keyword": "Scorpion Control",
             "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions",
             "meta_description_pool": [
-                "Scorpion Pest Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
-                "Need Scorpion Pest Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
-                "Scorpion Pest Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
-                "Find Scorpion Pest Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
+                "Scorpion Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
+                "Need Scorpion Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
+                "Scorpion Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
+                "Find Scorpion Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
             ],
             "og_description_pool": [
-                "Scorpion Pest Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
-                "Need Scorpion Pest Control near {city_state}? {business} quickly links you to responsive local providers for scorpion treatment. Call {phone}.",
-                "{business} offers fast Scorpion Pest Control connections in {city_state}, matching you with local providers for targeted treatment. Call {phone} today.",
-                "Searching for Scorpion Pest Control in {city_state}? {business} connects you to local, responsive providers ready to help. Call {phone} now."
+                "Scorpion Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
+                "Need Scorpion Control near {city_state}? {business} quickly links you to responsive local providers for scorpion treatment. Call {phone}.",
+                "{business} offers fast Scorpion Control connections in {city_state}, matching you with local providers for targeted treatment. Call {phone} today.",
+                "Searching for Scorpion Control in {city_state}? {business} connects you to local, responsive providers ready to help. Call {phone} now."
             ]
         },
         "layout_enabled": true,
@@ -4081,8 +4081,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -4379,8 +4379,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -4671,8 +4671,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -4957,8 +4957,8 @@
                         "text": "cricket control"
                     },
                     {
-                        "url": "/spider-pest-control-{city_slug}",
-                        "text": "spider pest control"
+                        "url": "/spider-control-{city_slug}",
+                        "text": "spider control"
                     },
                     {
                         "url": "/residential-pest-control-{city_slug}",
@@ -4969,8 +4969,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -5267,8 +5267,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -5566,8 +5566,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -5862,8 +5862,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -6154,8 +6154,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -6446,8 +6446,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -6777,8 +6777,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -7103,8 +7103,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -7433,8 +7433,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -7724,16 +7724,16 @@
                         "text": "pest inspection"
                     },
                     {
-                        "url": "/ant-pest-control-{city_slug}",
-                        "text": "ant pest control"
+                        "url": "/ant-exterminator-{city_slug}",
+                        "text": "ant extermination"
                     },
                     {
                         "url": "/cockroach-exterminator-{city_slug}",
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     },
                     {
                         "url": "/termite-treatment-{city_slug}",
@@ -8039,8 +8039,8 @@
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -8317,8 +8317,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     },
                     {
                         "url": "/rat-exterminator-{city_slug}",
@@ -8635,8 +8635,8 @@
                         "text": "pest inspection"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     },
                     {
                         "url": "/termite-treatment-{city_slug}",
@@ -8957,16 +8957,16 @@
                         "text": "pest inspection"
                     },
                     {
-                        "url": "/ant-pest-control-{city_slug}",
-                        "text": "ant pest control"
+                        "url": "/ant-exterminator-{city_slug}",
+                        "text": "ant extermination"
                     },
                     {
                         "url": "/cockroach-exterminator-{city_slug}",
                         "text": "cockroach extermination"
                     },
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     }
                 ],
                 "id": "related_links_1"
@@ -9270,8 +9270,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/bed-bug-control-{city_slug}",
-                        "text": "bed bug control"
+                        "url": "/bed-bug-exterminator-{city_slug}",
+                        "text": "bed bug extermination"
                     },
                     {
                         "url": "/pest-inspection-{city_slug}",
