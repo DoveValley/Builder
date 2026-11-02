@@ -125,6 +125,7 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
 
 </div>
 
+<script src="../assets/admin/ms-poll.js"></script>
 <script>
 const BP_CSRF     = <?= json_encode($csrfToken) ?>;
 const BP_MASTER   = <?= json_encode($masterId) ?>;

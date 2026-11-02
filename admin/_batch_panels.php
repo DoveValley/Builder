@@ -1637,18 +1637,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             .catch(() => { if (btn) btn.disabled = false; });
     };
 
-    let pollRunMisses = 0;   // consecutive failed polls — one blip self-heals silently
+    // Shared miss-tracker (assets/admin/ms-poll.js) — surfaces a message once after
+    // a run of failed polls instead of retrying silently forever; the still-alive
+    // msPollTimer interval keeps calling pollRun(), so "still trying" is literal.
+    const pollRunTracker = msPollMissTracker(() => {
+        const el = document.getElementById('ms-run-progress');
+        if (el) el.insertAdjacentHTML('beforeend',
+            '<div style="color:#991b1b;margin-top:6px;">Lost contact with the server — still trying… (the run itself may still be in progress; reload to check)</div>');
+    });
     function pollRun(runId) {
         const url = 'multisite_api.php?action=run_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : '');
-        fetch(url).then(r => r.json()).then(d => { pollRunMisses = 0; renderRun(d); }).catch(() => {
-            // A persistent failure used to leave #ms-run-btn disabled forever with the
-            // interval silently retrying and zero feedback — surface it once instead.
-            if (++pollRunMisses === 5) {
-                const el = document.getElementById('ms-run-progress');
-                if (el) el.insertAdjacentHTML('beforeend',
-                    '<div style="color:#991b1b;margin-top:6px;">Lost contact with the server — still trying… (the run itself may still be in progress; reload to check)</div>');
-            }
-        });
+        fetch(url).then(r => r.json()).then(d => { pollRunTracker.reset(); renderRun(d); }).catch(() => pollRunTracker.miss());
     }
 
     // Persist a rotation pin-count the moment it changes (per batch — rotation_settings_save.php),
@@ -1924,12 +1923,21 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 
     // ── Research cities — detached; poll the output file ──────────────────────
     var msResearchTimer = null;
-    var msResearchMisses = 0;   // consecutive failed polls — one blip self-heals silently
+    // Shared miss-tracker (assets/admin/ms-poll.js) — unlike pollRun above, this one
+    // gives up and re-enables the controls at the threshold, since a stuck "disabled"
+    // state here blocks the user from starting a new research run at all.
+    const msResearchTracker = msPollMissTracker(() => {
+        if (msResearchTimer) clearInterval(msResearchTimer);
+        msResearchSetDisabled(false);
+        var out = document.getElementById('ms-research-out');
+        if (out) out.textContent += '\n\n✗ Lost contact with the server — the job may still be running; reload to check.';
+        msSetState('ms-research-state', 'lost contact', 'bad');
+    });
     function msPollResearch(runId) {
         fetch('multisite_api.php?action=research_status&run_id=' + encodeURIComponent(runId))
             .then(r => r.json())
             .then(d => {
-                msResearchMisses = 0;
+                msResearchTracker.reset();
                 var out = document.getElementById('ms-research-out');
                 if (d.error) { out.textContent = d.error; return; }
                 if (d.none)  { out.textContent = 'Starting…'; return; }
@@ -1949,17 +1957,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                                (!d.dead && d.exit === 0) ? 'ok' : 'bad');
                 }
             })
-            .catch(() => {
-                // A persistent failure used to leave the research controls disabled
-                // forever with zero feedback while the job may have finished or died
-                // server-side. Give up after a run of misses instead of hanging silently.
-                if (++msResearchMisses < 5) return;
-                if (msResearchTimer) clearInterval(msResearchTimer);
-                msResearchSetDisabled(false);
-                var out = document.getElementById('ms-research-out');
-                if (out) out.textContent += '\n\n✗ Lost contact with the server — the job may still be running; reload to check.';
-                msSetState('ms-research-state', 'lost contact', 'bad');
-            });
+            .catch(() => msResearchTracker.miss());
     }
     function msResearchSetDisabled(disabled) {
         document.getElementById('ms-research-dry').disabled = disabled;
@@ -2369,11 +2367,27 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         }
     }
 
+    // Shared miss-tracker (assets/admin/ms-poll.js), one per action since each of the
+    // 4 bulk actions polls its own output element independently. Found live during a
+    // fleet-wide poll audit (2026-11-02): this catch used to be empty — a persistent
+    // failure left the button disabled forever with zero feedback and no way to tell
+    // whether the job was still running server-side or the browser had just lost it.
+    const msCtmBulkMissTrackers = {};
+    function msCtmBulkTracker(action) {
+        if (!msCtmBulkMissTrackers[action]) {
+            msCtmBulkMissTrackers[action] = msPollMissTracker(() => {
+                const out = document.getElementById(msCtmBulkIds[action].out);
+                if (out) out.textContent += '\n\n✗ Lost contact with the server — still trying… (the job may still be running; reload to check)';
+            });
+        }
+        return msCtmBulkMissTrackers[action];
+    }
     function msPollCtmBulk(action, runId) {
         const ids = msCtmBulkIds[action];
         fetch('multisite_api.php?action=ctm_bulk_status&run_id=' + encodeURIComponent(runId))
             .then(r => r.json())
             .then(d => {
+                msCtmBulkTracker(action).reset();
                 const out = document.getElementById(ids.out);
                 if (d.none) { out.textContent = 'Starting…'; return; }
                 out.textContent = d.output || '';
@@ -2389,7 +2403,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 if (ids.clearSelectionAfter) msCtmSelected = {};
                 msLoadRows();
             })
-            .catch(() => {});
+            .catch(() => msCtmBulkTracker(action).miss());
     }
 
     function msCtmBulkWatch(action, runId) {
@@ -2583,10 +2597,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             + (errs.length ? ', ' + errs.length + ' error(s)' : '') + ' out of ' + rows.length + ' checked.</p>' + html;
     }
 
+    // Shared miss-tracker (assets/admin/ms-poll.js) — same empty-catch gap as
+    // msPollCtmBulk above, found in the same audit.
+    const msAreaCodeTracker = msPollMissTracker(() => {
+        const out = document.getElementById('ms-areacode-out');
+        if (out) out.textContent += '\n\n✗ Lost contact with the server — still trying… (the job may still be running; reload to check)';
+    });
     function msPollAreaCode(runId) {
         fetch('multisite_api.php?action=check_area_codes_status&run_id=' + encodeURIComponent(runId))
             .then(r => r.json())
             .then(d => {
+                msAreaCodeTracker.reset();
                 const out = document.getElementById('ms-areacode-out');
                 if (d.none) { out.textContent = 'Starting…'; return; }
                 out.textContent = d.output || '';
@@ -2602,7 +2623,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 msCtmSelected = {};
                 msLoadRows();   // pick up any area_code this run just inserted
             })
-            .catch(() => {});
+            .catch(() => msAreaCodeTracker.miss());
     }
 
     // Found live 2026-10-27: this is a detached background job (see msAreaCodeCheck
@@ -2758,10 +2779,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         if (msActiveBuildPolls.has(domain)) return;
         msActiveBuildPolls.add(domain);
         const el = msProgressEl(domain);
+        // Shared miss-tracker (assets/admin/ms-poll.js) — the catch here used to be a
+        // silent `return`, so a persistent failure left this row's progress text
+        // stuck on its last line forever with no sign anything was wrong.
+        const tracker = msPollMissTracker(() => {
+            if (el) el.textContent = 'Lost contact with the server while rebuilding ' + domain + ' — still trying… (reload to check)';
+        });
         const timer = setInterval(async () => {
             let s;
             try { s = await (await fetch('multisite_api.php?action=rollout_build_status&run_id=' + encodeURIComponent(runId))).json(); }
-            catch (e) { return; }
+            catch (e) { tracker.miss(); return; }
+            tracker.reset();
             if (!s) return;
             if (!s.done) { if (el) el.textContent = (s.detail || s.stage_label || ('Working on ' + domain)) + '…'; return; }
             clearInterval(timer);
@@ -2779,10 +2807,16 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         if (msActiveBuildPolls.has(domain)) return;
         msActiveBuildPolls.add(domain);
         const el = msProgressEl(domain);
+        // Shared miss-tracker (assets/admin/ms-poll.js) — same silent-forever catch as
+        // msPollRegenBuild above.
+        const tracker = msPollMissTracker(() => {
+            if (el) el.textContent = 'Lost contact with the server while waiting to rebuild ' + domain + ' — still trying… (reload to check)';
+        });
         const timer = setInterval(async () => {
             let s;
             try { s = await (await fetch('multisite_api.php?action=rollout_build_queue_status&domain=' + encodeURIComponent(domain))).json(); }
-            catch (e) { return; }
+            catch (e) { tracker.miss(); return; }
+            tracker.reset();
             if (!s || s.state === 'none') { clearInterval(timer); msActiveBuildPolls.delete(domain); return; }
             if (s.state === 'queued') { if (el) el.textContent = 'Waiting for another build in this batch to finish… (position ' + s.position + ')'; return; }
             clearInterval(timer);

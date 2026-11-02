@@ -75,12 +75,18 @@ elseif ($bphFailed > 0)              { $p4 = BPH_FAIL; $p4n = $bphFailed . ' fai
 else                                 { $p4 = BPH_DONE; $p4n = $bphOk . ' built'; }
 
 /* 5 — Upload. A row with no credentials is BUILD ONLY: the run reports ok and
-   nothing was ever sent. That must not read as a successful upload. */
+   nothing was ever sent. That must not read as a successful upload — and neither
+   must the PARTIAL case (some rows have host credentials, some don't): $bphOk is
+   Phase 4's build-success count across every row, build-only ones included, so it
+   overcounts uploads whenever any host-less row succeeds alongside uploaded ones.
+   $status['uploaded_domains'] is the real count — only rows that both succeeded
+   AND actually had files sent (ms_batch_status(), includes/multisite/batch.php). */
+$bphUploaded = (int) ($status['uploaded_domains'] ?? 0);
 if (!($status['has_run'] ?? false))  { $p5 = BPH_IDLE; $p5n = 'nothing sent'; }
 elseif ($bphRunning)                 { $p5 = BPH_BUSY; $p5n = 'running'; }
 elseif ($bphWithHost === 0)          { $p5 = BPH_IDLE; $p5n = 'build only'; }
 elseif ($bphFailed > 0)              { $p5 = BPH_FAIL; $p5n = $bphFailed . ' failed'; }
-else                                 { $p5 = BPH_DONE; $p5n = $bphOk . ' uploaded'; }
+else                                 { $p5 = BPH_DONE; $p5n = $bphUploaded . ' uploaded'; }
 
 /* 6 — Go live. Real now: create_hosts.php tags each domain into the Infra console's
    own registry under "master/batch", so infra_pipeline_rows() can find exactly this

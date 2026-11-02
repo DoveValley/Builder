@@ -1075,7 +1075,8 @@ function ms_batch_status(string $masterId, string $batchId): array {
     $s = [
         'targets' => ms_batch_target_count($masterId, $batchId),
         'has_run' => false, 'state' => '', 'run_id' => '',
-        'total' => 0, 'ok' => 0, 'failed' => 0, 'cost' => 0.0, 'finished_at' => null,
+        'total' => 0, 'ok' => 0, 'failed' => 0, 'uploaded_domains' => 0,
+        'cost' => 0.0, 'finished_at' => null,
     ];
     $file = ms_latest_run_file(ms_batch_dir($masterId, $batchId) . '/runs');
     if (!$file) return $s;
@@ -1088,6 +1089,14 @@ function ms_batch_status(string $masterId, string $batchId): array {
         'total'       => (int) ($d['total'] ?? 0),
         'ok'          => (int) ($d['ok'] ?? 0),
         'failed'      => (int) ($d['failed'] ?? 0),
+        // Domains that both succeeded AND actually had files sent — NOT the same as
+        // 'ok' above, which also counts build-only rows (no FTP host) that the run
+        // correctly reports as "ok" without ever uploading anything. A caller that
+        // wants "how many uploaded" needs this, not 'ok' — see _batch_phases.php's
+        // Phase 5, which used to use 'ok' here and overcounted uploads whenever any
+        // host-less row succeeded.
+        'uploaded_domains' => count(array_filter($d['results'] ?? [], fn($r) =>
+            ($r['status'] ?? '') === 'ok' && ($r['uploaded'] ?? null) !== null)),
         'cost'        => (float) ($d['totals']['cost_usd'] ?? 0),
         'finished_at' => $d['finished_at'] ?? $d['started_at'] ?? null,
     ]);

@@ -307,6 +307,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     </div>
 </div>
 
+<script src="../assets/admin/ms-poll.js"></script>
 <script>
 (function () {
     const CSRF = <?= json_encode($_SESSION['csrf_token']) ?>;
@@ -902,6 +903,20 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // Run selected (Create host / Build / Upload, any mix) — one background job; the box
     // below follows its log until it ends.
     let jobTimer = null;
+    // Shared miss-tracker (assets/admin/ms-poll.js). Found live in a fleet-wide poll
+    // audit (2026-11-02): watchJob had no try/catch at all — a single network blip
+    // threw out of this async function before the setTimeout reschedule line ever
+    // ran, which killed polling permanently with the progress bar stuck mid-run and
+    // no error shown. Now a failed fetch counts as a miss but still reschedules
+    // itself, so it keeps trying the way every other poller in this codebase does.
+    const watchJobTracker = msPollMissTracker(() => {
+        const stageEl = $('ro-job-stage');
+        if (stageEl) {
+            stageEl.style.display = '';
+            stageEl.style.color = '#991b1b';
+            stageEl.textContent = 'Lost contact with the server — still trying… (the job may still be running; reload to check)';
+        }
+    });
     function stepsPicked() {
         return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked,
                  forcePhotos: $('ro-force-photos').checked, logoOnly: $('ro-logo-only').checked, wipe: $('ro-wipe').checked,
@@ -913,7 +928,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         return names.join(' & ') || 'nothing';
     }
     async function watchJob(runId) {
-        const r = await (await fetch(API + '?action=rollout_build_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json();
+        let r;
+        try { r = await (await fetch(API + '?action=rollout_build_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json(); }
+        catch (e) { watchJobTracker.miss(); jobTimer = setTimeout(() => watchJob(runId), 3000); return; }
+        watchJobTracker.reset();
         if (r.none) return;
         $('ro-job').style.display = ''; $('ro-job').textContent = r.log || 'Starting…';
         $('ro-job').scrollTop = $('ro-job').scrollHeight;
@@ -1009,13 +1027,22 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // batch, watched by run_id), but scoped server-side to the ticked domains' cities
     // rather than the whole batch. See the ⓘ next to the button for what it actually does.
     let researchTimer = null;
+    // Shared miss-tracker (assets/admin/ms-poll.js) — same no-catch-at-all gap as
+    // watchJob above, same fix.
+    const watchResearchTracker = msPollMissTracker(() => {
+        const stateEl = $('ro-research-state');
+        if (stateEl) { stateEl.style.color = '#991b1b'; stateEl.textContent = 'lost contact — still trying…'; }
+    });
     function setResearchDisabled(disabled) {
         $('ro-research-dry').disabled = disabled;
         $('ro-research-force').disabled = disabled;
         $('ro-research-btn').disabled = disabled;
     }
     async function watchResearch(runId) {
-        const r = await (await fetch(API + '?action=research_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json();
+        let r;
+        try { r = await (await fetch(API + '?action=research_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json(); }
+        catch (e) { watchResearchTracker.miss(); researchTimer = setTimeout(() => watchResearch(runId), 2500); return; }
+        watchResearchTracker.reset();
         if (r.none) return;
         const out = $('ro-research-out');
         out.style.display = ''; out.textContent = r.output || 'Starting…';
