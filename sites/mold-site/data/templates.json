@@ -2699,8 +2699,8 @@
                         "text": "basement mold removal"
                     },
                     {
-                        "url": "/air-conditioner-mold-removal-{city_slug}",
-                        "text": "air conditioner mold removal"
+                        "url": "/hvac-mold-removal-{city_slug}",
+                        "text": "hvac mold removal"
                     },
                     {
                         "url": "/mold-removal-{city_slug}",
@@ -3181,10 +3181,10 @@
     {
         "id": "tpl_air_conditioner_mold_removal",
         "base": 0,
-        "title": "Air Conditioner Mold Removal in {city_state} | {business_short}",
-        "slug_pattern": "air-conditioner-mold-removal-{city_slug}",
+        "title": "HVAC Mold Removal in {city_state} | {business_short}",
+        "slug_pattern": "hvac-mold-removal-{city_slug}",
         "page_type": "template",
-        "service": "Air Conditioner Mold Removal",
+        "service": "HVAC Mold Removal",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3421,34 +3421,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Air Conditioner Mold Removal in {city_state} | {business_short}",
+            "seo_title": "HVAC Mold Removal in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Air conditioner mold removal stops HVAC systems from circulating spores from contaminated coils and ducts. Serving {city_state}. Call {phone}.",
+            "meta_description": "HVAC mold removal stops contaminated coils and ducts from circulating spores throughout the system. Serving {city_state}. Call {phone}.",
             "meta_keywords": "ac mold removal {city}, hvac mold removal {city}, mold in air vents {city}, air duct mold removal {city}",
-            "og_title": "Air Conditioner Mold Removal in {city_state} | {business}",
-            "og_description": "Air Conditioner Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
+            "og_title": "HVAC Mold Removal in {city_state} | {business}",
+            "og_description": "HVAC Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
             "og_image": "sites/mold-site/uploads/media/ai_fce4bf_61fd42.webp",
-            "service_name": "Air Conditioner Mold Removal",
-            "service_type": "Air Conditioner Mold Removal",
+            "service_name": "HVAC Mold Removal",
+            "service_type": "HVAC Mold Removal",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Removal of mold from AC units, vents, and ductwork, for homes and businesses in {city_state}.",
-            "bc_label": "Air Conditioner Mold Removal",
+            "bc_label": "HVAC Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Conditioner Mold Removal\",\n    \"name\": \"Air Conditioner Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Air Conditioner Mold Removal in {city_state} \\u2014 removal of mold from AC units, vents, and ductwork.\"\n}",
-            "primary_keyword": "Air Conditioner Mold Removal",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"HVAC Mold Removal\",\n    \"name\": \"HVAC Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"HVAC Mold Removal in {city_state} \\u2014 removal of mold from AC units, vents, and ductwork.\"\n}",
+            "primary_keyword": "HVAC Mold Removal",
             "secondary_keywords": "ac mold removal, hvac mold removal, mold in air vents, air duct mold removal, ac mold removal near me",
             "meta_description_pool": [
-                "Air Conditioner Mold Removal in {city_state}: connect with local providers who address contaminated coils and ducts that can spread spores. Call {phone}.",
-                "Need Air Conditioner Mold Removal near {city_state}? We connect you with independent local providers who help limit spore circulation from HVAC systems. Call {phone} today.",
-                "Air Conditioner Mold Removal services for {city_state} homes: get matched fast with local providers handling mold-affected coils and ducts. Call {phone}.",
-                "Looking for Air Conditioner Mold Removal in {city_state}? This local referral service links you to independent providers who tackle contaminated HVAC components. Call {phone}."
+                "HVAC Mold Removal in {city_state}: connect with local providers who address contaminated coils and ducts that can spread spores. Call {phone}.",
+                "Need HVAC Mold Removal near {city_state}? We connect you with independent local providers who help limit spore circulation from HVAC systems. Call {phone} today.",
+                "HVAC Mold Removal services for {city_state} homes: get matched fast with local providers handling mold-affected coils and ducts. Call {phone}.",
+                "Looking for HVAC Mold Removal in {city_state}? This local referral service links you to independent providers who tackle contaminated HVAC components. Call {phone}."
             ],
             "og_description_pool": [
-                "Need Air Conditioner Mold Removal in {city_state}? Call {phone} now to get connected with an independent local provider who can respond quickly.",
-                "Air Conditioner Mold Removal in {city_state} starts with a fast connection — dial {phone} and we'll link you to a local provider near you.",
-                "Searching for Air Conditioner Mold Removal near {city_state}? Call {phone} for a quick, local connection to an independent service provider.",
-                "In {city_state}, Air Conditioner Mold Removal help is a call away — reach {phone} to be connected with a responsive local provider."
+                "Need HVAC Mold Removal in {city_state}? Call {phone} now to get connected with an independent local provider who can respond quickly.",
+                "HVAC Mold Removal in {city_state} starts with a fast connection — dial {phone} and we'll link you to a local provider near you.",
+                "Searching for HVAC Mold Removal near {city_state}? Call {phone} for a quick, local connection to an independent service provider.",
+                "In {city_state}, HVAC Mold Removal help is a call away — reach {phone} to be connected with a responsive local provider."
             ]
         },
         "base_role": "Remediation",
@@ -3982,8 +3982,8 @@
                         "text": "mold inspection"
                     },
                     {
-                        "url": "/air-conditioner-mold-removal-{city_slug}",
-                        "text": "air conditioner mold removal"
+                        "url": "/hvac-mold-removal-{city_slug}",
+                        "text": "hvac mold removal"
                     },
                     {
                         "url": "/mold-prevention-{city_slug}",
