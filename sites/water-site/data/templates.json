@@ -1245,8 +1245,8 @@
                         "text": "hardwood floor water damage"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
@@ -1573,7 +1573,7 @@
                         "text": "emergency water removal"
                     },
                     {
-                        "url": "/burst-pipe-water-damage-{city_slug}",
+                        "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
                     },
                     {
@@ -2271,8 +2271,8 @@
                         "text": "water mitigation"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/contents-restoration-{city_slug}",
@@ -2785,10 +2785,10 @@
     {
         "id": "tpl_burst_pipe_water_damage",
         "base": 0,
-        "title": "Burst Pipe Water Damage in {city_state} | {business_short}",
-        "slug_pattern": "burst-pipe-water-damage-{city_slug}",
+        "title": "Burst Pipe Cleanup in {city_state} | {business_short}",
+        "slug_pattern": "burst-pipe-cleanup-{city_slug}",
         "page_type": "template",
-        "service": "Burst Pipe Water Damage",
+        "service": "Burst Pipe Cleanup",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3053,34 +3053,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Burst Pipe Water Damage in {city_state} | {business_short}",
+            "seo_title": "Burst Pipe Cleanup in {city_state} | {business_short}",
             "canonical_url": "",
             "meta_description": "Burst pipe cleanup addresses the sudden, high-volume water a ruptured pipe spreads through walls and floors. Serving {city_state}. Call {phone}.",
             "meta_keywords": "burst pipe cleanup {city} {SS}, burst pipe water damage {city}, pipe burst in house {city}, frozen pipe burst {city}, leaking pipe repair {city}",
-            "og_title": "Burst Pipe Water Damage in {city_state} | {business}",
+            "og_title": "Burst Pipe Cleanup in {city_state} | {business}",
             "og_description": "24/7 burst pipe cleanup in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/ai_571d57_3604b9.webp",
-            "service_name": "Burst Pipe Water Damage",
-            "service_type": "Burst Pipe Water Damage",
+            "service_name": "Burst Pipe Cleanup",
+            "service_type": "Burst Pipe Cleanup",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Burst pipe cleanup for homes and businesses in {city_state}, including water removal, drying and frozen pipe water damage.",
-            "bc_label": "Burst Pipe Water Damage",
+            "bc_label": "Burst Pipe Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe cleanup in {city_state} \\u2014 burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
-            "primary_keyword": "Burst Pipe Water Damage",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Cleanup\",\n    \"name\": \"Burst Pipe Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe cleanup in {city_state} \\u2014 burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
+            "primary_keyword": "Burst Pipe Cleanup",
             "secondary_keywords": "burst pipe water damage, pipe burst in house, burst water pipe, frozen pipe burst, frozen pipe water damage, burst pipe in wall, water line break, leaking pipe repair",
             "meta_description_pool": [
-                "Burst Pipe Water Damage in {city_state}? Get connected fast to local providers who respond to ruptured pipes and spreading water. Call {phone} now.",
-                "Facing Burst Pipe Water Damage near {city_state}? We connect you with independent local pros ready to respond quickly. Call {phone} today.",
-                "Burst Pipe Water Damage soaking your {city_state} home? This network links you to local providers who handle cleanup calls fast. Dial {phone}.",
-                "Need help with Burst Pipe Water Damage in {city_state}? Reach local, independent service providers quickly by calling {phone}."
+                "Burst Pipe Cleanup in {city_state}? Get connected fast to local providers who respond to ruptured pipes and spreading water. Call {phone} now.",
+                "Facing Burst Pipe Cleanup near {city_state}? We connect you with independent local pros ready to respond quickly. Call {phone} today.",
+                "Burst Pipe Cleanup soaking your {city_state} home? This network links you to local providers who handle cleanup calls fast. Dial {phone}.",
+                "Need help with Burst Pipe Cleanup in {city_state}? Reach local, independent service providers quickly by calling {phone}."
             ],
             "og_description_pool": [
-                "Burst Pipe Water Damage in {city_state}? Get connected 24/7 to independent local providers ready for fast response.",
-                "Dealing with Burst Pipe Water Damage near {city_state}? This service quickly connects you to responsive local providers, day or night.",
-                "Burst Pipe Water Damage in {city_state} needs fast action — we connect you to independent local providers available around the clock.",
-                "In {city_state}, Burst Pipe Water Damage calls for quick help; we link you to local independent providers for a fast, responsive connection anytime."
+                "Burst Pipe Cleanup in {city_state}? Get connected 24/7 to independent local providers ready for fast response.",
+                "Dealing with Burst Pipe Cleanup near {city_state}? This service quickly connects you to responsive local providers, day or night.",
+                "Burst Pipe Cleanup in {city_state} needs fast action — we connect you to independent local providers available around the clock.",
+                "In {city_state}, Burst Pipe Cleanup calls for quick help; we link you to local independent providers for a fast, responsive connection anytime."
             ]
         },
         "base_role": "Restoration",
@@ -3294,8 +3294,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/attic-water-damage-{city_slug}",
-                        "text": "attic water damage"
+                        "url": "/attic-water-damage-repair-{city_slug}",
+                        "text": "attic water damage repair"
                     },
                     {
                         "url": "/roof-leak-water-damage-{city_slug}",
@@ -3640,15 +3640,15 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/water-mitigation-{city_slug}",
                         "text": "water mitigation"
                     },
                     {
-                        "url": "/burst-pipe-water-damage-{city_slug}",
+                        "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
                     },
                     {
@@ -3822,10 +3822,10 @@
     {
         "id": "tpl_carpet_water_damage",
         "base": 0,
-        "title": "Carpet Water Damage in {city_state} | {business_short}",
-        "slug_pattern": "carpet-water-damage-{city_slug}",
+        "title": "Carpet Water Damage Restoration in {city_state} | {business_short}",
+        "slug_pattern": "carpet-water-damage-restoration-{city_slug}",
         "page_type": "template",
-        "service": "Carpet Water Damage",
+        "service": "Carpet Water Damage Restoration",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -3840,7 +3840,7 @@
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Carpet water damage in {city_state} by {business}",
+                "hs_photo_alt": "Carpet water damage restoration in {city_state} by {business}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#eef4fb",
                 "hs_photo": "sites/water-site/uploads/media/ai_7c135b_3711e2.webp",
@@ -4089,28 +4089,28 @@
             }
         ],
         "seo": {
-            "seo_title": "Carpet Water Damage in {city_state} | {business_short}",
+            "seo_title": "Carpet Water Damage Restoration in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Carpet water damage traps moisture beneath padding, causing decay and odor even once the surface looks dry. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "carpet water damage {city} {SS}, water damaged carpet {city}, carpet water extraction {city}, carpet flood damage {city}",
-            "og_title": "Carpet Water Damage in {city_state} | {business}",
-            "og_description": "24/7 carpet water damage in {city_state}. Fast, professional local response.",
+            "meta_description": "Carpet water damage restoration addresses moisture trapped beneath padding, which causes decay and odor even once the surface looks dry. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "carpet water damage restoration {city} {SS}, carpet water damage {city}, water damaged carpet {city}, carpet water extraction {city}, carpet flood damage {city}",
+            "og_title": "Carpet Water Damage Restoration in {city_state} | {business}",
+            "og_description": "24/7 carpet water damage restoration in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/ai_7c135b_3711e2.webp",
-            "service_name": "Carpet Water Damage",
-            "service_type": "Carpet Water Damage",
+            "service_name": "Carpet Water Damage Restoration",
+            "service_type": "Carpet Water Damage Restoration",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Carpet water damage for homes and businesses in {city_state}, including water damaged carpet, carpet water extraction and carpet flood damage.",
-            "bc_label": "Carpet Water Damage",
+            "bc_label": "Carpet Water Damage Restoration",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage in {city_state} \\u2014 water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
-            "primary_keyword": "Carpet Water Damage",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage Restoration\",\n    \"name\": \"Carpet Water Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage restoration in {city_state} \\u2014 water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
+            "primary_keyword": "Carpet Water Damage Restoration",
             "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage",
             "meta_description_pool": [
-                "Carpet Water Damage in {city_state} can trap hidden moisture beneath padding, leading to decay and odor long after the surface dries. Call {phone} to connect with a local provider.",
-                "Facing Carpet Water Damage in {city_state}? Moisture often lingers under padding even when carpets look dry. Get connected to a local pro fast — call {phone}.",
-                "Carpet Water Damage near {city_state} isn't always visible — trapped moisture beneath padding can cause odor and decay. Call {phone} for a quick local connection.",
-                "In {city_state}, Carpet Water Damage can hide moisture under padding long after surfaces seem dry. Call {phone} to be connected with a local service provider."
+                "Carpet Water Damage Restoration in {city_state} can trap hidden moisture beneath padding, leading to decay and odor long after the surface dries. Call {phone} to connect with a local provider.",
+                "Facing Carpet Water Damage Restoration in {city_state}? Moisture often lingers under padding even when carpets look dry. Get connected to a local pro fast — call {phone}.",
+                "Carpet Water Damage Restoration near {city_state} isn't always visible — trapped moisture beneath padding can cause odor and decay. Call {phone} for a quick local connection.",
+                "In {city_state}, Carpet Water Damage Restoration can hide moisture under padding long after surfaces seem dry. Call {phone} to be connected with a local service provider."
             ]
         },
         "base_role": "Restoration",
@@ -4324,8 +4324,8 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/attic-water-damage-{city_slug}",
-                        "text": "attic water damage"
+                        "url": "/attic-water-damage-repair-{city_slug}",
+                        "text": "attic water damage repair"
                     },
                     {
                         "url": "/ceiling-water-damage-{city_slug}",
@@ -4506,10 +4506,10 @@
     {
         "id": "tpl_attic_water_damage",
         "base": 0,
-        "title": "Attic Water Damage in {city_state} | {business_short}",
-        "slug_pattern": "attic-water-damage-{city_slug}",
+        "title": "Attic Water Damage Repair in {city_state} | {business_short}",
+        "slug_pattern": "attic-water-damage-repair-{city_slug}",
         "page_type": "template",
-        "service": "Attic Water Damage",
+        "service": "Attic Water Damage Repair",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -4524,7 +4524,7 @@
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Attic water damage in {city_state} by {business}",
+                "hs_photo_alt": "Attic water damage repair in {city_state} by {business}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#eef4fb",
                 "hs_photo": "sites/water-site/uploads/media/ai_899583_c3263d.webp",
@@ -4769,34 +4769,34 @@
             }
         ],
         "seo": {
-            "seo_title": "Attic Water Damage in {city_state} | {business_short}",
+            "seo_title": "Attic Water Damage Repair in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Attic water damage compromises insulation and creates conditions for decay in the framing lumber above. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "attic water damage {city} {SS}, attic water damage repair {city}, wet attic insulation {city}",
-            "og_title": "Attic Water Damage in {city_state} | {business}",
-            "og_description": "24/7 attic water damage in {city_state}. Fast, professional local response.",
+            "meta_description": "Attic water damage repair addresses compromised insulation and the conditions for decay in framing lumber above. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "attic water damage repair {city} {SS}, attic water damage {city}, wet attic insulation {city}",
+            "og_title": "Attic Water Damage Repair in {city_state} | {business}",
+            "og_description": "24/7 attic water damage repair in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-2-lufkin-tx.webp",
-            "service_name": "Attic Water Damage",
-            "service_type": "Attic Water Damage",
+            "service_name": "Attic Water Damage Repair",
+            "service_type": "Attic Water Damage Repair",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Attic water damage for homes and businesses in {city_state}, including attic water damage repair and wet attic insulation.",
-            "bc_label": "Attic Water Damage",
+            "bc_label": "Attic Water Damage Repair",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 attic water damage in {city_state} \\u2014 attic water damage repair and wet attic insulation.\"\n}",
-            "primary_keyword": "Attic Water Damage",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage Repair\",\n    \"name\": \"Attic Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 attic water damage repair in {city_state} \\u2014 attic water damage repair and wet attic insulation.\"\n}",
+            "primary_keyword": "Attic Water Damage Repair",
             "secondary_keywords": "attic water damage repair, wet attic insulation",
             "meta_description_pool": [
-                "Attic Water Damage in {city_state} can weaken insulation and framing lumber — connect with local providers who respond fast. Call {phone}.",
-                "Facing Attic Water Damage in {city_state}? We connect you to independent local providers ready to help. Call {phone} now.",
-                "Attic Water Damage near {city_state} affects insulation and framing over time. Get linked to a local provider fast — call {phone}.",
-                "{city_state} homeowners dealing with Attic Water Damage can quickly connect with nearby independent providers. Call {phone} today."
+                "Attic Water Damage Repair in {city_state} can weaken insulation and framing lumber — connect with local providers who respond fast. Call {phone}.",
+                "Facing Attic Water Damage Repair in {city_state}? We connect you to independent local providers ready to help. Call {phone} now.",
+                "Attic Water Damage Repair near {city_state} affects insulation and framing over time. Get linked to a local provider fast — call {phone}.",
+                "{city_state} homeowners dealing with Attic Water Damage Repair can quickly connect with nearby independent providers. Call {phone} today."
             ],
             "og_description_pool": [
-                "Attic Water Damage in {city_state}? Get connected 24/7 to responsive local providers ready to help fast.",
-                "Need help with Attic Water Damage near {city_state}? We connect you quickly to independent local pros, day or night.",
-                "Attic Water Damage in {city_state} happens anytime — reach out and we'll match you to a responsive local provider fast.",
-                "Facing Attic Water Damage in {city_state}? Our network links you to fast, local independent providers around the clock."
+                "Attic Water Damage Repair in {city_state}? Get connected 24/7 to responsive local providers ready to help fast.",
+                "Need help with Attic Water Damage Repair near {city_state}? We connect you quickly to independent local pros, day or night.",
+                "Attic Water Damage Repair in {city_state} happens anytime — reach out and we'll match you to a responsive local provider fast.",
+                "Facing Attic Water Damage Repair in {city_state}? Our network links you to fast, local independent providers around the clock."
             ]
         },
         "base_role": "Restoration",
@@ -5014,8 +5014,8 @@
                         "text": "ceiling water damage"
                     },
                     {
-                        "url": "/attic-water-damage-{city_slug}",
-                        "text": "attic water damage"
+                        "url": "/attic-water-damage-repair-{city_slug}",
+                        "text": "attic water damage repair"
                     },
                     {
                         "url": "/roof-leak-water-damage-{city_slug}",
@@ -5354,16 +5354,16 @@
                         "text": "sewage cleanup"
                     },
                     {
-                        "url": "/flooded-bathroom-cleanup-{city_slug}",
-                        "text": "flooded bathroom cleanup"
+                        "url": "/bathroom-water-damage-{city_slug}",
+                        "text": "bathroom water damage"
                     },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
                         "text": "water damage inspection & assessment"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/contents-restoration-{city_slug}",
@@ -6050,8 +6050,8 @@
                         "text": "storm damage restoration"
                     },
                     {
-                        "url": "/attic-water-damage-{city_slug}",
-                        "text": "attic water damage"
+                        "url": "/attic-water-damage-repair-{city_slug}",
+                        "text": "attic water damage repair"
                     },
                     {
                         "url": "/hurricane-damage-restoration-{city_slug}",
@@ -6715,7 +6715,7 @@
                 "rl_max": 3,
                 "rl_items": [
                     {
-                        "url": "/burst-pipe-water-damage-{city_slug}",
+                        "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
                     },
                     {
@@ -7063,8 +7063,8 @@
                         "text": "hardwood floor water damage"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
@@ -7243,10 +7243,10 @@
     {
         "id": "tpl_flooded_bathroom_cleanup",
         "base": 0,
-        "title": "Flooded Bathroom Cleanup in {city_state} | {business_short}",
-        "slug_pattern": "flooded-bathroom-cleanup-{city_slug}",
+        "title": "Bathroom Water Damage in {city_state} | {business_short}",
+        "slug_pattern": "bathroom-water-damage-{city_slug}",
         "page_type": "template",
-        "service": "Flooded Bathroom Cleanup",
+        "service": "Bathroom Water Damage",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -7261,7 +7261,7 @@
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Flooded bathroom cleanup in {city_state} by {business}",
+                "hs_photo_alt": "Bathroom water damage in {city_state} by {business}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#eef4fb",
                 "hs_photo": "sites/water-site/uploads/media/ai_ee701d_41f16a.webp",
@@ -7409,8 +7409,8 @@
                         "text": "sewage cleanup"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
@@ -7506,28 +7506,28 @@
             }
         ],
         "seo": {
-            "seo_title": "Flooded Bathroom Cleanup in {city_state} | {business_short}",
+            "seo_title": "Bathroom Water Damage in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Flooded bathroom cleanup addresses the saturated subflooring and wall cavities bathroom flooding leaves behind. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "flooded bathroom cleanup {city} {SS}, flooded bathroom {city}, bathroom water damage {city}, overflowing tub cleanup {city}, shower overflow cleanup {city}",
-            "og_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
-            "og_description": "24/7 flooded bathroom cleanup in {city_state}. Fast, professional local response.",
+            "meta_description": "Bathroom water damage leaves saturated subflooring and wall cavities behind after flooding. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "bathroom water damage {city} {SS}, flooded bathroom cleanup {city}, flooded bathroom {city}, overflowing tub cleanup {city}, shower overflow cleanup {city}",
+            "og_title": "Bathroom Water Damage in {city_state} | {business}",
+            "og_description": "24/7 bathroom water damage in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/flooded-bathroom-standing-water-2-lufkin-tx.webp",
-            "service_name": "Flooded Bathroom Cleanup",
-            "service_type": "Flooded Bathroom Cleanup",
+            "service_name": "Bathroom Water Damage",
+            "service_type": "Bathroom Water Damage",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Flooded bathroom cleanup for homes and businesses in {city_state}, including bathroom water damage, overflowing tub cleanup and shower overflow cleanup.",
-            "bc_label": "Flooded Bathroom Cleanup",
+            "bc_label": "Bathroom Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in {city_state} \\u2014 bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
-            "primary_keyword": "Flooded Bathroom Cleanup",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Bathroom Water Damage\",\n    \"name\": \"Bathroom Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 bathroom water damage in {city_state} \\u2014 overflowing tub cleanup and shower overflow cleanup.\"\n}",
+            "primary_keyword": "Bathroom Water Damage",
             "secondary_keywords": "flooded bathroom, bathroom water damage, overflowing tub cleanup, shower overflow cleanup",
             "meta_description_pool": [
-                "Flooded Bathroom Cleanup in {city_state}: connect with local providers who respond to saturated subfloors and wall cavities. Call {phone}.",
-                "Need Flooded Bathroom Cleanup near {city_state}? We connect you with independent local providers who handle bathroom flooding fast. Call {phone}.",
-                "{city_state} Flooded Bathroom Cleanup: get matched with local providers addressing soaked subflooring and wall cavities. Call {phone} today.",
-                "Flooded Bathroom Cleanup help for {city_state} residents—we link you to responsive local providers tackling bathroom flooding. Call {phone}."
+                "Bathroom Water Damage in {city_state}: connect with local providers who respond to saturated subfloors and wall cavities. Call {phone}.",
+                "Need Bathroom Water Damage near {city_state}? We connect you with independent local providers who handle bathroom flooding fast. Call {phone}.",
+                "{city_state} Bathroom Water Damage: get matched with local providers addressing soaked subflooring and wall cavities. Call {phone} today.",
+                "Bathroom Water Damage help for {city_state} residents—we link you to responsive local providers tackling bathroom flooding. Call {phone}."
             ]
         },
         "base_role": "Restoration",
@@ -8785,7 +8785,7 @@
                         "text": "emergency board-up"
                     },
                     {
-                        "url": "/burst-pipe-water-damage-{city_slug}",
+                        "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
                     },
                     {
@@ -9466,11 +9466,11 @@
                         "text": "water mitigation"
                     },
                     {
-                        "url": "/carpet-water-damage-{city_slug}",
-                        "text": "carpet water damage"
+                        "url": "/carpet-water-damage-restoration-{city_slug}",
+                        "text": "carpet water damage restoration"
                     },
                     {
-                        "url": "/burst-pipe-water-damage-{city_slug}",
+                        "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
                     },
                     {
@@ -9982,10 +9982,10 @@
     {
         "id": "tpl_basement_water_damage",
         "base": 0,
-        "title": "Basement Water Damage in {city_state} | {business_short}",
-        "slug_pattern": "basement-water-damage-{city_slug}",
+        "title": "Basement Water Damage Repair in {city_state} | {business_short}",
+        "slug_pattern": "basement-water-damage-repair-{city_slug}",
         "page_type": "template",
-        "service": "Basement Water Damage",
+        "service": "Basement Water Damage Repair",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -10000,7 +10000,7 @@
                 "hs_btn_url": "tel:{tel}",
                 "hs_caption1": "",
                 "hs_caption2": "",
-                "hs_photo_alt": "Basement water damage in {city_state} by {business}",
+                "hs_photo_alt": "Basement water damage repair in {city_state} by {business}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#eef4fb",
                 "hs_photo": "sites/water-site/uploads/media/flooded-basement-staircase-interior-lufkin-tx.webp",
@@ -10224,28 +10224,28 @@
             }
         ],
         "seo": {
-            "seo_title": "Basement Water Damage in {city_state} | {business_short}",
+            "seo_title": "Basement Water Damage Repair in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Basement water damage often starts as a small leak or seepage problem that worsens without fast attention. Serving {city_state}. Call {phone}.",
-            "meta_keywords": "basement water damage {city} {SS}, water in basement {city}, basement flooding {city}, basement leak repair {city}",
-            "og_title": "Basement Water Damage in {city_state} | {business}",
-            "og_description": "24/7 basement water damage response in {city_state}. Fast, professional local response.",
+            "meta_description": "Basement water damage repair stops small leaks or seepage problems from worsening without fast attention. Serving {city_state}. Call {phone}.",
+            "meta_keywords": "basement water damage repair {city} {SS}, basement water damage {city}, water in basement {city}, basement flooding {city}, basement leak repair {city}",
+            "og_title": "Basement Water Damage Repair in {city_state} | {business}",
+            "og_description": "24/7 basement water damage repair in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/flooded-basement-staircase-interior-lufkin-tx.webp",
-            "service_name": "Basement Water Damage",
-            "service_type": "Basement Water Damage",
+            "service_name": "Basement Water Damage Repair",
+            "service_type": "Basement Water Damage Repair",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Basement water damage response for homes and businesses in {city_state}, including minor seepage, leaks, and ongoing moisture issues below grade.",
-            "bc_label": "Basement Water Damage",
+            "bc_label": "Basement Water Damage Repair",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Basement Water Damage\",\n    \"name\": \"Basement Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 basement water damage response in {city_state} \\u2014 addressing seepage, leaks, and ongoing moisture below grade.\"\n}",
-            "primary_keyword": "Basement Water Damage",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Basement Water Damage Repair\",\n    \"name\": \"Basement Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 basement water damage repair in {city_state} \\u2014 addressing seepage, leaks, and ongoing moisture below grade.\"\n}",
+            "primary_keyword": "Basement Water Damage Repair",
             "secondary_keywords": "water in basement, basement flooding, basement leak repair, basement moisture, damp basement",
             "meta_description_pool": [
-                "Basement Water Damage in {city_state}? Get connected fast to local providers who handle leaks and seepage before they worsen. Call {phone} now.",
-                "Facing Basement Water Damage in {city_state}? We connect you quickly with independent local pros ready to respond. Call {phone} today.",
-                "Basement Water Damage spreading in {city_state}? A fast local connection links you to nearby service providers. Call {phone} for help now.",
-                "Don't wait on Basement Water Damage — {city_state} residents can connect with local providers fast. Call {phone} to get started."
+                "Basement Water Damage Repair in {city_state}? Get connected fast to local providers who handle leaks and seepage before they worsen. Call {phone} now.",
+                "Facing Basement Water Damage Repair in {city_state}? We connect you quickly with independent local pros ready to respond. Call {phone} today.",
+                "Basement Water Damage Repair spreading in {city_state}? A fast local connection links you to nearby service providers. Call {phone} for help now.",
+                "Don't wait on Basement Water Damage Repair — {city_state} residents can connect with local providers fast. Call {phone} to get started."
             ]
         },
         "base_role": "Restoration",
