@@ -374,6 +374,22 @@
         {
           "url": "/spider-control-{city_slug}",
           "text": "spider control"
+        },
+        {
+          "url": "/rodent-control-{city_slug}",
+          "text": "rodent control"
+        },
+        {
+          "url": "/termite-fumigation-{city_slug}",
+          "text": "termite fumigation"
+        },
+        {
+          "url": "/bed-bug-heat-treatment-{city_slug}",
+          "text": "bed bug heat treatment"
+        },
+        {
+          "url": "/flea-and-tick-yard-treatment-{city_slug}",
+          "text": "flea and tick yard treatment"
         }
       ],
       "id": "related_links_home_1"
@@ -1139,6 +1155,22 @@
       {
         "name": "Pest Control Cost",
         "url": "/pest-control-cost-{city_slug}"
+      },
+      {
+        "name": "Rodent Control",
+        "url": "/rodent-control-{city_slug}"
+      },
+      {
+        "name": "Termite Fumigation",
+        "url": "/termite-fumigation-{city_slug}"
+      },
+      {
+        "name": "Bed Bug Heat Treatment",
+        "url": "/bed-bug-heat-treatment-{city_slug}"
+      },
+      {
+        "name": "Flea and Tick Yard Treatment",
+        "url": "/flea-and-tick-yard-treatment-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

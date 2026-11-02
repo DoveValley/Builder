@@ -604,6 +604,81 @@
       "cpc": 18.1,
       "kd": 0,
       "value_weight": 146610
+    },
+    {
+      "primary": "rodent control {city}, {ST}",
+      "slug": "rodent-control",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "rodent exterminator",
+        "rat control",
+        "mouse control",
+        "rat exterminator",
+        "mouse exterminator",
+        "get rid of rodents",
+        "rodent removal",
+        "rodent infestation"
+      ],
+      "pool": "pinned",
+      "volume": 47000,
+      "cpc": 9,
+      "kd": 0,
+      "value_weight": 423000
+    },
+    {
+      "primary": "termite fumigation {city}, {ST}",
+      "slug": "termite-fumigation",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "tent fumigation",
+        "whole-home termite fumigation",
+        "termite tenting",
+        "structural fumigation",
+        "termite tent treatment"
+      ],
+      "pool": "rotate",
+      "volume": 1700,
+      "cpc": 6,
+      "kd": 5,
+      "value_weight": 10200
+    },
+    {
+      "primary": "bed bug heat treatment {city}, {ST}",
+      "slug": "bed-bug-heat-treatment",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "bed bug thermal treatment",
+        "heat treatment for bed bugs",
+        "chemical-free bed bug treatment",
+        "whole room heat treatment",
+        "bed bug heat remediation"
+      ],
+      "pool": "rotate",
+      "volume": 1700,
+      "cpc": 3,
+      "kd": 0,
+      "value_weight": 5100
+    },
+    {
+      "primary": "flea and tick yard treatment {city}, {ST}",
+      "slug": "flea-and-tick-yard-treatment",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "flea and tick control",
+        "flea and tick lawn treatment",
+        "outdoor flea and tick treatment",
+        "yard pest control",
+        "flea and tick spray"
+      ],
+      "pool": "rotate",
+      "volume": 1700,
+      "cpc": 4,
+      "kd": 0,
+      "value_weight": 6800
     }
   ],
   "updated_at": "2026-10-04T16:30:08+00:00",
