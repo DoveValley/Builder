@@ -118,6 +118,53 @@ function ms_image_ai_landing_page_file_for_template(string $masterDir, string $t
 }
 
 /**
+ * The companion gap this closes: approved AI-written TEXT already lives on the
+ * master's own real built page (not the template) and is explicitly protected there
+ * (_ai_locked) from being overwritten by a template refresh — but a PHOTO approved on
+ * a `template`-scope Pic Drop row only ever gets written onto the template itself.
+ * The real page keeps whatever photo it had from its last successful refresh, and
+ * since that refresh is blocked by the very same _ai_locked flag protecting the text
+ * sitting on the identical block, the photo goes stale as unintended collateral —
+ * confirmed live on appliance-site: Force-regenerate used a months-old stock photo
+ * for a slot whose template had long since been approved with a real AI photo.
+ *
+ * Called the instant a template-scope photo is confirmed (admin/picdrop_api.php), so
+ * photos get the same "written straight onto the real page" treatment text already
+ * has — not a Force Regen you have to remember to run later.
+ *
+ * Deliberately NOT the old fuzzy "find anything else holding this same file" sweep
+ * that once silently overwrote 7 unrelated templates (see docs/pic-drop-image-
+ * management.md and admin/picdrop_api.php's "Also replace elsewhere" docblock) — this
+ * is an exact 1:1 relationship, this template's one real page, resolved the same
+ * block-id-first way ms_image_ai_resolve_block() already uses everywhere else, so a
+ * drifted block index (confirmed happening live, water-site) can't point this at the
+ * wrong block.
+ *
+ * Silently no-ops — not a failure — when there's no live page for this template yet,
+ * or the field can't be resolved there (Page Pool never built it, or it predates the
+ * block-id scheme and the type+field match is ambiguous): nothing to sync onto, same
+ * "routine, not a failure" reasoning the rest of this file already uses for Page
+ * Pool gaps.
+ */
+function ms_image_ai_sync_template_photo_to_page(
+    string $masterDir, string $templateId, string $blockType, string $blockId, string $field, string $value
+): void {
+    $pageFile = ms_image_ai_landing_page_file_for_template($masterDir, $templateId);
+    if ($pageFile === null) return;
+
+    $fullPath = $masterDir . '/data/pages/' . $pageFile;
+    $page = json_decode((string) @file_get_contents($fullPath), true);
+    if (!is_array($page) || empty($page['content_blocks']) || !is_array($page['content_blocks'])) return;
+
+    $ambiguous = false;
+    $block = &ms_image_ai_resolve_block($page, ['scope' => 'landing', 'field' => $field], $blockType, $blockId, $ambiguous);
+    if ($block === null) return;
+    if (!picdrop_set($block, $field, $value)) return;
+
+    picdrop_json_write($fullPath, $page);
+}
+
+/**
  * Called from Pic Drop the instant an AI photo is confirmed for a home/global/landing
  * slot — records the prompt that produced it as this slot's standing template for
  * every future domain build. Core/template scopes are silently ignored here on

@@ -52,6 +52,29 @@ this template's own already-built pages by block type + ordinal position, not by
 pushing a template edit down to its built pages. That mechanism was itself removed on request —
 template edits are now single-slot across the board, with no propagation of any kind, by design.
 
+## Template → own preview page sync (added 2026-11-07) — NOT the same thing as the propagation above
+
+A multisite master keeps two separate copies of a template's content: the `template` record in
+`TEMPLATES_FILE`, and that master's own already-built preview/reference page under
+`sites/{masterId}/data/pages/*.json` (what you see when you open the master's own site and what
+`ms_generate_ai_images_for_domain()` reads as the reference photo for batch runs). Nothing kept
+these two in sync — editing a photo via a `template`-scope Pic Drop row updated only the template
+record, so the master's own page quietly went stale. This caused a real bug: Force-regenerate on
+live domains kept producing the OLD photo because it was reading the master's stale page, not the
+newly-approved template photo.
+
+The fix, `ms_image_ai_sync_template_photo_to_page()` (`includes/multisite/image_ai.php`), is called
+from `pd_commit()`'s success callback in `admin/picdrop_api.php` every time a `template`-scope
+confirm completes. It writes the exact same new value onto the exact same block/field on the
+master's own preview page, resolved by **block id, never by array index or filename match** — the
+same `ms_image_ai_resolve_block()` helper the batch pipeline itself uses, so there is no fuzzy
+matching involved.
+
+**This is deliberately not the "also replace elsewhere" mechanism above and does not reopen that
+incident.** It touches exactly one page (the template's own master preview page), never another
+template and never a live domain's built pages. It only keeps the template record and that
+template's own rendered page from drifting apart — a 1:1 mirror of the one field just edited.
+
 ## What Pic Drop does NOT touch
 
 - **Batch (cloning brand-new domains)** is unaffected — it picks up whatever photo is sitting on

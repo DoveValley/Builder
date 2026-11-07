@@ -775,7 +775,7 @@ $pairsRow['active'] = $as;
 $pairsAll[$key]     = $pairsRow;
 
 pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest,
-    function () use ($pairsAll, $as, $key, $slot, $prompt, $sourcePrompt, $replacedValue, $newValue) {
+    function () use ($pairsAll, $as, $key, $parts, $slot, $prompt, $sourcePrompt, $replacedValue, $newValue) {
         picdrop_pairs_save($pairsAll);
 
         // The moment an AI photo is confirmed, its prompt becomes this slot's standing
@@ -788,6 +788,19 @@ pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened
             if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
                 ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt, (string) ($slot['block_id'] ?? ''));
             }
+        }
+        // A `template`-scope confirm (either side, Real or AI) only ever wrote onto the
+        // template itself above — push the same value onto the template's own real
+        // built page too, the instant it's confirmed, instead of leaving that page
+        // stale until someone remembers to run a Force Regen. See
+        // ms_image_ai_sync_template_photo_to_page()'s docblock for why this is safe
+        // (an exact 1:1 sync, not the old fuzzy propagation that broke 7 templates).
+        if ($parts['scope'] === 'template' && ACTIVE_SITE_DIR !== '') {
+            require_once __DIR__ . '/../includes/multisite/image_ai.php';
+            ms_image_ai_sync_template_photo_to_page(
+                ACTIVE_SITE_DIR, $parts['id'], (string) ($slot['block_type'] ?? ''),
+                (string) ($slot['block_id'] ?? ''), $parts['field'], $newValue
+            );
         }
         // Clean up whichever file this side held before, the same way adjust/remove_side
         // do — picdrop_delete_if_unused() scans every site's data (including the pairs

@@ -167,7 +167,12 @@
                             style="width:100%;display:flex;align-items:center;gap:10px;padding:12px 16px;background:none;border:0;cursor:pointer;text-align:left;">
                         <span id="<?= $gid ?>_caret" style="color:#6b7280;font-size:.8rem;width:12px;">&#9660;</span>
                         <span style="font-weight:600;color:#1e3a5f;"><?= h($g['title']) ?></span>
-                        <span class="hint" style="flex:1;"><?= h($g['sub']) ?></span>
+                        <span class="hint" style="flex:1;">
+                            <?= h($g['sub']) ?>
+                            <?php if (($g['scope'] ?? '') === 'template'): ?>
+                                <a href="#" class="pd-info" data-pd-info="template_sync" title="What happens when you confirm a photo here" style="color:#94a3b8;text-decoration:none;">&#9432;</a>
+                            <?php endif; ?>
+                        </span>
                         <?php if ($gMissing > 0): ?>
                             <span style="white-space:nowrap;font-size:.76rem;font-weight:600;color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;border-radius:10px;padding:1px 8px;">&#9888; <?= $gMissing ?> missing</span>
                         <?php endif; ?>
@@ -687,7 +692,9 @@
                     custom: ['7. Custom instruction',
                         'Clears the prompt box so you can type your own one-off change instead of picking a canned mode. Everything else in the photo is kept as-is — only the change you describe gets applied.'],
                     force_scope: ['In Force-regen scope',
-                        'Ticked means a batch run’s Force-regenerate photos option will give every domain built from this master its own unique version of this slot; unticked, Force-regenerate skips it entirely and every domain keeps whatever photo it already has. Ticking captures whichever photo is currently ACTIVE here (Real or AI, whichever shows the blue border) as the slot’s standing reference — reusing its own generation prompt if it’s an AI photo, or a safe “subtle variation” instruction if it’s a Real photo, so every domain still ends up with a genuinely distinct photo either way. Unticking removes it from scope for the next run.']
+                        'Ticked means a batch run’s Force-regenerate photos option will give every domain built from this master its own unique version of this slot; unticked, Force-regenerate skips it entirely and every domain keeps whatever photo it already has. Ticking captures whichever photo is currently ACTIVE here (Real or AI, whichever shows the blue border) as the slot’s standing reference — reusing its own generation prompt if it’s an AI photo, or a safe “subtle variation” instruction if it’s a Real photo, so every domain still ends up with a genuinely distinct photo either way. Unticking removes it from scope for the next run.'],
+                    template_sync: ['Landing template',
+                        'This card edits the master template itself, not a live domain. Confirming a photo here now does two things at once: it updates this template record, AND it writes the same photo straight onto the master’s own already-built preview page, so the two never drift apart again. This only syncs the one photo you just confirmed, on this one template — it never touches any other template or any live domain’s pages.']
                 };
                 function showPdInfo(key) {
                     var entry = PD_INFO[key];
