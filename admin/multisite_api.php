@@ -799,12 +799,12 @@ switch ($action) {
         // --only, never a batch-wide wipe" rule, one level more conservative.
         $rtWipe = !empty($_POST['wipe']);
         // Quality tier for any AI photo generated this run (new or forced) — defaults to
-        // 'medium', the tier every run used before this existed, so an old client that
-        // never sends this field is unaffected. Validated against the real OpenAI tiers
-        // openai_images_estimate_cost() knows how to price (includes/openai_images.php);
-        // anything else falls back to 'medium' rather than reaching the API with junk.
-        $rtImageQuality = (string) ($_POST['image_quality'] ?? 'medium');
-        if (!in_array($rtImageQuality, ['low', 'medium', 'high'], true)) $rtImageQuality = 'medium';
+        // 'low' (changed 2026-11-07; was 'medium' before). Validated against the real
+        // OpenAI tiers openai_images_estimate_cost() knows how to price
+        // (includes/openai_images.php); anything else falls back to 'low' rather than
+        // reaching the API with junk.
+        $rtImageQuality = (string) ($_POST['image_quality'] ?? 'low');
+        if (!in_array($rtImageQuality, ['low', 'medium', 'high'], true)) $rtImageQuality = 'low';
         // Opt-in, one-off — turns off every AI photo category for this run only (no OpenAI
         // call, no cost), without touching this batch's own saved Generate settings. The
         // opposite of force_photos: a slot with no AI photo yet still gets the master's own

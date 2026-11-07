@@ -144,8 +144,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-skip-ai-photos"> Skip AI photos this run <a href="#" class="ro-info" data-static-info="skip_ai_photos" title="Details">&#9432;</a></label>
         <label>Force photo quality:
             <select id="ro-image-quality" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
-                <option value="medium" selected>Medium (current, ~$0.04&ndash;0.05/photo)</option>
-                <option value="low">Low (cheaper, ~$0.01/photo)</option>
+                <option value="medium">Medium (~$0.04&ndash;0.05/photo)</option>
+                <option value="low" selected>Low (current, ~$0.01/photo)</option>
             </select>
             <a href="#" class="ro-info" data-static-info="image_quality" title="Details">&#9432;</a>
         </label>
@@ -401,7 +401,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Only does anything while Build is also ticked.</div>'],
         image_quality: ['Force photo quality',
             '<div class="ro-step">Controls the quality tier OpenAI generates at for <strong>every</strong> AI photo made during this run &mdash; a brand-new photo for a new domain just as much as a Force-regenerate photos re-roll. It is not tied to that checkbox; it just lives next to it because that\'s the control most likely to generate a lot of photos at once.</div>'
-          + '<div class="ro-step"><strong>Medium</strong> is what every run has always used (~$0.04&ndash;0.05/photo). <strong>Low</strong> is a real, separate OpenAI price tier, not a resize &mdash; roughly 75&ndash;80% cheaper (~$0.01/photo), but it can show actual artifacts (muddier textures, warped small details), not just softer detail. Spot-check a few Low photos on a real page, phone and desktop, before trusting it at fleet scale &mdash; these photos carry real trust-signal weight for a service-area business.</div>'
+          + '<div class="ro-step"><strong>Low</strong> is the default as of 2026-11-07 (~$0.01/photo) &mdash; a real, separate OpenAI price tier, not a resize, roughly 75&ndash;80% cheaper than <strong>Medium</strong> (~$0.04&ndash;0.05/photo, what every run used before this date). Low can show actual artifacts (muddier textures, warped small details), not just softer detail. Spot-check a few Low photos on a real page, phone and desktop, before trusting it at fleet scale &mdash; these photos carry real trust-signal weight for a service-area business.</div>'
           + '<div class="ro-step">Applies only while Build is ticked, same as Force-regenerate photos. A domain whose photo slots are already filled won\'t get a new one at any quality unless Force-regenerate photos is also ticked — and no photo gets generated at any quality while <strong>Skip AI photos this run</strong> is ticked.</div>'
           + '<div class="ro-step"><strong>Real cost now shown per domain (added 2026-10-24):</strong> the run log prints <code>+ img $0.0XXX</code> next to each domain\'s line, a real OpenAI estimate for the photos actually generated — separate from the <code>$</code> figure before it, which is Anthropic\'s text-generation cost for that domain\'s AI content and has nothing to do with photos. Before this, there was no way to see whether a quality tier actually changed what you were billed.</div>'],
         logo_only: ['Colors, fonts, logo &amp; favicon only',
