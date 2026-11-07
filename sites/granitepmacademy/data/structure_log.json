@@ -1,99 +1,5 @@
 [
     {
-        "run_id": "f54a733ec2e68d13",
-        "started_at": "2026-06-26T22:32:06+00:00",
-        "finished_at": "2026-06-26T22:32:06+00:00",
-        "duration_ms": 3,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 0,
-        "pages_skipped": 25,
-        "pages_backed_up": 0,
-        "errors": [
-            "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'san-antonio-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'dallas-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'houston-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'austin-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_certification_training_city'/'southlake-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'san-antonio-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'dallas-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'houston-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'austin-tx'",
-            "Skipped: unsafe template/city ID 'tpl_pmp_bootcamp_city'/'southlake-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'san-antonio-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'dallas-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'houston-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'austin-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_certification_training_city'/'southlake-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'san-antonio-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'dallas-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'houston-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'austin-tx'",
-            "Skipped: unsafe template/city ID 'tpl_capm_bootcamp_city'/'southlake-tx'",
-            "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'san-antonio-tx'",
-            "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'dallas-tx'",
-            "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'houston-tx'",
-            "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'austin-tx'",
-            "Skipped: unsafe template/city ID 'tpl_cpmai_certification_training_city'/'southlake-tx'"
-        ]
-    },
-    {
-        "run_id": "57ef667b27d7d83b",
-        "started_at": "2026-06-26T22:35:27+00:00",
-        "finished_at": "2026-06-26T22:35:27+00:00",
-        "duration_ms": 29,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 25,
-        "pages_skipped": 0,
-        "pages_backed_up": 25,
-        "errors": []
-    },
-    {
-        "run_id": "6d57bc4f4826ca93",
-        "started_at": "2026-06-26T23:05:50+00:00",
-        "finished_at": "2026-06-26T23:05:50+00:00",
-        "duration_ms": 26,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 25,
-        "pages_skipped": 0,
-        "pages_backed_up": 25,
-        "errors": []
-    },
-    {
-        "run_id": "11a5256ed092178b",
-        "started_at": "2026-06-27T00:33:31+00:00",
-        "finished_at": "2026-06-27T00:33:31+00:00",
-        "duration_ms": 14,
-        "dry_run": false,
-        "options": {
-            "template_ids": null,
-            "city_ids": null,
-            "tag_filter": "",
-            "force_locked": false
-        },
-        "pages_written": 25,
-        "pages_skipped": 0,
-        "pages_backed_up": 25,
-        "errors": []
-    },
-    {
         "run_id": "f7e723ae017565af",
         "started_at": "2026-06-27T16:31:42+00:00",
         "finished_at": "2026-06-27T16:31:42+00:00",
@@ -1066,6 +972,158 @@
         "pages_written": 1,
         "pages_skipped": 0,
         "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "598073f49a6783e8",
+        "started_at": "2026-11-07T21:10:28+00:00",
+        "finished_at": "2026-11-07T21:10:28+00:00",
+        "duration_ms": 7,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "217212a8637e90f9",
+        "started_at": "2026-11-07T21:26:22+00:00",
+        "finished_at": "2026-11-07T21:26:36+00:00",
+        "duration_ms": 13691,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "columbus-oh"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "841592e98510a177",
+        "started_at": "2026-11-07T21:26:57+00:00",
+        "finished_at": "2026-11-07T21:26:57+00:00",
+        "duration_ms": 7,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "columbus-oh"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "08f34c5a29e9c165",
+        "started_at": "2026-11-07T21:28:13+00:00",
+        "finished_at": "2026-11-07T21:28:26+00:00",
+        "duration_ms": 13387,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "17d5a37834efa661",
+        "started_at": "2026-11-07T21:29:19+00:00",
+        "finished_at": "2026-11-07T21:30:00+00:00",
+        "duration_ms": 41103,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_bootcamp_city",
+                "tpl_capm_certification_training_city",
+                "tpl_cpmai_certification_training_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 3,
+        "pages_skipped": 0,
+        "pages_backed_up": 3,
+        "errors": []
+    },
+    {
+        "run_id": "13f50219fe45ccb7",
+        "started_at": "2026-11-07T21:34:40+00:00",
+        "finished_at": "2026-11-07T21:34:53+00:00",
+        "duration_ms": 13086,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city"
+            ],
+            "city_ids": [
+                "columbus-oh"
+            ],
+            "tag_filter": "",
+            "force_locked": true
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "1b5d1c6e9e353ff3",
+        "started_at": "2026-11-07T21:36:13+00:00",
+        "finished_at": "2026-11-07T21:37:10+00:00",
+        "duration_ms": 57111,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_pmp_certification_training_city",
+                "tpl_pmp_bootcamp_city",
+                "tpl_capm_certification_training_city",
+                "tpl_cpmai_certification_training_city"
+            ],
+            "city_ids": [
+                "san-antonio-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 4,
+        "pages_skipped": 0,
+        "pages_backed_up": 4,
         "errors": []
     }
 ]
