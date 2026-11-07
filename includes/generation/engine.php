@@ -205,15 +205,20 @@ function _gen_ai_hero_photo(array &$blocks, string $tplId, string $cityId, strin
     [$w, $h] = @getimagesize($srcPath) ?: [0, 0];
     $size = ($w > $h) ? '1536x1024' : (($h > $w) ? '1024x1536' : '1024x1024');
 
-    $prompt = 'Same picture — keep the exact same scene, composition, equipment, and setting. '
-        . 'Do not add, remove, or restyle anything in the background or on the equipment/subject. '
-        . 'If a technician or other person is visible in the photo, change only their hair and face '
-        . 'so they read as a different person in the same role — do not change their clothing, pose, '
-        . 'or position; if a second person is visible, change their hair and face too. If no person '
-        . 'is visible in the photo, leave the subject and scene as-is and make only a small, '
-        . 'believable variation (e.g. a slightly different angle or pose of the same subject) so it '
-        . 'reads as a distinct photo rather than an identical copy — do not add a person. Bright, '
-        . 'natural daylight. No visible text or logos.';
+    // "Clearly and obviously different" is deliberate, not just "change hair and
+    // face" — confirmed live on a two-person photo: the softer wording (proven fine
+    // on single-person technician shots elsewhere in this project) left both people
+    // essentially unchanged at both Low and Medium quality, twice. The model reads a
+    // strong "keep everything the same" instruction as license to barely touch
+    // anything; only an explicit, assertive replacement instruction broke through.
+    $prompt = 'Same picture — keep the exact same scene, composition, equipment, setting, clothing, '
+        . 'and pose. If one or more people are visible in the photo, replace them with completely '
+        . 'different-looking individuals — different face shape, hair color and style, and age — so '
+        . 'they are clearly and obviously different people, while keeping their exact pose, clothing, '
+        . 'and position unchanged. If no person is visible in the photo, leave the subject and scene '
+        . 'as-is and make only a small, believable variation (e.g. a slightly different angle or pose '
+        . 'of the same subject) so it reads as a distinct photo rather than an identical copy — do not '
+        . 'add a person. Bright, natural daylight. No visible text or logos.';
 
     $r = openai_images_edit($prompt, $srcPath, ['size' => $size, 'quality' => $quality, 'output_format' => 'webp']);
     if (!$r['ok']) return ['generated' => false, 'cost' => 0.0, 'error' => 'AI hero photo failed: ' . $r['error']];

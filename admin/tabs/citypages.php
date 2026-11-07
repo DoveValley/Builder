@@ -247,8 +247,8 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
                     </div>
                     <button class="btn btn-secondary btn-small"
                         style="font-size:11px;padding:2px 7px;flex-shrink:0;"
-                        onclick='cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,city_ids:<?= json_encode([$city['id']]) ?>})'
-                        title="Regenerate this page">↺</button>
+                        onclick='cpGenerate({template_ids:<?= json_encode([$tpl['id']]) ?>,city_ids:<?= json_encode([$city['id']]) ?>,force_locked:(event.shiftKey?1:0)})'
+                        title="Regenerate this page — Shift-click to also overwrite locked blocks (e.g. a locked hero photo)">↺</button>
                 </div>
             </div>
             <?php endforeach; ?>
