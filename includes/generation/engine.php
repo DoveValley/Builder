@@ -205,20 +205,35 @@ function _gen_ai_hero_photo(array &$blocks, string $tplId, string $cityId, strin
     [$w, $h] = @getimagesize($srcPath) ?: [0, 0];
     $size = ($w > $h) ? '1536x1024' : (($h > $w) ? '1024x1536' : '1024x1024');
 
-    // "Clearly and obviously different" is deliberate, not just "change hair and
-    // face" — confirmed live on a two-person photo: the softer wording (proven fine
-    // on single-person technician shots elsewhere in this project) left both people
-    // essentially unchanged at both Low and Medium quality, twice. The model reads a
-    // strong "keep everything the same" instruction as license to barely touch
-    // anything; only an explicit, assertive replacement instruction broke through.
+    // Confirmed live across several real edits, on a two-person photo:
+    // - Softer wording ("change hair and face", proven fine on single-person
+    //   technician shots elsewhere in this project) left both people essentially
+    //   unchanged at both Low and Medium quality — a strong "keep everything the
+    //   same" instruction reads as license to barely touch anything unless the one
+    //   requested change is equally explicit.
+    // - "Different face shape/features/hair/age" alone (no mention of skin tone)
+    //   only changed hair color, not the face — not enough per Scott's own review.
+    // - Adding "different skin tone" fixed the face but changed apparent ethnicity —
+    //   this project has a standing rule against demographic specification in these
+    //   prompts (see the "Clothing only, no demographic specifics" note on the
+    //   Pic Drop reference prompts, includes/picdrop.php), so that's not usable.
+    // - Explicitly constraining "keep the same general skin tone and ethnicity,
+    //   vary the face and hair only" alongside the stronger feature list gets real
+    //   facial differentiation (face shape, features, hair, age) without steering
+    //   ethnicity — confirmed on two different real edits of the same source photo.
+    // "any/every/each person" (not "one or a second person") so this scales to
+    // however many people are actually in a given reference photo, not just two.
     $prompt = 'Same picture — keep the exact same scene, composition, equipment, setting, clothing, '
-        . 'and pose. If one or more people are visible in the photo, replace them with completely '
-        . 'different-looking individuals — different face shape, hair color and style, and age — so '
-        . 'they are clearly and obviously different people, while keeping their exact pose, clothing, '
-        . 'and position unchanged. If no person is visible in the photo, leave the subject and scene '
-        . 'as-is and make only a small, believable variation (e.g. a slightly different angle or pose '
-        . 'of the same subject) so it reads as a distinct photo rather than an identical copy — do not '
-        . 'add a person. Bright, natural daylight. No visible text or logos.';
+        . 'and pose. If any people are visible in the photo, replace every one of them with a '
+        . 'completely different-looking individual: a different face shape, different facial features '
+        . '(eyes, nose, mouth, jawline), different hair color and style, and a different apparent age '
+        . 'for each person — each one must be unmistakably a different person, not the same person '
+        . 'with new hair. Keep each person\'s own general skin tone and ethnicity as in the reference '
+        . 'photo — vary the face and hair only, not anyone\'s apparent race. Keep everyone\'s exact '
+        . 'pose, clothing, and position unchanged. If no person is visible in the photo, leave the '
+        . 'subject and scene as-is and make only a small, believable variation (e.g. a slightly '
+        . 'different angle or pose of the same subject) so it reads as a distinct photo rather than an '
+        . 'identical copy — do not add a person. Bright, natural daylight. No visible text or logos.';
 
     $r = openai_images_edit($prompt, $srcPath, ['size' => $size, 'quality' => $quality, 'output_format' => 'webp']);
     if (!$r['ok']) return ['generated' => false, 'cost' => 0.0, 'error' => 'AI hero photo failed: ' . $r['error']];
