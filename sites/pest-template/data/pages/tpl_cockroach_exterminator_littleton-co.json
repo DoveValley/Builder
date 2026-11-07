@@ -2,7 +2,7 @@
     "template_id": "tpl_cockroach_exterminator",
     "city_id": "littleton-co",
     "slug": "cockroach-exterminator-littleton-co",
-    "title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+    "title": "Cockroach Exterminator in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -200,14 +200,14 @@
             "hs_photo_alt": "Cockroach exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/cockroach-exterminator-littleton-co__tpl_cockroach_exterminator_littleton-co_7ff33937.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/cockroach-exterminator-littleton-co__tpl_cockroach_exterminator_littleton-co_6f18bd98.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-c7cf60.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/cockroach-treatment_21bbaa.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_c2dd98_ebc5eb.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/cockroach-exterminator-technician-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/ai_e5c650_3ad682-littleton-co-c7cf60.webp",
             "it_alt": "{business} technician applying cockroach treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/cockroach-exterminator-technician.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_e5c650_3ad682.webp"
         },
         {
             "type": "ai_block",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -329,8 +344,8 @@
                     "text": "emergency pest control"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 },
                 {
                     "url": "/pest-control-plans-{city_slug}",
@@ -344,19 +359,16 @@
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Cockroach Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -387,11 +399,11 @@
         }
     ],
     "seo": {
-        "seo_title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+        "seo_title": "Cockroach Exterminator in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/cockroach-exterminator-littleton-co/",
-        "meta_description": "Cockroaches thrive indoors and spread bacteria, posing health risks to occupants. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "cockroach exterminator Littleton CO, roach exterminator, cockroach control, roach control",
-        "og_title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+        "meta_description": "A cockroach exterminator stops infestations fast, since cockroaches spread bacteria indoors. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "cockroach exterminator Littleton CO, roach exterminator, cockroach control, roach control, german cockroach removal",
+        "og_title": "Cockroach Exterminator in {city_state} | {business_short}",
         "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
         "og_image": "",
         "service_name": "Cockroach Extermination",
@@ -401,11 +413,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in Littleton, CO\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in Littleton, CO. Targeted roach control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in Littleton, CO\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in Littleton, CO. Targeted roach control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Cockroach Exterminator",
-        "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
+        "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches, german cockroach removal",
+        "meta_description_pool": [
+            "Cockroach Exterminator help in {city_state}: get connected fast to local pros who address roach infestations and reduce bacteria risks. Call {phone}.",
+            "Need a Cockroach Exterminator near {city_state}? We connect you quickly with independent local providers who handle roach problems. Call {phone} today.",
+            "Cockroach Exterminator services linking {city_state} residents to local providers fast, since roaches carry bacteria indoors. Call {phone} now.",
+            "Searching for a Cockroach Exterminator in {city_state}? Our network connects you to responsive local providers who tackle infestations. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Cockroach Exterminator in {city_state}: get connected fast to an independent local provider offering roach treatment for homes and businesses.",
+            "Need a Cockroach Exterminator near {city_state}? We connect you quickly with a local provider who handles roach treatment for homes and businesses.",
+            "Searching for a Cockroach Exterminator in {city_state}? This site links you to an independent local provider ready to tackle roach problems fast.",
+            "Cockroach Exterminator services in {city_state} start here — we connect homes and businesses with a responsive local provider for roach treatment."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "f85a342dc61a23214a30272c7476b30d"
+    "generated_at": "2026-11-07T20:04:16+00:00",
+    "template_version": "28bee874f213e1acb737c4162fb9e2b6"
 }

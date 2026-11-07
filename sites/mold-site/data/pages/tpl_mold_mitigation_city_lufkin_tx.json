@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_3cd24e_475186.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-mitigation-lufkin-tx__tpl_mold_mitigation_city_lufkin_tx_9dd7249f.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_4c2421_50dd66.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall-lufkin-tx-993292.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -514,9 +514,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Mitigation\",\n    \"name\": \"Mold Mitigation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Mitigation in Lufkin, TX \\u2014 emergency containment and moisture control to stop mold from spreading.\"\n}",
         "primary_keyword": "Mold Mitigation",
-        "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation"
+        "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation",
+        "meta_description_pool": [
+            "Mold Mitigation in {city_state}: connect with local providers who address moisture issues that allow mold to spread. Call {phone} for a fast referral.",
+            "Need Mold Mitigation near {city_state}? We connect you to independent local providers who tackle the moisture behind mold growth. Call {phone}.",
+            "Mold Mitigation services for {city_state} homes: get matched quickly with local providers who manage moisture conditions linked to mold. Call {phone}.",
+            "Looking for Mold Mitigation in {city_state}? This network links you to independent local providers addressing mold-causing moisture. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Need Mold Mitigation in {city_state}? Call {phone} now and we'll connect you with a local independent provider ready to respond quickly.",
+            "Mold Mitigation help in {city_state} starts here — dial {phone} to get matched fast with a local provider near you.",
+            "Looking for Mold Mitigation near {city_state}? Reach us at {phone} for a quick connection to an independent local provider.",
+            "Mold Mitigation support in {city_state}, made simple: call {phone} and get linked to a responsive local provider today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:47+00:00",
-    "template_version": "eaf165934f35ec1f35e692133eaa1304"
+    "generated_at": "2026-11-07T20:03:38+00:00",
+    "template_version": "9bafbf18d4bd907f945d70ae9ad5a267"
 }

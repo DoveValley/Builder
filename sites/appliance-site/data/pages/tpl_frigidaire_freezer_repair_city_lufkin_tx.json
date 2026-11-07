@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/frigidaire-freezer-repair-lufkin-tx__tpl_frigidaire_freezer_repair_city_lufkin_tx_7aa1fa23.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/frigidaire-freezer-repair-lufkin-tx__tpl_frigidaire_freezer_repair_city_lufkin_tx_5731a62d.webp",
             "hs_photo_alt": "Frigidaire Freezer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-freezer.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-56041b.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx-56041b.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "skin": "light",
             "heading_level": "h2",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "frigidaire freezer repair near me, frigidaire freezer not freezing, frigidaire freezer frost buildup, frigidaire freezer service, same day frigidaire freezer repair",
         "brand": "Frigidaire",
         "appliance_type": "Freezer",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Frigidaire Freezer Repair\",\n            \"description\": \"Professional Frigidaire freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Frigidaire Freezer Repair\",\n            \"description\": \"Professional Frigidaire freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Frigidaire Freezer Repair in {city_state}: get connected with independent local providers who handle these straightforward mechanical freezing systems. Call {phone}.",
+            "Looking for Frigidaire Freezer Repair near {city_state}? We connect you with local independent providers familiar with these mechanical freezing systems. Call {phone} today.",
+            "Frigidaire Freezer Repair, {city_state} — fast, local connections to independent providers experienced with these mechanical freezing systems. Call {phone} now.",
+            "In {city_state}, Frigidaire Freezer Repair help is available fast: we link you to independent local providers for these mechanical freezing systems. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Frigidaire Freezer Repair in {city_state}: {business} connects you with local independent providers for fast, responsive service. Call {phone}.",
+            "Need Frigidaire Freezer Repair near {city_state}? {business} links you to local providers who often respond quickly. Call {phone} to get started.",
+            "Frigidaire Freezer Repair, {city_state} — {business} helps you find a responsive local provider fast, with same-day availability in many cases. Call {phone}.",
+            "Searching for Frigidaire Freezer Repair in {city_state}? {business} quickly connects you with independent local providers. Reach us at {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "f745525396b6358c73f6d58f67229c16"
+    "generated_at": "2026-11-07T19:56:54+00:00",
+    "template_version": "f57e5426ca36f9caa62af662f56330ea"
 }

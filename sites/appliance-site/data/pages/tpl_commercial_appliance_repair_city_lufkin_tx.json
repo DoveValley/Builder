@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/commercial-appliance-repair-lufkin-tx__tpl_commercial_appliance_repair_city_lufkin_tx_69eff730.webp",
             "hs_photo_alt": "Commercial Appliance Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -150,7 +150,9 @@
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
             "hs_mobile_order": "img_first",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-5af3d1.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_6be478_b74b6c.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -166,9 +168,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_c34bdb_6793c9-lufkin-tx-5af3d1.webp",
             "it_alt": "Commercial Appliance Repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_c34bdb_6793c9.webp"
         },
         {
             "type": "ai_block",
@@ -314,9 +317,9 @@
         }
     ],
     "seo": {
-        "seo_title": "Commercial Appliance Repair in {city_state}",
+        "seo_title": "Commercial Appliance Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/commercial-appliance-repair-lufkin-tx/",
-        "meta_description": "Commercial appliance repair minimizes downtime for restaurants and businesses that depend on working equipment. Serving {city_state}. Call {phone}.",
+        "meta_description": "Commercial appliance repair minimizes downtime for restaurants and businesses. Serving {city_state}. Call {phone}.",
         "meta_keywords": "commercial appliance repair Lufkin TX, commercial kitchen appliance repair, restaurant appliance repair, business appliance repair",
         "og_title": "Commercial Appliance Repair in {city_state} | {business}",
         "og_description": "Commercial appliance repair in {city_state} from {business}. Experienced with commercial-grade equipment, flexible scheduling, and fast response to limit downtime. Call {phone}.",
@@ -332,9 +335,21 @@
         "secondary_keywords": "commercial kitchen appliance repair, restaurant appliance repair, business appliance repair, commercial refrigeration repair",
         "brand": "",
         "appliance_type": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Commercial Appliance Repair\",\n            \"description\": \"Commercial appliance repair in Lufkin, TX from Wells Appliance Repair. Experienced with commercial-grade equipment, flexible scheduling, and fast response to limit downtime. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Commercial Appliance Repair\",\n            \"description\": \"Commercial appliance repair in Lufkin, TX from Wells Appliance Repair. Experienced with commercial-grade equipment, flexible scheduling, and fast response to limit downtime. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Commercial Appliance Repair in {city_state}: connect with local independent providers who help minimize business downtime. Call {phone}.",
+            "Need Commercial Appliance Repair near {city_state}? We link restaurants and businesses to local providers, often available fast. Call {phone}.",
+            "Commercial Appliance Repair, {city_state} — get matched with independent local providers ready to help reduce downtime. Call {phone} now.",
+            "{city_state} businesses seeking Commercial Appliance Repair can connect here with local independent providers. Call {phone} to get started."
+        ],
+        "og_description_pool": [
+            "Commercial Appliance Repair in {city_state}: {business} connects you with local providers experienced in commercial-grade equipment and flexible scheduling. Call {phone}.",
+            "Need Commercial Appliance Repair in {city_state}? {business} links you to local providers who respond quickly to help limit downtime. Call {phone}.",
+            "{business} helps {city_state} businesses find Commercial Appliance Repair providers familiar with commercial-grade equipment and flexible scheduling. Call {phone}.",
+            "Commercial Appliance Repair, {city_state}: {business} connects you fast to local, independent providers ready to limit equipment downtime. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "b4ea94f504825e70f592d894b49c2727"
+    "generated_at": "2026-11-07T19:57:00+00:00",
+    "template_version": "4ec8c5c2bc689da93302a37b72991400"
 }

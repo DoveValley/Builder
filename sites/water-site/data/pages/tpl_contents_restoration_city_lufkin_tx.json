@@ -210,7 +210,7 @@
             "hs_photo_alt": "Contents restoration & pack-out in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/contents-restoration-pack-out-lufkin-tx__tpl_contents_restoration_city_lufkin_tx_7b13e05a.webp",
+            "hs_photo": "sites/water-site/uploads/media/contents-restoration-pack-out-lufkin-tx__tpl_contents_restoration_city_lufkin_tx_5c7589d0.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx-c78836.webp",
             "it_alt": "Water-damaged bathroom — pack out services in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,11 +564,11 @@
     "seo": {
         "seo_title": "Contents Restoration & Pack-Out in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/contents-restoration-lufkin-tx/",
-        "meta_description": "Personal belongings damaged by water can often be recovered through specialized cleaning and stabilization. Serving {city_state}. Call {phone}.",
+        "meta_description": "Contents restoration & pack-out can recover personal belongings through specialized cleaning and stabilization. Serving {city_state}. Call {phone}.",
         "meta_keywords": "contents restoration & pack-out Lufkin TX, pack out services Lufkin, contents pack out Lufkin",
         "og_title": "Contents Restoration & Pack-Out in {city_state} | {business}",
         "og_description": "24/7 contents restoration & pack-out in {city_state}. Fast, professional local response.",
-        "og_image": "",
+        "og_image": "sites/water-site/uploads/media/ai_bc215c_8bc11d.webp",
         "service_name": "Contents Restoration & Pack-Out",
         "service_type": "Contents Restoration & Pack-Out",
         "service_area": "{city_state} and surrounding areas",
@@ -564,11 +576,23 @@
         "bc_label": "Contents Restoration & Pack-Out",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Contents Restoration & Pack-Out\",\n    \"name\": \"Contents Restoration & Pack-Out in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 contents restoration & pack-out in Lufkin, TX — pack out services and contents pack out.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Contents Restoration & Pack-Out\",\n    \"name\": \"Contents Restoration & Pack-Out in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 contents restoration & pack-out in Lufkin, TX \\u2014 pack out services and contents pack out.\"\n}",
         "primary_keyword": "Contents Restoration & Pack-Out",
-        "secondary_keywords": "pack out services, contents pack out"
+        "secondary_keywords": "pack out services, contents pack out",
+        "meta_description_pool": [
+            "Contents Restoration & Pack-Out in {city_state}: connect with local providers who help recover belongings through specialized cleaning and stabilization. Call {phone}.",
+            "Need Contents Restoration & Pack-Out near {city_state}? We link you to independent local providers handling belonging recovery and stabilization. Dial {phone} now.",
+            "Find Contents Restoration & Pack-Out help fast in {city_state} — get matched with local providers skilled in cleaning and stabilizing personal belongings. Call {phone}.",
+            "{city_state} Contents Restoration & Pack-Out connections: local providers offer specialized cleaning and stabilization to help recover belongings. Reach us at {phone}."
+        ],
+        "og_description_pool": [
+            "Contents Restoration & Pack-Out in {city_state}: connect now with local independent providers offering fast, 24/7 response for your home or business.",
+            "Need Contents Restoration & Pack-Out near {city_state}? We quickly connect you to local independent providers ready to respond around the clock.",
+            "{city_state} Contents Restoration & Pack-Out requests are matched fast to independent local providers for responsive, 24/7 service near you.",
+            "Get connected to Contents Restoration & Pack-Out help in {city_state} — our network links you to responsive, local independent providers 24/7."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:47+00:00",
-    "template_version": "303cb2e5b97a54560c56c2bc7ef1f242"
+    "generated_at": "2026-11-07T20:03:04+00:00",
+    "template_version": "420704685f345007282d670c3b69e846"
 }

@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_bf479a_dec4a2.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-damage-restoration-lufkin-tx__tpl_mold_damage_restoration_city_lufkin_tx_7ba2f895.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_4c2421_50dd66.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall-lufkin-tx-7b9342.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -514,9 +514,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Damage Restoration\",\n    \"name\": \"Mold Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Damage Restoration in Lufkin, TX \\u2014 repair and restoration of drywall, structure, and finishes damaged by mold.\"\n}",
         "primary_keyword": "Mold Damage Restoration",
-        "secondary_keywords": "mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage"
+        "secondary_keywords": "mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage",
+        "meta_description_pool": [
+            "Mold Damage Restoration in {city_state}: connect with independent local providers who address structural and surface damage from mold spread. Call {phone}.",
+            "Need Mold Damage Restoration near {city_state}? We link you to local independent providers handling structural and surface mold damage. Call {phone} today.",
+            "Mold Damage Restoration services for {city_state} homes: get matched with local independent providers who repair structural and surface damage. Call {phone}.",
+            "Serving {city_state} with fast connections to independent Mold Damage Restoration providers addressing structural and surface damage. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Mold Damage Restoration in {city_state}: call {phone} now to connect quickly with an independent local provider ready to assess the damage.",
+            "Need Mold Damage Restoration in {city_state}? Dial {phone} and we'll connect you fast to a local provider serving your area.",
+            "{city_state} Mold Damage Restoration starts with a call to {phone} — get connected promptly to an independent local provider near you.",
+            "Mold Damage Restoration help in {city_state} is a call away: reach {phone} for a fast, local connection to an independent service provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:46+00:00",
-    "template_version": "788d736a3458906763f3f81b98530bfa"
+    "generated_at": "2026-11-07T20:03:36+00:00",
+    "template_version": "59f29076d43aac9d89675a136481d2e2"
 }

@@ -200,8 +200,8 @@
             "hs_photo_alt": "Restaurant Pest Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/restaurant-pest-control-littleton-co__tpl_restaurant_pest_control_littleton-co_e38f6539.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/restaurant-pest-control-littleton-co__tpl_restaurant_pest_control_littleton-co_dfd600ea.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-85deb3.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3-littleton-co-85deb3.webp",
             "it_alt": "Restaurant Pest Control in a {city_state} property",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,36 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/commercial-pest-control-{city_slug}",
-                    "text": "commercial pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/rat-exterminator-{city_slug}",
-                    "text": "rat exterminator"
-                },
-                {
-                    "url": "/pest-inspection-{city_slug}",
-                    "text": "pest inspection"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                },
-                {
-                    "url": "/termite-treatment-{city_slug}",
-                    "text": "termite treatment"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -480,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Get restaurant pest control for your {city} home or business today.",
             "cb_subtext": "",
@@ -510,7 +505,7 @@
     "seo": {
         "seo_title": "Restaurant Pest Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/restaurant-pest-control-littleton-co/",
-        "meta_description": "Restaurants attract pests through food storage and preparation, risking closures and fines. Serving {city_state}. Call {phone}.",
+        "meta_description": "Restaurant pest control protects food service businesses from infestations that risk closures and fines. Serving {city_state}. Call {phone}.",
         "meta_keywords": "restaurant pest control Littleton CO, commercial kitchen pest control, food service pest control, restaurant exterminator",
         "og_title": "Restaurant Pest Control in {city_state} | {business}",
         "og_description": "Professional restaurant pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -522,11 +517,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Restaurant Pest Control in Littleton, CO\",\n            \"serviceType\": \"Restaurant Pest Control\",\n            \"description\": \"Professional restaurant pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Restaurant Pest Control in Littleton, CO\",\n            \"serviceType\": \"Restaurant Pest Control\",\n            \"description\": \"Professional restaurant pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Restaurant Pest Control",
-        "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
+        "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control",
+        "meta_description_pool": [
+            "Restaurant Pest Control in {city_state}: get connected fast to local providers who help food service businesses avoid infestations, closures, and fines. Call {phone}.",
+            "Need Restaurant Pest Control near {city_state}? We connect you quickly with independent local providers serving food businesses at risk of pest-related shutdowns. Call {phone}.",
+            "Restaurant Pest Control, {city_state} — find local providers ready to help protect your food service business from infestation issues and fines. Call {phone} now.",
+            "Searching for Restaurant Pest Control in {city_state}? This connects you to independent local providers who assist restaurants in avoiding pest-related closures. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Restaurant Pest Control in {city_state}: {business} connects you with local providers for fast response and recurring service options. Call {phone}.",
+            "Need Restaurant Pest Control near {city_state}? {business} links you to responsive local providers who offer ongoing treatment plans. Call {phone} today.",
+            "{city_state} Restaurant Pest Control made simple — {business} quickly connects you with independent local providers offering recurring service. Call {phone}.",
+            "Searching for Restaurant Pest Control in {city_state}? {business} puts you in touch with fast, local providers offering treatment and recurring options. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:54+00:00",
-    "template_version": "2f28e87a7df4d3f0898e7c65b69c9ff4"
+    "generated_at": "2026-11-07T20:04:30+00:00",
+    "template_version": "95c67c6bd11b75b19b51d77d411d09d0"
 }

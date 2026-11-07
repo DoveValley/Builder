@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/appliance-repair-cost-lufkin-tx__tpl_appliance_repair_cost_city_lufkin_tx_6316c11c.webp",
             "hs_photo_alt": "Appliance Repair Cost in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -150,7 +150,9 @@
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
             "hs_mobile_order": "img_first",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-706afc.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_f4c3bd_f062b6.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -166,9 +168,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_ff38b6_01a371-lufkin-tx-706afc.webp",
             "it_alt": "Appliance repair technician giving a cost estimate in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_ff38b6_01a371.webp"
         },
         {
             "type": "ai_block",
@@ -362,9 +365,21 @@
         "secondary_keywords": "how much does appliance repair cost, appliance repair price, appliance repair quote, average appliance repair cost",
         "brand": "",
         "appliance_type": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Appliance Repair Cost in Lufkin, TX\",\n            \"serviceType\": \"Appliance Repair Cost\",\n            \"description\": \"Appliance repair cost information in Lufkin, TX \\u2014 what affects pricing and how to get an upfront quote.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Appliance Repair Cost in Lufkin, TX\",\n            \"serviceType\": \"Appliance Repair Cost\",\n            \"description\": \"Appliance repair cost information in Lufkin, TX \\u2014 what affects pricing and how to get an upfront quote.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Appliance Repair Cost in {city_state} varies by appliance and part needed; connect with local providers who may offer fast service. Call {phone}.",
+            "Wondering about Appliance Repair Cost near {city_state}? It depends on the appliance and part needed. We connect you to local providers. Call {phone}.",
+            "Appliance Repair Cost in {city_state} changes based on the appliance and part required. Get linked to independent local providers fast. Call {phone}.",
+            "Curious about Appliance Repair Cost? In {city_state}, pricing depends on the appliance and part needed. Local providers are often available. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Appliance Repair Cost in {city_state} can vary — connect with an independent local provider for a real, upfront quote. Call {phone}.",
+            "Curious about Appliance Repair Cost in {city_state}? We'll connect you to a local independent provider who can quote you directly. Call {phone}.",
+            "Appliance Repair Cost questions in {city_state}? Get linked to a nearby independent provider for an upfront quote. Call {phone}.",
+            "In {city_state}, Appliance Repair Cost depends on several factors — reach a local independent provider fast for a real quote. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "f1d29268cfd0f59e627fc580a1e4a747"
+    "generated_at": "2026-11-07T19:57:00+00:00",
+    "template_version": "1d6d016ee2b36b59dbb4117a0a5d48af"
 }

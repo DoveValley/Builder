@@ -210,8 +210,8 @@
             "hs_photo_alt": "Water damage repair in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/water-damage-repair-lufkin-tx__tpl_water_damage_repair_city_lufkin_tx_39195a67.webp",
-            "hs_bg_photo": "sites/water-site/uploads/media/ai_22ab45_cebee7-lufkin-tx.webp",
+            "hs_photo": "sites/water-site/uploads/media/water-damage-repair-lufkin-tx__tpl_water_damage_repair_city_lufkin_tx_154dc4ce.webp",
+            "hs_bg_photo": "sites/water-site/uploads/media/ai_22ab45_cebee7-lufkin-tx-4e383d.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -240,7 +240,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-reconstruction-framing-crew-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-reconstruction-framing-crew-2-lufkin-tx-lufkin-tx-4e383d.webp",
             "it_alt": "Crew hanging new drywall over opened wall framing during water damage repair in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -328,7 +328,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -523,6 +523,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -553,7 +565,7 @@
     "seo": {
         "seo_title": "Water Damage Repair in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/water-damage-repair-lufkin-tx/",
-        "meta_description": "Untreated water intrusion accelerates deterioration of building materials and creates secondary damage. Serving {city_state}. Call {phone}.",
+        "meta_description": "Water damage repair addresses the deterioration and secondary damage untreated water intrusion causes. Serving {city_state}. Call {phone}.",
         "meta_keywords": "water damage repair Lufkin TX, repair water damage Lufkin, home water damage repair Lufkin, water damage repair services Lufkin",
         "og_title": "Water Damage Repair in {city_state} | {business}",
         "og_description": "24/7 water damage repair in {city_state}. Fast, professional local response.",
@@ -565,11 +577,17 @@
         "bc_label": "Water Damage Repair",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage repair in Lufkin, TX — repair water damage, home water damage repair and water damage repair services.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage repair in Lufkin, TX \\u2014 repair water damage, home water damage repair and water damage repair services.\"\n}",
         "primary_keyword": "Water Damage Repair",
-        "secondary_keywords": "repair water damage, home water damage repair, water damage repair services"
+        "secondary_keywords": "repair water damage, home water damage repair, water damage repair services",
+        "meta_description_pool": [
+            "Water Damage Repair in {city_state}: get connected fast to independent local providers who handle water intrusion and its aftermath. Call {phone}.",
+            "Need Water Damage Repair near {city_state}? We connect you quickly with local independent providers ready to respond. Call {phone} today.",
+            "Water Damage Repair, {city_state} area: find local independent providers through our referral network to address water intrusion issues. Call {phone}.",
+            "{city_state} Water Damage Repair connections made easy — we link you to independent local providers who handle the damage. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:40+00:00",
-    "template_version": "f516db6923b53d4d31a990815ecc6bf3"
+    "generated_at": "2026-11-07T20:02:55+00:00",
+    "template_version": "131cd44275e618629a5b8e80d21c02c4"
 }

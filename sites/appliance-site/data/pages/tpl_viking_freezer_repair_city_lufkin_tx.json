@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/viking-freezer-repair-lufkin-tx__tpl_viking_freezer_repair_city_lufkin_tx_a976f0b5.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/viking-freezer-repair-lufkin-tx__tpl_viking_freezer_repair_city_lufkin_tx_67b42ee7.webp",
             "hs_photo_alt": "Viking Freezer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-freezer.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-cda34f.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx-cda34f.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "viking freezer repair near me, viking freezer not freezing, viking freezer frost buildup, viking freezer service, same day viking freezer repair",
         "brand": "Viking",
         "appliance_type": "Freezer",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Freezer Repair\",\n            \"description\": \"Professional Viking freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Freezer Repair\",\n            \"description\": \"Professional Viking freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Viking Freezer Repair in {city_state}: connect with independent local providers who handle Viking freezer issues. Often available quickly. Call {phone}.",
+            "Looking for Viking Freezer Repair near {city_state}? We connect you to local independent providers ready to help. Call {phone} to get started.",
+            "Viking Freezer Repair, {city_state} — get matched with local independent service providers for your freezer issue. Call {phone} for a fast connection.",
+            "In {city_state} and need Viking Freezer Repair? This service connects you with independent local providers who can assist. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Viking Freezer Repair in {city_state}: {business} connects you with local providers for a fast response, often available same-day. Call {phone}.",
+            "Need Viking Freezer Repair near {city_state}? {business} links you to independent local providers who respond quickly. Reach us at {phone}.",
+            "{city_state} Viking Freezer Repair made simple — {business} connects you with responsive local providers nearby. Call {phone} to get started.",
+            "Looking for Viking Freezer Repair in {city_state}? {business} puts you in touch with fast-responding local providers. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "e9bf9e68f7bd8f4ba3ff082675291781"
+    "generated_at": "2026-11-07T19:56:34+00:00",
+    "template_version": "ced855126fad9bb7a189999b3fd78df0"
 }

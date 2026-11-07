@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/jennair-appliance-repair-lufkin-tx__tpl_jennair_appliance_repair_city_lufkin_tx_0757ba7c.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/jennair-appliance-repair-lufkin-tx__tpl_jennair_appliance_repair_city_lufkin_tx_7f47a48d.webp",
             "hs_photo_alt": "JennAir Appliance Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-5b280f.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -192,18 +193,15 @@
             "id": "ai_block_1"
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "{chart_group_water}",
-            "it_alt": "{chart_group_water_alt}",
-            "_it_photo_prechart": "",
-            "it_caption": "{chart_group_water_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked",
-            "id": "ai_block_1"
+            "type": "error_codes",
+            "ec_heading": "",
+            "ec_brand": "auto",
+            "ec_type": "auto",
+            "ec_max": 12,
+            "ec_intro": "",
+            "ec_cta_text": "",
+            "ec_cta_url": "",
+            "id": "error_codes_1"
         },
         {
             "type": "ai_block",
@@ -339,6 +337,17 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need JennAir appliance repair in {city}? We'll connect you with a provider who knows your brand.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -385,15 +394,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -461,9 +461,21 @@
         "brand": "JennAir",
         "appliance_type": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"JennAir Appliance Repair\",\n            \"description\": \"Professional JennAir appliance repair in Lufkin, TX from Wells Appliance Repair. Responsive local providers, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer"
+        "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer",
+        "meta_description_pool": [
+            "JennAir Appliance Repair in {city_state}: connect with independent local providers who handle JennAir's specialized internal mechanisms. Call {phone}.",
+            "Looking for JennAir Appliance Repair near {city_state}? We connect you to local independent providers familiar with JennAir's premium designs. Call {phone}.",
+            "JennAir Appliance Repair, {city_state} — get matched with independent local providers experienced with JennAir's specialized mechanisms. Call {phone} today.",
+            "In {city_state}, JennAir Appliance Repair requests connect you with local independent providers who understand JennAir's premium internal design. Call {phone}."
+        ],
+        "og_description_pool": [
+            "JennAir Appliance Repair in {city_state}: {business} connects you with responsive local providers, often available same-day. Call {phone}.",
+            "Need JennAir Appliance Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone}.",
+            "{business} helps {city_state} residents find JennAir Appliance Repair fast through responsive local providers, often same-day. Call {phone}.",
+            "JennAir Appliance Repair, {city_state} area: {business} puts you in touch with fast-responding local providers. Call {phone} to get connected."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "79b37793a5b75e3d150b7b515762d823"
+    "generated_at": "2026-11-07T19:56:19+00:00",
+    "template_version": "19f5793ab899ffe38390bf9873c21e69"
 }

@@ -210,7 +210,7 @@
             "hs_photo_alt": "Water damage reconstruction in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/water-damage-reconstruction-lufkin-tx__tpl_water_damage_reconstruction_city_lufkin_tx_5f90654b.webp",
+            "hs_photo": "sites/water-site/uploads/media/water-damage-reconstruction-lufkin-tx__tpl_water_damage_reconstruction_city_lufkin_tx_91664fa1.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx-lufkin-tx-de3881.webp",
             "it_alt": "Technician confirming a hardwood floor is dry before water damage rebuild work in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -490,6 +490,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -520,7 +532,7 @@
     "seo": {
         "seo_title": "Water Damage Reconstruction in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/water-damage-reconstruction-lufkin-tx/",
-        "meta_description": "After water removal, rebuilding damaged walls, floors, and systems restores habitability and structural safety. Serving {city_state}. Call {phone}.",
+        "meta_description": "Water damage reconstruction rebuilds damaged walls, floors, and systems after water removal is complete. Serving {city_state}. Call {phone}.",
         "meta_keywords": "water damage reconstruction Lufkin TX, water damage rebuild Lufkin, rebuild after water damage Lufkin, post water damage reconstruction Lufkin",
         "og_title": "Water Damage Reconstruction in {city_state} | {business}",
         "og_description": "24/7 water damage reconstruction in {city_state}. Fast, professional local response.",
@@ -532,11 +544,23 @@
         "bc_label": "Water Damage Reconstruction",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Reconstruction\",\n    \"name\": \"Water Damage Reconstruction in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage reconstruction in Lufkin, TX — water damage rebuild, rebuild after water damage and post water damage reconstruction.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Reconstruction\",\n    \"name\": \"Water Damage Reconstruction in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage reconstruction in Lufkin, TX \\u2014 water damage rebuild, rebuild after water damage and post water damage reconstruction.\"\n}",
         "primary_keyword": "Water Damage Reconstruction",
-        "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction"
+        "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction",
+        "meta_description_pool": [
+            "Water Damage Reconstruction in {city_state}: connect quickly with local providers who rebuild walls, floors, and systems after water removal. Call {phone}.",
+            "Need Water Damage Reconstruction near {city_state}? We help you find independent local providers for wall, floor, and system rebuilds. Call {phone} now.",
+            "{city_state} Water Damage Reconstruction connections made fast — local providers handle rebuilding of walls, floors, and systems after cleanup. Call {phone}.",
+            "Get matched for Water Damage Reconstruction in {city_state}: independent local pros rebuild damaged walls, floors, and systems. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Water Damage Reconstruction in {city_state}, available 24/7 — connect quickly with independent local providers ready to respond fast.",
+            "Need Water Damage Reconstruction in {city_state}? We connect you to responsive local providers who serve the area around the clock.",
+            "{city_state} Water Damage Reconstruction help starts here: this network links you to independent local pros for fast, round-the-clock response.",
+            "Water Damage Reconstruction service connections in {city_state}, 24/7 — get matched fast with local independent providers near you."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:47+00:00",
-    "template_version": "ee8651aeaf66d49c5c2329ffaf2f971c"
+    "generated_at": "2026-11-07T20:03:03+00:00",
+    "template_version": "34a93092499c146fae1c7457c4a188f7"
 }

@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/mold-removal_6609df.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-removal-cost-lufkin-tx__tpl_mold_removal_cost_city_lufkin_tx_2dfd752f.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -205,7 +205,7 @@
             "_ai_generated": false,
             "id": "hero_split_1",
             "ai_prompt_override": "You are writing hero subtext for {business}, a referral service that connects property owners with independent local mold inspection and remediation providers, for a page targeting {city}, {state}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it.\n\nPAGE FOCUS: this page answers what mold removal costs and WHY — a reader is comparing the cost before calling. Keep every sentence about the cost of mold removal and what drives it. NEVER state, estimate or imply any dollar amount, price range, average, percentage or \"typical\" cost — the independent local provider sets pricing only after inspecting the affected area. Explain cost drivers in plain terms: how much square footage is affected, which materials are involved (drywall, carpet, insulation, HVAC components), whether containment and air scrubbing equipment is needed, whether post-remediation clearance testing is recommended, and whether any structural rebuild is required once the mold itself is gone. Explain that acting quickly usually keeps the scope of work — and therefore the cost — smaller. Never call the service cheap, affordable, low-cost or fairly priced, and do not promise insurance coverage.\n\nWrite 2-3 sentences (40-60 words total):\n- Open with a {city}-specific statement grounded in Researched local risk factor for {city}: {local_note}. If that line has real content, ground local-specific claims in it — it was independently researched for this city and takes priority over general assumptions. If it is blank or still shows the literal token {local_note}, speak only in general terms about the region's humidity, seasonal rainfall, and moisture patterns that drive indoor mold growth without claiming it applies here specifically. This site has many pages for the same city, all pointing at this same researched line, and each is generated independently — so do not quote or closely paraphrase the note's own wording; treat it only as source material, not a sentence to echo.\n- {service} must read as the clear subject — the specific question this page answers. Do NOT mention other service types.\n- Close with a value statement for the property owner: acting on the inspection sooner keeps the scope — and the cost — smaller.\n\nNo bullets. No exclamation marks. Professional, not sales-y.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Never describe the providers this business connects customers to as \"trained\", \"expert\", \"top-rated\", or with superlatives like \"highest standards of professionalism\" — these are unverifiable quality claims. Never say this business itself offers \"honest pricing\", \"affordable pricing\", or otherwise characterize pricing — the independent provider sets pricing, not this business. Never write \"our team\", \"our technicians\", \"our professionals\", or \"our providers\" — they are independent providers this business connects customers to, not employees. Never claim or imply statewide or regional reach — do not write that the network \"reaches across {state}\", covers \"rural areas\", or serves customers \"no matter where\" they are; describe coverage only in terms of {city} and, if relevant, its named nearby service-area communities. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific spore-count results. Do not give unsafe do-it-yourself advice for disturbing black mold or large affected areas. Avoid alarmist or exaggerated toxic-mold scare language.\nTone: reassuring and professional, emphasizing health, indoor air quality, safe containment, and thorough removal without fear-mongering. Write in original wording; do not copy competitor phrasing.\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about not naming neighborhoods. If that line lists actual names, you MUST choose ONLY 2 OR 3 of them - never 4 or more, even though more are listed - and name those BY NAME as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add any name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general terms about area types. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"text\": \"2-3 sentences here\"}",
-            "_hs_photo_orig": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp"
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_3f9071_c2cd38.webp"
         },
         {
             "type": "trust_bar",
@@ -220,7 +220,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-removal-today_c213c8.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_74cfaf_c3637d-lufkin-tx-f3ee4c.webp",
             "it_alt": "Technician treating a mold-affected wall, one of the factors behind {service} in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -229,7 +229,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-removal-and-remediation.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_74cfaf_c3637d.webp"
         },
         {
             "type": "ai_block",
@@ -426,9 +426,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal Cost\",\n    \"name\": \"Mold Removal Cost in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold removal cost information in Lufkin, TX \\u2014 mold remediation cost, mold removal price, and on-site estimates.\"\n}",
         "primary_keyword": "Mold Removal Cost",
-        "secondary_keywords": "cost of mold removal, mold remediation cost, mold removal price, average mold removal cost, how much does mold removal cost, mold removal cost estimate"
+        "secondary_keywords": "cost of mold removal, mold remediation cost, mold removal price, average mold removal cost, how much does mold removal cost, mold removal cost estimate",
+        "meta_description_pool": [
+            "Mold Removal Cost in {city_state} depends on several factors — compare them here and get connected to a local provider for an on-site estimate. Call {phone}.",
+            "Curious about Mold Removal Cost in {city_state}? We connect you with independent local providers who can give an on-site estimate. Call {phone} to start.",
+            "Mold Removal Cost in {city_state} varies by project. Learn what affects pricing and get matched with a local provider for an estimate at {phone}.",
+            "Find out what shapes Mold Removal Cost in {city_state}, then connect with a nearby independent provider for an on-site quote. Reach us at {phone}."
+        ],
+        "og_description_pool": [
+            "Mold Removal Cost in {city_state} varies by job size — connect with a local provider near you for an on-site estimate and clear pricing details.",
+            "Curious about Mold Removal Cost in {city_state}? We connect you with independent local providers who can assess your space and offer an estimate.",
+            "Mold Removal Cost in {city_state} depends on several factors; get matched with a local provider to request a free on-site evaluation today.",
+            "Local Mold Removal Cost in {city_state} can differ by project — find out more by connecting with an independent provider for an on-site quote."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "99d3f88611966a58344e8c65fb6a680b"
+    "generated_at": "2026-11-07T20:03:45+00:00",
+    "template_version": "def99d8cfa9e3e1c04de646948a89513"
 }

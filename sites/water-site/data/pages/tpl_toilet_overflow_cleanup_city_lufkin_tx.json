@@ -210,7 +210,7 @@
             "hs_photo_alt": "Toilet overflow cleanup in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/toilet-overflow-cleanup-lufkin-tx__tpl_toilet_overflow_cleanup_city_lufkin_tx_dd96be47.webp",
+            "hs_photo": "sites/water-site/uploads/media/toilet-overflow-cleanup-lufkin-tx__tpl_toilet_overflow_cleanup_city_lufkin_tx_848d8185.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx-cca54a.webp",
             "it_alt": "Water-damaged bathroom — toilet overflow water damage in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Toilet Overflow Cleanup in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/toilet-overflow-cleanup-lufkin-tx/",
-        "meta_description": "Overflowing toilets introduce biologically hazardous water that contaminates floors and adjacent materials. Serving {city_state}. Call {phone}.",
+        "meta_description": "Toilet overflow cleanup handles the biologically hazardous water that contaminates floors and nearby materials. Serving {city_state}. Call {phone}.",
         "meta_keywords": "toilet overflow cleanup Lufkin TX, toilet overflow water damage Lufkin, overflowing toilet cleanup Lufkin, toilet flood cleanup Lufkin",
         "og_title": "Toilet Overflow Cleanup in {city_state} | {business}",
         "og_description": "24/7 toilet overflow cleanup in {city_state}. Fast, professional local response.",
@@ -564,11 +576,23 @@
         "bc_label": "Toilet Overflow Cleanup",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Toilet Overflow Cleanup\",\n    \"name\": \"Toilet Overflow Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 toilet overflow cleanup in Lufkin, TX — toilet overflow water damage, overflowing toilet cleanup and toilet flood cleanup.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Toilet Overflow Cleanup\",\n    \"name\": \"Toilet Overflow Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 toilet overflow cleanup in Lufkin, TX \\u2014 toilet overflow water damage, overflowing toilet cleanup and toilet flood cleanup.\"\n}",
         "primary_keyword": "Toilet Overflow Cleanup",
-        "secondary_keywords": "toilet overflow water damage, overflowing toilet cleanup, toilet flood cleanup"
+        "secondary_keywords": "toilet overflow water damage, overflowing toilet cleanup, toilet flood cleanup",
+        "meta_description_pool": [
+            "Toilet Overflow Cleanup in {city_state}: get connected fast to local providers who respond to contaminated water situations. Call {phone} now.",
+            "Need Toilet Overflow Cleanup near {city_state}? We connect you quickly with independent local providers ready to handle the mess. Call {phone}.",
+            "Toilet Overflow Cleanup, {city_state} area: this service links you to local providers who address contaminated water on floors and materials. Call {phone}.",
+            "Facing a toilet overflow in {city_state}? Toilet Overflow Cleanup connections to responsive local providers are a call away at {phone}."
+        ],
+        "og_description_pool": [
+            "Toilet Overflow Cleanup in {city_state}, available 24/7 — this network connects you fast to independent local providers ready to respond anytime.",
+            "Need Toilet Overflow Cleanup in {city_state}? We'll quickly connect you with local, independent service providers available around the clock.",
+            "In {city_state}, Toilet Overflow Cleanup help is a call away — get matched instantly with responsive, independent local providers, day or night.",
+            "Toilet Overflow Cleanup near {city_state}: this referral service links you to independent local providers offering fast, round-the-clock response."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:44+00:00",
-    "template_version": "7ebee5f41b71ddc6bb1ab6270cf1afff"
+    "generated_at": "2026-11-07T20:03:00+00:00",
+    "template_version": "f5bfcfb6a6cd9cfb6fe9869429c9e90d"
 }

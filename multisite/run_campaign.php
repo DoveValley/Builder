@@ -292,10 +292,18 @@ catch (Throwable $e) { fwrite(STDERR, 'Snapshot failed: ' . $e->getMessage() . "
 
 // Parse one JSON-line of build_one output into a metrics accumulator (mutating).
 function ms_parse_line(string $line, array &$m, bool $verbose): void {
-    if ($verbose) echo '    ' . rtrim($line) . "\n";
-    $ev = json_decode(trim($line), true);
+    $ev  = json_decode(trim($line), true);
+    $msg = is_array($ev) ? (string) ($ev['msg'] ?? '') : '';
+    // Surfaced even outside --verbose: a handful of lines per domain, not the
+    // per-line firehose --verbose turns on, but exactly the detail that explains
+    // *why* a photo slot was skipped (warn/error/fatal) or what a forced photo
+    // regen actually did (the Images: cost/count summary) — both otherwise
+    // invisible in the .out file the Simple page's log tail reads from.
+    $evType = is_array($ev) ? (string) ($ev['type'] ?? '') : '';
+    if ($verbose || in_array($evType, ['warn', 'error', 'fatal'], true) || str_starts_with($msg, 'Images:')) {
+        echo '    ' . rtrim($line) . "\n";
+    }
     if (!is_array($ev)) return;
-    $msg = $ev['msg'] ?? '';
     // A step marker: remember where the row is, and that it got this far. Kept rather
     // than discarded so a running row can say what it is doing and a failed row can say
     // where it died — see includes/multisite/steps.php.

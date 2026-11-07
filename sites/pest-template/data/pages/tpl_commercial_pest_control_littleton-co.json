@@ -200,8 +200,8 @@
             "hs_photo_alt": "Commercial Pest Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-littleton-co__tpl_commercial_pest_control_littleton-co_5be40c40.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-littleton-co__tpl_commercial_pest_control_littleton-co_983e8412.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-4a35c6.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3-littleton-co-4a35c6.webp",
             "it_alt": "Commercial Pest Control in a {city_state} property",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,40 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/restaurant-pest-control-{city_slug}",
-                    "text": "restaurant pest control"
-                },
-                {
-                    "url": "/rat-exterminator-{city_slug}",
-                    "text": "rat exterminator"
-                },
-                {
-                    "url": "/mouse-exterminator-{city_slug}",
-                    "text": "mouse exterminator"
-                },
-                {
-                    "url": "/pest-control-plans-{city_slug}",
-                    "text": "pest control plans"
-                },
-                {
-                    "url": "/pest-inspection-{city_slug}",
-                    "text": "pest inspection"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -484,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Get commercial pest control for your {city} home or business today.",
             "cb_subtext": "",
@@ -514,7 +505,7 @@
     "seo": {
         "seo_title": "Commercial Pest Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/commercial-pest-control-littleton-co/",
-        "meta_description": "Businesses face reputation damage and health code violations from pest infestations. Serving {city_state}. Call {phone}.",
+        "meta_description": "Commercial pest control protects businesses from infestations that risk reputation and code violations. Serving {city_state}. Call {phone}.",
         "meta_keywords": "commercial pest control Littleton CO, commercial exterminator, business pest control, office pest control",
         "og_title": "Commercial Pest Control in {city_state} | {business}",
         "og_description": "Professional commercial pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -526,11 +517,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Pest Control in Littleton, CO\",\n            \"serviceType\": \"Commercial Pest Control\",\n            \"description\": \"Professional commercial pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Pest Control in Littleton, CO\",\n            \"serviceType\": \"Commercial Pest Control\",\n            \"description\": \"Professional commercial pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Commercial Pest Control",
-        "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
+        "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control",
+        "meta_description_pool": [
+            "Commercial Pest Control in {city_state}: connect with local providers ready to help protect your business from infestations. Call {phone} today.",
+            "Need Commercial Pest Control near {city_state}? We'll connect you to independent local providers who respond fast to protect your reputation. Call {phone}.",
+            "Commercial Pest Control, {city_state}: find local providers through our network to address infestations before they become code violations. Call {phone}.",
+            "Businesses in {city_state} seeking Commercial Pest Control can connect with responsive local providers in our network. Call {phone} for help."
+        ],
+        "og_description_pool": [
+            "Commercial Pest Control in {city_state}: {business} connects you with local providers offering fast response and recurring service options. Call {phone}.",
+            "Need Commercial Pest Control near {city_state}? {business} quickly links your business with responsive local providers for ongoing pest management. Call {phone}.",
+            "{business} helps {city_state} businesses find Commercial Pest Control providers nearby, with fast local connections and recurring service plans. Call {phone}.",
+            "Commercial Pest Control, {city_state} businesses trust: {business} connects you fast to local providers for treatment and recurring upkeep. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:54+00:00",
-    "template_version": "450762be072fe3951184102c67fa18ba"
+    "generated_at": "2026-11-07T20:04:29+00:00",
+    "template_version": "41bedcf4601300e1433d7343c7ed6cdb"
 }

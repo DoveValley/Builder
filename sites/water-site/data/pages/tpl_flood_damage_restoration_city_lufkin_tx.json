@@ -210,7 +210,7 @@
             "hs_photo_alt": "Flood damage restoration in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/flood-damage-restoration-lufkin-tx__tpl_flood_damage_restoration_city_lufkin_tx_4d836c4c.webp",
+            "hs_photo": "sites/water-site/uploads/media/flood-damage-restoration-lufkin-tx__tpl_flood_damage_restoration_city_lufkin_tx_ba6c80ca.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-rain-boots-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-rain-boots-2-lufkin-tx-lufkin-tx-7d4025.webp",
             "it_alt": "Technician vacuuming floodwater from a basement floor with cut-back walls during flood damage restoration in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Flood Damage Restoration in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/flood-damage-restoration-lufkin-tx/",
-        "meta_description": "Floodwaters introduce contaminants that damage structures and belongings within hours of entry. Serving {city_state}. Call {phone}.",
+        "meta_description": "Flood damage restoration addresses the contaminants floodwater introduces, which can harm structures within hours. Serving {city_state}. Call {phone}.",
         "meta_keywords": "flood damage restoration Lufkin TX, flood restoration Lufkin, flood cleanup Lufkin, flood damage repair Lufkin",
         "og_title": "Flood Damage Restoration in {city_state} | {business}",
         "og_description": "24/7 flood damage restoration in {city_state}. Fast, professional local response.",
@@ -564,11 +576,23 @@
         "bc_label": "Flood Damage Restoration",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flood damage restoration in Lufkin, TX — flood restoration, flood cleanup and flood damage repair.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flood damage restoration in Lufkin, TX \\u2014 flood restoration, flood cleanup and flood damage repair.\"\n}",
         "primary_keyword": "Flood Damage Restoration",
-        "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
+        "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services",
+        "meta_description_pool": [
+            "Flood Damage Restoration in {city_state}: connect quickly with local providers who respond to floodwater contamination before it harms your structure. Call {phone}.",
+            "Need Flood Damage Restoration near {city_state}? We connect you fast to independent local providers ready to address floodwater contamination. Call {phone}.",
+            "Flood Damage Restoration, {city_state} — floodwater can introduce contaminants that harm structures fast; get matched with local providers now. Call {phone}.",
+            "Get connected to Flood Damage Restoration providers serving {city_state}, responding quickly to floodwater contamination risks. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Flood Damage Restoration in {city_state}: connect anytime, day or night, with independent local providers ready to respond fast when water strikes.",
+            "Need Flood Damage Restoration near {city_state}? We connect you quickly with local, independent providers available around the clock.",
+            "Flood Damage Restoration, {city_state} area — get matched fast with responsive local providers who handle the job, available 24/7.",
+            "In {city_state}, Flood Damage Restoration help is a call away: we link you to independent local providers for quick, round-the-clock response."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:39+00:00",
-    "template_version": "f9dcb9731cd8ed4110c92ac5e08c0d16"
+    "generated_at": "2026-11-07T20:02:55+00:00",
+    "template_version": "a2cf20303133aedbaaac3b8f418f9896"
 }

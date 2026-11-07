@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/lg-dryer-repair-lufkin-tx__tpl_lg_dryer_repair_city_lufkin_tx_688b44c0.webp",
             "hs_photo_alt": "LG Dryer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-26c34e.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_4eb92c_a0e63f.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_3421ab_1e694f-lufkin-tx-26c34e.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_3421ab_1e694f.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "lg dryer repair near me, lg dryer not heating, lg dryer not spinning, lg dryer service, same day lg dryer repair",
         "brand": "LG",
         "appliance_type": "Dryer",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Dryer Repair in Lufkin, TX\",\"serviceType\":\"LG Dryer Repair\",\"description\":\"Professional LG dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Dryer Repair in Lufkin, TX\",\"serviceType\":\"LG Dryer Repair\",\"description\":\"Professional LG dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "LG Dryer Repair in {city_state}: {business} connects you to local independent providers, often with same-day availability. Call {phone}.",
+            "Need LG Dryer Repair near {city_state}? {business} links you fast to local independent providers in the area. Call {phone} today.",
+            "{city_state} LG Dryer Repair made simple — {business} connects you with responsive local providers, often available same-day. Call {phone}.",
+            "Looking for LG Dryer Repair in {city_state}? {business} offers a fast connection to independent local providers nearby. Call {phone}."
+        ],
+        "og_description_pool": [
+            "LG Dryer Repair in {city_state}: {business} connects you with local providers for fast response, often same-day. Call {phone}.",
+            "Need LG Dryer Repair near {city_state}? {business} links you to independent local providers who respond quickly. Call {phone}.",
+            "LG Dryer Repair, {city_state} area — {business} helps you reach responsive local providers fast, with same-day options often available. Call {phone}.",
+            "Searching for LG Dryer Repair in {city_state}? {business} puts you in touch with local providers known for quick, responsive service. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "9f67373692da043fab3fab267d15c773"
+    "generated_at": "2026-11-07T19:56:57+00:00",
+    "template_version": "37e0bfa13549d9d03e4385c86f98b4d3"
 }

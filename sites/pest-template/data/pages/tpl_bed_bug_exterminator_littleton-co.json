@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_bed_bug_exterminator",
     "city_id": "littleton-co",
-    "slug": "bed-bug-control-littleton-co",
-    "title": "Bed Bug Control in {city_state} | {business_short}",
+    "slug": "bed-bug-exterminator-littleton-co",
+    "title": "Bed Bug Exterminator in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -197,17 +197,17 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "Bed Bug Control in {city_state}",
+            "hs_photo_alt": "Bed Bug Exterminator in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/bed-bug-control-littleton-co__tpl_bed_bug_exterminator_littleton-co_bd7f184f.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/bed-bug-exterminator-littleton-co__tpl_bed_bug_exterminator_littleton-co_bb9d6319.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-de8a65.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/bed-bug-exterminator_10746b.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_469108_3983e2.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-bed-bug-exterminator_67236d-littleton-co.webp",
-            "it_alt": "Bed Bug Control in a {city_state} home",
+            "it_photo": "sites/pest-template/uploads/media/ai_ce76cf_f6df3a-littleton-co-de8a65.webp",
+            "it_alt": "Bed Bug Exterminator in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-bed-bug-exterminator_67236d.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_ce76cf_f6df3a.webp"
         },
         {
             "type": "ai_block",
@@ -245,7 +245,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our Bed bug Treatment Works",
+            "steps_heading": "How Our Bed Bug Treatment Works",
             "steps_items": [
                 {
                     "image": "",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -340,19 +355,16 @@
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Bed bug Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -383,25 +395,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Bed Bug Control in {city_state} | {business_short}",
-        "canonical_url": "https://p.q111.xyz/bed-bug-control-littleton-co/",
-        "meta_description": "Bed bugs feed on blood at night and multiply quickly in bedding and furniture. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "bed bug control Littleton CO, bed bug exterminator, bed bug treatment, bed bug removal",
-        "og_title": "Bed Bug Control in {city_state} | {business}",
-        "og_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+        "seo_title": "Bed Bug Exterminator in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/bed-bug-exterminator-littleton-co/",
+        "meta_description": "A bed bug exterminator targets bugs that feed at night and multiply quickly in bedding and furniture. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "bed bug exterminator Littleton CO, bed bug control, bed bug treatment, bed bug removal",
+        "og_title": "Bed Bug Exterminator in {city_state} | {business}",
+        "og_description": "Professional bed bug extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
         "og_image": "",
-        "service_name": "Bed Bug Control",
-        "service_type": "Bed Bug Control",
+        "service_name": "Bed Bug Exterminator",
+        "service_type": "Bed Bug Exterminator",
         "service_area": "{city}, {SS}",
         "service_description": "Professional bed bug exterminator services in {city_state}. Targeted bed bug control for homes and businesses, with fast local response.",
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Control in Littleton, CO\",\n            \"serviceType\": \"Bed Bug Control\",\n            \"description\": \"Professional bed bug control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Bed Bug Control",
-        "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Exterminator in Littleton, CO\",\n            \"serviceType\": \"Bed Bug Exterminator\",\n            \"description\": \"Professional bed bug extermination services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Bed Bug Exterminator",
+        "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs",
+        "meta_description_pool": [
+            "Bed Bug Exterminator help in {city_state}: connect with local providers who understand these fast-multiplying, night-feeding pests. Call {phone} to get started.",
+            "Need a bed bug exterminator near {city_state}? We connect you with independent local providers ready to address infestations in bedding and furniture. Call {phone}.",
+            "Bed Bug Exterminator, {city_state}: find local providers who respond quickly to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
+            "Searching for a bed bug exterminator in {city_state}? We link you to responsive local providers familiar with these fast-multiplying pests. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Bed Bug Exterminator in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone} to get started.",
+            "Need a bed bug exterminator near {city_state}? {business} links you fast to local, independent providers ready to help. Call {phone} today.",
+            "Bed Bug Exterminator, {city_state} — {business} is your local connection to independent providers who handle targeted treatment. Call {phone}.",
+            "In {city_state}, {business} helps you find responsive, local providers for bed bug extermination and targeted treatment. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "ed8b4cfc7b1d222240194960ae56b8d5"
+    "generated_at": "2026-11-07T20:04:18+00:00",
+    "template_version": "4fd1a74af382b5555d0e1ff411605499"
 }

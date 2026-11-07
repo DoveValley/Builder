@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/viking-range-repair-lufkin-tx__tpl_viking_range_repair_city_lufkin_tx_33c6ba6a.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/viking-range-repair-lufkin-tx__tpl_viking_range_repair_city_lufkin_tx_aabef856.webp",
             "hs_photo_alt": "Viking Range Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-stove.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-043c82.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-4-lufkin-tx-043c82.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "viking range repair near me, viking range burner not working, viking range oven not heating, viking range service, same day viking range repair",
         "brand": "Viking",
         "appliance_type": "Range",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Range Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Range Repair\",\n            \"description\": \"Professional Viking range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Range Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Range Repair\",\n            \"description\": \"Professional Viking range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Viking Range Repair in {city_state}: connect with independent local providers who often have appointments available. Call {phone} to get started.",
+            "Looking for Viking Range Repair near {city_state}? We connect you with local independent providers familiar with these commercial-grade home units. Call {phone}.",
+            "Viking Range Repair, {city_state}: fast, local connections to independent service providers for your commercial-grade Viking range. Call {phone} today.",
+            "{city_state} Viking Range Repair made simple — we link you to independent local providers ready to help. Call {phone} for a quick connection."
+        ],
+        "og_description_pool": [
+            "Viking Range Repair in {city_state}: {business} connects you with independent local providers for fast, responsive service. Call {phone}.",
+            "Need Viking Range Repair near {city_state}? {business} links you to local independent providers, often available quickly. Call {phone}.",
+            "{business} helps {city_state} residents find local independent providers for Viking Range Repair, with responsive local connections. Call {phone}.",
+            "Viking Range Repair, {city_state}: get connected fast to independent local providers through {business}. Often available quickly. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "85e7f9bd98edfcfb3775fe98d01efa16"
+    "generated_at": "2026-11-07T19:56:45+00:00",
+    "template_version": "ed586ba9640ccc371ee5c8f6c9ac4b6f"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/kitchenaid-appliance-repair-lufkin-tx__tpl_kitchenaid_appliance_repair_city_lufkin_tx_324ba92a.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/kitchenaid-appliance-repair-lufkin-tx__tpl_kitchenaid_appliance_repair_city_lufkin_tx_aa213851.webp",
             "hs_photo_alt": "KitchenAid Appliance Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-837e13.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -192,18 +193,15 @@
             "id": "ai_block_1"
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "{chart_group_water}",
-            "it_alt": "{chart_group_water_alt}",
-            "_it_photo_prechart": "",
-            "it_caption": "{chart_group_water_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked",
-            "id": "ai_block_1"
+            "type": "error_codes",
+            "ec_heading": "",
+            "ec_brand": "auto",
+            "ec_type": "auto",
+            "ec_max": 12,
+            "ec_intro": "",
+            "ec_cta_text": "",
+            "ec_cta_url": "",
+            "id": "error_codes_1"
         },
         {
             "type": "ai_block",
@@ -339,6 +337,17 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need KitchenAid appliance repair in {city}? We'll connect you with a provider who knows your brand.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -387,15 +396,6 @@
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
-        },
-        {
             "type": "custom_html",
             "skin": "",
             "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
@@ -442,9 +442,9 @@
         }
     ],
     "seo": {
-        "seo_title": "KitchenAid Appliance Repair in {city_state}",
+        "seo_title": "KitchenAid Appliance Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/kitchenaid-appliance-repair-lufkin-tx/",
-        "meta_description": "Need KitchenAid Appliance Repair? KitchenAid models incorporate distinct engineering that affects repair approach. Serving {city_state}. Call {phone}.",
+        "meta_description": "Need KitchenAid Appliance Repair? Distinct engineering that affects the repair approach. Serving {city_state}. Call {phone}.",
         "meta_keywords": "kitchenaid appliance repair Lufkin TX",
         "og_title": "KitchenAid Appliance Repair in {city_state} | {business}",
         "og_description": "Professional KitchenAid appliance repair in {city_state} from {business}. Responsive local providers, often same-day. Call {phone}.",
@@ -461,9 +461,21 @@
         "brand": "KitchenAid",
         "appliance_type": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"KitchenAid Appliance Repair\",\n            \"description\": \"Professional KitchenAid appliance repair in Lufkin, TX from Wells Appliance Repair. Responsive local providers, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
+        "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer",
+        "meta_description_pool": [
+            "KitchenAid Appliance Repair in {city_state}: connect with independent local providers who understand its distinct engineering. Call {phone} to get started.",
+            "Looking for KitchenAid Appliance Repair near {city_state}? We link you to local independent providers familiar with its unique design. Phone: {phone}.",
+            "KitchenAid Appliance Repair, {city_state} — fast connections to independent local providers who know its distinct engineering approach. Call {phone} now.",
+            "In {city_state}, KitchenAid Appliance Repair starts here: we connect you with local independent providers for this uniquely engineered appliance. Call {phone}."
+        ],
+        "og_description_pool": [
+            "KitchenAid Appliance Repair in {city_state}: {business} connects you with responsive local providers, often available same-day. Call {phone}.",
+            "Need KitchenAid Appliance Repair near {city_state}? {business} links you to fast, local independent providers. Call {phone} to get started.",
+            "{business} helps {city_state} residents find KitchenAid Appliance Repair through responsive local providers, with same-day options often available. Call {phone}.",
+            "KitchenAid Appliance Repair, {city_state}: {business} connects you to independent local providers known for fast, responsive service. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "15d7bd21fdc788613fdb242aaa9113d7"
+    "generated_at": "2026-11-07T19:56:17+00:00",
+    "template_version": "0f6bf6768fc78728baea9a82c9a923ac"
 }

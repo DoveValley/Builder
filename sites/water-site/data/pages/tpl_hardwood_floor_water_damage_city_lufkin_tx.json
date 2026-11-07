@@ -210,7 +210,7 @@
             "hs_photo_alt": "Hardwood floor water damage in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-lufkin-tx__tpl_hardwood_floor_water_damage_city_lufkin_tx_d714fdc2.webp",
+            "hs_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-lufkin-tx__tpl_hardwood_floor_water_damage_city_lufkin_tx_68c3c267.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/emergency-water-damage-warped-hardwood-floor-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/emergency-water-damage-warped-hardwood-floor-2-lufkin-tx-lufkin-tx-262b5b.webp",
             "it_alt": "Technician prying up water-damaged hardwood floorboards in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Hardwood Floor Water Damage in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/hardwood-floor-water-damage-lufkin-tx/",
-        "meta_description": "Solid wood flooring absorbs water, warps, and loses structural integrity if not addressed promptly. Serving {city_state}. Call {phone}.",
+        "meta_description": "Hardwood floor water damage warps and weakens solid wood flooring fast when it is not addressed promptly. Serving {city_state}. Call {phone}.",
         "meta_keywords": "hardwood floor water damage Lufkin TX, wood floor water damage Lufkin, water damaged hardwood floors Lufkin, hardwood floor water damage repair Lufkin",
         "og_title": "Hardwood Floor Water Damage in {city_state} | {business}",
         "og_description": "24/7 hardwood floor water damage in {city_state}. Fast, professional local response.",
@@ -564,11 +576,17 @@
         "bc_label": "Hardwood Floor Water Damage",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in Lufkin, TX — wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in Lufkin, TX \\u2014 wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
         "primary_keyword": "Hardwood Floor Water Damage",
-        "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor"
+        "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor",
+        "meta_description_pool": [
+            "Hardwood Floor Water Damage in {city_state} can warp and weaken flooring fast — get connected to local providers who respond quickly. Call {phone}.",
+            "Need help with Hardwood Floor Water Damage in {city_state}? We connect you to responsive local providers ready to help. Call {phone} now.",
+            "Hardwood Floor Water Damage spreads quickly if ignored. {city_state} residents can connect with local providers fast — call {phone} today.",
+            "Hardwood Floor Water Damage affecting your home in {city_state}? Get matched with local, responsive providers fast. Call {phone} for help."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:43+00:00",
-    "template_version": "0c38052f6b3e077c0af4bba85842c5a1"
+    "generated_at": "2026-11-07T20:02:59+00:00",
+    "template_version": "66491e0fd98ccf54e3de5e896f155162"
 }

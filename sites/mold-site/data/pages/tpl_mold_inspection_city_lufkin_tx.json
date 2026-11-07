@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_b579fb_dc2032.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-inspection-lufkin-tx__tpl_mold_inspection_city_lufkin_tx_534a0438.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_92ce67_a03552.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-inspection-and-testing-lufkin-tx-5c9c70.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -539,9 +539,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Inspection\",\n    \"name\": \"Mold Inspection in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Inspection in Lufkin, TX \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it.\"\n}",
         "primary_keyword": "Mold Inspection",
-        "secondary_keywords": "mold inspection and testing, home mold inspection, mold inspection near me, mold assessment, mold testing, mold testing services, mold spore testing, mold sampling, mold lab testing"
+        "secondary_keywords": "mold inspection and testing, home mold inspection, mold inspection near me, mold assessment, mold testing, mold testing services, mold spore testing, mold sampling, mold lab testing",
+        "meta_description_pool": [
+            "Mold Inspection in {city_state}: get connected to local providers who can check for hidden growth before it spreads. Call {phone}.",
+            "Need a Mold Inspection near {city_state}? We connect you to independent local providers who look for hidden growth early. Call {phone}.",
+            "Mold Inspection services for {city_state} homes — find local providers fast to check walls and flooring for hidden growth. Call {phone}.",
+            "Looking for Mold Inspection in {city_state}? We link you with local providers who can spot hidden growth before it worsens. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Mold Inspection in {city_state}: connect quickly with an independent local provider by calling {phone} for a prompt, local response.",
+            "Need a Mold Inspection near {city_state}? Call {phone} and we'll connect you fast to a local, independent service provider in your area.",
+            "Mold Inspection, {city_state} — {phone} links you to a responsive local provider who can assess your property promptly.",
+            "Looking for Mold Inspection in {city_state}? Dial {phone} to get connected with a nearby independent provider, fast and locally."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:47+00:00",
-    "template_version": "f0e5c55dd44a8b263db2a24013f95662"
+    "generated_at": "2026-11-07T20:03:37+00:00",
+    "template_version": "7762bbc6e43649dbb8db1f86d277f101"
 }

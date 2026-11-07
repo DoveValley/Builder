@@ -286,7 +286,7 @@ if ($action === 'adjust') {
 }
 
 // ── PLACE AN IMAGE (from an upload, an AI generation, or the existing library) ────
-if (!in_array($action, ['place', 'generate', 'place_media', 'set_active', 'remove_side'], true)) pd_fail('Unknown action.');
+if (!in_array($action, ['place', 'generate', 'place_media', 'set_active', 'remove_side', 'capture_prompt', 'remove_prompt'], true)) pd_fail('Unknown action.');
 
 // The slot decides the output size: match whatever is in it now. Every slot already
 // holds a correctly-sized image, so this is self-configuring — no per-field size table
@@ -410,6 +410,65 @@ if ($action === 'set_active') {
     $pairsAll[$key]['active'] = $which;
     pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null,
         function () use ($pairsAll) { picdrop_pairs_save($pairsAll); });
+}
+
+// ── FORCE-REGEN SCOPE (Pic Drop's "In Force-regen scope" tick mark) ──────────────
+// Ticking captures whichever side is CURRENTLY ACTIVE — real or AI — as this slot's
+// standing prompt for every future Force-regenerate run (includes/multisite/image_ai.php).
+// Deliberately NOT gated on the active side being AI: a slot nobody ever generated an
+// AI photo for is exactly the gap this control exists to close (see conversation that
+// led here — 75 of a master's 120 landing templates had a second real stock photo
+// that had never once been part of the AI-uniqueness system).
+if ($action === 'capture_prompt') {
+    if (!empty($slot['token'])) pd_fail('This slot is filled per city — nothing to use as a reference.');
+    if (!in_array($parts['scope'], ['home', 'global', 'landing'], true)) {
+        pd_fail('This type of slot is not covered by Force-regenerate.');
+    }
+    $pair        = picdrop_pairs_resolve($key, $slot['value']);
+    $active      = $pair['active'];
+    $activeValue = (string) ($pair[$active] ?? '');
+    // picdrop_pairs_resolve() returns blank when Pic Drop's own UI has never touched
+    // this slot — true for anything a batch run or the one-time bulk prompt-seeding
+    // tool (tools/capture_leaf_hero_prompts.php) wrote directly into the page field,
+    // bypassing the pairs sidecar entirely. The field's live value IS the real photo
+    // in that case — same fallback admin/tabs/picdrop.php's own thumbnail render
+    // already applies ($realPath) — so this mirrors it instead of reporting "no
+    // photo" for a slot that plainly has one. Confirmed live: exactly this situation
+    // on a Whirlpool hero that had an active AI photo with no pairs row at all.
+    if ($activeValue === '' && $slot['value'] !== '') {
+        $active      = 'real';
+        $activeValue = $slot['value'];
+    }
+    if ($activeValue === '') pd_fail('This slot has no photo yet — add one before bringing it into Force-regen scope.');
+
+    // An AI candidate carries its own generation prompt (media_register() stored it
+    // the moment it was made — see pd_commit()'s 'generate' branch above). The active
+    // side being Real (or, in principle, an AI entry somehow missing its prompt) has
+    // no such text to reuse, so it falls back to Pic Drop's own "Subtle variation"
+    // default — names nothing specific, safe for any subject, and matches what
+    // picking that mode by hand would send.
+    $prompt = '';
+    if ($active === 'ai') {
+        $media  = pd_media_for($activeValue);
+        $prompt = trim((string) ($media['prompt'] ?? ''));
+    }
+    if ($prompt === '') $prompt = picdrop_vary_prompt();
+
+    require_once __DIR__ . '/../includes/multisite/image_ai.php';
+    ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $prompt, (string) ($slot['block_id'] ?? ''));
+
+    if (!ms_image_ai_prompt_exists(ACTIVE_SITE_DIR, $key)) {
+        pd_fail("Could not add this slot — its landing page template couldn't be resolved. Try rebuilding this master's pages first.");
+    }
+    echo json_encode(['success' => true, 'captured' => true]);
+    exit;
+}
+
+if ($action === 'remove_prompt') {
+    require_once __DIR__ . '/../includes/multisite/image_ai.php';
+    ms_image_ai_prompt_remove(ACTIVE_SITE_DIR, $key);
+    echo json_encode(['success' => true, 'captured' => false]);
+    exit;
 }
 
 // Deleting one side of a slot's Real/AI pair (the lightbox's Delete button). Deleting

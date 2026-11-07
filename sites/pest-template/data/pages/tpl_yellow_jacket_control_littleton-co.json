@@ -200,8 +200,8 @@
             "hs_photo_alt": "Yellow jacket exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/yellow-jacket-control-littleton-co__tpl_yellow_jacket_control_littleton-co_2e8239c6.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/yellow-jacket-control-littleton-co__tpl_yellow_jacket_control_littleton-co_5c4d0ddb.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-a5e6fc.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-yellow-jacket-exterminator_b37b9d-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-yellow-jacket-exterminator_b37b9d-littleton-co-a5e6fc.webp",
             "it_alt": "{business} technician applying yellow jacket treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,36 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/wasp-exterminator-{city_slug}",
-                    "text": "wasp exterminator"
-                },
-                {
-                    "url": "/wasp-nest-removal-{city_slug}",
-                    "text": "wasp nest removal"
-                },
-                {
-                    "url": "/hornet-removal-{city_slug}",
-                    "text": "hornet removal"
-                },
-                {
-                    "url": "/emergency-pest-control-{city_slug}",
-                    "text": "emergency pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -480,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with yellow jackets in {city}? Get fast, targeted treatment from a local provider.",
             "cb_subtext": "",
@@ -510,9 +505,9 @@
     "seo": {
         "seo_title": "Yellow Jacket Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/yellow-jacket-control-littleton-co/",
-        "meta_description": "Yellow jackets scavenge for food and become territorial near human gathering areas. Serving {city_state}. Call {phone}.",
+        "meta_description": "Yellow jacket control removes territorial nests before they threaten gatherings outdoors. Serving {city_state}. Call {phone}.",
         "meta_keywords": "yellow jacket control Littleton CO, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal",
-        "og_title": "Yellow jacket Exterminator in {city_state} | Fast, Targeted Yellow jacket Control",
+        "og_title": "Yellow Jacket Exterminator in {city_state} | Fast, Targeted Yellow Jacket Control",
         "og_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
         "og_image": "",
         "service_name": "Yellow Jacket Control",
@@ -522,11 +517,17 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Yellow jacket Exterminator in Littleton, CO\",\n            \"serviceType\": \"Yellow jacket Extermination\",\n            \"description\": \"Professional yellow jacket exterminator services in Littleton, CO. Targeted yellow jacket control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Yellow Jacket Exterminator in Littleton, CO\",\n            \"serviceType\": \"Yellow Jacket Extermination\",\n            \"description\": \"Professional yellow jacket exterminator services in Littleton, CO. Targeted yellow jacket control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Yellow Jacket Control",
-        "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
+        "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets",
+        "meta_description_pool": [
+            "Yellow Jacket Control in {city_state}: connect with local providers who address territorial nests before outdoor gatherings are at risk. Call {phone}.",
+            "Need Yellow Jacket Control near {city_state}? We connect you with local providers who handle territorial nests fast. Call {phone} today.",
+            "Yellow Jacket Control, {city_state}: get matched quickly with independent local providers who respond to territorial nest concerns. Call {phone}.",
+            "Find Yellow Jacket Control help in {city_state} fast—our network links you to local providers ready to tackle territorial nests. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:51+00:00",
-    "template_version": "d15005bd4908a8ab66249fea2ec7294e"
+    "generated_at": "2026-11-07T20:04:23+00:00",
+    "template_version": "e91c653b77dfad59c3b15c3640f979be"
 }

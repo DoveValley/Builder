@@ -210,7 +210,7 @@
             "hs_photo_alt": "Water mitigation in progress — water mitigation in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/water-mitigation-lufkin-tx__tpl_water_mitigation_city_lufkin_tx_a3878bf9.webp",
+            "hs_photo": "sites/water-site/uploads/media/water-mitigation-lufkin-tx__tpl_water_mitigation_city_lufkin_tx_52996dfe.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-buckled-boards-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-buckled-boards-2-lufkin-tx-lufkin-tx-3d938e.webp",
             "it_alt": "Water mitigation in progress — water extraction in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Water Mitigation in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/water-mitigation-lufkin-tx/",
-        "meta_description": "Prompt structural drying and dehumidification reduce the scope and cost of property damage. Serving {city_state}. Call {phone}.",
+        "meta_description": "Water mitigation uses prompt structural drying and dehumidification to reduce the scope and cost of damage. Serving {city_state}. Call {phone}.",
         "meta_keywords": "water mitigation Lufkin TX, water damage mitigation Lufkin, structural drying Lufkin, water mitigation services Lufkin",
         "og_title": "Water Mitigation in {city_state} | {business}",
         "og_description": "24/7 water mitigation in {city_state}. Fast, professional local response.",
@@ -564,11 +576,17 @@
         "bc_label": "Water Mitigation",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Mitigation\",\n    \"name\": \"Water Mitigation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water mitigation in Lufkin, TX — water extraction, water removal and emergency water extraction.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Mitigation\",\n    \"name\": \"Water Mitigation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water mitigation in Lufkin, TX \\u2014 water extraction, water removal and emergency water extraction.\"\n}",
         "primary_keyword": "Water Mitigation",
-        "secondary_keywords": "structural drying, dehumidification, water mitigation services, water damage mitigation, moisture mapping, water mitigation company"
+        "secondary_keywords": "structural drying, dehumidification, water mitigation services, water damage mitigation, moisture mapping, water mitigation company",
+        "meta_description_pool": [
+            "Water Mitigation help in {city_state}: get connected fast to local providers offering structural drying and dehumidification to limit damage costs. Call {phone}.",
+            "Need Water Mitigation in {city_state}? We connect you to local independent providers who handle prompt structural drying and dehumidification. Call {phone} now.",
+            "{city_state} Water Mitigation referrals: quickly connect with area providers specializing in structural drying and dehumidification to reduce damage scope. Call {phone}.",
+            "Water Mitigation services near {city_state} start with a call to {phone} — we link you to local providers offering fast structural drying and dehumidification."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:41+00:00",
-    "template_version": "7c451478a01de1fe6f55e8ed48f6be18"
+    "generated_at": "2026-11-07T20:02:56+00:00",
+    "template_version": "ccb72a1e01fca0ecc1685dd49979d449"
 }

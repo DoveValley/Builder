@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/kitchenaid-refrigerator-repair-lufkin-tx__tpl_kitchenaid_refrigerator_repair_city_lufkin_tx_250bd885.webp",
             "hs_photo_alt": "KitchenAid Refrigerator Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-b5f5b6.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_154c22_1ef767.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_077b96_5d50e0-lufkin-tx-b5f5b6.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_077b96_5d50e0.webp"
         },
         {
             "type": "error_codes",
@@ -332,7 +335,7 @@
         }
     ],
     "seo": {
-        "seo_title": "KitchenAid Refrigerator Repair in {city_state}",
+        "seo_title": "KitchenAid Refrigerator Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/kitchenaid-refrigerator-repair-lufkin-tx/",
         "meta_description": "KitchenAid Refrigerator Repair in {city_state} from {business} — fast local response, often same-day. Call {phone}.",
         "meta_keywords": "kitchenaid refrigerator repair Lufkin TX",
@@ -350,9 +353,21 @@
         "secondary_keywords": "kitchenaid refrigerator repair near me, kitchenaid refrigerator not cooling, kitchenaid refrigerator leaking water, kitchenaid refrigerator service, same day kitchenaid refrigerator repair",
         "brand": "KitchenAid",
         "appliance_type": "Refrigerator",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"KitchenAid Refrigerator Repair\",\"description\":\"Professional KitchenAid refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"KitchenAid Refrigerator Repair\",\"description\":\"Professional KitchenAid refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "KitchenAid Refrigerator Repair in {city_state}: {business} connects you with local independent providers for fast response, often same-day. Call {phone}.",
+            "Need KitchenAid Refrigerator Repair in {city_state}? {business} links you to responsive local providers, with same-day help often available. Call {phone}.",
+            "Find KitchenAid Refrigerator Repair in {city_state} through {business} — a quick connection to local independent providers near you. Call {phone}.",
+            "{business} helps you find KitchenAid Refrigerator Repair in {city_state} fast, connecting you to local providers who often offer same-day visits. Call {phone}."
+        ],
+        "og_description_pool": [
+            "KitchenAid Refrigerator Repair in {city_state}: {business} connects you with independent local providers, often with same-day availability. Call {phone}.",
+            "Need KitchenAid Refrigerator Repair near {city_state}? {business} links you to responsive local providers who can often help fast. Call {phone}.",
+            "KitchenAid Refrigerator Repair, {city_state} — {business} puts you in touch with local independent providers quickly, often same day. Call {phone}.",
+            "Looking for KitchenAid Refrigerator Repair in {city_state}? {business} offers a fast connection to local independent providers. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "e6676309d54d136155b9160130e87a93"
+    "generated_at": "2026-11-07T19:56:56+00:00",
+    "template_version": "63ff385a62a399966d94b1a69b5b8775"
 }

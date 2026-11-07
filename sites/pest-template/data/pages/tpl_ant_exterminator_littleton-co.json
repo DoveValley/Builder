@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_ant_exterminator",
     "city_id": "littleton-co",
-    "slug": "ant-pest-control-littleton-co",
-    "title": "Ant Pest Control in {city_state} | {business_short}",
+    "slug": "ant-exterminator-littleton-co",
+    "title": "Ant Exterminator in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -197,17 +197,17 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "Ant Pest Control in {city_state}",
+            "hs_photo_alt": "Ant Exterminator in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/ant-pest-control-littleton-co__tpl_ant_exterminator_littleton-co_5272b4f7.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/ant-exterminator-littleton-co__tpl_ant_exterminator_littleton-co_8b9b6dbb.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-8ab2fb.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_b01f9d_b6ed30.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b-littleton-co.webp",
-            "it_alt": "Ant Pest Control in a {city_state} home",
+            "it_photo": "sites/pest-template/uploads/media/ai_9953a8_ea2b8c-littleton-co-8ab2fb.webp",
+            "it_alt": "Ant Exterminator in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_9953a8_ea2b8c.webp"
         },
         {
             "type": "ai_block",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -341,26 +356,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Ant Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -391,25 +403,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Ant Pest Control in {city_state} | {business_short}",
-        "canonical_url": "https://p.q111.xyz/ant-pest-control-littleton-co/",
-        "meta_description": "Ant colonies can number in the thousands and invade food storage areas rapidly. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "ant pest control Littleton CO, ant exterminator, ant control, ant treatment",
-        "og_title": "Ant Pest Control in {city_state} | {business}",
-        "og_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+        "seo_title": "Ant Exterminator in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/ant-exterminator-littleton-co/",
+        "meta_description": "An ant exterminator stops colonies that can number in the thousands before they invade food storage. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "ant exterminator Littleton CO, ant pest control, ant control, ant treatment",
+        "og_title": "Ant Exterminator in {city_state} | {business}",
+        "og_description": "Professional ant extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
         "og_image": "",
-        "service_name": "Ant Pest Control",
-        "service_type": "Ant Pest Control",
+        "service_name": "Ant Exterminator",
+        "service_type": "Ant Exterminator",
         "service_area": "{city}, {SS}",
         "service_description": "Professional ant exterminator services in {city_state}. Targeted ant control for homes and businesses, with fast local response.",
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Pest Control in Littleton, CO\",\n            \"serviceType\": \"Ant Pest Control\",\n            \"description\": \"Professional ant pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Ant Pest Control",
-        "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Exterminator in Littleton, CO\",\n            \"serviceType\": \"Ant Exterminator\",\n            \"description\": \"Professional ant extermination services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Ant Exterminator",
+        "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants",
+        "meta_description_pool": [
+            "Ant Exterminator help in {city_state}: get connected fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
+            "Need an ant exterminator near {city_state}? We connect you quickly with independent local providers ready to tackle invading ant colonies. Call {phone}.",
+            "Ant Exterminator, {city_state}: colonies can number in the thousands — reach local providers fast through us by calling {phone}.",
+            "Searching for an ant exterminator in {city_state}? We link you to responsive local providers who address ant colonies before they spread. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Ant Exterminator in {city_state}: {business} connects you with independent local providers for prompt ant treatment. Call {phone} to get started.",
+            "Need an ant exterminator near {city_state}? {business} helps you quickly reach local providers offering targeted ant treatment services. Call {phone}.",
+            "{business} links {city_state} residents to independent ant extermination providers for fast, local service. Call {phone} for a connection today.",
+            "Ant Exterminator, {city_state} area: {business} is your fast, local connection to independent providers handling ant treatment. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "89abdd243f940d66c7ca8d210358b1a9"
+    "generated_at": "2026-11-07T20:04:16+00:00",
+    "template_version": "5ad1ee90100d926bdb5d9d385daf1d6a"
 }

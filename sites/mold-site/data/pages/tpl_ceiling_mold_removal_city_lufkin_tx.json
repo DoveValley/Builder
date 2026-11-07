@@ -2,7 +2,7 @@
     "template_id": "tpl_ceiling_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "ceiling-mold-removal-lufkin-tx",
-    "title": "Ceiling Mold Removal in {city_state} | {business}",
+    "title": "Ceiling Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/mold-on-ceiling_ca3e9d.webp",
+            "hs_photo": "sites/mold-site/uploads/media/ceiling-mold-removal-lufkin-tx__tpl_ceiling_mold_removal_city_lufkin_tx_9625fede.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_90ee32_dfa39a.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-ceiling_806efd.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_cae8aa_dc608c-lufkin-tx-4abd77.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -231,7 +232,8 @@
             "ai_prompt_override": "",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_cae8aa_dc608c.webp"
         },
         {
             "type": "ai_block",
@@ -420,7 +422,7 @@
         "meta_keywords": "ceiling mold remediation Lufkin, ceiling mold treatment Lufkin, mold on ceiling Lufkin, ceiling mold removal near me Lufkin",
         "og_title": "Ceiling Mold Removal in {city_state} | {business}",
         "og_description": "Ceiling Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/ceiling-water-stain-damage.webp",
         "service_name": "Ceiling Mold Removal",
         "service_type": "Ceiling Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -430,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Mold Removal\",\n    \"name\": \"Ceiling Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Ceiling Mold Removal in Lufkin, TX \\u2014 ceiling mold removal and moisture control for ceilings.\"\n}",
         "primary_keyword": "Ceiling Mold Removal",
-        "secondary_keywords": "mold on ceiling, ceiling mold remediation, mold on ceiling from a leak, ceiling mold treatment, bathroom ceiling mold"
+        "secondary_keywords": "mold on ceiling, ceiling mold remediation, mold on ceiling from a leak, ceiling mold treatment, bathroom ceiling mold",
+        "meta_description_pool": [
+            "Ceiling Mold Removal in {city_state}: connect with local providers who address growth from roof leaks, condensation, or poor attic ventilation. Call {phone}.",
+            "Need Ceiling Mold Removal near {city_state}? We help connect you with independent local providers who handle ceiling growth from leaks or humidity. Call {phone}.",
+            "Ceiling Mold Removal services for {city_state} homes: get matched with local providers addressing attic ventilation and moisture-related growth. Call {phone} today.",
+            "Looking for Ceiling Mold Removal in {city_state}? This service connects you to independent local providers who tackle roof-leak and condensation mold. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Need Ceiling Mold Removal in {city_state}? Call {phone} and get connected fast with an independent local provider ready to help.",
+            "Ceiling Mold Removal, {city_state}: this service connects you to local independent providers quickly — just call {phone} to get started.",
+            "Looking for Ceiling Mold Removal near {city_state}? Dial {phone} for a fast, local connection to an independent service provider.",
+            "{city_state} Ceiling Mold Removal made simple — call {phone} and we'll connect you with a responsive local provider in your area."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:48+00:00",
-    "template_version": "df7e21ca8b6af625f570e4112f292d94"
+    "generated_at": "2026-11-07T20:03:41+00:00",
+    "template_version": "2b8dda4e36dfebe12dd2dadb6a91f04d"
 }

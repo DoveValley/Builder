@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/maytag-refrigerator-repair-lufkin-tx__tpl_maytag_refrigerator_repair_city_lufkin_tx_76f227e3.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/maytag-refrigerator-repair-lufkin-tx__tpl_maytag_refrigerator_repair_city_lufkin_tx_4ea8e7cc.webp",
             "hs_photo_alt": "Maytag Refrigerator Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-e03ed7.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-e03ed7.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -501,7 +502,7 @@
         }
     ],
     "seo": {
-        "seo_title": "Maytag Refrigerator Repair in {city_state}",
+        "seo_title": "Maytag Refrigerator Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/maytag-refrigerator-repair-lufkin-tx/",
         "meta_description": "Need Maytag Refrigerator Repair? Maytag refrigerators typically use reliable mechanical cooling systems. Serving {city_state}. Call {phone}.",
         "meta_keywords": "maytag refrigerator repair Lufkin TX",
@@ -519,9 +520,21 @@
         "secondary_keywords": "maytag refrigerator repair near me, maytag refrigerator not cooling, maytag refrigerator leaking water, maytag refrigerator service, same day maytag refrigerator repair",
         "brand": "Maytag",
         "appliance_type": "Refrigerator",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Refrigerator Repair in Lufkin, TX\",\n            \"serviceType\": \"Maytag Refrigerator Repair\",\n            \"description\": \"Professional Maytag refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Refrigerator Repair in Lufkin, TX\",\n            \"serviceType\": \"Maytag Refrigerator Repair\",\n            \"description\": \"Professional Maytag refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Maytag Refrigerator Repair in {city_state}: get connected with independent local providers who handle these reliable mechanical cooling systems. Call {phone} to start.",
+            "Looking for Maytag Refrigerator Repair near {city_state}? We connect you with local independent providers familiar with these mechanical cooling systems. Dial {phone}.",
+            "Maytag Refrigerator Repair, {city_state} — fast, local connections to independent providers who service these reliable cooling systems. Reach us at {phone}.",
+            "In {city_state}, Maytag Refrigerator Repair help is close by: we link you to independent local providers for these mechanical cooling systems. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Maytag Refrigerator Repair in {city_state}: {business} connects you with local providers who often respond same-day. Call {phone} to get started.",
+            "Need Maytag Refrigerator Repair in {city_state}? {business} links you to independent local providers for a fast, responsive connection. Call {phone}.",
+            "Maytag Refrigerator Repair near {city_state} starts with {business}, your fast connection to local independent providers. Reach us at {phone}.",
+            "Looking for Maytag Refrigerator Repair in {city_state}? {business} quickly connects you with local independent providers, often available same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "9c2346a43b7ab6d09264e3779684b95e"
+    "generated_at": "2026-11-07T19:56:26+00:00",
+    "template_version": "edec5cd4144b784596e395ef304abb65"
 }

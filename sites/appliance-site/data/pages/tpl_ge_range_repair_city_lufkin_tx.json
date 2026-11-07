@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/ge-range-repair-lufkin-tx__tpl_ge_range_repair_city_lufkin_tx_75efbe75.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/ge-range-repair-lufkin-tx__tpl_ge_range_repair_city_lufkin_tx_d313b9c5.webp",
             "hs_photo_alt": "GE Range Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-stove.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-a17cb8.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx-a17cb8.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "ge range repair near me, ge range burner not working, ge range oven not heating, ge range service, same day ge range repair",
         "brand": "GE",
         "appliance_type": "Range",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Range Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Range Repair\",\n            \"description\": \"Professional GE range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Range Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Range Repair\",\n            \"description\": \"Professional GE range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "GE Range Repair in {city_state}: connect with independent local providers familiar with GE's varied burner and oven configurations. Call {phone}.",
+            "Looking for GE Range Repair near {city_state}? We help connect you to local independent providers who handle GE's range setups. Call {phone} today.",
+            "GE Range Repair, {city_state} area — get linked to independent local providers experienced with GE's diverse oven and burner designs. Call {phone}.",
+            "Find GE Range Repair help fast in {city_state}. This service connects you with independent local providers for GE's various range configurations. Call {phone}."
+        ],
+        "og_description_pool": [
+            "GE Range Repair in {city_state}: {business} connects you with independent local providers for fast response, often available same-day. Call {phone}.",
+            "Need GE Range Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone} to get started.",
+            "{business} helps {city_state} residents find GE Range Repair through responsive local independent providers, often same-day. Call {phone} now.",
+            "GE Range Repair, {city_state}: fast connections to independent local providers via {business}, with same-day availability often possible. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "cf62c2041410889712740b9f4ce8e131"
+    "generated_at": "2026-11-07T19:56:46+00:00",
+    "template_version": "5fc20ba657d96b6ea77529ad8a4108c3"
 }

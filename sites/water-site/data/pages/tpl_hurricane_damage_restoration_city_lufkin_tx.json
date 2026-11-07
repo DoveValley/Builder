@@ -210,7 +210,7 @@
             "hs_photo_alt": "Storm-damaged property — hurricane damage restoration in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/hurricane-damage-restoration-lufkin-tx__tpl_hurricane_damage_restoration_city_lufkin_tx_a098a2ca.webp",
+            "hs_photo": "sites/water-site/uploads/media/hurricane-damage-restoration-lufkin-tx__tpl_hurricane_damage_restoration_city_lufkin_tx_9c2de369.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/hurricane-damage-restoration-consultation-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/hurricane-damage-restoration-consultation-2-lufkin-tx-lufkin-tx-c0fb10.webp",
             "it_alt": "Storm-damaged property — hurricane damage cleanup in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -486,6 +486,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -516,7 +528,7 @@
     "seo": {
         "seo_title": "Hurricane Damage Restoration in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/hurricane-damage-restoration-lufkin-tx/",
-        "meta_description": "Hurricanes produce widespread structural failure, flooding, and debris that require coordinated response. Serving {city_state}. Call {phone}.",
+        "meta_description": "Hurricane damage restoration coordinates recovery from the structural failure, flooding, and debris hurricanes cause. Serving {city_state}. Call {phone}.",
         "meta_keywords": "hurricane damage restoration Lufkin TX, hurricane damage cleanup Lufkin, hurricane damage repair Lufkin",
         "og_title": "Hurricane Damage Restoration in {city_state} | {business}",
         "og_description": "24/7 hurricane damage restoration in {city_state}. Fast, professional local response.",
@@ -528,11 +540,17 @@
         "bc_label": "Hurricane Damage Restoration",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 hurricane damage restoration in Lufkin, TX — hurricane damage cleanup and hurricane damage repair.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 hurricane damage restoration in Lufkin, TX \\u2014 hurricane damage cleanup and hurricane damage repair.\"\n}",
         "primary_keyword": "Hurricane Damage Restoration",
-        "secondary_keywords": "hurricane damage cleanup, hurricane damage repair"
+        "secondary_keywords": "hurricane damage cleanup, hurricane damage repair",
+        "meta_description_pool": [
+            "Hurricane Damage Restoration in {city_state}: get connected fast to independent local providers who handle flooding, structural damage, and storm debris. Call {phone}.",
+            "Need Hurricane Damage Restoration near {city_state}? We connect you quickly with local independent providers ready to respond to storm and flood damage. Call {phone}.",
+            "Hurricane Damage Restoration support for {city_state} residents — this network links you to local providers who address flooding, debris, and structural harm. Call {phone} now.",
+            "{city_state} Hurricane Damage Restoration: a fast, local connection to independent providers handling storm flooding, debris, and structural damage. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:45+00:00",
-    "template_version": "b19a3c595512c257bd3f4336ddd5100f"
+    "generated_at": "2026-11-07T20:03:02+00:00",
+    "template_version": "bf0b52ed03eee729df45adb38f338d91"
 }

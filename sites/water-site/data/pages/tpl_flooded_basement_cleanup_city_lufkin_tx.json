@@ -210,7 +210,7 @@
             "hs_photo_alt": "Flooded basement cleanup in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/flooded-basement-cleanup-lufkin-tx__tpl_flooded_basement_cleanup_city_lufkin_tx_8611ee26.webp",
+            "hs_photo": "sites/water-site/uploads/media/flooded-basement-cleanup-lufkin-tx__tpl_flooded_basement_cleanup_city_lufkin_tx_1d845831.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/flooded-basement-staircase-interior-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/flooded-basement-staircase-interior-2-lufkin-tx-lufkin-tx-f6891e.webp",
             "it_alt": "Technician extracting floodwater from a flooded lower level during basement flood cleanup in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,23 +564,29 @@
     "seo": {
         "seo_title": "Flooded Basement Cleanup in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/flooded-basement-cleanup-lufkin-tx/",
-        "meta_description": "Basements are prone to standing water that damages foundations, mechanical systems, and stored items. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "flooded basement cleanup Lufkin TX, basement flood cleanup Lufkin, flooded basement Lufkin, basement water removal Lufkin",
+        "meta_description": "Flooded basement repair addresses standing water that damages foundations, mechanical systems, and stored items. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "flooded basement repair Lufkin TX, flooded basement Lufkin, flooded basement cleanup Lufkin, basement flood cleanup Lufkin",
         "og_title": "Flooded Basement Cleanup in {city_state} | {business}",
-        "og_description": "24/7 flooded basement cleanup in {city_state}. Fast, professional local response.",
+        "og_description": "24/7 flooded basement repair in {city_state}. Fast, professional local response.",
         "og_image": "sites/water-site/uploads/media/ai_c8177f_7ae1c0.webp",
         "service_name": "Flooded Basement Cleanup",
         "service_type": "Flooded Basement Cleanup",
         "service_area": "{city_state} and surrounding areas",
-        "service_description": "Flooded basement cleanup for homes and businesses in {city_state}, including basement flood clean up, flooded basement water removal and basement water damage.",
+        "service_description": "Flooded basement repair for homes and businesses in {city_state}, including flooded basement cleanup, basement flood clean up and basement water removal.",
         "bc_label": "Flooded Basement Cleanup",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Cleanup\",\n    \"name\": \"Flooded Basement Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flooded basement cleanup in Lufkin, TX — basement flood clean up, flooded basement water removal and basement water damage.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Cleanup\",\n    \"name\": \"Flooded Basement Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flooded basement repair in Lufkin, TX \\u2014 flooded basement cleanup, basement flood clean up and basement water removal.\"\n}",
         "primary_keyword": "Flooded Basement Cleanup",
-        "secondary_keywords": "basement flood cleanup, flooded basement, basement flooding, basement flooded what to do, basement water removal, flooded basement water removal, basement water damage, wet basement cleanup"
+        "secondary_keywords": "flooded basement, flooded basement cleanup, basement flood cleanup, basement flooding, basement water removal, flooded basement water removal, basement water damage, wet basement cleanup",
+        "meta_description_pool": [
+            "Flooded Basement Cleanup in {city_state}: get connected fast to local providers who handle standing water, foundation and mechanical system damage. Call {phone}.",
+            "Need Flooded Basement Cleanup near {city_state}? We connect you quickly with independent local providers ready to address standing water issues. Call {phone}.",
+            "Flooded Basement Cleanup, {city_state} area: standing water can harm foundations, systems, and belongings — we link you to local providers. Call {phone} now.",
+            "{city_state} Flooded Basement Cleanup help: this service connects homeowners to independent local providers for standing water situations. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:42+00:00",
-    "template_version": "f16dc1a359a334538e225661baefb3a8"
+    "generated_at": "2026-11-07T20:02:57+00:00",
+    "template_version": "4fbfddf846be5bebb7914d39cf15d2be"
 }

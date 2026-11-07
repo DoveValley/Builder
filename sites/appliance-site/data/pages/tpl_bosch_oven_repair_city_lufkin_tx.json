@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/bosch-oven-repair-lufkin-tx__tpl_bosch_oven_repair_city_lufkin_tx_9e5ac1c3.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/bosch-oven-repair-lufkin-tx__tpl_bosch_oven_repair_city_lufkin_tx_921d74f6.webp",
             "hs_photo_alt": "Bosch Oven Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-oven.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-7ffeb3.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-7ffeb3.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "skin": "light",
             "heading_level": "h2",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "bosch oven repair near me, bosch oven not heating, bosch oven temperature problems, bosch oven service, same day bosch oven repair",
         "brand": "Bosch",
         "appliance_type": "Oven",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Bosch Oven Repair\",\n            \"description\": \"Professional Bosch oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Bosch Oven Repair\",\n            \"description\": \"Professional Bosch oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Bosch Oven Repair in {city_state}: connect quickly with independent local providers who handle Bosch's precision heat systems. Call {phone} to get started.",
+            "Looking for Bosch Oven Repair near {city_state}? We link you to local independent providers who service these ovens, often with fast availability. Call {phone}.",
+            "Bosch Oven Repair, {city_state} — get matched with independent local providers familiar with Bosch's engineered heat systems. Reach us at {phone}.",
+            "Need Bosch Oven Repair in {city_state}? Our network connects you to independent local providers for prompt service. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Bosch Oven Repair in {city_state}: {business} connects you with local providers for fast response, often available same-day. Call {phone}.",
+            "Need Bosch Oven Repair near {city_state}? {business} links you to independent local providers who respond quickly. Call {phone}.",
+            "Bosch Oven Repair, {city_state} — {business} helps you reach responsive local providers, with same-day availability often possible. Call {phone}.",
+            "Searching for Bosch Oven Repair in {city_state}? {business} puts you in touch with fast-responding local providers. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "39145aa3718864694552bfffde84b1e9"
+    "generated_at": "2026-11-07T19:56:31+00:00",
+    "template_version": "36fc3783e40e9deb3051c243b22f8ac7"
 }

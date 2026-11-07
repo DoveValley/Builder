@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/viking-oven-repair-lufkin-tx__tpl_viking_oven_repair_city_lufkin_tx_db4708d5.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/viking-oven-repair-lufkin-tx__tpl_viking_oven_repair_city_lufkin_tx_b47d5760.webp",
             "hs_photo_alt": "Viking Oven Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-oven.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-0babdd.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx-0babdd.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "viking oven repair near me, viking oven not heating, viking oven temperature problems, viking oven service, same day viking oven repair",
         "brand": "Viking",
         "appliance_type": "Oven",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Oven Repair\",\n            \"description\": \"Professional Viking oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Oven Repair\",\n            \"description\": \"Professional Viking oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Viking Oven Repair in {city_state}: connect with independent local providers who handle Viking's heavy-duty commercial-style ovens. Call {phone}.",
+            "Looking for Viking Oven Repair near {city_state}? We connect you to local independent providers familiar with Viking's commercial-style construction. Call {phone}.",
+            "Viking Oven Repair, {city_state} — get matched with local independent providers experienced with Viking's heavy-duty ovens. Call {phone} to get started.",
+            "Find Viking Oven Repair help in {city_state} fast. This service connects you with independent local providers for Viking's commercial-style ovens. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Viking Oven Repair in {city_state}: {business} connects you with independent local providers for fast response, often available same-day. Call {phone}.",
+            "Need Viking Oven Repair near {city_state}? {business} links homeowners to local independent providers who respond quickly, often the same day. Call {phone}.",
+            "Viking Oven Repair, {city_state} — {business} helps you find a responsive local provider fast, with same-day availability common. Call {phone} to connect.",
+            "Looking for Viking Oven Repair in {city_state}? {business} offers a fast connection to independent local providers, often available same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "47b1cfd211691d5c2e9b4c4c945552be"
+    "generated_at": "2026-11-07T19:56:46+00:00",
+    "template_version": "0dc608f69e8ce657768ae8e31523f065"
 }

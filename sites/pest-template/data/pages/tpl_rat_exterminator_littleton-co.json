@@ -200,14 +200,14 @@
             "hs_photo_alt": "Rat exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/rat-exterminator-littleton-co__tpl_rat_exterminator_littleton-co_c5038a60.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/rat-exterminator-littleton-co__tpl_rat_exterminator_littleton-co_9ff5dfc5.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-23d8a6.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/rat-exterminator_c00c92.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_10a5e1_a0a30e.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-rat-exterminator_5cb739-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/ai_fd0140_ce8681-littleton-co-23d8a6.webp",
             "it_alt": "{business} technician applying rat treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-rat-exterminator_5cb739.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_fd0140_ce8681.webp"
         },
         {
             "type": "ai_block",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -341,26 +356,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Rat Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -393,7 +405,7 @@
     "seo": {
         "seo_title": "Rat Exterminator in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/rat-exterminator-littleton-co/",
-        "meta_description": "Rats contaminate food and surfaces with droppings while chewing through wiring and walls. Serving {city_state}. Call {phone}.",
+        "meta_description": "A rat exterminator stops rats from contaminating food and chewing through wiring and walls. Serving {city_state}. Call {phone}.",
         "meta_keywords": "rat exterminator Littleton CO, rat control, rat pest control, rat removal",
         "og_title": "Rat Exterminator in {city_state} | Fast, Targeted Rat Control",
         "og_description": "Get rid of rats fast with a professional rat exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
@@ -405,11 +417,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rat Exterminator in Littleton, CO\",\n            \"serviceType\": \"Rat Extermination\",\n            \"description\": \"Professional rat exterminator services in Littleton, CO. Targeted rat control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rat Exterminator in Littleton, CO\",\n            \"serviceType\": \"Rat Extermination\",\n            \"description\": \"Professional rat exterminator services in Littleton, CO. Targeted rat control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Rat Exterminator",
-        "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats, mouse exterminator, mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
+        "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats, mouse exterminator, mouse control, mice control, mice exterminator, mouse removal, get rid of mice",
+        "meta_description_pool": [
+            "Rat Exterminator help in {city_state}: get connected fast to local providers who deal with rats damaging wiring, walls, and food. Call {phone}.",
+            "Need a Rat Exterminator near {city_state}? We connect you with independent local providers who respond quickly to rat problems. Call {phone}.",
+            "Rat Exterminator services in {city_state} start with a call to {phone} — we link you to local providers who handle rat issues in homes fast.",
+            "Searching for a Rat Exterminator in {city_state}? Connect quickly with local, independent providers who address rat damage. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Rat Exterminator help in {city_state}: get connected with a local provider offering targeted rat treatment for homes and businesses near you.",
+            "Need a Rat Exterminator in {city_state}? We connect you fast to an independent local provider who treats rat problems at homes and businesses.",
+            "Rat Exterminator services in {city_state} start here — find a local provider ready to tackle rat issues at your home or business quickly.",
+            "Looking for a Rat Exterminator near {city_state}? This connects you with a local independent provider for prompt residential and commercial rat treatment."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "bb692fb7276a59830efef75a26496b04"
+    "generated_at": "2026-11-07T20:04:20+00:00",
+    "template_version": "a694cd7e68a5fbb72387a45cb00555f0"
 }

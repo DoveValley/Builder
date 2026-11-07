@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_spider_control",
     "city_id": "littleton-co",
-    "slug": "spider-pest-control-littleton-co",
-    "title": "Spider Pest Control in {city_state} | {business_short}",
+    "slug": "spider-control-littleton-co",
+    "title": "Spider Control in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -197,17 +197,17 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "Spider Pest Control in {city_state}",
+            "hs_photo_alt": "Spider Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/spider-pest-control-littleton-co__tpl_spider_control_littleton-co_17f62343.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/spider-control-littleton-co__tpl_spider_control_littleton-co_138ff1c7.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-7e6ad9.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/spider-exterminator_2aeaab.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_586faf_c3cf56.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-spider-exterminator_19881c-littleton-co.webp",
-            "it_alt": "Spider Pest Control in a {city_state} home",
+            "it_photo": "sites/pest-template/uploads/media/ai_9d1667_4bbf42-littleton-co-7e6ad9.webp",
+            "it_alt": "Spider Control in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-spider-exterminator_19881c.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_9d1667_4bbf42.webp"
         },
         {
             "type": "ai_block",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -337,26 +352,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Spider Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -387,25 +399,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Spider Pest Control in {city_state} | {business_short}",
-        "canonical_url": "https://p.q111.xyz/spider-pest-control-littleton-co/",
-        "meta_description": "Some spider species bite, and webs accumulate in corners and dark spaces indoors. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "spider pest control Littleton CO, spider control, spider exterminator, spider treatment",
-        "og_title": "Spider Pest Control in {city_state} | {business}",
-        "og_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+        "seo_title": "Spider Control in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/spider-control-littleton-co/",
+        "meta_description": "Spider control clears webs and reduces species that bite from corners and dark spaces. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "spider control Littleton CO, spider pest control, spider exterminator, spider treatment",
+        "og_title": "Spider Control in {city_state} | {business}",
+        "og_description": "Professional spider control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
         "og_image": "",
-        "service_name": "Spider Pest Control",
-        "service_type": "Spider Pest Control",
+        "service_name": "Spider Control",
+        "service_type": "Spider Control",
         "service_area": "{city}, {SS}",
         "service_description": "Professional spider exterminator services in {city_state}. Targeted spider control for homes and businesses, with fast local response.",
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Pest Control in Littleton, CO\",\n            \"serviceType\": \"Spider Pest Control\",\n            \"description\": \"Professional spider pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Spider Pest Control",
-        "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Control in Littleton, CO\",\n            \"serviceType\": \"Spider Control\",\n            \"description\": \"Professional spider control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Spider Control",
+        "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders",
+        "meta_description_pool": [
+            "Spider Control in {city_state}: connect with local providers who help clear webs and reduce bites from corners and dark spaces. Call {phone}.",
+            "Need Spider Control near {city_state}? We connect you fast to local providers who tackle webs and bite-prone spiders. Call {phone} today.",
+            "Spider Control, {city_state} area: get linked to independent local providers addressing webs and biting spiders in dark corners. Call {phone}.",
+            "Searching for Spider Control in {city_state}? We quickly connect homeowners to local providers who handle webs and spider activity. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Spider Control in {city_state}: {business} connects you with local providers offering targeted treatment for spiders. Call {phone} to get started.",
+            "Need Spider Control in {city_state}? {business} links homeowners to responsive local providers for spider treatment. Call {phone} today.",
+            "Spider Control, {city_state} — {business} quickly connects you with independent local providers who handle spider treatment. Call {phone}.",
+            "Looking for Spider Control near {city_state}? {business} puts you in touch with local, responsive providers for spider treatment. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "7e85426d289ede49d8fd3ae38b362992"
+    "generated_at": "2026-11-07T20:04:21+00:00",
+    "template_version": "2ea446314b3284927e71f4585f6c83a4"
 }

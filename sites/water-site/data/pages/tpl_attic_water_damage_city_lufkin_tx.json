@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_attic_water_damage",
     "city_id": "city_lufkin_tx",
-    "slug": "attic-water-damage-lufkin-tx",
-    "title": "Attic Water Damage in {city_state} | {business_short}",
+    "slug": "attic-water-damage-repair-lufkin-tx",
+    "title": "Attic Water Damage Repair in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -210,7 +210,7 @@
             "hs_photo_alt": "Water-damaged ceiling — attic water damage in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/attic-water-damage-lufkin-tx__tpl_attic_water_damage_city_lufkin_tx_37f9e93b.webp",
+            "hs_photo": "sites/water-site/uploads/media/attic-water-damage-repair-lufkin-tx__tpl_attic_water_damage_city_lufkin_tx_a77ed038.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/blue-gray-home-exterior-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/blue-gray-home-exterior-2-lufkin-tx-lufkin-tx-cf03ad.webp",
             "it_alt": "Restored living room — attic water damage repair in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -550,25 +562,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Attic Water Damage in {city_state} | {business_short}",
-        "canonical_url": "https://freemanrestoration.com/attic-water-damage-lufkin-tx/",
-        "meta_description": "Attic moisture compromises insulation effectiveness and creates conditions for decay in framing lumber. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "attic water damage Lufkin TX, attic water damage repair Lufkin, wet attic insulation Lufkin",
-        "og_title": "Attic Water Damage in {city_state} | {business}",
-        "og_description": "24/7 attic water damage in {city_state}. Fast, professional local response.",
+        "seo_title": "Attic Water Damage Repair in {city_state} | {business_short}",
+        "canonical_url": "https://freemanrestoration.com/attic-water-damage-repair-lufkin-tx/",
+        "meta_description": "Attic water damage repair addresses compromised insulation and the conditions for decay in framing lumber above. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "attic water damage repair Lufkin TX, attic water damage Lufkin, wet attic insulation Lufkin",
+        "og_title": "Attic Water Damage Repair in {city_state} | {business}",
+        "og_description": "24/7 attic water damage repair in {city_state}. Fast, professional local response.",
         "og_image": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-2-lufkin-tx.webp",
-        "service_name": "Attic Water Damage",
-        "service_type": "Attic Water Damage",
+        "service_name": "Attic Water Damage Repair",
+        "service_type": "Attic Water Damage Repair",
         "service_area": "{city_state} and surrounding areas",
         "service_description": "Attic water damage for homes and businesses in {city_state}, including attic water damage repair and wet attic insulation.",
-        "bc_label": "Attic Water Damage",
+        "bc_label": "Attic Water Damage Repair",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 attic water damage in Lufkin, TX — attic water damage repair and wet attic insulation.\"\n}",
-        "primary_keyword": "Attic Water Damage",
-        "secondary_keywords": "attic water damage repair, wet attic insulation"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage Repair\",\n    \"name\": \"Attic Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 attic water damage repair in Lufkin, TX \\u2014 attic water damage repair and wet attic insulation.\"\n}",
+        "primary_keyword": "Attic Water Damage Repair",
+        "secondary_keywords": "attic water damage repair, wet attic insulation",
+        "meta_description_pool": [
+            "Attic Water Damage Repair in {city_state} can weaken insulation and framing lumber — connect with local providers who respond fast. Call {phone}.",
+            "Facing Attic Water Damage Repair in {city_state}? We connect you to independent local providers ready to help. Call {phone} now.",
+            "Attic Water Damage Repair near {city_state} affects insulation and framing over time. Get linked to a local provider fast — call {phone}.",
+            "{city_state} homeowners dealing with Attic Water Damage Repair can quickly connect with nearby independent providers. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Attic Water Damage Repair in {city_state}? Get connected 24/7 to responsive local providers ready to help fast.",
+            "Need help with Attic Water Damage Repair near {city_state}? We connect you quickly to independent local pros, day or night.",
+            "Attic Water Damage Repair in {city_state} happens anytime — reach out and we'll match you to a responsive local provider fast.",
+            "Facing Attic Water Damage Repair in {city_state}? Our network links you to fast, local independent providers around the clock."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:44+00:00",
-    "template_version": "5f8b7991ca1da0a5a4abe5bbca2fdab4"
+    "generated_at": "2026-11-07T20:03:00+00:00",
+    "template_version": "c1ed3ba0862fa6e2a34d96f4d7dfa6f2"
 }

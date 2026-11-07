@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/maytag-dryer-repair-lufkin-tx__tpl_maytag_dryer_repair_city_lufkin_tx_3bc0073c.webp",
             "hs_photo_alt": "Maytag Dryer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-b0b1c7.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_f6e8c1_042dcb.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_f1e9a0_2ea3f7-lufkin-tx-b0b1c7.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_f1e9a0_2ea3f7.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "maytag dryer repair near me, maytag dryer not heating, maytag dryer not spinning, maytag dryer service, same day maytag dryer repair",
         "brand": "Maytag",
         "appliance_type": "Dryer",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Dryer Repair in Lufkin, TX\",\"serviceType\":\"Maytag Dryer Repair\",\"description\":\"Professional Maytag dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Dryer Repair in Lufkin, TX\",\"serviceType\":\"Maytag Dryer Repair\",\"description\":\"Professional Maytag dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Maytag Dryer Repair in {city_state}: {business} connects you with independent local providers, often with same-day availability. Call {phone}.",
+            "Need Maytag Dryer Repair near {city_state}? {business} links you to local independent providers for a fast response. Call {phone} to get started.",
+            "{city_state} Maytag Dryer Repair made simple — {business} quickly connects you with independent local providers. Call {phone} for details.",
+            "Looking for Maytag Dryer Repair in {city_state}? {business} offers a fast local connection to independent service providers. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Maytag Dryer Repair in {city_state}: {business} connects you with local providers for fast response, often available same-day. Call {phone}.",
+            "Need Maytag Dryer Repair near {city_state}? {business} links you to independent local providers who respond quickly. Call {phone}.",
+            "{city_state} Maytag Dryer Repair made simple — {business} connects you to responsive local providers, with same-day help often available. Call {phone}.",
+            "Looking for Maytag Dryer Repair in {city_state}? {business} puts you in touch with fast-responding local providers. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "1da845cfeca8acde25f842f8d574e746"
+    "generated_at": "2026-11-07T19:56:58+00:00",
+    "template_version": "bcff75892f019c3a40a52917eb531eee"
 }

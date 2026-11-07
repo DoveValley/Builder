@@ -2,7 +2,7 @@
     "template_id": "tpl_kitchen_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "kitchen-mold-removal-lufkin-tx",
-    "title": "Kitchen Mold Removal in {city_state} | {business}",
+    "title": "Kitchen Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
+            "hs_photo": "sites/mold-site/uploads/media/kitchen-mold-removal-lufkin-tx__tpl_kitchen_mold_removal_city_lufkin_tx_846b5112.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_657d49_f900ab.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_d546b0_6304d4-lufkin-tx-de4b83.webp",
             "it_alt": "Independent provider performing {service} in a {city_state} kitchen, connected through {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -232,7 +233,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_d546b0_6304d4.webp"
         },
         {
             "type": "ai_block",
@@ -421,7 +422,7 @@
         "meta_keywords": "kitchen mold remediation Lufkin, kitchen mold treatment Lufkin, mold in kitchen Lufkin, kitchen mold removal near me Lufkin",
         "og_title": "Kitchen Mold Removal in {city_state} | {business}",
         "og_description": "Kitchen Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/flooded-kitchen-water-damage.webp",
         "service_name": "Kitchen Mold Removal",
         "service_type": "Kitchen Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -431,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Kitchen Mold Removal\",\n    \"name\": \"Kitchen Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Kitchen Mold Removal in Lufkin, TX \\u2014 kitchen mold removal and moisture control around sinks and appliances.\"\n}",
         "primary_keyword": "Kitchen Mold Removal",
-        "secondary_keywords": "mold under the kitchen sink, kitchen mold remediation, mold behind the refrigerator, mold in kitchen cabinets, kitchen mold cleanup"
+        "secondary_keywords": "mold under the kitchen sink, kitchen mold remediation, mold behind the refrigerator, mold in kitchen cabinets, kitchen mold cleanup",
+        "meta_description_pool": [
+            "Kitchen Mold Removal in {city_state}: get connected with local providers who handle growth from sink leaks, dishwasher spills, and appliance condensation. Call {phone}.",
+            "Need Kitchen Mold Removal near {city_state}? We connect you with independent local providers experienced in addressing kitchen leaks and condensation issues. Call {phone}.",
+            "Kitchen Mold Removal services for {city_state} homes: connecting you with local providers who address mold from sink leaks and dishwasher spills. Call {phone} today.",
+            "Searching for Kitchen Mold Removal in {city_state}? This network links you to local providers who tackle mold caused by appliance condensation and leaks. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Need Kitchen Mold Removal in {city_state}? We connect you quickly with an independent local provider — call {phone} today.",
+            "Kitchen Mold Removal, {city_state}: get matched fast with a local, independent provider near you. Reach us at {phone}.",
+            "Looking for Kitchen Mold Removal near {city_state}? This local connection service links you to independent providers — call {phone} now.",
+            "Kitchen Mold Removal services in {city_state} start with a fast local connection — dial {phone} to reach an independent provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "34bbe8a188841eb62aa990028678e312"
+    "generated_at": "2026-11-07T20:03:43+00:00",
+    "template_version": "eb4ef91314b04b77fd21003e5fee6125"
 }

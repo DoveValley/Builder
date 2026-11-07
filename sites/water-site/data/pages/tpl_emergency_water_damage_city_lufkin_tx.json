@@ -210,7 +210,7 @@
             "hs_photo_alt": "24-hour emergency water damage in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/emergency-water-damage-restoration-lufkin-tx__tpl_emergency_water_damage_city_lufkin_tx_7be6782c.webp",
+            "hs_photo": "sites/water-site/uploads/media/emergency-water-damage-restoration-lufkin-tx__tpl_emergency_water_damage_city_lufkin_tx_691235e5.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/mop-bucket-floor-cleanup-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/mop-bucket-floor-cleanup-2-lufkin-tx-lufkin-tx-b21b87.webp",
             "it_alt": "Technician extracting standing water from a living room floor during emergency water damage cleanup in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Emergency Water Damage Restoration in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/emergency-water-damage-lufkin-tx/",
-        "meta_description": "Water damage worsens rapidly; immediate response prevents additional harm to structures and contents. Serving {city_state}. Call {phone}.",
+        "meta_description": "Emergency water damage restoration limits harm fast, since water damage worsens rapidly without immediate response. Serving {city_state}. Call {phone}.",
         "meta_keywords": "emergency water damage restoration Lufkin TX, emergency water damage Lufkin, 24 hour emergency water damage Lufkin, water damage restoration near me",
         "og_title": "Emergency Water Damage Restoration in {city_state} | {business}",
         "og_description": "Emergency water damage restoration in {city_state}. Fast, professional local response, available 24/7.",
@@ -564,11 +576,23 @@
         "bc_label": "Emergency Water Damage Restoration",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Emergency Water Damage Restoration\",\n    \"name\": \"Emergency Water Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"Emergency water damage restoration in Lufkin, TX — available 24/7, including water damage cleanup and emergency water restoration.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Emergency Water Damage Restoration\",\n    \"name\": \"Emergency Water Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"Emergency water damage restoration in Lufkin, TX \\u2014 available 24/7, including water damage cleanup and emergency water restoration.\"\n}",
         "primary_keyword": "Emergency Water Damage Restoration",
-        "secondary_keywords": "24 hour emergency water damage, emergency water damage, water damage restoration near me, emergency water damage cleanup"
+        "secondary_keywords": "24 hour emergency water damage, emergency water damage, water damage restoration near me, emergency water damage cleanup",
+        "meta_description_pool": [
+            "Emergency Water Damage Restoration in {city_state}: get connected fast to local providers who respond quickly before damage spreads. Call {phone} now.",
+            "Need Emergency Water Damage Restoration near {city_state}? We connect you to responsive local providers ready to help fast. Call {phone} today.",
+            "{city_state} Emergency Water Damage Restoration: fast connections to independent local providers who understand quick response matters. Call {phone}.",
+            "Facing water damage in {city_state}? Emergency Water Damage Restoration connections to local providers available now — call {phone} for a fast response."
+        ],
+        "og_description_pool": [
+            "Need Emergency Water Damage Restoration in {city_state}? Get connected 24/7 to independent local providers ready to respond fast when water strikes.",
+            "Emergency Water Damage Restoration, {city_state}: this service links you to responsive local providers near you, available around the clock.",
+            "Facing a water emergency in {city_state}? We connect you to local, independent Emergency Water Damage Restoration providers, 24/7 response.",
+            "{city_state} Emergency Water Damage Restoration starts with a fast connection — we link you to local independent providers, day or night."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:41+00:00",
-    "template_version": "a6f979c81f1f3a920b328b6f44d96b5b"
+    "generated_at": "2026-11-07T20:02:56+00:00",
+    "template_version": "6afb476c26c74f0f9bb2ecbf60cf5fa3"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/miele-dishwasher-repair-lufkin-tx__tpl_miele_dishwasher_repair_city_lufkin_tx_f5b3f3b5.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/miele-dishwasher-repair-lufkin-tx__tpl_miele_dishwasher_repair_city_lufkin_tx_6eadd3e7.webp",
             "hs_photo_alt": "Miele Dishwasher Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-6090b2.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-6090b2.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "miele dishwasher repair near me, miele dishwasher not draining, miele dishwasher not cleaning dishes, miele dishwasher service, same day miele dishwasher repair",
         "brand": "Miele",
         "appliance_type": "Dishwasher",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Miele Dishwasher Repair\",\n            \"description\": \"Professional Miele dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Miele Dishwasher Repair\",\n            \"description\": \"Professional Miele dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Miele Dishwasher Repair in {city_state}: get connected with independent local providers who service German-engineered wash systems. Call {phone}.",
+            "Looking for Miele Dishwasher Repair near {city_state}? We connect you with local independent providers familiar with Miele's precision wash systems. Call {phone}.",
+            "Miele Dishwasher Repair, {city_state} area: this site links you to independent local providers for service on Miele's precision-engineered wash systems. Call {phone}.",
+            "Find Miele Dishwasher Repair help in {city_state} fast — connecting you to independent local providers who work on these German-engineered machines. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Miele Dishwasher Repair in {city_state}: {business} connects you with independent local providers for fast response, often same-day. Call {phone}.",
+            "Need Miele Dishwasher Repair near {city_state}? {business} links you to local independent providers who respond quickly, often same-day. Call {phone}.",
+            "Miele Dishwasher Repair, {city_state} — {business} helps you reach local independent providers fast, with same-day availability common. Call {phone}.",
+            "Looking for Miele Dishwasher Repair in {city_state}? {business} quickly connects you to independent local providers, often available same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "d568d43bf0fc963ef2bfd23355fc1fd7"
+    "generated_at": "2026-11-07T19:56:42+00:00",
+    "template_version": "b93b4adbfa1f0b78aa70db8ecd9d59b6"
 }

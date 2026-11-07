@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/miele-dryer-repair-lufkin-tx__tpl_miele_dryer_repair_city_lufkin_tx_8e272a57.webp",
             "hs_photo_alt": "Miele Dryer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-98a389.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_e80f64_b095a6.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_34e73b_ac3045-lufkin-tx-98a389.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_34e73b_ac3045.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "miele dryer repair near me, miele dryer not heating, miele dryer not spinning, miele dryer service, same day miele dryer repair",
         "brand": "Miele",
         "appliance_type": "Dryer",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Dryer Repair in Lufkin, TX\",\"serviceType\":\"Miele Dryer Repair\",\"description\":\"Professional Miele dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Dryer Repair in Lufkin, TX\",\"serviceType\":\"Miele Dryer Repair\",\"description\":\"Professional Miele dryer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Miele Dryer Repair in {city_state}: {business} connects you fast to independent local providers, often with same-day availability. Call {phone}.",
+            "Need Miele Dryer Repair near {city_state}? {business} links you to responsive local providers who can often help quickly. Call {phone} today.",
+            "{business} helps {city_state} residents find Miele Dryer Repair through local independent providers, with fast response often available. Call {phone}.",
+            "Looking for Miele Dryer Repair in {city_state}? {business} quickly connects you to local independent providers. Call {phone} to get started."
+        ],
+        "og_description_pool": [
+            "Miele Dryer Repair in {city_state}: {business} connects you with local independent providers for fast response, often available same-day. Call {phone}.",
+            "Need Miele Dryer Repair near {city_state}? {business} links you to responsive local providers who often offer same-day availability. Call {phone}.",
+            "Miele Dryer Repair, {city_state} — {business} helps you find a local independent provider quickly, with same-day availability often possible. Call {phone}.",
+            "Looking for Miele Dryer Repair in {city_state}? {business} connects homeowners to fast, local independent providers. Call {phone} to get started."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "9f0ca40ba2089ce864d62ffbec4c307b"
+    "generated_at": "2026-11-07T19:56:59+00:00",
+    "template_version": "6a89f2c1751b76fd1bd2f6cfa19c1504"
 }

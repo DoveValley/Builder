@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_carpet_water_damage",
     "city_id": "city_lufkin_tx",
-    "slug": "carpet-water-damage-lufkin-tx",
-    "title": "Carpet Water Damage in {city_state} | {business_short}",
+    "slug": "carpet-water-damage-restoration-lufkin-tx",
+    "title": "Carpet Water Damage Restoration in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -210,7 +210,7 @@
             "hs_photo_alt": "Carpet water damage in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/carpet-water-damage-lufkin-tx__tpl_carpet_water_damage_city_lufkin_tx_08179eb5.webp",
+            "hs_photo": "sites/water-site/uploads/media/carpet-water-damage-restoration-lufkin-tx__tpl_carpet_water_damage_city_lufkin_tx_e3f3f62b.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/hallway-drying-fans-equipment-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/hallway-drying-fans-equipment-2-lufkin-tx-lufkin-tx-0a3634.webp",
             "it_alt": "Technician placing air movers to dry a water-damaged carpeted hallway in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -550,25 +562,31 @@
         }
     ],
     "seo": {
-        "seo_title": "Carpet Water Damage in {city_state} | {business_short}",
-        "canonical_url": "https://freemanrestoration.com/carpet-water-damage-lufkin-tx/",
-        "meta_description": "Wet carpet traps moisture beneath padding, promoting decay and odor even when surfaces appear dry. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "carpet water damage Lufkin TX, water damaged carpet Lufkin, carpet water extraction Lufkin, carpet flood damage Lufkin",
-        "og_title": "Carpet Water Damage in {city_state} | {business}",
-        "og_description": "24/7 carpet water damage in {city_state}. Fast, professional local response.",
+        "seo_title": "Carpet Water Damage Restoration in {city_state} | {business_short}",
+        "canonical_url": "https://freemanrestoration.com/carpet-water-damage-restoration-lufkin-tx/",
+        "meta_description": "Carpet water damage restoration addresses moisture trapped beneath padding, which causes decay and odor even once the surface looks dry. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "carpet water damage restoration Lufkin TX, carpet water damage Lufkin, water damaged carpet Lufkin, carpet water extraction Lufkin, carpet flood damage Lufkin",
+        "og_title": "Carpet Water Damage Restoration in {city_state} | {business}",
+        "og_description": "24/7 carpet water damage restoration in {city_state}. Fast, professional local response.",
         "og_image": "sites/water-site/uploads/media/ai_7c135b_3711e2.webp",
-        "service_name": "Carpet Water Damage",
-        "service_type": "Carpet Water Damage",
+        "service_name": "Carpet Water Damage Restoration",
+        "service_type": "Carpet Water Damage Restoration",
         "service_area": "{city_state} and surrounding areas",
         "service_description": "Carpet water damage for homes and businesses in {city_state}, including water damaged carpet, carpet water extraction and carpet flood damage.",
-        "bc_label": "Carpet Water Damage",
+        "bc_label": "Carpet Water Damage Restoration",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 carpet water damage in Lufkin, TX — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
-        "primary_keyword": "Carpet Water Damage",
-        "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage Restoration\",\n    \"name\": \"Carpet Water Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 carpet water damage restoration in Lufkin, TX \\u2014 water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
+        "primary_keyword": "Carpet Water Damage Restoration",
+        "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage",
+        "meta_description_pool": [
+            "Carpet Water Damage Restoration in {city_state} can trap hidden moisture beneath padding, leading to decay and odor long after the surface dries. Call {phone} to connect with a local provider.",
+            "Facing Carpet Water Damage Restoration in {city_state}? Moisture often lingers under padding even when carpets look dry. Get connected to a local pro fast — call {phone}.",
+            "Carpet Water Damage Restoration near {city_state} isn't always visible — trapped moisture beneath padding can cause odor and decay. Call {phone} for a quick local connection.",
+            "In {city_state}, Carpet Water Damage Restoration can hide moisture under padding long after surfaces seem dry. Call {phone} to be connected with a local service provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:43+00:00",
-    "template_version": "bb2cb18dc4ffc62e72b110f980e04c27"
+    "generated_at": "2026-11-07T20:02:59+00:00",
+    "template_version": "3d46edd7ac4a2fe14c98f464a343e993"
 }

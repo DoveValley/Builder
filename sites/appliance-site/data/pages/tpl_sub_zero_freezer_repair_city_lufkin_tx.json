@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/sub-zero-freezer-repair-lufkin-tx__tpl_sub_zero_freezer_repair_city_lufkin_tx_086f3511.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/sub-zero-freezer-repair-lufkin-tx__tpl_sub_zero_freezer_repair_city_lufkin_tx_7a6a2fdd.webp",
             "hs_photo_alt": "Sub-Zero Freezer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-freezer.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-cef704.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-cef704.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -434,15 +444,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -515,9 +516,21 @@
         "secondary_keywords": "sub-zero freezer repair near me, sub-zero freezer not freezing, sub-zero freezer frost buildup, sub-zero freezer service, same day sub-zero freezer repair",
         "brand": "Sub-Zero",
         "appliance_type": "Freezer",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sub-Zero Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Sub-Zero Freezer Repair\",\n            \"description\": \"Professional Sub-Zero freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sub-Zero Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"Sub-Zero Freezer Repair\",\n            \"description\": \"Professional Sub-Zero freezer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Sub-Zero Freezer Repair in {city_state}: get connected with independent local providers who handle these advanced cooling units. Call {phone} to start.",
+            "Looking for Sub-Zero Freezer Repair near {city_state}? We connect you with local independent providers experienced with precision cooling systems. Call {phone}.",
+            "Sub-Zero Freezer Repair, {city_state} — fast local connections to independent providers familiar with advanced cooling needs. Reach us at {phone}.",
+            "In {city_state} and need Sub-Zero Freezer Repair? This service links you to independent local providers for these precision-engineered units. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Sub-Zero Freezer Repair in {city_state}: {business} connects you with independent local providers for fast response, often same-day. Call {phone}.",
+            "Need Sub-Zero Freezer Repair in {city_state}? {business} links you to responsive local providers who can often help same-day. Call {phone}.",
+            "Sub-Zero Freezer Repair near {city_state} is just a call away — {business} connects you with fast, local independent providers. Call {phone}.",
+            "Looking for Sub-Zero Freezer Repair in {city_state}? {business} puts you in touch with local independent providers, with same-day availability often possible. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "b7da8bc80f832e2c347e65f2d6371e11"
+    "generated_at": "2026-11-07T19:56:35+00:00",
+    "template_version": "a64fbfce93b2310103f2ef0bb7ef7325"
 }

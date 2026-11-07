@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/dacor-oven-repair-lufkin-tx__tpl_dacor_oven_repair_city_lufkin_tx_f81d232a.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/dacor-oven-repair-lufkin-tx__tpl_dacor_oven_repair_city_lufkin_tx_404cd3ee.webp",
             "hs_photo_alt": "Dacor Oven Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-oven.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-fe18d5.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-fe18d5.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "skin": "light",
             "heading_level": "h2",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "dacor oven repair near me, dacor oven not heating, dacor oven temperature problems, dacor oven service, same day dacor oven repair",
         "brand": "Dacor",
         "appliance_type": "Oven",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Dacor Oven Repair\",\n            \"description\": \"Professional Dacor oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"Dacor Oven Repair\",\n            \"description\": \"Professional Dacor oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Dacor Oven Repair in {city_state}: get connected with independent local providers who can assess precision temperature control issues. Call {phone}.",
+            "Looking for Dacor Oven Repair near {city_state}? This service connects you to local independent providers for prompt assessment. Call {phone} to start.",
+            "Dacor Oven Repair, {city_state} — quickly find local independent providers experienced with precision temperature control systems. Reach us at {phone}.",
+            "In {city_state} and need Dacor Oven Repair? We connect you fast to independent local providers who can evaluate your oven's issue. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Dacor Oven Repair in {city_state}: {business} connects you with independent local providers, often with fast response available. Call {phone}.",
+            "Need Dacor Oven Repair near {city_state}? {business} links you to local independent providers who often respond quickly. Call {phone} to get started.",
+            "Dacor Oven Repair, {city_state} — {business} helps you find a responsive local provider near you, often available fast. Call {phone} today.",
+            "Looking for Dacor Oven Repair in {city_state}? {business} connects you to independent local providers for a quick, local response. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "4bbace258b862cdba107f915bf7bc73f"
+    "generated_at": "2026-11-07T19:56:25+00:00",
+    "template_version": "5bb9d74f44cbc54613da0d0df4b9a604"
 }

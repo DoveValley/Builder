@@ -2,7 +2,7 @@
     "template_id": "tpl_carpet_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "carpet-mold-removal-lufkin-tx",
-    "title": "Carpet Mold Removal in {city_state} | {business}",
+    "title": "Carpet Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
+            "hs_photo": "sites/mold-site/uploads/media/carpet-mold-removal-lufkin-tx__tpl_carpet_mold_removal_city_lufkin_tx_a70785ea.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_01f1dc_11abb0.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_b513f7_111802-lufkin-tx-77beae.webp",
             "it_alt": "A local provider connected through {business} performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -232,7 +233,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_b513f7_111802.webp"
         },
         {
             "type": "ai_block",
@@ -421,7 +422,7 @@
         "meta_keywords": "carpet mold remediation Lufkin, carpet mold treatment Lufkin, mold in carpet Lufkin, carpet mold removal near me Lufkin",
         "og_title": "Carpet Mold Removal in {city_state} | {business}",
         "og_description": "Carpet Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/moldy-carpet-water-damage.webp",
         "service_name": "Carpet Mold Removal",
         "service_type": "Carpet Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -431,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Mold Removal\",\n    \"name\": \"Carpet Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Carpet Mold Removal in Lufkin, TX \\u2014 carpet mold removal and moisture control for affected flooring.\"\n}",
         "primary_keyword": "Carpet Mold Removal",
-        "secondary_keywords": "mold under carpet, carpet mold remediation, mold in carpet padding, wet carpet mold, carpet mold treatment"
+        "secondary_keywords": "mold under carpet, carpet mold remediation, mold in carpet padding, wet carpet mold, carpet mold treatment",
+        "meta_description_pool": [
+            "Carpet Mold Removal in {city_state} connects you with local providers who address growth from spills, humidity, or past water damage. Call {phone}.",
+            "Need Carpet Mold Removal near {city_state}? We connect you with independent local providers who handle carpet growth from moisture or past water issues. Call {phone}.",
+            "Carpet Mold Removal, {city_state}: get matched with local providers experienced in addressing padding growth caused by spills or lingering humidity. Call {phone}.",
+            "Searching for Carpet Mold Removal in {city_state}? This service connects you fast with local providers who tackle growth from water damage or humidity. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Need Carpet Mold Removal in {city_state}? We connect you quickly with an independent local provider — call {phone} today.",
+            "Carpet Mold Removal, {city_state}: get matched fast to a local, independent provider for your home. Call {phone} to start.",
+            "Looking for Carpet Mold Removal near {city_state}? This service links you to a responsive local provider — reach us at {phone}.",
+            "{city_state} Carpet Mold Removal connections made fast — we refer you to an independent local provider. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "1b46389bb5a8e4c1695ea1939b32d1e9"
+    "generated_at": "2026-11-07T20:03:43+00:00",
+    "template_version": "87750dc8d02c7ccbd810aacdf4c84428"
 }

@@ -200,14 +200,14 @@
             "hs_photo_alt": "Fire ant exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/fire-ant-control-littleton-co__tpl_fire_ant_control_littleton-co_b9390854.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/fire-ant-control-littleton-co__tpl_fire_ant_control_littleton-co_0d9fa332.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-e82313.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_d5db9e_48a834.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -228,14 +228,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/ai_415fd0_fd5349-littleton-co-e82313.webp",
             "it_alt": "{business} technician applying fire ant treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_415fd0_fd5349.webp"
         },
         {
             "type": "ai_block",
@@ -250,7 +250,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our Fire ant Treatment Works",
+            "steps_heading": "How Our Fire Ant Treatment Works",
             "steps_items": [
                 {
                     "image": "",
@@ -317,13 +317,28 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
             "rl_items": [
                 {
-                    "url": "/ant-pest-control-{city_slug}",
-                    "text": "ant pest control"
+                    "url": "/ant-exterminator-{city_slug}",
+                    "text": "ant extermination"
                 },
                 {
                     "url": "/carpenter-ant-control-{city_slug}",
@@ -342,26 +357,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Fire ant Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -394,9 +406,9 @@
     "seo": {
         "seo_title": "Fire Ant Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/fire-ant-control-littleton-co/",
-        "meta_description": "Fire ants deliver painful stings and build mounds that damage landscaping and soil. Serving {city_state}. Call {phone}.",
+        "meta_description": "Fire ant control removes mounds and colonies before painful stings put people or pets at risk. Serving {city_state}. Call {phone}.",
         "meta_keywords": "fire ant control Littleton CO, fire ant treatment, fire ant exterminator, fire ant yard treatment",
-        "og_title": "Fire ant Exterminator in {city_state} | Fast, Targeted Fire ant Control",
+        "og_title": "Fire Ant Exterminator in {city_state} | Fast, Targeted Fire Ant Control",
         "og_description": "Get rid of fire ants fast with a professional fire ant exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
         "og_image": "",
         "service_name": "Fire Ant Control",
@@ -406,11 +418,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Fire ant Exterminator in Littleton, CO\",\n            \"serviceType\": \"Fire ant Extermination\",\n            \"description\": \"Professional fire ant exterminator services in Littleton, CO. Targeted fire ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Fire Ant Exterminator in Littleton, CO\",\n            \"serviceType\": \"Fire Ant Extermination\",\n            \"description\": \"Professional fire ant exterminator services in Littleton, CO. Targeted fire ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Fire Ant Control",
-        "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
+        "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment",
+        "meta_description_pool": [
+            "Fire Ant Control in {city_state}: get connected with local providers who treat mounds and colonies to help protect people and pets. Call {phone}.",
+            "Need Fire Ant Control near {city_state}? We connect you with independent local providers who respond quickly to tackle mounds before stings happen. Call {phone}.",
+            "Fire Ant Control, {city_state}: our network links you to local pros who address ant mounds and colonies around your property. Call {phone} today.",
+            "Looking for Fire Ant Control in {city_state}? We'll connect you fast with local providers who handle mounds and colonies to reduce sting risks. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Fire Ant Control in {city_state}: connect with an independent local provider offering targeted treatment for homes and businesses near you.",
+            "Need Fire Ant Control near {city_state}? We connect you to local providers who treat fire ant problems at homes and businesses quickly.",
+            "Fire Ant Control, {city_state} made simple — get matched with a local provider ready to handle fire ant issues at your home or business.",
+            "Local Fire Ant Control for {city_state} residents: this service connects you with nearby independent providers for fast, targeted treatment."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "b692f92c3def7f6ae1dd97f1855f72cb"
+    "generated_at": "2026-11-07T20:04:17+00:00",
+    "template_version": "d0a119ffe1c7167f6bb1b22a6c4788c3"
 }

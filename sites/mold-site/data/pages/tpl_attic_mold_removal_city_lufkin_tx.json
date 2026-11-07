@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_b579fb_dc2032.webp",
+            "hs_photo": "sites/mold-site/uploads/media/attic-mold-removal-lufkin-tx__tpl_attic_mold_removal_city_lufkin_tx_991bd26e.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_4c2421_50dd66.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall-lufkin-tx-ef15e4.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -539,9 +539,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Mold Removal\",\n    \"name\": \"Attic Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Attic Mold Removal in Lufkin, TX \\u2014 removal of mold from attic sheathing, rafters, and insulation.\"\n}",
         "primary_keyword": "Attic Mold Removal",
-        "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me"
+        "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me",
+        "meta_description_pool": [
+            "Attic Mold Removal in {city_state}: connect with local providers who address growth linked to roof leaks and poor attic ventilation. Call {phone}.",
+            "Need Attic Mold Removal near {city_state}? We connect you with independent local providers who handle attic growth from leaks and damp conditions. Call {phone}.",
+            "Attic Mold Removal, {city_state} — get matched with local providers experienced in treating attics affected by roof leaks and excess moisture. Call {phone}.",
+            "Searching for Attic Mold Removal in {city_state}? Our network links you to local providers who tackle attic growth caused by leaks and poor airflow. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Attic Mold Removal in {city_state}: call {phone} now to connect with an independent local provider who responds quickly to your request.",
+            "Need Attic Mold Removal in {city_state}? Dial {phone} and we'll connect you fast with a local provider serving your area.",
+            "Attic Mold Removal, {city_state} — {phone} links you to a responsive local provider ready to assess your attic promptly.",
+            "Searching for Attic Mold Removal near {city_state}? Call {phone} for a quick connection to a local independent service provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:48+00:00",
-    "template_version": "292206f7bec5f5920f9ae317de067708"
+    "generated_at": "2026-11-07T20:03:39+00:00",
+    "template_version": "2e0871b6b10386f34df5ec99f2bc33e1"
 }

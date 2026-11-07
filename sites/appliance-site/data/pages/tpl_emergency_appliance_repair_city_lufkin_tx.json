@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/emergency-appliance-repair-lufkin-tx__tpl_emergency_appliance_repair_city_lufkin_tx_e0eec9fc.webp",
             "hs_photo_alt": "Emergency Appliance Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -150,7 +150,9 @@
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
             "hs_mobile_order": "img_first",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-d6db01.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_9ff856_dbf0b5.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -166,9 +168,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_4612d3_22f3f8-lufkin-tx-d6db01.webp",
             "it_alt": "Emergency Appliance Repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_4612d3_22f3f8.webp"
         },
         {
             "type": "ai_block",
@@ -314,7 +317,7 @@
         }
     ],
     "seo": {
-        "seo_title": "Emergency Appliance Repair in {city_state}",
+        "seo_title": "Emergency Appliance Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/emergency-appliance-repair-lufkin-tx/",
         "meta_description": "Emergency appliance repair gets a broken appliance addressed fast, before the problem gets worse. Serving {city_state}. Call {phone}.",
         "meta_keywords": "emergency appliance repair Lufkin TX, same day appliance repair, urgent appliance repair, 24 hour appliance repair",
@@ -332,9 +335,21 @@
         "secondary_keywords": "same day appliance repair, urgent appliance repair, 24 hour appliance repair, appliance breakdown repair",
         "brand": "",
         "appliance_type": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Emergency Appliance Repair\",\n            \"description\": \"Emergency appliance repair in Lufkin, TX from Wells Appliance Repair. Fast response when an appliance fails, connecting you with a local provider. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Emergency Appliance Repair\",\n            \"description\": \"Emergency appliance repair in Lufkin, TX from Wells Appliance Repair. Fast response when an appliance fails, connecting you with a local provider. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Emergency Appliance Repair in {city_state}: connect quickly with independent local providers who can address a broken appliance before it worsens. Call {phone}.",
+            "Need Emergency Appliance Repair near {city_state}? We connect you fast to independent local providers, often available right away. Call {phone}.",
+            "Emergency Appliance Repair, {city_state}: get linked to a local independent provider fast, so your broken appliance doesn't wait. Call {phone} now.",
+            "{city_state} Emergency Appliance Repair connections: reach independent local providers quickly to tackle a broken appliance before it gets worse. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Emergency Appliance Repair in {city_state}: {business} quickly connects you with an independent local provider when appliances fail. Call {phone}.",
+            "Need Emergency Appliance Repair in {city_state}? {business} links you fast to a local independent provider ready to help. Call {phone} today.",
+            "{business} offers Emergency Appliance Repair connections in {city_state}, linking you to a responsive local provider fast. Reach us at {phone}.",
+            "Appliance failed? Emergency Appliance Repair in {city_state} starts with {business}, connecting you to a nearby independent provider. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "985aafecfb53718e0a6417f7674c3acc"
+    "generated_at": "2026-11-07T19:57:01+00:00",
+    "template_version": "9cd81f05ea80703c775da67a1258257f"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/lg-oven-repair-lufkin-tx__tpl_lg_oven_repair_city_lufkin_tx_896003a4.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/lg-oven-repair-lufkin-tx__tpl_lg_oven_repair_city_lufkin_tx_01e4279d.webp",
             "hs_photo_alt": "LG Oven Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-oven.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-b6cfee.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-b6cfee.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -434,15 +444,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -515,9 +516,21 @@
         "secondary_keywords": "lg oven repair near me, lg oven not heating, lg oven temperature problems, lg oven service, same day lg oven repair",
         "brand": "LG",
         "appliance_type": "Oven",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"LG Oven Repair\",\n            \"description\": \"Professional LG oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Oven Repair in Lufkin, TX\",\n            \"serviceType\": \"LG Oven Repair\",\n            \"description\": \"Professional LG oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "LG Oven Repair in {city_state}: get connected with independent local providers who handle LG's smart oven features. Call {phone} to get started.",
+            "Looking for LG Oven Repair near {city_state}? This service links you to local independent providers familiar with LG's smart features. Call {phone}.",
+            "LG Oven Repair, {city_state} — we connect you with independent local providers experienced with LG's smart oven features. Call {phone} today.",
+            "Find LG Oven Repair support in {city_state} fast. We connect you to independent local providers who know LG's smart features. Call {phone}."
+        ],
+        "og_description_pool": [
+            "LG Oven Repair in {city_state}: {business} connects you with independent local providers, often with same-day availability. Call {phone}.",
+            "Need LG Oven Repair near {city_state}? {business} links you fast to local independent providers for prompt service. Call {phone} today.",
+            "LG Oven Repair, {city_state} — {business} quickly connects you to local independent service providers, same-day often available. Call {phone}.",
+            "Searching for LG Oven Repair in {city_state}? {business} offers a fast connection to independent local providers. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "45899c34494dcadf2683fb19a7567afe"
+    "generated_at": "2026-11-07T19:56:28+00:00",
+    "template_version": "c70eb11aaf7856e8b70c1a7d220ce869"
 }

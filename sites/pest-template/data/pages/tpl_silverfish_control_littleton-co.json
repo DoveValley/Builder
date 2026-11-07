@@ -200,8 +200,8 @@
             "hs_photo_alt": "Silverfish exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/silverfish-control-littleton-co__tpl_silverfish_control_littleton-co_7b8b7ffe.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/silverfish-control-littleton-co__tpl_silverfish_control_littleton-co_2a7f778c.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-3b0c17.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-silverfish-control_494d56-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-silverfish-control_494d56-littleton-co-3b0c17.webp",
             "it_alt": "{business} technician applying silverfish treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,36 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/centipede-control-{city_slug}",
-                    "text": "centipede control"
-                },
-                {
-                    "url": "/cricket-control-{city_slug}",
-                    "text": "cricket control"
-                },
-                {
-                    "url": "/stink-bug-control-{city_slug}",
-                    "text": "stink bug control"
-                },
-                {
-                    "url": "/residential-pest-control-{city_slug}",
-                    "text": "residential pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -480,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with silverfish in {city}? Get fast, targeted treatment from a local provider.",
             "cb_subtext": "",
@@ -510,7 +505,7 @@
     "seo": {
         "seo_title": "Silverfish Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/silverfish-control-littleton-co/",
-        "meta_description": "Silverfish damage paper, fabrics, and stored goods while thriving in humid environments. Serving {city_state}. Call {phone}.",
+        "meta_description": "Silverfish control stops damage to paper, fabrics, and stored goods in humid areas. Serving {city_state}. Call {phone}.",
         "meta_keywords": "silverfish control Littleton CO, silverfish exterminator, silverfish treatment, silverfish removal",
         "og_title": "Silverfish Exterminator in {city_state} | Fast, Targeted Silverfish Control",
         "og_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
@@ -522,11 +517,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Silverfish Exterminator in Littleton, CO\",\n            \"serviceType\": \"Silverfish Extermination\",\n            \"description\": \"Professional silverfish exterminator services in Littleton, CO. Targeted silverfish control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Silverfish Exterminator in Littleton, CO\",\n            \"serviceType\": \"Silverfish Extermination\",\n            \"description\": \"Professional silverfish exterminator services in Littleton, CO. Targeted silverfish control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Silverfish Control",
-        "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
+        "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish",
+        "meta_description_pool": [
+            "Silverfish Control in {city_state}: connect with local providers who address infestations damaging paper, fabrics, and stored goods. Call {phone} today.",
+            "Need Silverfish Control near {city_state}? We help you find local providers fast to tackle pests before they damage fabrics and paper goods. Call {phone}.",
+            "Silverfish Control for {city_state} homes: get matched with independent local providers who handle infestations in humid storage areas. Call {phone} now.",
+            "Searching for Silverfish Control in {city_state}? This service connects you to local providers ready to respond quickly. Call {phone} for help."
+        ],
+        "og_description_pool": [
+            "Silverfish Control in {city_state} starts here — connect quickly with a local independent provider serving homes and businesses nearby.",
+            "Need Silverfish Control near {city_state}? We connect you fast to an independent local provider who handles homes and businesses in your area.",
+            "Searching for Silverfish Control in {city_state}? Get matched with a responsive local provider ready to treat homes and businesses.",
+            "In {city_state}, Silverfish Control is just a connection away — find a local independent provider serving homes and businesses in the area."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:51+00:00",
-    "template_version": "2e7a4ea9205ab77e300f96130a4ab658"
+    "generated_at": "2026-11-07T20:04:23+00:00",
+    "template_version": "46125eb2ef49431fbba3885d1a81f543"
 }

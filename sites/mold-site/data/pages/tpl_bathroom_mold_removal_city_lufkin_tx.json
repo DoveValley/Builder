@@ -2,7 +2,7 @@
     "template_id": "tpl_bathroom_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "bathroom-mold-removal-lufkin-tx",
-    "title": "Bathroom Mold Removal in {city_state} | {business}",
+    "title": "Bathroom Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
+            "hs_photo": "sites/mold-site/uploads/media/bathroom-mold-removal-lufkin-tx__tpl_bathroom_mold_removal_city_lufkin_tx_3f5e0263.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_27842f_8e2e7d.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_862042_61f0c4-lufkin-tx-d989f8.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -232,7 +233,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_862042_61f0c4.webp"
         },
         {
             "type": "ai_block",
@@ -421,7 +422,7 @@
         "meta_keywords": "bathroom mold remediation Lufkin, bathroom mold treatment Lufkin, mold in bathroom Lufkin, bathroom mold removal near me Lufkin",
         "og_title": "Bathroom Mold Removal in {city_state} | {business}",
         "og_description": "Bathroom Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/bathroom-mold-shower-tile.webp",
         "service_name": "Bathroom Mold Removal",
         "service_type": "Bathroom Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -431,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Bathroom Mold Removal\",\n    \"name\": \"Bathroom Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Bathroom Mold Removal in Lufkin, TX \\u2014 bathroom mold removal and moisture control for showers, tubs, and tile.\"\n}",
         "primary_keyword": "Bathroom Mold Removal",
-        "secondary_keywords": "bathroom mold remediation, shower mold removal, mold on bathroom ceiling, mold around bathtub, bathroom tile mold removal, get rid of bathroom mold"
+        "secondary_keywords": "bathroom mold remediation, shower mold removal, mold on bathroom ceiling, mold around bathtub, bathroom tile mold removal, get rid of bathroom mold",
+        "meta_description_pool": [
+            "Bathroom Mold Removal in {city_state}: connect with local providers who handle growth around tile, grout, and fixtures from shower humidity. Call {phone}.",
+            "Need Bathroom Mold Removal near {city_state}? We connect you with independent local providers addressing bathroom tile and grout mold. Call {phone}.",
+            "Bathroom Mold Removal, {city_state} area: get linked to local providers who address mold around tile, grout, and fixtures caused by bath humidity. {phone}.",
+            "Find Bathroom Mold Removal help in {city_state} fast—this service connects you with independent local providers for tile and grout mold issues. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Bathroom Mold Removal in {city_state}: connect quickly with an independent local provider by calling {phone} for a fast response.",
+            "Need Bathroom Mold Removal in {city_state}? Call {phone} and we'll connect you with a responsive local provider near you.",
+            "Bathroom Mold Removal in {city_state} starts with a call to {phone} — get linked fast to an independent local provider in your area.",
+            "Looking for Bathroom Mold Removal in {city_state}? Dial {phone} to get connected to a local, responsive independent provider today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:48+00:00",
-    "template_version": "aa6dcb2a5c7ede401f27d7ffedad1b8f"
+    "generated_at": "2026-11-07T20:03:41+00:00",
+    "template_version": "c376e084e3bc7c4ef36833cbc522fb0c"
 }

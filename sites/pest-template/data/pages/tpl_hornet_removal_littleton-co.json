@@ -200,8 +200,8 @@
             "hs_photo_alt": "Hornet exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/hornet-removal-littleton-co__tpl_hornet_removal_littleton-co_863945c8.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/hornet-removal-littleton-co__tpl_hornet_removal_littleton-co_53d96dfe.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-06529c.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f-littleton-co-06529c.webp",
             "it_alt": "{business} technician applying hornet treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,36 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/wasp-nest-removal-{city_slug}",
-                    "text": "wasp nest removal"
-                },
-                {
-                    "url": "/yellow-jacket-control-{city_slug}",
-                    "text": "yellow jacket control"
-                },
-                {
-                    "url": "/wasp-exterminator-{city_slug}",
-                    "text": "wasp exterminator"
-                },
-                {
-                    "url": "/emergency-pest-control-{city_slug}",
-                    "text": "emergency pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -480,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with hornets in {city}? Get fast, targeted treatment from a local provider.",
             "cb_subtext": "",
@@ -510,7 +505,7 @@
     "seo": {
         "seo_title": "Hornet Removal in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/hornet-removal-littleton-co/",
-        "meta_description": "Hornet nests grow larger each season and their stings cause severe pain and swelling. Serving {city_state}. Call {phone}.",
+        "meta_description": "Hornet removal clears nests before they grow larger and stings become more severe. Serving {city_state}. Call {phone}.",
         "meta_keywords": "hornet removal Littleton CO, hornet exterminator, hornet nest removal, hornet control",
         "og_title": "Hornet Exterminator in {city_state} | Fast, Targeted Hornet Control",
         "og_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
@@ -522,11 +517,17 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Hornet Exterminator in Littleton, CO\",\n            \"serviceType\": \"Hornet Extermination\",\n            \"description\": \"Professional hornet exterminator services in Littleton, CO. Targeted hornet control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Hornet Exterminator in Littleton, CO\",\n            \"serviceType\": \"Hornet Extermination\",\n            \"description\": \"Professional hornet exterminator services in Littleton, CO. Targeted hornet control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Hornet Removal",
-        "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
+        "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets",
+        "meta_description_pool": [
+            "Hornet Removal in {city_state}: connect with local providers who can clear nests before stings become a bigger problem. Call {phone} today.",
+            "Need Hornet Removal near {city_state}? We connect you with local providers ready to address hornet nests quickly. Call {phone} now.",
+            "Hornet Removal services for {city_state} residents: get matched fast with independent local providers to handle nests early. Call {phone}.",
+            "Looking for Hornet Removal in {city_state}? We help connect you to local providers who address nests before they grow worse. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:52+00:00",
-    "template_version": "e38995f803b4ba003a547a537418f950"
+    "generated_at": "2026-11-07T20:04:26+00:00",
+    "template_version": "cb73d87007e7b6a2103023c4d7b4320a"
 }

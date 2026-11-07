@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/jennair-dishwasher-repair-lufkin-tx__tpl_jennair_dishwasher_repair_city_lufkin_tx_2bb06d52.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/jennair-dishwasher-repair-lufkin-tx__tpl_jennair_dishwasher_repair_city_lufkin_tx_81035b7f.webp",
             "hs_photo_alt": "JennAir Dishwasher Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-c7c456.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-3-lufkin-tx-c7c456.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "jennair dishwasher repair near me, jennair dishwasher not draining, jennair dishwasher not cleaning dishes, jennair dishwasher service, same day jennair dishwasher repair",
         "brand": "JennAir",
         "appliance_type": "Dishwasher",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"JennAir Dishwasher Repair\",\n            \"description\": \"Professional JennAir dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"JennAir Dishwasher Repair\",\n            \"description\": \"Professional JennAir dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "JennAir Dishwasher Repair in {city_state}: get connected with independent local providers who handle JennAir's luxury wash system features. Call {phone} today.",
+            "Looking for JennAir Dishwasher Repair near {city_state}? We connect you fast to local independent providers familiar with JennAir's luxury wash systems. Call {phone}.",
+            "JennAir Dishwasher Repair, {city_state} — quick connections to independent local providers experienced with JennAir's luxury wash features. Dial {phone} now.",
+            "Find JennAir Dishwasher Repair support in {city_state} through our local provider network, ready for JennAir's luxury wash system needs. Reach us at {phone}."
+        ],
+        "og_description_pool": [
+            "JennAir Dishwasher Repair in {city_state}: {business} connects you with local independent providers for fast response, often same-day. Call {phone}.",
+            "Need JennAir Dishwasher Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone}.",
+            "{business} helps {city_state} residents find JennAir Dishwasher Repair through local independent providers, with fast response often available. Call {phone}.",
+            "Looking for JennAir Dishwasher Repair in {city_state}? {business} quickly connects you to local independent providers. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "1654417c431655e1dbd00a614399b824"
+    "generated_at": "2026-11-07T19:56:53+00:00",
+    "template_version": "8b2193fdb590a671690c39b11e01723e"
 }

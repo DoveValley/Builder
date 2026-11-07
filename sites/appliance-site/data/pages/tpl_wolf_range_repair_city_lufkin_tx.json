@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/wolf-range-repair-lufkin-tx__tpl_wolf_range_repair_city_lufkin_tx_510eca3b.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/wolf-range-repair-lufkin-tx__tpl_wolf_range_repair_city_lufkin_tx_688026cb.webp",
             "hs_photo_alt": "Wolf Range Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-stove.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-0e76e4.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-0e76e4.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -434,15 +444,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -515,9 +516,21 @@
         "secondary_keywords": "wolf range repair near me, wolf range burner not working, wolf range oven not heating, wolf range service, same day wolf range repair",
         "brand": "Wolf",
         "appliance_type": "Range",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wolf Range Repair in Lufkin, TX\",\n            \"serviceType\": \"Wolf Range Repair\",\n            \"description\": \"Professional Wolf range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wolf Range Repair in Lufkin, TX\",\n            \"serviceType\": \"Wolf Range Repair\",\n            \"description\": \"Professional Wolf range repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Wolf Range Repair in {city_state}: connect with independent local providers who handle these commercial-style burners and home oven designs. Call {phone}.",
+            "Looking for Wolf Range Repair near {city_state}? We connect you to local independent providers familiar with Wolf's commercial-style burner design. Call {phone}.",
+            "Wolf Range Repair, {city_state} — get matched with local independent providers for these commercial-style burner and home oven systems. Call {phone} today.",
+            "In {city_state}, Wolf Range Repair help is a call away: we link you to independent local providers who service these commercial-style burner ranges. Dial {phone}."
+        ],
+        "og_description_pool": [
+            "Wolf Range Repair in {city_state}: {business} connects you with local providers for fast response, often available same-day. Call {phone}.",
+            "Need Wolf Range Repair near {city_state}? {business} links you to independent local providers who respond quickly. Call {phone} to get started.",
+            "Wolf Range Repair, {city_state} — {business} helps you find a responsive local provider fast, with same-day availability common. Call {phone}.",
+            "Looking for Wolf Range Repair in {city_state}? {business} connects homeowners to local independent providers for quick, often same-day help. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "2a1835c6e85172405a305e510afd91cc"
+    "generated_at": "2026-11-07T19:56:42+00:00",
+    "template_version": "c4a992da7ed515926fb7d5e3fecb5951"
 }

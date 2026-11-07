@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/samsung-refrigerator-repair-lufkin-tx__tpl_samsung_refrigerator_repair_city_lufkin_tx_091980c2.webp",
             "hs_photo_alt": "Samsung Refrigerator Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-7c90d2.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_59efd9_09cd61.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_6192a7_dfd3d2-lufkin-tx-7c90d2.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_6192a7_dfd3d2.webp"
         },
         {
             "type": "error_codes",
@@ -332,7 +335,7 @@
         }
     ],
     "seo": {
-        "seo_title": "Samsung Refrigerator Repair in {city_state}",
+        "seo_title": "Samsung Refrigerator Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/samsung-refrigerator-repair-lufkin-tx/",
         "meta_description": "Samsung Refrigerator Repair in {city_state} from {business} — fast local response, often same-day. Call {phone}.",
         "meta_keywords": "samsung refrigerator repair Lufkin TX",
@@ -350,9 +353,21 @@
         "secondary_keywords": "samsung refrigerator repair near me, samsung refrigerator not cooling, samsung refrigerator leaking water, samsung refrigerator service, same day samsung refrigerator repair",
         "brand": "Samsung",
         "appliance_type": "Refrigerator",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Samsung Refrigerator Repair\",\"description\":\"Professional Samsung refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Samsung Refrigerator Repair\",\"description\":\"Professional Samsung refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Samsung Refrigerator Repair in {city_state}: {business} connects you to independent local providers, often with fast response. Call {phone}.",
+            "Need Samsung Refrigerator Repair in {city_state}? {business} links you to local independent providers for a quick response. Call {phone}.",
+            "Samsung Refrigerator Repair near {city_state} — {business} helps you find responsive, independent local providers fast. Call {phone} today.",
+            "Looking for Samsung Refrigerator Repair in {city_state}? {business} puts you in touch with local independent providers, often quickly. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Samsung Refrigerator Repair in {city_state}: {business} connects you to independent local providers for fast, responsive service, often available same-day. Call {phone}.",
+            "Need Samsung Refrigerator Repair near {city_state}? {business} links you with local independent providers who respond quickly, with same-day help often available. Call {phone}.",
+            "Samsung Refrigerator Repair, {city_state} — {business} helps you connect fast with independent local providers, often offering same-day response. Call {phone} to get started.",
+            "Looking for Samsung Refrigerator Repair in {city_state}? {business} puts you in touch with responsive local independent providers, often available same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "2c91325fa18f7f1546d0b8623682e8e4"
+    "generated_at": "2026-11-07T19:56:56+00:00",
+    "template_version": "927905549b169e3a043ae6e6438bf283"
 }

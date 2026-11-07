@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/istock-2216705278_680dd7.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-prevention-lufkin-tx__tpl_mold_prevention_city_lufkin_tx_2029b64d.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_92ce67_a03552.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-inspection-and-testing-lufkin-tx-7f1258.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -518,9 +518,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Prevention\",\n    \"name\": \"Mold Prevention in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Prevention in Lufkin, TX \\u2014 moisture control and prevention to keep mold from returning.\"\n}",
         "primary_keyword": "Mold Prevention",
-        "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing"
+        "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing",
+        "meta_description_pool": [
+            "Mold Prevention in {city_state}: get connected with local providers who address leaks and humidity before mold takes hold. Call {phone}.",
+            "Looking into Mold Prevention near {city_state}? We connect you with independent local providers to help manage moisture and leaks. Call {phone}.",
+            "{city_state} Mold Prevention made easier: this network links you to local providers who tackle humidity and leaks early. Call {phone} today.",
+            "Mold Prevention starts with controlling moisture. Serving {city_state}, we connect you to local providers who address leaks promptly. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Mold Prevention in {city_state} starts with a quick connection — call {phone} to reach a local independent provider near you.",
+            "Need Mold Prevention in {city_state}? Dial {phone} and we'll connect you fast with a local provider serving your area.",
+            "Local Mold Prevention help in {city_state} is a call away — contact {phone} to get matched with an independent provider nearby.",
+            "Looking for Mold Prevention in {city_state}? Reach us at {phone} for a fast, local connection to an independent service provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:48+00:00",
-    "template_version": "82a757cf765630aee57afa393f08d0cd"
+    "generated_at": "2026-11-07T20:03:40+00:00",
+    "template_version": "9958937194166b51f931664d69b6bab3"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/frigidaire-oven-repair-lufkin-tx__tpl_frigidaire_oven_repair_city_lufkin_tx_01be12cc.webp",
             "hs_photo_alt": "Frigidaire Oven Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-247c3d.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_5ed709_2a22a4.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_a7f013_118c3e-lufkin-tx-247c3d.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_a7f013_118c3e.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "frigidaire oven repair near me, frigidaire oven not heating, frigidaire oven temperature problems, frigidaire oven service, same day frigidaire oven repair",
         "brand": "Frigidaire",
         "appliance_type": "Oven",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Oven Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Oven Repair\",\"description\":\"Professional Frigidaire oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Oven Repair in Lufkin, TX\",\"serviceType\":\"Frigidaire Oven Repair\",\"description\":\"Professional Frigidaire oven repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Frigidaire Oven Repair in {city_state}: {business} connects you with independent local providers for fast response, often same-day. Call {phone}.",
+            "Need Frigidaire Oven Repair near {city_state}? {business} links you to local independent providers who often respond same-day. Call {phone}.",
+            "Frigidaire Oven Repair, {city_state} area — {business} quickly connects homeowners to independent local providers. Same-day often available. Call {phone}.",
+            "Looking for Frigidaire Oven Repair in {city_state}? {business} offers a fast, local connection to independent providers. Call {phone} today."
+        ],
+        "og_description_pool": [
+            "Frigidaire Oven Repair in {city_state}: {business} connects you with independent local providers for fast, responsive service. Same-day help is often available. Call {phone}.",
+            "Need Frigidaire Oven Repair near {city_state}? {business} links you to local independent providers who respond quickly, with same-day availability common. Call {phone}.",
+            "{business} helps {city_state} residents find Frigidaire Oven Repair through responsive local providers, often available same-day. Reach out at {phone}.",
+            "Searching for Frigidaire Oven Repair in {city_state}? {business} quickly connects you to independent local providers for prompt service. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "8bcb656b52693df7cfe224431ea7b7e8"
+    "generated_at": "2026-11-07T19:56:58+00:00",
+    "template_version": "b3ba2d95d30ed9a314275b88f9c9e5d8"
 }

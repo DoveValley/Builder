@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/thermador-refrigerator-repair-lufkin-tx__tpl_thermador_refrigerator_repair_city_lufkin_tx_7c612061.webp",
             "hs_photo_alt": "Thermador Refrigerator Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-abb990.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_da7c9c_d7ed34.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_926b59_a9b1bf-lufkin-tx-abb990.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_926b59_a9b1bf.webp"
         },
         {
             "type": "error_codes",
@@ -332,7 +335,7 @@
         }
     ],
     "seo": {
-        "seo_title": "Thermador Refrigerator Repair in {city_state}",
+        "seo_title": "Thermador Refrigerator Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/thermador-refrigerator-repair-lufkin-tx/",
         "meta_description": "Thermador Refrigerator Repair in {city_state} from {business} — fast local response, often same-day. Call {phone}.",
         "meta_keywords": "thermador refrigerator repair Lufkin TX",
@@ -350,9 +353,21 @@
         "secondary_keywords": "thermador refrigerator repair near me, thermador refrigerator not cooling, thermador refrigerator leaking water, thermador refrigerator service, same day thermador refrigerator repair",
         "brand": "Thermador",
         "appliance_type": "Refrigerator",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Thermador Refrigerator Repair\",\"description\":\"Professional Thermador refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Thermador Refrigerator Repair\",\"description\":\"Professional Thermador refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Thermador Refrigerator Repair in {city_state}: {business} connects you with independent local providers, often available same-day. Call {phone}.",
+            "Need Thermador Refrigerator Repair in {city_state}? {business} links you to responsive local providers who can often help fast. Call {phone}.",
+            "{business} helps {city_state} residents find Thermador Refrigerator Repair through local independent providers, often with quick response. Call {phone}.",
+            "Looking for Thermador Refrigerator Repair near {city_state}? {business} offers a fast connection to local providers, often available same-day. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Thermador Refrigerator Repair in {city_state}: {business} connects you with independent local providers for a fast response, often available same-day. Call {phone}.",
+            "Need Thermador Refrigerator Repair in {city_state}? {business} links you to local independent providers who respond quickly, with same-day visits often available. Call {phone}.",
+            "Thermador Refrigerator Repair near {city_state} starts with {business}, your fast connection to independent local providers — same-day service is often available. Call {phone}.",
+            "Looking for Thermador Refrigerator Repair in {city_state}? {business} quickly connects you with local independent providers, often with same-day availability. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "1fcd4e2982dba6dcd28b73006d048323"
+    "generated_at": "2026-11-07T19:56:57+00:00",
+    "template_version": "fe7831c4193fbfa804eb7fc87c08d619"
 }

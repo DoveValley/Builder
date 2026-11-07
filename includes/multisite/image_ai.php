@@ -40,6 +40,33 @@ function ms_image_ai_prompts_load(string $masterDir): array {
     return is_array($d) ? $d : [];
 }
 
+/** Is this slot currently in Force-regenerate's scope — i.e. does it have a captured
+ *  prompt? The one question Pic Drop's "In Force-regen scope" tick mark answers. */
+function ms_image_ai_prompt_exists(string $masterDir, string $slotKey): bool {
+    return isset(ms_image_ai_prompts_load($masterDir)[$slotKey]);
+}
+
+/** Removes a slot from Force-regenerate scope. Locked read-modify-write, same pattern
+ *  as ms_image_ai_prompt_capture() — see its docblock for why a bare load+save races. */
+function ms_image_ai_prompt_remove(string $masterDir, string $slotKey): void {
+    $f = ms_image_ai_prompts_file($masterDir);
+    if (!is_file($f)) return;
+    $fh = fopen($f, 'c+');
+    if ($fh === false) return;
+    flock($fh, LOCK_EX);
+    $raw = stream_get_contents($fh);
+    $all = $raw !== false && trim($raw) !== '' ? (json_decode($raw, true) ?: []) : [];
+    if (isset($all[$slotKey])) {
+        unset($all[$slotKey]);
+        ftruncate($fh, 0);
+        rewind($fh);
+        fwrite($fh, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        fflush($fh);
+    }
+    flock($fh, LOCK_UN);
+    fclose($fh);
+}
+
 /**
  * Classifies a captured slot into one of the batch panel's four independent "AI photo"
  * checkboxes: hero_home, hero_landing, other_home, other_landing. Shared by
@@ -70,6 +97,24 @@ function ms_image_ai_landing_template_id(string $masterDir, string $pageFilename
     if (!is_file($f)) return '';
     $d = json_decode((string) @file_get_contents($f), true);
     return is_array($d) ? (string) ($d['template_id'] ?? '') : '';
+}
+
+/**
+ * The reverse of ms_image_ai_landing_template_id(): which of the master's own
+ * generated page files was rendered from this template — i.e. the real PAGE
+ * FILENAME a `template`-scope slot (Pic Drop's "Landing template" row, keyed by the
+ * template's own short id, e.g. "tpl_dryer_repair") has to translate to before it can
+ * be looked up or captured in `image_prompts.json`, which only ever stores `landing`-
+ * scope keys keyed by this filename (e.g. "landing:tpl_dryer_repair_city_lufkin_tx.json:...").
+ * Null if no page was ever built for this template on the master itself.
+ */
+function ms_image_ai_landing_page_file_for_template(string $masterDir, string $templateId): ?string {
+    if ($templateId === '') return null;
+    foreach (glob($masterDir . '/data/pages/*.json') ?: [] as $f) {
+        $d = json_decode((string) @file_get_contents($f), true);
+        if (is_array($d) && (string) ($d['template_id'] ?? '') === $templateId) return basename($f);
+    }
+    return null;
 }
 
 /**
@@ -550,7 +595,16 @@ function ms_generate_ai_images_for_domain(
             $masterValue = $masterBlock !== null ? (string) picdrop_get($masterBlock, $field) : '';
             if ($masterValue !== '' && !str_contains($masterValue, '{')) {
                 $refBase = $masterDir;
-                $refValue = $masterValue;
+                // A master's own stored value is BASE_DIR-relative (e.g.
+                // "sites/appliance-site/uploads/media/x.webp") — the same convention
+                // clone_to_working_dir()'s ms_flatten_upload_paths() rewrites away for
+                // every domain clone. $refBase here is already $masterDir (…/sites/
+                // {masterId}), so without this same flatten the join below doubles the
+                // prefix into a path that never exists — confirmed live: 107 of this
+                // master's 120 approved photo slots carry the prefixed form and every
+                // one failed "could not read size of existing photo" until this line
+                // was added.
+                $refValue = str_replace('sites/' . basename($masterDir) . '/uploads/', 'uploads/', $masterValue);
             }
             // Falls back to the domain's current photo (the pre-force behavior) when the
             // master's own slot can't be resolved — e.g. a landing template Page Pool

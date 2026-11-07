@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_tick_control",
     "city_id": "littleton-co",
-    "slug": "tick-treatment-littleton-co",
-    "title": "Tick Treatment in {city_state} | {business_short}",
+    "slug": "tick-control-littleton-co",
+    "title": "Tick Control in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -197,17 +197,17 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "Tick Treatment in {city_state}",
+            "hs_photo_alt": "Tick Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/tick-treatment-littleton-co__tpl_tick_control_littleton-co_9e684e8d.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/tick-control-littleton-co__tpl_tick_control_littleton-co_fbe6bdaf.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-3e797f.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/tick-control_31b8de.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_2619c8_d4855f.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -228,14 +228,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-tick-control_f9a090-littleton-co.webp",
-            "it_alt": "Tick Treatment in a {city_state} home",
+            "it_photo": "sites/pest-template/uploads/media/ai_008923_1b85ce-littleton-co-3e797f.webp",
+            "it_alt": "Tick Control in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-tick-control_f9a090.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_008923_1b85ce.webp"
         },
         {
             "type": "ai_block",
@@ -317,13 +317,28 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
             "rl_items": [
                 {
-                    "url": "/flea-pest-control-{city_slug}",
-                    "text": "flea pest control"
+                    "url": "/flea-exterminator-{city_slug}",
+                    "text": "flea extermination"
                 },
                 {
                     "url": "/mosquito-control-{city_slug}",
@@ -342,26 +357,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Tick Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -392,25 +404,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Tick Treatment in {city_state} | {business_short}",
-        "canonical_url": "https://p.q111.xyz/tick-treatment-littleton-co/",
-        "meta_description": "Ticks attach to skin and can carry pathogens that cause serious illnesses. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "tick treatment Littleton CO, tick control, tick exterminator, tick yard treatment",
-        "og_title": "Tick Treatment in {city_state} | {business}",
-        "og_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+        "seo_title": "Tick Control in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/tick-control-littleton-co/",
+        "meta_description": "Tick control removes ticks before they attach to skin and spread serious illnesses. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "tick control Littleton CO, tick treatment, tick exterminator, tick yard treatment",
+        "og_title": "Tick Control in {city_state} | {business}",
+        "og_description": "Professional tick control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
         "og_image": "",
-        "service_name": "Tick Treatment",
-        "service_type": "Tick Treatment",
+        "service_name": "Tick Control",
+        "service_type": "Tick Control",
         "service_area": "{city}, {SS}",
         "service_description": "Professional tick exterminator services in {city_state}. Targeted tick control for homes and businesses, with fast local response.",
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Treatment in Littleton, CO\",\n            \"serviceType\": \"Tick Treatment\",\n            \"description\": \"Professional tick treatment services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Tick Treatment",
-        "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Control in Littleton, CO\",\n            \"serviceType\": \"Tick Control\",\n            \"description\": \"Professional tick control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Tick Control",
+        "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks",
+        "meta_description_pool": [
+            "Tick Control in {city_state}: connect with local providers who help reduce tick activity around your property. Call {phone} to get started.",
+            "Need Tick Control near {city_state}? We connect you to local pros who address tick problems before they spread. Call {phone} today.",
+            "Tick Control, {city_state}: find local independent providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
+            "Looking for Tick Control in {city_state}? This network links you with local providers who tackle tick issues around your home. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Tick Control in {city_state}: {business} connects you with independent local providers for targeted service. Call {phone} to get started.",
+            "Need Tick Control near {city_state}? {business} quickly links you to local providers offering targeted treatment options. Call {phone} today.",
+            "{business} helps {city_state} residents find local Tick Control providers fast, offering targeted service. Reach out at {phone} for a connection.",
+            "Searching for Tick Control in {city_state}? {business} connects you to responsive local providers nearby. Call {phone} to get matched today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "fc821fc96db556f6314de2f9c6ec5d30"
+    "generated_at": "2026-11-07T20:04:20+00:00",
+    "template_version": "e6342c95e7dd2d362fd4ec69edc58923"
 }

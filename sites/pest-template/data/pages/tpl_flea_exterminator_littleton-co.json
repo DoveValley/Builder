@@ -1,8 +1,8 @@
 {
     "template_id": "tpl_flea_exterminator",
     "city_id": "littleton-co",
-    "slug": "flea-pest-control-littleton-co",
-    "title": "Flea Pest Control in {city_state} | {business_short}",
+    "slug": "flea-exterminator-littleton-co",
+    "title": "Flea Exterminator in {city_state} | {business_short}",
     "city_vars": {
         "id": "littleton-co",
         "city": "Littleton",
@@ -197,17 +197,17 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "Flea Pest Control in {city_state}",
+            "hs_photo_alt": "Flea Exterminator in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/flea-pest-control-littleton-co__tpl_flea_exterminator_littleton-co_0e970071.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/flea-exterminator-littleton-co__tpl_flea_exterminator_littleton-co_3e347f1e.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-83e8cb.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/flea-exterminator_b65819.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_67571c_acd121.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-flea-exterminator_f798d2-littleton-co.webp",
-            "it_alt": "Flea Pest Control in a {city_state} home",
+            "it_photo": "sites/pest-template/uploads/media/ai_3947b0_0226b6-littleton-co-83e8cb.webp",
+            "it_alt": "Flea Exterminator in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-flea-exterminator_f798d2.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_3947b0_0226b6.webp"
         },
         {
             "type": "ai_block",
@@ -312,13 +312,28 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
             "rl_items": [
                 {
-                    "url": "/tick-treatment-{city_slug}",
-                    "text": "tick treatment"
+                    "url": "/tick-control-{city_slug}",
+                    "text": "tick control"
                 },
                 {
                     "url": "/mosquito-control-{city_slug}",
@@ -337,26 +352,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Flea Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -387,25 +399,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Flea Pest Control in {city_state} | {business_short}",
-        "canonical_url": "https://p.q111.xyz/flea-pest-control-littleton-co/",
-        "meta_description": "Fleas infest pet bedding and carpets, causing itching and potential illness in animals. Serving {city_state}. Call {phone}.",
-        "meta_keywords": "flea pest control Littleton CO, flea exterminator, flea control, flea treatment",
-        "og_title": "Flea Pest Control in {city_state} | {business}",
-        "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
+        "seo_title": "Flea Exterminator in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/flea-exterminator-littleton-co/",
+        "meta_description": "A flea exterminator clears fleas from pet bedding and carpets before they spread further. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "flea exterminator Littleton CO, flea pest control, flea control, flea treatment",
+        "og_title": "Flea Exterminator in {city_state} | {business}",
+        "og_description": "Professional flea extermination in {city_state} from {business}. Trained, local technicians, and targeted treatment. Call {phone}.",
         "og_image": "",
-        "service_name": "Flea Pest Control",
-        "service_type": "Flea Pest Control",
+        "service_name": "Flea Exterminator",
+        "service_type": "Flea Exterminator",
         "service_area": "{city}, {SS}",
         "service_description": "Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses, with fast local response.",
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Pest Control in Littleton, CO\",\n            \"serviceType\": \"Flea Pest Control\",\n            \"description\": \"Professional flea pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "primary_keyword": "Flea Pest Control",
-        "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Exterminator in Littleton, CO\",\n            \"serviceType\": \"Flea Exterminator\",\n            \"description\": \"Professional flea extermination services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Flea Exterminator",
+        "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas",
+        "meta_description_pool": [
+            "Flea Exterminator help in {city_state}: connect with local providers who treat fleas in carpets and pet bedding before infestations spread. Call {phone}.",
+            "Need a flea exterminator near {city_state}? We help you find independent local providers to address flea problems in carpets and bedding. Call {phone}.",
+            "Flea Exterminator, {city_state} — get matched with local providers experienced in tackling fleas in carpets and pet areas. Call {phone} today.",
+            "Searching for a flea exterminator in {city_state}? This network connects you to local providers who address flea issues in bedding and carpets. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Flea Exterminator in {city_state}: {business} connects you with local providers for prompt, targeted treatment. Call {phone} to get started.",
+            "Need a flea exterminator near {city_state}? {business} links you fast to independent local providers ready to help. Call {phone} today.",
+            "Flea Exterminator, {city_state}-area: {business} helps you reach responsive local providers for targeted flea treatment. Call {phone} now.",
+            "Get connected to flea exterminator help in {city_state} through {business}, your link to local providers. Call {phone} for a fast response."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "967c546e5d8f864c34be7b5e558de2b1"
+    "generated_at": "2026-11-07T20:04:19+00:00",
+    "template_version": "544dbbe4566a3e1dd708eee1c74fcb18"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/ge-cooktop-repair-lufkin-tx__tpl_ge_cooktop_repair_city_lufkin_tx_a77d6a12.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/ge-cooktop-repair-lufkin-tx__tpl_ge_cooktop_repair_city_lufkin_tx_3d36020f.webp",
             "hs_photo_alt": "GE Cooktop Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-cooktop.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-8ad231.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-8ad231.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "skin": "light",
             "heading_level": "h2",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "ge cooktop repair near me, ge cooktop burner not working, ge cooktop igniter not clicking, ge cooktop service, same day ge cooktop repair",
         "brand": "GE",
         "appliance_type": "Cooktop",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Cooktop Repair\",\n            \"description\": \"Professional GE cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Cooktop Repair\",\n            \"description\": \"Professional GE cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "GE Cooktop Repair in {city_state}: connect with independent local providers who handle both gas and electric models. Call {phone} to get started.",
+            "Looking for GE Cooktop Repair near {city_state}? We help connect you with local providers experienced in gas and electric cooktops. Call {phone}.",
+            "GE Cooktop Repair, {city_state} area: gas and electric models need different approaches, and local independent providers can help. Reach us at {phone}.",
+            "In {city_state}, GE Cooktop Repair connections are just a call away—local independent providers handle gas and electric units. Dial {phone} now."
+        ],
+        "og_description_pool": [
+            "GE Cooktop Repair in {city_state}: {business} connects you with independent local providers for fast, responsive service, often available same-day. Call {phone}.",
+            "Need GE Cooktop Repair in {city_state}? {business} links you to local independent providers who respond quickly, with same-day options often available. Call {phone}.",
+            "GE Cooktop Repair, {city_state} — {business} helps you connect fast with local independent service providers, same-day often available. Call {phone} now.",
+            "Looking for GE Cooktop Repair near {city_state}? {business} puts you in touch with responsive local providers quickly, often the same day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "07fffbff4ae293a00a6b9a7940c53648"
+    "generated_at": "2026-11-07T19:56:54+00:00",
+    "template_version": "509cb13e693187412ae8c3abe31f0a30"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/ge-monogram-refrigerator-repair-lufkin-tx__tpl_ge_monogram_refrigerator_repair_city_lufkin_tx_cb551186.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/ge-monogram-refrigerator-repair-lufkin-tx__tpl_ge_monogram_refrigerator_repair_city_lufkin_tx_06a8380d.webp",
             "hs_photo_alt": "GE Monogram Refrigerator Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-bf7bed.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-bf7bed.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -430,15 +440,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -493,7 +494,7 @@
         }
     ],
     "seo": {
-        "seo_title": "GE Monogram Refrigerator Repair in {city_state}",
+        "seo_title": "GE Monogram Refrigerator Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/ge-monogram-refrigerator-repair-lufkin-tx/",
         "meta_description": "Need GE Monogram Refrigerator Repair? GE Monogram refrigerators demand knowledge of premium cooling systems. Serving {city_state}. Call {phone}.",
         "meta_keywords": "ge monogram refrigerator repair Lufkin TX",
@@ -511,9 +512,21 @@
         "secondary_keywords": "ge monogram refrigerator repair near me, ge monogram refrigerator not cooling, ge monogram refrigerator leaking water, ge monogram refrigerator service, same day ge monogram refrigerator repair",
         "brand": "GE Monogram",
         "appliance_type": "Refrigerator",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Monogram Refrigerator Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Monogram Refrigerator Repair\",\n            \"description\": \"Professional GE Monogram refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Monogram Refrigerator Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Monogram Refrigerator Repair\",\n            \"description\": \"Professional GE Monogram refrigerator repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "GE Monogram Refrigerator Repair in {city_state}: connect with independent local providers familiar with premium cooling systems. Call {phone} to get started.",
+            "Looking for GE Monogram Refrigerator Repair near {city_state}? We connect you with local independent providers who know premium cooling systems. Call {phone}.",
+            "GE Monogram Refrigerator Repair, {city_state} — get linked to local independent providers experienced with premium cooling systems. Dial {phone} today.",
+            "In {city_state}, GE Monogram Refrigerator Repair help is a call away. We connect you to local independent providers for premium cooling systems. Call {phone}."
+        ],
+        "og_description_pool": [
+            "GE Monogram Refrigerator Repair in {city_state}: {business} connects you with independent local providers, often with fast same-day response. Call {phone}.",
+            "Need GE Monogram Refrigerator Repair near {city_state}? {business} links you to responsive local providers who often respond quickly. Call {phone}.",
+            "GE Monogram Refrigerator Repair, {city_state} — {business} helps you connect fast with independent local providers for prompt service. Call {phone} today.",
+            "Searching for GE Monogram Refrigerator Repair in {city_state}? {business} puts you in touch with local independent providers, often available same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "616c9be1c510e4299fa85bee9df7f63e"
+    "generated_at": "2026-11-07T19:56:33+00:00",
+    "template_version": "9b88381ba0d10d163cb90e18ef22e932"
 }

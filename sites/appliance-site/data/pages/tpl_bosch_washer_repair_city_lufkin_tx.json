@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/bosch-washer-repair-lufkin-tx__tpl_bosch_washer_repair_city_lufkin_tx_db448780.webp",
             "hs_photo_alt": "Bosch Washer Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-36a4d0.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_c7b1a3_f74d97.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_768775_34abd7-lufkin-tx-36a4d0.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_768775_34abd7.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "bosch washer repair near me, bosch washer not draining, bosch washer won't spin, bosch washer service, same day bosch washer repair",
         "brand": "Bosch",
         "appliance_type": "Washer",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Washer Repair in Lufkin, TX\",\"serviceType\":\"Bosch Washer Repair\",\"description\":\"Professional Bosch washer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Washer Repair in Lufkin, TX\",\"serviceType\":\"Bosch Washer Repair\",\"description\":\"Professional Bosch washer repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Bosch Washer Repair in {city_state}: {business} connects you with independent local providers, often with same-day availability. Call {phone}.",
+            "Need Bosch Washer Repair near {city_state}? {business} links you to local independent providers for a fast response. Call {phone}.",
+            "{business} helps {city_state} residents find Bosch Washer Repair through independent local providers, often available same-day. Call {phone} now.",
+            "Bosch Washer Repair, {city_state}: fast connections to independent local providers via {business}. Reach out at {phone} to get started."
+        ],
+        "og_description_pool": [
+            "Bosch Washer Repair in {city_state}: {business} connects you with independent local providers, often with fast response available. Call {phone}.",
+            "Need Bosch Washer Repair near {city_state}? {business} links you to local independent providers who often respond quickly. Call {phone} to get started.",
+            "Bosch Washer Repair, {city_state} area — {business} helps you find a responsive local provider, with fast availability common. Reach us at {phone}.",
+            "Looking for Bosch Washer Repair in {city_state}? {business} puts you in touch with local independent providers for a fast response. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "89e339739b9bc1b7b2f6c6cdbb03c4be"
+    "generated_at": "2026-11-07T19:56:57+00:00",
+    "template_version": "9e9b5ed1d3ea5dee345815e2f21d9249"
 }

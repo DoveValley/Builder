@@ -200,8 +200,8 @@
             "hs_photo_alt": "Wasp exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/wasp-nest-removal-littleton-co__tpl_wasp_nest_removal_littleton-co_ddb63957.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/wasp-nest-removal-littleton-co__tpl_wasp_nest_removal_littleton-co_d6c63b16.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-16e3dc.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f-littleton-co-16e3dc.webp",
             "it_alt": "{business} technician applying wasp treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,40 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/wasp-exterminator-{city_slug}",
-                    "text": "wasp exterminator"
-                },
-                {
-                    "url": "/yellow-jacket-control-{city_slug}",
-                    "text": "yellow jacket control"
-                },
-                {
-                    "url": "/hornet-removal-{city_slug}",
-                    "text": "hornet removal"
-                },
-                {
-                    "url": "/bee-removal-{city_slug}",
-                    "text": "bee removal"
-                },
-                {
-                    "url": "/emergency-pest-control-{city_slug}",
-                    "text": "emergency pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -484,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with wasps in {city}? Get fast, targeted treatment from a local provider.",
             "cb_subtext": "",
@@ -514,7 +505,7 @@
     "seo": {
         "seo_title": "Wasp Nest Removal in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/wasp-nest-removal-littleton-co/",
-        "meta_description": "Wasp, hornet and yellow jacket nests pose sting hazards and keep growing as the colony expands. Serving {city_state}. Call {phone}.",
+        "meta_description": "Wasp nest removal clears wasp, hornet, and yellow jacket nests before the colony grows further. Serving {city_state}. Call {phone}.",
         "meta_keywords": "wasp nest removal Littleton CO, wasp nest treatment, hornet nest removal, yellow jacket nest removal, wasp exterminator",
         "og_title": "Wasp Nest Removal in {city_state} | Wasps, Hornets & Yellow Jackets",
         "og_description": "Fast removal of wasp, hornet and yellow jacket nests in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
@@ -526,11 +517,17 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Nest Removal in Littleton, CO\",\n            \"serviceType\": \"Wasp Nest Removal\",\n            \"description\": \"Professional wasp, hornet and yellow jacket nest removal in Littleton, CO. Targeted treatment for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Nest Removal in Littleton, CO\",\n            \"serviceType\": \"Wasp Nest Removal\",\n            \"description\": \"Professional wasp, hornet and yellow jacket nest removal in Littleton, CO. Targeted treatment for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Wasp Nest Removal",
-        "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator, wasp exterminator, wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps, hornet removal, hornet exterminator, hornet nest removal, hornet control, get rid of hornets, yellow jacket control, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
+        "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator, wasp exterminator, wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps, hornet removal, hornet exterminator, hornet nest removal, hornet control, get rid of hornets, yellow jacket control, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets",
+        "meta_description_pool": [
+            "Wasp Nest Removal in {city_state}: get connected with local providers who handle wasp, hornet, and yellow jacket nests. Call {phone} today.",
+            "Need Wasp Nest Removal near {city_state}? We connect you fast with independent local pros for wasp, hornet, and yellow jacket nests. Call {phone}.",
+            "Wasp Nest Removal, {city_state} — quickly find local providers to address wasp, hornet, and yellow jacket nests before colonies grow. Call {phone}.",
+            "Looking for Wasp Nest Removal in {city_state}? This service links you to local providers who tackle wasp, hornet, and yellow jacket nests. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:52+00:00",
-    "template_version": "b1231bca7de1f9b1fee5a58696b87f5f"
+    "generated_at": "2026-11-07T20:04:25+00:00",
+    "template_version": "7cc1b204eb3035fe28395a2ea4fa752a"
 }

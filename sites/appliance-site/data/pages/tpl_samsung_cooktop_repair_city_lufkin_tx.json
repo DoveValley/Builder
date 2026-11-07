@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "",
+            "hs_photo": "sites/appliance-site/uploads/media/samsung-cooktop-repair-lufkin-tx__tpl_samsung_cooktop_repair_city_lufkin_tx_fc609bb6.webp",
             "hs_photo_alt": "Samsung Cooktop Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -149,7 +149,9 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-7ac788.webp",
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/ai_cdd458_484f9e.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -165,9 +167,10 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "",
+            "it_photo": "sites/appliance-site/uploads/media/ai_dbe164_838a88-lufkin-tx-7ac788.webp",
             "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/appliance-site/uploads/media/ai_dbe164_838a88.webp"
         },
         {
             "type": "error_codes",
@@ -350,9 +353,21 @@
         "secondary_keywords": "samsung cooktop repair near me, samsung cooktop burner not working, samsung cooktop igniter not clicking, samsung cooktop service, same day samsung cooktop repair",
         "brand": "Samsung",
         "appliance_type": "Cooktop",
-        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Cooktop Repair in Lufkin, TX\",\"serviceType\":\"Samsung Cooktop Repair\",\"description\":\"Professional Samsung cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Cooktop Repair in Lufkin, TX\",\"serviceType\":\"Samsung Cooktop Repair\",\"description\":\"Professional Samsung cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}",
+        "meta_description_pool": [
+            "Samsung Cooktop Repair in {city_state}: {business} connects you with local providers for fast response, often same-day. Call {phone}.",
+            "Need Samsung Cooktop Repair near {city_state}? {business} links you to independent local providers who respond quickly. Call {phone}.",
+            "{city_state} Samsung Cooktop Repair made simple — {business} connects you with responsive local providers nearby. Call {phone} today.",
+            "Find Samsung Cooktop Repair in {city_state} through {business}, your link to fast-responding local providers. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Samsung Cooktop Repair in {city_state}: {business} connects you with local providers who respond fast, often the same day. Call {phone}.",
+            "Need Samsung Cooktop Repair near {city_state}? {business} links you to responsive independent local providers. Call {phone} to get started.",
+            "{business} helps {city_state} residents find Samsung Cooktop Repair through local independent providers, with fast response often available. Call {phone}.",
+            "Looking for Samsung Cooktop Repair in {city_state}? {business} quickly connects you to independent local providers nearby. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "3d9e6339c5b85e7e56e8233749a88ffc"
+    "generated_at": "2026-11-07T19:56:59+00:00",
+    "template_version": "d1d25ba213090862c6e8793f5a7bd997"
 }

@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_3d333c_69b0b9.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-testing-lufkin-tx__tpl_mold_testing_city_lufkin_tx_67b23ac5.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_3cddff_6422c1.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall-lufkin-tx-9fe82a.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -518,9 +518,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Testing\",\n    \"name\": \"Mold Testing in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Testing in Lufkin, TX \\u2014 air and surface sampling with lab analysis to confirm mold type and spore levels.\"\n}",
         "primary_keyword": "Mold Testing",
-        "secondary_keywords": "mold testing services, mold spore testing, mold sampling, mold lab testing"
+        "secondary_keywords": "mold testing services, mold spore testing, mold sampling, mold lab testing",
+        "meta_description_pool": [
+            "Mold Testing in {city_state}: connect with local providers offering lab analysis to help identify mold types and concentration. Call {phone}.",
+            "Need Mold Testing near {city_state}? We connect you with independent local providers who use lab analysis to check mold type and levels. Call {phone}.",
+            "Mold Testing services for {city_state} residents: get linked to local providers using lab analysis to identify mold types present. Call {phone} today.",
+            "Looking for Mold Testing in {city_state}? We help you find nearby independent providers offering lab-based mold type and concentration analysis. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Mold Testing in {city_state} starts with a quick call to {phone} — get connected fast to an independent local provider near you.",
+            "Need Mold Testing in {city_state}? Dial {phone} and we'll connect you with a responsive local provider in your area.",
+            "Mold Testing in {city_state}: call {phone} now to be matched with a local, independent provider ready to respond quickly.",
+            "Looking for Mold Testing near {city_state}? Reach {phone} for a fast connection to a local independent service provider."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:47+00:00",
-    "template_version": "00857ae30ee3694ab6c03bf2bb710ce8"
+    "generated_at": "2026-11-07T20:03:37+00:00",
+    "template_version": "647067454309350bea60f74f64a5e3fc"
 }

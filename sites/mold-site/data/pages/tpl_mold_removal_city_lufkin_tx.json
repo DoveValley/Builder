@@ -195,8 +195,8 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_4bd758_132dde.webp",
-            "hs_bg_photo": "sites/mold-site/uploads/media/ai_1e3636_746459.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-removal-lufkin-tx__tpl_mold_removal_city_lufkin_tx_94d06a2d.webp",
+            "hs_bg_photo": "sites/mold-site/uploads/media/ai_1e3636_746459-lufkin-tx-1e7029.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -208,7 +208,8 @@
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "16e61f13b7c8942c",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp"
+            "_hs_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+            "_hs_bg_photo_orig": "sites/mold-site/uploads/media/ai_1e3636_746459.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_4c2421_50dd66.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall-lufkin-tx-1e7029.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -539,9 +540,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal\",\n    \"name\": \"Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Removal in Lufkin, TX \\u2014 professional removal of mold from walls, floors, and hidden spaces.\"\n}",
         "primary_keyword": "Mold Removal",
-        "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, mold smell removal, musty odor removal, mold mitigation, mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation, mold damage restoration, mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage"
+        "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, mold smell removal, musty odor removal, mold mitigation, mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation, mold damage restoration, mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage",
+        "meta_description_pool": [
+            "Mold Removal in {city_state}: connect quickly with independent local providers who address moisture issues before they spread further. Call {phone}.",
+            "Looking for Mold Removal near {city_state}? We help connect you to local, independent providers ready to respond promptly. Call {phone} today.",
+            "Mold Removal help for {city_state} residents — get matched fast with local independent providers who handle moisture and mold concerns. Call {phone}.",
+            "{city_state} Mold Removal connections made easy: reach local independent providers quickly before mold affects more of your property. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Mold Removal in {city_state}: connect quickly with an independent local provider by calling {phone} for a fast response near you.",
+            "Need Mold Removal in {city_state}? Call {phone} and we'll connect you with a responsive local provider who serves your area.",
+            "Mold Removal help in {city_state} starts here — dial {phone} to get matched with a local, independent service provider fast.",
+            "Looking for Mold Removal in {city_state}? {phone} links you to a nearby independent provider ready to respond quickly."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:46+00:00",
-    "template_version": "08720596c7716d32f587709ac2c51773"
+    "generated_at": "2026-11-07T20:03:36+00:00",
+    "template_version": "b73e1fd5943ad18e272b334c05610c05"
 }

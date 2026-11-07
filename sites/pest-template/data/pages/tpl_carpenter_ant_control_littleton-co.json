@@ -200,14 +200,14 @@
             "hs_photo_alt": "Carpenter ant exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/carpenter-ant-control-littleton-co__tpl_carpenter_ant_control_littleton-co_4b56f348.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/carpenter-ant-control-littleton-co__tpl_carpenter_ant_control_littleton-co_8b7a33b3.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-dd2ac6.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_208985_587549.webp",
             "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
         },
         {
@@ -223,14 +223,14 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/ai_a81c78_0d9509-littleton-co-dd2ac6.webp",
             "it_alt": "{business} technician applying carpenter ant treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
             "ai_prompt_override": "",
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp"
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_a81c78_0d9509.webp"
         },
         {
             "type": "ai_block",
@@ -245,7 +245,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our Carpenter ant Treatment Works",
+            "steps_heading": "How Our Carpenter Ant Treatment Works",
             "steps_items": [
                 {
                     "image": "",
@@ -312,6 +312,21 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -325,8 +340,8 @@
                     "text": "termite treatment"
                 },
                 {
-                    "url": "/ant-pest-control-{city_slug}",
-                    "text": "ant pest control"
+                    "url": "/ant-exterminator-{city_slug}",
+                    "text": "ant extermination"
                 },
                 {
                     "url": "/wdi-inspection-{city_slug}",
@@ -341,26 +356,23 @@
                     "text": "cockroach extermination"
                 },
                 {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
+                    "url": "/bed-bug-exterminator-{city_slug}",
+                    "text": "bed bug extermination"
                 }
             ],
             "id": "related_links_1"
         },
         {
-            "type": "faq_two_col",
-            "fq_heading": "Carpenter ant Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
         },
         {
             "type": "cta_banner",
@@ -393,9 +405,9 @@
     "seo": {
         "seo_title": "Carpenter Ant Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/carpenter-ant-control-littleton-co/",
-        "meta_description": "Carpenter ants hollow out wood structures, weakening frames and support systems over time. Serving {city_state}. Call {phone}.",
+        "meta_description": "Carpenter ant control stops colonies from hollowing out wood structures and weakening frames. Serving {city_state}. Call {phone}.",
         "meta_keywords": "carpenter ant control Littleton CO, carpenter ant exterminator, carpenter ant treatment, carpenter ant removal",
-        "og_title": "Carpenter ant Exterminator in {city_state} | Fast, Targeted Carpenter ant Control",
+        "og_title": "Carpenter Ant Exterminator in {city_state} | Fast, Targeted Carpenter Ant Control",
         "og_description": "Get rid of carpenter ants fast with a professional carpenter ant exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
         "og_image": "",
         "service_name": "Carpenter Ant Control",
@@ -405,11 +417,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Carpenter ant Exterminator in Littleton, CO\",\n            \"serviceType\": \"Carpenter ant Extermination\",\n            \"description\": \"Professional carpenter ant exterminator services in Littleton, CO. Targeted carpenter ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Carpenter Ant Exterminator in Littleton, CO\",\n            \"serviceType\": \"Carpenter Ant Extermination\",\n            \"description\": \"Professional carpenter ant exterminator services in Littleton, CO. Targeted carpenter ant control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Carpenter Ant Control",
-        "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
+        "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage",
+        "meta_description_pool": [
+            "Carpenter Ant Control in {city_state}: get connected with local providers who help stop colonies from hollowing out wood and weakening frames. Call {phone}.",
+            "Need Carpenter Ant Control near {city_state}? We connect you fast with independent local providers who address wood-damaging colonies. Call {phone} today.",
+            "Carpenter Ant Control, {city_state} — find a local provider through us to tackle colonies before they hollow out and weaken wood structures. Call {phone}.",
+            "Looking for Carpenter Ant Control in {city_state}? We link homeowners to responsive local providers who deal with wood-hollowing ant colonies. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Carpenter Ant Control in {city_state}: connect with an independent local provider ready to help homes and businesses tackle an infestation quickly.",
+            "Need Carpenter Ant Control near {city_state}? We connect you with local providers who offer targeted treatment for homes and businesses in the area.",
+            "In {city_state}, Carpenter Ant Control starts with a fast connection to an independent local provider serving homes and businesses nearby.",
+            "Facing carpenter ants in {city_state}? Our network links you to local providers offering responsive Carpenter Ant Control for homes and businesses."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:50+00:00",
-    "template_version": "a35efff8709ec64527cdd4da7f51f231"
+    "generated_at": "2026-11-07T20:04:17+00:00",
+    "template_version": "12ee12cf5e31df7291bdbc8dc40a8e2a"
 }

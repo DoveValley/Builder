@@ -109,6 +109,12 @@
                         Screen each drop for burned-in text
                         <?php if (!$pdOcr): ?><em>(tesseract not installed)</em><?php else: ?><em>(slower &mdash; runs OCR)</em><?php endif; ?>
                     </label>
+                    <label class="hint" style="display:flex;align-items:center;gap:6px;">
+                        <input type="checkbox" id="pd-force-scope-all">
+                        Select all images for Force AI Generate
+                        <a href="#" class="pd-info" data-pd-info="force_scope" title="What this does" style="color:#94a3b8;text-decoration:none;">&#9432;</a>
+                        <span id="pd-force-scope-all-note" style="color:#6b7280;"></span>
+                    </label>
                     <span style="flex:1;"></span>
                     <span id="pd-dirty" style="display:none;font-size:.8rem;color:#92400e;background:#fef3c7;border:1px solid #fde68a;border-radius:4px;padding:4px 9px;">
                         Changed &mdash; the built site still shows the old pictures
@@ -286,6 +292,27 @@
                                             </div>
                                         <?php else: ?>
                                             <div class="hint" style="margin-top:7px;">Decorative background &mdash; no alt text.</div>
+                                        <?php endif; ?>
+
+                                        <?php
+                                        // prompt_key is null for a core page (out of batch scope entirely)
+                                        // and for a `template` row whose template never got a page built on
+                                        // the master itself — both genuinely have nothing for this to do.
+                                        // Every other scope (home/global/landing, and a template WITH a
+                                        // built page) gets a real, writable key — see picdrop_slots_for_blocks().
+                                        // kind === 'photo' excludes decorative backgrounds (hs_bg_photo,
+                                        // bg_photo — picdrop_fields()'s own 'background' kind): a texture
+                                        // behind hero text isn't content that needs a unique AI photo per
+                                        // domain the way a technician/equipment shot does, and regenerating
+                                        // it would just be spend with nothing to show for it.
+                                        $pdForceScope = !$s['token'] && $s['value'] !== '' && $s['prompt_key'] !== null && $s['kind'] === 'photo';
+                                        if ($pdForceScope): ?>
+                                            <label class="hint pd-force-scope-row" style="display:flex;align-items:center;gap:6px;margin-top:6px;">
+                                                <input type="checkbox" class="pd-force-scope" data-sid="<?= $sid ?>" data-key="<?= h($s['prompt_key']) ?>" <?= $s['prompt_captured'] ? 'checked' : '' ?>>
+                                                In Force-regen scope
+                                                <a href="#" class="pd-info" data-pd-info="force_scope" title="What this does" style="color:#94a3b8;text-decoration:none;">&#9432;</a>
+                                                <span id="<?= $sid ?>_forcescope_note" style="color:#b91c1c;"></span>
+                                            </label>
                                         <?php endif; ?>
 
                                         <?php // $propShow is always false for a template row — see above.
@@ -658,7 +685,9 @@
                     techcustomer: ['6.5. Technician with appliance & customer',
                         'Keeps the reference photo’s setting and appliance, but gives the technician a different hairstyle and face, now shown explaining the repair to a customer who’s also in the shot. The only mode that adds a second person to the scene.'],
                     custom: ['7. Custom instruction',
-                        'Clears the prompt box so you can type your own one-off change instead of picking a canned mode. Everything else in the photo is kept as-is — only the change you describe gets applied.']
+                        'Clears the prompt box so you can type your own one-off change instead of picking a canned mode. Everything else in the photo is kept as-is — only the change you describe gets applied.'],
+                    force_scope: ['In Force-regen scope',
+                        'Ticked means a batch run’s Force-regenerate photos option will give every domain built from this master its own unique version of this slot; unticked, Force-regenerate skips it entirely and every domain keeps whatever photo it already has. Ticking captures whichever photo is currently ACTIVE here (Real or AI, whichever shows the blue border) as the slot’s standing reference — reusing its own generation prompt if it’s an AI photo, or a safe “subtle variation” instruction if it’s a Real photo, so every domain still ends up with a genuinely distinct photo either way. Unticking removes it from scope for the next run.']
                 };
                 function showPdInfo(key) {
                     var entry = PD_INFO[key];
@@ -941,6 +970,71 @@
                                 setMeta(sid, (d && d.error) || 'Could not switch.', '#b91c1c');
                             }
                         });
+                });
+
+                // ── Force-regen scope tick mark — ticking/unticking writes immediately,
+                // same "act on change, not on a separate save" pattern as every other
+                // Pic Drop control. Reverts the checkbox on failure rather than leaving it
+                // showing a state the server didn't actually save.
+                document.addEventListener('change', function (e) {
+                    var box = e.target.closest ? e.target.closest('input.pd-force-scope') : null;
+                    if (!box) return;
+                    var sid    = box.getAttribute('data-sid');
+                    var key    = box.getAttribute('data-key');
+                    var note   = document.getElementById(sid + '_forcescope_note');
+                    var wantOn = box.checked;
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', wantOn ? 'capture_prompt' : 'remove_prompt');
+                    fd.append('key', key);
+
+                    box.disabled = true;
+                    if (note) note.textContent = '';
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            box.disabled = false;
+                            if (!d || !d.success) {
+                                box.checked = !wantOn;
+                                if (note) note.textContent = (d && d.error) || 'Could not save.';
+                            }
+                        });
+                });
+
+                // ── Select all images for Force AI Generate ─────────────────────────
+                // Only ever finds boxes that already exist in the DOM — a checkbox is
+                // rendered for a slot at all ($pdForceScope, admin/tabs/picdrop.php) only
+                // when that slot has a real photo in it, so this can never tick a token
+                // slot or an empty one; "only select true images" falls out of that for
+                // free rather than needing its own filter here.
+                // Drives the SAME per-slot checkbox + the SAME change handler above
+                // (set .checked then dispatch 'change') rather than posting its own bulk
+                // request — one write path, not two ways to reach the same state.
+                //
+                // SELECT-ONLY, deliberately not a real two-way toggle: this is an
+                // ACTION ("select everything not yet selected"), not a persisted
+                // aggregate state. Treating it as a toggle meant unticking it found
+                // every box checked ANYWHERE on the page — most of which predate this
+                // click entirely, captured by something else long before — and fired
+                // remove_prompt on all of them at once: a page-wide wipe disguised as
+                // "undo my last click." Confirmed live: this exact bug took a master's
+                // catalog from 121 entries down to 1. The box always snaps back to
+                // unticked once the selection finishes, so there is nothing to untick.
+                document.getElementById('pd-force-scope-all').addEventListener('change', function (e) {
+                    var note = document.getElementById('pd-force-scope-all-note');
+                    if (!e.target.checked) return; // never reachable normally; see above
+                    var boxes = Array.prototype.slice.call(document.querySelectorAll('input.pd-force-scope'))
+                        .filter(function (b) { return !b.checked; });
+
+                    if (note) note.textContent = boxes.length ? 'Selecting ' + boxes.length + '…' : 'Already all selected.';
+                    boxes.forEach(function (b) {
+                        b.checked = true;
+                        b.dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+                    e.target.checked = false;
+                    if (note) setTimeout(function () { note.textContent = ''; }, 4000);
                 });
 
                 // Swaps the prompt box to match whichever of the seven radio options is

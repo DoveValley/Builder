@@ -25,6 +25,7 @@
 // independently-maintained list is what keeps "missing" meaning the same thing in
 // both tools.
 require_once __DIR__ . '/multisite/content_check.php';
+require_once __DIR__ . '/multisite/image_ai.php'; // ms_image_ai_prompt_exists()
 
 require_once __DIR__ . '/../config.php';
 
@@ -360,6 +361,44 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
     $fields     = picdrop_fields();
     $slots      = [];
     $blockTotal = count($blocks);
+    // Loaded once per call (one page/template), not once per slot — a page with
+    // dozens of slots would otherwise re-read+re-decode the same catalog file that
+    // many times. Same ACTIVE_SITE_DIR-or-BASE_DIR convention picdrop_pairs_file()
+    // already uses, so this works identically on a legacy single-site install (no
+    // multisite/ directory at all — ms_image_ai_prompts_load() just returns [] there,
+    // the tick mark correctly never shows as capturable) and on any multisite master.
+    $masterDirForPrompts = ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR;
+    $capturedPrompts     = ms_image_ai_prompts_load($masterDirForPrompts);
+
+    // A `template`-scope row (Pic Drop's "Landing template" card, one per template —
+    // see picdrop_template_groups()) is keyed by the template's own short id
+    // ("tpl_dryer_repair"), never by the page filename `image_prompts.json` actually
+    // stores landing captures under ("tpl_dryer_repair_city_lufkin_tx.json"). Resolved
+    // ONCE per call (one template), not once per slot. Null when no page was ever
+    // built for this template at all — every slot below then correctly shows no tick
+    // mark rather than one that would silently do nothing if ticked.
+    $landingPageFile = $scope === 'template'
+        ? ms_image_ai_landing_page_file_for_template($masterDirForPrompts, $id)
+        : null;
+
+    // The template's own block ORDER and the master's already-generated page's block
+    // order can and do drift apart — confirmed live on water-site: a locked AI-written
+    // block (generate.py's _ai_locked) sits at a different index on the page than the
+    // same-id block occupies on the template. A translated key built from the
+    // template's own loop index ($bi below) then points at the WRONG block on the
+    // page — not a missing-photo case, a genuinely different block, which crashed
+    // picdrop_find_slot() outright when that block had no matching field at all.
+    // Resolved by block id instead, the same way ms_image_ai_resolve_block()
+    // (includes/multisite/image_ai.php) already has to, for the identical reason.
+    $landingBlockIdToIndex = [];
+    if ($scope === 'template' && $landingPageFile !== null) {
+        $landingPageData = json_decode((string) @file_get_contents($masterDirForPrompts . '/data/pages/' . $landingPageFile), true);
+        if (is_array($landingPageData) && !empty($landingPageData['content_blocks']) && is_array($landingPageData['content_blocks'])) {
+            foreach ($landingPageData['content_blocks'] as $li => $lb) {
+                if (is_array($lb) && !empty($lb['id'])) $landingBlockIdToIndex[(string) $lb['id']] = $li;
+            }
+        }
+    }
 
     foreach ($blocks as $bi => $block) {
         if (!is_array($block)) continue;
@@ -414,6 +453,21 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
             $needsPhoto = $isRequired && ($value === '' || $file === null);
 
             $slotKey = "$scope:$id:$bi:$path";
+            // The key Force-regen scope actually reads/writes — the slot's own key for
+            // every scope except `template`, which translates to the equivalent
+            // `landing` key above. Null means there's nothing to translate to: no page
+            // built for this template, or this exact block has no matching id on the
+            // page (predates the id scheme, or was dropped from the page entirely) —
+            // both different facts from "not captured", never guessed at by index.
+            $promptKey = $slotKey;
+            if ($scope === 'template') {
+                $promptKey = null;
+                if ($landingPageFile !== null) {
+                    $tplBlockId = (string) ($block['id'] ?? '');
+                    $landingBi  = $tplBlockId !== '' ? ($landingBlockIdToIndex[$tplBlockId] ?? null) : null;
+                    if ($landingBi !== null) $promptKey = "landing:$landingPageFile:$landingBi:$path";
+                }
+            }
             $slots[] = [
                 'key'        => $slotKey,
                 'scope'      => $scope,
@@ -444,6 +498,18 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
                 'alt_field'  => $altPath,
                 'alt'        => $altVal,
                 'pair'       => $isToken ? null : picdrop_pairs_resolve($slotKey, $value),
+                // Is this slot currently in Force-regenerate's scope? A token slot
+                // (city_image etc.) can never be captured — ms_image_ai_prompt_capture()
+                // refuses scopes/values it doesn't cover, so this is never a false
+                // positive, just possibly a false "not yet" for a scope that could
+                // never be true anyway (core pages outside the multisite flow, or a
+                // template with no page built on the master itself — $promptKey null).
+                'prompt_captured' => !$isToken && $promptKey !== null && isset($capturedPrompts[$promptKey]),
+                // What Pic Drop's tick mark should actually read/write — see $promptKey
+                // above. Exposed separately from 'key' so a template row's OWN actions
+                // (place/generate/etc, which correctly act on the template itself) are
+                // never accidentally pointed at the translated landing key instead.
+                'prompt_key' => $promptKey,
             ];
         }
     }

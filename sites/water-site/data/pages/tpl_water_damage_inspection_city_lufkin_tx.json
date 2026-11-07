@@ -210,7 +210,7 @@
             "hs_photo_alt": "Water damage inspection & assessment in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/water-damage-inspection-assessment-lufkin-tx__tpl_water_damage_inspection_city_lufkin_tx_cb295b06.webp",
+            "hs_photo": "sites/water-site/uploads/media/water-damage-inspection-assessment-lufkin-tx__tpl_water_damage_inspection_city_lufkin_tx_d336d98e.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx-lufkin-tx-cde308.webp",
             "it_alt": "Technician using a moisture meter and thermal camera to assess water damage in a kitchen in {city_state}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Water Damage Inspection & Assessment in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/water-damage-inspection-lufkin-tx/",
-        "meta_description": "Professional assessment identifies visible and hidden moisture, helping guide appropriate remediation steps. Serving {city_state}. Call {phone}.",
+        "meta_description": "Water damage inspection & assessment finds visible and hidden moisture to guide the right remediation steps. Serving {city_state}. Call {phone}.",
         "meta_keywords": "water damage inspection & assessment Lufkin TX, water damage assessment Lufkin, moisture inspection Lufkin, water damage evaluation Lufkin",
         "og_title": "Water Damage Inspection & Assessment in {city_state} | {business}",
         "og_description": "24/7 water damage inspection & assessment in {city_state}. Fast, professional local response.",
@@ -564,11 +576,23 @@
         "bc_label": "Water Damage Inspection & Assessment",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage inspection & assessment in Lufkin, TX — water damage assessment, moisture inspection and water damage evaluation.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage inspection & assessment in Lufkin, TX \\u2014 water damage assessment, moisture inspection and water damage evaluation.\"\n}",
         "primary_keyword": "Water Damage Inspection & Assessment",
-        "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate"
+        "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate",
+        "meta_description_pool": [
+            "Water Damage Inspection & Assessment in {city_state}: connect with local providers who check for visible and hidden moisture to guide next steps. Call {phone}.",
+            "Need a Water Damage Inspection & Assessment near {city_state}? We connect you fast to independent local providers who assess visible and hidden moisture. Call {phone}.",
+            "{city_state} Water Damage Inspection & Assessment: get linked to local providers who identify hidden and visible moisture before remediation begins. Call {phone}.",
+            "Looking for Water Damage Inspection & Assessment in {city_state}? We quickly connect you with local providers who evaluate moisture issues. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Water Damage Inspection & Assessment in {city_state}, available 24/7 — connect fast with independent local providers ready to evaluate the damage.",
+            "Need a Water Damage Inspection & Assessment near {city_state}? Get connected quickly to local, independent providers who respond around the clock.",
+            "{city_state} Water Damage Inspection & Assessment: this site links you to responsive local providers who assess property damage anytime, day or night.",
+            "Searching for Water Damage Inspection & Assessment in {city_state}? We connect you fast to independent local pros available 24/7 for on-site evaluation."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:47+00:00",
-    "template_version": "977c4e6835e57f06201b6402d36982ee"
+    "generated_at": "2026-11-07T20:03:03+00:00",
+    "template_version": "07a519b235590c50e79e040b9e19e3d7"
 }

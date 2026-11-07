@@ -200,8 +200,8 @@
             "hs_photo_alt": "Residential Pest Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/residential-pest-control-littleton-co__tpl_residential_pest_control_littleton-co_f65300c0.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/residential-pest-control-littleton-co__tpl_residential_pest_control_littleton-co_338a7b9e.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-368e83.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-residential-pest_665a8b-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-residential-pest_665a8b-littleton-co-368e83.webp",
             "it_alt": "Residential Pest Control in a {city_state} property",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,40 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/pest-control-plans-{city_slug}",
-                    "text": "pest control plans"
-                },
-                {
-                    "url": "/emergency-pest-control-{city_slug}",
-                    "text": "emergency pest control"
-                },
-                {
-                    "url": "/pest-inspection-{city_slug}",
-                    "text": "pest inspection"
-                },
-                {
-                    "url": "/ant-pest-control-{city_slug}",
-                    "text": "ant pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                },
-                {
-                    "url": "/termite-treatment-{city_slug}",
-                    "text": "termite treatment"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -484,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Get residential pest control for your {city} home or business today.",
             "cb_subtext": "",
@@ -514,7 +505,7 @@
     "seo": {
         "seo_title": "Residential Pest Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/residential-pest-control-littleton-co/",
-        "meta_description": "Homes provide shelter and food sources that attract unwanted pests year-round. Serving {city_state}. Call {phone}.",
+        "meta_description": "Residential pest control protects homes from the pests shelter and food sources attract. Serving {city_state}. Call {phone}.",
         "meta_keywords": "residential pest control Littleton CO, residential exterminator, home pest control, house pest control",
         "og_title": "Residential Pest Control in {city_state} | {business}",
         "og_description": "Professional residential pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -526,11 +517,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Residential Pest Control in Littleton, CO\",\n            \"serviceType\": \"Residential Pest Control\",\n            \"description\": \"Professional residential pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Residential Pest Control in Littleton, CO\",\n            \"serviceType\": \"Residential Pest Control\",\n            \"description\": \"Professional residential pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Residential Pest Control",
-        "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
+        "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control",
+        "meta_description_pool": [
+            "Residential Pest Control in {city_state}: connect with local providers who respond fast to keep household pests away. Call {phone} to get started.",
+            "Looking for Residential Pest Control near {city_state}? We'll connect you with responsive local providers ready to help. Call {phone} today.",
+            "{city_state} homeowners can find Residential Pest Control help fast—we connect you to independent local providers. Call {phone} now.",
+            "Get matched with local Residential Pest Control providers serving {city_state}, ready to address pest issues quickly. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Residential Pest Control in {city_state}: {business} connects you with local providers for fast response and recurring service options to help manage pests. Call {phone}.",
+            "Need Residential Pest Control in {city_state}? {business} links homeowners to responsive local providers offering treatment plans and follow-up visits. Call {phone}.",
+            "{city_state} Residential Pest Control made easy — {business} quickly connects you with independent local providers ready to address pest issues. Call {phone} today.",
+            "Residential Pest Control near {city_state}: {business} helps you reach local providers fast, with recurring service options available. Call {phone} to get connected."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:53+00:00",
-    "template_version": "0a30b6d2f0cdea6792666bcc4f3c11fe"
+    "generated_at": "2026-11-07T20:04:28+00:00",
+    "template_version": "a5581eda1a27c28c310fbe92cdba0215"
 }

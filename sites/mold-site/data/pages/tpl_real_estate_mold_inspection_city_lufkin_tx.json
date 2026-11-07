@@ -2,7 +2,7 @@
     "template_id": "tpl_real_estate_mold_inspection",
     "city_id": "city_lufkin_tx",
     "slug": "real-estate-mold-inspection-lufkin-tx",
-    "title": "Home Inspection Mold Testing in {city_state} | {business}",
+    "title": "Real Estate Mold Inspection in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_b579fb_dc2032.webp",
+            "hs_photo": "sites/mold-site/uploads/media/real-estate-mold-inspection-lufkin-tx__tpl_real_estate_mold_inspection_city_lufkin_tx_131d0377.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -204,7 +204,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/mold-site/uploads/media/mold-inspection-mold-growth-on-wall.webp"
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_08131a_e6c678.webp"
         },
         {
             "type": "trust_bar",
@@ -224,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_92ce67_a03552.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_6ad551_7215dd-lufkin-tx-eaaf9e.webp",
             "it_alt": "Local provider conducting {service} in a {city_state} home, connected through {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -233,7 +233,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-inspection-and-testing.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_6ad551_7215dd.webp"
         },
         {
             "type": "ai_block",
@@ -412,25 +412,37 @@
         }
     ],
     "seo": {
-        "seo_title": "Home Inspection Mold Testing in {city_state} | {business_short}",
+        "seo_title": "Real Estate Mold Inspection in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/real-estate-mold-inspection-lufkin-tx/",
-        "meta_description": "Home inspection mold testing flags moisture concerns before a home sale or purchase moves forward. Serving {city_state}. Call {phone}.",
+        "meta_description": "Real estate mold inspection flags moisture concerns before a home sale or purchase moves forward. Serving {city_state}. Call {phone}.",
         "meta_keywords": "home inspection mold Lufkin, mold testing for home inspection Lufkin, real estate mold inspection Lufkin, pre purchase mold inspection Lufkin",
-        "og_title": "Home Inspection Mold Testing in {city_state} | {business}",
-        "og_description": "Home Inspection Mold Testing in {city_state} — fast, local response for buyers, sellers, and agents. Call {phone} to connect with a local provider.",
+        "og_title": "Real Estate Mold Inspection in {city_state} | {business}",
+        "og_description": "Real Estate Mold Inspection in {city_state} — fast, local response for buyers, sellers, and agents. Call {phone} to connect with a local provider.",
         "og_image": "sites/mold-site/uploads/media/ai_cc6653_2577de.webp",
-        "service_name": "Home Inspection Mold Testing",
-        "service_type": "Home Inspection Mold Testing",
+        "service_name": "Real Estate Mold Inspection",
+        "service_type": "Real Estate Mold Inspection",
         "service_area": "{city_state} and surrounding areas",
         "service_description": "A thorough mold inspection and testing service for mold concerns found during a home inspection, helping buyers, sellers, and agents make informed decisions on properties in {city_state}.",
-        "bc_label": "Home Inspection Mold Testing",
+        "bc_label": "Real Estate Mold Inspection",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Home Inspection Mold Testing\",\n    \"name\": \"Home Inspection Mold Testing in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Home Inspection Mold Testing in Lufkin, TX \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it, to support informed real estate decisions.\"\n}",
-        "primary_keyword": "Home Inspection Mold Testing",
-        "secondary_keywords": "home inspection mold, mold testing for home inspection, real estate mold inspection, pre purchase mold inspection, mold inspection before buying a house"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Real Estate Mold Inspection\",\n    \"name\": \"Real Estate Mold Inspection in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Real Estate Mold Inspection in Lufkin, TX \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it, to support informed real estate decisions.\"\n}",
+        "primary_keyword": "Real Estate Mold Inspection",
+        "secondary_keywords": "home inspection mold, mold testing for home inspection, real estate mold inspection, pre purchase mold inspection, mold inspection before buying a house",
+        "meta_description_pool": [
+            "Real Estate Mold Inspection in {city_state}: connect with local providers who check homes for moisture concerns before a sale closes. Call {phone}.",
+            "Need a Real Estate Mold Inspection near {city_state}? We connect buyers and sellers with independent local providers who assess homes before closing. Call {phone}.",
+            "Real Estate Mold Inspection services for {city_state} homes: get linked to local providers who evaluate moisture issues ahead of a sale. Call {phone} today.",
+            "Buying or selling in {city_state}? Find local providers offering Real Estate Mold Inspection to spot moisture concerns before the deal moves forward. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Real Estate Mold Inspection in {city_state}: connecting buyers, sellers, and agents with local, independent providers for a fast response. Call {phone} to get started.",
+            "Need a Real Estate Mold Inspection near {city_state}? We quickly connect you with a responsive local provider serving buyers, sellers, and agents. Call {phone} today.",
+            "Real Estate Mold Inspection, {city_state} — local providers ready to assist buyers, sellers, and agents with a fast connection. Dial {phone} to get matched now.",
+            "Looking for Real Estate Mold Inspection in {city_state}? This service links you fast to an independent local provider for buyers, sellers, and agents. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "8c9f8f5c4e3f1cb9c558453c573cfd65"
+    "generated_at": "2026-11-07T20:03:45+00:00",
+    "template_version": "4245bc86f0cace4d4083ac7d813bceb8"
 }

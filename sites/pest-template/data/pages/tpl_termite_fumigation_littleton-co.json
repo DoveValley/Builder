@@ -1,0 +1,440 @@
+{
+    "template_id": "tpl_termite_fumigation",
+    "city_id": "littleton-co",
+    "slug": "termite-fumigation-littleton-co",
+    "title": "Termite Fumigation in {city_state} | {business_short}",
+    "city_vars": {
+        "id": "littleton-co",
+        "city": "Littleton",
+        "state": "Colorado",
+        "SS": "CO",
+        "city_slug": "littleton-co",
+        "zip": "76092",
+        "address": "1179 East Dove Rd",
+        "lat": "39.613321",
+        "lng": "-105.016649",
+        "tags": [
+            "first-city-site-view"
+        ],
+        "salary_note": "",
+        "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+        "neighborhoods": [
+            "Downtown Littleton",
+            "Ken Caryl",
+            "Columbine",
+            "Southbridge",
+            "Governor's Ranch",
+            "Grant Ranch",
+            "Chatfield"
+        ],
+        "population": 46333,
+        "neighborhoods_auto": 0,
+        "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+        "city_spotlight": "Just south of Denver, Littleton, CO carries the easy confidence of a place that's long balanced big industry with small-town charm. Roughly 46,000 people call it home, many connected to the sprawling Lockheed Martin Space campus that anchors a local economy built on aerospace and defense, supported by healthcare, government, and education employers like Littleton Public Schools and Arapahoe Community College. Plenty of residents also commute into Denver's tech and professional services scene, making Littleton a comfortable landing spot between city ambition and quieter streets.\n\nDowntown Littleton still sets the tone, its historic storefronts filled with independent shops and restaurants that draw both locals and visitors. Out toward neighborhoods like Ken Caryl and Columbine, the pace softens into front-range foothill views, parks, and the kind of steady, community-minded living that keeps people here for good.",
+        "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+        "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+        "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+        "industries": [
+            "Aerospace & Defense",
+            "Healthcare",
+            "Technology",
+            "Government/Public Administration",
+            "Retail & Tourism",
+            "Education"
+        ],
+        "top_employers": [
+            "Lockheed Martin Space",
+            "Littleton Public Schools",
+            "Centura Health - Littleton Adventist Hospital",
+            "City of Littleton",
+            "Arapahoe County Government",
+            "Arapahoe Community College",
+            "Trulite Glass & Aluminum Solutions",
+            "Charter Communications",
+            "Sysco Denver",
+            "Cornerstone Building Brands"
+        ],
+        "_researched": 1,
+        "freeze_days_monthly": [
+            29.3,
+            25.9,
+            21.2,
+            10.4,
+            2.3,
+            0.2,
+            0,
+            0,
+            0.4,
+            7.7,
+            20.6,
+            29.1
+        ],
+        "freeze_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "heavy_rain_days_monthly": [
+            0,
+            0,
+            0.1,
+            0.3,
+            0.6,
+            0.3,
+            0.4,
+            0.3,
+            0.1,
+            0.1,
+            0,
+            0
+        ],
+        "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "homes_by_decade": {
+            "Before 1960": 20.2,
+            "1960-1979": 26.7,
+            "1980-1999": 32.1,
+            "2000-2009": 11.8,
+            "2010 or later": 9.2
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Littleton city (21,506 housing units)",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            0,
+            0.5,
+            6.6,
+            14.7,
+            8.9,
+            2.3,
+            0,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "rainfall_monthly": [
+            0.48,
+            0.67,
+            1.19,
+            2.07,
+            2.73,
+            1.87,
+            2.05,
+            1.85,
+            1.26,
+            1.04,
+            0.74,
+            0.61
+        ],
+        "rainfall_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "frost_free_days": 160,
+        "frost_free_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "nearby_towns": [
+            {
+                "name": "Englewood",
+                "miles": 5
+            },
+            {
+                "name": "Sheridan",
+                "miles": 5
+            },
+            {
+                "name": "Centennial",
+                "miles": 8
+            },
+            {
+                "name": "Highlands Ranch",
+                "miles": 7
+            },
+            {
+                "name": "Lone Tree",
+                "miles": 10
+            },
+            {
+                "name": "Columbine Valley",
+                "miles": 3
+            },
+            {
+                "name": "Bow Mar",
+                "miles": 4
+            },
+            {
+                "name": "Denver",
+                "miles": 10
+            }
+        ],
+        "neighborhoods_source": "verified",
+        "wet_days_monthly": [
+            2.3,
+            2,
+            2.8,
+            4.4,
+            6.1,
+            4.2,
+            4.6,
+            3.9,
+            3.3,
+            2.9,
+            1.9,
+            1.7
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, MARSTON FLTR PLT, CO US station (2.7 mi from Littleton)",
+        "noaa_station": "USC00055402",
+        "noaa_station_miles": 2.7,
+        "noaa_fetched_at": "2026-10-04",
+        "county_fips": "08005",
+        "county_name": "Arapahoe County",
+        "freeze_last_spring": "05/02",
+        "freeze_first_fall": "10/11",
+        "growing_degree_days": 2772.3,
+        "nights_below_50": 264.1,
+        "figures_fetched_at": "2026-10-04",
+        "acs_fetched_at": "2026-10-04"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Whole-home termite fumigation for {city_state} properties with severe or widespread termite activity. The local providers we connect you with tent and treat the entire structure.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Termite fumigation technician tenting a {city_state} home",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/termite-fumigation-littleton-co__tpl_termite_fumigation_littleton-co_0ee21f71.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-b071b1.webp",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ai_9ac785_4f1324.webp",
+            "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": "@safe_trust_badges",
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "season",
+            "html": "<!--pest_season-->"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/pest-template/uploads/media/ai_74cb48_ee5474-littleton-co-b071b1.webp",
+            "it_alt": "{business} technician preparing a {city_state} home for termite fumigation",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/pest-template/uploads/media/ai_74cb48_ee5474.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Termite Fumigation Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Inspection & Assessment",
+                    "text": "A local technician inspects the home, confirms the extent of the termite activity, and determines whether whole-structure fumigation is needed."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Tenting & Treatment",
+                    "text": "The structure is tented and fumigated to eliminate termites throughout the home, then the tent is removed and the property is cleared safe for re-entry."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Ready to schedule termite fumigation in {city}? A local provider can get started fast.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#120575",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_moisture}",
+            "it_alt": "{chart_group_moisture_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_it_photo_prechart": "sites/pest-template/uploads/media/best-termite-inspection_347d82.webp",
+            "it_caption": "{chart_group_moisture_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 3,
+            "rl_items": [
+                {
+                    "url": "/termite-treatment-{city_slug}",
+                    "text": "termite treatment"
+                },
+                {
+                    "url": "/termite-inspection-{city_slug}",
+                    "text": "termite inspection"
+                },
+                {
+                    "url": "/wdi-inspection-{city_slug}",
+                    "text": "wdi inspection"
+                },
+                {
+                    "url": "/carpenter-ant-control-{city_slug}",
+                    "text": "carpenter ant control"
+                },
+                {
+                    "url": "/residential-pest-control-{city_slug}",
+                    "text": "residential pest control"
+                },
+                {
+                    "url": "/pest-control-plans-{city_slug}",
+                    "text": "pest control plans"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Dealing with severe termites in {city}? Get fast, whole-home fumigation from a local provider.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Termite Fumigation in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/termite-fumigation-littleton-co/",
+        "meta_description": "Termite fumigation tents and treats the entire structure, eliminating termite colonies a localized treatment can't reach. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "termite fumigation Littleton CO, tent fumigation, whole-home termite fumigation, termite tenting",
+        "og_title": "Termite Fumigation in {city_state} | Whole-Home Termite Treatment",
+        "og_description": "Get rid of severe termite infestations fast with professional termite fumigation in {city_state}. Whole-structure treatment for homes and businesses, from a local provider.",
+        "og_image": "",
+        "service_name": "Termite Fumigation",
+        "service_type": "Termite Fumigation",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional termite fumigation services in {city_state}. Whole-structure tenting and treatment for severe termite infestations, with fast local response.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Termite Fumigation in Littleton, CO\",\n            \"serviceType\": \"Termite Fumigation\",\n            \"description\": \"Professional termite fumigation services in Littleton, CO. Whole-structure tenting and treatment for severe termite infestations, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Termite Fumigation",
+        "secondary_keywords": "tent fumigation, whole-home termite fumigation, termite tenting, structural fumigation, termite tent treatment",
+        "meta_description_pool": [
+            "Termite Fumigation in {city_state}: get connected fast to local providers who handle whole-home tenting for severe termite activity. Call {phone} today.",
+            "Need Termite Fumigation near {city_state}? We connect you with local, responsive providers who tent and treat the entire structure. Call {phone}.",
+            "Termite Fumigation, {city_state}: quickly find local independent providers ready to address severe termite infestations. Call {phone} to get connected now.",
+            "Searching for Termite Fumigation in {city_state}? We link you to responsive local providers who tent and treat homes before costly damage occurs. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Termite Fumigation in {city_state} starts with a quick connection to an independent local provider serving homes and businesses in your area.",
+            "Need Termite Fumigation near {city_state}? We connect you fast to a local, independent provider ready to handle whole-home tenting nearby.",
+            "Searching for Termite Fumigation in {city_state}? Get matched quickly with a local independent provider serving residential and commercial properties.",
+            "{city_state} Termite Fumigation made simple — we link you to a responsive local provider who serves both homes and businesses in the area."
+        ]
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-11-07T20:04:32+00:00",
+    "template_version": "6efc47d2b4301480bb4c9a1bbc8231ef"
+}

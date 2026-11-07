@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_3d333c_69b0b9.webp",
+            "hs_photo": "sites/mold-site/uploads/media/indoor-air-quality-testing-lufkin-tx__tpl_air_quality_testing_city_lufkin_tx_99bc218e.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/air-inspection-_7f5d60.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-prevention-and-maintenance-lufkin-tx-ac0ce3.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -539,9 +539,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Indoor Air Quality Testing\",\n    \"name\": \"Indoor Air Quality Testing in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Indoor Air Quality Testing in Lufkin, TX \\u2014 indoor air quality and mold air sampling.\"\n}",
         "primary_keyword": "Indoor Air Quality Testing",
-        "secondary_keywords": "air quality inspection, indoor air quality mold, indoor air quality test, mold spore testing, air sampling for mold, indoor air quality assessment"
+        "secondary_keywords": "air quality inspection, indoor air quality mold, indoor air quality test, mold spore testing, air sampling for mold, indoor air quality assessment",
+        "meta_description_pool": [
+            "Indoor Air Quality Testing in {city_state} connects you with local providers who check for airborne particles and contaminants. Call {phone} to get started.",
+            "Need Indoor Air Quality Testing near {city_state}? We'll connect you with local providers who assess your space for airborne contaminants. Call {phone}.",
+            "Indoor Air Quality Testing available in {city_state} through local independent providers who evaluate airborne particle levels. Reach us at {phone}.",
+            "Looking for Indoor Air Quality Testing in {city_state}? Get connected to local providers who can assess contaminants in your space. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Indoor Air Quality Testing in {city_state}: call {phone} and get connected quickly with a local independent provider near you.",
+            "Need Indoor Air Quality Testing in {city_state}? Dial {phone} for a fast, local connection to an independent service provider.",
+            "Indoor Air Quality Testing in {city_state} starts with one call — reach {phone} to connect with a responsive local provider.",
+            "Looking for Indoor Air Quality Testing in {city_state}? {phone} connects you fast with a local independent provider ready to help."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:48+00:00",
-    "template_version": "1cdc47f17c6b08285a908a59d1b4c222"
+    "generated_at": "2026-11-07T20:03:40+00:00",
+    "template_version": "95b29a43e0450924aae340999b6309ac"
 }

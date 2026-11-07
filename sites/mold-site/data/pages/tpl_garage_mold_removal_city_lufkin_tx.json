@@ -2,7 +2,7 @@
     "template_id": "tpl_garage_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "garage-mold-removal-lufkin-tx",
-    "title": "Garage Mold Removal in {city_state} | {business}",
+    "title": "Garage Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
+            "hs_photo": "sites/mold-site/uploads/media/garage-mold-removal-lufkin-tx__tpl_garage_mold_removal_city_lufkin_tx_d2ffc0ba.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_612116_8b44f1.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_d06238_b70937-lufkin-tx-ad2106.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -232,7 +233,7 @@
             "_ai_locked": false,
             "_ai_generated": false,
             "id": "ai_block_1",
-            "_it_photo_orig": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp"
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_d06238_b70937.webp"
         },
         {
             "type": "ai_block",
@@ -421,7 +422,7 @@
         "meta_keywords": "garage mold remediation Lufkin, garage mold treatment Lufkin, mold in garage Lufkin, garage mold removal near me Lufkin",
         "og_title": "Garage Mold Removal in {city_state} | {business}",
         "og_description": "Garage Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/flooded-garage-water-damage.webp",
         "service_name": "Garage Mold Removal",
         "service_type": "Garage Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -431,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Garage Mold Removal\",\n    \"name\": \"Garage Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Garage Mold Removal in Lufkin, TX \\u2014 garage mold removal and moisture control services.\"\n}",
         "primary_keyword": "Garage Mold Removal",
-        "secondary_keywords": "garage mold remediation, mold on garage walls, mold on the garage ceiling, garage mold cleanup"
+        "secondary_keywords": "garage mold remediation, mold on garage walls, mold on the garage ceiling, garage mold cleanup",
+        "meta_description_pool": [
+            "Garage Mold Removal in {city_state}: get connected with local providers who address humidity, poor airflow, and water intrusion issues. Call {phone}.",
+            "Need Garage Mold Removal near {city_state}? We connect you with independent local providers who handle damp, musty garage spaces. Call {phone} today.",
+            "Garage Mold Removal, {city_state} — fast, local connections to independent providers experienced with moisture and airflow problems. Call {phone} now.",
+            "Looking for Garage Mold Removal in {city_state}? This service links you to local independent providers who tackle humidity and water intrusion. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Garage Mold Removal in {city_state}: connect quickly with an independent local provider near you — call {phone} today.",
+            "Need Garage Mold Removal in {city_state}? We link you to responsive local providers fast — dial {phone} to get started.",
+            "Garage Mold Removal, {city_state} — get matched with a nearby independent provider right away by calling {phone}.",
+            "Looking for Garage Mold Removal near {city_state}? Call {phone} and we'll connect you with a local provider promptly."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "0d3865b47fc8eb4a9eb4180af11574e4"
+    "generated_at": "2026-11-07T20:03:44+00:00",
+    "template_version": "24245c07424981aebbd6d6ba91803a5b"
 }

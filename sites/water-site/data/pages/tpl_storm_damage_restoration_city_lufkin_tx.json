@@ -210,7 +210,7 @@
             "hs_photo_alt": "Storm-damaged property — storm damage restoration in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/storm-damage-restoration-lufkin-tx__tpl_storm_damage_restoration_city_lufkin_tx_810b697e.webp",
+            "hs_photo": "sites/water-site/uploads/media/storm-damage-restoration-lufkin-tx__tpl_storm_damage_restoration_city_lufkin_tx_93e14fa7.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -241,7 +241,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-lufkin-tx-lufkin-tx-57fc8f.webp",
             "it_alt": "Water-damaged bathroom — weather damage in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -330,7 +330,7 @@
         {
             "type": "steps",
             "skin": "",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_heading_level": "h2",
             "steps_items": [
                 {
@@ -540,6 +540,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "skin": "",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
@@ -574,7 +586,7 @@
         "secondary_keywords": "weather damage, storm damage repair, storm damage cleanup, storm restoration, catastrophic storm response",
         "seo_title": "Storm Damage Restoration in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/storm-damage-restoration-lufkin-tx/",
-        "meta_description": "High winds and falling debris compromise roofs, walls, and interiors, exposing homes to ongoing weather. Serving {city_state}. Call {phone}.",
+        "meta_description": "Storm damage restoration repairs the harm high winds and falling debris do to roofs, walls, and interiors. Serving {city_state}. Call {phone}.",
         "meta_keywords": "storm damage restoration Lufkin TX, weather damage Lufkin, storm damage repair Lufkin, storm damage cleanup Lufkin",
         "og_title": "Storm Damage Restoration in {city_state} | {business}",
         "og_description": "24/7 storm damage restoration in {city_state}. Fast, professional local response.",
@@ -588,9 +600,15 @@
         "bc_mid_url": "",
         "og_type": "website",
         "robots_noindex": false,
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Storm Damage Restoration\",\n    \"name\": \"Storm Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 storm damage restoration in Lufkin, TX — weather damage, storm damage repair and storm damage cleanup.\"\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Storm Damage Restoration\",\n    \"name\": \"Storm Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 storm damage restoration in Lufkin, TX \\u2014 weather damage, storm damage repair and storm damage cleanup.\"\n}",
+        "meta_description_pool": [
+            "Storm Damage Restoration in {city_state}: get connected fast to local providers who repair wind and debris damage to roofs, walls, and interiors. Call {phone}.",
+            "Need Storm Damage Restoration near {city_state}? We connect you quickly with independent local providers handling roof, wall, and interior repairs. Call {phone}.",
+            "Storm Damage Restoration services for {city_state} homes: find local, independent providers ready to address wind and debris damage. Call {phone} now.",
+            "{city_state} Storm Damage Restoration made simple — we link you to responsive local providers who repair roofs, walls, and interiors. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:40+00:00",
-    "template_version": "e7d659ba14f297c1982b93ab257147c4"
+    "generated_at": "2026-11-07T20:02:55+00:00",
+    "template_version": "c6515ab5743d8d8ea2e9f899fa6b44c0"
 }

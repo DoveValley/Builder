@@ -210,7 +210,7 @@
             "hs_photo_alt": "Water-damaged ceiling — ceiling water damage in {city_state} by {business}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/water-site/uploads/media/ceiling-water-damage-lufkin-tx__tpl_ceiling_water_damage_city_lufkin_tx_aa348e2f.webp",
+            "hs_photo": "sites/water-site/uploads/media/ceiling-water-damage-lufkin-tx__tpl_ceiling_water_damage_city_lufkin_tx_63af4b20.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -239,7 +239,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-2-lufkin-tx-lufkin-tx.webp",
+            "it_photo": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-2-lufkin-tx-lufkin-tx-b32460.webp",
             "it_alt": "Water-damaged ceiling — ceiling water damage repair in {city_state} by {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -327,7 +327,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works in {city_state}?",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -522,6 +522,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -552,7 +564,7 @@
     "seo": {
         "seo_title": "Ceiling Water Damage in {city_state} | {business_short}",
         "canonical_url": "https://freemanrestoration.com/ceiling-water-damage-lufkin-tx/",
-        "meta_description": "Overhead leaks saturate insulation and structural elements, creating collapse hazards and hidden moisture. Serving {city_state}. Call {phone}.",
+        "meta_description": "Ceiling water damage repair clears the saturated insulation and structural risk an overhead leak creates. Serving {city_state}. Call {phone}.",
         "meta_keywords": "ceiling water damage Lufkin TX, ceiling water damage repair Lufkin, water stained ceiling Lufkin, ceiling leak repair Lufkin",
         "og_title": "Ceiling Water Damage in {city_state} | {business}",
         "og_description": "24/7 ceiling water damage in {city_state}. Fast, professional local response.",
@@ -564,11 +576,23 @@
         "bc_label": "Ceiling Water Damage",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Water Damage\",\n    \"name\": \"Ceiling Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 ceiling water damage in Lufkin, TX — ceiling water damage repair, water stained ceiling and ceiling leak repair.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Water Damage\",\n    \"name\": \"Ceiling Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://freemanrestoration.com/#localbusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 ceiling water damage in Lufkin, TX \\u2014 ceiling water damage repair, water stained ceiling and ceiling leak repair.\"\n}",
         "primary_keyword": "Ceiling Water Damage",
-        "secondary_keywords": "ceiling water damage repair, water stained ceiling, ceiling leak repair"
+        "secondary_keywords": "ceiling water damage repair, water stained ceiling, ceiling leak repair",
+        "meta_description_pool": [
+            "Ceiling Water Damage in {city_state}? Get connected fast to local providers who handle overhead leaks and saturated insulation. Call {phone} now.",
+            "Facing Ceiling Water Damage near {city_state}? We connect you with independent local pros ready to assess the leak and structural risk. Call {phone}.",
+            "{city_state} Ceiling Water Damage: find local, responsive providers through our network to address overhead leaks fast. Call {phone} to get started.",
+            "Ceiling Water Damage affecting your {city_state} home? Our network links you to local providers who respond quickly to overhead leaks. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Ceiling Water Damage in {city_state}? Get connected 24/7 to responsive local providers ready to help, day or night.",
+            "Facing Ceiling Water Damage in {city_state}? This service links you fast to independent local providers who handle the repair work.",
+            "Ceiling Water Damage in {city_state} needs quick attention — we connect you around the clock to local providers near you.",
+            "Dealing with Ceiling Water Damage in {city_state}? We'll match you with a responsive local provider ready to respond anytime."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:09:43+00:00",
-    "template_version": "c6d8e7e46665e06d26016cddee73482d"
+    "generated_at": "2026-11-07T20:02:58+00:00",
+    "template_version": "98d643f77eca1ad5a32062e5a0c84335"
 }

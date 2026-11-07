@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/miele-appliance-repair-lufkin-tx__tpl_miele_appliance_repair_city_lufkin_tx_596ce335.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/miele-appliance-repair-lufkin-tx__tpl_miele_appliance_repair_city_lufkin_tx_6a0b4987.webp",
             "hs_photo_alt": "Miele Appliance Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-4a3828.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -192,18 +193,15 @@
             "id": "ai_block_1"
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "{chart_group_water}",
-            "it_alt": "{chart_group_water_alt}",
-            "_it_photo_prechart": "",
-            "it_caption": "{chart_group_water_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked",
-            "id": "ai_block_1"
+            "type": "error_codes",
+            "ec_heading": "",
+            "ec_brand": "auto",
+            "ec_type": "auto",
+            "ec_max": 12,
+            "ec_intro": "",
+            "ec_cta_text": "",
+            "ec_cta_url": "",
+            "id": "error_codes_1"
         },
         {
             "type": "ai_block",
@@ -339,6 +337,17 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need Miele appliance repair in {city}? We'll connect you with a provider who knows your brand.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -385,15 +394,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -461,9 +461,21 @@
         "brand": "Miele",
         "appliance_type": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Miele Appliance Repair\",\n            \"description\": \"Professional Miele appliance repair in Lufkin, TX from Wells Appliance Repair. Responsive local providers, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
-        "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Freezer"
+        "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Freezer",
+        "meta_description_pool": [
+            "Miele Appliance Repair in {city_state}: get connected with independent local providers familiar with Miele's precise component designs. Call {phone}.",
+            "Looking for Miele Appliance Repair near {city_state}? This service connects you to local independent providers, often with fast availability. Call {phone}.",
+            "Miele Appliance Repair, {city_state} — Miele's German engineering uses specific parts and materials; we connect you to local independent providers. Call {phone}.",
+            "Find Miele Appliance Repair support serving {city_state}. We link you to independent local providers who can address Miele's unique designs. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Miele Appliance Repair in {city_state}: {business} connects you with responsive local providers, often available same-day. Call {phone}.",
+            "Need Miele Appliance Repair near {city_state}? {business} links you to fast, independent local providers. Call {phone} to get started.",
+            "{business} helps {city_state} residents find Miele Appliance Repair fast, connecting you with responsive local providers. Call {phone} today.",
+            "Find Miele Appliance Repair in {city_state} through {business}, your connection to local independent providers, often same-day. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "915e3d479af5abe39c941615afe6a28c"
+    "generated_at": "2026-11-07T19:56:21+00:00",
+    "template_version": "312df8121dddd9a2de82fba00f941f6b"
 }

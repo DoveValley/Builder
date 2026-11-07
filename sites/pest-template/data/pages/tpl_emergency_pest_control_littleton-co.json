@@ -200,8 +200,8 @@
             "hs_photo_alt": "Emergency Pest Control in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/emergency-pest-control-littleton-co__tpl_emergency_pest_control_littleton-co_80ee4213.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/emergency-pest-control-littleton-co__tpl_emergency_pest_control_littleton-co_1c0cc79f.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-ad4094.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-emergency-exterminator_283ecd-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-emergency-exterminator_283ecd-littleton-co-ad4094.webp",
             "it_alt": "Emergency Pest Control in a {city_state} property",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,40 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                },
-                {
-                    "url": "/rat-exterminator-{city_slug}",
-                    "text": "rat exterminator"
-                },
-                {
-                    "url": "/wasp-nest-removal-{city_slug}",
-                    "text": "wasp nest removal"
-                },
-                {
-                    "url": "/residential-pest-control-{city_slug}",
-                    "text": "residential pest control"
-                },
-                {
-                    "url": "/pest-control-plans-{city_slug}",
-                    "text": "pest control plans"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/termite-treatment-{city_slug}",
-                    "text": "termite treatment"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -484,6 +463,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Get emergency pest control for your {city} home or business today.",
             "cb_subtext": "",
@@ -514,7 +505,7 @@
     "seo": {
         "seo_title": "Emergency Pest Control in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/emergency-pest-control-littleton-co/",
-        "meta_description": "Sudden pest emergencies require fast response to minimize spread and property damage. Serving {city_state}. Call {phone}.",
+        "meta_description": "Emergency pest control responds fast to sudden infestations before they spread further. Serving {city_state}. Call {phone}.",
         "meta_keywords": "emergency pest control Littleton CO, same day pest control, 24 hour pest control, same day exterminator",
         "og_title": "Emergency Pest Control in {city_state} | {business}",
         "og_description": "Professional emergency pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -526,11 +517,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Pest Control in Littleton, CO\",\n            \"serviceType\": \"Emergency Pest Control\",\n            \"description\": \"Professional emergency pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Pest Control in Littleton, CO\",\n            \"serviceType\": \"Emergency Pest Control\",\n            \"description\": \"Professional emergency pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Emergency Pest Control",
-        "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator"
+        "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator",
+        "meta_description_pool": [
+            "Emergency Pest Control in {city_state}: get connected fast to local providers ready to respond when infestations strike. Call {phone} today.",
+            "Need Emergency Pest Control near {city_state}? We connect you quickly with independent local providers who respond fast. Call {phone}.",
+            "{city_state} Emergency Pest Control starts with a quick connection to responsive local providers in your area. Call {phone} to get started.",
+            "Facing a sudden infestation in {city_state}? Our network links you to local Emergency Pest Control providers fast. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Emergency Pest Control in {city_state}: {business} connects you fast to independent local providers ready to respond. Call {phone} today.",
+            "Need Emergency Pest Control near {city_state}? {business} links you to responsive local providers who can help quickly. Reach us at {phone}.",
+            "{city_state} Emergency Pest Control, made simple: {business} puts you in touch with local providers fast, plus options for ongoing visits. Call {phone}.",
+            "Facing a pest emergency in {city_state}? {business} quickly connects you with independent local providers for prompt service. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:54+00:00",
-    "template_version": "695c09c805109a7f30803a12603fa6d4"
+    "generated_at": "2026-11-07T20:04:29+00:00",
+    "template_version": "13b4c91428d65d22229730690e6b25ab"
 }

@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/kenmore-dishwasher-repair-lufkin-tx__tpl_kenmore_dishwasher_repair_city_lufkin_tx_70673388.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/kenmore-dishwasher-repair-lufkin-tx__tpl_kenmore_dishwasher_repair_city_lufkin_tx_584b2ff7.webp",
             "hs_photo_alt": "Kenmore Dishwasher Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-16935d.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-16935d.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "kenmore dishwasher repair near me, kenmore dishwasher not draining, kenmore dishwasher not cleaning dishes, kenmore dishwasher service, same day kenmore dishwasher repair",
         "brand": "Kenmore",
         "appliance_type": "Dishwasher",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Kenmore Dishwasher Repair\",\n            \"description\": \"Professional Kenmore dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Kenmore Dishwasher Repair\",\n            \"description\": \"Professional Kenmore dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Kenmore Dishwasher Repair in {city_state}: get connected with independent local providers familiar with Kenmore's fill and drain setups. Call {phone} to start.",
+            "Looking for Kenmore Dishwasher Repair near {city_state}? This service connects you with local independent providers who handle Kenmore's specific fill and drain configurations. Call {phone}.",
+            "Kenmore Dishwasher Repair, {city_state}: Kenmore units often use particular fill and drain configurations, and local independent providers can be reached by calling {phone}.",
+            "In {city_state}, Kenmore Dishwasher Repair requests are matched with independent local providers experienced with Kenmore's fill and drain designs. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "Kenmore Dishwasher Repair in {city_state}: {business} connects you with local providers for fast, responsive service, often available same-day. Call {phone}.",
+            "Need Kenmore Dishwasher Repair near {city_state}? {business} links you to independent local pros who respond quickly, with same-day visits often possible. Call {phone}.",
+            "Kenmore Dishwasher Repair made simple in {city_state} — {business} connects homeowners to responsive local providers, often with same-day availability. Call {phone}.",
+            "Looking for Kenmore Dishwasher Repair in {city_state}? {business} puts you in touch with fast, local independent providers, same-day service often available. Call {phone}."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "2f0e325cf99bd05d24cae4663a1736e9"
+    "generated_at": "2026-11-07T19:56:38+00:00",
+    "template_version": "3c6c25793364372cc46e1bab1fd5f704"
 }

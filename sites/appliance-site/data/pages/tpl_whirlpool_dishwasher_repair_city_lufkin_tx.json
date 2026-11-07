@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/whirlpool-dishwasher-repair-lufkin-tx__tpl_whirlpool_dishwasher_repair_city_lufkin_tx_c1d854bf.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/whirlpool-dishwasher-repair-lufkin-tx__tpl_whirlpool_dishwasher_repair_city_lufkin_tx_9c93444e.webp",
             "hs_photo_alt": "Whirlpool Dishwasher Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-fcbe29.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-fcbe29.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -501,7 +502,7 @@
         }
     ],
     "seo": {
-        "seo_title": "Whirlpool Dishwasher Repair in {city_state}",
+        "seo_title": "Whirlpool Dishwasher Repair in {city_state} | {business_short}",
         "canonical_url": "https://a.q111.xyz/whirlpool-dishwasher-repair-lufkin-tx/",
         "meta_description": "Need Whirlpool Dishwasher Repair? Whirlpool dishwashers may require pump or spray arm assessment. Serving {city_state}. Call {phone}.",
         "meta_keywords": "whirlpool dishwasher repair Lufkin TX",
@@ -519,9 +520,21 @@
         "secondary_keywords": "whirlpool dishwasher repair near me, whirlpool dishwasher not draining, whirlpool dishwasher not cleaning dishes, whirlpool dishwasher service, same day whirlpool dishwasher repair",
         "brand": "Whirlpool",
         "appliance_type": "Dishwasher",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Whirlpool Dishwasher Repair\",\n            \"description\": \"Professional Whirlpool dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Whirlpool Dishwasher Repair\",\n            \"description\": \"Professional Whirlpool dishwasher repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Whirlpool Dishwasher Repair in {city_state}: connect with independent local providers who handle pump or spray arm issues. Call {phone} to get started.",
+            "Looking for Whirlpool Dishwasher Repair near {city_state}? We connect you with local independent providers for pump or spray arm concerns. Call {phone}.",
+            "Whirlpool Dishwasher Repair, {city_state} — get matched with local independent providers who can assess pump or spray arm problems. Call {phone} today.",
+            "In {city_state}, Whirlpool Dishwasher Repair help is a call away: we link you to independent local providers for pump or spray arm issues. Dial {phone}."
+        ],
+        "og_description_pool": [
+            "Whirlpool Dishwasher Repair in {city_state}: {business} connects you with independent local providers for fast response, often same-day. Call {phone}.",
+            "Need Whirlpool Dishwasher Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone} today.",
+            "Whirlpool Dishwasher Repair, {city_state} — {business} helps you find a responsive local provider fast, with same-day availability common. Call {phone}.",
+            "Looking for Whirlpool Dishwasher Repair in {city_state}? {business} puts you in touch with local independent pros quickly. Call {phone} now."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "9841056b28ee72e29cc63b80ed6044de"
+    "generated_at": "2026-11-07T19:56:37+00:00",
+    "template_version": "89bc461bd8be21defded9dec5da38b20"
 }

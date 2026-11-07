@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/lg-cooktop-repair-lufkin-tx__tpl_lg_cooktop_repair_city_lufkin_tx_279facf6.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/lg-cooktop-repair-lufkin-tx__tpl_lg_cooktop_repair_city_lufkin_tx_1bb1e576.webp",
             "hs_photo_alt": "LG Cooktop Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-cooktop.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-a007e7.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-1-lufkin-tx-a007e7.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -434,15 +444,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -515,9 +516,21 @@
         "secondary_keywords": "lg cooktop repair near me, lg cooktop burner not working, lg cooktop igniter not clicking, lg cooktop service, same day lg cooktop repair",
         "brand": "LG",
         "appliance_type": "Cooktop",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"LG Cooktop Repair\",\n            \"description\": \"Professional LG cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"LG Cooktop Repair\",\n            \"description\": \"Professional LG cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "LG Cooktop Repair in {city_state}: connect with independent local providers who handle induction and specialized cooktop issues. Call {phone} today.",
+            "Looking for LG Cooktop Repair near {city_state}? We connect you to local independent providers familiar with induction cooktop technology. Call {phone}.",
+            "LG Cooktop Repair, {city_state} area — get linked to local independent service providers for induction and other cooktop issues. Call {phone} to start.",
+            "In {city_state}, LG Cooktop Repair connections are available through local independent providers experienced with induction models. Call {phone} now."
+        ],
+        "og_description_pool": [
+            "LG Cooktop Repair in {city_state}: {business} connects you with independent local providers for fast response, often available same-day. Call {phone}.",
+            "Need LG Cooktop Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone} to get started.",
+            "{business} helps {city_state} residents find LG Cooktop Repair through local independent providers, with fast responses often available same-day. Call {phone}.",
+            "Looking for LG Cooktop Repair in {city_state}? {business} connects you quickly with independent local providers near you. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "3774bafcbd94231b4fd37dd3496f50f1"
+    "generated_at": "2026-11-07T19:56:22+00:00",
+    "template_version": "702021dacaacede86090dc2d01358509"
 }

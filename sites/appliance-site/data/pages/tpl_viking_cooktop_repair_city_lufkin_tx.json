@@ -141,7 +141,7 @@
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/viking-cooktop-repair-lufkin-tx__tpl_viking_cooktop_repair_city_lufkin_tx_085a749c.webp",
+            "hs_photo": "sites/appliance-site/uploads/media/viking-cooktop-repair-lufkin-tx__tpl_viking_cooktop_repair_city_lufkin_tx_5931ff5e.webp",
             "hs_photo_alt": "Viking Cooktop Repair in {city_state}",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
@@ -157,7 +157,8 @@
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
             "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-cooktop.webp",
-            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light-lufkin-tx-eaf5c9.webp",
+            "_hs_bg_photo_orig": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -173,7 +174,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx.webp",
+            "it_photo": "sites/appliance-site/uploads/media/tech-2-lufkin-tx-eaf5c9.webp",
             "it_alt": "Appliance repair technician in {city_state}",
             "_ai_locked": true,
             "skin": "light",
@@ -392,6 +393,15 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 4,
@@ -438,15 +448,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
@@ -519,9 +520,21 @@
         "secondary_keywords": "viking cooktop repair near me, viking cooktop burner not working, viking cooktop igniter not clicking, viking cooktop service, same day viking cooktop repair",
         "brand": "Viking",
         "appliance_type": "Cooktop",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Cooktop Repair\",\n            \"description\": \"Professional Viking cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Cooktop Repair in Lufkin, TX\",\n            \"serviceType\": \"Viking Cooktop Repair\",\n            \"description\": \"Professional Viking cooktop repair in Lufkin, TX from Wells Appliance Repair. Fast local response, often same-day. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "meta_description_pool": [
+            "Viking Cooktop Repair in {city_state}: get connected with independent local providers who handle commercial-grade burner issues. Call {phone} today.",
+            "Looking for Viking Cooktop Repair near {city_state}? We connect you with local independent providers familiar with Viking's commercial-grade burners. Call {phone}.",
+            "Viking Cooktop Repair, {city_state} — find independent local providers for Viking's commercial-grade burner systems. Fast, local connections. Call {phone}.",
+            "Need Viking Cooktop Repair in {city_state}? This network links you to independent local providers experienced with commercial-grade burner construction. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Viking Cooktop Repair in {city_state}: {business} connects you with independent local providers for fast response, often available same-day. Call {phone}.",
+            "Need Viking Cooktop Repair near {city_state}? {business} links you to local independent providers who respond quickly. Call {phone} to get started.",
+            "Viking Cooktop Repair, {city_state} — {business} quickly connects homeowners to independent local providers, with same-day availability often possible. Call {phone}.",
+            "Looking for Viking Cooktop Repair in {city_state}? {business} puts you in touch with responsive local independent providers fast. Call {phone} today."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-19T06:19:36+00:00",
-    "template_version": "32b5354353151a6650d8e17e4d613edc"
+    "generated_at": "2026-11-07T19:56:33+00:00",
+    "template_version": "1126cd39303551c9516d714013ef9cea"
 }

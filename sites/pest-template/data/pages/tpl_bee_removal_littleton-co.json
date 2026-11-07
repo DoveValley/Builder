@@ -200,8 +200,8 @@
             "hs_photo_alt": "Bee exterminator treating a {city_state} home",
             "hs_image_side": "right",
             "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/bee-removal-littleton-co__tpl_bee_removal_littleton-co_4991c78d.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co.webp",
+            "hs_photo": "sites/pest-template/uploads/media/bee-removal-littleton-co__tpl_bee_removal_littleton-co_dcd92e83.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-littleton-co-26ffda.webp",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
@@ -229,7 +229,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f-littleton-co.webp",
+            "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f-littleton-co-26ffda.webp",
             "it_alt": "{business} technician applying bee treatment along a baseboard in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -392,36 +392,19 @@
             "id": "ai_block_4"
         },
         {
-            "type": "related_links",
-            "rl_heading": "Related Services",
-            "rl_max": 3,
-            "rl_items": [
-                {
-                    "url": "/wasp-nest-removal-{city_slug}",
-                    "text": "wasp nest removal"
-                },
-                {
-                    "url": "/hornet-removal-{city_slug}",
-                    "text": "hornet removal"
-                },
-                {
-                    "url": "/wasp-exterminator-{city_slug}",
-                    "text": "wasp exterminator"
-                },
-                {
-                    "url": "/emergency-pest-control-{city_slug}",
-                    "text": "emergency pest control"
-                },
-                {
-                    "url": "/cockroach-exterminator-{city_slug}",
-                    "text": "cockroach extermination"
-                },
-                {
-                    "url": "/bed-bug-control-{city_slug}",
-                    "text": "bed bug control"
-                }
-            ],
-            "id": "related_links_1"
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
         },
         {
             "type": "faq_two_col",
@@ -492,6 +475,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Pest Control Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with bees in {city}? Get fast, targeted treatment from a local provider.",
             "cb_subtext": "",
@@ -522,7 +517,7 @@
     "seo": {
         "seo_title": "Bee Removal in {city_state} | {business_short}",
         "canonical_url": "https://p.q111.xyz/bee-removal-littleton-co/",
-        "meta_description": "Bee colonies require humane handling to protect these important pollinators and your safety. Serving {city_state}. Call {phone}.",
+        "meta_description": "Bee removal handles colonies humanely, protecting both the pollinators and your safety. Serving {city_state}. Call {phone}.",
         "meta_keywords": "bee removal Littleton CO, bee relocation, honey bee removal, live bee removal",
         "og_title": "Bee Exterminator in {city_state} | Fast, Targeted Bee Control",
         "og_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
@@ -534,11 +529,23 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bee Exterminator in Littleton, CO\",\n            \"serviceType\": \"Bee Extermination\",\n            \"description\": \"Professional bee exterminator services in Littleton, CO. Targeted bee control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bee Exterminator in Littleton, CO\",\n            \"serviceType\": \"Bee Extermination\",\n            \"description\": \"Professional bee exterminator services in Littleton, CO. Targeted bee control for homes and businesses, with fast local response.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Bee Removal",
-        "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
+        "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control",
+        "meta_description_pool": [
+            "Bee Removal in {city_state}: connect with local providers who handle colonies safely, balancing pollinator care with your household's safety. Call {phone}.",
+            "Need Bee Removal near {city_state}? We connect you to independent local providers experienced in humane colony handling. Call {phone} for a fast referral.",
+            "Bee Removal services for {city_state} homes: get matched with nearby providers who address colonies with care for people and pollinators alike. Call {phone}.",
+            "Searching for Bee Removal in {city_state}? We link you to responsive local providers who manage colonies with safety and pollinators in mind. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Bee Removal in {city_state}: connect quickly with an independent local provider who handles bee issues at homes and businesses nearby.",
+            "Need Bee Removal near {city_state}? We connect you with local, independent providers ready to respond fast for homes and businesses.",
+            "Bee Removal, {city_state} fast: get matched with a responsive local provider serving homeowners and businesses in your area.",
+            "Searching for Bee Removal in {city_state}? This connects you to independent local providers who address bee problems at homes and businesses."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T01:44:52+00:00",
-    "template_version": "d13e2136f168af41a6372652d183cb86"
+    "generated_at": "2026-11-07T20:04:26+00:00",
+    "template_version": "133ba1ea233d3b7d686b0e68bb33ba3d"
 }

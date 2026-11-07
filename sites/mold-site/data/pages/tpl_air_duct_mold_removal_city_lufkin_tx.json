@@ -2,7 +2,7 @@
     "template_id": "tpl_air_duct_mold_removal",
     "city_id": "city_lufkin_tx",
     "slug": "air-duct-mold-removal-lufkin-tx",
-    "title": "Air Duct Mold Removal in {city_state} | {business}",
+    "title": "Air Duct Mold Removal in {city_state} | {business_short}",
     "city_vars": {
         "id": "city_lufkin_tx",
         "city": "Lufkin",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/air-duct-cleaning_608aa8.webp",
+            "hs_photo": "sites/mold-site/uploads/media/air-duct-mold-removal-lufkin-tx__tpl_air_duct_mold_removal_city_lufkin_tx_d0d00d9a.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,7 +203,8 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/mold-site/uploads/media/ai_4f64fc_34c55a.webp"
         },
         {
             "type": "trust_bar",
@@ -223,7 +224,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/how-to-clean-mold-from-ac_6f0eae.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_c12cae_5214b1-lufkin-tx-b627d4.webp",
             "it_alt": "A local provider performing {service} in a {city_state} home's air duct system, arranged through {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -231,7 +232,8 @@
             "ai_prompt_override": "",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "ai_block_1"
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/mold-site/uploads/media/ai_c12cae_5214b1.webp"
         },
         {
             "type": "ai_block",
@@ -334,8 +336,8 @@
                     "text": "HVAC mold removal"
                 },
                 {
-                    "url": "/dryer-vent-mold-removal-{city_slug}",
-                    "text": "dryer vent mold removal"
+                    "url": "/attic-mold-removal-{city_slug}",
+                    "text": "attic mold removal"
                 },
                 {
                     "url": "/mold-removal-{city_slug}",
@@ -420,7 +422,7 @@
         "meta_keywords": "air duct mold removal Lufkin, air duct mold remediation Lufkin, mold in air ducts Lufkin, air duct mold cleaning near me Lufkin",
         "og_title": "Air Duct Mold Removal in {city_state} | {business}",
         "og_description": "Air Duct Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "",
+        "og_image": "sites/mold-site/uploads/media/moldy-air-duct-vent-cover.webp",
         "service_name": "Air Duct Mold Removal",
         "service_type": "Air Duct Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -430,9 +432,21 @@
         "bc_mid_url": "",
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Duct Mold Removal\",\n    \"name\": \"Air Duct Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Air Duct Mold Removal in Lufkin, TX \\u2014 air duct mold removal and indoor air quality support.\"\n}",
         "primary_keyword": "Air Duct Mold Removal",
-        "secondary_keywords": "mold in air ducts, hvac mold removal, mold in air vents, air duct mold remediation, ac duct mold cleaning"
+        "secondary_keywords": "mold in air ducts, hvac mold removal, mold in air vents, air duct mold remediation, ac duct mold cleaning",
+        "meta_description_pool": [
+            "Air Duct Mold Removal in {city_state}: get connected with local providers who address growth from trapped dust, moisture, and HVAC condensation. Call {phone}.",
+            "Need Air Duct Mold Removal near {city_state}? We connect you with independent local providers who handle growth caused by moisture and HVAC condensation. Call {phone}.",
+            "Air Duct Mold Removal services for {city_state} residents start here — we link you to local providers who tackle duct growth from trapped moisture and dust. Call {phone}.",
+            "Looking for Air Duct Mold Removal in {city_state}? Our network connects you fast to local providers who address HVAC condensation and moisture-related growth. Call {phone}."
+        ],
+        "og_description_pool": [
+            "Need Air Duct Mold Removal in {city_state}? Call {phone} now and get connected with an independent local provider ready to respond fast.",
+            "Air Duct Mold Removal, {city_state}: this service connects you to local independent providers quickly — dial {phone} to get started today.",
+            "Looking into Air Duct Mold Removal near {city_state}? We'll connect you fast to a responsive local provider — just call {phone}.",
+            "{city_state} Air Duct Mold Removal connections made easy — call {phone} and get linked with a local independent provider right away."
+        ]
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-18T18:13:49+00:00",
-    "template_version": "94e8ecb6db4cb2083d3631bea2d74d0c"
+    "generated_at": "2026-11-07T20:03:43+00:00",
+    "template_version": "7459d002cbfb3e828125746dfc3c9235"
 }
