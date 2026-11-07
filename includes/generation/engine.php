@@ -6,6 +6,9 @@
 // Reused, non-destructive image-differentiation core (multisite-shared). We only call
 // ms_process_blocks_images() — never the orchestrator/prune (those delete uploads).
 require_once __DIR__ . '/../multisite/image_overlay.php';
+// openai_images_edit()/openai_images_estimate_cost() — "AI unique photo per landing
+// page" option below reuses this one module, same as every other AI-photo path.
+require_once __DIR__ . '/../openai_images.php';
 
 // ── Step loader ───────────────────────────────────────────────────────────────
 
@@ -115,11 +118,116 @@ function _gen_resolve_schema_shortcodes(string $schema, array $vars): string {
 //   confirmed_cost bool        — user confirmed costly step warning
 //   force_locked   bool        — overwrite locked blocks too
 //   dry_run        bool        — simulate; no files written
+//   ai_photo       bool        — AI unique photo per landing page (real OpenAI cost)
+//   ai_photo_quality string    — 'low'|'medium'|'high', default 'low'
 //
 // Returns array:
 //   success, pages_written, pages_skipped, pages_backed_up,
 //   errors[], run_id, duration_ms, dry_run,
 //   cost_warning (bool), cost_steps[], estimated_pages, message
+
+/**
+ * "AI unique photo per landing page" — takes this page's own hero photo (whatever
+ * is currently set, same field everyone already edits via Pic Drop) and asks
+ * OpenAI to swap the person's hair/face, so a page gets a genuinely distinct file
+ * instead of sharing the one photo every other page under the same template uses.
+ * Same prompt family as tools/capture_leaf_hero_prompts.php's fleet-wide version —
+ * protects clothing/pose explicitly, and doesn't assume a person is present.
+ *
+ * Cached by template + city + source photo path, written next to the source photo
+ * itself (no separate registry file) — ticking this again on a later regenerate
+ * only ever pays for a city that doesn't already have a cached variant, same
+ * discipline as the fleet's ms_generate_ai_images_for_domain().
+ *
+ * Runs one call at a time, in the same per-city loop every other step already
+ * runs in — fine for a template-or-city-scoped run, but an unfiltered "Generate
+ * All" across hundreds of cities will be slow (each edit call is a real,
+ * several-second API round trip). Scope the run (template_ids/city_ids) for a
+ * first pass on a large site rather than running it fully unfiltered.
+ *
+ * @return array{generated:bool,cost:float,error:?string}
+ */
+function _gen_ai_hero_photo(array &$blocks, string $tplId, string $cityId, string $quality): array {
+    $none = ['generated' => false, 'cost' => 0.0, 'error' => null];
+    if ($cityId === '') return $none;
+
+    $field = null; $blockIdx = null;
+    foreach ($blocks as $i => $b) {
+        if (!is_array($b) || strncmp($b['type'] ?? '', 'hero', 4) !== 0) continue;
+        foreach ($b as $k => $v) {
+            if ($k === '' || $k[0] === '_' || stripos($k, 'bg') !== false) continue;
+            if (is_string($v) && preg_match('/\.(jpe?g|png|webp)$/i', $v) && stripos($v, 'uploads') !== false) {
+                $field = $k; $blockIdx = $i; break 2;
+            }
+        }
+    }
+    if ($field === null) return $none; // no hero photo on this page — nothing to do
+
+    // Always edit from the TRUE original, never a previously-generated variant —
+    // same convention ms_stamp_blocks() already uses (_<field>_orig), for the
+    // identical reason: editing an edit drifts further from the real source every
+    // run, AND the field's current value would change on every single run, which
+    // breaks the cache signature below outright. Confirmed live: without this, a
+    // second run on an already-done page regenerated (and re-billed) instead of
+    // hitting cache, because $srcRel had become the first run's own AI output.
+    $origKey = '_' . $field . '_orig';
+    $srcRel  = (isset($blocks[$blockIdx][$origKey]) && is_string($blocks[$blockIdx][$origKey]) && $blocks[$blockIdx][$origKey] !== '')
+        ? $blocks[$blockIdx][$origKey] : (string) $blocks[$blockIdx][$field];
+    if ($srcRel === '' || str_contains($srcRel, '{')) return $none; // empty, or a locked per-city token
+
+    // Same brand-asset exemption ms_vary_raw_image_refs() already uses — a fixed
+    // logo/badge/icon isn't a photo of a scene, so "keep the same scene, swap the
+    // person's hair/face" has nothing real to act on. Confirmed live: pointed at
+    // granitepmacademy's PMI trust badge, the edit call didn't produce a subtle
+    // variation at all — it hallucinated an entirely unrelated "technician in a
+    // server room" scene, since there was no real photographic scene to preserve.
+    $srcName = strtolower(basename($srcRel));
+    foreach (['logo', 'icon', 'favicon', 'badge', 'sprite'] as $brandWord) {
+        if (str_contains($srcName, $brandWord)) return $none;
+    }
+
+    // BASE_DIR, not ACTIVE_SITE_DIR — same project-root-relative convention the
+    // sibling image-diff call above already documents (and the same doubled-prefix
+    // bug class this project has hit before if that convention isn't followed).
+    $srcPath = BASE_DIR . '/' . ltrim($srcRel, '/');
+    if (!is_file($srcPath)) return ['generated' => false, 'cost' => 0.0, 'error' => "AI hero photo: source missing ($srcRel)"];
+
+    $sig      = substr(md5($srcRel . '|' . $tplId . '|' . $cityId), 0, 10);
+    $destRel  = trim(dirname($srcRel), '.') . '/ai_hero_' . $sig . '.webp';
+    $destPath = BASE_DIR . '/' . ltrim($destRel, '/');
+
+    if (is_file($destPath)) {
+        $blocks[$blockIdx][$field]   = $destRel; // cache hit — no new cost
+        $blocks[$blockIdx][$origKey] = $srcRel;
+        return $none;
+    }
+
+    [$w, $h] = @getimagesize($srcPath) ?: [0, 0];
+    $size = ($w > $h) ? '1536x1024' : (($h > $w) ? '1024x1536' : '1024x1024');
+
+    $prompt = 'Same picture — keep the exact same scene, composition, equipment, and setting. '
+        . 'Do not add, remove, or restyle anything in the background or on the equipment/subject. '
+        . 'If a technician or other person is visible in the photo, change only their hair and face '
+        . 'so they read as a different person in the same role — do not change their clothing, pose, '
+        . 'or position; if a second person is visible, change their hair and face too. If no person '
+        . 'is visible in the photo, leave the subject and scene as-is and make only a small, '
+        . 'believable variation (e.g. a slightly different angle or pose of the same subject) so it '
+        . 'reads as a distinct photo rather than an identical copy — do not add a person. Bright, '
+        . 'natural daylight. No visible text or logos.';
+
+    $r = openai_images_edit($prompt, $srcPath, ['size' => $size, 'quality' => $quality, 'output_format' => 'webp']);
+    if (!$r['ok']) return ['generated' => false, 'cost' => 0.0, 'error' => 'AI hero photo failed: ' . $r['error']];
+
+    if (!is_dir(dirname($destPath))) @mkdir(dirname($destPath), 0775, true);
+    if (file_put_contents($destPath, $r['bytes']) === false) {
+        return ['generated' => false, 'cost' => 0.0, 'error' => 'AI hero photo: could not write ' . $destRel];
+    }
+    if (function_exists('img_write_mobile_variant')) img_write_mobile_variant($destPath);
+
+    $blocks[$blockIdx][$field]   = $destRel;
+    $blocks[$blockIdx][$origKey] = $srcRel;
+    return ['generated' => true, 'cost' => openai_images_estimate_cost($size, $quality), 'error' => null];
+}
 
 function generate_city_pages(array $options = []): array {
     $templateIds   = $options['template_ids']   ?? null;
@@ -128,6 +236,11 @@ function generate_city_pages(array $options = []): array {
     $confirmedCost = (bool)($options['confirmed_cost'] ?? false);
     $forceLocked   = (bool)($options['force_locked']   ?? false);
     $dryRun        = (bool)($options['dry_run']        ?? false);
+    // "AI unique photo per landing page" — opt-in, real OpenAI cost, gated through
+    // the same cost_warning flow every other paid step already uses (below).
+    $aiPhoto        = (bool)($options['ai_photo'] ?? false);
+    $aiPhotoQuality = in_array($options['ai_photo_quality'] ?? '', ['low', 'medium', 'high'], true)
+        ? $options['ai_photo_quality'] : 'low';
 
     $startedAt = date('c');
     $startMs   = (int)(microtime(true) * 1000);
@@ -175,6 +288,12 @@ function generate_city_pages(array $options = []): array {
             }
         }
     }
+    // Not a registered template step (it's a run-time checkbox, same model as the
+    // existing "Per-city images" option below) — folded into the same $costSteps
+    // list by hand so it rides the one existing cost-confirmation flow for free.
+    if ($aiPhoto) {
+        $costSteps['ai_hero_photo'] = 'AI unique photo per landing page (OpenAI, ' . $aiPhotoQuality . ' quality)';
+    }
     if (!empty($costSteps) && !$confirmedCost) {
         $estimated = count($templates) * count($cities);
         return [
@@ -216,6 +335,10 @@ function generate_city_pages(array $options = []): array {
     // tab use, through the one helper that owns that order (image_overlay.php).
     $imgStyle  = $imgCanRun ? ms_image_settings_read(ACTIVE_SITE_DIR, 'hero_style.json') : [];
     $imgStamped = 0; $imgVaried = 0;
+
+    // ── AI unique photo per landing page (opt-in) ────────────────────────────
+    $aiPhotoCanRun    = $aiPhoto && empty($options['dry_run']) && function_exists('openai_images_edit');
+    $aiPhotoGenerated = 0; $aiPhotoCost = 0.0;
 
     // ── Per-city layout variation (opt-in) ───────────────────────────────────
     // Reorders each city page's blocks (hero pinned first, closing block pinned
@@ -408,6 +531,19 @@ function generate_city_pages(array $options = []): array {
                 $imgVaried  += (int)($ir['varied'] ?? 0);
             }
 
+            // ── AI unique photo per landing page (opt-in, real OpenAI cost) ───
+            if ($aiPhotoCanRun && !empty($page['content_blocks'])) {
+                $apr = _gen_ai_hero_photo($page['content_blocks'], $tplId, $cityId, $aiPhotoQuality);
+                if ($apr['generated']) { $aiPhotoGenerated++; $aiPhotoCost += $apr['cost']; }
+                if ($apr['error'] !== null) {
+                    $errors[] = [
+                        'template_id' => $tplId, 'city_id' => $cityId,
+                        'step_errors' => [['step' => 'ai_hero_photo', 'error' => $apr['error']]],
+                        'note'        => 'AI hero photo skipped; page written with its existing photo.',
+                    ];
+                }
+            }
+
             // ── Per-city layout variation (opt-in) — reorder blocks per city ──
             if ($varyLayout && $layoutChoices) {
                 $lkey = $city['city_slug'] ?? ($tplId . '_' . $cityId);
@@ -528,6 +664,7 @@ function generate_city_pages(array $options = []): array {
         'pages_skipped'   => $skipped,
         'pages_backed_up' => $backedUp,
         'images'          => ['mode' => $imgDiff, 'stamped' => $imgStamped, 'varied' => $imgVaried],
+        'ai_photo'        => ['enabled' => $aiPhoto, 'quality' => $aiPhotoQuality, 'generated' => $aiPhotoGenerated, 'cost' => round($aiPhotoCost, 4)],
         'layout'          => ['enabled' => $varyLayout, 'varied' => $layoutVaried],
         'errors'          => $errors,
         'duration_ms'     => $durationMs,

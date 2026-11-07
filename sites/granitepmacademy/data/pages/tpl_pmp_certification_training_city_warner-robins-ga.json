@@ -1,423 +1,424 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "warner-robins-ga",
-  "slug": "pmp-certification-training-warner-robins-ga",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "warner-robins-ga",
-    "city": "Warner Robins",
-    "state": "Georgia",
-    "SS": "GA",
-    "city_slug": "warner-robins-ga",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier1"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "warner-robins-ga",
+    "slug": "pmp-certification-training-warner-robins-ga",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "warner-robins-ga",
+        "city": "Warner Robins",
+        "state": "Georgia",
+        "SS": "GA",
+        "city_slug": "warner-robins-ga",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier1"
+        ],
+        "industries": [
+            "Aerospace & Defense (Robins Air Force Base and its Air Logistics Complex)",
+            "Government & Public Administration",
+            "Healthcare",
+            "Manufacturing & Logistics",
+            "Education",
+            "Defense Contracting & Engineering Services"
+        ],
+        "top_employers": [
+            "Robins Air Force Base / Warner Robins Air Logistics Complex",
+            "Houston Healthcare System (Houston Medical Center)",
+            "Houston County Board of Education",
+            "Houston County Government",
+            "City of Warner Robins",
+            "Frito-Lay Manufacturing Plant",
+            "Leidos",
+            "Northrop Grumman",
+            "Lockheed Martin",
+            "SAIC (Science Applications International Corporation)",
+            "Jacobs Engineering"
+        ],
+        "salary_note": "Project manager pay in Warner Robins tends to track national averages for mid-sized metro areas, with a notable premium for professionals holding PMP certification and security clearances tied to defense and aerospace contracts at Robins Air Force Base. Rather than a fixed figure, demand for certified project managers remains strong and competitive, especially in government contracting and healthcare administration roles.",
+        "market_blurb": "Warner Robins's project management job market is heavily shaped by its role as home to Robins Air Force Base, one of the largest employers in Middle Georgia, driving steady demand for PMs in aerospace maintenance, logistics, and defense contracting. The city's growing healthcare, manufacturing, and public-sector institutions also rely on structured project management to support facility expansions, IT modernization, and community infrastructure work. This mix creates consistent opportunities for professionals with recognized certifications like the PMP.",
+        "notable_projects": [
+            "Robins Air Force Base / Warner Robins Air Logistics Complex facility modernization and depot maintenance programs (C-5, C-17, F-15 aircraft sustainment)",
+            "Museum of Aviation expansion and educational facility upgrades in Warner Robins",
+            "Houston County School District facility construction and renovation projects",
+            "I-75 corridor and local infrastructure improvement projects serving the Warner Robins/Houston County area"
+        ],
+        "credential_demand": "PMP certification is highly valued among Warner Robins employers, particularly defense contractors and organizations supporting Robins Air Force Base, where formal project management credentials are often preferred or required for government-related contracts. Even outside the defense sector, healthcare and public-sector employers increasingly list PMP or CAPM certification as a competitive advantage in project management job postings.",
+        "_researched": 1,
+        "city_spotlight": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management landscape, driving consistent demand for certified PMs across aerospace maintenance, defense contracting, and logistics. Healthcare, manufacturing, and public-sector modernization projects further expand opportunities for professionals holding the PMP credential. Granite PM Academy delivers live-virtual PMP Certification training to Warner Robins professionals, flexible and nationwide.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Warner Robins's aerospace, defense, and engineering sectors—anchored by Robins Air Force Base, Lockheed Martin, Northrop Grumman, and Leidos—depend on project managers who can lead complex, regulated initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, letting you earn credentials without leaving your schedule. The PMP® credential strengthens your ability to manage high-stakes programs in defense contracting, logistics, and government work across the region.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmp-certification-training-warner-robins-ga__tpl_pmp_certification_training_city_warner-robins-ga_d72368f3.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:54:44.016355Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "b5770bc94884148c",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1,
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Warner Robins Aerospace & Defense Professionals",
+            "text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's economy and define the region's project management landscape. Aerospace maintenance, defense logistics, and mission-critical operations demand rigorous, structured project delivery—and employers across the base's supply chain actively seek professionals credentialed in the Project Management Institute's PMP® standard. Whether you work in defense contracting, engineering services, or the public sector institutions that support this defense hub, the PMP® credential signals mastery of scope, schedule, and resource management at the level these high-stakes environments require. With major employers including Lockheed Martin, Northrop Grumman, Leidos, and Jacobs Engineering all present in the Warner Robins area, certified project managers command recognition and career momentum.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes that fit working professionals' schedules. Our curriculum satisfies the PMI contact-hour requirement for PMP® eligibility and is taught by active certified practitioners with real-world project experience. Whether you are advancing within aerospace and defense, moving into healthcare facility projects at Houston Medical Center, or supporting logistics and manufacturing initiatives across the region, our training equips you with the frameworks and exam readiness to earn your PMP® credential. Upon completion, you will be prepared to apply for PMI certification and position yourself for the roles and salary ranges that this credential unlocks in Warner Robins's competitive job market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:54:48.595972Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "40840327279cefd7",
+            "_ai_locked": true,
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Warner Robins's Aerospace and Defense Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP training satisfies PMI's official requirements, giving you confidence that your certification pathway meets the highest industry standard and is recognized by employers across Aerospace & Defense, Government, and Engineering Services."
+                },
+                {
+                    "heading": "Live Virtual Instruction Fits Your Schedule",
+                    "text": "Earn your PMP through live-virtual, instructor-led sessions that deliver the contact hours required for PMI eligibility. Study flexibly while learning directly from active certified practitioners in real time—no recorded lectures, no asynchronous delay."
+                },
+                {
+                    "heading": "Exam Prep from Practitioners, Not Theory",
+                    "text": "Your instructors are active PMP-certified professionals with hands-on project experience. They teach real-world scenarios and exam strategy, not textbook abstractions. Granite's exam-preparation support equips you to pass with confidence on your first attempt."
+                },
+                {
+                    "heading": "PMP Demand Across Warner Robins's Major Employers",
+                    "text": "Robins Air Force Base, Leidos, Northrop Grumman, Lockheed Martin, SAIC, and Jacobs Engineering actively hire certified project managers to lead complex Aerospace, Defense, and Engineering programs. The PMP credential directly strengthens your candidacy for these career-advancing roles in your region."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:54:53.179664Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "d53a5751dad91570",
+            "_ai_locked": true,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Warner Robins",
+            "text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management job market, creating sustained demand for certified professionals across defense contracting, aerospace sustainment, and engineering services. Organizations including Leidos, Northrop Grumman, Lockheed Martin, SAIC, and Jacobs Engineering rely on PMP-certified project managers to lead complex initiatives—from C-5, C-17, and F-15 aircraft depot maintenance programs to facility modernization efforts. Beyond aerospace and defense, Houston Healthcare System, Houston County Government, and the Houston County School District hire project managers to oversee infrastructure improvements, facility construction, and renovation projects, including the Museum of Aviation expansion and I-75 corridor initiatives serving the region.</p><p>PMP certification carries measurable weight in Warner Robins's competitive employment landscape, particularly among government contractors where formal credentials are often preferred or required for contracts tied to Robins Air Force Base. Project managers holding PMP certification and security clearances command a notable premium and enjoy stronger advancement prospects than uncertified peers. Completing Granite PM Academy's live-virtual PMP Certification Training equips you with the credential Warner Robins employers actively seek, positioning you to compete for roles with compensation and benefits that reflect the region's robust defense, aerospace, and public-sector sectors. Whether you're advancing within an established employer or transitioning into the market, the PMP credential is a strategic investment in your Warner Robins career trajectory.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:54:57.413989Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "4256d1339077e128",
+            "_ai_locked": true,
+            "id": "ai_block_3"
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Warner Robins",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires specific education and project-management experience before you apply. Review PMI's credential requirements—typically a combination of a degree and months of documented project leadership. Granite PM Academy's admissions team can verify your background against PMI standards and clarify any questions before you enroll."
+                },
+                {
+                    "heading": "Complete 35 Hours of Formal Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our active certified practitioners deliver all training online, so you can study from Warner Robins on a flexible schedule. This structured contact-hour program covers the PMI Project Management Body of Knowledge (PMBOK®) and prepares you for the exam rigor."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing Granite PM Academy's course, submit your formal application to PMI with your education and experience documentation. Pay PMI's exam fee at that time. Our team provides guidance on the application process so your submission meets PMI's verification standards."
+                },
+                {
+                    "heading": "Prepare and Sit for Your Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A review—to strengthen your readiness. Schedule your proctored PMP exam when you feel confident. Granite PM Academy's instructors remain available to address final content questions before test day."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "After passing, you earn the PMP® credential. To keep it active over a standard three-year renewal cycle, you'll earn Professional Development Units (PDUs) through approved training, volunteer work, or continued education. Granite PM Academy offers PDU-eligible courses to support your ongoing credential maintenance."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:55:02.886697Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "efaaeacf6d933838",
+            "_ai_locked": true,
+            "id": "ai_block_4"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Warner Robins aerospace and defense careers?",
+                    "answer": "<p>Yes. PMP certification is highly valued by defense contractors, Robins Air Force Base support organizations, and aerospace engineering firms operating in Warner Robins. Government contracts increasingly require or prefer certified project managers, and the credential often unlocks advancement and higher compensation in these sectors. Even outside defense, healthcare and manufacturing employers in the area list PMP as a competitive advantage in PM hiring and promotion decisions.</p>"
+                },
+                {
+                    "question": "Which Warner Robins employers most value PMP certification credentials?",
+                    "answer": "<p>Defense contractors, aerospace logistics companies, and organizations supporting Robins Air Force Base prioritize PMP certification for government-contract roles. Houston Healthcare System, Houston County Government, and manufacturing/logistics firms also increasingly seek certified project managers. Public-sector employers and education administration similarly view PMP as evidence of professional competency and commitment to structured project delivery.</p>"
+                },
+                {
+                    "question": "Do Warner Robins project managers earn more with PMP certification?",
+                    "answer": "<p>Project manager compensation in Warner Robins tracks national mid-market averages, with a documented premium for professionals holding PMP certification—especially those with security clearances tied to defense and aerospace contracts. Demand for certified PMs remains strong and competitive, particularly in government contracting and healthcare administration. The credential often translates to faster advancement and access to higher-paying roles in the local market.</p>"
+                },
+                {
+                    "question": "Can I attend PMP training from my Warner Robins workplace or home?",
+                    "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, so you can attend from your office, home, or any location with internet access. This flexibility allows Warner Robins professionals working at Robins Air Force Base, healthcare systems, or manufacturing facilities to earn certification without disrupting work schedules or commuting to a physical classroom.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:55:08.097433Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "ee580b93c07b4b30",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management landscape, driving consistent demand for certified PMs across aerospace maintenance, defense contracting, and logistics. Healthcare systems, manufacturing facilities, and public-sector institutions throughout Houston County further expand opportunities for professionals holding the PMP credential. Granite PM Academy delivers live-virtual PMP Certification Training to Warner Robins professionals nationwide, enabling you to earn your credential while managing your local career and commitments.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:55:09.763531Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "5271c1541e0a9bcb",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & Defense (Robins Air Force Base and its Air Logistics Complex)",
-      "Government & Public Administration",
-      "Healthcare",
-      "Manufacturing & Logistics",
-      "Education",
-      "Defense Contracting & Engineering Services"
-    ],
-    "top_employers": [
-      "Robins Air Force Base / Warner Robins Air Logistics Complex",
-      "Houston Healthcare System (Houston Medical Center)",
-      "Houston County Board of Education",
-      "Houston County Government",
-      "City of Warner Robins",
-      "Frito-Lay Manufacturing Plant",
-      "Leidos",
-      "Northrop Grumman",
-      "Lockheed Martin",
-      "SAIC (Science Applications International Corporation)",
-      "Jacobs Engineering"
-    ],
-    "salary_note": "Project manager pay in Warner Robins tends to track national averages for mid-sized metro areas, with a notable premium for professionals holding PMP certification and security clearances tied to defense and aerospace contracts at Robins Air Force Base. Rather than a fixed figure, demand for certified project managers remains strong and competitive, especially in government contracting and healthcare administration roles.",
-    "market_blurb": "Warner Robins's project management job market is heavily shaped by its role as home to Robins Air Force Base, one of the largest employers in Middle Georgia, driving steady demand for PMs in aerospace maintenance, logistics, and defense contracting. The city's growing healthcare, manufacturing, and public-sector institutions also rely on structured project management to support facility expansions, IT modernization, and community infrastructure work. This mix creates consistent opportunities for professionals with recognized certifications like the PMP.",
-    "notable_projects": [
-      "Robins Air Force Base / Warner Robins Air Logistics Complex facility modernization and depot maintenance programs (C-5, C-17, F-15 aircraft sustainment)",
-      "Museum of Aviation expansion and educational facility upgrades in Warner Robins",
-      "Houston County School District facility construction and renovation projects",
-      "I-75 corridor and local infrastructure improvement projects serving the Warner Robins/Houston County area"
-    ],
-    "credential_demand": "PMP certification is highly valued among Warner Robins employers, particularly defense contractors and organizations supporting Robins Air Force Base, where formal project management credentials are often preferred or required for government-related contracts. Even outside the defense sector, healthcare and public-sector employers increasingly list PMP or CAPM certification as a competitive advantage in project management job postings.",
-    "_researched": 1,
-    "city_spotlight": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management landscape, driving consistent demand for certified PMs across aerospace maintenance, defense contracting, and logistics. Healthcare, manufacturing, and public-sector modernization projects further expand opportunities for professionals holding the PMP credential. Granite PM Academy delivers live-virtual PMP Certification training to Warner Robins professionals, flexible and nationwide.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Warner Robins's aerospace, defense, and engineering sectors—anchored by Robins Air Force Base, Lockheed Martin, Northrop Grumman, and Leidos—depend on project managers who can lead complex, regulated initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, letting you earn credentials without leaving your schedule. The PMP® credential strengthens your ability to manage high-stakes programs in defense contracting, logistics, and government work across the region.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:54:44.016355Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "b5770bc94884148c",
-      "_ai_locked": true,
-      "id": "hero_split_1",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Warner Robins, GA, PMP exam prep Warner Robins, PMP course Warner Robins GA, project management certification Warner Robins, GA, PMI PMP training Warner Robins",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\",\r\n      \"name\": \"PMP Certification Training in Warner Robins, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Warner Robins, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Warner Robins, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Warner Robins, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Warner Robins, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Warner Robins Aerospace & Defense Professionals",
-      "text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's economy and define the region's project management landscape. Aerospace maintenance, defense logistics, and mission-critical operations demand rigorous, structured project delivery—and employers across the base's supply chain actively seek professionals credentialed in the Project Management Institute's PMP® standard. Whether you work in defense contracting, engineering services, or the public sector institutions that support this defense hub, the PMP® credential signals mastery of scope, schedule, and resource management at the level these high-stakes environments require. With major employers including Lockheed Martin, Northrop Grumman, Leidos, and Jacobs Engineering all present in the Warner Robins area, certified project managers command recognition and career momentum.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes that fit working professionals' schedules. Our curriculum satisfies the PMI contact-hour requirement for PMP® eligibility and is taught by active certified practitioners with real-world project experience. Whether you are advancing within aerospace and defense, moving into healthcare facility projects at Houston Medical Center, or supporting logistics and manufacturing initiatives across the region, our training equips you with the frameworks and exam readiness to earn your PMP® credential. Upon completion, you will be prepared to apply for PMI certification and position yourself for the roles and salary ranges that this credential unlocks in Warner Robins's competitive job market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:54:48.595972Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "40840327279cefd7",
-      "_ai_locked": true,
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Warner Robins's Aerospace and Defense Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP training satisfies PMI's official requirements, giving you confidence that your certification pathway meets the highest industry standard and is recognized by employers across Aerospace & Defense, Government, and Engineering Services."
-        },
-        {
-          "heading": "Live Virtual Instruction Fits Your Schedule",
-          "text": "Earn your PMP through live-virtual, instructor-led sessions that deliver the contact hours required for PMI eligibility. Study flexibly while learning directly from active certified practitioners in real time—no recorded lectures, no asynchronous delay."
-        },
-        {
-          "heading": "Exam Prep from Practitioners, Not Theory",
-          "text": "Your instructors are active PMP-certified professionals with hands-on project experience. They teach real-world scenarios and exam strategy, not textbook abstractions. Granite's exam-preparation support equips you to pass with confidence on your first attempt."
-        },
-        {
-          "heading": "PMP Demand Across Warner Robins's Major Employers",
-          "text": "Robins Air Force Base, Leidos, Northrop Grumman, Lockheed Martin, SAIC, and Jacobs Engineering actively hire certified project managers to lead complex Aerospace, Defense, and Engineering programs. The PMP credential directly strengthens your candidacy for these career-advancing roles in your region."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:54:53.179664Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "d53a5751dad91570",
-      "_ai_locked": true,
-      "id": "ai_block_2"
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Warner Robins",
-      "text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management job market, creating sustained demand for certified professionals across defense contracting, aerospace sustainment, and engineering services. Organizations including Leidos, Northrop Grumman, Lockheed Martin, SAIC, and Jacobs Engineering rely on PMP-certified project managers to lead complex initiatives—from C-5, C-17, and F-15 aircraft depot maintenance programs to facility modernization efforts. Beyond aerospace and defense, Houston Healthcare System, Houston County Government, and the Houston County School District hire project managers to oversee infrastructure improvements, facility construction, and renovation projects, including the Museum of Aviation expansion and I-75 corridor initiatives serving the region.</p><p>PMP certification carries measurable weight in Warner Robins's competitive employment landscape, particularly among government contractors where formal credentials are often preferred or required for contracts tied to Robins Air Force Base. Project managers holding PMP certification and security clearances command a notable premium and enjoy stronger advancement prospects than uncertified peers. Completing Granite PM Academy's live-virtual PMP Certification Training equips you with the credential Warner Robins employers actively seek, positioning you to compete for roles with compensation and benefits that reflect the region's robust defense, aerospace, and public-sector sectors. Whether you're advancing within an established employer or transitioning into the market, the PMP credential is a strategic investment in your Warner Robins career trajectory.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:54:57.413989Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "4256d1339077e128",
-      "_ai_locked": true,
-      "id": "ai_block_3"
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Warner Robins",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's credential requirements—typically a combination of a degree and months of documented project leadership. Granite PM Academy's admissions team can verify your background against PMI standards and clarify any questions before you enroll."
-        },
-        {
-          "heading": "Complete 35 Hours of Formal Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our active certified practitioners deliver all training online, so you can study from Warner Robins on a flexible schedule. This structured contact-hour program covers the PMI Project Management Body of Knowledge (PMBOK®) and prepares you for the exam rigor."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing Granite PM Academy's course, submit your formal application to PMI with your education and experience documentation. Pay PMI's exam fee at that time. Our team provides guidance on the application process so your submission meets PMI's verification standards."
-        },
-        {
-          "heading": "Prepare and Sit for Your Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A review—to strengthen your readiness. Schedule your proctored PMP exam when you feel confident. Granite PM Academy's instructors remain available to address final content questions before test day."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "After passing, you earn the PMP® credential. To keep it active over a standard three-year renewal cycle, you'll earn Professional Development Units (PDUs) through approved training, volunteer work, or continued education. Granite PM Academy offers PDU-eligible courses to support your ongoing credential maintenance."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:55:02.886697Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "efaaeacf6d933838",
-      "_ai_locked": true,
-      "id": "ai_block_4"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Warner Robins aerospace and defense careers?",
-          "answer": "<p>Yes. PMP certification is highly valued by defense contractors, Robins Air Force Base support organizations, and aerospace engineering firms operating in Warner Robins. Government contracts increasingly require or prefer certified project managers, and the credential often unlocks advancement and higher compensation in these sectors. Even outside defense, healthcare and manufacturing employers in the area list PMP as a competitive advantage in PM hiring and promotion decisions.</p>"
-        },
-        {
-          "question": "Which Warner Robins employers most value PMP certification credentials?",
-          "answer": "<p>Defense contractors, aerospace logistics companies, and organizations supporting Robins Air Force Base prioritize PMP certification for government-contract roles. Houston Healthcare System, Houston County Government, and manufacturing/logistics firms also increasingly seek certified project managers. Public-sector employers and education administration similarly view PMP as evidence of professional competency and commitment to structured project delivery.</p>"
-        },
-        {
-          "question": "Do Warner Robins project managers earn more with PMP certification?",
-          "answer": "<p>Project manager compensation in Warner Robins tracks national mid-market averages, with a documented premium for professionals holding PMP certification—especially those with security clearances tied to defense and aerospace contracts. Demand for certified PMs remains strong and competitive, particularly in government contracting and healthcare administration. The credential often translates to faster advancement and access to higher-paying roles in the local market.</p>"
-        },
-        {
-          "question": "Can I attend PMP training from my Warner Robins workplace or home?",
-          "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, so you can attend from your office, home, or any location with internet access. This flexibility allows Warner Robins professionals working at Robins Air Force Base, healthcare systems, or manufacturing facilities to earn certification without disrupting work schedules or commuting to a physical classroom.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:55:08.097433Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "ee580b93c07b4b30",
-      "_ai_locked": true,
-      "id": "faq_two_col_1",
-      "_ai_injected_count": 4
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Robins Air Force Base and its Air Logistics Complex anchor Warner Robins's project management landscape, driving consistent demand for certified PMs across aerospace maintenance, defense contracting, and logistics. Healthcare systems, manufacturing facilities, and public-sector institutions throughout Houston County further expand opportunities for professionals holding the PMP credential. Granite PM Academy delivers live-virtual PMP Certification Training to Warner Robins professionals nationwide, enabling you to earn your credential while managing your local career and commitments.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:55:09.763531Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "5271c1541e0a9bcb",
-      "_ai_locked": true,
-      "id": "map_info_1",
-      "_ai_injected_count": 1
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Warner Robins, GA, PMP exam prep Warner Robins, PMP course Warner Robins GA, project management certification Warner Robins, GA, PMI PMP training Warner Robins",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\",\r\n      \"name\": \"PMP Certification Training in Warner Robins, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Warner Robins, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Warner Robins, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Warner Robins, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Warner Robins, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-warner-robins-ga/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T04:26:05+00:00",
-  "template_version": "aecaa4faca45b2f45c46c051cd153404"
+    "locked_blocks": [],
+    "generated_at": "2026-11-07T20:20:37+00:00",
+    "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }

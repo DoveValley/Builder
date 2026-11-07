@@ -46,7 +46,7 @@
     "content_blocks": [
         {
             "type": "hero_split",
-            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_heading": "{primary_keyword} in {city_state}",
             "hs_subtext": "<p>Healthcare, telecommunications, energy, and financial-services employers across Naperville rely on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program designed to satisfy PMI's required contact-hour education for the PMP credential, enabling you to earn this industry-recognized certification while maintaining your current role. For project managers and aspiring leaders in Naperville's major industries, the PMP credential opens doors to senior positions and competitive compensation growth.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#pmp_boot_schedule",
@@ -55,7 +55,7 @@
             "hs_photo_alt": "PMP Bootcamp {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmp-bootcamp-naperville-il__tpl_pmp_bootcamp_city_naperville-il_075f9e7c.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
@@ -68,7 +68,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "f81975447fcbea62",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
         },
         {
             "type": "ai_block",
@@ -394,10 +395,10 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/\",\n      \"name\": \"PMP Bootcamp in Naperville, IL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Naperville, IL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Naperville, IL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/#course\",\n      \"name\": \"PMP Bootcamp in Naperville, IL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Naperville, IL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-naperville-il/\"\n    }\n  ]\n}",
-        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
-        "primary_keyword": "PMP Bootcamp"
+        "primary_keyword": "PMP Bootcamp",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-29T01:44:00+00:00",
-    "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "generated_at": "2026-11-07T20:21:28+00:00",
+    "template_version": "1a2eea2155d777355b5ff0707995b162"
 }

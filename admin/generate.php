@@ -45,6 +45,8 @@ $options = [
     'dry_run'        => !empty($_POST['dry_run']),
     'image_diff'     => in_array($_POST['image_diff'] ?? '', ['hero', 'full'], true) ? $_POST['image_diff'] : '',
     'vary_layout'    => !empty($_POST['vary_layout']),
+    'ai_photo'         => !empty($_POST['ai_photo']),
+    'ai_photo_quality' => in_array($_POST['ai_photo_quality'] ?? '', ['low', 'medium', 'high'], true) ? $_POST['ai_photo_quality'] : 'low',
 ];
 
 $result = generate_city_pages_locked($options);

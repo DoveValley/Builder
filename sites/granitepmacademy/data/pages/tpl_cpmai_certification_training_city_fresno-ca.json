@@ -1,393 +1,394 @@
 {
-  "template_id": "tpl_cpmai_certification_training_city",
-  "city_id": "fresno-ca",
-  "slug": "ai-training-fresno-ca",
-  "title": "PMI-CPMAI Certification Training {city}",
-  "city_vars": {
-    "id": "fresno-ca",
-    "city": "Fresno",
-    "state": "California",
-    "SS": "CA",
-    "city_slug": "fresno-ca",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier4"
-    ],
-    "industries": [
-      "Agriculture and agribusiness",
-      "Healthcare and medical services",
-      "Construction and infrastructure",
-      "Logistics, warehousing and distribution",
-      "Education (K-12 and higher education)",
-      "Government and public administration"
-    ],
-    "top_employers": [
-      "Community Medical Centers",
-      "Saint Agnes Medical Center",
-      "Fresno Unified School District",
-      "City of Fresno",
-      "County of Fresno",
-      "California State University, Fresno",
-      "Pelco Inc.",
-      "Amazon",
-      "Zacky Farms",
-      "Producers Dairy Foods"
-    ],
-    "salary_note": "Project manager compensation in Fresno tends to trail larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living, but demand remains steady across healthcare, construction, and public-sector projects. Candidates with PMP certification and industry-specific experience are generally positioned for more competitive offers.",
-    "market_blurb": "Fresno's project management job market is shaped by its role as a hub for agriculture, healthcare, and logistics in California's Central Valley, alongside steady public-sector and construction activity tied to regional growth. As infrastructure and development projects expand in and around the city, employers increasingly seek certified project managers who can coordinate complex, multi-stakeholder initiatives. The market is smaller than coastal California hubs but offers consistent opportunities tied to the region's economic base.",
-    "notable_projects": [
-      "California High-Speed Rail Central Valley segment (Fresno construction corridor)",
-      "Fresno State campus facility and program expansions",
-      "Fresno Chaffee Zoo expansion projects",
-      "Fresno Yosemite International Airport terminal and infrastructure improvements"
-    ],
-    "credential_demand": "PMP certification is viewed favorably by many Fresno-area employers, particularly in healthcare, construction, and government sectors where structured project oversight is valued. While not universally required, holding a PMP or CAPM can strengthen a candidate's competitiveness in local project management job postings.",
-    "_researched": 1,
-    "city_spotlight": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers—particularly as infrastructure projects like the California High-Speed Rail corridor and Fresno State campus expansions reshape the region. Employers across government, construction, and medical services increasingly value the PMP credential to lead complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Fresno professionals nationwide, offering flexible scheduling to fit working schedules.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Fresno's agriculture, healthcare, construction, and public administration sectors depend on skilled project managers to coordinate complex initiatives across supply chains, facility expansions, and infrastructure programs. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's required contact hours, enabling you to earn this credential on your schedule while working. The PMI-CPMAI designation strengthens your qualifications for advancement in Fresno's largest employers and growing project-driven organizations.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#cpmai_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "AI training for project managers {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:15.925202Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "903f401ceb0430fb",
-      "_ai_locked": true,
-      "id": "hero_split_1",
-      "_ai_injected_count": 1
+    "template_id": "tpl_cpmai_certification_training_city",
+    "city_id": "fresno-ca",
+    "slug": "ai-training-fresno-ca",
+    "title": "PMI-CPMAI Certification Training {city}",
+    "city_vars": {
+        "id": "fresno-ca",
+        "city": "Fresno",
+        "state": "California",
+        "SS": "CA",
+        "city_slug": "fresno-ca",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier4"
+        ],
+        "industries": [
+            "Agriculture and agribusiness",
+            "Healthcare and medical services",
+            "Construction and infrastructure",
+            "Logistics, warehousing and distribution",
+            "Education (K-12 and higher education)",
+            "Government and public administration"
+        ],
+        "top_employers": [
+            "Community Medical Centers",
+            "Saint Agnes Medical Center",
+            "Fresno Unified School District",
+            "City of Fresno",
+            "County of Fresno",
+            "California State University, Fresno",
+            "Pelco Inc.",
+            "Amazon",
+            "Zacky Farms",
+            "Producers Dairy Foods"
+        ],
+        "salary_note": "Project manager compensation in Fresno tends to trail larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living, but demand remains steady across healthcare, construction, and public-sector projects. Candidates with PMP certification and industry-specific experience are generally positioned for more competitive offers.",
+        "market_blurb": "Fresno's project management job market is shaped by its role as a hub for agriculture, healthcare, and logistics in California's Central Valley, alongside steady public-sector and construction activity tied to regional growth. As infrastructure and development projects expand in and around the city, employers increasingly seek certified project managers who can coordinate complex, multi-stakeholder initiatives. The market is smaller than coastal California hubs but offers consistent opportunities tied to the region's economic base.",
+        "notable_projects": [
+            "California High-Speed Rail Central Valley segment (Fresno construction corridor)",
+            "Fresno State campus facility and program expansions",
+            "Fresno Chaffee Zoo expansion projects",
+            "Fresno Yosemite International Airport terminal and infrastructure improvements"
+        ],
+        "credential_demand": "PMP certification is viewed favorably by many Fresno-area employers, particularly in healthcare, construction, and government sectors where structured project oversight is valued. While not universally required, holding a PMP or CAPM can strengthen a candidate's competitiveness in local project management job postings.",
+        "_researched": 1,
+        "city_spotlight": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers—particularly as infrastructure projects like the California High-Speed Rail corridor and Fresno State campus expansions reshape the region. Employers across government, construction, and medical services increasingly value the PMP credential to lead complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Fresno professionals nationwide, offering flexible scheduling to fit working schedules.</p>"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMI-CPMAI Certification Training for Fresno's Growing Project Leaders",
-      "text": "<p>Fresno's emergence as a regional hub for agriculture, healthcare, and logistics has created sustained demand for project managers who can oversee complex, multi-stakeholder operations across the Central Valley. Organizations managing agricultural supply chains, healthcare system expansions, and infrastructure projects throughout Fresno increasingly need professionals who hold recognized project management credentials and can demonstrate structured governance and risk management. The PMI-CPMAI Certification signals to employers—whether in public administration, construction, or the private sector—that you have met rigorous standards for planning, executing, and delivering projects that matter to the region's economy. For professionals in Fresno seeking to advance into leadership roles or transition into more specialized project-focused positions, this credential opens doors and strengthens your competitive standing.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led courses that fit the schedules of working professionals throughout Fresno and beyond. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn frameworks and tools immediately applicable to your role. The program satisfies the contact-hour requirement for PMI-CPMAI eligibility and prepares you thoroughly for the examination. Upon completion and successful certification, you'll hold a credential recognized nationally and valued by employers across Fresno's key industries—positioning you for career growth and new opportunities.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:20.155176Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "8bcde3db05917f97",
-      "_ai_locked": true,
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMI-CPMAI Certification: Fresno's Agriculture and Healthcare Leaders",
-      "fc_num_cols": 4,
-      "columns": [
+    "content_blocks": [
         {
-          "heading": "PMI Authorization Ensures Credential Value",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets official PMI standards. Employers across Fresno's agriculture, healthcare, and government sectors recognize PMI credentials as the authentic standard for project and program management capability."
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fresno's agriculture, healthcare, construction, and public administration sectors depend on skilled project managers to coordinate complex initiatives across supply chains, facility expansions, and infrastructure programs. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's required contact hours, enabling you to earn this credential on your schedule while working. The PMI-CPMAI designation strengthens your qualifications for advancement in Fresno's largest employers and growing project-driven organizations.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#cpmai_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-fresno-ca__tpl_cpmai_certification_training_city_fresno-ca_410b5770.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:15.925202Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "903f401ceb0430fb",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1,
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
         },
         {
-          "heading": "Live Virtual Format, Real Contact Hours",
-          "text": "Earn required contact hours through live-virtual instructor-led sessions you can attend from Fresno. No self-paced videos or recorded lectures—you interact directly with instructors and peers in real time, satisfying PMI's strict requirements for this certification."
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMI-CPMAI Certification Training for Fresno's Growing Project Leaders",
+            "text": "<p>Fresno's emergence as a regional hub for agriculture, healthcare, and logistics has created sustained demand for project managers who can oversee complex, multi-stakeholder operations across the Central Valley. Organizations managing agricultural supply chains, healthcare system expansions, and infrastructure projects throughout Fresno increasingly need professionals who hold recognized project management credentials and can demonstrate structured governance and risk management. The PMI-CPMAI Certification signals to employers—whether in public administration, construction, or the private sector—that you have met rigorous standards for planning, executing, and delivering projects that matter to the region's economy. For professionals in Fresno seeking to advance into leadership roles or transition into more specialized project-focused positions, this credential opens doors and strengthens your competitive standing.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led courses that fit the schedules of working professionals throughout Fresno and beyond. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn frameworks and tools immediately applicable to your role. The program satisfies the contact-hour requirement for PMI-CPMAI eligibility and prepares you thoroughly for the examination. Upon completion and successful certification, you'll hold a credential recognized nationally and valued by employers across Fresno's key industries—positioning you for career growth and new opportunities.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:20.155176Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "8bcde3db05917f97",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
-          "heading": "Learn from Active Certified Practitioners",
-          "text": "Your instructors are working, certified project managers who apply PMI frameworks daily. They bring current examples and troubleshoot real challenges, not theoretical case studies, preparing you to excel on the exam and lead projects confidently."
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMI-CPMAI Certification: Fresno's Agriculture and Healthcare Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Value",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets official PMI standards. Employers across Fresno's agriculture, healthcare, and government sectors recognize PMI credentials as the authentic standard for project and program management capability."
+                },
+                {
+                    "heading": "Live Virtual Format, Real Contact Hours",
+                    "text": "Earn required contact hours through live-virtual instructor-led sessions you can attend from Fresno. No self-paced videos or recorded lectures—you interact directly with instructors and peers in real time, satisfying PMI's strict requirements for this certification."
+                },
+                {
+                    "heading": "Learn from Active Certified Practitioners",
+                    "text": "Your instructors are working, certified project managers who apply PMI frameworks daily. They bring current examples and troubleshoot real challenges, not theoretical case studies, preparing you to excel on the exam and lead projects confidently."
+                },
+                {
+                    "heading": "Credential Matches Fresno Employer Demand",
+                    "text": "Major Fresno employers—Community Medical Centers, Fresno Unified School District, City and County of Fresno, Amazon, and CSU Fresno—hire and promote professionals with PMI credentials. PMI-CPMAI validates your readiness for program-leadership roles in these high-demand sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:24.387037Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "0cdff3bdad15d870",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
-          "heading": "Credential Matches Fresno Employer Demand",
-          "text": "Major Fresno employers—Community Medical Centers, Fresno Unified School District, City and County of Fresno, Amazon, and CSU Fresno—hire and promote professionals with PMI credentials. PMI-CPMAI validates your readiness for program-leadership roles in these high-demand sectors."
+            "type": "stats",
+            "stats_heading": "The AI Project Management Gap, By the Numbers",
+            "stats_heading_level": "h2",
+            "stats_bg_color": "custom",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#0d1b3e",
+            "skin": "",
+            "stats_items": [
+                {
+                    "number": "80%+",
+                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+                },
+                {
+                    "number": "2x",
+                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+                },
+                {
+                    "number": "~20%",
+                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
+                },
+                {
+                    "number": "62%",
+                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Fresno's Growing Sectors",
+            "text": "<p>Fresno's healthcare systems—Community Medical Centers and Saint Agnes Medical Center—anchor a robust demand for certified project managers overseeing clinical expansions, IT infrastructure, and operational improvements. Construction and infrastructure projects, particularly the California High-Speed Rail Central Valley segment running through Fresno's corridor, require disciplined project oversight at scale. Government and education employers, including the City of Fresno, County of Fresno, and Fresno State's ongoing campus facility and program expansions, similarly value structured project management. Agricultural and logistics operations—from Producers Dairy Foods to Amazon's regional distribution footprint—round out a diverse local economy where PMP and CAPM credentials strengthen candidacy across multiple sectors.</p><p>Project manager compensation in Fresno reflects the region's lower cost of living compared to larger California metros, yet demand remains steady and competitive. Candidates who complete PMI-CPMAI Certification Training and hold industry-specific experience position themselves favorably for advancement in healthcare, construction, and public-sector roles where employers increasingly view PMP certification as a meaningful differentiator. Granite PM Academy's live-virtual format removes geographic barriers, letting you earn your credential on your schedule while remaining rooted in Fresno's job market. Whether you're targeting healthcare, government, or infrastructure projects, the certification strengthens your local competitiveness without requiring relocation or classroom commitments.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:28.463954Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "9de847cfb53a3731",
+            "_ai_locked": true,
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Growing in Fresno's Key Sectors",
+            "text": "<p>Fresno's healthcare systems—Community Medical Centers and Saint Agnes Medical Center—along with the City of Fresno, County of Fresno, and Fresno Unified School District are among the region's largest employers of project managers and coordinators. These organizations oversee complex initiatives spanning facility upgrades, technology deployments, and operational improvements. Meanwhile, construction and infrastructure projects such as the California High-Speed Rail Central Valley segment through Fresno and ongoing campus expansions at California State University, Fresno create steady demand for certified professionals who can manage timelines, budgets, and stakeholder coordination across public and private sectors.</p><p>The PMP and CAPM credentials are recognized assets in Fresno's healthcare, construction, and government job markets, where structured project oversight is highly valued. While certification is not universally mandated, holding one meaningfully strengthens your competitiveness when employers evaluate candidates. Project manager compensation in Fresno reflects the region's lower cost of living compared to larger California metros, yet demand remains steady and positions with certification—especially paired with relevant industry experience—command more favorable offers. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the knowledge and credentials to advance into these well-established local career paths, delivered entirely through live-virtual instruction designed to fit your schedule.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:32.392883Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "9de847cfb53a3731",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMI-CPMAI Training",
+                    "badge": "AI-FOCUSED",
+                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,495",
+                    "period": "per person",
+                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#cpmai_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What is the CPMAI certification?",
+                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                },
+                {
+                    "question": "Who should pursue the CPMAI in {city}?",
+                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                },
+                {
+                    "question": "Is there a prerequisite for the CPMAI course?",
+                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                },
+                {
+                    "question": "How is the CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                },
+                {
+                    "question": "Is this course delivered online?",
+                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Is PMI-CPMAI certification worth pursuing for Fresno project managers?",
+                    "answer": "<p>Yes, particularly if you work in Fresno's healthcare, construction, or public-sector environments where structured project oversight is highly valued. While PMP® certification remains the most recognized credential locally, CPMAI certification strengthens your profile by demonstrating expertise in change and agile methodologies—skills increasingly sought by major Fresno employers managing complex initiatives. Combined with industry-specific experience, the credential can improve your competitiveness for higher-responsibility roles, though compensation growth depends on your sector and experience level.</p>"
+                },
+                {
+                    "question": "Which Fresno-area employers value PMI project management credentials most?",
+                    "answer": "<p>Healthcare systems like Community Medical Centers and Saint Agnes Medical Center prioritize PMP® and related certifications for coordinators managing clinical workflows and infrastructure projects. Government agencies (City and County of Fresno) and Fresno Unified School District also favor certified professionals for budget-sensitive, compliance-heavy initiatives. Construction and logistics firms increasingly use PMI credentials as a screening criterion. While not universally mandated, holding PMI certification strengthens your candidacy across these sectors.</p>"
+                },
+                {
+                    "question": "What salary range should Fresno project managers expect with certification?",
+                    "answer": "<p>Project manager compensation in Fresno generally trails larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living. However, certified professionals—especially those with PMP® or CAPM® credentials and relevant experience in healthcare, construction, or government—are positioned for more competitive offers and advancement opportunities. Actual earnings vary significantly by industry, employer size, and your background, so connect with local recruiters and industry associations for current benchmarks.</p>"
+                },
+                {
+                    "question": "Can I complete PMI-CPMAI training while working full-time in Fresno?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual training format allows you to participate from your workplace, home, or any location with reliable internet, making it flexible for full-time professionals. This design is especially valuable for Fresno project managers balancing demanding roles at healthcare systems, government agencies, or construction firms. You maintain your work schedule while earning the credential at your own pace, though you'll want to confirm your employer's internet access and any policies around professional development during work hours.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:38.929088Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "096f0e49d7af1cf0",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Fresno's Central Valley position as an agriculture, healthcare, and logistics hub creates steady demand for certified project managers across regional employers—from Community Medical Centers to infrastructure expansions like the California High-Speed Rail corridor. As complex, multi-stakeholder projects accelerate across construction, education, and public administration, organizations increasingly prioritize PMP® and CAPM® certification to strengthen coordination and delivery. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Fresno professionals nationwide, combining flexible scheduling with PMI-aligned instruction to advance your credentials without interrupting your career.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:40.996647Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "f1cd4f7f8f4d4163",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers across employers like Community Medical Centers, Fresno State, and the City of Fresno—particularly as major initiatives like the California High-Speed Rail Central Valley segment and airport infrastructure improvements expand. PMI-CPMAI certification aligns with employers' need for professionals who can lead complex, multi-stakeholder projects in this growing market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Fresno professionals nationwide, with flexible scheduling designed for working adults.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:39:42.886472Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "f1cd4f7f8f4d4163",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Lead AI Projects from {city}",
+            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#cpmai_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
         }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:24.387037Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "0cdff3bdad15d870",
-      "_ai_locked": true,
-      "id": "ai_block_2"
+    ],
+    "seo": {
+        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/ai-training-fresno-ca/",
+        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "meta_keywords": "AI training Fresno, CA, AI courses Fresno, CPMAI certification Fresno, AI project management training Fresno, CA, AI for project managers Fresno",
+        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "og_image": "",
+        "service_name": "PMI-CPMAI Certification Training",
+        "service_type": "Professional Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+        "bc_label": "PMI-CPMAI {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\",\n      \"name\": \"PMI-CPMAI Certification Training in Fresno, CA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Fresno, CA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Fresno, CA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Fresno, CA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Fresno, CA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n    }\n  ]\n}",
+        "primary_keyword": "PMI-CPMAI Certification Training",
+        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
-    {
-      "type": "stats",
-      "stats_heading": "The AI Project Management Gap, By the Numbers",
-      "stats_heading_level": "h2",
-      "stats_bg_color": "custom",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#0d1b3e",
-      "skin": "",
-      "stats_items": [
-        {
-          "number": "80%+",
-          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-        },
-        {
-          "number": "2x",
-          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-        },
-        {
-          "number": "~20%",
-          "label": "of project managers report strong practical AI skills today — PMI, 2025"
-        },
-        {
-          "number": "62%",
-          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Fresno's Growing Sectors",
-      "text": "<p>Fresno's healthcare systems—Community Medical Centers and Saint Agnes Medical Center—anchor a robust demand for certified project managers overseeing clinical expansions, IT infrastructure, and operational improvements. Construction and infrastructure projects, particularly the California High-Speed Rail Central Valley segment running through Fresno's corridor, require disciplined project oversight at scale. Government and education employers, including the City of Fresno, County of Fresno, and Fresno State's ongoing campus facility and program expansions, similarly value structured project management. Agricultural and logistics operations—from Producers Dairy Foods to Amazon's regional distribution footprint—round out a diverse local economy where PMP and CAPM credentials strengthen candidacy across multiple sectors.</p><p>Project manager compensation in Fresno reflects the region's lower cost of living compared to larger California metros, yet demand remains steady and competitive. Candidates who complete PMI-CPMAI Certification Training and hold industry-specific experience position themselves favorably for advancement in healthcare, construction, and public-sector roles where employers increasingly view PMP certification as a meaningful differentiator. Granite PM Academy's live-virtual format removes geographic barriers, letting you earn your credential on your schedule while remaining rooted in Fresno's job market. Whether you're targeting healthcare, government, or infrastructure projects, the certification strengthens your local competitiveness without requiring relocation or classroom commitments.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:28.463954Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "9de847cfb53a3731",
-      "_ai_locked": true,
-      "id": "ai_block_3"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Growing in Fresno's Key Sectors",
-      "text": "<p>Fresno's healthcare systems—Community Medical Centers and Saint Agnes Medical Center—along with the City of Fresno, County of Fresno, and Fresno Unified School District are among the region's largest employers of project managers and coordinators. These organizations oversee complex initiatives spanning facility upgrades, technology deployments, and operational improvements. Meanwhile, construction and infrastructure projects such as the California High-Speed Rail Central Valley segment through Fresno and ongoing campus expansions at California State University, Fresno create steady demand for certified professionals who can manage timelines, budgets, and stakeholder coordination across public and private sectors.</p><p>The PMP and CAPM credentials are recognized assets in Fresno's healthcare, construction, and government job markets, where structured project oversight is highly valued. While certification is not universally mandated, holding one meaningfully strengthens your competitiveness when employers evaluate candidates. Project manager compensation in Fresno reflects the region's lower cost of living compared to larger California metros, yet demand remains steady and positions with certification—especially paired with relevant industry experience—command more favorable offers. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the knowledge and credentials to advance into these well-established local career paths, delivered entirely through live-virtual instruction designed to fit your schedule.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:32.392883Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "9de847cfb53a3731",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMI-CPMAI Training",
-          "badge": "AI-FOCUSED",
-          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,495",
-          "period": "per person",
-          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#cpmai_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What is the CPMAI certification?",
-          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-        },
-        {
-          "question": "Who should pursue the CPMAI in {city}?",
-          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-        },
-        {
-          "question": "Is there a prerequisite for the CPMAI course?",
-          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-        },
-        {
-          "question": "How is the CPMAI different from the PMP?",
-          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-        },
-        {
-          "question": "Is this course delivered online?",
-          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-        },
-        {
-          "question": "Is PMI-CPMAI certification worth pursuing for Fresno project managers?",
-          "answer": "<p>Yes, particularly if you work in Fresno's healthcare, construction, or public-sector environments where structured project oversight is highly valued. While PMP® certification remains the most recognized credential locally, CPMAI certification strengthens your profile by demonstrating expertise in change and agile methodologies—skills increasingly sought by major Fresno employers managing complex initiatives. Combined with industry-specific experience, the credential can improve your competitiveness for higher-responsibility roles, though compensation growth depends on your sector and experience level.</p>"
-        },
-        {
-          "question": "Which Fresno-area employers value PMI project management credentials most?",
-          "answer": "<p>Healthcare systems like Community Medical Centers and Saint Agnes Medical Center prioritize PMP® and related certifications for coordinators managing clinical workflows and infrastructure projects. Government agencies (City and County of Fresno) and Fresno Unified School District also favor certified professionals for budget-sensitive, compliance-heavy initiatives. Construction and logistics firms increasingly use PMI credentials as a screening criterion. While not universally mandated, holding PMI certification strengthens your candidacy across these sectors.</p>"
-        },
-        {
-          "question": "What salary range should Fresno project managers expect with certification?",
-          "answer": "<p>Project manager compensation in Fresno generally trails larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living. However, certified professionals—especially those with PMP® or CAPM® credentials and relevant experience in healthcare, construction, or government—are positioned for more competitive offers and advancement opportunities. Actual earnings vary significantly by industry, employer size, and your background, so connect with local recruiters and industry associations for current benchmarks.</p>"
-        },
-        {
-          "question": "Can I complete PMI-CPMAI training while working full-time in Fresno?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual training format allows you to participate from your workplace, home, or any location with reliable internet, making it flexible for full-time professionals. This design is especially valuable for Fresno project managers balancing demanding roles at healthcare systems, government agencies, or construction firms. You maintain your work schedule while earning the credential at your own pace, though you'll want to confirm your employer's internet access and any policies around professional development during work hours.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:38.929088Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "096f0e49d7af1cf0",
-      "_ai_locked": true,
-      "id": "faq_two_col_1",
-      "_ai_injected_count": 4
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Fresno's Central Valley position as an agriculture, healthcare, and logistics hub creates steady demand for certified project managers across regional employers—from Community Medical Centers to infrastructure expansions like the California High-Speed Rail corridor. As complex, multi-stakeholder projects accelerate across construction, education, and public administration, organizations increasingly prioritize PMP® and CAPM® certification to strengthen coordination and delivery. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Fresno professionals nationwide, combining flexible scheduling with PMI-aligned instruction to advance your credentials without interrupting your career.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:40.996647Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "f1cd4f7f8f4d4163",
-      "_ai_locked": true,
-      "id": "map_info_1",
-      "_ai_injected_count": 1
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers across employers like Community Medical Centers, Fresno State, and the City of Fresno—particularly as major initiatives like the California High-Speed Rail Central Valley segment and airport infrastructure improvements expand. PMI-CPMAI certification aligns with employers' need for professionals who can lead complex, multi-stakeholder projects in this growing market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Fresno professionals nationwide, with flexible scheduling designed for working adults.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:39:42.886472Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "f1cd4f7f8f4d4163",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Lead AI Projects from {city}",
-      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#cpmai_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/ai-training-fresno-ca/",
-    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "meta_keywords": "AI training Fresno, CA, AI courses Fresno, CPMAI certification Fresno, AI project management training Fresno, CA, AI for project managers Fresno",
-    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "og_image": "",
-    "service_name": "PMI-CPMAI Certification Training",
-    "service_type": "Professional Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-    "bc_label": "PMI-CPMAI {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\",\n      \"name\": \"PMI-CPMAI Certification Training in Fresno, CA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Fresno, CA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Fresno, CA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Fresno, CA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Fresno, CA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fresno-ca/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-fresno-ca/\"\n    }\n  ]\n}",
-    "primary_keyword": "PMI-CPMAI Certification Training",
-    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-10-29T04:26:05+00:00",
-  "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "locked_blocks": [],
+    "generated_at": "2026-11-07T20:22:15+00:00",
+    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
 }

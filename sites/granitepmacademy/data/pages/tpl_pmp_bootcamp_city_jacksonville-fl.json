@@ -47,7 +47,7 @@
     "content_blocks": [
         {
             "type": "hero_split",
-            "hs_heading": "PMP Bootcamp in {city}, {SS}",
+            "hs_heading": "{primary_keyword} in {city_state}",
             "hs_subtext": "<p>Jacksonville's insurance, financial services, and logistics sectors rely on project managers who can demonstrate PMP certification. Granite PM Academy's live-virtual PMP Bootcamp delivers the PMI contact-hour education requirement through instructor-led training on a flexible schedule, preparing you to sit for the exam without disrupting your current role. Earning your PMP credential positions you for advancement and higher earning potential across the region's largest employers.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#pmp_boot_schedule",
@@ -56,7 +56,7 @@
             "hs_photo_alt": "PMP Bootcamp {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmp-bootcamp-jacksonville-fl__tpl_pmp_bootcamp_city_jacksonville-fl_40cdd34e.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
@@ -69,7 +69,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "fdba67eda6851ddb",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
         },
         {
             "type": "ai_block",
@@ -395,10 +396,10 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\",\n      \"name\": \"PMP Bootcamp in Jacksonville, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Jacksonville, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Bootcamp in Jacksonville, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#course\",\n      \"name\": \"PMP Bootcamp in Jacksonville, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Jacksonville, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-fl/\"\n    }\n  ]\n}",
-        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me",
-        "primary_keyword": "PMP Bootcamp"
+        "primary_keyword": "PMP Bootcamp",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-29T01:44:00+00:00",
-    "template_version": "eca5873178752643e9d468f8a59eaea5"
+    "generated_at": "2026-11-07T20:21:23+00:00",
+    "template_version": "1a2eea2155d777355b5ff0707995b162"
 }

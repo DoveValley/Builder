@@ -126,9 +126,21 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
             <label class="hint" style="margin:0;display:flex;align-items:center;gap:6px;cursor:pointer;">
                 <input type="checkbox" id="cp-varylayout"> Vary block order per city
             </label>
+
+            <span style="width:1px;height:22px;background:#e2e8f0;margin:0 4px;"></span>
+
+            <label class="hint" style="margin:0;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                <input type="checkbox" id="cp-aiphoto" checked> AI unique photo per landing page
+            </label>
+            <select id="cp-aiphoto-quality" style="padding:5px 8px;">
+                <option value="low" selected>Low quality (cheapest)</option>
+                <option value="medium">Medium quality</option>
+                <option value="high">High quality</option>
+            </select>
         </div>
         <p class="hint" id="cp-imgdiff-help" style="margin:8px 0 0;line-height:1.55;"></p>
         <p class="hint" style="margin:6px 0 0;line-height:1.55;"><strong>Vary block order:</strong> gives each city page a slightly different section order (hero stays first, the closing block stays last, a couple of middle sections swap) so the pages aren't structurally identical. Deterministic per city; needs 4+ blocks in the template.</p>
+        <p class="hint" style="margin:6px 0 0;line-height:1.55;"><strong>AI unique photo per landing page:</strong> takes whatever photo is currently set as this template's hero and asks OpenAI to give the person a different hairstyle and face — same scene, equipment, and pose — so each city page gets a genuinely distinct file instead of all sharing the one photo. Real per-call cost (shown in the confirm prompt before anything runs); a city that already has a generated variant is never re-billed on a later run. Unrelated to Per-city images above, which only stamps text/bytes onto the existing photo rather than generating a new one.</p>
     </div>
     <script>
     (function(){
@@ -469,6 +481,10 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         if (_idf && _idf.value && opts.image_diff === undefined) opts.image_diff = _idf.value;
         var _vl = document.getElementById('cp-varylayout');
         if (_vl && _vl.checked && opts.vary_layout === undefined) opts.vary_layout = 1;
+        var _ap = document.getElementById('cp-aiphoto');
+        if (_ap && _ap.checked && opts.ai_photo === undefined) opts.ai_photo = 1;
+        var _apq = document.getElementById('cp-aiphoto-quality');
+        if (_apq && opts.ai_photo_quality === undefined) opts.ai_photo_quality = _apq.value;
 
         // Confirmation
         if (!confirm(cpConfirmText(opts))) return;

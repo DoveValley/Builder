@@ -46,7 +46,7 @@
     "content_blocks": [
         {
             "type": "hero_split",
-            "hs_heading": "PMP Certification Training in {city}, {SS}",
+            "hs_heading": "{primary_keyword} in {city_state}",
             "hs_subtext": "<p>McKinney's aerospace, defense, financial services, and logistics sectors depend on skilled project managers to coordinate complex initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills the Project Management Institute's required contact hours, preparing you to sit for the PMP exam. Earning your PMP credential positions you competitively for advancement roles within the region's major employers and across industries that value certified project leadership.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#pmp_schedule",
@@ -55,7 +55,7 @@
             "hs_photo_alt": "PMP certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmp-certification-training-mckinney-tx__tpl_pmp_certification_training_city_mckinney-tx_0cc68396.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
@@ -68,7 +68,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "459667b1f861eea6",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
         },
         {
             "type": "ai_block",
@@ -398,10 +399,10 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in McKinney, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in McKinney, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#course\",\r\n      \"name\": \"PMP Certification Training in McKinney, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in McKinney, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-mckinney-tx/\"\r\n    }\r\n  ]\r\n}",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me",
-        "primary_keyword": "PMP Certification Training"
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-29T01:44:00+00:00",
-    "template_version": "596b492faedc573f4cda23aaf882d23d"
+    "generated_at": "2026-11-07T20:21:01+00:00",
+    "template_version": "aecaa4faca45b2f45c46c051cd153404"
 }
