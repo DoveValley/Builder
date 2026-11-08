@@ -1,416 +1,445 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "sioux-falls-sd",
-  "slug": "pmp-certification-training-sioux-falls-sd",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "sioux-falls-sd",
-    "city": "Sioux Falls",
-    "state": "South Dakota",
-    "SS": "SD",
-    "city_slug": "sioux-falls-sd",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier4"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "sioux-falls-sd",
+    "slug": "pmp-certification-training-sioux-falls-sd",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "sioux-falls-sd",
+        "city": "Sioux Falls",
+        "state": "South Dakota",
+        "SS": "SD",
+        "city_slug": "sioux-falls-sd",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier4"
+        ],
+        "industries": [
+            "Healthcare",
+            "Financial Services/Banking",
+            "Biotechnology and Agribusiness",
+            "Manufacturing",
+            "Retail and Distribution"
+        ],
+        "top_employers": [
+            "Sanford Health",
+            "Avera Health",
+            "Citibank",
+            "Wells Fargo",
+            "First Premier Bank",
+            "Premier Bankcard",
+            "Smithfield Foods",
+            "POET",
+            "City of Sioux Falls",
+            "Sioux Falls School District",
+            "Amazon"
+        ],
+        "salary_note": "Project managers in Sioux Falls are in steady demand, particularly within healthcare and financial services, with compensation generally competitive for the regional Midwest market. Exact figures vary widely by industry and experience level, so candidates should research current listings rather than rely on a single benchmark.",
+        "market_blurb": "Sioux Falls has a diversified economy anchored by major healthcare systems like Sanford Health and Avera Health, along with a strong financial services and banking sector including Citibank and First Premier Bank. This mix creates consistent opportunities for project and program managers overseeing facility expansions, IT system implementations, and process improvement initiatives across these industries.",
+        "notable_projects": [
+            "Sanford Health facility and research expansions in Sioux Falls",
+            "Avera Health system expansions and new care facility construction",
+            "POET biofuel and bioprocessing facility developments",
+            "City of Sioux Falls infrastructure and downtown development initiatives"
+        ],
+        "credential_demand": "PMP and CAPM certifications are increasingly valued by Sioux Falls employers in healthcare and financial services, where structured project delivery is critical, though demand for certified professionals should be confirmed through current local job postings rather than assumed uniformly across all sectors.",
+        "_researched": 1,
+        "city_spotlight": "<p>Sioux Falls's healthcare sector—anchored by Sanford Health and Avera Health system expansions—drives sustained demand for skilled project managers overseeing facility construction, clinical IT implementations, and care delivery transformation. Financial services employers and agribusiness operations add further complexity to capital projects and process improvement work across the region. Granite PM Academy serves Sioux Falls professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Sioux Falls's healthcare, financial services, and manufacturing sectors rely on skilled project managers to drive critical initiatives across operations and technology. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn the PMP credential while maintaining your current role. The certification strengthens your qualifications for advancement in Sioux Falls's largest employers and fastest-growing industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_5addd21ce3.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:06.706291Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "360effc81243fdcb",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Sioux Falls for Healthcare Leaders",
+            "text": "<p>Sioux Falls's thriving healthcare sector—anchored by major systems like Sanford Health and Avera Health—creates sustained demand for project managers who can navigate complex facility expansions, clinical IT implementations, and process-improvement initiatives. These organizations routinely oversee multimillion-dollar programs that require skilled professionals holding the Project Management Professional (PMP)® credential. Beyond healthcare, Sioux Falls's diversified economy in financial services, manufacturing, and agribusiness generates similar opportunities for certified project managers. The PMP® certification signals to employers across these industries that you master scope, cost, schedule, and risk management at a recognized professional standard—a credential that accelerates career growth and command of larger, higher-stakes initiatives.</p><p>Granite PM Academy delivers PMP® Certification Training entirely live-virtual, enabling Sioux Falls professionals to earn their credential without travel or scheduling conflicts. As a PMI Authorized Training Partner, we deliver instructor-led courses that satisfy PMI's required contact hours and prepare you to pass the PMP® exam. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn frameworks and tools applicable immediately in your role. Whether you work in healthcare operations, financial services, manufacturing, or another sector, our curriculum is tailored to help you master the PMBOK® Guide and build the confidence to earn your certification and advance your career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:10.746861Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "1ba5616633622a5a",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Sioux Falls's Healthcare and Financial Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Weight",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP training meets PMI's rigorous standards. Employers across Sioux Falls's healthcare systems, banks, and manufacturing operations trust PMI-authorized programs to deliver the contact hours and rigor your certification requires."
+                },
+                {
+                    "heading": "Live Instruction Fits Working Schedules",
+                    "text": "Our live-virtual instructor-led format lets you earn contact hours from anywhere—no commute, no classroom time zone conflicts. Sioux Falls professionals juggling roles at Sanford, Avera, Smithfield, or POET can complete certification around their existing commitments."
+                },
+                {
+                    "heading": "Instructors Bring Active Field Experience",
+                    "text": "Your instructors are active certified practitioners—not trainers reading slides. They apply PMP frameworks in real projects today, translating PMBOK® concepts into examples your peers at local employers will recognize and value immediately."
+                },
+                {
+                    "heading": "PMP Opens Doors at Major Local Employers",
+                    "text": "Healthcare, financial services, agribusiness, and manufacturing firms throughout Sioux Falls prioritize PMP-certified leaders for program and project management roles. The credential signals capability that Sanford, Avera, First Premier Bank, POET, and Smithfield actively seek in advancement and hiring."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:15.130640Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "5555e7689a9c0639",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Growing in Sioux Falls",
+            "text": "<p>Sioux Falls's healthcare sector drives consistent demand for certified project managers. Sanford Health and Avera Health both operate major facilities and regularly undertake expansions and new care facility construction—initiatives that require rigorous project oversight and coordinated delivery. Beyond healthcare, the city's financial services employers, including Citibank, Wells Fargo, and First Premier Bank, manage complex digital and operational projects where structured PM methodologies are increasingly critical. The City of Sioux Falls's infrastructure and downtown development initiatives, as well as bioprocessing and biofuel facility expansions in the region, further demonstrate how deeply project management skills underpin Sioux Falls's economic activity.</p><p>The PMP and CAPM credentials are increasingly valued by Sioux Falls employers in healthcare and financial services, where disciplined project delivery directly affects organizational outcomes and regulatory compliance. Compensation for certified project managers remains competitive within the regional Midwest market, though rates vary substantially by industry and experience; reviewing current local job postings will give you the most accurate picture of opportunities in your target sector. Completing PMP Certification Training through Granite PM Academy equips you with PMI-recognized credentials and frameworks that employers here actively seek, positioning you to advance into or within leadership roles where demand for proven PM expertise is strongest.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:18.945928Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "4b497c9d1e078669",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Sioux Falls",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and project management experience. Review the specific hour and experience thresholds for your background—secondary degree holders and bachelor's degree holders face different requirements. Verify your qualifications before enrolling to ensure you'll be ready to apply."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions from your Sioux Falls location on a schedule that fits your work and life. Our active certified practitioners deliver the full curriculum online, so you gain structured project management education without geographic barriers."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing your 35-hour course, submit your PMP application directly to PMI. Include proof of your education, project experience, and Granite PM Academy's completion certificate. Pay the associated PMI exam fee to secure your testing eligibility and move forward in the certification process."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study materials, and instructor guidance—to solidify your readiness. Schedule your proctored PMP exam at a testing center or through an approved online proctor. Your preparation positions you to demonstrate mastery of project management principles and practices."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After earning your PMP, commit to the standard 3-year renewal cycle. Earn Professional Development Units (PDUs) through training, volunteering, or self-directed learning. Granite PM Academy and PMI offer pathways to keep your credential current and your expertise aligned with industry standards."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:23.989357Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "9ce214eef2961e9b",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Sioux Falls healthcare project managers?",
+                    "answer": "<p>Yes. Sanford Health and Avera Health—two of Sioux Falls's largest employers—increasingly value PMP and CAPM credentials for professionals managing clinical, IT, and operational initiatives. Structured project delivery is critical in healthcare, making certification a competitive advantage. Verify current demand by reviewing open project manager roles at these and other local health systems to confirm the credential aligns with your career goals.</p>"
+                },
+                {
+                    "question": "Do Sioux Falls financial services employers require PMP certification?",
+                    "answer": "<p>PMP certification is increasingly valued by Sioux Falls's banking and financial services sector, including Citibank, Wells Fargo, First Premier Bank, and Premier Bankcard, where disciplined project delivery directly supports regulatory compliance and product launches. While not universally required, the credential strengthens advancement prospects in this competitive market. Check current job postings at these and similar firms to gauge demand for your role and timeline.</p>"
+                },
+                {
+                    "question": "Can I attend PMP training in Sioux Falls while working full-time?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows Sioux Falls professionals to participate in real-time instruction from their workplace, home, or any location with internet access. This flexibility supports working adults balancing full-time employment at Smithfield Foods, POET, the City, or other local employers while earning certification. You control your schedule without relocating or commuting to an in-person classroom.</p>"
+                },
+                {
+                    "question": "What do project managers in Sioux Falls typically earn with PMP?",
+                    "answer": "<p>Project manager compensation in Sioux Falls varies significantly by industry and experience. Healthcare and financial services—the city's strongest sectors for certified professionals—generally offer competitive regional salaries, though exact figures differ. Research current job postings from Sanford Health, Avera, Citibank, Wells Fargo, and similar employers to benchmark earnings for your role, experience level, and industry before pursuing certification.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:29.864104Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "cb343c918fc5b5aa",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Sioux Falls's healthcare anchors—Sanford Health and Avera Health—are driving continuous facility expansions and IT implementations that demand skilled project managers. Add the city's robust financial services sector and agribusiness operations, and demand for PMP-certified professionals spans clinical, technology, and operational leadership roles. Granite PM Academy delivers live-virtual PMP Certification Training to working professionals across Sioux Falls and nationwide, fitting preparation around your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:31.597784Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "b99979fada1b4f7b",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Sioux Falls",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Sioux Falls",
+                    "url": "/pmp-bootcamp-sioux-falls-sd/"
+                },
+                {
+                    "label": "CAPM Certification Training Sioux Falls",
+                    "url": "/capm-certification-training-sioux-falls-sd/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Sioux Falls",
+                    "url": "/ai-training-sioux-falls-sd/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Healthcare",
-      "Financial Services/Banking",
-      "Biotechnology and Agribusiness",
-      "Manufacturing",
-      "Retail and Distribution"
-    ],
-    "top_employers": [
-      "Sanford Health",
-      "Avera Health",
-      "Citibank",
-      "Wells Fargo",
-      "First Premier Bank",
-      "Premier Bankcard",
-      "Smithfield Foods",
-      "POET",
-      "City of Sioux Falls",
-      "Sioux Falls School District",
-      "Amazon"
-    ],
-    "salary_note": "Project managers in Sioux Falls are in steady demand, particularly within healthcare and financial services, with compensation generally competitive for the regional Midwest market. Exact figures vary widely by industry and experience level, so candidates should research current listings rather than rely on a single benchmark.",
-    "market_blurb": "Sioux Falls has a diversified economy anchored by major healthcare systems like Sanford Health and Avera Health, along with a strong financial services and banking sector including Citibank and First Premier Bank. This mix creates consistent opportunities for project and program managers overseeing facility expansions, IT system implementations, and process improvement initiatives across these industries.",
-    "notable_projects": [
-      "Sanford Health facility and research expansions in Sioux Falls",
-      "Avera Health system expansions and new care facility construction",
-      "POET biofuel and bioprocessing facility developments",
-      "City of Sioux Falls infrastructure and downtown development initiatives"
-    ],
-    "credential_demand": "PMP and CAPM certifications are increasingly valued by Sioux Falls employers in healthcare and financial services, where structured project delivery is critical, though demand for certified professionals should be confirmed through current local job postings rather than assumed uniformly across all sectors.",
-    "_researched": 1,
-    "city_spotlight": "<p>Sioux Falls's healthcare sector—anchored by Sanford Health and Avera Health system expansions—drives sustained demand for skilled project managers overseeing facility construction, clinical IT implementations, and care delivery transformation. Financial services employers and agribusiness operations add further complexity to capital projects and process improvement work across the region. Granite PM Academy serves Sioux Falls professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Sioux Falls's healthcare, financial services, and manufacturing sectors rely on skilled project managers to drive critical initiatives across operations and technology. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn the PMP credential while maintaining your current role. The certification strengthens your qualifications for advancement in Sioux Falls's largest employers and fastest-growing industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_5addd21ce3.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:06.706291Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "360effc81243fdcb",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Sioux Falls, SD, PMP exam prep Sioux Falls, PMP course Sioux Falls SD, project management certification Sioux Falls, SD, PMI PMP training Sioux Falls",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\",\r\n      \"name\": \"PMP Certification Training in Sioux Falls, SD | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Sioux Falls, SD. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Sioux Falls, SD\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#course\",\r\n      \"name\": \"PMP Certification Training in Sioux Falls, SD\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Sioux Falls, SD. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Sioux Falls for Healthcare Leaders",
-      "text": "<p>Sioux Falls's thriving healthcare sector—anchored by major systems like Sanford Health and Avera Health—creates sustained demand for project managers who can navigate complex facility expansions, clinical IT implementations, and process-improvement initiatives. These organizations routinely oversee multimillion-dollar programs that require skilled professionals holding the Project Management Professional (PMP)® credential. Beyond healthcare, Sioux Falls's diversified economy in financial services, manufacturing, and agribusiness generates similar opportunities for certified project managers. The PMP® certification signals to employers across these industries that you master scope, cost, schedule, and risk management at a recognized professional standard—a credential that accelerates career growth and command of larger, higher-stakes initiatives.</p><p>Granite PM Academy delivers PMP® Certification Training entirely live-virtual, enabling Sioux Falls professionals to earn their credential without travel or scheduling conflicts. As a PMI Authorized Training Partner, we deliver instructor-led courses that satisfy PMI's required contact hours and prepare you to pass the PMP® exam. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn frameworks and tools applicable immediately in your role. Whether you work in healthcare operations, financial services, manufacturing, or another sector, our curriculum is tailored to help you master the PMBOK® Guide and build the confidence to earn your certification and advance your career.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:10.746861Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "1ba5616633622a5a",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Sioux Falls's Healthcare and Financial Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Weight",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP training meets PMI's rigorous standards. Employers across Sioux Falls's healthcare systems, banks, and manufacturing operations trust PMI-authorized programs to deliver the contact hours and rigor your certification requires."
-        },
-        {
-          "heading": "Live Instruction Fits Working Schedules",
-          "text": "Our live-virtual instructor-led format lets you earn contact hours from anywhere—no commute, no classroom time zone conflicts. Sioux Falls professionals juggling roles at Sanford, Avera, Smithfield, or POET can complete certification around their existing commitments."
-        },
-        {
-          "heading": "Instructors Bring Active Field Experience",
-          "text": "Your instructors are active certified practitioners—not trainers reading slides. They apply PMP frameworks in real projects today, translating PMBOK® concepts into examples your peers at local employers will recognize and value immediately."
-        },
-        {
-          "heading": "PMP Opens Doors at Major Local Employers",
-          "text": "Healthcare, financial services, agribusiness, and manufacturing firms throughout Sioux Falls prioritize PMP-certified leaders for program and project management roles. The credential signals capability that Sanford, Avera, First Premier Bank, POET, and Smithfield actively seek in advancement and hiring."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:15.130640Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "5555e7689a9c0639",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Growing in Sioux Falls",
-      "text": "<p>Sioux Falls's healthcare sector drives consistent demand for certified project managers. Sanford Health and Avera Health both operate major facilities and regularly undertake expansions and new care facility construction—initiatives that require rigorous project oversight and coordinated delivery. Beyond healthcare, the city's financial services employers, including Citibank, Wells Fargo, and First Premier Bank, manage complex digital and operational projects where structured PM methodologies are increasingly critical. The City of Sioux Falls's infrastructure and downtown development initiatives, as well as bioprocessing and biofuel facility expansions in the region, further demonstrate how deeply project management skills underpin Sioux Falls's economic activity.</p><p>The PMP and CAPM credentials are increasingly valued by Sioux Falls employers in healthcare and financial services, where disciplined project delivery directly affects organizational outcomes and regulatory compliance. Compensation for certified project managers remains competitive within the regional Midwest market, though rates vary substantially by industry and experience; reviewing current local job postings will give you the most accurate picture of opportunities in your target sector. Completing PMP Certification Training through Granite PM Academy equips you with PMI-recognized credentials and frameworks that employers here actively seek, positioning you to advance into or within leadership roles where demand for proven PM expertise is strongest.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:18.945928Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "4b497c9d1e078669",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Sioux Falls",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and project management experience. Review the specific hour and experience thresholds for your background—secondary degree holders and bachelor's degree holders face different requirements. Verify your qualifications before enrolling to ensure you'll be ready to apply."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions from your Sioux Falls location on a schedule that fits your work and life. Our active certified practitioners deliver the full curriculum online, so you gain structured project management education without geographic barriers."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing your 35-hour course, submit your PMP application directly to PMI. Include proof of your education, project experience, and Granite PM Academy's completion certificate. Pay the associated PMI exam fee to secure your testing eligibility and move forward in the certification process."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study materials, and instructor guidance—to solidify your readiness. Schedule your proctored PMP exam at a testing center or through an approved online proctor. Your preparation positions you to demonstrate mastery of project management principles and practices."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After earning your PMP, commit to the standard 3-year renewal cycle. Earn Professional Development Units (PDUs) through training, volunteering, or self-directed learning. Granite PM Academy and PMI offer pathways to keep your credential current and your expertise aligned with industry standards."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:23.989357Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "9ce214eef2961e9b",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Sioux Falls healthcare project managers?",
-          "answer": "<p>Yes. Sanford Health and Avera Health—two of Sioux Falls's largest employers—increasingly value PMP and CAPM credentials for professionals managing clinical, IT, and operational initiatives. Structured project delivery is critical in healthcare, making certification a competitive advantage. Verify current demand by reviewing open project manager roles at these and other local health systems to confirm the credential aligns with your career goals.</p>"
-        },
-        {
-          "question": "Do Sioux Falls financial services employers require PMP certification?",
-          "answer": "<p>PMP certification is increasingly valued by Sioux Falls's banking and financial services sector, including Citibank, Wells Fargo, First Premier Bank, and Premier Bankcard, where disciplined project delivery directly supports regulatory compliance and product launches. While not universally required, the credential strengthens advancement prospects in this competitive market. Check current job postings at these and similar firms to gauge demand for your role and timeline.</p>"
-        },
-        {
-          "question": "Can I attend PMP training in Sioux Falls while working full-time?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows Sioux Falls professionals to participate in real-time instruction from their workplace, home, or any location with internet access. This flexibility supports working adults balancing full-time employment at Smithfield Foods, POET, the City, or other local employers while earning certification. You control your schedule without relocating or commuting to an in-person classroom.</p>"
-        },
-        {
-          "question": "What do project managers in Sioux Falls typically earn with PMP?",
-          "answer": "<p>Project manager compensation in Sioux Falls varies significantly by industry and experience. Healthcare and financial services—the city's strongest sectors for certified professionals—generally offer competitive regional salaries, though exact figures differ. Research current job postings from Sanford Health, Avera, Citibank, Wells Fargo, and similar employers to benchmark earnings for your role, experience level, and industry before pursuing certification.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:29.864104Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "cb343c918fc5b5aa",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Sioux Falls's healthcare anchors—Sanford Health and Avera Health—are driving continuous facility expansions and IT implementations that demand skilled project managers. Add the city's robust financial services sector and agribusiness operations, and demand for PMP-certified professionals spans clinical, technology, and operational leadership roles. Granite PM Academy delivers live-virtual PMP Certification Training to working professionals across Sioux Falls and nationwide, fitting preparation around your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:31.597784Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "b99979fada1b4f7b",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Sioux Falls, SD, PMP exam prep Sioux Falls, PMP course Sioux Falls SD, project management certification Sioux Falls, SD, PMI PMP training Sioux Falls",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\",\r\n      \"name\": \"PMP Certification Training in Sioux Falls, SD | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Sioux Falls, SD. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Sioux Falls, SD\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#course\",\r\n      \"name\": \"PMP Certification Training in Sioux Falls, SD\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Sioux Falls, SD. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sioux-falls-sd/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T22:02:51+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

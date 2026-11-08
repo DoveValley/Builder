@@ -1,415 +1,444 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "san-diego-ca",
-  "slug": "pmp-certification-training-san-diego-ca",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "san-diego-ca",
-    "city": "San Diego",
-    "state": "California",
-    "SS": "CA",
-    "city_slug": "san-diego-ca",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "exp-tier1",
-      "expansion-2026"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "san-diego-ca",
+    "slug": "pmp-certification-training-san-diego-ca",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "san-diego-ca",
+        "city": "San Diego",
+        "state": "California",
+        "SS": "CA",
+        "city_slug": "san-diego-ca",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "exp-tier1",
+            "expansion-2026"
+        ],
+        "industries": [
+            "Military/Defense",
+            "Biotech/Life Sciences",
+            "Technology/Telecommunications",
+            "Healthcare",
+            "Higher Education/Research",
+            "Shipbuilding/Manufacturing"
+        ],
+        "top_employers": [
+            "Qualcomm",
+            "Illumina",
+            "General Atomics",
+            "Sharp HealthCare",
+            "University of California, San Diego",
+            "General Dynamics NASSCO"
+        ],
+        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. Indeed lists average general Project Manager salary in San Diego at $114,503/yr (not a verified PMP premium).",
+        "market_blurb": "San Diego's economy is anchored by military and defense (Naval Base San Diego, General Atomics), biotechnology and life sciences (Illumina, UC San Diego research), telecommunications (Qualcomm headquartered here), and healthcare (Sharp HealthCare), alongside shipbuilding (General Dynamics NASSCO).",
+        "notable_projects": [
+            "New Terminal 1 at San Diego International Airport - Phase 1 (19 gates) opened September 2025, $2.6B",
+            "Midway Rising - 48-acre mixed-use redevelopment of the former Pechanga Arena site: ~4,254 housing units, new 16,000-seat arena, 14.5 acres open space"
+        ],
+        "credential_demand": "The concentration of large, program-heavy employers in defense contracting, biotech, telecom R&D, and shipbuilding/healthcare systems makes PMP certification plausibly valued, particularly for roles managing complex multi-year programs.",
+        "_researched": 1,
+        "city_spotlight": "<p>San Diego's employer base includes Qualcomm, Illumina, General Atomics, Sharp HealthCare. San Diego's economy is anchored by military and defense (Naval Base San Diego, General Atomics), biotechnology and life sciences (Illumina, UC San Diego research), telecommunications (Qualcomm headquartered here), and healthcare (Sharp HealthCare), alongside shipbuilding (General Dynamics NASSCO). Granite PM Academy delivers live-virtual PMP&reg; Certification Training to San Diego professionals seeking to advance their project management careers.</p>",
+        "city_image_alt": "San Diego, CA",
+        "city_image_credit": "Photo: Boatguy619, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Diego_skyline_18_(cropped).jpg",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-diego-ca.webp"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>San Diego's defense, biotech, and advanced manufacturing sectors rely on skilled project managers to deliver complex, mission-critical work. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led courses you can complete from anywhere, equipping you with the credential these regional employers actively seek and the practical frameworks to advance your career in project leadership.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6e99a56f7c.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:42.483160Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "c4b42252d232a57d",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for San Diego's Defense & Tech Professionals",
+            "text": "<p>San Diego's economy is built on specialized, high-stakes industries where project management excellence directly drives mission success. The military and defense sector—anchored by Naval Base San Diego and employers like General Atomics—demands rigorously credentialed project leaders who can manage complex, regulated programs with precision. Biotech and life sciences firms such as Illumina, telecommunications giants like Qualcomm, and organizations across healthcare and shipbuilding similarly require PMP-certified professionals to lead cross-functional teams, control budgets, and deliver on time in environments where delays carry real costs. A Project Management Professional (PMP)® credential signals to San Diego employers that you meet the industry standard for competency, making it a concrete competitive advantage in a market where advanced certifications are expected, not optional.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMP Certification Training that meets all contact-hour requirements for your credential eligibility. Our active certified practitioners bring real-world experience to every session, ensuring you learn frameworks and tactics that apply to the kinds of projects you'll encounter in San Diego's regulated and fast-paced sectors. We design our schedule for working professionals—flexible cohorts, interactive instruction, and direct access to expert trainers—so you can prepare for the PMP® exam without disrupting your career. Upon completion, you'll have both the training hours required by PMI and the practical confidence to pass the exam and advance your standing in San Diego's competitive project management market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:47.104636Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "b27747ddd9d77f29",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for San Diego's Defense and Biotech Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Partner",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets all PMI standards. This authorization guarantees that your contact hours satisfy PMI eligibility requirements, eliminating uncertainty about credential qualification."
+                },
+                {
+                    "heading": "Live Virtual Instruction, Your Schedule",
+                    "text": "Attend live-virtual instructor-led sessions that fulfill PMP® contact-hour requirements without relocating or attending in-person classes. Learn from active certified practitioners in real time, ask questions directly, and complete your training from San Diego on your own terms."
+                },
+                {
+                    "heading": "Exam Readiness From Day One",
+                    "text": "Your instructors are active certified practitioners who blend real-world project experience with exam strategy. Granite PM Academy integrates exam-preparation support throughout the curriculum, not as an afterthought, so you enter test day confident."
+                },
+                {
+                    "heading": "Credential in Demand Locally",
+                    "text": "San Diego's military, defense, biotech, and healthcare sectors actively hire PMP®-certified project managers. Employers including General Atomics, Illumina, and Sharp HealthCare value the PMP® credential as a competitive differentiator for career advancement and leadership roles."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:51.324919Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "91f3c4bca16a874b",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in San Diego's Defense and Biotech Hub",
+            "text": "<p>San Diego's economy is anchored by defense contracting, telecommunications, and life sciences—industries where large, complex programs define career opportunity. Qualcomm, General Dynamics NASSCO, General Atomics, and Illumina consistently manage multiyear initiatives that demand rigorous project oversight. The $2.6 billion New Terminal 1 expansion at San Diego International Airport, which opened Phase 1 with 19 new gates in September 2025, exemplifies the scale of infrastructure and coordination required across the region's project-heavy sectors. Certified project managers are essential to organizations executing work of this magnitude, and employers in defense, shipbuilding, biotech R&D, and healthcare systems actively seek credentials that validate planning, risk management, and stakeholder communication at enterprise level.</p><p>PMP® certification carries measurable earning power in a competitive market. While San Diego project managers earn solid salaries, certified practitioners nationwide report compensation premiums over non-certified peers—a gap that reflects the credential's value across most regions and industries. Completing PMP Certification Training through Granite PM Academy positions you to compete for higher-responsibility roles at Qualcomm, Sharp HealthCare, UC San Diego, and the defense and biotech firms that dominate local hiring. The credential signals to employers that you meet globally recognized standards for scope, schedule, and resource management—credentials that matter especially in San Diego's program-intensive sectors. Live-virtual delivery means you can study and earn your PMP® without pausing your current role, making certification an accessible step toward advancement in this region's robust project-management market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:56.350804Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "847656ef4d82cdd6",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in San Diego",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "The PMP® credential requires a high school diploma or equivalent, plus documented project-management experience and formal education. PMI sets specific thresholds for both. Review your background against PMI's requirements—Granite PM Academy's advisors can help you assess whether you qualify before enrolling."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Granite PM Academy delivers live-virtual, instructor-led PMP® preparation nationwide. Attend scheduled sessions from anywhere, interact in real time with active certified practitioners, and master PMI's framework and exam domains. Our structured curriculum fulfills PMI's mandatory contact-hour requirement for exam eligibility."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing training, submit your formal PMP® application directly to PMI, including proof of education and project experience. Pay PMI's exam fee to secure your testing appointment. Granite PM Academy guides you through the application process to ensure accuracy and timely submission."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Access Granite PM Academy's exam-preparation resources—practice tests, study guides, and targeted review sessions—to solidify your readiness. Schedule your proctored exam at a testing center convenient to you. Our instructors remain available to answer final questions before test day."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "The PMP® credential is valid for three years. To renew, earn professional development units (PDUs) through approved training, conferences, publications, or volunteer work. Granite PM Academy offers continuing-education courses to help you maintain your certification and stay current in project management."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:01.399295Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "1b078d43de1e04ea",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for San Diego defense and biotech careers?",
+                    "answer": "<p>San Diego's major employers—Qualcomm, Illumina, General Atomics, General Dynamics NASSCO, and others—concentrate in defense contracting, biotech, and telecom R&D, sectors where multi-year, complex program management is standard. PMP certification signals mastery of structured project governance highly valued in these fields. While San Diego-specific salary premiums remain unverified, PMI data shows certified project managers nationally earn a median $135,000 versus $109,157 for non-certified peers, a gap likely relevant across most U.S. markets including this region.</p>"
+                },
+                {
+                    "question": "Which San Diego industries most value PMP project management certification?",
+                    "answer": "<p>Military/defense contracting, biotech and life sciences, telecommunications R&D, shipbuilding and manufacturing, healthcare systems, and research institutions dominate San Diego's economy. All rely on regulated, mission-critical program delivery where PMP certification—demonstrating formal knowledge of scope, risk, and stakeholder management—carries credibility. Healthcare organizations like Sharp HealthCare and UC San Diego also use PMP-certified leaders for capital projects and clinical-systems implementations.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my San Diego workplace?",
+                    "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, allowing you to join from your office, home, or any location with internet access. This format suits San Diego professionals working across dispersed sites in biotech parks, defense facilities, and hospital campuses. You can attend without traveling to a physical classroom while maintaining your work schedule around live instruction sessions.</p>"
+                },
+                {
+                    "question": "Should San Diego project managers pursue PMP certification now or later?",
+                    "answer": "<p>San Diego's job market in defense, biotech, and healthcare remains competitive for certified project management talent. Early certification can strengthen your candidacy for advancement, especially when employers like Qualcomm, General Dynamics NASSCO, and Illumina prioritize program managers for complex initiatives. If you currently manage projects or plan to transition into project leadership, pursuing certification sooner aligns with local market demand rather than delaying until competing for fewer open roles.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:07.867537Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "601172efb7b51fda",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>San Diego's defense and military sector, anchored by Naval Base San Diego and General Atomics, drives steady demand for skilled project managers across complex, high-stakes initiatives. Major employers like Qualcomm and Illumina also fuel growth in technology and life sciences, while landmark projects—including the $2.6B Terminal 1 expansion at San Diego International Airport and the 48-acre Midway Rising mixed-use redevelopment—create immediate opportunities for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to San Diego professionals nationwide, on your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:09.823243Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "207b91ae79031f97",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in San Diego",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp San Diego",
+                    "url": "/pmp-bootcamp-san-diego-ca/"
+                },
+                {
+                    "label": "CAPM Certification Training San Diego",
+                    "url": "/capm-certification-training-san-diego-ca/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training San Diego",
+                    "url": "/ai-training-san-diego-ca/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Military/Defense",
-      "Biotech/Life Sciences",
-      "Technology/Telecommunications",
-      "Healthcare",
-      "Higher Education/Research",
-      "Shipbuilding/Manufacturing"
-    ],
-    "top_employers": [
-      "Qualcomm",
-      "Illumina",
-      "General Atomics",
-      "Sharp HealthCare",
-      "University of California, San Diego",
-      "General Dynamics NASSCO"
-    ],
-    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. Indeed lists average general Project Manager salary in San Diego at $114,503/yr (not a verified PMP premium).",
-    "market_blurb": "San Diego's economy is anchored by military and defense (Naval Base San Diego, General Atomics), biotechnology and life sciences (Illumina, UC San Diego research), telecommunications (Qualcomm headquartered here), and healthcare (Sharp HealthCare), alongside shipbuilding (General Dynamics NASSCO).",
-    "notable_projects": [
-      "New Terminal 1 at San Diego International Airport - Phase 1 (19 gates) opened September 2025, $2.6B",
-      "Midway Rising - 48-acre mixed-use redevelopment of the former Pechanga Arena site: ~4,254 housing units, new 16,000-seat arena, 14.5 acres open space"
-    ],
-    "credential_demand": "The concentration of large, program-heavy employers in defense contracting, biotech, telecom R&D, and shipbuilding/healthcare systems makes PMP certification plausibly valued, particularly for roles managing complex multi-year programs.",
-    "_researched": 1,
-    "city_spotlight": "<p>San Diego's employer base includes Qualcomm, Illumina, General Atomics, Sharp HealthCare. San Diego's economy is anchored by military and defense (Naval Base San Diego, General Atomics), biotechnology and life sciences (Illumina, UC San Diego research), telecommunications (Qualcomm headquartered here), and healthcare (Sharp HealthCare), alongside shipbuilding (General Dynamics NASSCO). Granite PM Academy delivers live-virtual PMP&reg; Certification Training to San Diego professionals seeking to advance their project management careers.</p>",
-    "city_image_alt": "San Diego, CA",
-    "city_image_credit": "Photo: Boatguy619, CC BY-SA 4.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Diego_skyline_18_(cropped).jpg",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-diego-ca.webp"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>San Diego's defense, biotech, and advanced manufacturing sectors rely on skilled project managers to deliver complex, mission-critical work. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI contact-hour education requirement through instructor-led courses you can complete from anywhere, equipping you with the credential these regional employers actively seek and the practical frameworks to advance your career in project leadership.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6e99a56f7c.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:42.483160Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "c4b42252d232a57d",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-san-diego-ca/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training San Diego, CA, PMP exam prep San Diego, PMP course San Diego CA, project management certification San Diego, CA, PMI PMP training San Diego",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\",\r\n      \"name\": \"PMP Certification Training in San Diego, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in San Diego, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in San Diego, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#course\",\r\n      \"name\": \"PMP Certification Training in San Diego, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in San Diego, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for San Diego's Defense & Tech Professionals",
-      "text": "<p>San Diego's economy is built on specialized, high-stakes industries where project management excellence directly drives mission success. The military and defense sector—anchored by Naval Base San Diego and employers like General Atomics—demands rigorously credentialed project leaders who can manage complex, regulated programs with precision. Biotech and life sciences firms such as Illumina, telecommunications giants like Qualcomm, and organizations across healthcare and shipbuilding similarly require PMP-certified professionals to lead cross-functional teams, control budgets, and deliver on time in environments where delays carry real costs. A Project Management Professional (PMP)® credential signals to San Diego employers that you meet the industry standard for competency, making it a concrete competitive advantage in a market where advanced certifications are expected, not optional.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMP Certification Training that meets all contact-hour requirements for your credential eligibility. Our active certified practitioners bring real-world experience to every session, ensuring you learn frameworks and tactics that apply to the kinds of projects you'll encounter in San Diego's regulated and fast-paced sectors. We design our schedule for working professionals—flexible cohorts, interactive instruction, and direct access to expert trainers—so you can prepare for the PMP® exam without disrupting your career. Upon completion, you'll have both the training hours required by PMI and the practical confidence to pass the exam and advance your standing in San Diego's competitive project management market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:47.104636Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "b27747ddd9d77f29",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for San Diego's Defense and Biotech Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Partner",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets all PMI standards. This authorization guarantees that your contact hours satisfy PMI eligibility requirements, eliminating uncertainty about credential qualification."
-        },
-        {
-          "heading": "Live Virtual Instruction, Your Schedule",
-          "text": "Attend live-virtual instructor-led sessions that fulfill PMP® contact-hour requirements without relocating or attending in-person classes. Learn from active certified practitioners in real time, ask questions directly, and complete your training from San Diego on your own terms."
-        },
-        {
-          "heading": "Exam Readiness From Day One",
-          "text": "Your instructors are active certified practitioners who blend real-world project experience with exam strategy. Granite PM Academy integrates exam-preparation support throughout the curriculum, not as an afterthought, so you enter test day confident."
-        },
-        {
-          "heading": "Credential in Demand Locally",
-          "text": "San Diego's military, defense, biotech, and healthcare sectors actively hire PMP®-certified project managers. Employers including General Atomics, Illumina, and Sharp HealthCare value the PMP® credential as a competitive differentiator for career advancement and leadership roles."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:51.324919Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "91f3c4bca16a874b",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in San Diego's Defense and Biotech Hub",
-      "text": "<p>San Diego's economy is anchored by defense contracting, telecommunications, and life sciences—industries where large, complex programs define career opportunity. Qualcomm, General Dynamics NASSCO, General Atomics, and Illumina consistently manage multiyear initiatives that demand rigorous project oversight. The $2.6 billion New Terminal 1 expansion at San Diego International Airport, which opened Phase 1 with 19 new gates in September 2025, exemplifies the scale of infrastructure and coordination required across the region's project-heavy sectors. Certified project managers are essential to organizations executing work of this magnitude, and employers in defense, shipbuilding, biotech R&D, and healthcare systems actively seek credentials that validate planning, risk management, and stakeholder communication at enterprise level.</p><p>PMP® certification carries measurable earning power in a competitive market. While San Diego project managers earn solid salaries, certified practitioners nationwide report compensation premiums over non-certified peers—a gap that reflects the credential's value across most regions and industries. Completing PMP Certification Training through Granite PM Academy positions you to compete for higher-responsibility roles at Qualcomm, Sharp HealthCare, UC San Diego, and the defense and biotech firms that dominate local hiring. The credential signals to employers that you meet globally recognized standards for scope, schedule, and resource management—credentials that matter especially in San Diego's program-intensive sectors. Live-virtual delivery means you can study and earn your PMP® without pausing your current role, making certification an accessible step toward advancement in this region's robust project-management market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:56.350804Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "847656ef4d82cdd6",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in San Diego",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "The PMP® credential requires a high school diploma or equivalent, plus documented project-management experience and formal education. PMI sets specific thresholds for both. Review your background against PMI's requirements—Granite PM Academy's advisors can help you assess whether you qualify before enrolling."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Granite PM Academy delivers live-virtual, instructor-led PMP® preparation nationwide. Attend scheduled sessions from anywhere, interact in real time with active certified practitioners, and master PMI's framework and exam domains. Our structured curriculum fulfills PMI's mandatory contact-hour requirement for exam eligibility."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing training, submit your formal PMP® application directly to PMI, including proof of education and project experience. Pay PMI's exam fee to secure your testing appointment. Granite PM Academy guides you through the application process to ensure accuracy and timely submission."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Access Granite PM Academy's exam-preparation resources—practice tests, study guides, and targeted review sessions—to solidify your readiness. Schedule your proctored exam at a testing center convenient to you. Our instructors remain available to answer final questions before test day."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "The PMP® credential is valid for three years. To renew, earn professional development units (PDUs) through approved training, conferences, publications, or volunteer work. Granite PM Academy offers continuing-education courses to help you maintain your certification and stay current in project management."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:01.399295Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "1b078d43de1e04ea",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for San Diego defense and biotech careers?",
-          "answer": "<p>San Diego's major employers—Qualcomm, Illumina, General Atomics, General Dynamics NASSCO, and others—concentrate in defense contracting, biotech, and telecom R&D, sectors where multi-year, complex program management is standard. PMP certification signals mastery of structured project governance highly valued in these fields. While San Diego-specific salary premiums remain unverified, PMI data shows certified project managers nationally earn a median $135,000 versus $109,157 for non-certified peers, a gap likely relevant across most U.S. markets including this region.</p>"
-        },
-        {
-          "question": "Which San Diego industries most value PMP project management certification?",
-          "answer": "<p>Military/defense contracting, biotech and life sciences, telecommunications R&D, shipbuilding and manufacturing, healthcare systems, and research institutions dominate San Diego's economy. All rely on regulated, mission-critical program delivery where PMP certification—demonstrating formal knowledge of scope, risk, and stakeholder management—carries credibility. Healthcare organizations like Sharp HealthCare and UC San Diego also use PMP-certified leaders for capital projects and clinical-systems implementations.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my San Diego workplace?",
-          "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, allowing you to join from your office, home, or any location with internet access. This format suits San Diego professionals working across dispersed sites in biotech parks, defense facilities, and hospital campuses. You can attend without traveling to a physical classroom while maintaining your work schedule around live instruction sessions.</p>"
-        },
-        {
-          "question": "Should San Diego project managers pursue PMP certification now or later?",
-          "answer": "<p>San Diego's job market in defense, biotech, and healthcare remains competitive for certified project management talent. Early certification can strengthen your candidacy for advancement, especially when employers like Qualcomm, General Dynamics NASSCO, and Illumina prioritize program managers for complex initiatives. If you currently manage projects or plan to transition into project leadership, pursuing certification sooner aligns with local market demand rather than delaying until competing for fewer open roles.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:07.867537Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "601172efb7b51fda",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>San Diego's defense and military sector, anchored by Naval Base San Diego and General Atomics, drives steady demand for skilled project managers across complex, high-stakes initiatives. Major employers like Qualcomm and Illumina also fuel growth in technology and life sciences, while landmark projects—including the $2.6B Terminal 1 expansion at San Diego International Airport and the 48-acre Midway Rising mixed-use redevelopment—create immediate opportunities for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to San Diego professionals nationwide, on your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:09.823243Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "207b91ae79031f97",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-san-diego-ca/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training San Diego, CA, PMP exam prep San Diego, PMP course San Diego CA, project management certification San Diego, CA, PMI PMP training San Diego",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\",\r\n      \"name\": \"PMP Certification Training in San Diego, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in San Diego, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in San Diego, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#course\",\r\n      \"name\": \"PMP Certification Training in San Diego, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in San Diego, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-diego-ca/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T22:09:17+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

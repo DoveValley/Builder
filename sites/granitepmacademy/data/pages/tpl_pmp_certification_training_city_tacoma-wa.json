@@ -1,421 +1,450 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "tacoma-wa",
-  "slug": "pmp-certification-training-tacoma-wa",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "tacoma-wa",
-    "city": "Tacoma",
-    "state": "Washington",
-    "SS": "WA",
-    "city_slug": "tacoma-wa",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier1"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "tacoma-wa",
+    "slug": "pmp-certification-training-tacoma-wa",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "tacoma-wa",
+        "city": "Tacoma",
+        "state": "Washington",
+        "SS": "WA",
+        "city_slug": "tacoma-wa",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier1"
+        ],
+        "industries": [
+            "Maritime and logistics (Port of Tacoma)",
+            "Healthcare",
+            "Manufacturing and industrial",
+            "Military and defense (Joint Base Lewis-McChord)",
+            "Construction and infrastructure",
+            "Public sector/government administration"
+        ],
+        "top_employers": [
+            "Port of Tacoma",
+            "MultiCare Health System",
+            "CHI Franciscan Health / Virginia Mason Franciscan Health",
+            "City of Tacoma",
+            "Pierce County",
+            "Joint Base Lewis-McChord",
+            "University of Washington Tacoma",
+            "Tacoma Public Schools",
+            "Sound Transit",
+            "Amazon",
+            "Boeing (South Sound facilities)"
+        ],
+        "salary_note": "Project management salaries in Tacoma tend to track closely with the broader Seattle-Tacoma metro market, which is generally competitive due to demand from healthcare, logistics, and public infrastructure employers. Exact figures vary widely by industry and certification level, but PMP-certified candidates are typically positioned for stronger offers than non-certified applicants.",
+        "market_blurb": "Tacoma's project management job market benefits from its role as a logistics hub anchored by the Port of Tacoma, along with strong healthcare, construction, and public-sector employment. Growth in infrastructure, transit, and hospital system expansions continues to create steady demand for trained project and program managers. Proximity to Seattle also gives Tacoma-based professionals access to a wider regional talent market.",
+        "notable_projects": [
+            "Port of Tacoma modernization and terminal improvement initiatives",
+            "Sound Transit Tacoma Link light rail expansion",
+            "Tacoma Dome light rail station and district redevelopment",
+            "MultiCare and Virginia Mason Franciscan Health facility expansions in the South Sound"
+        ],
+        "credential_demand": "Employers in Tacoma's healthcare, construction, and logistics sectors increasingly list PMP certification as a preferred or required qualification for project management roles, reflecting broader regional demand across the Puget Sound area. CAPM is also recognized as a valuable entry point for candidates moving into project coordination positions.",
+        "_researched": 1,
+        "city_spotlight": "<p>Tacoma's role as a major logistics hub centered on the Port of Tacoma, combined with expansions across healthcare, construction, and public sector agencies, creates consistent demand for certified project managers. Infrastructure projects like Sound Transit's Tacoma Link light rail expansion and hospital system modernizations are actively recruiting professionals with PMP® credentials. Granite PM Academy serves Tacoma-area professionals with live-virtual PMP Certification training designed around working schedules.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-tacoma-wa.webp",
+        "city_image_alt": "Tacoma Washington Aerial, June 2025, WA",
+        "city_image_credit": "Photo: Spicypepper999, CC0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Tacoma_Washington_Aerial,_June_2025.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Tacoma's maritime, logistics, healthcare, and defense sectors depend on skilled project managers to deliver complex, mission-critical work. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI-required contact-hour education on a schedule that fits working professionals, preparing you to earn the PMP credential and advance into higher-responsibility roles across Tacoma's largest employers.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_b99adc5dc9.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:33.756701Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "886758bfad552963",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Tacoma for Logistics and Port Professionals",
+            "text": "<p>Tacoma's position as a major Pacific Northwest logistics hub, anchored by the Port of Tacoma, creates sustained demand for skilled project managers across supply chain, maritime operations, and cargo management. Professionals in these roles—along with those in healthcare systems, manufacturing, defense contracting, and public-sector infrastructure projects—benefit significantly from PMP® Certification. The credential demonstrates mastery of project initiation, planning, execution, and risk management, making it especially valuable in complex, deadline-driven environments like port operations, hospital expansions, and large government initiatives. For Tacoma-based career professionals seeking advancement, the PMP® opens doors to higher-level roles, competitive compensation, and recognition within both local and regional talent markets.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training that meets PMI's rigorous contact-hour requirements and prepares you to pass the exam on your schedule. Our courses are taught by active certified practitioners who bring real-world project experience to every lesson, covering all five process groups and ten knowledge areas tested on the certification exam. Whether you're advancing within your current organization or positioning yourself for the broader Seattle–Tacoma regional market, our PMI-authorized training program equips you with the knowledge, frameworks, and confidence to earn your PMP® Certification and accelerate your career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:37.802303Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "a0e931db90691e36",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Built for Tacoma's Project-Driven Economy",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Credential",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering instruction that meets PMI's rigorous standards. Your completion certificate satisfies the contact-hour requirement for PMP® eligibility, positioning you for the exam with recognized, industry-standard preparation."
+                },
+                {
+                    "heading": "Live Instruction, Flexible Schedule",
+                    "text": "Study synchronously with an active certified practitioner via live-virtual classes that fit working schedules—no recorded lectures or self-paced gaps. You engage directly with an instructor, ask questions in real time, and complete the contact hours required for PMP® candidacy."
+                },
+                {
+                    "heading": "Exam-Ready Preparation",
+                    "text": "Instructors are certified practitioners who translate real-world project delivery into exam strategy. You receive targeted coaching on PMP® domains, practice assessments, and test-taking tactics—not generic lectures—so you enter the exam confident and prepared."
+                },
+                {
+                    "heading": "Credential Valued by Tacoma Employers",
+                    "text": "Tacoma's Port, aerospace, defense, healthcare, and public-sector employers actively hire project managers. The PMP® credential signals expertise to hiring managers at MultiCare Health System, Boeing South Sound, Joint Base Lewis-McChord, City of Tacoma, and Sound Transit—organizations reshaping the region."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:42.177812Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "b0ddb8250ab74bf6",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Growing in Tacoma",
+            "text": "<p>Tacoma's maritime and logistics sector, anchored by the Port of Tacoma, represents one of the region's largest employers of project managers—particularly those overseeing terminal improvements and modernization initiatives. Beyond the waterfront, MultiCare Health System and Virginia Mason Franciscan Health operate major facility expansion projects throughout the South Sound, while Sound Transit's Tacoma Link light rail expansion and the Tacoma Dome station redevelopment underscore demand for certified PMs in infrastructure and construction. The City of Tacoma, Pierce County, Joint Base Lewis-McChord, and local Boeing facilities round out a diverse employer base where project management credentials are increasingly valued across healthcare, defense, manufacturing, and public administration.</p><p>PMP® certification positions candidates competitively in Tacoma's job market, where healthcare, logistics, and construction employers increasingly list it as a preferred or required qualification. Salaries for PMP-certified professionals in the Tacoma–Seattle metro area track with broader regional demand and tend to exceed those of non-certified peers, particularly as employers compete for talent across the Puget Sound. Completing your PMP® Certification Training through Granite PM Academy—delivered live-virtual to fit working schedules—gives you the credential that local hiring managers recognize and the preparation to advance into higher-responsibility roles within Tacoma's active project-driven employers.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:46.291622Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "f6f7662fca29e6c0",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Tacoma",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of education and project management experience. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma determines your minimum hours of direct project experience. Gather documentation of your experience before applying."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend all sessions synchronously from anywhere, interact with active certified practitioners, and cover the full PMBOK® Guide framework. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for the exam."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Create your PMI account and submit your official PMP application directly to the Project Management Institute. You'll provide proof of your education, project experience, and completion of the 35 contact-hour course. Pay PMI's exam fee to finalize your eligibility and receive authorization to sit for the exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce course content. Schedule your exam at a testing center or online proctored location. On exam day, demonstrate your mastery of project management processes and earn your PMP credential."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "The PMP credential is valid for three years. During your renewal cycle, earn Professional Development Units (PDUs) through training, conference attendance, volunteer work, or publishing. Submit your PDU record to PMI before expiration to keep your certification active and demonstrate ongoing professional commitment."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:51.462017Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "248ef19dd48966bc",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers in Tacoma?",
+                    "answer": "<p>Yes. Tacoma's largest employers—Port of Tacoma, MultiCare Health System, Virginia Mason Franciscan Health, Joint Base Lewis-McChord, and Sound Transit—increasingly list PMP certification as preferred or required for project management roles. The credential positions you ahead of non-certified candidates for advancement and stronger compensation offers across healthcare, logistics, construction, and public-sector roles that dominate the local market.</p>"
+                },
+                {
+                    "question": "Which Tacoma industries value PMP certification most?",
+                    "answer": "<p>Healthcare systems (MultiCare, Virginia Mason Franciscan Health), the Port of Tacoma's maritime and logistics operations, construction and infrastructure projects, and public agencies (City of Tacoma, Pierce County, Sound Transit) actively seek PMP-certified project managers. Manufacturing and defense contractors near Joint Base Lewis-McChord also recognize the credential as a competitive advantage for contract bids and team leadership roles.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training while working in Tacoma?",
+                    "answer": "<p>Yes. Granite PM Academy delivers live-virtual PMP training nationwide, so you can attend from your Tacoma office, home, or any location with internet access. This flexibility lets working professionals balance certification training with their current role at Port of Tacoma, healthcare systems, government agencies, or other local employers without requiring time off-site.</p>"
+                },
+                {
+                    "question": "How does Tacoma's job market affect when to pursue PMP certification?",
+                    "answer": "<p>Tacoma's competitive regional market for project management roles—fueled by healthcare expansion, port growth, and infrastructure investment—rewards early certification. If you're in a coordinator or junior PM role at any major local employer, earning your PMP or CAPM now positions you to move into higher-level positions faster as demand across the Puget Sound area continues to grow.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:56.618313Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "b1e140cc97d908ea",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>As a Pacific Northwest logistics hub anchored by the Port of Tacoma, the region generates consistent demand for credentialed project managers across maritime, healthcare, construction, and public-sector roles. Major employers including MultiCare Health System, Sound Transit, and Port modernization initiatives are actively advancing infrastructure and facility expansion projects that require PMP-certified leadership. Granite PM Academy delivers live-virtual PMP Certification Training to Tacoma professionals nationwide, enabling you to earn your credential on your schedule while building the skills these regional employers value most.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:58.465429Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "06b3e91c6e777fa2",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Tacoma",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Tacoma",
+                    "url": "/pmp-bootcamp-tacoma-wa/"
+                },
+                {
+                    "label": "CAPM Certification Training Tacoma",
+                    "url": "/capm-certification-training-tacoma-wa/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Tacoma",
+                    "url": "/ai-training-tacoma-wa/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Maritime and logistics (Port of Tacoma)",
-      "Healthcare",
-      "Manufacturing and industrial",
-      "Military and defense (Joint Base Lewis-McChord)",
-      "Construction and infrastructure",
-      "Public sector/government administration"
-    ],
-    "top_employers": [
-      "Port of Tacoma",
-      "MultiCare Health System",
-      "CHI Franciscan Health / Virginia Mason Franciscan Health",
-      "City of Tacoma",
-      "Pierce County",
-      "Joint Base Lewis-McChord",
-      "University of Washington Tacoma",
-      "Tacoma Public Schools",
-      "Sound Transit",
-      "Amazon",
-      "Boeing (South Sound facilities)"
-    ],
-    "salary_note": "Project management salaries in Tacoma tend to track closely with the broader Seattle-Tacoma metro market, which is generally competitive due to demand from healthcare, logistics, and public infrastructure employers. Exact figures vary widely by industry and certification level, but PMP-certified candidates are typically positioned for stronger offers than non-certified applicants.",
-    "market_blurb": "Tacoma's project management job market benefits from its role as a logistics hub anchored by the Port of Tacoma, along with strong healthcare, construction, and public-sector employment. Growth in infrastructure, transit, and hospital system expansions continues to create steady demand for trained project and program managers. Proximity to Seattle also gives Tacoma-based professionals access to a wider regional talent market.",
-    "notable_projects": [
-      "Port of Tacoma modernization and terminal improvement initiatives",
-      "Sound Transit Tacoma Link light rail expansion",
-      "Tacoma Dome light rail station and district redevelopment",
-      "MultiCare and Virginia Mason Franciscan Health facility expansions in the South Sound"
-    ],
-    "credential_demand": "Employers in Tacoma's healthcare, construction, and logistics sectors increasingly list PMP certification as a preferred or required qualification for project management roles, reflecting broader regional demand across the Puget Sound area. CAPM is also recognized as a valuable entry point for candidates moving into project coordination positions.",
-    "_researched": 1,
-    "city_spotlight": "<p>Tacoma's role as a major logistics hub centered on the Port of Tacoma, combined with expansions across healthcare, construction, and public sector agencies, creates consistent demand for certified project managers. Infrastructure projects like Sound Transit's Tacoma Link light rail expansion and hospital system modernizations are actively recruiting professionals with PMP® credentials. Granite PM Academy serves Tacoma-area professionals with live-virtual PMP Certification training designed around working schedules.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-tacoma-wa.webp",
-    "city_image_alt": "Tacoma Washington Aerial, June 2025, WA",
-    "city_image_credit": "Photo: Spicypepper999, CC0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Tacoma_Washington_Aerial,_June_2025.jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Tacoma's maritime, logistics, healthcare, and defense sectors depend on skilled project managers to deliver complex, mission-critical work. Granite PM Academy's live-virtual PMP Certification Training delivers the PMI-required contact-hour education on a schedule that fits working professionals, preparing you to earn the PMP credential and advance into higher-responsibility roles across Tacoma's largest employers.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_b99adc5dc9.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:33.756701Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "886758bfad552963",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-tacoma-wa/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Tacoma, WA, PMP exam prep Tacoma, PMP course Tacoma WA, project management certification Tacoma, WA, PMI PMP training Tacoma",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\",\r\n      \"name\": \"PMP Certification Training in Tacoma, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Tacoma, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Tacoma, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Tacoma, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Tacoma, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Tacoma for Logistics and Port Professionals",
-      "text": "<p>Tacoma's position as a major Pacific Northwest logistics hub, anchored by the Port of Tacoma, creates sustained demand for skilled project managers across supply chain, maritime operations, and cargo management. Professionals in these roles—along with those in healthcare systems, manufacturing, defense contracting, and public-sector infrastructure projects—benefit significantly from PMP® Certification. The credential demonstrates mastery of project initiation, planning, execution, and risk management, making it especially valuable in complex, deadline-driven environments like port operations, hospital expansions, and large government initiatives. For Tacoma-based career professionals seeking advancement, the PMP® opens doors to higher-level roles, competitive compensation, and recognition within both local and regional talent markets.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP® Certification Training that meets PMI's rigorous contact-hour requirements and prepares you to pass the exam on your schedule. Our courses are taught by active certified practitioners who bring real-world project experience to every lesson, covering all five process groups and ten knowledge areas tested on the certification exam. Whether you're advancing within your current organization or positioning yourself for the broader Seattle–Tacoma regional market, our PMI-authorized training program equips you with the knowledge, frameworks, and confidence to earn your PMP® Certification and accelerate your career.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:37.802303Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "a0e931db90691e36",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Built for Tacoma's Project-Driven Economy",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Credential",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering instruction that meets PMI's rigorous standards. Your completion certificate satisfies the contact-hour requirement for PMP® eligibility, positioning you for the exam with recognized, industry-standard preparation."
-        },
-        {
-          "heading": "Live Instruction, Flexible Schedule",
-          "text": "Study synchronously with an active certified practitioner via live-virtual classes that fit working schedules—no recorded lectures or self-paced gaps. You engage directly with an instructor, ask questions in real time, and complete the contact hours required for PMP® candidacy."
-        },
-        {
-          "heading": "Exam-Ready Preparation",
-          "text": "Instructors are certified practitioners who translate real-world project delivery into exam strategy. You receive targeted coaching on PMP® domains, practice assessments, and test-taking tactics—not generic lectures—so you enter the exam confident and prepared."
-        },
-        {
-          "heading": "Credential Valued by Tacoma Employers",
-          "text": "Tacoma's Port, aerospace, defense, healthcare, and public-sector employers actively hire project managers. The PMP® credential signals expertise to hiring managers at MultiCare Health System, Boeing South Sound, Joint Base Lewis-McChord, City of Tacoma, and Sound Transit—organizations reshaping the region."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:42.177812Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "b0ddb8250ab74bf6",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Growing in Tacoma",
-      "text": "<p>Tacoma's maritime and logistics sector, anchored by the Port of Tacoma, represents one of the region's largest employers of project managers—particularly those overseeing terminal improvements and modernization initiatives. Beyond the waterfront, MultiCare Health System and Virginia Mason Franciscan Health operate major facility expansion projects throughout the South Sound, while Sound Transit's Tacoma Link light rail expansion and the Tacoma Dome station redevelopment underscore demand for certified PMs in infrastructure and construction. The City of Tacoma, Pierce County, Joint Base Lewis-McChord, and local Boeing facilities round out a diverse employer base where project management credentials are increasingly valued across healthcare, defense, manufacturing, and public administration.</p><p>PMP® certification positions candidates competitively in Tacoma's job market, where healthcare, logistics, and construction employers increasingly list it as a preferred or required qualification. Salaries for PMP-certified professionals in the Tacoma–Seattle metro area track with broader regional demand and tend to exceed those of non-certified peers, particularly as employers compete for talent across the Puget Sound. Completing your PMP® Certification Training through Granite PM Academy—delivered live-virtual to fit working schedules—gives you the credential that local hiring managers recognize and the preparation to advance into higher-responsibility roles within Tacoma's active project-driven employers.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:46.291622Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "f6f7662fca29e6c0",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Tacoma",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of education and project management experience. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma determines your minimum hours of direct project experience. Gather documentation of your experience before applying."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend all sessions synchronously from anywhere, interact with active certified practitioners, and cover the full PMBOK® Guide framework. This formal education satisfies PMI's mandatory contact-hour requirement and prepares you for the exam."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "Create your PMI account and submit your official PMP application directly to the Project Management Institute. You'll provide proof of your education, project experience, and completion of the 35 contact-hour course. Pay PMI's exam fee to finalize your eligibility and receive authorization to sit for the exam."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to reinforce course content. Schedule your exam at a testing center or online proctored location. On exam day, demonstrate your mastery of project management processes and earn your PMP credential."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "The PMP credential is valid for three years. During your renewal cycle, earn Professional Development Units (PDUs) through training, conference attendance, volunteer work, or publishing. Submit your PDU record to PMI before expiration to keep your certification active and demonstrate ongoing professional commitment."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:51.462017Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "248ef19dd48966bc",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers in Tacoma?",
-          "answer": "<p>Yes. Tacoma's largest employers—Port of Tacoma, MultiCare Health System, Virginia Mason Franciscan Health, Joint Base Lewis-McChord, and Sound Transit—increasingly list PMP certification as preferred or required for project management roles. The credential positions you ahead of non-certified candidates for advancement and stronger compensation offers across healthcare, logistics, construction, and public-sector roles that dominate the local market.</p>"
-        },
-        {
-          "question": "Which Tacoma industries value PMP certification most?",
-          "answer": "<p>Healthcare systems (MultiCare, Virginia Mason Franciscan Health), the Port of Tacoma's maritime and logistics operations, construction and infrastructure projects, and public agencies (City of Tacoma, Pierce County, Sound Transit) actively seek PMP-certified project managers. Manufacturing and defense contractors near Joint Base Lewis-McChord also recognize the credential as a competitive advantage for contract bids and team leadership roles.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training while working in Tacoma?",
-          "answer": "<p>Yes. Granite PM Academy delivers live-virtual PMP training nationwide, so you can attend from your Tacoma office, home, or any location with internet access. This flexibility lets working professionals balance certification training with their current role at Port of Tacoma, healthcare systems, government agencies, or other local employers without requiring time off-site.</p>"
-        },
-        {
-          "question": "How does Tacoma's job market affect when to pursue PMP certification?",
-          "answer": "<p>Tacoma's competitive regional market for project management roles—fueled by healthcare expansion, port growth, and infrastructure investment—rewards early certification. If you're in a coordinator or junior PM role at any major local employer, earning your PMP or CAPM now positions you to move into higher-level positions faster as demand across the Puget Sound area continues to grow.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:56.618313Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "b1e140cc97d908ea",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>As a Pacific Northwest logistics hub anchored by the Port of Tacoma, the region generates consistent demand for credentialed project managers across maritime, healthcare, construction, and public-sector roles. Major employers including MultiCare Health System, Sound Transit, and Port modernization initiatives are actively advancing infrastructure and facility expansion projects that require PMP-certified leadership. Granite PM Academy delivers live-virtual PMP Certification Training to Tacoma professionals nationwide, enabling you to earn your credential on your schedule while building the skills these regional employers value most.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:58.465429Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "06b3e91c6e777fa2",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-tacoma-wa/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Tacoma, WA, PMP exam prep Tacoma, PMP course Tacoma WA, project management certification Tacoma, WA, PMI PMP training Tacoma",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\",\r\n      \"name\": \"PMP Certification Training in Tacoma, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Tacoma, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Tacoma, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Tacoma, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Tacoma, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-tacoma-wa/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:45:52+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

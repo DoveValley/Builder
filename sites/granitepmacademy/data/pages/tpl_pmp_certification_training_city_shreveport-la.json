@@ -1,418 +1,447 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "shreveport-la",
-  "slug": "pmp-certification-training-shreveport-la",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "shreveport-la",
-    "city": "Shreveport",
-    "state": "Louisiana",
-    "SS": "LA",
-    "city_slug": "shreveport-la",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier1"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "shreveport-la",
+    "slug": "pmp-certification-training-shreveport-la",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "shreveport-la",
+        "city": "Shreveport",
+        "state": "Louisiana",
+        "SS": "LA",
+        "city_slug": "shreveport-la",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier1"
+        ],
+        "industries": [
+            "Healthcare",
+            "Energy (oil & gas)",
+            "Manufacturing",
+            "Gaming & Hospitality",
+            "Aerospace/Defense",
+            "Logistics & Transportation"
+        ],
+        "top_employers": [
+            "Willis-Knighton Health System",
+            "Ochsner LSU Health Shreveport",
+            "CHRISTUS Shreveport-Bossier Health System",
+            "Barksdale Air Force Base",
+            "Benteler Steel/Tube",
+            "AT&T",
+            "City of Shreveport",
+            "Caddo Parish School Board",
+            "Louisiana State University Shreveport",
+            "Horseshoe Bossier City Casino & Hotel",
+            "International Paper",
+            "Libbey Glass"
+        ],
+        "salary_note": "Project manager pay in the Shreveport area tends to track regional Louisiana averages, with healthcare, energy, and manufacturing employers offering the most competitive packages; certified candidates (PMP) generally command a premium over non-certified peers.",
+        "market_blurb": "Shreveport's project management job market is shaped by its strong healthcare systems, energy sector, manufacturing base, and growing gaming/hospitality industry, all of which regularly need skilled project and program managers. As regional employers modernize operations and expand facilities, demand for trained project management professionals continues to grow steadily.",
+        "notable_projects": [
+            "I-49 Inner-City Connector project (Shreveport segment)",
+            "Shreveport Regional Airport terminal and infrastructure improvements",
+            "Cross Bayou riverfront redevelopment initiative",
+            "Benteler Steel/Tube facility expansions in Caddo Parish"
+        ],
+        "credential_demand": "PMP and CAPM certifications are increasingly referenced in Shreveport-area job postings, particularly within healthcare systems, energy companies, and manufacturing firms seeking structured project oversight, reflecting broader regional demand for formally trained project management professionals.",
+        "_researched": 1,
+        "city_spotlight": "<p>Shreveport's healthcare systems—including Willis-Knighton Health System and Ochsner LSU Health Shreveport—drive steady demand for credentialed project managers across clinical operations, facility expansions, and care modernization initiatives. The region's energy, manufacturing, and aerospace sectors further expand PM career opportunities as employers undertake major infrastructure and operational projects. Granite PM Academy delivers live-virtual PMP® Certification to Shreveport professionals, balancing flexible scheduling with rigorous preparation aligned to PMI standards.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Healthcare systems, aerospace operations, and energy infrastructure across Shreveport demand skilled project managers to coordinate complex initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to earn the credential on your schedule while working. A PMP certification strengthens your qualifications for leadership roles across Shreveport's largest employers and positions you for measurable career advancement in project management.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_3f62b66b5f.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:05.662703Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "9c6b65ea6ac064a0",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Shreveport for Healthcare Project Leaders",
+            "text": "<p>Shreveport's healthcare systems—Willis-Knighton Health System, Ochsner LSU Health Shreveport, and CHRISTUS Shreveport-Bossier Health System—are among the region's largest employers and most active drivers of infrastructure modernization, facility expansion, and clinical IT transformation. These organizations depend on skilled project managers to oversee complex, high-stakes initiatives where scope, timeline, and budget discipline are non-negotiable. The PMP® certification validates exactly that expertise. For professionals working in Shreveport's healthcare sector, manufacturing base, energy operations, or the growing gaming and hospitality industries, the PMP® credential demonstrates mastery of the Project Management Institute's globally recognized framework and opens pathways to higher responsibility and competitive compensation across all major local employers.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual PMP® Certification Training designed to fit working professionals' schedules while meeting all PMI contact-hour requirements for exam eligibility. Our instructor-led courses are taught by active certified practitioners who bring real-world project experience to every session, ensuring you learn not just theory but practical problem-solving strategies applicable to your role in Shreveport's dynamic business environment. From enrollment through exam preparation, we guide you through the entire certification journey, equipping you with the knowledge, confidence, and credentials to advance your project management career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:09.620584Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "c8751956162e723a",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Shreveport's Healthcare & Defense Sectors",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Pathway",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours satisfy PMI eligibility requirements for the PMP credential. No separate documentation or appeals needed—train with confidence that your investment counts toward certification."
+                },
+                {
+                    "heading": "Live Instruction, Your Schedule",
+                    "text": "Attend live-virtual instructor-led classes on a schedule that fits working professionals. Real-time interaction with certified instructors, Q&A, and peer collaboration—all from Shreveport—without commuting to a physical classroom."
+                },
+                {
+                    "heading": "Instructors Who Practice Daily",
+                    "text": "Learn from active certified PMP practitioners who apply project-management frameworks in real projects. Instructors bring current case studies, troubleshooting, and exam-focused strategies drawn from hands-on professional experience, not theory alone."
+                },
+                {
+                    "heading": "Credential Demanded Locally",
+                    "text": "Healthcare systems, Barksdale Air Force Base, and manufacturing employers across Shreveport hire project and program managers with PMP certification. The credential strengthens your candidacy and earning potential in sectors that dominate the regional job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:13.641788Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "242373d681ca1308",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers Growing in Shreveport",
+            "text": "<p>Shreveport's healthcare systems—Willis-Knighton Health System, Ochsner LSU Health Shreveport, and CHRISTUS Shreveport-Bossier Health System—are among the region's largest employers and active hirers of credentialed project managers overseeing operational improvements, facility upgrades, and technology implementations. Beyond healthcare, manufacturing firms like Benteler Steel/Tube are expanding operations in Caddo Parish, while Barksdale Air Force Base, the City of Shreveport, and the Shreveport Regional Airport's terminal and infrastructure improvements represent ongoing demand for structured project oversight. These employers increasingly seek candidates who hold formal project management credentials, reflecting a regional shift toward disciplined planning and delivery.</p><p>The PMP® and CAPM® certifications carry measurable weight in Shreveport's job market. Certified project managers command a premium over non-certified peers, and healthcare systems, energy companies, and manufacturing employers now routinely reference these credentials in job postings—a clear signal that the investment pays off. Completing PMP Certification Training through Granite PM Academy positions you to compete for higher-paying roles and advancement opportunities across Shreveport's dominant industries. Our live-virtual format lets you earn your credential on your schedule while maintaining your current work and life in Louisiana, then apply that expertise immediately to local employers who value PMI-recognized credentials.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:17.835739Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "3c428f1b8043619c",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Shreveport",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of education and documented project-management experience. Review PMI's formal eligibility criteria—typically a bachelor's degree plus years of direct project experience, or equivalent—before applying. Granite PM Academy's enrollment advisors can help you verify your qualifications align with PMI standards."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Attend all required contact hours delivered over weeks of interactive online sessions. This formal education covers the PMBOK® Guide, exam domains, and real-world applications—a mandatory step before you can submit your PMI application."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the course, complete your official PMI application online, documenting your project experience and education. Pay PMI's application and exam fee directly to PMI. Allow time for PMI to review and approve your submission before scheduling your exam appointment."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Access Granite PM Academy's exam-preparation resources, including practice exams and focused review sessions. Schedule your proctored PMP exam through PMI's testing partner. Granite PM Academy instructors remain available to clarify concepts and build your confidence before test day."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After passing, you'll earn the PMP® credential valid for three years. During your renewal cycle, earn Professional Development Units (PDUs) through PMI-approved education, volunteer work, or authorship. Renew with PMI before expiration to keep your certification active and competitive in Shreveport's job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:23.025428Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "08f9662fff5b27d1",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Do Shreveport healthcare employers require PMP certification for project managers?",
+                    "answer": "<p>Shreveport's major healthcare systems—Willis-Knighton, Ochsner LSU Health, and CHRISTUS—increasingly reference PMP and CAPM certifications in project management job postings. While not universally mandatory, the credential significantly strengthens candidacy for structured roles overseeing clinical system implementations, facility upgrades, and operational improvements. PMP holders typically command higher compensation within these organizations.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing in Shreveport's manufacturing and energy sectors?",
+                    "answer": "<p>Yes. Shreveport's manufacturing firms, energy companies, and logistics employers actively seek formally certified project managers to lead complex operational initiatives. The PMP® credential signals competency in structured oversight that these industries value highly. Certified candidates in Shreveport generally earn a measurable premium over non-certified peers, making the investment particularly worthwhile if you work in these fields.</p>"
+                },
+                {
+                    "question": "Can I complete PMP training from my Shreveport workplace during work hours?",
+                    "answer": "<p>Granite PM Academy delivers all training live-virtually, so you can attend from your Shreveport office, home, or any location with reliable internet. Many professionals balance certification with their existing roles by attending sessions on a schedule that suits your employer's flexibility. Confirm with your organization whether tuition support or study time is available.</p>"
+                },
+                {
+                    "question": "When should Shreveport professionals pursue PMP certification to stay competitive?",
+                    "answer": "<p>Shreveport-area job postings for project management roles increasingly emphasize PMP or CAPM certification, particularly in healthcare, manufacturing, and aerospace/defense sectors. If you're considering a promotion or job transition within these growing industries, pursuing certification now positions you ahead of non-credentialed candidates and aligns with the region's rising demand for formally trained project oversight professionals.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:28.429632Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "0a16f5c954efc62a",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Shreveport's healthcare systems—Willis-Knighton, Ochsner LSU Health, and CHRISTUS—anchor a robust project management market that spans energy, manufacturing, gaming, and aerospace. Major initiatives like the I-49 Inner-City Connector and Cross Bayou riverfront redevelopment are expanding opportunities for certified project managers across the region. Granite PM Academy delivers live-virtual PMP Certification Training to Shreveport professionals pursuing credentials that align with employer demand and career advancement in these growing sectors.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:30.181118Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "78e5a8a7c7c3858f",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Shreveport",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Shreveport",
+                    "url": "/pmp-bootcamp-shreveport-la/"
+                },
+                {
+                    "label": "CAPM Certification Training Shreveport",
+                    "url": "/capm-certification-training-shreveport-la/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Shreveport",
+                    "url": "/ai-training-shreveport-la/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Healthcare",
-      "Energy (oil & gas)",
-      "Manufacturing",
-      "Gaming & Hospitality",
-      "Aerospace/Defense",
-      "Logistics & Transportation"
-    ],
-    "top_employers": [
-      "Willis-Knighton Health System",
-      "Ochsner LSU Health Shreveport",
-      "CHRISTUS Shreveport-Bossier Health System",
-      "Barksdale Air Force Base",
-      "Benteler Steel/Tube",
-      "AT&T",
-      "City of Shreveport",
-      "Caddo Parish School Board",
-      "Louisiana State University Shreveport",
-      "Horseshoe Bossier City Casino & Hotel",
-      "International Paper",
-      "Libbey Glass"
-    ],
-    "salary_note": "Project manager pay in the Shreveport area tends to track regional Louisiana averages, with healthcare, energy, and manufacturing employers offering the most competitive packages; certified candidates (PMP) generally command a premium over non-certified peers.",
-    "market_blurb": "Shreveport's project management job market is shaped by its strong healthcare systems, energy sector, manufacturing base, and growing gaming/hospitality industry, all of which regularly need skilled project and program managers. As regional employers modernize operations and expand facilities, demand for trained project management professionals continues to grow steadily.",
-    "notable_projects": [
-      "I-49 Inner-City Connector project (Shreveport segment)",
-      "Shreveport Regional Airport terminal and infrastructure improvements",
-      "Cross Bayou riverfront redevelopment initiative",
-      "Benteler Steel/Tube facility expansions in Caddo Parish"
-    ],
-    "credential_demand": "PMP and CAPM certifications are increasingly referenced in Shreveport-area job postings, particularly within healthcare systems, energy companies, and manufacturing firms seeking structured project oversight, reflecting broader regional demand for formally trained project management professionals.",
-    "_researched": 1,
-    "city_spotlight": "<p>Shreveport's healthcare systems—including Willis-Knighton Health System and Ochsner LSU Health Shreveport—drive steady demand for credentialed project managers across clinical operations, facility expansions, and care modernization initiatives. The region's energy, manufacturing, and aerospace sectors further expand PM career opportunities as employers undertake major infrastructure and operational projects. Granite PM Academy delivers live-virtual PMP® Certification to Shreveport professionals, balancing flexible scheduling with rigorous preparation aligned to PMI standards.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Healthcare systems, aerospace operations, and energy infrastructure across Shreveport demand skilled project managers to coordinate complex initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to earn the credential on your schedule while working. A PMP certification strengthens your qualifications for leadership roles across Shreveport's largest employers and positions you for measurable career advancement in project management.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_3f62b66b5f.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:05.662703Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "9c6b65ea6ac064a0",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-shreveport-la/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Shreveport, LA, PMP exam prep Shreveport, PMP course Shreveport LA, project management certification Shreveport, LA, PMI PMP training Shreveport",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\",\r\n      \"name\": \"PMP Certification Training in Shreveport, LA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Shreveport, LA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Shreveport, LA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#course\",\r\n      \"name\": \"PMP Certification Training in Shreveport, LA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Shreveport, LA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Shreveport for Healthcare Project Leaders",
-      "text": "<p>Shreveport's healthcare systems—Willis-Knighton Health System, Ochsner LSU Health Shreveport, and CHRISTUS Shreveport-Bossier Health System—are among the region's largest employers and most active drivers of infrastructure modernization, facility expansion, and clinical IT transformation. These organizations depend on skilled project managers to oversee complex, high-stakes initiatives where scope, timeline, and budget discipline are non-negotiable. The PMP® certification validates exactly that expertise. For professionals working in Shreveport's healthcare sector, manufacturing base, energy operations, or the growing gaming and hospitality industries, the PMP® credential demonstrates mastery of the Project Management Institute's globally recognized framework and opens pathways to higher responsibility and competitive compensation across all major local employers.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual PMP® Certification Training designed to fit working professionals' schedules while meeting all PMI contact-hour requirements for exam eligibility. Our instructor-led courses are taught by active certified practitioners who bring real-world project experience to every session, ensuring you learn not just theory but practical problem-solving strategies applicable to your role in Shreveport's dynamic business environment. From enrollment through exam preparation, we guide you through the entire certification journey, equipping you with the knowledge, confidence, and credentials to advance your project management career.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:09.620584Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "c8751956162e723a",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Shreveport's Healthcare & Defense Sectors",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Pathway",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours satisfy PMI eligibility requirements for the PMP credential. No separate documentation or appeals needed—train with confidence that your investment counts toward certification."
-        },
-        {
-          "heading": "Live Instruction, Your Schedule",
-          "text": "Attend live-virtual instructor-led classes on a schedule that fits working professionals. Real-time interaction with certified instructors, Q&A, and peer collaboration—all from Shreveport—without commuting to a physical classroom."
-        },
-        {
-          "heading": "Instructors Who Practice Daily",
-          "text": "Learn from active certified PMP practitioners who apply project-management frameworks in real projects. Instructors bring current case studies, troubleshooting, and exam-focused strategies drawn from hands-on professional experience, not theory alone."
-        },
-        {
-          "heading": "Credential Demanded Locally",
-          "text": "Healthcare systems, Barksdale Air Force Base, and manufacturing employers across Shreveport hire project and program managers with PMP certification. The credential strengthens your candidacy and earning potential in sectors that dominate the regional job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:13.641788Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "242373d681ca1308",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers Growing in Shreveport",
-      "text": "<p>Shreveport's healthcare systems—Willis-Knighton Health System, Ochsner LSU Health Shreveport, and CHRISTUS Shreveport-Bossier Health System—are among the region's largest employers and active hirers of credentialed project managers overseeing operational improvements, facility upgrades, and technology implementations. Beyond healthcare, manufacturing firms like Benteler Steel/Tube are expanding operations in Caddo Parish, while Barksdale Air Force Base, the City of Shreveport, and the Shreveport Regional Airport's terminal and infrastructure improvements represent ongoing demand for structured project oversight. These employers increasingly seek candidates who hold formal project management credentials, reflecting a regional shift toward disciplined planning and delivery.</p><p>The PMP® and CAPM® certifications carry measurable weight in Shreveport's job market. Certified project managers command a premium over non-certified peers, and healthcare systems, energy companies, and manufacturing employers now routinely reference these credentials in job postings—a clear signal that the investment pays off. Completing PMP Certification Training through Granite PM Academy positions you to compete for higher-paying roles and advancement opportunities across Shreveport's dominant industries. Our live-virtual format lets you earn your credential on your schedule while maintaining your current work and life in Louisiana, then apply that expertise immediately to local employers who value PMI-recognized credentials.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:17.835739Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "3c428f1b8043619c",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Shreveport",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of education and documented project-management experience. Review PMI's formal eligibility criteria—typically a bachelor's degree plus years of direct project experience, or equivalent—before applying. Granite PM Academy's enrollment advisors can help you verify your qualifications align with PMI standards."
-        },
-        {
-          "heading": "Complete 35 Contact Hours",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Attend all required contact hours delivered over weeks of interactive online sessions. This formal education covers the PMBOK® Guide, exam domains, and real-world applications—a mandatory step before you can submit your PMI application."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing the course, complete your official PMI application online, documenting your project experience and education. Pay PMI's application and exam fee directly to PMI. Allow time for PMI to review and approve your submission before scheduling your exam appointment."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Access Granite PM Academy's exam-preparation resources, including practice exams and focused review sessions. Schedule your proctored PMP exam through PMI's testing partner. Granite PM Academy instructors remain available to clarify concepts and build your confidence before test day."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After passing, you'll earn the PMP® credential valid for three years. During your renewal cycle, earn Professional Development Units (PDUs) through PMI-approved education, volunteer work, or authorship. Renew with PMI before expiration to keep your certification active and competitive in Shreveport's job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:23.025428Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "08f9662fff5b27d1",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Do Shreveport healthcare employers require PMP certification for project managers?",
-          "answer": "<p>Shreveport's major healthcare systems—Willis-Knighton, Ochsner LSU Health, and CHRISTUS—increasingly reference PMP and CAPM certifications in project management job postings. While not universally mandatory, the credential significantly strengthens candidacy for structured roles overseeing clinical system implementations, facility upgrades, and operational improvements. PMP holders typically command higher compensation within these organizations.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing in Shreveport's manufacturing and energy sectors?",
-          "answer": "<p>Yes. Shreveport's manufacturing firms, energy companies, and logistics employers actively seek formally certified project managers to lead complex operational initiatives. The PMP® credential signals competency in structured oversight that these industries value highly. Certified candidates in Shreveport generally earn a measurable premium over non-certified peers, making the investment particularly worthwhile if you work in these fields.</p>"
-        },
-        {
-          "question": "Can I complete PMP training from my Shreveport workplace during work hours?",
-          "answer": "<p>Granite PM Academy delivers all training live-virtually, so you can attend from your Shreveport office, home, or any location with reliable internet. Many professionals balance certification with their existing roles by attending sessions on a schedule that suits your employer's flexibility. Confirm with your organization whether tuition support or study time is available.</p>"
-        },
-        {
-          "question": "When should Shreveport professionals pursue PMP certification to stay competitive?",
-          "answer": "<p>Shreveport-area job postings for project management roles increasingly emphasize PMP or CAPM certification, particularly in healthcare, manufacturing, and aerospace/defense sectors. If you're considering a promotion or job transition within these growing industries, pursuing certification now positions you ahead of non-credentialed candidates and aligns with the region's rising demand for formally trained project oversight professionals.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:28.429632Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "0a16f5c954efc62a",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Shreveport's healthcare systems—Willis-Knighton, Ochsner LSU Health, and CHRISTUS—anchor a robust project management market that spans energy, manufacturing, gaming, and aerospace. Major initiatives like the I-49 Inner-City Connector and Cross Bayou riverfront redevelopment are expanding opportunities for certified project managers across the region. Granite PM Academy delivers live-virtual PMP Certification Training to Shreveport professionals pursuing credentials that align with employer demand and career advancement in these growing sectors.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:30.181118Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "78e5a8a7c7c3858f",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-shreveport-la/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Shreveport, LA, PMP exam prep Shreveport, PMP course Shreveport LA, project management certification Shreveport, LA, PMI PMP training Shreveport",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\",\r\n      \"name\": \"PMP Certification Training in Shreveport, LA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Shreveport, LA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Shreveport, LA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#course\",\r\n      \"name\": \"PMP Certification Training in Shreveport, LA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Shreveport, LA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-shreveport-la/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:48:13+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

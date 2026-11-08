@@ -1,407 +1,436 @@
 {
-  "template_id": "tpl_cpmai_certification_training_city",
-  "city_id": "alpharetta-ga",
-  "slug": "ai-training-alpharetta-ga",
-  "title": "PMI-CPMAI Certification Training {city}",
-  "city_vars": {
-    "id": "alpharetta-ga",
-    "city": "Alpharetta",
-    "state": "Georgia",
-    "SS": "GA",
-    "city_slug": "alpharetta-ga",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier5"
+    "template_id": "tpl_cpmai_certification_training_city",
+    "city_id": "alpharetta-ga",
+    "slug": "ai-training-alpharetta-ga",
+    "title": "PMI-CPMAI Certification Training {city}",
+    "city_vars": {
+        "id": "alpharetta-ga",
+        "city": "Alpharetta",
+        "state": "Georgia",
+        "SS": "GA",
+        "city_slug": "alpharetta-ga",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier5"
+        ],
+        "industries": [
+            "Technology & Software Development",
+            "Financial Technology (Fintech)",
+            "Telecommunications",
+            "Healthcare IT",
+            "Professional & Business Services",
+            "Corporate Headquarters/Shared Services"
+        ],
+        "top_employers": [
+            "ADP",
+            "Verizon",
+            "LexisNexis Risk Solutions",
+            "McKesson Corporation",
+            "Hewlett Packard Enterprise",
+            "Cisco Systems",
+            "Oracle",
+            "SalesLoft",
+            "Fiserv",
+            "Kaiser Permanente",
+            "Comcast"
+        ],
+        "salary_note": "Project manager compensation in the Alpharetta area tends to be competitive with the broader Atlanta metro, reflecting the concentration of technology, fintech, and corporate headquarters operations that actively recruit certified PM talent. Exact pay varies widely by industry, experience, and certification level, so candidates should reference current local job postings and salary surveys rather than a fixed figure.",
+        "market_blurb": "Known as the 'Technology City of the South,' Alpharetta, GA hosts a dense cluster of technology, telecommunications, and fintech companies that regularly need skilled project and program managers to run software rollouts, infrastructure upgrades, and process improvement initiatives. The city's mix of large corporate campuses and growing mid-size firms creates steady demand for professionals who can demonstrate formal project management training and certification. This concentration of enterprise employers makes Alpharetta one of the stronger regional markets in Georgia for project management careers.",
+        "notable_projects": [
+            "Avalon mixed-use development expansion",
+            "Alpharetta City Center development",
+            "Halcyon mixed-use development",
+            "North Point Mall redevelopment initiatives"
+        ],
+        "credential_demand": "Employers in Alpharetta's technology and corporate sectors frequently list PMP certification as preferred or required for project and program manager roles, reflecting broader national trends favoring standardized PM credentials. CAPM and related training are also valued for entry-level and associate positions as a stepping stone toward PMP certification.",
+        "_researched": 1,
+        "city_spotlight": "<p>Alpharetta's reputation as the 'Technology City of the South' draws major employers like ADP, Verizon, and Cisco Systems that depend on skilled project managers to deliver software rollouts, infrastructure upgrades, and fintech initiatives. The concentration of enterprise headquarters and mid-size tech firms creates sustained demand for professionals with formal PMP® Certification. Granite PM Academy delivers live-virtual PMP Certification training nationwide, serving Alpharetta professionals seeking the credential to advance in this competitive, growth-focused market.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-alpharetta-ga.webp",
+        "city_image_alt": "Alpharetta, Georgia City Hall, GA",
+        "city_image_credit": "Photo: Thomson200, CC0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Alpharetta,_Georgia_City_Hall.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Alpharetta's concentration of technology, fintech, and enterprise software firms—including major operations by ADP, Verizon, Oracle, and Cisco—creates sustained demand for certified project managers who can lead complex implementations and digital transformations. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, enabling you to earn your credential on a schedule that fits your current role. The CPMAI credential strengthens your competitive position for advancement in Alpharetta's project-intensive corporate environment.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#cpmai_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_f33e82ebc3.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:21.652025Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "b9bf951b94bdc17e",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMI-CPMAI Certification Training for Alpharetta's Technology Leaders",
+            "text": "<p>Alpharetta's reputation as the Technology City of the South rests on a dense concentration of enterprise software, telecommunications, and fintech firms—from Verizon and Cisco Systems to SalesLoft and Fiserv—where large-scale technology rollouts, infrastructure upgrades, and digital transformation initiatives demand skilled program and project managers. The PMI-CPMAI (Certified Practitioner in the Management of Agile Initiatives) credential signals to Alpharetta employers that you can lead complex, cross-functional technology projects with proven agile and hybrid methodologies. For professionals in this market, formal PMI certification bridges the gap between technical expertise and strategic program leadership, positioning you for advancement in roles where managing innovation and organizational change directly impacts the bottom line.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed to fit working professionals' schedules. Our active certified practitioners bring real-world project experience to every session, ensuring the curriculum translates directly to the challenges you'll face in Alpharetta's fast-moving technology ecosystem. We cover all required contact hours and prepare you thoroughly for the PMI-CPMAI exam, so you earn a credential that meets the formal expectations of major employers across the region. Start your certification journey today and position yourself for leadership roles in Alpharetta's competitive technology marketplace.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:25.954340Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "de2f616bf08428ea",
+            "_ai_locked": true,
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMI-CPMAI Certification for Alpharetta's Tech and Finance Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization—Direct Pathway",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMI-CPMAI training that meets all PMI standards. Your contact hours are recognized by the Project Management Institute, eliminating uncertainty about credential validity and eligibility for exam registration."
+                },
+                {
+                    "heading": "Live Instruction, Flexible Schedule",
+                    "text": "Attend live-virtual instructor-led sessions that satisfy PMI contact-hour requirements without disrupting your role at firms like ADP, Verizon, or Oracle. Real-time instruction from active certified practitioners ensures you learn current methodology, not outdated frameworks."
+                },
+                {
+                    "heading": "Exam-Ready Support Included",
+                    "text": "Instructors who hold active PMI certifications guide you through exam domains and question strategy. Granite includes focused prep materials and Q&A sessions so you enter the test confident, not hoping to pass on first attempt."
+                },
+                {
+                    "heading": "Local Demand, Regional Advantage",
+                    "text": "Alpharetta's technology, fintech, and healthcare IT sectors prioritize PMI-CPMAI credentials for program oversight roles. Certification strengthens your candidacy at major employers headquartered or operating heavily in the region, directly addressing skills gaps in your local market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:30.263013Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "16f48ed1926b7330",
+            "_ai_locked": true,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "stats",
+            "stats_heading": "The AI Project Management Gap, By the Numbers",
+            "stats_heading_level": "h2",
+            "stats_bg_color": "custom",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#0d1b3e",
+            "skin": "",
+            "stats_items": [
+                {
+                    "number": "80%+",
+                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+                },
+                {
+                    "number": "2x",
+                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+                },
+                {
+                    "number": "~20%",
+                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
+                },
+                {
+                    "number": "62%",
+                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+                }
+            ]
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Alpharetta's Tech Hub",
+            "text": "<p>Alpharetta's concentration of technology, fintech, and corporate headquarters has created consistent demand for certified project managers. Major employers including ADP, Verizon, SalesLoft, and Cisco Systems regularly hire PMs to oversee software development, infrastructure, and business transformation initiatives. Real-world projects underscore this need: the Alpharetta City Center development and Avalon mixed-use expansion represent the kind of large-scale, cross-functional work that certified project managers lead daily across the city's corporate and mixed-use sectors. These employers actively recruit talent with recognized credentials, making PMI-CPMAI Certification Training a practical investment for anyone entering or advancing within Alpharetta's job market.</p><p>Compensation for project managers in the Alpharetta area remains competitive with the broader Atlanta metro, driven by the region's concentration of high-skill industries that value standardized PM credentials. Employers across technology, fintech, healthcare IT, and professional services frequently list PMP certification as preferred or required for mid-level and senior roles, while CAPM and related training serve as established pathways for entry-level candidates building toward PMP eligibility. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet these employer expectations and strengthens your candidacy in a market where certified talent is actively sought. For current salary ranges and role-specific requirements, review local job postings and salary surveys to align your certification path with your career goals.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:39.061341Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "93b24a1c09aa9efa",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMI-CPMAI Training",
+                    "badge": "AI-FOCUSED",
+                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,495",
+                    "period": "per person",
+                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#cpmai_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What is the CPMAI certification?",
+                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                },
+                {
+                    "question": "Who should pursue the CPMAI in {city}?",
+                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                },
+                {
+                    "question": "Is there a prerequisite for the CPMAI course?",
+                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                },
+                {
+                    "question": "How is the CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                },
+                {
+                    "question": "Is this course delivered online?",
+                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Is PMI-CPMAI certification worth pursuing in Alpharetta's tech sector?",
+                    "answer": "<p>Yes. Alpharetta's concentration of technology, fintech, and corporate headquarters—including major employers like ADP, Cisco, Oracle, and SalesLoft—actively recruits certified project managers. PMI-CPMAI training equips you with AI-integrated PM skills that differentiate you in a competitive local market where standardized PM credentials are increasingly preferred for mid and senior roles.</p>"
+                },
+                {
+                    "question": "Which Alpharetta industries most value PMI-CPMAI or PMP certification?",
+                    "answer": "<p>Technology & Software Development, Financial Technology, Healthcare IT, and Telecommunications employers in Alpharetta most frequently list PMP or related certifications as preferred or required. CPMAI training is particularly relevant as these sectors scale AI-driven projects. Corporate headquarters and shared services roles also prioritize certified project managers for program leadership and cross-functional delivery.</p>"
+                },
+                {
+                    "question": "What do project managers earn in Alpharetta after certification?",
+                    "answer": "<p>PM compensation in Alpharetta is competitive with the broader Atlanta metro, reflecting the region's high concentration of technology and fintech operations. Exact pay varies significantly by industry, experience level, and certification tier. Review current Alpharetta job postings and local salary surveys to benchmark earnings for your role and certification level rather than relying on fixed figures.</p>"
+                },
+                {
+                    "question": "Can I attend Alpharetta PMI-CPMAI training while working in-office?",
+                    "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is 100% live-virtual, so you can participate from your workplace, home, or any location with reliable internet. This flexibility is ideal for Alpharetta professionals balancing full-time roles at local employers while earning a credential on your own schedule.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:44.215796Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "c743c2570c7aeda6",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Alpharetta's concentration of enterprise technology, fintech, and telecommunications firms—including ADP, Verizon, and Cisco Systems—creates sustained demand for credentialed project managers overseeing software deployments, infrastructure upgrades, and major initiatives like the Alpharetta City Center development. The PMI-CPMAI certification validates the formal skills these employers seek. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Alpharetta professionals nationwide, with flexible scheduling designed for working managers.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:47.844049Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "22b5195533bcbfff",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Alpharetta",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Certification Training Alpharetta",
+                    "url": "/pmp-certification-training-alpharetta-ga/"
+                },
+                {
+                    "label": "PMP Bootcamp Alpharetta",
+                    "url": "/pmp-bootcamp-alpharetta-ga/"
+                },
+                {
+                    "label": "CAPM Certification Training Alpharetta",
+                    "url": "/capm-certification-training-alpharetta-ga/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Lead AI Projects from {city}",
+            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#cpmai_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Technology & Software Development",
-      "Financial Technology (Fintech)",
-      "Telecommunications",
-      "Healthcare IT",
-      "Professional & Business Services",
-      "Corporate Headquarters/Shared Services"
-    ],
-    "top_employers": [
-      "ADP",
-      "Verizon",
-      "LexisNexis Risk Solutions",
-      "McKesson Corporation",
-      "Hewlett Packard Enterprise",
-      "Cisco Systems",
-      "Oracle",
-      "SalesLoft",
-      "Fiserv",
-      "Kaiser Permanente",
-      "Comcast"
-    ],
-    "salary_note": "Project manager compensation in the Alpharetta area tends to be competitive with the broader Atlanta metro, reflecting the concentration of technology, fintech, and corporate headquarters operations that actively recruit certified PM talent. Exact pay varies widely by industry, experience, and certification level, so candidates should reference current local job postings and salary surveys rather than a fixed figure.",
-    "market_blurb": "Known as the 'Technology City of the South,' Alpharetta, GA hosts a dense cluster of technology, telecommunications, and fintech companies that regularly need skilled project and program managers to run software rollouts, infrastructure upgrades, and process improvement initiatives. The city's mix of large corporate campuses and growing mid-size firms creates steady demand for professionals who can demonstrate formal project management training and certification. This concentration of enterprise employers makes Alpharetta one of the stronger regional markets in Georgia for project management careers.",
-    "notable_projects": [
-      "Avalon mixed-use development expansion",
-      "Alpharetta City Center development",
-      "Halcyon mixed-use development",
-      "North Point Mall redevelopment initiatives"
-    ],
-    "credential_demand": "Employers in Alpharetta's technology and corporate sectors frequently list PMP certification as preferred or required for project and program manager roles, reflecting broader national trends favoring standardized PM credentials. CAPM and related training are also valued for entry-level and associate positions as a stepping stone toward PMP certification.",
-    "_researched": 1,
-    "city_spotlight": "<p>Alpharetta's reputation as the 'Technology City of the South' draws major employers like ADP, Verizon, and Cisco Systems that depend on skilled project managers to deliver software rollouts, infrastructure upgrades, and fintech initiatives. The concentration of enterprise headquarters and mid-size tech firms creates sustained demand for professionals with formal PMP® Certification. Granite PM Academy delivers live-virtual PMP Certification training nationwide, serving Alpharetta professionals seeking the credential to advance in this competitive, growth-focused market.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-alpharetta-ga.webp",
-    "city_image_alt": "Alpharetta, Georgia City Hall, GA",
-    "city_image_credit": "Photo: Thomson200, CC0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Alpharetta,_Georgia_City_Hall.jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Alpharetta's concentration of technology, fintech, and enterprise software firms—including major operations by ADP, Verizon, Oracle, and Cisco—creates sustained demand for certified project managers who can lead complex implementations and digital transformations. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, enabling you to earn your credential on a schedule that fits your current role. The CPMAI credential strengthens your competitive position for advancement in Alpharetta's project-intensive corporate environment.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#cpmai_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_f33e82ebc3.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:21.652025Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "b9bf951b94bdc17e",
-      "_ai_locked": true,
-      "id": "hero_split_1",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/ai-training-alpharetta-ga/",
+        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "meta_keywords": "AI training Alpharetta, GA, AI courses Alpharetta, CPMAI certification Alpharetta, AI project management training Alpharetta, GA, AI for project managers Alpharetta",
+        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "og_image": "",
+        "service_name": "PMI-CPMAI Certification Training",
+        "service_type": "Professional Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+        "bc_label": "PMI-CPMAI {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\",\n      \"name\": \"PMI-CPMAI Certification Training in Alpharetta, GA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Alpharetta, GA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Alpharetta, GA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Alpharetta, GA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Alpharetta, GA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n    }\n  ]\n}",
+        "primary_keyword": "PMI-CPMAI Certification Training",
+        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMI-CPMAI Certification Training for Alpharetta's Technology Leaders",
-      "text": "<p>Alpharetta's reputation as the Technology City of the South rests on a dense concentration of enterprise software, telecommunications, and fintech firms—from Verizon and Cisco Systems to SalesLoft and Fiserv—where large-scale technology rollouts, infrastructure upgrades, and digital transformation initiatives demand skilled program and project managers. The PMI-CPMAI (Certified Practitioner in the Management of Agile Initiatives) credential signals to Alpharetta employers that you can lead complex, cross-functional technology projects with proven agile and hybrid methodologies. For professionals in this market, formal PMI certification bridges the gap between technical expertise and strategic program leadership, positioning you for advancement in roles where managing innovation and organizational change directly impacts the bottom line.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led instruction designed to fit working professionals' schedules. Our active certified practitioners bring real-world project experience to every session, ensuring the curriculum translates directly to the challenges you'll face in Alpharetta's fast-moving technology ecosystem. We cover all required contact hours and prepare you thoroughly for the PMI-CPMAI exam, so you earn a credential that meets the formal expectations of major employers across the region. Start your certification journey today and position yourself for leadership roles in Alpharetta's competitive technology marketplace.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:25.954340Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "de2f616bf08428ea",
-      "_ai_locked": true,
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMI-CPMAI Certification for Alpharetta's Tech and Finance Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization—Direct Pathway",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMI-CPMAI training that meets all PMI standards. Your contact hours are recognized by the Project Management Institute, eliminating uncertainty about credential validity and eligibility for exam registration."
-        },
-        {
-          "heading": "Live Instruction, Flexible Schedule",
-          "text": "Attend live-virtual instructor-led sessions that satisfy PMI contact-hour requirements without disrupting your role at firms like ADP, Verizon, or Oracle. Real-time instruction from active certified practitioners ensures you learn current methodology, not outdated frameworks."
-        },
-        {
-          "heading": "Exam-Ready Support Included",
-          "text": "Instructors who hold active PMI certifications guide you through exam domains and question strategy. Granite includes focused prep materials and Q&A sessions so you enter the test confident, not hoping to pass on first attempt."
-        },
-        {
-          "heading": "Local Demand, Regional Advantage",
-          "text": "Alpharetta's technology, fintech, and healthcare IT sectors prioritize PMI-CPMAI credentials for program oversight roles. Certification strengthens your candidacy at major employers headquartered or operating heavily in the region, directly addressing skills gaps in your local market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:30.263013Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "16f48ed1926b7330",
-      "_ai_locked": true,
-      "id": "ai_block_2"
-    },
-    {
-      "type": "stats",
-      "stats_heading": "The AI Project Management Gap, By the Numbers",
-      "stats_heading_level": "h2",
-      "stats_bg_color": "custom",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#0d1b3e",
-      "skin": "",
-      "stats_items": [
-        {
-          "number": "80%+",
-          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-        },
-        {
-          "number": "2x",
-          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-        },
-        {
-          "number": "~20%",
-          "label": "of project managers report strong practical AI skills today — PMI, 2025"
-        },
-        {
-          "number": "62%",
-          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-        }
-      ]
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Alpharetta's Tech Hub",
-      "text": "<p>Alpharetta's concentration of technology, fintech, and corporate headquarters has created consistent demand for certified project managers. Major employers including ADP, Verizon, SalesLoft, and Cisco Systems regularly hire PMs to oversee software development, infrastructure, and business transformation initiatives. Real-world projects underscore this need: the Alpharetta City Center development and Avalon mixed-use expansion represent the kind of large-scale, cross-functional work that certified project managers lead daily across the city's corporate and mixed-use sectors. These employers actively recruit talent with recognized credentials, making PMI-CPMAI Certification Training a practical investment for anyone entering or advancing within Alpharetta's job market.</p><p>Compensation for project managers in the Alpharetta area remains competitive with the broader Atlanta metro, driven by the region's concentration of high-skill industries that value standardized PM credentials. Employers across technology, fintech, healthcare IT, and professional services frequently list PMP certification as preferred or required for mid-level and senior roles, while CAPM and related training serve as established pathways for entry-level candidates building toward PMP eligibility. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet these employer expectations and strengthens your candidacy in a market where certified talent is actively sought. For current salary ranges and role-specific requirements, review local job postings and salary surveys to align your certification path with your career goals.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:39.061341Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "93b24a1c09aa9efa",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMI-CPMAI Training",
-          "badge": "AI-FOCUSED",
-          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,495",
-          "period": "per person",
-          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#cpmai_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What is the CPMAI certification?",
-          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-        },
-        {
-          "question": "Who should pursue the CPMAI in {city}?",
-          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-        },
-        {
-          "question": "Is there a prerequisite for the CPMAI course?",
-          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-        },
-        {
-          "question": "How is the CPMAI different from the PMP?",
-          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-        },
-        {
-          "question": "Is this course delivered online?",
-          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-        },
-        {
-          "question": "Is PMI-CPMAI certification worth pursuing in Alpharetta's tech sector?",
-          "answer": "<p>Yes. Alpharetta's concentration of technology, fintech, and corporate headquarters—including major employers like ADP, Cisco, Oracle, and SalesLoft—actively recruits certified project managers. PMI-CPMAI training equips you with AI-integrated PM skills that differentiate you in a competitive local market where standardized PM credentials are increasingly preferred for mid and senior roles.</p>"
-        },
-        {
-          "question": "Which Alpharetta industries most value PMI-CPMAI or PMP certification?",
-          "answer": "<p>Technology & Software Development, Financial Technology, Healthcare IT, and Telecommunications employers in Alpharetta most frequently list PMP or related certifications as preferred or required. CPMAI training is particularly relevant as these sectors scale AI-driven projects. Corporate headquarters and shared services roles also prioritize certified project managers for program leadership and cross-functional delivery.</p>"
-        },
-        {
-          "question": "What do project managers earn in Alpharetta after certification?",
-          "answer": "<p>PM compensation in Alpharetta is competitive with the broader Atlanta metro, reflecting the region's high concentration of technology and fintech operations. Exact pay varies significantly by industry, experience level, and certification tier. Review current Alpharetta job postings and local salary surveys to benchmark earnings for your role and certification level rather than relying on fixed figures.</p>"
-        },
-        {
-          "question": "Can I attend Alpharetta PMI-CPMAI training while working in-office?",
-          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is 100% live-virtual, so you can participate from your workplace, home, or any location with reliable internet. This flexibility is ideal for Alpharetta professionals balancing full-time roles at local employers while earning a credential on your own schedule.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:44.215796Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "c743c2570c7aeda6",
-      "_ai_locked": true,
-      "id": "faq_two_col_1",
-      "_ai_injected_count": 4
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Alpharetta's concentration of enterprise technology, fintech, and telecommunications firms—including ADP, Verizon, and Cisco Systems—creates sustained demand for credentialed project managers overseeing software deployments, infrastructure upgrades, and major initiatives like the Alpharetta City Center development. The PMI-CPMAI certification validates the formal skills these employers seek. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Alpharetta professionals nationwide, with flexible scheduling designed for working managers.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:37:47.844049Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "22b5195533bcbfff",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Lead AI Projects from {city}",
-      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#cpmai_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/ai-training-alpharetta-ga/",
-    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "meta_keywords": "AI training Alpharetta, GA, AI courses Alpharetta, CPMAI certification Alpharetta, AI project management training Alpharetta, GA, AI for project managers Alpharetta",
-    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "og_image": "",
-    "service_name": "PMI-CPMAI Certification Training",
-    "service_type": "Professional Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-    "bc_label": "PMI-CPMAI {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\",\n      \"name\": \"PMI-CPMAI Certification Training in Alpharetta, GA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Alpharetta, GA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Alpharetta, GA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Alpharetta, GA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Alpharetta, GA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-alpharetta-ga/\"\n    }\n  ]\n}",
-    "primary_keyword": "PMI-CPMAI Certification Training",
-    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T23:50:44+00:00",
-  "template_version": "e367ab35f866563e4b67165c4814e125"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:01+00:00",
+    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
 }

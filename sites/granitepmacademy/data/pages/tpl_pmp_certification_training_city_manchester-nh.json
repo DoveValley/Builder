@@ -1,416 +1,445 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "manchester-nh",
-  "slug": "pmp-certification-training-manchester-nh",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "manchester-nh",
-    "city": "Manchester",
-    "state": "New Hampshire",
-    "SS": "NH",
-    "city_slug": "manchester-nh",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier4"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "manchester-nh",
+    "slug": "pmp-certification-training-manchester-nh",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "manchester-nh",
+        "city": "Manchester",
+        "state": "New Hampshire",
+        "SS": "NH",
+        "city_slug": "manchester-nh",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier4"
+        ],
+        "industries": [
+            "Healthcare and biomedical services",
+            "Advanced manufacturing",
+            "Higher education",
+            "Information technology and software",
+            "Financial and insurance services",
+            "Aviation and logistics"
+        ],
+        "top_employers": [
+            "Elliot Health System",
+            "Catholic Medical Center",
+            "Dartmouth Health",
+            "Southern New Hampshire University",
+            "DEKA Research and Development",
+            "City of Manchester",
+            "Manchester School District",
+            "Anthem Blue Cross Blue Shield of New Hampshire",
+            "Manchester-Boston Regional Airport",
+            "Robert Half"
+        ],
+        "salary_note": "Project manager compensation in Manchester tends to track closely with broader New England averages, with healthcare, manufacturing, and IT sectors offering the most competitive packages. Exact figures vary widely by industry and certification level, but demand for experienced PMs remains steady in the region.",
+        "market_blurb": "Manchester, NH serves as the economic hub of the state, with a job market shaped by healthcare systems, advanced manufacturing, and a growing higher-education and tech presence anchored by Southern New Hampshire University. Project and program management roles are increasingly sought after as local employers modernize operations and manage capital projects, from hospital expansions to manufacturing upgrades.",
+        "notable_projects": [
+            "Southern New Hampshire University campus and online-program expansions",
+            "Elliot Health System facility upgrades and service line expansions",
+            "Manchester-Boston Regional Airport terminal and infrastructure improvements",
+            "Manchester Millyard redevelopment initiatives"
+        ],
+        "credential_demand": "PMP and CAPM certifications are increasingly viewed favorably by Manchester-area employers, particularly in healthcare and manufacturing, as organizations formalize project governance and seek standardized methodologies. While not always a strict requirement, certified candidates often have a competitive edge in local hiring processes.",
+        "_researched": 1,
+        "city_spotlight": "<p>Manchester's healthcare systems—including Elliot Health System and Catholic Medical Center—are driving demand for skilled project managers as they expand facilities and service lines across the region. Advanced manufacturing, higher education, and airport infrastructure projects further strengthen opportunities for PMP-certified professionals in this economic hub. Granite PM Academy delivers live-virtual PMP Certification to Manchester professionals, combining flexible scheduling with the rigor employers demand.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Healthcare systems, advanced manufacturers, and financial services across Manchester rely on skilled project managers to deliver complex initiatives on time and within scope. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led instruction and PMI contact hours required to sit for the PMP exam, connecting you with a credential recognized across every major employer in the region and positioning you for advancement into higher-paying project leadership roles.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_7318459c3b.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:18.829863Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "072ab38f139f5f8e",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Manchester for Healthcare and Advanced Manufacturing Leaders",
+            "text": "<p>Manchester's economy is driven by major healthcare systems—Elliot Health System, Catholic Medical Center, and Dartmouth Health among them—alongside a robust advanced manufacturing sector. Both industries are investing heavily in capital projects, operational modernization, and complex initiatives that require skilled project managers. Healthcare administrators overseeing facility expansions, equipment procurement, and digital transformation initiatives, and manufacturing leaders managing production upgrades and supply-chain optimization, increasingly depend on PMP-certified professionals to lead these efforts. The PMP® credential demonstrates to employers across Manchester that you have mastered the frameworks, risk management, and stakeholder communication that drive success in these fast-moving, high-stakes environments.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual PMP® Certification Training designed for working professionals in Manchester and beyond. Our instructor-led courses satisfy the contact-hour requirements mandated by the Project Management Institute for PMP® eligibility, taught by active certified practitioners who bring real-world experience to every module. You'll learn at your own pace through a structured online format that fits your schedule—no commute, no geographic barriers—while gaining the knowledge and confidence to pass the PMP® exam. Whether you're advancing your career in healthcare management, manufacturing operations, or another sector, our comprehensive training prepares you to earn this globally recognized credential and accelerate your professional growth.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:22.825671Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "367be2d217d887cf",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Training for Manchester's Healthcare and Tech Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training You Can Trust",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your training hours count toward PMP eligibility without question. You'll earn the contact hours required by the Project Management Institute to sit for the credential exam—no gaps, no ambiguity."
+                },
+                {
+                    "heading": "Live Instruction, Your Schedule, Real Results",
+                    "text": "Attend live-virtual instructor-led classes that fit working professionals' calendars. Active certified practitioners teach every session, bringing current real-world project challenges into the classroom. You complete the contact-hour requirement without relocating or sacrificing work or family time."
+                },
+                {
+                    "heading": "Exam Prep Built Into Every Session",
+                    "text": "Study materials, practice questions, and targeted exam strategy are woven throughout the course, not added as an afterthought. Your instructor—a practicing PMP holder—guides you through the Knowledge Areas and processes you'll actually face on test day."
+                },
+                {
+                    "heading": "Open Doors at Manchester's Largest Employers",
+                    "text": "Healthcare systems like Elliot, Catholic Medical, and Dartmouth Health; advanced manufacturers like DEKA; and IT firms across the region actively seek PMP-certified project managers. The credential signals you're ready for leadership roles in the industries that drive Manchester's economy."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:27.279251Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "1593d07e780a18ba",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Manchester",
+            "text": "<p>Healthcare organizations anchor Manchester's project-management market. Elliot Health System, Catholic Medical Center, and Dartmouth Health regularly hire certified project managers to oversee facility upgrades, service-line expansions, and operational initiatives. Beyond healthcare, DEKA Research and Development, Southern New Hampshire University, and Anthem Blue Cross Blue Shield of New Hampshire employ PMs across manufacturing, higher education, and IT functions. The Manchester-Boston Regional Airport's ongoing terminal and infrastructure improvements represent another significant source of local PM roles. These employers—spanning biomedical services, advanced manufacturing, financial services, and aviation—demonstrate the breadth of opportunity for credentialed professionals in the region.</p><p>A PMP® or CAPM® certification strengthens your candidacy in Manchester's increasingly formalized project-governance environment. Local employers in healthcare and manufacturing particularly value PMI® credentials as they standardize methodologies and scale operations. Project manager compensation in the region tracks with broader New England ranges, with healthcare, manufacturing, and IT sectors offering competitive packages; while exact figures vary by industry and experience level, steady demand for experienced, certified PMs remains consistent. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual to fit your schedule—positions you to meet that demand. The credential signals rigor and methodology to hiring managers across Manchester's major employers, giving you a concrete edge in local hiring processes.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:31.389430Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "95beabcd2ae94dbf",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Manchester",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific requirements for your background—typically a bachelor's degree plus years of directed project experience, or an associate degree with additional experience. Gather your project documentation before you apply."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend sessions on your schedule from anywhere, learning directly from active certified practitioners. All 35 required contact hours are delivered interactively, covering the PMBOK® Guide and exam domains."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, submit your formal application to PMI, including your project-experience documentation and course completion certificate from Granite PM Academy. Pay the examination fee through PMI's online portal. PMI reviews and approves your eligibility before you schedule your exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's targeted exam-preparation resources—practice tests, study guides, and review sessions—to strengthen your knowledge. Schedule your computer-based exam at a Pearson VUE testing center. You'll complete the PMP® exam on your own timeline once you're confident and ready."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "PMP® certification is valid for three years. During each renewal cycle, earn Professional Development Units (PDUs) through continuing education, project work, or volunteer activities. Renew by the expiration date to keep your credential active and competitive in Manchester's job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:36.470705Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "869b585cb06b8464",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers in Manchester?",
+                    "answer": "<p>Yes. Manchester's healthcare, manufacturing, and IT sectors are increasingly formalizing project governance and actively seeking certified professionals. While not universally required, PMP certification gives you a competitive edge in local hiring and advancement—especially at employers like Elliot Health System, Catholic Medical Center, and regional manufacturing firms. Certified candidates often command stronger consideration during recruitment and promotion cycles in this market.</p>"
+                },
+                {
+                    "question": "Which Manchester employers value PMP and CAPM certifications most?",
+                    "answer": "<p>Healthcare organizations (Elliot Health System, Catholic Medical Center, Dartmouth Health), advanced manufacturers, SNHU's operations, and regional IT and financial services firms prioritize PMP and CAPM credentials as they standardize project delivery. These industries recognize certification as proof of methodology rigor and governance discipline. Manchester's aviation and logistics sector also increasingly values certified project leaders for complex operational initiatives.</p>"
+                },
+                {
+                    "question": "Can I attend PMP training from my Manchester workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual training runs entirely online, so you can join from your office, home, or any location with internet access. This flexibility suits Manchester professionals balancing work and study—whether you're at a healthcare facility, corporate office, or remote workspace. No travel to a physical classroom required.</p>"
+                },
+                {
+                    "question": "How does Manchester's job market affect when to pursue PMP certification?",
+                    "answer": "<p>Manchester's steady demand for certified project managers across healthcare, manufacturing, and IT makes certification a year-round asset. However, certifying sooner—rather than waiting—positions you ahead of peers in an increasingly competitive local hiring environment. Early certification can shorten your path to higher-responsibility roles and compensation tiers competitive with New England standards across these growth sectors.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:41.917089Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "f81127699dcb0833",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Manchester's healthcare sector—anchored by Elliot Health System, Catholic Medical Center, and Dartmouth Health—is driving demand for skilled project managers as these institutions expand facilities and service lines. Advanced manufacturing, higher education, and tech employers across the region are modernizing operations and managing capital projects at an accelerating pace. Granite PM Academy delivers live-virtual PMP Certification Training to Manchester professionals seeking to advance their careers in these growth sectors.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:43.457625Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "8127aa455b33f0ef",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Manchester",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Manchester",
+                    "url": "/pmp-bootcamp-manchester-nh/"
+                },
+                {
+                    "label": "CAPM Certification Training Manchester",
+                    "url": "/capm-certification-training-manchester-nh/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Manchester",
+                    "url": "/ai-training-manchester-nh/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Healthcare and biomedical services",
-      "Advanced manufacturing",
-      "Higher education",
-      "Information technology and software",
-      "Financial and insurance services",
-      "Aviation and logistics"
-    ],
-    "top_employers": [
-      "Elliot Health System",
-      "Catholic Medical Center",
-      "Dartmouth Health",
-      "Southern New Hampshire University",
-      "DEKA Research and Development",
-      "City of Manchester",
-      "Manchester School District",
-      "Anthem Blue Cross Blue Shield of New Hampshire",
-      "Manchester-Boston Regional Airport",
-      "Robert Half"
-    ],
-    "salary_note": "Project manager compensation in Manchester tends to track closely with broader New England averages, with healthcare, manufacturing, and IT sectors offering the most competitive packages. Exact figures vary widely by industry and certification level, but demand for experienced PMs remains steady in the region.",
-    "market_blurb": "Manchester, NH serves as the economic hub of the state, with a job market shaped by healthcare systems, advanced manufacturing, and a growing higher-education and tech presence anchored by Southern New Hampshire University. Project and program management roles are increasingly sought after as local employers modernize operations and manage capital projects, from hospital expansions to manufacturing upgrades.",
-    "notable_projects": [
-      "Southern New Hampshire University campus and online-program expansions",
-      "Elliot Health System facility upgrades and service line expansions",
-      "Manchester-Boston Regional Airport terminal and infrastructure improvements",
-      "Manchester Millyard redevelopment initiatives"
-    ],
-    "credential_demand": "PMP and CAPM certifications are increasingly viewed favorably by Manchester-area employers, particularly in healthcare and manufacturing, as organizations formalize project governance and seek standardized methodologies. While not always a strict requirement, certified candidates often have a competitive edge in local hiring processes.",
-    "_researched": 1,
-    "city_spotlight": "<p>Manchester's healthcare systems—including Elliot Health System and Catholic Medical Center—are driving demand for skilled project managers as they expand facilities and service lines across the region. Advanced manufacturing, higher education, and airport infrastructure projects further strengthen opportunities for PMP-certified professionals in this economic hub. Granite PM Academy delivers live-virtual PMP Certification to Manchester professionals, combining flexible scheduling with the rigor employers demand.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Healthcare systems, advanced manufacturers, and financial services across Manchester rely on skilled project managers to deliver complex initiatives on time and within scope. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led instruction and PMI contact hours required to sit for the PMP exam, connecting you with a credential recognized across every major employer in the region and positioning you for advancement into higher-paying project leadership roles.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_7318459c3b.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:18.829863Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "072ab38f139f5f8e",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-manchester-nh/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Manchester, NH, PMP exam prep Manchester, PMP course Manchester NH, project management certification Manchester, NH, PMI PMP training Manchester",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\",\r\n      \"name\": \"PMP Certification Training in Manchester, NH | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Manchester, NH. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Manchester, NH\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#course\",\r\n      \"name\": \"PMP Certification Training in Manchester, NH\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Manchester, NH. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Manchester for Healthcare and Advanced Manufacturing Leaders",
-      "text": "<p>Manchester's economy is driven by major healthcare systems—Elliot Health System, Catholic Medical Center, and Dartmouth Health among them—alongside a robust advanced manufacturing sector. Both industries are investing heavily in capital projects, operational modernization, and complex initiatives that require skilled project managers. Healthcare administrators overseeing facility expansions, equipment procurement, and digital transformation initiatives, and manufacturing leaders managing production upgrades and supply-chain optimization, increasingly depend on PMP-certified professionals to lead these efforts. The PMP® credential demonstrates to employers across Manchester that you have mastered the frameworks, risk management, and stakeholder communication that drive success in these fast-moving, high-stakes environments.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual PMP® Certification Training designed for working professionals in Manchester and beyond. Our instructor-led courses satisfy the contact-hour requirements mandated by the Project Management Institute for PMP® eligibility, taught by active certified practitioners who bring real-world experience to every module. You'll learn at your own pace through a structured online format that fits your schedule—no commute, no geographic barriers—while gaining the knowledge and confidence to pass the PMP® exam. Whether you're advancing your career in healthcare management, manufacturing operations, or another sector, our comprehensive training prepares you to earn this globally recognized credential and accelerate your professional growth.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:22.825671Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "367be2d217d887cf",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Training for Manchester's Healthcare and Tech Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training You Can Trust",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your training hours count toward PMP eligibility without question. You'll earn the contact hours required by the Project Management Institute to sit for the credential exam—no gaps, no ambiguity."
-        },
-        {
-          "heading": "Live Instruction, Your Schedule, Real Results",
-          "text": "Attend live-virtual instructor-led classes that fit working professionals' calendars. Active certified practitioners teach every session, bringing current real-world project challenges into the classroom. You complete the contact-hour requirement without relocating or sacrificing work or family time."
-        },
-        {
-          "heading": "Exam Prep Built Into Every Session",
-          "text": "Study materials, practice questions, and targeted exam strategy are woven throughout the course, not added as an afterthought. Your instructor—a practicing PMP holder—guides you through the Knowledge Areas and processes you'll actually face on test day."
-        },
-        {
-          "heading": "Open Doors at Manchester's Largest Employers",
-          "text": "Healthcare systems like Elliot, Catholic Medical, and Dartmouth Health; advanced manufacturers like DEKA; and IT firms across the region actively seek PMP-certified project managers. The credential signals you're ready for leadership roles in the industries that drive Manchester's economy."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:27.279251Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "1593d07e780a18ba",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Manchester",
-      "text": "<p>Healthcare organizations anchor Manchester's project-management market. Elliot Health System, Catholic Medical Center, and Dartmouth Health regularly hire certified project managers to oversee facility upgrades, service-line expansions, and operational initiatives. Beyond healthcare, DEKA Research and Development, Southern New Hampshire University, and Anthem Blue Cross Blue Shield of New Hampshire employ PMs across manufacturing, higher education, and IT functions. The Manchester-Boston Regional Airport's ongoing terminal and infrastructure improvements represent another significant source of local PM roles. These employers—spanning biomedical services, advanced manufacturing, financial services, and aviation—demonstrate the breadth of opportunity for credentialed professionals in the region.</p><p>A PMP® or CAPM® certification strengthens your candidacy in Manchester's increasingly formalized project-governance environment. Local employers in healthcare and manufacturing particularly value PMI® credentials as they standardize methodologies and scale operations. Project manager compensation in the region tracks with broader New England ranges, with healthcare, manufacturing, and IT sectors offering competitive packages; while exact figures vary by industry and experience level, steady demand for experienced, certified PMs remains consistent. Completing PMP Certification Training through Granite PM Academy—delivered live-virtual to fit your schedule—positions you to meet that demand. The credential signals rigor and methodology to hiring managers across Manchester's major employers, giving you a concrete edge in local hiring processes.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:31.389430Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "95beabcd2ae94dbf",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Manchester",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific requirements for your background—typically a bachelor's degree plus years of directed project experience, or an associate degree with additional experience. Gather your project documentation before you apply."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend sessions on your schedule from anywhere, learning directly from active certified practitioners. All 35 required contact hours are delivered interactively, covering the PMBOK® Guide and exam domains."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After course completion, submit your formal application to PMI, including your project-experience documentation and course completion certificate from Granite PM Academy. Pay the examination fee through PMI's online portal. PMI reviews and approves your eligibility before you schedule your exam."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's targeted exam-preparation resources—practice tests, study guides, and review sessions—to strengthen your knowledge. Schedule your computer-based exam at a Pearson VUE testing center. You'll complete the PMP® exam on your own timeline once you're confident and ready."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "PMP® certification is valid for three years. During each renewal cycle, earn Professional Development Units (PDUs) through continuing education, project work, or volunteer activities. Renew by the expiration date to keep your credential active and competitive in Manchester's job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:36.470705Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "869b585cb06b8464",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers in Manchester?",
-          "answer": "<p>Yes. Manchester's healthcare, manufacturing, and IT sectors are increasingly formalizing project governance and actively seeking certified professionals. While not universally required, PMP certification gives you a competitive edge in local hiring and advancement—especially at employers like Elliot Health System, Catholic Medical Center, and regional manufacturing firms. Certified candidates often command stronger consideration during recruitment and promotion cycles in this market.</p>"
-        },
-        {
-          "question": "Which Manchester employers value PMP and CAPM certifications most?",
-          "answer": "<p>Healthcare organizations (Elliot Health System, Catholic Medical Center, Dartmouth Health), advanced manufacturers, SNHU's operations, and regional IT and financial services firms prioritize PMP and CAPM credentials as they standardize project delivery. These industries recognize certification as proof of methodology rigor and governance discipline. Manchester's aviation and logistics sector also increasingly values certified project leaders for complex operational initiatives.</p>"
-        },
-        {
-          "question": "Can I attend PMP training from my Manchester workplace?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual training runs entirely online, so you can join from your office, home, or any location with internet access. This flexibility suits Manchester professionals balancing work and study—whether you're at a healthcare facility, corporate office, or remote workspace. No travel to a physical classroom required.</p>"
-        },
-        {
-          "question": "How does Manchester's job market affect when to pursue PMP certification?",
-          "answer": "<p>Manchester's steady demand for certified project managers across healthcare, manufacturing, and IT makes certification a year-round asset. However, certifying sooner—rather than waiting—positions you ahead of peers in an increasingly competitive local hiring environment. Early certification can shorten your path to higher-responsibility roles and compensation tiers competitive with New England standards across these growth sectors.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:41.917089Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "f81127699dcb0833",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Manchester's healthcare sector—anchored by Elliot Health System, Catholic Medical Center, and Dartmouth Health—is driving demand for skilled project managers as these institutions expand facilities and service lines. Advanced manufacturing, higher education, and tech employers across the region are modernizing operations and managing capital projects at an accelerating pace. Granite PM Academy delivers live-virtual PMP Certification Training to Manchester professionals seeking to advance their careers in these growth sectors.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:43.457625Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "8127aa455b33f0ef",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-manchester-nh/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Manchester, NH, PMP exam prep Manchester, PMP course Manchester NH, project management certification Manchester, NH, PMI PMP training Manchester",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\",\r\n      \"name\": \"PMP Certification Training in Manchester, NH | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Manchester, NH. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Manchester, NH\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#course\",\r\n      \"name\": \"PMP Certification Training in Manchester, NH\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Manchester, NH. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-manchester-nh/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:59:57+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

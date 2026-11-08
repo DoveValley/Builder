@@ -1,418 +1,447 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "indianapolis-in",
-  "slug": "pmp-certification-training-indianapolis-in",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "indianapolis-in",
-    "city": "Indianapolis",
-    "state": "Indiana",
-    "SS": "IN",
-    "city_slug": "indianapolis-in",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier6"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "indianapolis-in",
+    "slug": "pmp-certification-training-indianapolis-in",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "indianapolis-in",
+        "city": "Indianapolis",
+        "state": "Indiana",
+        "SS": "IN",
+        "city_slug": "indianapolis-in",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier6"
+        ],
+        "industries": [
+            "Life Sciences & Pharmaceuticals",
+            "Healthcare & Health Systems",
+            "Logistics & Distribution",
+            "Insurance & Financial Services",
+            "Advanced Manufacturing",
+            "Technology & Software"
+        ],
+        "top_employers": [
+            "Eli Lilly and Company",
+            "Elevance Health",
+            "Indiana University Health",
+            "Ascension St. Vincent",
+            "Community Health Network",
+            "Roche Diagnostics",
+            "FedEx",
+            "Allison Transmission",
+            "Corteva Agriscience",
+            "Republic Airways",
+            "Citizens Energy Group",
+            "State of Indiana"
+        ],
+        "salary_note": "Project management roles in Indianapolis are in steady demand across healthcare, life sciences, and logistics, with compensation generally competitive with other Midwest metro markets. Exact pay varies widely by industry and certification level, so candidates should expect a range that reflects experience and sector rather than a single fixed figure.",
+        "market_blurb": "Indianapolis offers a diverse project management job market anchored by major life sciences and healthcare organizations like Eli Lilly and Elevance Health, alongside a strong logistics sector built around the city's central location and FedEx's major hub. Manufacturing and insurance firms also continue to drive steady need for skilled project and program managers across both private and public sectors.",
+        "notable_projects": [
+            "Eli Lilly's LEAP Innovation District development in downtown Indianapolis",
+            "Indiana University Health's new downtown academic health center replacement project",
+            "Elanco Animal Health's global headquarters campus in Indianapolis",
+            "Indianapolis International Airport ground and cargo facility expansions supporting the FedEx hub"
+        ],
+        "credential_demand": "PMP certification is frequently listed as a preferred or required qualification in Indianapolis job postings, especially within healthcare systems, pharmaceutical companies, and logistics operations. Employers generally value formal project management training as a signal of readiness for cross-functional and large-scale initiative leadership.",
+        "_researched": 1,
+        "city_spotlight": "<p>Indianapolis's life sciences and healthcare sector—anchored by employers like Eli Lilly and Elevance Health—creates steady demand for credentialed project managers overseeing everything from drug development initiatives to major facility expansions. The city's central logistics hub and diverse manufacturing base amplify those opportunities. Granite PM Academy delivers live-virtual PMP® Certification to Indianapolis professionals seeking to advance in this competitive market.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Indianapolis's life sciences, healthcare, logistics, and advanced manufacturing sectors rely on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, letting you earn this globally recognized credential while maintaining your current role. A PMP certification positions you competitively for project leadership opportunities across Indianapolis's fastest-growing industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_d5e97b2826.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:26.916992Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ee5d702191894dc7",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Indianapolis for Project Managers",
+            "text": "<p>Indianapolis's robust life sciences and pharmaceutical sector, anchored by industry leaders like Eli Lilly and Company, has created sustained demand for project managers who can navigate complex product development, regulatory compliance, and cross-functional initiatives. Alongside this cornerstone industry, the city's healthcare systems, logistics operations centered around FedEx's major hub, and advanced manufacturing base all require skilled practitioners to manage programs and deliver results on time and within budget. For professionals working in these Indianapolis-based organizations—or seeking to advance within them—the PMP® credential signals mastery of project management best practices and significantly strengthens your candidacy for senior roles and leadership opportunities across the region's diverse sectors.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led courses designed to fit your schedule while meeting the Project Management Institute's contact-hour requirements for eligibility. Our instructors are active certified practitioners who bring real-world experience to every lesson, ensuring you learn frameworks and tools you can apply immediately in your Indianapolis career. We guide you through exam preparation, eligibility documentation, and the full path to certification, so you can earn your PMP® credential with confidence and begin leveraging it to advance your professional standing.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:30.612857Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "04197fad263bd7ba",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP® Certification for Indianapolis's Life Sciences Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorized Training Pathway",
+                    "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP® preparation meets all official requirements. You earn the required contact hours through live-virtual instruction—no substitutes, no shortcuts—positioning you for exam eligibility with full credentials confidence."
+                },
+                {
+                    "heading": "Learn from Active Practitioners",
+                    "text": "Your instructors are working certified project managers, not classroom theorists. They bring real-world PMP® exam strategy and current best practices into every live session, helping you connect frameworks to the challenges you'll face in your Indianapolis-area role."
+                },
+                {
+                    "heading": "Structured Exam Prep Built In",
+                    "text": "Beyond the course, you receive dedicated exam-preparation support including practice questions, study schedules, and instructor office hours. This targeted coaching significantly increases first-attempt pass likelihood and confidence before test day."
+                },
+                {
+                    "heading": "Credential Demanded by Indianapolis Employers",
+                    "text": "Life sciences, healthcare systems, manufacturing, and logistics firms across Indianapolis—including major regional employers—actively hire PMP®-certified project managers for leadership and advancement roles. This credential directly addresses your local market's documented hiring requirements."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:34.680709Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "114c4341cd5db452",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Indianapolis's Life Sciences Hub",
+            "text": "<p>Indianapolis has emerged as a major center for life sciences and pharmaceutical innovation, anchored by employers like Eli Lilly and Company, Roche Diagnostics, and Elanco Animal Health. These organizations, along with healthcare systems including Indiana University Health, Elevance Health, and Ascension St. Vincent, regularly seek certified project managers to lead cross-functional initiatives. The scale of local development projects underscores this demand: Eli Lilly's LEAP Innovation District is reshaping downtown Indianapolis, while Indiana University Health's new academic health center replacement project represents another significant undertaking requiring skilled program and project leadership. Logistics and distribution operations, supported by FedEx hub expansions at Indianapolis International Airport and employers like Allison Transmission, add further depth to the region's project-management job market.</p><p>A PMP® certification signals to Indianapolis employers—particularly in healthcare systems, pharmaceutical firms, and advanced manufacturing—that you are ready for large-scale initiative responsibility and cross-functional team leadership. Project management roles across the region command steady demand and competitive compensation that reflects your experience level and industry sector. By completing Granite PM Academy's PMP Certification Training through our live-virtual platform, you gain the credential that Indianapolis employers list as preferred or required, positioning yourself to advance within the city's fastest-growing sectors without interrupting your current work schedule or location.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:38.470505Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "fe9943f292162606",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Indianapolis",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "The PMP® requires a secondary degree plus documented project-management experience, or a high school diploma with significantly more hours. Review PMI's specific education and experience thresholds—most Indianapolis professionals in Life Sciences, Healthcare, Logistics, and Advanced Manufacturing meet them. Gather your project records and verify your qualifications before enrolling."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions online from anywhere, on a schedule that fits your work in Indianapolis's competitive job market. Our active certified practitioners deliver the full PMI curriculum in real time, ensuring you master project-management frameworks and exam content."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing coursework, submit your formal PMP® application directly to PMI, including your education credentials, project experience, and course completion proof from Granite PM Academy. Pay the associated PMI exam fee. Our team will guide you through the application process and answer eligibility questions."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and review sessions—to build confidence. Schedule your PMP® exam at a Pearson VUE testing center in the Indianapolis area. On exam day, you'll demonstrate mastery of project initiation, planning, execution, monitoring, and closure."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "The PMP® requires renewal every three years by earning professional development units (PDUs). Stay current through ongoing training, conference attendance, volunteer work, and PMI membership. This cycle keeps your credential active and demonstrates to employers like those in Indianapolis's Life Sciences and Healthcare sectors your commitment to the profession."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:43.985869Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "862b0b8919e39370",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Indianapolis healthcare and life sciences careers?",
+                    "answer": "<p>Yes. Healthcare systems like Indiana University Health and Ascension St. Vincent, plus pharmaceutical leaders such as Eli Lilly and Roche Diagnostics, regularly list PMP® certification as preferred or required for project management roles. The credential signals readiness to lead cross-functional clinical, research, and operational initiatives—roles central to Indianapolis's dominant employers. Formal certification strengthens competitiveness in a competitive regional talent market.</p>"
+                },
+                {
+                    "question": "Which major Indianapolis employers actively seek PMP-certified project managers?",
+                    "answer": "<p>Eli Lilly, Elevance Health, Indiana University Health, Ascension St. Vincent, FedEx, Allison Transmission, and Corteva Agriscience—among Indianapolis's largest employers—value PMP® certification in job postings across healthcare, logistics, pharmaceuticals, and manufacturing. The credential is especially valued where complex, cross-departmental projects and regulatory compliance are central, making it relevant across the city's dominant industries.</p>"
+                },
+                {
+                    "question": "What compensation range should Indianapolis project managers expect with PMP certification?",
+                    "answer": "<p>Project management compensation in Indianapolis is steady and competitive with other Midwest metros, but varies significantly by industry, experience, and certification level. Healthcare and life sciences roles may differ from logistics or manufacturing. Rather than a fixed figure, expect a range reflecting your sector and background. Certification typically strengthens earning potential by positioning you for leadership roles within growing employers like healthcare systems and pharmaceutical operations.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Indianapolis workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP® certification training is delivered 100% live-virtual nationwide, so you can participate from your office, home, or any location with internet access. This flexibility suits Indianapolis professionals juggling roles at major employers like Eli Lilly, health systems, or logistics hubs. Schedule the course around your work commitments without relocation or travel.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:49.611962Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "60f2119df5d299bc",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Indianapolis's life sciences and healthcare sector—anchored by Eli Lilly, Elevance Health, and major health systems—creates sustained demand for skilled project managers, particularly as organizations like Eli Lilly advance landmark developments such as the LEAP Innovation District. The city's logistics hub, centered on FedEx operations, and its strong manufacturing base further expand career opportunities across multiple industries. Granite PM Academy delivers live-virtual PMP Certification Training to Indianapolis professionals nationwide, helping you earn the PMI credential on a schedule that fits your career.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:51.577921Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "c65a9e55aa3b0670",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Indianapolis",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Indianapolis",
+                    "url": "/pmp-bootcamp-indianapolis-in/"
+                },
+                {
+                    "label": "CAPM Certification Training Indianapolis",
+                    "url": "/capm-certification-training-indianapolis-in/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Indianapolis",
+                    "url": "/ai-training-indianapolis-in/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Life Sciences & Pharmaceuticals",
-      "Healthcare & Health Systems",
-      "Logistics & Distribution",
-      "Insurance & Financial Services",
-      "Advanced Manufacturing",
-      "Technology & Software"
-    ],
-    "top_employers": [
-      "Eli Lilly and Company",
-      "Elevance Health",
-      "Indiana University Health",
-      "Ascension St. Vincent",
-      "Community Health Network",
-      "Roche Diagnostics",
-      "FedEx",
-      "Allison Transmission",
-      "Corteva Agriscience",
-      "Republic Airways",
-      "Citizens Energy Group",
-      "State of Indiana"
-    ],
-    "salary_note": "Project management roles in Indianapolis are in steady demand across healthcare, life sciences, and logistics, with compensation generally competitive with other Midwest metro markets. Exact pay varies widely by industry and certification level, so candidates should expect a range that reflects experience and sector rather than a single fixed figure.",
-    "market_blurb": "Indianapolis offers a diverse project management job market anchored by major life sciences and healthcare organizations like Eli Lilly and Elevance Health, alongside a strong logistics sector built around the city's central location and FedEx's major hub. Manufacturing and insurance firms also continue to drive steady need for skilled project and program managers across both private and public sectors.",
-    "notable_projects": [
-      "Eli Lilly's LEAP Innovation District development in downtown Indianapolis",
-      "Indiana University Health's new downtown academic health center replacement project",
-      "Elanco Animal Health's global headquarters campus in Indianapolis",
-      "Indianapolis International Airport ground and cargo facility expansions supporting the FedEx hub"
-    ],
-    "credential_demand": "PMP certification is frequently listed as a preferred or required qualification in Indianapolis job postings, especially within healthcare systems, pharmaceutical companies, and logistics operations. Employers generally value formal project management training as a signal of readiness for cross-functional and large-scale initiative leadership.",
-    "_researched": 1,
-    "city_spotlight": "<p>Indianapolis's life sciences and healthcare sector—anchored by employers like Eli Lilly and Elevance Health—creates steady demand for credentialed project managers overseeing everything from drug development initiatives to major facility expansions. The city's central logistics hub and diverse manufacturing base amplify those opportunities. Granite PM Academy delivers live-virtual PMP® Certification to Indianapolis professionals seeking to advance in this competitive market.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Indianapolis's life sciences, healthcare, logistics, and advanced manufacturing sectors rely on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, letting you earn this globally recognized credential while maintaining your current role. A PMP certification positions you competitively for project leadership opportunities across Indianapolis's fastest-growing industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_d5e97b2826.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:26.916992Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ee5d702191894dc7",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-indianapolis-in/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Indianapolis, IN, PMP exam prep Indianapolis, PMP course Indianapolis IN, project management certification Indianapolis, IN, PMI PMP training Indianapolis",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\",\r\n      \"name\": \"PMP Certification Training in Indianapolis, IN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Indianapolis, IN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Indianapolis, IN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#course\",\r\n      \"name\": \"PMP Certification Training in Indianapolis, IN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Indianapolis, IN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Indianapolis for Project Managers",
-      "text": "<p>Indianapolis's robust life sciences and pharmaceutical sector, anchored by industry leaders like Eli Lilly and Company, has created sustained demand for project managers who can navigate complex product development, regulatory compliance, and cross-functional initiatives. Alongside this cornerstone industry, the city's healthcare systems, logistics operations centered around FedEx's major hub, and advanced manufacturing base all require skilled practitioners to manage programs and deliver results on time and within budget. For professionals working in these Indianapolis-based organizations—or seeking to advance within them—the PMP® credential signals mastery of project management best practices and significantly strengthens your candidacy for senior roles and leadership opportunities across the region's diverse sectors.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led courses designed to fit your schedule while meeting the Project Management Institute's contact-hour requirements for eligibility. Our instructors are active certified practitioners who bring real-world experience to every lesson, ensuring you learn frameworks and tools you can apply immediately in your Indianapolis career. We guide you through exam preparation, eligibility documentation, and the full path to certification, so you can earn your PMP® credential with confidence and begin leveraging it to advance your professional standing.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:30.612857Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "04197fad263bd7ba",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP® Certification for Indianapolis's Life Sciences Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorized Training Pathway",
-          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP® preparation meets all official requirements. You earn the required contact hours through live-virtual instruction—no substitutes, no shortcuts—positioning you for exam eligibility with full credentials confidence."
-        },
-        {
-          "heading": "Learn from Active Practitioners",
-          "text": "Your instructors are working certified project managers, not classroom theorists. They bring real-world PMP® exam strategy and current best practices into every live session, helping you connect frameworks to the challenges you'll face in your Indianapolis-area role."
-        },
-        {
-          "heading": "Structured Exam Prep Built In",
-          "text": "Beyond the course, you receive dedicated exam-preparation support including practice questions, study schedules, and instructor office hours. This targeted coaching significantly increases first-attempt pass likelihood and confidence before test day."
-        },
-        {
-          "heading": "Credential Demanded by Indianapolis Employers",
-          "text": "Life sciences, healthcare systems, manufacturing, and logistics firms across Indianapolis—including major regional employers—actively hire PMP®-certified project managers for leadership and advancement roles. This credential directly addresses your local market's documented hiring requirements."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:34.680709Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "114c4341cd5db452",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Indianapolis's Life Sciences Hub",
-      "text": "<p>Indianapolis has emerged as a major center for life sciences and pharmaceutical innovation, anchored by employers like Eli Lilly and Company, Roche Diagnostics, and Elanco Animal Health. These organizations, along with healthcare systems including Indiana University Health, Elevance Health, and Ascension St. Vincent, regularly seek certified project managers to lead cross-functional initiatives. The scale of local development projects underscores this demand: Eli Lilly's LEAP Innovation District is reshaping downtown Indianapolis, while Indiana University Health's new academic health center replacement project represents another significant undertaking requiring skilled program and project leadership. Logistics and distribution operations, supported by FedEx hub expansions at Indianapolis International Airport and employers like Allison Transmission, add further depth to the region's project-management job market.</p><p>A PMP® certification signals to Indianapolis employers—particularly in healthcare systems, pharmaceutical firms, and advanced manufacturing—that you are ready for large-scale initiative responsibility and cross-functional team leadership. Project management roles across the region command steady demand and competitive compensation that reflects your experience level and industry sector. By completing Granite PM Academy's PMP Certification Training through our live-virtual platform, you gain the credential that Indianapolis employers list as preferred or required, positioning yourself to advance within the city's fastest-growing sectors without interrupting your current work schedule or location.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:38.470505Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "fe9943f292162606",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Indianapolis",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "The PMP® requires a secondary degree plus documented project-management experience, or a high school diploma with significantly more hours. Review PMI's specific education and experience thresholds—most Indianapolis professionals in Life Sciences, Healthcare, Logistics, and Advanced Manufacturing meet them. Gather your project records and verify your qualifications before enrolling."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions online from anywhere, on a schedule that fits your work in Indianapolis's competitive job market. Our active certified practitioners deliver the full PMI curriculum in real time, ensuring you master project-management frameworks and exam content."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing coursework, submit your formal PMP® application directly to PMI, including your education credentials, project experience, and course completion proof from Granite PM Academy. Pay the associated PMI exam fee. Our team will guide you through the application process and answer eligibility questions."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and review sessions—to build confidence. Schedule your PMP® exam at a Pearson VUE testing center in the Indianapolis area. On exam day, you'll demonstrate mastery of project initiation, planning, execution, monitoring, and closure."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "The PMP® requires renewal every three years by earning professional development units (PDUs). Stay current through ongoing training, conference attendance, volunteer work, and PMI membership. This cycle keeps your credential active and demonstrates to employers like those in Indianapolis's Life Sciences and Healthcare sectors your commitment to the profession."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:43.985869Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "862b0b8919e39370",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Indianapolis healthcare and life sciences careers?",
-          "answer": "<p>Yes. Healthcare systems like Indiana University Health and Ascension St. Vincent, plus pharmaceutical leaders such as Eli Lilly and Roche Diagnostics, regularly list PMP® certification as preferred or required for project management roles. The credential signals readiness to lead cross-functional clinical, research, and operational initiatives—roles central to Indianapolis's dominant employers. Formal certification strengthens competitiveness in a competitive regional talent market.</p>"
-        },
-        {
-          "question": "Which major Indianapolis employers actively seek PMP-certified project managers?",
-          "answer": "<p>Eli Lilly, Elevance Health, Indiana University Health, Ascension St. Vincent, FedEx, Allison Transmission, and Corteva Agriscience—among Indianapolis's largest employers—value PMP® certification in job postings across healthcare, logistics, pharmaceuticals, and manufacturing. The credential is especially valued where complex, cross-departmental projects and regulatory compliance are central, making it relevant across the city's dominant industries.</p>"
-        },
-        {
-          "question": "What compensation range should Indianapolis project managers expect with PMP certification?",
-          "answer": "<p>Project management compensation in Indianapolis is steady and competitive with other Midwest metros, but varies significantly by industry, experience, and certification level. Healthcare and life sciences roles may differ from logistics or manufacturing. Rather than a fixed figure, expect a range reflecting your sector and background. Certification typically strengthens earning potential by positioning you for leadership roles within growing employers like healthcare systems and pharmaceutical operations.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Indianapolis workplace?",
-          "answer": "<p>Yes. Granite PM Academy's PMP® certification training is delivered 100% live-virtual nationwide, so you can participate from your office, home, or any location with internet access. This flexibility suits Indianapolis professionals juggling roles at major employers like Eli Lilly, health systems, or logistics hubs. Schedule the course around your work commitments without relocation or travel.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:49.611962Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "60f2119df5d299bc",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Indianapolis's life sciences and healthcare sector—anchored by Eli Lilly, Elevance Health, and major health systems—creates sustained demand for skilled project managers, particularly as organizations like Eli Lilly advance landmark developments such as the LEAP Innovation District. The city's logistics hub, centered on FedEx operations, and its strong manufacturing base further expand career opportunities across multiple industries. Granite PM Academy delivers live-virtual PMP Certification Training to Indianapolis professionals nationwide, helping you earn the PMI credential on a schedule that fits your career.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:51.577921Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "c65a9e55aa3b0670",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-indianapolis-in/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Indianapolis, IN, PMP exam prep Indianapolis, PMP course Indianapolis IN, project management certification Indianapolis, IN, PMI PMP training Indianapolis",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\",\r\n      \"name\": \"PMP Certification Training in Indianapolis, IN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Indianapolis, IN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Indianapolis, IN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#course\",\r\n      \"name\": \"PMP Certification Training in Indianapolis, IN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Indianapolis, IN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-indianapolis-in/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T22:06:45+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

@@ -1,420 +1,449 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "marietta-ga",
-  "slug": "pmp-certification-training-marietta-ga",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "marietta-ga",
-    "city": "Marietta",
-    "state": "Georgia",
-    "SS": "GA",
-    "city_slug": "marietta-ga",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier5"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "marietta-ga",
+    "slug": "pmp-certification-training-marietta-ga",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "marietta-ga",
+        "city": "Marietta",
+        "state": "Georgia",
+        "SS": "GA",
+        "city_slug": "marietta-ga",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier5"
+        ],
+        "industries": [
+            "Aerospace & Defense Manufacturing",
+            "Healthcare",
+            "Government & Public Administration",
+            "Education",
+            "Logistics & Manufacturing",
+            "Professional & Technical Services"
+        ],
+        "top_employers": [
+            "Lockheed Martin",
+            "WellStar Health System",
+            "Cobb County Government",
+            "Cobb County School District",
+            "Dobbins Air Reserve Base",
+            "Kennesaw State University (Marietta Campus)",
+            "Georgia Power",
+            "Publix Super Markets",
+            "Comcast",
+            "Cobb County Water System"
+        ],
+        "salary_note": "Project manager compensation in the Marietta area tends to track closely with the broader Atlanta metro market, with aerospace, defense, and healthcare roles generally commanding stronger pay due to specialized technical requirements. Rather than a fixed figure, professionals with PMP certification and industry-specific experience typically see the most competitive offers.",
+        "market_blurb": "Marietta's project management job market benefits from its strong aerospace and defense manufacturing base anchored by Lockheed Martin, alongside a growing healthcare sector led by WellStar Health System. Government agencies, school systems, and utility providers headquartered or operating in Marietta add steady demand for skilled program and project coordinators. As part of the greater Atlanta metro, Marietta draws on a deep talent pool while offering localized opportunities tied to its manufacturing and public-sector roots.",
+        "notable_projects": [
+            "Lockheed Martin's ongoing C-130J and F-35 component production and facility upgrades at its Marietta aeronautics plant",
+            "WellStar Kennestone Regional Medical Center expansion and capital improvement projects",
+            "The Battery Atlanta and Truist Park mixed-use development in Cobb County, adjacent to Marietta",
+            "Marietta Square and downtown streetscape redevelopment initiatives"
+        ],
+        "credential_demand": "PMP certification is highly regarded among Marietta-area employers, particularly in aerospace/defense and healthcare, where structured project management practices are essential; CAPM can also serve as a valuable entry point for those building toward more senior program roles. Overall demand for certified project management professionals remains steady given the concentration of large manufacturing, government, and healthcare organizations in the region.",
+        "_researched": 1,
+        "city_spotlight": "<p>Marietta's aerospace and defense sector, anchored by Lockheed Martin's aeronautics operations, drives consistent demand for skilled project managers across manufacturing, healthcare, and government agencies. Major initiatives—from C-130J component production to WellStar's capital expansions—create active career pathways for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Marietta professionals nationwide, on a flexible schedule designed for working adults.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-marietta-ga.webp",
+        "city_image_alt": "Marietta Square, Marietta, GA",
+        "city_image_credit": "Photo: Bubba73, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Marietta_Square,_Marietta,_GA,_US_(08).jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Marietta's aerospace, defense, healthcare, and government sectors depend on project managers who speak PMI's language. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that satisfies PMI's contact-hour education requirement, keeping your schedule flexible while you build the credential employers like Lockheed Martin, WellStar Health System, and Cobb County Government recognize and value.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c9ac534be4.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:20.045809Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "83441ab2f3f68ede",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Marietta for Aerospace and Defense Professionals",
+            "text": "<p>Marietta's project management landscape is shaped by its anchor in aerospace and defense manufacturing, with Lockheed Martin driving demand for rigorously certified program and project leaders across the region. Beyond this cornerstone industry, the city's growing healthcare sector, government agencies, school systems, and utility providers create steady opportunities for professionals who hold the Project Management Professional (PMP)® credential. In Marietta, earning your PMP® certification signals to employers—whether in manufacturing, public administration, or WellStar Health System's expanding operations—that you bring PMI-validated expertise in scope, schedule, cost, and quality management. For career advancement in a city where aerospace complexity and healthcare growth intersect with public-sector stability, the PMP® remains the most widely recognized credential for program and project coordinators stepping into leadership roles.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet PMI's contact-hour requirements and fit working professionals' schedules. Our active certified practitioners bring real-world experience into every class, covering the full project management framework and preparing you to pass the PMP® exam with confidence. Whether you are advancing within Marietta's aerospace supply chain, healthcare administration, or government sector, our training is designed by and taught by working project managers who understand the skills employers value. Enroll in a course that works around your commitments, and move forward toward the credential that opens doors across industries in Marietta and beyond.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:24.422293Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "20b464e7917d7c0c",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Marietta's Aerospace and Defense Sector",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours meet PMI's strict standards for PMP eligibility. No guesswork on accreditation—train with a provider recognized directly by the Project Management Institute."
+                },
+                {
+                    "heading": "Live Instruction, Flexible Schedule",
+                    "text": "Attend live-virtual instructor-led classes that satisfy PMP contact-hour requirements without relocating or traveling to a classroom. Complete your certification training from anywhere, on a schedule that fits your Marietta-area job."
+                },
+                {
+                    "heading": "Instructors Are Active Practitioners",
+                    "text": "Learn from certified project managers who actively manage real projects and hold current PMP credentials. Your instructors bring hands-on experience, not just textbook knowledge, into every lesson."
+                },
+                {
+                    "heading": "Credential Demanded by Local Employers",
+                    "text": "Lockheed Martin, WellStar Health System, Cobb County Government, and Georgia Power all hire project and program managers—roles where PMP certification strengthens your candidacy and market value in Marietta's largest employment sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:28.102383Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "523fa5aaffe3751d",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Marietta's Aerospace Hub",
+            "text": "<p>Marietta's aerospace and defense sector anchors demand for certified project managers across the region. Lockheed Martin's Marietta aeronautics plant—home to ongoing C-130J and F-35 component production and facility upgrades—represents a major employment hub where structured project management is mission-critical. Beyond defense manufacturing, WellStar Health System, Cobb County Government, and Kennesaw State University's Marietta Campus all employ project managers to oversee capital improvements, system upgrades, and institutional initiatives. WellStar Kennestone Regional Medical Center's expansion and capital improvement projects, for example, depend on professionals who can coordinate complex timelines and stakeholder requirements—precisely the skill set PMP® certification validates.</p><p>The PMP® credential carries particular weight in Marietta's aerospace, defense, and healthcare sectors, where regulatory compliance and technical precision demand rigorous project governance. Professionals holding PMP® certification—or pursuing CAPM® as an entry point—typically command stronger compensation packages, especially when paired with industry-specific experience. Marietta's concentration of large manufacturing, government, and healthcare employers means steady, ongoing demand for certified project management talent. Completing your PMP® Certification Training through Granite PM Academy positions you to compete effectively in this market. Our live-virtual program fits working professionals' schedules while delivering the training and exam preparation that Marietta-area employers actively value.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:32.114430Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "b1ac1409708c842a",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Marietta",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-leadership experience, or a high school diploma plus five years of equivalent experience. Review PMI's formal education and work-hour requirements to confirm you meet the baseline. Eligibility verification happens before you apply."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. You'll attend synchronous sessions from any location, learning core project management frameworks, practices, and exam strategy directly from active certified practitioners. This formal instruction satisfies PMI's mandatory contact-hour requirement."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing coursework, submit your PMP application to PMI through their official portal. You'll report your education, project experience, and training completion. Once PMI approves your application, you'll receive authorization to schedule your exam and pay the associated examination fee."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—study guides, practice tests, and instructor feedback—to reinforce your learning. Schedule your proctored exam through PMI's testing partner. On exam day, you'll answer 180 multiple-choice questions in a timed, computer-based format."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "The PMP is valid for three years. Maintain it by earning Professional Development Units (PDUs) through training, volunteer work, or professional activities. Before your three-year cycle ends, renew your credential with PMI to remain current and recognized across Marietta's aerospace, defense, healthcare, and government sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:37.242268Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "5a84bce6c7c4ad46",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Marietta aerospace and defense careers?",
+                    "answer": "<p>Yes. Marietta's concentration of aerospace and defense employers—including major manufacturing and government operations—places structured project management at the core of career advancement. PMP certification is highly regarded in these sectors, where regulated, methodical delivery is essential. Professionals with PMP credentials and industry-specific experience typically command stronger compensation and accelerated promotion pathways within these organizations.</p>"
+                },
+                {
+                    "question": "Which Marietta employers value PMP certification most?",
+                    "answer": "<p>PMP certification carries particular weight at large Marietta employers in aerospace, defense, healthcare, and government administration—sectors where complex, multi-disciplinary projects demand certified leadership. WellStar Health System, Cobb County Government, and similar organizations actively seek certified project managers. CAPM certification is also valued as a stepping stone for professionals building toward senior program management roles in these industries.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Marietta workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual PMP training is delivered entirely online, so you can participate from your Marietta office, workplace, or home. This flexibility is particularly valuable for professionals in aerospace, healthcare, and government roles who may have limited scheduling freedom. You'll attend live instructor-led sessions on your own schedule, with full interaction and support throughout the course.</p>"
+                },
+                {
+                    "question": "When should Marietta project managers pursue PMP certification?",
+                    "answer": "<p>The steady demand for certified project management professionals in Marietta's aerospace, defense, healthcare, and public-sector organizations makes certification strategically valuable early in your career trajectory. If you meet the eligibility requirements, pursuing PMP certification before or shortly after taking on your first formal project management role positions you competitively. The region's large employers actively recruit certified professionals, making this an opportune time to invest.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:42.784116Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "77e4d7faf10d148b",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Marietta's aerospace and defense sector, anchored by Lockheed Martin's aeronautics operations, drives consistent demand for credentialed project managers across manufacturing, healthcare, and government agencies. WellStar Health System, Cobb County Government, and the region's expanding infrastructure projects create abundant career pathways for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Marietta professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:44.612983Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "6daced9f86123a93",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Marietta",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Marietta",
+                    "url": "/pmp-bootcamp-marietta-ga/"
+                },
+                {
+                    "label": "CAPM Certification Training Marietta",
+                    "url": "/capm-certification-training-marietta-ga/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Marietta",
+                    "url": "/ai-training-marietta-ga/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & Defense Manufacturing",
-      "Healthcare",
-      "Government & Public Administration",
-      "Education",
-      "Logistics & Manufacturing",
-      "Professional & Technical Services"
-    ],
-    "top_employers": [
-      "Lockheed Martin",
-      "WellStar Health System",
-      "Cobb County Government",
-      "Cobb County School District",
-      "Dobbins Air Reserve Base",
-      "Kennesaw State University (Marietta Campus)",
-      "Georgia Power",
-      "Publix Super Markets",
-      "Comcast",
-      "Cobb County Water System"
-    ],
-    "salary_note": "Project manager compensation in the Marietta area tends to track closely with the broader Atlanta metro market, with aerospace, defense, and healthcare roles generally commanding stronger pay due to specialized technical requirements. Rather than a fixed figure, professionals with PMP certification and industry-specific experience typically see the most competitive offers.",
-    "market_blurb": "Marietta's project management job market benefits from its strong aerospace and defense manufacturing base anchored by Lockheed Martin, alongside a growing healthcare sector led by WellStar Health System. Government agencies, school systems, and utility providers headquartered or operating in Marietta add steady demand for skilled program and project coordinators. As part of the greater Atlanta metro, Marietta draws on a deep talent pool while offering localized opportunities tied to its manufacturing and public-sector roots.",
-    "notable_projects": [
-      "Lockheed Martin's ongoing C-130J and F-35 component production and facility upgrades at its Marietta aeronautics plant",
-      "WellStar Kennestone Regional Medical Center expansion and capital improvement projects",
-      "The Battery Atlanta and Truist Park mixed-use development in Cobb County, adjacent to Marietta",
-      "Marietta Square and downtown streetscape redevelopment initiatives"
-    ],
-    "credential_demand": "PMP certification is highly regarded among Marietta-area employers, particularly in aerospace/defense and healthcare, where structured project management practices are essential; CAPM can also serve as a valuable entry point for those building toward more senior program roles. Overall demand for certified project management professionals remains steady given the concentration of large manufacturing, government, and healthcare organizations in the region.",
-    "_researched": 1,
-    "city_spotlight": "<p>Marietta's aerospace and defense sector, anchored by Lockheed Martin's aeronautics operations, drives consistent demand for skilled project managers across manufacturing, healthcare, and government agencies. Major initiatives—from C-130J component production to WellStar's capital expansions—create active career pathways for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Marietta professionals nationwide, on a flexible schedule designed for working adults.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-marietta-ga.webp",
-    "city_image_alt": "Marietta Square, Marietta, GA",
-    "city_image_credit": "Photo: Bubba73, CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Marietta_Square,_Marietta,_GA,_US_(08).jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Marietta's aerospace, defense, healthcare, and government sectors depend on project managers who speak PMI's language. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that satisfies PMI's contact-hour education requirement, keeping your schedule flexible while you build the credential employers like Lockheed Martin, WellStar Health System, and Cobb County Government recognize and value.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c9ac534be4.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:20.045809Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "83441ab2f3f68ede",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-marietta-ga/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Marietta, GA, PMP exam prep Marietta, PMP course Marietta GA, project management certification Marietta, GA, PMI PMP training Marietta",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\",\r\n      \"name\": \"PMP Certification Training in Marietta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Marietta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Marietta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Marietta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Marietta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Marietta for Aerospace and Defense Professionals",
-      "text": "<p>Marietta's project management landscape is shaped by its anchor in aerospace and defense manufacturing, with Lockheed Martin driving demand for rigorously certified program and project leaders across the region. Beyond this cornerstone industry, the city's growing healthcare sector, government agencies, school systems, and utility providers create steady opportunities for professionals who hold the Project Management Professional (PMP)® credential. In Marietta, earning your PMP® certification signals to employers—whether in manufacturing, public administration, or WellStar Health System's expanding operations—that you bring PMI-validated expertise in scope, schedule, cost, and quality management. For career advancement in a city where aerospace complexity and healthcare growth intersect with public-sector stability, the PMP® remains the most widely recognized credential for program and project coordinators stepping into leadership roles.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that meet PMI's contact-hour requirements and fit working professionals' schedules. Our active certified practitioners bring real-world experience into every class, covering the full project management framework and preparing you to pass the PMP® exam with confidence. Whether you are advancing within Marietta's aerospace supply chain, healthcare administration, or government sector, our training is designed by and taught by working project managers who understand the skills employers value. Enroll in a course that works around your commitments, and move forward toward the credential that opens doors across industries in Marietta and beyond.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:24.422293Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "20b464e7917d7c0c",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Marietta's Aerospace and Defense Sector",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours meet PMI's strict standards for PMP eligibility. No guesswork on accreditation—train with a provider recognized directly by the Project Management Institute."
-        },
-        {
-          "heading": "Live Instruction, Flexible Schedule",
-          "text": "Attend live-virtual instructor-led classes that satisfy PMP contact-hour requirements without relocating or traveling to a classroom. Complete your certification training from anywhere, on a schedule that fits your Marietta-area job."
-        },
-        {
-          "heading": "Instructors Are Active Practitioners",
-          "text": "Learn from certified project managers who actively manage real projects and hold current PMP credentials. Your instructors bring hands-on experience, not just textbook knowledge, into every lesson."
-        },
-        {
-          "heading": "Credential Demanded by Local Employers",
-          "text": "Lockheed Martin, WellStar Health System, Cobb County Government, and Georgia Power all hire project and program managers—roles where PMP certification strengthens your candidacy and market value in Marietta's largest employment sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:28.102383Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "523fa5aaffe3751d",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Marietta's Aerospace Hub",
-      "text": "<p>Marietta's aerospace and defense sector anchors demand for certified project managers across the region. Lockheed Martin's Marietta aeronautics plant—home to ongoing C-130J and F-35 component production and facility upgrades—represents a major employment hub where structured project management is mission-critical. Beyond defense manufacturing, WellStar Health System, Cobb County Government, and Kennesaw State University's Marietta Campus all employ project managers to oversee capital improvements, system upgrades, and institutional initiatives. WellStar Kennestone Regional Medical Center's expansion and capital improvement projects, for example, depend on professionals who can coordinate complex timelines and stakeholder requirements—precisely the skill set PMP® certification validates.</p><p>The PMP® credential carries particular weight in Marietta's aerospace, defense, and healthcare sectors, where regulatory compliance and technical precision demand rigorous project governance. Professionals holding PMP® certification—or pursuing CAPM® as an entry point—typically command stronger compensation packages, especially when paired with industry-specific experience. Marietta's concentration of large manufacturing, government, and healthcare employers means steady, ongoing demand for certified project management talent. Completing your PMP® Certification Training through Granite PM Academy positions you to compete effectively in this market. Our live-virtual program fits working professionals' schedules while delivering the training and exam preparation that Marietta-area employers actively value.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:32.114430Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "b1ac1409708c842a",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Marietta",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a bachelor's degree plus three years of project-leadership experience, or a high school diploma plus five years of equivalent experience. Review PMI's formal education and work-hour requirements to confirm you meet the baseline. Eligibility verification happens before you apply."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. You'll attend synchronous sessions from any location, learning core project management frameworks, practices, and exam strategy directly from active certified practitioners. This formal instruction satisfies PMI's mandatory contact-hour requirement."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing coursework, submit your PMP application to PMI through their official portal. You'll report your education, project experience, and training completion. Once PMI approves your application, you'll receive authorization to schedule your exam and pay the associated examination fee."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—study guides, practice tests, and instructor feedback—to reinforce your learning. Schedule your proctored exam through PMI's testing partner. On exam day, you'll answer 180 multiple-choice questions in a timed, computer-based format."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "The PMP is valid for three years. Maintain it by earning Professional Development Units (PDUs) through training, volunteer work, or professional activities. Before your three-year cycle ends, renew your credential with PMI to remain current and recognized across Marietta's aerospace, defense, healthcare, and government sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:37.242268Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "5a84bce6c7c4ad46",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Marietta aerospace and defense careers?",
-          "answer": "<p>Yes. Marietta's concentration of aerospace and defense employers—including major manufacturing and government operations—places structured project management at the core of career advancement. PMP certification is highly regarded in these sectors, where regulated, methodical delivery is essential. Professionals with PMP credentials and industry-specific experience typically command stronger compensation and accelerated promotion pathways within these organizations.</p>"
-        },
-        {
-          "question": "Which Marietta employers value PMP certification most?",
-          "answer": "<p>PMP certification carries particular weight at large Marietta employers in aerospace, defense, healthcare, and government administration—sectors where complex, multi-disciplinary projects demand certified leadership. WellStar Health System, Cobb County Government, and similar organizations actively seek certified project managers. CAPM certification is also valued as a stepping stone for professionals building toward senior program management roles in these industries.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Marietta workplace?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP training is delivered entirely online, so you can participate from your Marietta office, workplace, or home. This flexibility is particularly valuable for professionals in aerospace, healthcare, and government roles who may have limited scheduling freedom. You'll attend live instructor-led sessions on your own schedule, with full interaction and support throughout the course.</p>"
-        },
-        {
-          "question": "When should Marietta project managers pursue PMP certification?",
-          "answer": "<p>The steady demand for certified project management professionals in Marietta's aerospace, defense, healthcare, and public-sector organizations makes certification strategically valuable early in your career trajectory. If you meet the eligibility requirements, pursuing PMP certification before or shortly after taking on your first formal project management role positions you competitively. The region's large employers actively recruit certified professionals, making this an opportune time to invest.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:42.784116Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "77e4d7faf10d148b",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Marietta's aerospace and defense sector, anchored by Lockheed Martin's aeronautics operations, drives consistent demand for credentialed project managers across manufacturing, healthcare, and government agencies. WellStar Health System, Cobb County Government, and the region's expanding infrastructure projects create abundant career pathways for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Marietta professionals nationwide, enabling you to earn your credential on your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:44.612983Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "6daced9f86123a93",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-marietta-ga/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Marietta, GA, PMP exam prep Marietta, PMP course Marietta GA, project management certification Marietta, GA, PMI PMP training Marietta",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\",\r\n      \"name\": \"PMP Certification Training in Marietta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Marietta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Marietta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Marietta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Marietta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-marietta-ga/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T22:04:11+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

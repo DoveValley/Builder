@@ -1,420 +1,449 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "aiken-sc",
-  "slug": "pmp-certification-training-aiken-sc",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "aiken-sc",
-    "city": "Aiken",
-    "state": "South Carolina",
-    "SS": "SC",
-    "city_slug": "aiken-sc",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier3"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "aiken-sc",
+    "slug": "pmp-certification-training-aiken-sc",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "aiken-sc",
+        "city": "Aiken",
+        "state": "South Carolina",
+        "SS": "SC",
+        "city_slug": "aiken-sc",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier3"
+        ],
+        "industries": [
+            "Nuclear energy and environmental remediation (Savannah River Site)",
+            "Advanced manufacturing",
+            "Healthcare",
+            "Government and public administration",
+            "Education",
+            "Equine and hospitality services"
+        ],
+        "top_employers": [
+            "Savannah River Nuclear Solutions",
+            "Savannah River Mission Completion",
+            "U.S. Department of Energy (Savannah River Site)",
+            "Bridgestone Americas Tire Manufacturing",
+            "Aiken Regional Medical Centers",
+            "Aiken County Public School District",
+            "University of South Carolina Aiken",
+            "City of Aiken",
+            "Aiken County Government",
+            "Kimberly-Clark (Beech Island facility)"
+        ],
+        "salary_note": "Project management salaries in Aiken tend to track regional averages for the CSRA (Central Savannah River Area), with a premium for professionals holding PMP certification who work on federal or nuclear-related contracts at the Savannah River Site. Exact figures vary widely by employer and sector, but demand for experienced, certified project managers remains strong.",
+        "market_blurb": "Aiken's project management job market is closely tied to the Savannah River Site and its network of federal contractors, which drive steady demand for professionals skilled in managing large-scale engineering, environmental, and construction projects. Beyond the nuclear sector, healthcare systems, manufacturing plants, and local government agencies in Aiken also seek qualified project managers to oversee facility upgrades, IT initiatives, and operational improvements. As part of the broader Augusta-Aiken metro area, the city offers a mix of public-sector and private-industry opportunities for certified project management professionals.",
+        "notable_projects": [
+            "Savannah River Site Salt Waste Processing Facility (SWPF)",
+            "Savannah River Plutonium Processing Facility (SRPPF)",
+            "Savannah River National Laboratory research and infrastructure expansions",
+            "Bridgestone Americas Aiken County plant modernization and expansion"
+        ],
+        "credential_demand": "PMP certification is highly regarded among Savannah River Site contractors and other engineering- and government-affiliated employers in the Aiken area, often listed as a preferred or required qualification for project management roles. CAPM and related credentials also help entry-level candidates stand out in a competitive local job market tied to federal and industrial project work.",
+        "_researched": 1,
+        "city_spotlight": "<p>Aiken's project management demand is anchored by the Savannah River Site and its federal contractor network, where large-scale nuclear, environmental remediation, and engineering projects create steady demand for certified professionals. Healthcare systems, advanced manufacturing, and government agencies across the Augusta-Aiken metro area also actively recruit project managers for facility upgrades and operational initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Aiken professionals, enabling them to meet the credential requirements driving advancement in these sectors.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-aiken-sc.webp",
+        "city_image_alt": "Aiken County Courthouse Aug 2007, SC",
+        "city_image_credit": "Photo: The original uploader was Festiva76 at English Wikipedia., Public domain",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Aiken_County_Courthouse_Aug_2007.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Aiken's nuclear energy, advanced manufacturing, and healthcare sectors depend on professionals who can lead complex, regulated projects from start to finish. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that satisfies PMI's contact-hour requirement, letting you earn this globally recognized credential on your schedule. A PMP® certification positions you to advance into senior project leadership roles across Aiken's largest employers and command stronger compensation in a competitive market.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_15fd1a3cb3.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:08.834327Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "9558634af71269e0",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Aiken's Project Management Professionals",
+            "text": "<p>Aiken's project management landscape is fundamentally shaped by the Savannah River Site and its network of federal contractors, where large-scale engineering, environmental remediation, and construction projects create consistent demand for credentialed PMs. Professionals managing these complex initiatives—along with those in Aiken's advanced manufacturing, healthcare systems, and government agencies—recognize that PMP® certification from the Project Management Institute signals expertise in scope, schedule, risk, and resource management that employers actively seek. For Aiken-based project managers, the PMP® credential opens pathways to higher responsibility and compensation across sectors that value demonstrated, standards-based competency.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting all contact-hour requirements for exam eligibility. Our instructors are active certified practitioners who bring real-world experience to every class, ensuring you learn how project management principles apply in practice—not just theory. Whether you're advancing within Aiken's nuclear or manufacturing sectors, healthcare organizations, or government agencies, our program equips you with the frameworks and confidence to pass the PMP® exam and lead projects with credibility and skill.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:12.455890Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "716f691ed2b386cb",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Aiken's Project Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization, Recognized Globally",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Our PMP Certification Training meets all PMI contact-hour requirements, ensuring your credential is accepted by employers across nuclear, manufacturing, healthcare, and government sectors hiring in Aiken."
+                },
+                {
+                    "heading": "Live Instructors, Flexible Virtual Schedule",
+                    "text": "Learn from active certified practitioners in live-virtual sessions that fit your work calendar. No recordings or self-paced modules—real-time instruction means you ask questions directly, master concepts faster, and earn your certification without classroom commute."
+                },
+                {
+                    "heading": "Exam Readiness Built Into Training",
+                    "text": "Granite combines domain instruction with targeted exam-preparation support, including practice tests and strategy review. Active practitioners design content around PMP test objectives, so you graduate confident and test-ready."
+                },
+                {
+                    "heading": "Credential Demand in Aiken's Growth Industries",
+                    "text": "Savannah River Site operations, advanced manufacturing, and healthcare expansion across Aiken drive hiring for certified project managers. The PMP credential signals readiness to lead complex, regulated initiatives—a competitive edge with major local employers and government contractors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:16.653423Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "57c664784b2d44fd",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Aiken's Federal and Industrial Sector",
+            "text": "<p>Aiken's project management landscape is anchored by the Savannah River Site and its network of contractors, where certified project managers direct some of the region's most complex work. Savannah River Nuclear Solutions, Savannah River Mission Completion, and the U.S. Department of Energy employ or contract with project managers overseeing initiatives such as the Salt Waste Processing Facility and the Plutonium Processing Facility—projects that demand rigorous planning, compliance, and stakeholder coordination. Beyond the federal nuclear and environmental sector, Bridgestone Americas' manufacturing operations and Aiken Regional Medical Centers also actively recruit experienced project managers to lead modernization, expansion, and operational initiatives. Government agencies, the school district, and University of South Carolina Aiken round out a diverse employer base seeking professionals who can navigate regulated, budget-intensive, and timeline-critical work.</p><p>The PMP® credential carries particular weight in Aiken's job market, especially among Savannah River Site contractors and engineering-affiliated employers who list it as a preferred or required qualification. Project managers holding PMP® certification typically command a competitive advantage in compensation and advancement opportunities compared to their non-certified peers, with premiums often reserved for those working on federal or nuclear-related contracts. Completing PMP® Certification Training through Granite PM Academy positions you to meet the credential standards these employers recognize and value, strengthening your candidacy for roles that anchor Aiken's economy. Whether you're early in your career or transitioning into project management, the certification signals the technical knowledge and professional rigor that local hiring managers expect from candidates competing for positions in this mission-critical market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:21.491914Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "ba30e42df80f9661",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Aiken",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years of equivalent experience. Review PMI's full education and experience criteria to verify you meet the baseline. Document your project hours and leadership roles—you'll need this for your application."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions on your schedule from anywhere, learning core project-management domains directly from active certified practitioners. Our structured curriculum covers all exam domains and prepares you to apply for PMI certification."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Create your PMI account and formally apply for the PMP credential through the Project Management Institute. Report your education, experience, and training completion. Pay PMI's examination fee to activate your exam eligibility and lock in your testing window."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to strengthen your readiness. Schedule your proctored exam at a Pearson VUE testing center or via remote delivery. Demonstrate mastery of project-management knowledge and sit for the four-hour, 180-question assessment."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After certification, earn professional development units (PDUs) every three years to renew your PMP. Pursue training, volunteer project-management work, or teach others. Granite PM Academy offers ongoing learning pathways to help you stay current and advance your career in Aiken's project-driven industries."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:26.853275Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "fd3a1099301c1d85",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Aiken project managers at Savannah River Site?",
+                    "answer": "<p>Yes. The Savannah River Site and its contractors consistently seek PMP-certified professionals for nuclear energy, environmental remediation, and federal contract work. Certification is often listed as preferred or required for project management roles in this sector, and certified professionals typically command a salary premium in the CSRA. Given Aiken's economic anchor in federal and nuclear projects, the credential directly supports career advancement and competitive positioning in your local job market.</p>"
+                },
+                {
+                    "question": "Which Aiken employers value PMP and CAPM credentials most?",
+                    "answer": "<p>Savannah River Site contractors, the Department of Energy, Savannah River Nuclear Solutions, and Savannah River Mission Completion actively recruit certified project managers. Advanced manufacturing firms like Bridestone and Kimberly-Clark, along with healthcare and government agencies in the region, also recognize PMP as a mark of professional rigor. CAPM certification helps entry-level candidates stand out in Aiken's competitive federal and industrial project environment.</p>"
+                },
+                {
+                    "question": "Can I take live-virtual PMP training while working full-time in Aiken?",
+                    "answer": "<p>Yes. Granite PM Academy delivers all PMP training live-virtual, so you attend from your office, home, or any location with internet access—no travel required. This format works well for Aiken professionals balancing full-time roles at the Savannah River Site, healthcare systems, manufacturing, or local government. You can complete coursework on a schedule that fits your work commitments without relocating or attending in-person classes.</p>"
+                },
+                {
+                    "question": "When should Aiken professionals pursue PMP certification to stay competitive?",
+                    "answer": "<p>Aiken's strong demand for certified project managers—especially in federal contracting and nuclear energy—means certification timing is strategic. If you're advancing into or already in a project management role at a CSRA employer, certification within your first few years positions you competitively and unlocks salary premiums. Delaying certification may limit access to higher-level positions tied to federal and site-based contracts where PMP is preferred or required.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:32.841169Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "6c479dd4ca39a4a9",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Aiken's project management demand is anchored by the Savannah River Site and its network of federal contractors managing large-scale engineering and environmental work, alongside growth in advanced manufacturing, healthcare systems, and government agencies seeking certified professionals. The Savannah River Salt Waste Processing Facility and ongoing site modernization projects create steady opportunities for PMP-credentialed managers. Granite PM Academy delivers live-virtual PMP Certification Training nationwide, helping Aiken professionals earn PMI's credential on a schedule that fits working careers.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T19:56:34.598616Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "ea9aa8af8c1d3e34",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Aiken",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Aiken",
+                    "url": "/pmp-bootcamp-aiken-sc/"
+                },
+                {
+                    "label": "CAPM Certification Training Aiken",
+                    "url": "/capm-certification-training-aiken-sc/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Aiken",
+                    "url": "/ai-training-aiken-sc/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Nuclear energy and environmental remediation (Savannah River Site)",
-      "Advanced manufacturing",
-      "Healthcare",
-      "Government and public administration",
-      "Education",
-      "Equine and hospitality services"
-    ],
-    "top_employers": [
-      "Savannah River Nuclear Solutions",
-      "Savannah River Mission Completion",
-      "U.S. Department of Energy (Savannah River Site)",
-      "Bridgestone Americas Tire Manufacturing",
-      "Aiken Regional Medical Centers",
-      "Aiken County Public School District",
-      "University of South Carolina Aiken",
-      "City of Aiken",
-      "Aiken County Government",
-      "Kimberly-Clark (Beech Island facility)"
-    ],
-    "salary_note": "Project management salaries in Aiken tend to track regional averages for the CSRA (Central Savannah River Area), with a premium for professionals holding PMP certification who work on federal or nuclear-related contracts at the Savannah River Site. Exact figures vary widely by employer and sector, but demand for experienced, certified project managers remains strong.",
-    "market_blurb": "Aiken's project management job market is closely tied to the Savannah River Site and its network of federal contractors, which drive steady demand for professionals skilled in managing large-scale engineering, environmental, and construction projects. Beyond the nuclear sector, healthcare systems, manufacturing plants, and local government agencies in Aiken also seek qualified project managers to oversee facility upgrades, IT initiatives, and operational improvements. As part of the broader Augusta-Aiken metro area, the city offers a mix of public-sector and private-industry opportunities for certified project management professionals.",
-    "notable_projects": [
-      "Savannah River Site Salt Waste Processing Facility (SWPF)",
-      "Savannah River Plutonium Processing Facility (SRPPF)",
-      "Savannah River National Laboratory research and infrastructure expansions",
-      "Bridgestone Americas Aiken County plant modernization and expansion"
-    ],
-    "credential_demand": "PMP certification is highly regarded among Savannah River Site contractors and other engineering- and government-affiliated employers in the Aiken area, often listed as a preferred or required qualification for project management roles. CAPM and related credentials also help entry-level candidates stand out in a competitive local job market tied to federal and industrial project work.",
-    "_researched": 1,
-    "city_spotlight": "<p>Aiken's project management demand is anchored by the Savannah River Site and its federal contractor network, where large-scale nuclear, environmental remediation, and engineering projects create steady demand for certified professionals. Healthcare systems, advanced manufacturing, and government agencies across the Augusta-Aiken metro area also actively recruit project managers for facility upgrades and operational initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Aiken professionals, enabling them to meet the credential requirements driving advancement in these sectors.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-aiken-sc.webp",
-    "city_image_alt": "Aiken County Courthouse Aug 2007, SC",
-    "city_image_credit": "Photo: The original uploader was Festiva76 at English Wikipedia., Public domain",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Aiken_County_Courthouse_Aug_2007.jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Aiken's nuclear energy, advanced manufacturing, and healthcare sectors depend on professionals who can lead complex, regulated projects from start to finish. Granite PM Academy delivers live-virtual PMP Certification Training with instructor-led instruction that satisfies PMI's contact-hour requirement, letting you earn this globally recognized credential on your schedule. A PMP® certification positions you to advance into senior project leadership roles across Aiken's largest employers and command stronger compensation in a competitive market.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_15fd1a3cb3.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:08.834327Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "9558634af71269e0",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-aiken-sc/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Aiken, SC, PMP exam prep Aiken, PMP course Aiken SC, project management certification Aiken, SC, PMI PMP training Aiken",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\",\r\n      \"name\": \"PMP Certification Training in Aiken, SC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Aiken, SC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Aiken, SC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#course\",\r\n      \"name\": \"PMP Certification Training in Aiken, SC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Aiken, SC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Aiken's Project Management Professionals",
-      "text": "<p>Aiken's project management landscape is fundamentally shaped by the Savannah River Site and its network of federal contractors, where large-scale engineering, environmental remediation, and construction projects create consistent demand for credentialed PMs. Professionals managing these complex initiatives—along with those in Aiken's advanced manufacturing, healthcare systems, and government agencies—recognize that PMP® certification from the Project Management Institute signals expertise in scope, schedule, risk, and resource management that employers actively seek. For Aiken-based project managers, the PMP® credential opens pathways to higher responsibility and compensation across sectors that value demonstrated, standards-based competency.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting all contact-hour requirements for exam eligibility. Our instructors are active certified practitioners who bring real-world experience to every class, ensuring you learn how project management principles apply in practice—not just theory. Whether you're advancing within Aiken's nuclear or manufacturing sectors, healthcare organizations, or government agencies, our program equips you with the frameworks and confidence to pass the PMP® exam and lead projects with credibility and skill.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:12.455890Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "716f691ed2b386cb",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Aiken's Project Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization, Recognized Globally",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Our PMP Certification Training meets all PMI contact-hour requirements, ensuring your credential is accepted by employers across nuclear, manufacturing, healthcare, and government sectors hiring in Aiken."
-        },
-        {
-          "heading": "Live Instructors, Flexible Virtual Schedule",
-          "text": "Learn from active certified practitioners in live-virtual sessions that fit your work calendar. No recordings or self-paced modules—real-time instruction means you ask questions directly, master concepts faster, and earn your certification without classroom commute."
-        },
-        {
-          "heading": "Exam Readiness Built Into Training",
-          "text": "Granite combines domain instruction with targeted exam-preparation support, including practice tests and strategy review. Active practitioners design content around PMP test objectives, so you graduate confident and test-ready."
-        },
-        {
-          "heading": "Credential Demand in Aiken's Growth Industries",
-          "text": "Savannah River Site operations, advanced manufacturing, and healthcare expansion across Aiken drive hiring for certified project managers. The PMP credential signals readiness to lead complex, regulated initiatives—a competitive edge with major local employers and government contractors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:16.653423Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "57c664784b2d44fd",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Aiken's Federal and Industrial Sector",
-      "text": "<p>Aiken's project management landscape is anchored by the Savannah River Site and its network of contractors, where certified project managers direct some of the region's most complex work. Savannah River Nuclear Solutions, Savannah River Mission Completion, and the U.S. Department of Energy employ or contract with project managers overseeing initiatives such as the Salt Waste Processing Facility and the Plutonium Processing Facility—projects that demand rigorous planning, compliance, and stakeholder coordination. Beyond the federal nuclear and environmental sector, Bridgestone Americas' manufacturing operations and Aiken Regional Medical Centers also actively recruit experienced project managers to lead modernization, expansion, and operational initiatives. Government agencies, the school district, and University of South Carolina Aiken round out a diverse employer base seeking professionals who can navigate regulated, budget-intensive, and timeline-critical work.</p><p>The PMP® credential carries particular weight in Aiken's job market, especially among Savannah River Site contractors and engineering-affiliated employers who list it as a preferred or required qualification. Project managers holding PMP® certification typically command a competitive advantage in compensation and advancement opportunities compared to their non-certified peers, with premiums often reserved for those working on federal or nuclear-related contracts. Completing PMP® Certification Training through Granite PM Academy positions you to meet the credential standards these employers recognize and value, strengthening your candidacy for roles that anchor Aiken's economy. Whether you're early in your career or transitioning into project management, the certification signals the technical knowledge and professional rigor that local hiring managers expect from candidates competing for positions in this mission-critical market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:21.491914Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "ba30e42df80f9661",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Aiken",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years of equivalent experience. Review PMI's full education and experience criteria to verify you meet the baseline. Document your project hours and leadership roles—you'll need this for your application."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions on your schedule from anywhere, learning core project-management domains directly from active certified practitioners. Our structured curriculum covers all exam domains and prepares you to apply for PMI certification."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "Create your PMI account and formally apply for the PMP credential through the Project Management Institute. Report your education, experience, and training completion. Pay PMI's examination fee to activate your exam eligibility and lock in your testing window."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to strengthen your readiness. Schedule your proctored exam at a Pearson VUE testing center or via remote delivery. Demonstrate mastery of project-management knowledge and sit for the four-hour, 180-question assessment."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After certification, earn professional development units (PDUs) every three years to renew your PMP. Pursue training, volunteer project-management work, or teach others. Granite PM Academy offers ongoing learning pathways to help you stay current and advance your career in Aiken's project-driven industries."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:26.853275Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "fd3a1099301c1d85",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Aiken project managers at Savannah River Site?",
-          "answer": "<p>Yes. The Savannah River Site and its contractors consistently seek PMP-certified professionals for nuclear energy, environmental remediation, and federal contract work. Certification is often listed as preferred or required for project management roles in this sector, and certified professionals typically command a salary premium in the CSRA. Given Aiken's economic anchor in federal and nuclear projects, the credential directly supports career advancement and competitive positioning in your local job market.</p>"
-        },
-        {
-          "question": "Which Aiken employers value PMP and CAPM credentials most?",
-          "answer": "<p>Savannah River Site contractors, the Department of Energy, Savannah River Nuclear Solutions, and Savannah River Mission Completion actively recruit certified project managers. Advanced manufacturing firms like Bridestone and Kimberly-Clark, along with healthcare and government agencies in the region, also recognize PMP as a mark of professional rigor. CAPM certification helps entry-level candidates stand out in Aiken's competitive federal and industrial project environment.</p>"
-        },
-        {
-          "question": "Can I take live-virtual PMP training while working full-time in Aiken?",
-          "answer": "<p>Yes. Granite PM Academy delivers all PMP training live-virtual, so you attend from your office, home, or any location with internet access—no travel required. This format works well for Aiken professionals balancing full-time roles at the Savannah River Site, healthcare systems, manufacturing, or local government. You can complete coursework on a schedule that fits your work commitments without relocating or attending in-person classes.</p>"
-        },
-        {
-          "question": "When should Aiken professionals pursue PMP certification to stay competitive?",
-          "answer": "<p>Aiken's strong demand for certified project managers—especially in federal contracting and nuclear energy—means certification timing is strategic. If you're advancing into or already in a project management role at a CSRA employer, certification within your first few years positions you competitively and unlocks salary premiums. Delaying certification may limit access to higher-level positions tied to federal and site-based contracts where PMP is preferred or required.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:32.841169Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "6c479dd4ca39a4a9",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Aiken's project management demand is anchored by the Savannah River Site and its network of federal contractors managing large-scale engineering and environmental work, alongside growth in advanced manufacturing, healthcare systems, and government agencies seeking certified professionals. The Savannah River Salt Waste Processing Facility and ongoing site modernization projects create steady opportunities for PMP-credentialed managers. Granite PM Academy delivers live-virtual PMP Certification Training nationwide, helping Aiken professionals earn PMI's credential on a schedule that fits working careers.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T19:56:34.598616Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "ea9aa8af8c1d3e34",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-aiken-sc/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Aiken, SC, PMP exam prep Aiken, PMP course Aiken SC, project management certification Aiken, SC, PMI PMP training Aiken",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\",\r\n      \"name\": \"PMP Certification Training in Aiken, SC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Aiken, SC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Aiken, SC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#course\",\r\n      \"name\": \"PMP Certification Training in Aiken, SC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Aiken, SC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-aiken-sc/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:54:19+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

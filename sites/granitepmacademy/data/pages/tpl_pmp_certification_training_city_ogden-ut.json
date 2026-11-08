@@ -1,416 +1,449 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "ogden-ut",
-  "slug": "pmp-certification-training-ogden-ut",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "ogden-ut",
-    "city": "Ogden",
-    "state": "Utah",
-    "SS": "UT",
-    "city_slug": "ogden-ut",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier1"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "ogden-ut",
+    "slug": "pmp-certification-training-ogden-ut",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "ogden-ut",
+        "city": "Ogden",
+        "state": "Utah",
+        "SS": "UT",
+        "city_slug": "ogden-ut",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier1"
+        ],
+        "industries": [
+            "Aerospace & Defense",
+            "Advanced Manufacturing",
+            "Healthcare",
+            "Government & Federal Services",
+            "Outdoor Products & Recreation Manufacturing",
+            "Education"
+        ],
+        "top_employers": [
+            "Hill Air Force Base",
+            "Autoliv",
+            "Intermountain McKay-Dee Hospital",
+            "Weber State University",
+            "Internal Revenue Service (Ogden Service Center)",
+            "Northrop Grumman",
+            "Lifetime Products",
+            "Amer Sports (Salomon/Atomic North America)",
+            "Ogden City School District",
+            "Boeing"
+        ],
+        "salary_note": "Project management compensation in the Ogden area tends to track closely with Salt Lake City metro pay scales, with the strongest demand and most competitive offers found in aerospace/defense and advanced manufacturing roles tied to Hill Air Force Base and its contractor network.",
+        "market_blurb": "Ogden's project management job market is anchored by its deep ties to Hill Air Force Base, aerospace and defense contractors, and a growing advanced manufacturing and outdoor products sector. Healthcare systems and public-sector employers, including federal offices and Weber State University, add steady demand for program and project coordination talent. The city's blend of government contracting and manufacturing creates consistent need for certified project managers who can navigate compliance-heavy, schedule-driven environments.",
+        "notable_projects": [
+            "Hill Air Force Base F-35A beddown and facility modernization",
+            "Northrop Grumman propulsion systems facility operations at Promontory",
+            "Weber State University campus facility expansions",
+            "Downtown Ogden redevelopment and business depot revitalization initiatives"
+        ],
+        "credential_demand": "PMP certification is particularly valued among Ogden's aerospace, defense, and government-adjacent employers, where formal project management credentials are often preferred or required for contractor and federal-adjacent roles; CAPM serves as a common entry point for those building toward these positions.",
+        "_researched": 1,
+        "city_spotlight": "<p>Ogden's project management demand centers on aerospace and defense, anchored by Hill Air Force Base and major contractors like Northrop Grumman operating advanced propulsion and manufacturing facilities across northern Utah. Government agencies, healthcare systems, and Weber State University add steady demand for skilled project coordinators in compliance-heavy, schedule-driven environments. Granite PM Academy delivers live-virtual PMP® Certification training to Ogden professionals nationwide, flexible scheduling for those managing complex programs locally.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-ogden-ut.webp",
+        "city_image_alt": "US Utah Ogden Montage, UT",
+        "city_image_credit": "Photo: Thomas Wozniak, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:US_Utah_Ogden_Montage.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Ogden's aerospace, defense, and advanced manufacturing sectors depend on skilled project managers to deliver complex programs on schedule and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, preparing you to earn the PMP credential recognized across these industries. Certification positions you for leadership roles and competitive compensation in Ogden's largest employers and their supply chains.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_9fda2d920a.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:47.431813Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "9d44163d48eb3fd5",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Ogden for Aerospace & Defense Professionals",
+            "text": "<p>Hill Air Force Base and Ogden's thriving aerospace and defense sector have made project management certification a cornerstone credential for career advancement in the region. Professionals managing complex, compliance-heavy programs at major contractors and federal facilities face scheduling, budget, and stakeholder pressures that demand proven methodologies—and the PMP® credential signals mastery of those disciplines to employers who depend on it. Beyond defense, Ogden's advanced manufacturing, healthcare systems, and public-sector offices share the same need: certified project managers who can lead teams through regulated, deadline-critical environments. Whether you work in aerospace, manufacturing, healthcare administration, or government services, earning your PMP® certification in Ogden positions you competitively within a job market built on precision and accountability.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMP® Certification Training that fits working professionals' schedules while meeting all contact-hour requirements for PMP® eligibility. Our instructors are active certified practitioners with real-world experience navigating complex project environments, and they teach the frameworks, tools, and decision-making processes that the PMP® exam validates. Every course is structured to prepare you not just to pass the exam, but to apply project management discipline from day one in your role. Begin your path to PMP® certification with training designed for the rigor Ogden's industries demand, and move forward with a credential recognized nationwide by employers and colleagues alike.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:51.924663Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "fce3b3a4a7da61e5",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Ogden's Aerospace & Defense Sector",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Partner",
+                    "text": "Granite PM Academy is an authorized training provider recognized by the Project Management Institute. Your completion satisfies the educational contact-hour requirement to sit for the PMP® exam, eliminating guesswork about credential eligibility and accelerating your path to certification."
+                },
+                {
+                    "heading": "Live-Virtual Instruction, Real Expertise",
+                    "text": "Learn from active certified practitioners who apply PMP® principles daily in professional settings. Our live-virtual format brings expert instruction directly to your Ogden schedule without travel, while maintaining the interactive instruction and peer collaboration that deepen learning."
+                },
+                {
+                    "heading": "Exam Prep Built Into Training",
+                    "text": "Master both the PMBOK® Guide framework and exam strategy in one program. We embed practice questions, diagnostic assessments, and focused review throughout the course so you enter exam day confident, not scrambling for last-minute prep resources."
+                },
+                {
+                    "heading": "Local Demand Across Major Industries",
+                    "text": "Aerospace, defense, advanced manufacturing, and healthcare employers throughout the Ogden region actively seek PMP®-certified project managers. The credential signals capability to organizations like Hill Air Force Base, Northrop Grumman, and Autoliv, opening advancement and hiring opportunities in sectors that anchor Utah's economy."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:02:56.188333Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "6f903a244e5607c2",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Ogden's Aerospace Hub",
+            "text": "<p>Ogden's economy is anchored by Hill Air Force Base and its extensive contractor ecosystem, making aerospace and defense the primary driver of certified project manager demand. Organizations like Northrop Grumman, operating advanced propulsion systems facilities at Promontory, and Boeing actively hire PMP®-credentialed professionals to manage complex, highly regulated programs. Beyond defense, Intermountain McKay-Dee Hospital, Weber State University's ongoing campus facility expansions, and local advanced manufacturing firms all require skilled project managers to oversee mission-critical initiatives. The F-35A beddown and facility modernization at Hill Air Force Base alone represents sustained, large-scale project activity that depends on certified PM leadership within the contractor and federal-adjacent workforce.</p><p>Project management compensation in the Ogden area tracks closely with the broader Salt Lake City metro market, with the most competitive offers concentrated in aerospace, defense, and advanced manufacturing roles tied to Hill Air Force Base and its supply network. PMP® certification is particularly valued—often preferred or required—among these employers for contractor and federal-adjacent positions. Completing your PMP Certification Training through Granite PM Academy positions you to enter or advance within Ogden's strongest-demand sectors, where formal credentials open doors to roles with greater scope, responsibility, and earning potential. For those earlier in their career, CAPM® serves as an accessible entry point toward the PMP® credential and the opportunities it unlocks in this defense-focused market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:00.306364Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "3380a402de34d4d9",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Ogden",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience. Verify you meet PMI's prerequisites before enrolling. Granite PM Academy's advisors can review your background and confirm readiness at no cost."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training. Attend all sessions synchronously, participate in exercises, and earn your certificate of completion—the formal education credential PMI requires to process your application."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Register with PMI, upload your education and experience documentation, and pay the exam fee directly to PMI. Granite PM Academy provides guidance through every form and deadline to ensure your application is accepted without delay."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-prep resources, practice tests, and instructor office hours to build confidence. Schedule your PMP exam at Pearson Vue, then sit for the computer-based test at an authorized testing center."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "Earn Professional Development Units (PDUs) over a three-year renewal cycle through training, conferences, volunteer work, or published contributions. Renew your credential before expiration to keep your PMP active and recognized across your career in Ogden's aerospace, defense, manufacturing, and federal sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:04.853019Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "1ddc67e0518ca508",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Ogden aerospace and defense careers?",
+                    "answer": "<p>Yes. Ogden's aerospace, defense, and advanced manufacturing sectors—anchored by Hill Air Force Base and its contractor network—strongly prefer or require PMP certification for project leadership roles. Federal-adjacent and contractor positions in particular view formal credentials as essential for advancement and contract eligibility. Compensation in these fields tracks closely with Salt Lake City metro scales, and certified project managers command measurably higher salaries in these industries.</p>"
+                },
+                {
+                    "question": "Which Ogden employers most value PMP certification credentials?",
+                    "answer": "<p>Hill Air Force Base contractors, aerospace manufacturers, advanced manufacturing firms, and federal service centers in the Ogden area place premium value on PMP credentials. Government-adjacent roles—including those at the IRS Service Center, and positions supporting defense primes and their suppliers—often list PMP as preferred or required. Healthcare systems and educational institutions in Ogden also increasingly seek certified project managers for infrastructure and operational initiatives.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Ogden workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual training format allows you to attend sessions from your office, remote workspace, or home anywhere in the United States, including Ogden. Many Ogden professionals in aerospace, manufacturing, and federal-service roles participate during work hours with employer support. Check with your organization's policies on training attendance and confirm your internet connectivity meets live-class requirements.</p>"
+                },
+                {
+                    "question": "How does Ogden's job market timing affect PMP certification decisions?",
+                    "answer": "<p>Ogden's aerospace and defense sectors experience steady, cyclical demand for certified project managers tied to federal budgets and contractor award cycles. Starting your certification during growth phases—particularly in spring and early fall—aligns with higher hiring activity and strengthens your candidacy before peak competition. The Ogden area's advanced manufacturing and government-service sectors reward early credential holders with accelerated advancement opportunities.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:10.916706Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "2414ade55c5ac5a7",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Ogden's project management demand is anchored by Hill Air Force Base, aerospace and defense contractors, and advanced manufacturing—industries where PMP certification directly supports career advancement in compliance-heavy, schedule-driven environments. Weber State University, Intermountain McKay-Dee Hospital, and federal employers add steady demand for certified coordinators. Granite PM Academy delivers live-virtual PMP Certification Training to Ogden professionals nationwide, aligning with PMI standards and the credential requirements these employers seek.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:12.606102Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "fb8c68138c1c49c7",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Ogden",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Ogden",
+                    "url": "/pmp-bootcamp-ogden-ut/"
+                },
+                {
+                    "label": "CAPM Certification Training Ogden",
+                    "url": "/capm-certification-training-ogden-ut/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Ogden",
+                    "url": "/ai-training-ogden-ut/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Aerospace & Defense",
-      "Advanced Manufacturing",
-      "Healthcare",
-      "Government & Federal Services",
-      "Outdoor Products & Recreation Manufacturing",
-      "Education"
-    ],
-    "top_employers": [
-      "Hill Air Force Base",
-      "Autoliv",
-      "Intermountain McKay-Dee Hospital",
-      "Weber State University",
-      "Internal Revenue Service (Ogden Service Center)",
-      "Northrop Grumman",
-      "Lifetime Products",
-      "Amer Sports (Salomon/Atomic North America)",
-      "Ogden City School District",
-      "Boeing"
-    ],
-    "salary_note": "Project management compensation in the Ogden area tends to track closely with Salt Lake City metro pay scales, with the strongest demand and most competitive offers found in aerospace/defense and advanced manufacturing roles tied to Hill Air Force Base and its contractor network.",
-    "market_blurb": "Ogden's project management job market is anchored by its deep ties to Hill Air Force Base, aerospace and defense contractors, and a growing advanced manufacturing and outdoor products sector. Healthcare systems and public-sector employers, including federal offices and Weber State University, add steady demand for program and project coordination talent. The city's blend of government contracting and manufacturing creates consistent need for certified project managers who can navigate compliance-heavy, schedule-driven environments.",
-    "notable_projects": [
-      "Hill Air Force Base F-35A beddown and facility modernization",
-      "Northrop Grumman propulsion systems facility operations at Promontory",
-      "Weber State University campus facility expansions",
-      "Downtown Ogden redevelopment and business depot revitalization initiatives"
-    ],
-    "credential_demand": "PMP certification is particularly valued among Ogden's aerospace, defense, and government-adjacent employers, where formal project management credentials are often preferred or required for contractor and federal-adjacent roles; CAPM serves as a common entry point for those building toward these positions.",
-    "_researched": 1,
-    "city_spotlight": "<p>Ogden's project management demand centers on aerospace and defense, anchored by Hill Air Force Base and major contractors like Northrop Grumman operating advanced propulsion and manufacturing facilities across northern Utah. Government agencies, healthcare systems, and Weber State University add steady demand for skilled project coordinators in compliance-heavy, schedule-driven environments. Granite PM Academy delivers live-virtual PMP® Certification training to Ogden professionals nationwide, flexible scheduling for those managing complex programs locally.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Ogden's aerospace, defense, and advanced manufacturing sectors depend on skilled project managers to deliver complex programs on schedule and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, preparing you to earn the PMP credential recognized across these industries. Certification positions you for leadership roles and competitive compensation in Ogden's largest employers and their supply chains.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_9fda2d920a.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:47.431813Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "9d44163d48eb3fd5",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-ogden-ut/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Ogden, UT, PMP exam prep Ogden, PMP course Ogden UT, project management certification Ogden, UT, PMI PMP training Ogden",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\",\r\n      \"name\": \"PMP Certification Training in Ogden, UT | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Ogden, UT. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Ogden, UT\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#course\",\r\n      \"name\": \"PMP Certification Training in Ogden, UT\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Ogden, UT. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Ogden for Aerospace & Defense Professionals",
-      "text": "<p>Hill Air Force Base and Ogden's thriving aerospace and defense sector have made project management certification a cornerstone credential for career advancement in the region. Professionals managing complex, compliance-heavy programs at major contractors and federal facilities face scheduling, budget, and stakeholder pressures that demand proven methodologies—and the PMP® credential signals mastery of those disciplines to employers who depend on it. Beyond defense, Ogden's advanced manufacturing, healthcare systems, and public-sector offices share the same need: certified project managers who can lead teams through regulated, deadline-critical environments. Whether you work in aerospace, manufacturing, healthcare administration, or government services, earning your PMP® certification in Ogden positions you competitively within a job market built on precision and accountability.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led PMP® Certification Training that fits working professionals' schedules while meeting all contact-hour requirements for PMP® eligibility. Our instructors are active certified practitioners with real-world experience navigating complex project environments, and they teach the frameworks, tools, and decision-making processes that the PMP® exam validates. Every course is structured to prepare you not just to pass the exam, but to apply project management discipline from day one in your role. Begin your path to PMP® certification with training designed for the rigor Ogden's industries demand, and move forward with a credential recognized nationwide by employers and colleagues alike.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:51.924663Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "fce3b3a4a7da61e5",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Ogden's Aerospace & Defense Sector",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Partner",
-          "text": "Granite PM Academy is an authorized training provider recognized by the Project Management Institute. Your completion satisfies the educational contact-hour requirement to sit for the PMP® exam, eliminating guesswork about credential eligibility and accelerating your path to certification."
-        },
-        {
-          "heading": "Live-Virtual Instruction, Real Expertise",
-          "text": "Learn from active certified practitioners who apply PMP® principles daily in professional settings. Our live-virtual format brings expert instruction directly to your Ogden schedule without travel, while maintaining the interactive instruction and peer collaboration that deepen learning."
-        },
-        {
-          "heading": "Exam Prep Built Into Training",
-          "text": "Master both the PMBOK® Guide framework and exam strategy in one program. We embed practice questions, diagnostic assessments, and focused review throughout the course so you enter exam day confident, not scrambling for last-minute prep resources."
-        },
-        {
-          "heading": "Local Demand Across Major Industries",
-          "text": "Aerospace, defense, advanced manufacturing, and healthcare employers throughout the Ogden region actively seek PMP®-certified project managers. The credential signals capability to organizations like Hill Air Force Base, Northrop Grumman, and Autoliv, opening advancement and hiring opportunities in sectors that anchor Utah's economy."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:02:56.188333Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "6f903a244e5607c2",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Ogden's Aerospace Hub",
-      "text": "<p>Ogden's economy is anchored by Hill Air Force Base and its extensive contractor ecosystem, making aerospace and defense the primary driver of certified project manager demand. Organizations like Northrop Grumman, operating advanced propulsion systems facilities at Promontory, and Boeing actively hire PMP®-credentialed professionals to manage complex, highly regulated programs. Beyond defense, Intermountain McKay-Dee Hospital, Weber State University's ongoing campus facility expansions, and local advanced manufacturing firms all require skilled project managers to oversee mission-critical initiatives. The F-35A beddown and facility modernization at Hill Air Force Base alone represents sustained, large-scale project activity that depends on certified PM leadership within the contractor and federal-adjacent workforce.</p><p>Project management compensation in the Ogden area tracks closely with the broader Salt Lake City metro market, with the most competitive offers concentrated in aerospace, defense, and advanced manufacturing roles tied to Hill Air Force Base and its supply network. PMP® certification is particularly valued—often preferred or required—among these employers for contractor and federal-adjacent positions. Completing your PMP Certification Training through Granite PM Academy positions you to enter or advance within Ogden's strongest-demand sectors, where formal credentials open doors to roles with greater scope, responsibility, and earning potential. For those earlier in their career, CAPM® serves as an accessible entry point toward the PMP® credential and the opportunities it unlocks in this defense-focused market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:00.306364Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "3380a402de34d4d9",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Ogden",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience. Verify you meet PMI's prerequisites before enrolling. Granite PM Academy's advisors can review your background and confirm readiness at no cost."
-        },
-        {
-          "heading": "Complete 35 Contact Hours",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training. Attend all sessions synchronously, participate in exercises, and earn your certificate of completion—the formal education credential PMI requires to process your application."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "Register with PMI, upload your education and experience documentation, and pay the exam fee directly to PMI. Granite PM Academy provides guidance through every form and deadline to ensure your application is accepted without delay."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-prep resources, practice tests, and instructor office hours to build confidence. Schedule your PMP exam at Pearson Vue, then sit for the computer-based test at an authorized testing center."
-        },
-        {
-          "heading": "Maintain Your Credential",
-          "text": "Earn Professional Development Units (PDUs) over a three-year renewal cycle through training, conferences, volunteer work, or published contributions. Renew your credential before expiration to keep your PMP active and recognized across your career in Ogden's aerospace, defense, manufacturing, and federal sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:04.853019Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "1ddc67e0518ca508",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Ogden aerospace and defense careers?",
-          "answer": "<p>Yes. Ogden's aerospace, defense, and advanced manufacturing sectors—anchored by Hill Air Force Base and its contractor network—strongly prefer or require PMP certification for project leadership roles. Federal-adjacent and contractor positions in particular view formal credentials as essential for advancement and contract eligibility. Compensation in these fields tracks closely with Salt Lake City metro scales, and certified project managers command measurably higher salaries in these industries.</p>"
-        },
-        {
-          "question": "Which Ogden employers most value PMP certification credentials?",
-          "answer": "<p>Hill Air Force Base contractors, aerospace manufacturers, advanced manufacturing firms, and federal service centers in the Ogden area place premium value on PMP credentials. Government-adjacent roles—including those at the IRS Service Center, and positions supporting defense primes and their suppliers—often list PMP as preferred or required. Healthcare systems and educational institutions in Ogden also increasingly seek certified project managers for infrastructure and operational initiatives.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Ogden workplace?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual training format allows you to attend sessions from your office, remote workspace, or home anywhere in the United States, including Ogden. Many Ogden professionals in aerospace, manufacturing, and federal-service roles participate during work hours with employer support. Check with your organization's policies on training attendance and confirm your internet connectivity meets live-class requirements.</p>"
-        },
-        {
-          "question": "How does Ogden's job market timing affect PMP certification decisions?",
-          "answer": "<p>Ogden's aerospace and defense sectors experience steady, cyclical demand for certified project managers tied to federal budgets and contractor award cycles. Starting your certification during growth phases—particularly in spring and early fall—aligns with higher hiring activity and strengthens your candidacy before peak competition. The Ogden area's advanced manufacturing and government-service sectors reward early credential holders with accelerated advancement opportunities.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:10.916706Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "2414ade55c5ac5a7",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Ogden's project management demand is anchored by Hill Air Force Base, aerospace and defense contractors, and advanced manufacturing—industries where PMP certification directly supports career advancement in compliance-heavy, schedule-driven environments. Weber State University, Intermountain McKay-Dee Hospital, and federal employers add steady demand for certified coordinators. Granite PM Academy delivers live-virtual PMP Certification Training to Ogden professionals nationwide, aligning with PMI standards and the credential requirements these employers seek.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:12.606102Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "fb8c68138c1c49c7",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-ogden-ut/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Ogden, UT, PMP exam prep Ogden, PMP course Ogden UT, project management certification Ogden, UT, PMI PMP training Ogden",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\",\r\n      \"name\": \"PMP Certification Training in Ogden, UT | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Ogden, UT. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Ogden, UT\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#course\",\r\n      \"name\": \"PMP Certification Training in Ogden, UT\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Ogden, UT. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ogden-ut/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:47:30+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

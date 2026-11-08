@@ -1,422 +1,451 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "phoenix-az",
-  "slug": "pmp-certification-training-phoenix-az",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "phoenix-az",
-    "city": "Phoenix",
-    "state": "Arizona",
-    "SS": "AZ",
-    "city_slug": "phoenix-az",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier6"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "phoenix-az",
+    "slug": "pmp-certification-training-phoenix-az",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "phoenix-az",
+        "city": "Phoenix",
+        "state": "Arizona",
+        "SS": "AZ",
+        "city_slug": "phoenix-az",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier6"
+        ],
+        "industries": [
+            "Semiconductor & Advanced Manufacturing",
+            "Healthcare Systems",
+            "Aerospace & Defense",
+            "Financial Services & Banking",
+            "Construction & Real Estate Development",
+            "Technology"
+        ],
+        "top_employers": [
+            "Banner Health",
+            "Intel",
+            "Honeywell",
+            "Wells Fargo",
+            "Bank of America",
+            "American Express",
+            "Charles Schwab",
+            "City of Phoenix",
+            "Arizona State University",
+            "JPMorgan Chase",
+            "USAA",
+            "Freeport-McMoRan"
+        ],
+        "salary_note": "Project manager compensation in the Phoenix area tends to be competitive with national averages and varies significantly by industry and certification level, with PMP-certified professionals generally commanding higher pay than non-certified peers. Demand has grown alongside the region's expanding tech manufacturing and healthcare sectors, making experienced PMs increasingly sought after.",
+        "market_blurb": "Phoenix's project management job market is expanding steadily, fueled by growth in semiconductor manufacturing, healthcare systems, and financial services. Major infrastructure and corporate expansions across the metro area continue to create demand for skilled project and program managers. The city's diverse economic base, spanning tech, aerospace, and construction, offers strong career mobility for certified PM professionals.",
+        "notable_projects": [
+            "TSMC Arizona semiconductor fabrication facility expansion in North Phoenix",
+            "Phoenix Sky Harbor International Airport modernization and terminal projects",
+            "Loop 202 South Mountain Freeway construction",
+            "Intel's Ocotillo campus expansion in nearby Chandler"
+        ],
+        "credential_demand": "PMP certification is highly regarded among Phoenix-area employers, particularly in construction, healthcare, and technology manufacturing sectors, and frequently appears as a preferred or required qualification in local job postings. CAPM is also recognized as a valuable entry point for professionals building toward full PMP certification in this competitive market.",
+        "_researched": 1,
+        "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector—anchored by major facility expansions like TSMC's North Phoenix operation—is driving sustained demand for skilled project managers across the metro area. Healthcare systems, aerospace, and financial services employers including Banner Health, Intel, and Honeywell continue to invest in infrastructure and corporate growth, creating strong career opportunities for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training to Phoenix professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-phoenix-az.webp",
+        "city_image_alt": "Downtown Phoenix Aerial Looking Northeast, AZ",
+        "city_image_credit": "Photo: DPPed, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Phoenix's semiconductor, aerospace, and advanced manufacturing sectors depend on skilled project managers to deliver complex, regulated programs on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact-hour education, preparing you to sit for the PMP exam. Earning your PMP credential positions you for higher responsibility and compensation across Phoenix's largest employers and fastest-growing industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_be8652642d.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:13.706025Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "a13356dcbf699f46",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training in Phoenix for Advanced Manufacturing and Tech",
+            "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's project management landscape. As Intel, Honeywell, and a growing ecosystem of supplier and logistics companies expand operations across the metro area, demand for PMP-certified professionals has accelerated. These capital-intensive, highly regulated industries require project managers who understand complex scheduling, resource constraints, and compliance frameworks—the core competencies the PMP® credential validates. Whether you're managing fab construction, supply chain optimization, or cross-functional product launches in Phoenix's tech and manufacturing hubs, PMP Certification Training equips you with the methodology and credibility that employers in these sectors actively seek and reward.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual PMP Certification Training that fits working professionals' schedules while meeting all PMI contact-hour requirements for exam eligibility. Our instructor-led courses are taught by active certified practitioners who bring real-world experience to every session, ensuring you learn not just theory but practical application. You'll gain the frameworks, tools, and knowledge needed to pass the PMP exam and lead complex projects with confidence. Upon completion, you'll hold a credential recognized globally and highly valued across Phoenix's diverse industries—opening doors to career advancement in construction, healthcare, financial services, aerospace, and technology.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:17.892359Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "0e9d1584c41423a2",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP® Certification for Phoenix's Advanced Manufacturing Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorized Training Partner",
+                    "text": "Granite PM Academy is an official PMI Authorized Training Partner. Your enrollment satisfies PMI's training requirements for PMP® eligibility, removing gatekeeping uncertainty and positioning your credential for immediate recognition across Arizona's largest employers."
+                },
+                {
+                    "heading": "Live Virtual, Flexible Schedule",
+                    "text": "Instructor-led classes delivered live online meet PMI's contact-hour mandate without commute constraints. Attend from home or office while remaining fully engaged with certified practitioners—ideal for working professionals balancing roles at healthcare systems, defense contractors, and semiconductor firms."
+                },
+                {
+                    "heading": "Instructors Who Practice Daily",
+                    "text": "Every instructor holds active PMP® or CAPM® certification and applies real-world project leadership in their current roles. Expect case studies, troubleshooting scenarios, and exam-prep coaching grounded in field experience, not textbook theory alone."
+                },
+                {
+                    "heading": "Unlock Phoenix's High-Demand PM Roles",
+                    "text": "Intel, Honeywell, Banner Health, and regional financial services firms actively hire certified project managers. The PMP® credential opens doors across semiconductor, aerospace, healthcare, and banking sectors that dominate Phoenix's job market—boosting career mobility and earning potential."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:21.979444Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "a5a665770593f9b9",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Phoenix's Growing Tech Hub",
+            "text": "<p>Phoenix's rapid expansion in semiconductor manufacturing and advanced technology is reshaping the region's project management landscape. Major employers including Intel, Honeywell, and Banner Health actively recruit certified project managers to lead complex initiatives. The TSMC Arizona semiconductor fabrication facility expansion in North Phoenix and Intel's Ocotillo campus growth in nearby Chandler represent the scale of projects now underway—ventures that depend on experienced PMs to coordinate resources, timelines, and cross-functional teams. Similarly, healthcare systems, financial services firms like Wells Fargo and JPMorgan Chase, and public infrastructure projects such as Phoenix Sky Harbor International Airport's terminal modernization all create sustained demand for professionals who can demonstrate mastery of industry-standard methodologies.</p><p>PMP® certification carries measurable weight in this competitive market. Local employers in construction, technology manufacturing, and healthcare consistently list PMP® as a preferred or required credential, and PMP-certified professionals command higher compensation than their non-certified counterparts as demand grows alongside the region's tech and healthcare sectors. Completing PMP® Certification Training through Granite PM Academy positions you to meet that demand with a globally recognized credential, accelerated career progression, and access to the higher-value projects reshaping Phoenix's economy. Whether you're early in your PM career or seeking advancement, the certification unlocks doors that matter in this market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:26.171600Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "1c32e4d7e0a63962",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Phoenix",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a four-year degree with three years of project-management experience, or a high school diploma with five years of equivalent experience. Review PMI's formal requirements before enrolling. Granite PM Academy can clarify eligibility questions to ensure you meet the credential's prerequisites."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our nationwide program delivers all required instruction online, allowing Phoenix professionals to learn on your schedule without travel. Active certified practitioners lead interactive sessions covering the PMBOK Guide and real-world project scenarios."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, apply directly to PMI with your training certificate and documented project-management experience. Pay the PMI exam fee and complete their eligibility review process. Granite PM Academy provides guidance on application submission and helps you organize required documentation."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study materials aligned to the PMP blueprint. Schedule your exam through Pearson VUE at a center in your area or via remote proctoring. Our instructors remain available to answer final questions before test day."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "PMP certification remains valid for three years. Earn professional development units (PDUs) through project work, continuing education, or volunteer service to renew your credential. Granite PM Academy offers ongoing PDU-eligible learning to support your long-term career development in Phoenix's dynamic industries."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:31.375623Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "3d774b4019726a6b",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Phoenix project managers?",
+                    "answer": "<p>Yes. Phoenix's expanding semiconductor, healthcare, and aerospace sectors actively seek PMP-certified professionals, and the credential typically correlates with higher compensation than non-certified peers. Local employers including major tech manufacturers and hospital systems regularly list PMP as preferred or required. For mid-career and senior roles, certification strengthens competitiveness in this growing market.</p>"
+                },
+                {
+                    "question": "Which Phoenix employers most value PMP certification?",
+                    "answer": "<p>Construction, healthcare systems, technology manufacturing, and financial services firms across Phoenix prioritize PMP-certified candidates. Major local employers in semiconductor fabrication, defense contracting, and hospital administration frequently feature the credential in job postings. CAPM certification also serves as a recognized stepping stone in this competitive landscape for early-career professionals.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my Phoenix workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your office, home, or any location with internet access. Many Phoenix professionals attend from their workplace during scheduled sessions. You'll interact with instructors and cohort members in real time, making it practical for professionals balancing full-time roles in the local market.</p>"
+                },
+                {
+                    "question": "When should Phoenix project managers pursue PMP certification?",
+                    "answer": "<p>Given strong demand from Phoenix's growing tech manufacturing and healthcare sectors, early certification can accelerate career progression and salary growth. Professionals with foundational PM experience benefit most. Timing your certification before a job transition or promotion cycle positions you competitively against other candidates in Phoenix's increasingly credential-focused market.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:36.295110Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "352f50738470263d",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving strong demand for certified project managers, with major facilities like TSMC's North Phoenix expansion and Intel's Ocotillo campus creating pipeline opportunities across the metro area. Healthcare systems, aerospace, financial services, and construction round out a diverse economy where PMP® certification accelerates career mobility. Granite PM Academy delivers live-virtual PMP Certification Training to Phoenix professionals nationwide, fitting preparation around your schedule.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:03:37.883059Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "cee0d4af85f73daa",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Phoenix",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Phoenix",
+                    "url": "/pmp-bootcamp-phoenix-az/"
+                },
+                {
+                    "label": "CAPM Certification Training Phoenix",
+                    "url": "/capm-certification-training-phoenix-az/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Phoenix",
+                    "url": "/ai-training-phoenix-az/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Semiconductor & Advanced Manufacturing",
-      "Healthcare Systems",
-      "Aerospace & Defense",
-      "Financial Services & Banking",
-      "Construction & Real Estate Development",
-      "Technology"
-    ],
-    "top_employers": [
-      "Banner Health",
-      "Intel",
-      "Honeywell",
-      "Wells Fargo",
-      "Bank of America",
-      "American Express",
-      "Charles Schwab",
-      "City of Phoenix",
-      "Arizona State University",
-      "JPMorgan Chase",
-      "USAA",
-      "Freeport-McMoRan"
-    ],
-    "salary_note": "Project manager compensation in the Phoenix area tends to be competitive with national averages and varies significantly by industry and certification level, with PMP-certified professionals generally commanding higher pay than non-certified peers. Demand has grown alongside the region's expanding tech manufacturing and healthcare sectors, making experienced PMs increasingly sought after.",
-    "market_blurb": "Phoenix's project management job market is expanding steadily, fueled by growth in semiconductor manufacturing, healthcare systems, and financial services. Major infrastructure and corporate expansions across the metro area continue to create demand for skilled project and program managers. The city's diverse economic base, spanning tech, aerospace, and construction, offers strong career mobility for certified PM professionals.",
-    "notable_projects": [
-      "TSMC Arizona semiconductor fabrication facility expansion in North Phoenix",
-      "Phoenix Sky Harbor International Airport modernization and terminal projects",
-      "Loop 202 South Mountain Freeway construction",
-      "Intel's Ocotillo campus expansion in nearby Chandler"
-    ],
-    "credential_demand": "PMP certification is highly regarded among Phoenix-area employers, particularly in construction, healthcare, and technology manufacturing sectors, and frequently appears as a preferred or required qualification in local job postings. CAPM is also recognized as a valuable entry point for professionals building toward full PMP certification in this competitive market.",
-    "_researched": 1,
-    "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector—anchored by major facility expansions like TSMC's North Phoenix operation—is driving sustained demand for skilled project managers across the metro area. Healthcare systems, aerospace, and financial services employers including Banner Health, Intel, and Honeywell continue to invest in infrastructure and corporate growth, creating strong career opportunities for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training to Phoenix professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-phoenix-az.webp",
-    "city_image_alt": "Downtown Phoenix Aerial Looking Northeast, AZ",
-    "city_image_credit": "Photo: DPPed, CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Phoenix's semiconductor, aerospace, and advanced manufacturing sectors depend on skilled project managers to deliver complex, regulated programs on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact-hour education, preparing you to sit for the PMP exam. Earning your PMP credential positions you for higher responsibility and compensation across Phoenix's largest employers and fastest-growing industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_be8652642d.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:13.706025Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "a13356dcbf699f46",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-phoenix-az/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Phoenix, AZ, PMP exam prep Phoenix, PMP course Phoenix AZ, project management certification Phoenix, AZ, PMI PMP training Phoenix",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\",\r\n      \"name\": \"PMP Certification Training in Phoenix, AZ | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Phoenix, AZ. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Phoenix, AZ\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#course\",\r\n      \"name\": \"PMP Certification Training in Phoenix, AZ\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Phoenix, AZ. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training in Phoenix for Advanced Manufacturing and Tech",
-      "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's project management landscape. As Intel, Honeywell, and a growing ecosystem of supplier and logistics companies expand operations across the metro area, demand for PMP-certified professionals has accelerated. These capital-intensive, highly regulated industries require project managers who understand complex scheduling, resource constraints, and compliance frameworks—the core competencies the PMP® credential validates. Whether you're managing fab construction, supply chain optimization, or cross-functional product launches in Phoenix's tech and manufacturing hubs, PMP Certification Training equips you with the methodology and credibility that employers in these sectors actively seek and reward.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual PMP Certification Training that fits working professionals' schedules while meeting all PMI contact-hour requirements for exam eligibility. Our instructor-led courses are taught by active certified practitioners who bring real-world experience to every session, ensuring you learn not just theory but practical application. You'll gain the frameworks, tools, and knowledge needed to pass the PMP exam and lead complex projects with confidence. Upon completion, you'll hold a credential recognized globally and highly valued across Phoenix's diverse industries—opening doors to career advancement in construction, healthcare, financial services, aerospace, and technology.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:17.892359Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "0e9d1584c41423a2",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP® Certification for Phoenix's Advanced Manufacturing Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorized Training Partner",
-          "text": "Granite PM Academy is an official PMI Authorized Training Partner. Your enrollment satisfies PMI's training requirements for PMP® eligibility, removing gatekeeping uncertainty and positioning your credential for immediate recognition across Arizona's largest employers."
-        },
-        {
-          "heading": "Live Virtual, Flexible Schedule",
-          "text": "Instructor-led classes delivered live online meet PMI's contact-hour mandate without commute constraints. Attend from home or office while remaining fully engaged with certified practitioners—ideal for working professionals balancing roles at healthcare systems, defense contractors, and semiconductor firms."
-        },
-        {
-          "heading": "Instructors Who Practice Daily",
-          "text": "Every instructor holds active PMP® or CAPM® certification and applies real-world project leadership in their current roles. Expect case studies, troubleshooting scenarios, and exam-prep coaching grounded in field experience, not textbook theory alone."
-        },
-        {
-          "heading": "Unlock Phoenix's High-Demand PM Roles",
-          "text": "Intel, Honeywell, Banner Health, and regional financial services firms actively hire certified project managers. The PMP® credential opens doors across semiconductor, aerospace, healthcare, and banking sectors that dominate Phoenix's job market—boosting career mobility and earning potential."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:21.979444Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "a5a665770593f9b9",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Phoenix's Growing Tech Hub",
-      "text": "<p>Phoenix's rapid expansion in semiconductor manufacturing and advanced technology is reshaping the region's project management landscape. Major employers including Intel, Honeywell, and Banner Health actively recruit certified project managers to lead complex initiatives. The TSMC Arizona semiconductor fabrication facility expansion in North Phoenix and Intel's Ocotillo campus growth in nearby Chandler represent the scale of projects now underway—ventures that depend on experienced PMs to coordinate resources, timelines, and cross-functional teams. Similarly, healthcare systems, financial services firms like Wells Fargo and JPMorgan Chase, and public infrastructure projects such as Phoenix Sky Harbor International Airport's terminal modernization all create sustained demand for professionals who can demonstrate mastery of industry-standard methodologies.</p><p>PMP® certification carries measurable weight in this competitive market. Local employers in construction, technology manufacturing, and healthcare consistently list PMP® as a preferred or required credential, and PMP-certified professionals command higher compensation than their non-certified counterparts as demand grows alongside the region's tech and healthcare sectors. Completing PMP® Certification Training through Granite PM Academy positions you to meet that demand with a globally recognized credential, accelerated career progression, and access to the higher-value projects reshaping Phoenix's economy. Whether you're early in your PM career or seeking advancement, the certification unlocks doors that matter in this market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:26.171600Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "1c32e4d7e0a63962",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Phoenix",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a four-year degree with three years of project-management experience, or a high school diploma with five years of equivalent experience. Review PMI's formal requirements before enrolling. Granite PM Academy can clarify eligibility questions to ensure you meet the credential's prerequisites."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our nationwide program delivers all required instruction online, allowing Phoenix professionals to learn on your schedule without travel. Active certified practitioners lead interactive sessions covering the PMBOK Guide and real-world project scenarios."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After course completion, apply directly to PMI with your training certificate and documented project-management experience. Pay the PMI exam fee and complete their eligibility review process. Granite PM Academy provides guidance on application submission and helps you organize required documentation."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study materials aligned to the PMP blueprint. Schedule your exam through Pearson VUE at a center in your area or via remote proctoring. Our instructors remain available to answer final questions before test day."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "PMP certification remains valid for three years. Earn professional development units (PDUs) through project work, continuing education, or volunteer service to renew your credential. Granite PM Academy offers ongoing PDU-eligible learning to support your long-term career development in Phoenix's dynamic industries."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:31.375623Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "3d774b4019726a6b",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        },
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Phoenix project managers?",
-          "answer": "<p>Yes. Phoenix's expanding semiconductor, healthcare, and aerospace sectors actively seek PMP-certified professionals, and the credential typically correlates with higher compensation than non-certified peers. Local employers including major tech manufacturers and hospital systems regularly list PMP as preferred or required. For mid-career and senior roles, certification strengthens competitiveness in this growing market.</p>"
-        },
-        {
-          "question": "Which Phoenix employers most value PMP certification?",
-          "answer": "<p>Construction, healthcare systems, technology manufacturing, and financial services firms across Phoenix prioritize PMP-certified candidates. Major local employers in semiconductor fabrication, defense contracting, and hospital administration frequently feature the credential in job postings. CAPM certification also serves as a recognized stepping stone in this competitive landscape for early-career professionals.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my Phoenix workplace?",
-          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your office, home, or any location with internet access. Many Phoenix professionals attend from their workplace during scheduled sessions. You'll interact with instructors and cohort members in real time, making it practical for professionals balancing full-time roles in the local market.</p>"
-        },
-        {
-          "question": "When should Phoenix project managers pursue PMP certification?",
-          "answer": "<p>Given strong demand from Phoenix's growing tech manufacturing and healthcare sectors, early certification can accelerate career progression and salary growth. Professionals with foundational PM experience benefit most. Timing your certification before a job transition or promotion cycle positions you competitively against other candidates in Phoenix's increasingly credential-focused market.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:36.295110Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "352f50738470263d",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving strong demand for certified project managers, with major facilities like TSMC's North Phoenix expansion and Intel's Ocotillo campus creating pipeline opportunities across the metro area. Healthcare systems, aerospace, financial services, and construction round out a diverse economy where PMP® certification accelerates career mobility. Granite PM Academy delivers live-virtual PMP Certification Training to Phoenix professionals nationwide, fitting preparation around your schedule.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:03:37.883059Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "cee0d4af85f73daa",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-phoenix-az/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Phoenix, AZ, PMP exam prep Phoenix, PMP course Phoenix AZ, project management certification Phoenix, AZ, PMI PMP training Phoenix",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\",\r\n      \"name\": \"PMP Certification Training in Phoenix, AZ | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Phoenix, AZ. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Phoenix, AZ\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#course\",\r\n      \"name\": \"PMP Certification Training in Phoenix, AZ\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Phoenix, AZ. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-phoenix-az/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T22:05:36+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

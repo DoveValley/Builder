@@ -1,420 +1,449 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "knoxville-tn",
-  "slug": "pmp-certification-training-knoxville-tn",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "knoxville-tn",
-    "city": "Knoxville",
-    "state": "Tennessee",
-    "SS": "TN",
-    "city_slug": "knoxville-tn",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier2"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "knoxville-tn",
+    "slug": "pmp-certification-training-knoxville-tn",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "knoxville-tn",
+        "city": "Knoxville",
+        "state": "Tennessee",
+        "SS": "TN",
+        "city_slug": "knoxville-tn",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier2"
+        ],
+        "industries": [
+            "Energy and nuclear research (TVA, Oak Ridge National Laboratory)",
+            "Healthcare and hospital systems",
+            "Higher education and research administration",
+            "Manufacturing and industrial engineering",
+            "Logistics, distribution, and transportation",
+            "Construction and infrastructure development"
+        ],
+        "top_employers": [
+            "Tennessee Valley Authority (TVA)",
+            "Oak Ridge National Laboratory (ORNL)",
+            "University of Tennessee, Knoxville",
+            "Covenant Health",
+            "University of Tennessee Medical Center",
+            "Knoxville Utilities Board (KUB)",
+            "Pilot Company",
+            "Regal Rexnord",
+            "City of Knoxville",
+            "Knox County Schools"
+        ],
+        "salary_note": "Project management salaries in the Knoxville area tend to be competitive with the broader Southeast region, particularly for roles tied to energy, engineering, and healthcare sectors, though exact figures vary widely by industry and experience level. Employers increasingly favor candidates with formal PM training or certification when setting compensation.",
+        "market_blurb": "Knoxville's project management job market is anchored by its strong presence in energy and nuclear research through TVA and Oak Ridge National Laboratory, along with major healthcare systems and the University of Tennessee. Growth in manufacturing, logistics, and infrastructure development continues to create steady demand for skilled project and program managers across both public and private sectors.",
+        "notable_projects": [
+            "TVA's Clinch River Nuclear Site small modular reactor development near Oak Ridge",
+            "Oak Ridge National Laboratory's ongoing exascale computing and research facility expansions",
+            "University of Tennessee's Neyland Stadium multi-phase renovation project",
+            "City of Knoxville's East Riverfront and downtown redevelopment initiatives"
+        ],
+        "credential_demand": "PMP certification is generally viewed as a strong differentiator among Knoxville-area employers, especially within engineering, energy, and healthcare organizations that manage large, complex projects. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
+        "_researched": 1,
+        "city_spotlight": "<p>Knoxville's project management market is anchored by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside major healthcare systems and University of Tennessee—creating steady demand for skilled PMs across public and private sectors. From the Clinch River small modular reactor development to downtown redevelopment initiatives, infrastructure and complex programs drive certification value here. Granite PM Academy delivers live-virtual PMP® Certification to Knoxville professionals, with flexible scheduling and PMI-aligned curriculum designed for working adults.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-knoxville-tn.webp",
+        "city_image_alt": "Four-market-square-tn1 in Knoxville, TN",
+        "city_image_credit": "Photo: Brian Stansberry, CC BY 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Four-market-square-tn1.jpg"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Knoxville's energy research, healthcare, and infrastructure sectors depend on skilled project managers to drive complex, high-stakes initiatives at organizations like TVA, ORNL, and Covenant Health. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn this globally recognized credential on your schedule. A PMP opens doors to leadership roles and competitive compensation across Knoxville's largest employers and growing project-intensive industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c76e14d411.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:28.119947Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ca5f519a6da7f105",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Knoxville's Project Management Professionals",
+            "text": "<p>Knoxville's project management landscape is defined by its world-class presence in energy and nuclear research through the Tennessee Valley Authority and Oak Ridge National Laboratory, sectors where the PMP® credential carries both competitive weight and operational necessity. Beyond these anchors, healthcare systems, higher education institutions, manufacturing firms, and infrastructure projects across the region consistently seek professionals who can demonstrate mastery of standardized project delivery frameworks. For Knoxville-area managers and aspiring leaders, PMP® Certification Training translates directly into career advancement and salary growth, particularly within the public and private organizations that drive the local economy.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit working professionals' schedules while meeting all contact-hour requirements for PMI eligibility. Our instructors are active certified practitioners who bring real-world experience to every module, ensuring that coursework connects to challenges you'll face in your role. Whether you're advancing within a Knoxville-based employer or expanding your credentials for broader opportunity, our structured curriculum, exam-focused preparation, and ongoing support position you to pass the PMP® exam and step into your next career milestone with confidence.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:31.977574Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "d4ed205e5ef1f73c",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Knoxville's Energy and Research Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP Certification Training meets all PMI requirements and contact-hour standards. Your credential carries full weight with TVA, ORNL, and regional employers who verify training legitimacy during hiring and promotion decisions."
+                },
+                {
+                    "heading": "Live-Virtual Instruction on Your Schedule",
+                    "text": "Attend instructor-led PMP training entirely online in real time, satisfying PMI contact-hour requirements without commuting or relocating. Knoxville professionals in healthcare, manufacturing, and infrastructure roles stay employed while completing the certification coursework that employers demand."
+                },
+                {
+                    "heading": "Active Practitioners Teaching the Credential",
+                    "text": "Your instructors are certified PMP professionals who apply project management daily in their own roles. They bring current real-world problem-solving into every session, moving beyond textbook frameworks to show how Knoxville-area industries actually run complex programs."
+                },
+                {
+                    "heading": "Credential Built for Knoxville's Growth Sectors",
+                    "text": "The PMP credential is highly valued across Knoxville's largest employers—TVA, ORNL, Covenant Health, UT Knoxville, and Regal Rexnord all hire and advance project managers with this certification. Energy, healthcare, infrastructure, and manufacturing roles increasingly require or prefer PMP-certified professionals."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:36.476787Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "48c9af482e27dd29",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Knoxville's Energy Sector",
+            "text": "<p>Knoxville's project management job market is shaped by major employers in energy research, healthcare, higher education, and manufacturing. The Tennessee Valley Authority (TVA) and Oak Ridge National Laboratory (ORNL) anchor the region's demand for skilled project managers overseeing large-scale initiatives—including ORNL's exascale computing and research facility expansions, and TVA's Clinch River Nuclear Site small modular reactor development near Oak Ridge. Beyond these anchor industries, the University of Tennessee, Covenant Health, Regal Rexnord, and the City of Knoxville's East Riverfront redevelopment all actively recruit certified project professionals to lead complex, multi-phase work. These employers consistently seek candidates with formal project management credentials when filling roles that require scope, schedule, and resource management at scale.</p><p>The PMP® credential carries particular weight in Knoxville's engineering, energy, and healthcare sectors, where employers increasingly list it as a preferred qualification in job postings and factor it into compensation decisions. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these opportunities and to command stronger compensation packages as your career advances—especially in roles tied to research, nuclear technology, and large infrastructure projects unique to this region. The combination of formal training, exam preparation, and the PMI® credential itself signals to local hiring managers that you can manage the complexity Knoxville's largest employers demand.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:40.580952Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "5abdb3fe22095af1",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP® Certification in Knoxville",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires specific education and project-management experience before you apply. Review PMI's eligibility criteria—based on your degree level and hours leading projects—to confirm you meet the baseline. Granite PM Academy's advisors can clarify requirements so you move forward with confidence."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend sessions from your Knoxville location at times that fit your schedule. Our active certified practitioners guide you through the PMBOK® Guide framework and real-world scenarios relevant to project leaders across energy, healthcare, manufacturing, and construction sectors."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing your 35-hour course, submit your formal PMI application and required documentation through PMI's online portal. Pay the examination fee at that time. Granite PM Academy provides step-by-step guidance to ensure your application is complete and submitted correctly."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor Q&A sessions—to build confidence before test day. Schedule your exam through Pearson VUE at a testing center convenient to you. Our support continues through your final review."
+                },
+                {
+                    "heading": "Maintain Your PMP® Credential",
+                    "text": "The PMP® credential is valid for three years. During each renewal cycle, earn professional development units (PDUs) through training, volunteer work, or continued education. Renew your credential by submitting your PDUs and renewal fee to PMI before expiration."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:45.764863Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "f9ae94fd9b92678d",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Knoxville project managers in energy and nuclear research?",
+                    "answer": "<p>Yes. Knoxville's dominant employers—TVA, Oak Ridge National Laboratory, and engineering firms serving the energy sector—actively seek candidates with formal PM credentials. PMP certification is frequently listed as a preferred qualification in local job postings and often influences compensation decisions, particularly for roles managing large, complex infrastructure and research projects. The credential strengthens your profile in a regional market where energy and engineering expertise command competitive salaries.</p>"
+                },
+                {
+                    "question": "Which Knoxville employers value PMP or CAPM certification most?",
+                    "answer": "<p>Major local employers including TVA, Oak Ridge National Laboratory, Covenant Health, University of Tennessee, and manufacturing firms like Regal Rexnord regularly seek certified project managers. Healthcare systems, higher education research administration, and construction/infrastructure organizations in the Knoxville area view PMP as a strong differentiator. While certification is not always mandatory, it is increasingly preferred and can accelerate advancement in roles managing regulated or mission-critical projects.</p>"
+                },
+                {
+                    "question": "When should Knoxville professionals pursue PMP certification for career timing?",
+                    "answer": "<p>Given Knoxville's active job market in energy, healthcare, and engineering, pursuing PMP certification now positions you ahead of competition. Many local employers list the credential as preferred—not having it may delay advancement in roles tied to TVA, ORNL, hospital systems, or KUB projects. If you're planning a move into project management or a promotion within your current organization, certification timing matters; the sooner you earn it, the sooner you qualify for higher-visibility roles and compensation ranges the market rewards.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP training from my workplace in Knoxville?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP training is delivered live-virtual nationwide, meaning you can attend from your office, home, or anywhere with a reliable internet connection—no travel required. This flexibility is ideal for Knoxville professionals balancing full-time roles at TVA, healthcare facilities, manufacturing plants, or other major local employers. You participate in real-time instruction and Q&A while managing your work schedule.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:51.919721Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "1684d504c3f092a4",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Knoxville's project management demand is anchored by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside growth in healthcare, manufacturing, and infrastructure development. Major initiatives like TVA's Clinch River small modular reactor project and the University of Tennessee's stadium renovation create steady opportunities for skilled program managers. Granite PM Academy delivers live-virtual PMP Certification Training to Knoxville professionals, equipping them for advancement across these high-demand sectors.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:01:53.444090Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "a65bf5f61e6b9690",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Knoxville",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Knoxville",
+                    "url": "/pmp-bootcamp-knoxville-tn/"
+                },
+                {
+                    "label": "CAPM Certification Training Knoxville",
+                    "url": "/capm-certification-training-knoxville-tn/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Knoxville",
+                    "url": "/ai-training-knoxville-tn/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Energy and nuclear research (TVA, Oak Ridge National Laboratory)",
-      "Healthcare and hospital systems",
-      "Higher education and research administration",
-      "Manufacturing and industrial engineering",
-      "Logistics, distribution, and transportation",
-      "Construction and infrastructure development"
-    ],
-    "top_employers": [
-      "Tennessee Valley Authority (TVA)",
-      "Oak Ridge National Laboratory (ORNL)",
-      "University of Tennessee, Knoxville",
-      "Covenant Health",
-      "University of Tennessee Medical Center",
-      "Knoxville Utilities Board (KUB)",
-      "Pilot Company",
-      "Regal Rexnord",
-      "City of Knoxville",
-      "Knox County Schools"
-    ],
-    "salary_note": "Project management salaries in the Knoxville area tend to be competitive with the broader Southeast region, particularly for roles tied to energy, engineering, and healthcare sectors, though exact figures vary widely by industry and experience level. Employers increasingly favor candidates with formal PM training or certification when setting compensation.",
-    "market_blurb": "Knoxville's project management job market is anchored by its strong presence in energy and nuclear research through TVA and Oak Ridge National Laboratory, along with major healthcare systems and the University of Tennessee. Growth in manufacturing, logistics, and infrastructure development continues to create steady demand for skilled project and program managers across both public and private sectors.",
-    "notable_projects": [
-      "TVA's Clinch River Nuclear Site small modular reactor development near Oak Ridge",
-      "Oak Ridge National Laboratory's ongoing exascale computing and research facility expansions",
-      "University of Tennessee's Neyland Stadium multi-phase renovation project",
-      "City of Knoxville's East Riverfront and downtown redevelopment initiatives"
-    ],
-    "credential_demand": "PMP certification is generally viewed as a strong differentiator among Knoxville-area employers, especially within engineering, energy, and healthcare organizations that manage large, complex projects. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
-    "_researched": 1,
-    "city_spotlight": "<p>Knoxville's project management market is anchored by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside major healthcare systems and University of Tennessee—creating steady demand for skilled PMs across public and private sectors. From the Clinch River small modular reactor development to downtown redevelopment initiatives, infrastructure and complex programs drive certification value here. Granite PM Academy delivers live-virtual PMP® Certification to Knoxville professionals, with flexible scheduling and PMI-aligned curriculum designed for working adults.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-knoxville-tn.webp",
-    "city_image_alt": "Four-market-square-tn1 in Knoxville, TN",
-    "city_image_credit": "Photo: Brian Stansberry, CC BY 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Four-market-square-tn1.jpg"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Knoxville's energy research, healthcare, and infrastructure sectors depend on skilled project managers to drive complex, high-stakes initiatives at organizations like TVA, ORNL, and Covenant Health. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn this globally recognized credential on your schedule. A PMP opens doors to leadership roles and competitive compensation across Knoxville's largest employers and growing project-intensive industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c76e14d411.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:28.119947Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ca5f519a6da7f105",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-knoxville-tn/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Knoxville, TN, PMP exam prep Knoxville, PMP course Knoxville TN, project management certification Knoxville, TN, PMI PMP training Knoxville",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\",\r\n      \"name\": \"PMP Certification Training in Knoxville, TN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Knoxville, TN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Knoxville, TN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#course\",\r\n      \"name\": \"PMP Certification Training in Knoxville, TN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Knoxville, TN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Knoxville's Project Management Professionals",
-      "text": "<p>Knoxville's project management landscape is defined by its world-class presence in energy and nuclear research through the Tennessee Valley Authority and Oak Ridge National Laboratory, sectors where the PMP® credential carries both competitive weight and operational necessity. Beyond these anchors, healthcare systems, higher education institutions, manufacturing firms, and infrastructure projects across the region consistently seek professionals who can demonstrate mastery of standardized project delivery frameworks. For Knoxville-area managers and aspiring leaders, PMP® Certification Training translates directly into career advancement and salary growth, particularly within the public and private organizations that drive the local economy.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit working professionals' schedules while meeting all contact-hour requirements for PMI eligibility. Our instructors are active certified practitioners who bring real-world experience to every module, ensuring that coursework connects to challenges you'll face in your role. Whether you're advancing within a Knoxville-based employer or expanding your credentials for broader opportunity, our structured curriculum, exam-focused preparation, and ongoing support position you to pass the PMP® exam and step into your next career milestone with confidence.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:31.977574Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "d4ed205e5ef1f73c",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Knoxville's Energy and Research Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP Certification Training meets all PMI requirements and contact-hour standards. Your credential carries full weight with TVA, ORNL, and regional employers who verify training legitimacy during hiring and promotion decisions."
-        },
-        {
-          "heading": "Live-Virtual Instruction on Your Schedule",
-          "text": "Attend instructor-led PMP training entirely online in real time, satisfying PMI contact-hour requirements without commuting or relocating. Knoxville professionals in healthcare, manufacturing, and infrastructure roles stay employed while completing the certification coursework that employers demand."
-        },
-        {
-          "heading": "Active Practitioners Teaching the Credential",
-          "text": "Your instructors are certified PMP professionals who apply project management daily in their own roles. They bring current real-world problem-solving into every session, moving beyond textbook frameworks to show how Knoxville-area industries actually run complex programs."
-        },
-        {
-          "heading": "Credential Built for Knoxville's Growth Sectors",
-          "text": "The PMP credential is highly valued across Knoxville's largest employers—TVA, ORNL, Covenant Health, UT Knoxville, and Regal Rexnord all hire and advance project managers with this certification. Energy, healthcare, infrastructure, and manufacturing roles increasingly require or prefer PMP-certified professionals."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:36.476787Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "48c9af482e27dd29",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Knoxville's Energy Sector",
-      "text": "<p>Knoxville's project management job market is shaped by major employers in energy research, healthcare, higher education, and manufacturing. The Tennessee Valley Authority (TVA) and Oak Ridge National Laboratory (ORNL) anchor the region's demand for skilled project managers overseeing large-scale initiatives—including ORNL's exascale computing and research facility expansions, and TVA's Clinch River Nuclear Site small modular reactor development near Oak Ridge. Beyond these anchor industries, the University of Tennessee, Covenant Health, Regal Rexnord, and the City of Knoxville's East Riverfront redevelopment all actively recruit certified project professionals to lead complex, multi-phase work. These employers consistently seek candidates with formal project management credentials when filling roles that require scope, schedule, and resource management at scale.</p><p>The PMP® credential carries particular weight in Knoxville's engineering, energy, and healthcare sectors, where employers increasingly list it as a preferred qualification in job postings and factor it into compensation decisions. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these opportunities and to command stronger compensation packages as your career advances—especially in roles tied to research, nuclear technology, and large infrastructure projects unique to this region. The combination of formal training, exam preparation, and the PMI® credential itself signals to local hiring managers that you can manage the complexity Knoxville's largest employers demand.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:40.580952Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "5abdb3fe22095af1",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP® Certification in Knoxville",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's eligibility criteria—based on your degree level and hours leading projects—to confirm you meet the baseline. Granite PM Academy's advisors can clarify requirements so you move forward with confidence."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® Certification Training course. Attend sessions from your Knoxville location at times that fit your schedule. Our active certified practitioners guide you through the PMBOK® Guide framework and real-world scenarios relevant to project leaders across energy, healthcare, manufacturing, and construction sectors."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing your 35-hour course, submit your formal PMI application and required documentation through PMI's online portal. Pay the examination fee at that time. Granite PM Academy provides step-by-step guidance to ensure your application is complete and submitted correctly."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor Q&A sessions—to build confidence before test day. Schedule your exam through Pearson VUE at a testing center convenient to you. Our support continues through your final review."
-        },
-        {
-          "heading": "Maintain Your PMP® Credential",
-          "text": "The PMP® credential is valid for three years. During each renewal cycle, earn professional development units (PDUs) through training, volunteer work, or continued education. Renew your credential by submitting your PDUs and renewal fee to PMI before expiration."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:45.764863Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "f9ae94fd9b92678d",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Knoxville project managers in energy and nuclear research?",
-          "answer": "<p>Yes. Knoxville's dominant employers—TVA, Oak Ridge National Laboratory, and engineering firms serving the energy sector—actively seek candidates with formal PM credentials. PMP certification is frequently listed as a preferred qualification in local job postings and often influences compensation decisions, particularly for roles managing large, complex infrastructure and research projects. The credential strengthens your profile in a regional market where energy and engineering expertise command competitive salaries.</p>"
-        },
-        {
-          "question": "Which Knoxville employers value PMP or CAPM certification most?",
-          "answer": "<p>Major local employers including TVA, Oak Ridge National Laboratory, Covenant Health, University of Tennessee, and manufacturing firms like Regal Rexnord regularly seek certified project managers. Healthcare systems, higher education research administration, and construction/infrastructure organizations in the Knoxville area view PMP as a strong differentiator. While certification is not always mandatory, it is increasingly preferred and can accelerate advancement in roles managing regulated or mission-critical projects.</p>"
-        },
-        {
-          "question": "When should Knoxville professionals pursue PMP certification for career timing?",
-          "answer": "<p>Given Knoxville's active job market in energy, healthcare, and engineering, pursuing PMP certification now positions you ahead of competition. Many local employers list the credential as preferred—not having it may delay advancement in roles tied to TVA, ORNL, hospital systems, or KUB projects. If you're planning a move into project management or a promotion within your current organization, certification timing matters; the sooner you earn it, the sooner you qualify for higher-visibility roles and compensation ranges the market rewards.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP training from my workplace in Knoxville?",
-          "answer": "<p>Yes. Granite PM Academy's PMP training is delivered live-virtual nationwide, meaning you can attend from your office, home, or anywhere with a reliable internet connection—no travel required. This flexibility is ideal for Knoxville professionals balancing full-time roles at TVA, healthcare facilities, manufacturing plants, or other major local employers. You participate in real-time instruction and Q&A while managing your work schedule.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:51.919721Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "1684d504c3f092a4",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Knoxville's project management demand is anchored by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside growth in healthcare, manufacturing, and infrastructure development. Major initiatives like TVA's Clinch River small modular reactor project and the University of Tennessee's stadium renovation create steady opportunities for skilled program managers. Granite PM Academy delivers live-virtual PMP Certification Training to Knoxville professionals, equipping them for advancement across these high-demand sectors.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:01:53.444090Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "a65bf5f61e6b9690",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-knoxville-tn/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Knoxville, TN, PMP exam prep Knoxville, PMP course Knoxville TN, project management certification Knoxville, TN, PMI PMP training Knoxville",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\",\r\n      \"name\": \"PMP Certification Training in Knoxville, TN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Knoxville, TN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Knoxville, TN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#course\",\r\n      \"name\": \"PMP Certification Training in Knoxville, TN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Knoxville, TN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-knoxville-tn/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:51:06+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

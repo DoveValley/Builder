@@ -1,404 +1,437 @@
 {
-  "template_id": "tpl_cpmai_certification_training_city",
-  "city_id": "west-palm-beach-fl",
-  "slug": "ai-training-west-palm-beach-fl",
-  "title": "PMI-CPMAI Certification Training {city}",
-  "city_vars": {
-    "id": "west-palm-beach-fl",
-    "city": "West Palm Beach",
-    "state": "Florida",
-    "SS": "FL",
-    "city_slug": "west-palm-beach-fl",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier2"
+    "template_id": "tpl_cpmai_certification_training_city",
+    "city_id": "west-palm-beach-fl",
+    "slug": "ai-training-west-palm-beach-fl",
+    "title": "PMI-CPMAI Certification Training {city}",
+    "city_vars": {
+        "id": "west-palm-beach-fl",
+        "city": "West Palm Beach",
+        "state": "Florida",
+        "SS": "FL",
+        "city_slug": "west-palm-beach-fl",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier2"
+        ],
+        "industries": [
+            "Finance & Investment Management",
+            "Healthcare",
+            "Government & Public Administration",
+            "Real Estate & Construction",
+            "Technology",
+            "Hospitality & Tourism"
+        ],
+        "top_employers": [
+            "Florida Power & Light (FPL)",
+            "Tenet Healthcare / Palm Beach Health Network",
+            "HCA Florida JFK Medical Center",
+            "South Florida Water Management District",
+            "City of West Palm Beach",
+            "Palm Beach County Government",
+            "Palm Beach County School District",
+            "Related Companies",
+            "Goldman Sachs (West Palm Beach office)",
+            "Elliott Management",
+            "Comcast",
+            "Bank of America"
+        ],
+        "salary_note": "Project management compensation in West Palm Beach has become increasingly competitive as major financial firms and construction developers expand their local presence, pushing demand for experienced, certified PMs higher than in many other Florida metros. Exact pay varies widely by industry and certification level, but PMP-credentialed candidates generally command a premium over non-certified peers.",
+        "market_blurb": "West Palm Beach's project management job market has grown alongside its emergence as a hub for finance, healthcare, and downtown real estate development. With an influx of investment firms relocating to the area alongside established healthcare systems and utility companies, employers increasingly seek trained project and program managers to oversee complex initiatives. The city's ongoing downtown redevelopment and infrastructure investments continue to fuel steady demand for PM talent.",
+        "notable_projects": [
+            "Brightline West Palm Beach Station and rail corridor expansion",
+            "One Flagler office tower development (Related Companies)",
+            "South Florida Water Management District Everglades restoration initiatives",
+            "City of West Palm Beach downtown waterfront redevelopment"
+        ],
+        "credential_demand": "PMP certification is increasingly favored by West Palm Beach employers in finance, healthcare, and construction, as it signals readiness to manage complex, high-stakes projects tied to the area's economic growth. Job postings in the region frequently list PMP or equivalent project management credentials as preferred or required qualifications.",
+        "_researched": 1,
+        "city_spotlight": "<p>West Palm Beach's finance and healthcare sectors are driving steady demand for skilled project managers. Major employers—from Goldman Sachs and Elliott Management to FPL, Tenet Healthcare, and the South Florida Water Management District—actively seek PMP-certified professionals to lead complex initiatives across downtown redevelopment, infrastructure, and clinical operations. Granite PM Academy delivers live-virtual PMP Certification to West Palm Beach professionals nationwide, helping you earn the credential employers here value.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-west-palm-beach-fl.webp",
+        "city_image_alt": "Map of Florida highlighting West Palm Beach.svg, FL",
+        "city_image_credit": "Photo: Wikimedia Commons",
+        "city_image_source": ""
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>West Palm Beach's finance, healthcare, and government sectors depend on skilled project managers to deliver complex initiatives on schedule and within budget. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's contact-hour education requirement, enabling you to earn this globally recognized credential while working. A PMI-CPMAI certification strengthens your candidacy for advancement across the region's largest employers and expands your earning potential in a competitive local market.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#cpmai_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_fa268dca8b.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:02.524797Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "c5c463e11c15064b",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMI-CPMAI Certification Training in West Palm Beach, FL",
+            "text": "<p>West Palm Beach's transformation into a major financial and investment hub has reshaped its project management landscape. With firms like Goldman Sachs, Elliott Management, and other investment houses establishing significant operations in the region, alongside healthcare giants such as Tenet Healthcare and HCA Florida JFK Medical Center, the demand for credentialed program and portfolio managers has accelerated. Organizations managing large-scale initiatives—from downtown redevelopment projects to complex healthcare system integrations and infrastructure investments—increasingly prioritize PMI-CPMAI certification as a marker of strategic leadership capability. For professionals in West Palm Beach seeking to advance into senior program management roles, the Certified Associate in Project Management (CAPM)® credential demonstrates foundational expertise that employers in these high-growth sectors actively value.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals. Our courses satisfy PMI's required contact hours for the credential and are taught by active certified practitioners with hands-on project experience. Whether you're early in your project management career or transitioning into program oversight, our structured program prepares you to pass the CAPM® exam and earn a credential recognized across West Palm Beach's financial services, healthcare, and construction industries. Enroll with confidence—our curriculum is built to help you achieve certification and unlock new career opportunities in your market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:06.775029Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "c2aa3f3c7df35fcf",
+            "_ai_locked": true,
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMI-CPMAI Certification Path for West Palm Beach Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Matters Here",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. This means your training hours count directly toward PMI certification eligibility. No separate documentation or appeals—your completion certificate satisfies PMI's contact-hour requirement from day one."
+                },
+                {
+                    "heading": "Live Instruction, Your Schedule",
+                    "text": "Attend live-virtual classes taught by active certified practitioners, not pre-recorded videos. Ask questions in real time, receive feedback, and complete the contact-hour requirement through synchronous instruction. Classes run evenings and weekends to fit working professionals' calendars."
+                },
+                {
+                    "heading": "Exam-Ready Support Included",
+                    "text": "Beyond classroom hours, you get exam-preparation resources: practice tests, strategy sessions, and instructor access for last-minute questions. Many graduates pass on their first attempt. Your instructors remain available after training ends to answer certification-specific concerns."
+                },
+                {
+                    "heading": "Credential Valued by West Palm Beach Employers",
+                    "text": "Finance firms, healthcare systems, government agencies, and construction companies across South Florida actively hire certified project and program managers. PMI-CPMAI demonstrates capability to FPL, Tenet Healthcare, Related Companies, and other major regional employers seeking skilled practitioners to lead complex initiatives."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:11.096291Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "9957a730b56a2774",
+            "_ai_locked": true,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "stats",
+            "stats_heading": "The AI Project Management Gap, By the Numbers",
+            "stats_heading_level": "h2",
+            "stats_bg_color": "custom",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#0d1b3e",
+            "skin": "",
+            "stats_items": [
+                {
+                    "number": "80%+",
+                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+                },
+                {
+                    "number": "2x",
+                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+                },
+                {
+                    "number": "~20%",
+                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
+                },
+                {
+                    "number": "62%",
+                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+                }
+            ]
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in West Palm Beach",
+            "text": "<p>West Palm Beach's finance and investment management sector has emerged as a major hub for certified project managers, with firms like Goldman Sachs and Elliott Management establishing significant local operations that demand skilled professionals to oversee complex, high-stakes initiatives. Beyond finance, healthcare organizations including Tenet Healthcare / Palm Beach Health Network and HCA Florida JFK Medical Center routinely seek PMP-credentialed candidates to manage clinical infrastructure and operational improvements. Government agencies and construction developers also drive consistent demand—the City of West Palm Beach's downtown waterfront redevelopment, the Brightline West Palm Beach Station expansion, and Related Companies' One Flagler office tower project all require experienced project managers who can coordinate multidisciplinary teams and deliver on timeline and budget.</p><p>Project management compensation in West Palm Beach has grown increasingly competitive as major financial firms and construction developers expand their local footprint, elevating demand for certified professionals well above many other Florida markets. PMP-credentialed candidates generally command a measurable premium over non-certified peers, and job postings across finance, healthcare, government, and construction frequently list PMP or equivalent credentials as preferred or required qualifications. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet this rising standard and advance into roles where your certification directly influences earning potential and career trajectory in West Palm Beach's dynamic, growing economy.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:19.167889Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "ef903ac1b54f80e4",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMI-CPMAI Training",
+                    "badge": "AI-FOCUSED",
+                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,495",
+                    "period": "per person",
+                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#cpmai_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What is the CPMAI certification?",
+                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                },
+                {
+                    "question": "Who should pursue the CPMAI in {city}?",
+                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                },
+                {
+                    "question": "Is there a prerequisite for the CPMAI course?",
+                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                },
+                {
+                    "question": "How is the CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                },
+                {
+                    "question": "Is this course delivered online?",
+                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Do West Palm Beach finance and healthcare employers require PMP certification?",
+                    "answer": "<p>Yes. Major employers in West Palm Beach's growing finance sector and healthcare networks—including established players in investment management and hospital systems—increasingly list PMP or equivalent credentials as preferred or required in job postings. As the region attracts more complex, high-stakes projects, certification signals to employers like these that you can manage scope, budget, and stakeholder demands at scale.</p>"
+                },
+                {
+                    "question": "Is PMI-CPMAI certification worth getting as a West Palm Beach project manager?",
+                    "answer": "<p>For West Palm Beach professionals, yes. The competitive job market here—driven by expansion in finance, real estate, healthcare, and government—has raised demand for certified PMs. PMP-credentialed candidates command a measurable premium over non-certified peers. Certification positions you to move into higher-responsibility roles and to qualify for positions that many local employers now reserve for certified or certifiable candidates.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMI-CPMAI training while working in West Palm Beach?",
+                    "answer": "<p>Absolutely. Granite PM Academy's live-virtual format lets you participate in instructor-led sessions from your office, home, or anywhere with internet—no commute, no classroom location constraints. That flexibility is especially valuable for West Palm Beach professionals managing demanding schedules across finance, healthcare, and construction roles.</p>"
+                },
+                {
+                    "question": "How does West Palm Beach's job market affect when I should pursue PMP certification?",
+                    "answer": "<p>West Palm Beach's rapid growth in finance, construction, and healthcare means demand for certified PMs is now—not later. Job postings across these industries frequently prioritize or require the credential. Starting certification sooner positions you ahead of the competition and lets you capitalize on the region's economic expansion and rising compensation expectations for credentialed professionals.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:24.740373Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "f11d881b685f331b",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>West Palm Beach's finance and investment sector, alongside major healthcare systems and downtown redevelopment initiatives, drives steady demand for credentialed project managers. Employers including Goldman Sachs, Tenet Healthcare, and the City of West Palm Beach increasingly seek trained professionals to lead complex initiatives across infrastructure and real estate projects. Granite PM Academy delivers live-virtual PMI-CPMAI® Certification Training to West Palm Beach professionals nationwide, offering flexible scheduling to fit working schedules.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:28.470644Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "c52f25a5fa831985",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in West Palm Beach",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Certification Training West Palm Beach",
+                    "url": "/pmp-certification-training-west-palm-beach-fl/"
+                },
+                {
+                    "label": "PMP Bootcamp West Palm Beach",
+                    "url": "/pmp-bootcamp-west-palm-beach-fl/"
+                },
+                {
+                    "label": "CAPM Certification Training West Palm Beach",
+                    "url": "/capm-certification-training-west-palm-beach-fl/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Lead AI Projects from {city}",
+            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#cpmai_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Finance & Investment Management",
-      "Healthcare",
-      "Government & Public Administration",
-      "Real Estate & Construction",
-      "Technology",
-      "Hospitality & Tourism"
-    ],
-    "top_employers": [
-      "Florida Power & Light (FPL)",
-      "Tenet Healthcare / Palm Beach Health Network",
-      "HCA Florida JFK Medical Center",
-      "South Florida Water Management District",
-      "City of West Palm Beach",
-      "Palm Beach County Government",
-      "Palm Beach County School District",
-      "Related Companies",
-      "Goldman Sachs (West Palm Beach office)",
-      "Elliott Management",
-      "Comcast",
-      "Bank of America"
-    ],
-    "salary_note": "Project management compensation in West Palm Beach has become increasingly competitive as major financial firms and construction developers expand their local presence, pushing demand for experienced, certified PMs higher than in many other Florida metros. Exact pay varies widely by industry and certification level, but PMP-credentialed candidates generally command a premium over non-certified peers.",
-    "market_blurb": "West Palm Beach's project management job market has grown alongside its emergence as a hub for finance, healthcare, and downtown real estate development. With an influx of investment firms relocating to the area alongside established healthcare systems and utility companies, employers increasingly seek trained project and program managers to oversee complex initiatives. The city's ongoing downtown redevelopment and infrastructure investments continue to fuel steady demand for PM talent.",
-    "notable_projects": [
-      "Brightline West Palm Beach Station and rail corridor expansion",
-      "One Flagler office tower development (Related Companies)",
-      "South Florida Water Management District Everglades restoration initiatives",
-      "City of West Palm Beach downtown waterfront redevelopment"
-    ],
-    "credential_demand": "PMP certification is increasingly favored by West Palm Beach employers in finance, healthcare, and construction, as it signals readiness to manage complex, high-stakes projects tied to the area's economic growth. Job postings in the region frequently list PMP or equivalent project management credentials as preferred or required qualifications.",
-    "_researched": 1,
-    "city_spotlight": "<p>West Palm Beach's finance and healthcare sectors are driving steady demand for skilled project managers. Major employers—from Goldman Sachs and Elliott Management to FPL, Tenet Healthcare, and the South Florida Water Management District—actively seek PMP-certified professionals to lead complex initiatives across downtown redevelopment, infrastructure, and clinical operations. Granite PM Academy delivers live-virtual PMP Certification to West Palm Beach professionals nationwide, helping you earn the credential employers here value.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>West Palm Beach's finance, healthcare, and government sectors depend on skilled project managers to deliver complex initiatives on schedule and within budget. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that satisfies PMI's contact-hour education requirement, enabling you to earn this globally recognized credential while working. A PMI-CPMAI certification strengthens your candidacy for advancement across the region's largest employers and expands your earning potential in a competitive local market.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#cpmai_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_fa268dca8b.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:02.524797Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "c5c463e11c15064b",
-      "_ai_locked": true,
-      "id": "hero_split_1",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/ai-training-west-palm-beach-fl/",
+        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "meta_keywords": "AI training West Palm Beach, FL, AI courses West Palm Beach, CPMAI certification West Palm Beach, AI project management training West Palm Beach, FL, AI for project managers West Palm Beach",
+        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+        "og_image": "",
+        "service_name": "PMI-CPMAI Certification Training",
+        "service_type": "Professional Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+        "bc_label": "PMI-CPMAI {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\",\n      \"name\": \"PMI-CPMAI Certification Training in West Palm Beach, FL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in West Palm Beach, FL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training West Palm Beach, FL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in West Palm Beach, FL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in West Palm Beach, FL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n    }\n  ]\n}",
+        "primary_keyword": "PMI-CPMAI Certification Training",
+        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMI-CPMAI Certification Training in West Palm Beach, FL",
-      "text": "<p>West Palm Beach's transformation into a major financial and investment hub has reshaped its project management landscape. With firms like Goldman Sachs, Elliott Management, and other investment houses establishing significant operations in the region, alongside healthcare giants such as Tenet Healthcare and HCA Florida JFK Medical Center, the demand for credentialed program and portfolio managers has accelerated. Organizations managing large-scale initiatives—from downtown redevelopment projects to complex healthcare system integrations and infrastructure investments—increasingly prioritize PMI-CPMAI certification as a marker of strategic leadership capability. For professionals in West Palm Beach seeking to advance into senior program management roles, the Certified Associate in Project Management (CAPM)® credential demonstrates foundational expertise that employers in these high-growth sectors actively value.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed for working professionals. Our courses satisfy PMI's required contact hours for the credential and are taught by active certified practitioners with hands-on project experience. Whether you're early in your project management career or transitioning into program oversight, our structured program prepares you to pass the CAPM® exam and earn a credential recognized across West Palm Beach's financial services, healthcare, and construction industries. Enroll with confidence—our curriculum is built to help you achieve certification and unlock new career opportunities in your market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:06.775029Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "c2aa3f3c7df35fcf",
-      "_ai_locked": true,
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMI-CPMAI Certification Path for West Palm Beach Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Matters Here",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. This means your training hours count directly toward PMI certification eligibility. No separate documentation or appeals—your completion certificate satisfies PMI's contact-hour requirement from day one."
-        },
-        {
-          "heading": "Live Instruction, Your Schedule",
-          "text": "Attend live-virtual classes taught by active certified practitioners, not pre-recorded videos. Ask questions in real time, receive feedback, and complete the contact-hour requirement through synchronous instruction. Classes run evenings and weekends to fit working professionals' calendars."
-        },
-        {
-          "heading": "Exam-Ready Support Included",
-          "text": "Beyond classroom hours, you get exam-preparation resources: practice tests, strategy sessions, and instructor access for last-minute questions. Many graduates pass on their first attempt. Your instructors remain available after training ends to answer certification-specific concerns."
-        },
-        {
-          "heading": "Credential Valued by West Palm Beach Employers",
-          "text": "Finance firms, healthcare systems, government agencies, and construction companies across South Florida actively hire certified project and program managers. PMI-CPMAI demonstrates capability to FPL, Tenet Healthcare, Related Companies, and other major regional employers seeking skilled practitioners to lead complex initiatives."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:11.096291Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "9957a730b56a2774",
-      "_ai_locked": true,
-      "id": "ai_block_2"
-    },
-    {
-      "type": "stats",
-      "stats_heading": "The AI Project Management Gap, By the Numbers",
-      "stats_heading_level": "h2",
-      "stats_bg_color": "custom",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#0d1b3e",
-      "skin": "",
-      "stats_items": [
-        {
-          "number": "80%+",
-          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-        },
-        {
-          "number": "2x",
-          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-        },
-        {
-          "number": "~20%",
-          "label": "of project managers report strong practical AI skills today — PMI, 2025"
-        },
-        {
-          "number": "62%",
-          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-        }
-      ]
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in West Palm Beach",
-      "text": "<p>West Palm Beach's finance and investment management sector has emerged as a major hub for certified project managers, with firms like Goldman Sachs and Elliott Management establishing significant local operations that demand skilled professionals to oversee complex, high-stakes initiatives. Beyond finance, healthcare organizations including Tenet Healthcare / Palm Beach Health Network and HCA Florida JFK Medical Center routinely seek PMP-credentialed candidates to manage clinical infrastructure and operational improvements. Government agencies and construction developers also drive consistent demand—the City of West Palm Beach's downtown waterfront redevelopment, the Brightline West Palm Beach Station expansion, and Related Companies' One Flagler office tower project all require experienced project managers who can coordinate multidisciplinary teams and deliver on timeline and budget.</p><p>Project management compensation in West Palm Beach has grown increasingly competitive as major financial firms and construction developers expand their local footprint, elevating demand for certified professionals well above many other Florida markets. PMP-credentialed candidates generally command a measurable premium over non-certified peers, and job postings across finance, healthcare, government, and construction frequently list PMP or equivalent credentials as preferred or required qualifications. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet this rising standard and advance into roles where your certification directly influences earning potential and career trajectory in West Palm Beach's dynamic, growing economy.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:19.167889Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "ef903ac1b54f80e4",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMI-CPMAI Training",
-          "badge": "AI-FOCUSED",
-          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,495",
-          "period": "per person",
-          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#cpmai_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What is the CPMAI certification?",
-          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-        },
-        {
-          "question": "Who should pursue the CPMAI in {city}?",
-          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-        },
-        {
-          "question": "Is there a prerequisite for the CPMAI course?",
-          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-        },
-        {
-          "question": "How is the CPMAI different from the PMP?",
-          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-        },
-        {
-          "question": "Is this course delivered online?",
-          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-        },
-        {
-          "question": "Do West Palm Beach finance and healthcare employers require PMP certification?",
-          "answer": "<p>Yes. Major employers in West Palm Beach's growing finance sector and healthcare networks—including established players in investment management and hospital systems—increasingly list PMP or equivalent credentials as preferred or required in job postings. As the region attracts more complex, high-stakes projects, certification signals to employers like these that you can manage scope, budget, and stakeholder demands at scale.</p>"
-        },
-        {
-          "question": "Is PMI-CPMAI certification worth getting as a West Palm Beach project manager?",
-          "answer": "<p>For West Palm Beach professionals, yes. The competitive job market here—driven by expansion in finance, real estate, healthcare, and government—has raised demand for certified PMs. PMP-credentialed candidates command a measurable premium over non-certified peers. Certification positions you to move into higher-responsibility roles and to qualify for positions that many local employers now reserve for certified or certifiable candidates.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMI-CPMAI training while working in West Palm Beach?",
-          "answer": "<p>Absolutely. Granite PM Academy's live-virtual format lets you participate in instructor-led sessions from your office, home, or anywhere with internet—no commute, no classroom location constraints. That flexibility is especially valuable for West Palm Beach professionals managing demanding schedules across finance, healthcare, and construction roles.</p>"
-        },
-        {
-          "question": "How does West Palm Beach's job market affect when I should pursue PMP certification?",
-          "answer": "<p>West Palm Beach's rapid growth in finance, construction, and healthcare means demand for certified PMs is now—not later. Job postings across these industries frequently prioritize or require the credential. Starting certification sooner positions you ahead of the competition and lets you capitalize on the region's economic expansion and rising compensation expectations for credentialed professionals.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:24.740373Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "f11d881b685f331b",
-      "_ai_locked": true,
-      "id": "faq_two_col_1",
-      "_ai_injected_count": 4
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>West Palm Beach's finance and investment sector, alongside major healthcare systems and downtown redevelopment initiatives, drives steady demand for credentialed project managers. Employers including Goldman Sachs, Tenet Healthcare, and the City of West Palm Beach increasingly seek trained professionals to lead complex initiatives across infrastructure and real estate projects. Granite PM Academy delivers live-virtual PMI-CPMAI® Certification Training to West Palm Beach professionals nationwide, offering flexible scheduling to fit working schedules.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-10-29T04:43:28.470644Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "c52f25a5fa831985",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Lead AI Projects from {city}",
-      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#cpmai_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/ai-training-west-palm-beach-fl/",
-    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "meta_keywords": "AI training West Palm Beach, FL, AI courses West Palm Beach, CPMAI certification West Palm Beach, AI project management training West Palm Beach, FL, AI for project managers West Palm Beach",
-    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-    "og_image": "",
-    "service_name": "PMI-CPMAI Certification Training",
-    "service_type": "Professional Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-    "bc_label": "PMI-CPMAI {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\",\n      \"name\": \"PMI-CPMAI Certification Training in West Palm Beach, FL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in West Palm Beach, FL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training West Palm Beach, FL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in West Palm Beach, FL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in West Palm Beach, FL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-west-palm-beach-fl/\"\n    }\n  ]\n}",
-    "primary_keyword": "PMI-CPMAI Certification Training",
-    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T23:38:43+00:00",
-  "template_version": "e367ab35f866563e4b67165c4814e125"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:01+00:00",
+    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
 }

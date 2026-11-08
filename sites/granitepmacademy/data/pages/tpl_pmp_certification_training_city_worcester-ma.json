@@ -1,418 +1,447 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "worcester-ma",
-  "slug": "pmp-certification-training-worcester-ma",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "worcester-ma",
-    "city": "Worcester",
-    "state": "Massachusetts",
-    "SS": "MA",
-    "city_slug": "worcester-ma",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier4"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "worcester-ma",
+    "slug": "pmp-certification-training-worcester-ma",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "worcester-ma",
+        "city": "Worcester",
+        "state": "Massachusetts",
+        "SS": "MA",
+        "city_slug": "worcester-ma",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier4"
+        ],
+        "industries": [
+            "Healthcare and life sciences",
+            "Higher education and research",
+            "Insurance and financial services",
+            "Advanced manufacturing and materials science",
+            "Biotechnology and biomanufacturing",
+            "Construction and real estate development"
+        ],
+        "top_employers": [
+            "UMass Memorial Health",
+            "UMass Chan Medical School",
+            "Saint-Gobain North America",
+            "The Hanover Insurance Group",
+            "Reliant Medical Group",
+            "Worcester Polytechnic Institute (WPI)",
+            "Clark University",
+            "Worcester State University",
+            "City of Worcester",
+            "Fallon Health",
+            "MAPFRE USA",
+            "UniBank"
+        ],
+        "salary_note": "Project manager compensation in the Worcester area tends to track closely with the broader Boston-Worcester corridor, with healthcare, insurance, and higher-education sectors offering competitive packages for PMP-certified candidates; exact figures vary widely by industry and experience level.",
+        "market_blurb": "Worcester's project management job market is anchored by its strong healthcare, higher education, and insurance sectors, with major institutions like UMass Memorial Health and UMass Chan Medical School driving steady demand for skilled program and project managers. The city's ongoing revitalization, including biotech and manufacturing growth, has created additional opportunities for professionals who can manage complex, cross-functional initiatives. As a regional hub between Boston and Springfield, Worcester continues to attract employers seeking project management talent across both public and private sectors.",
+        "notable_projects": [
+            "Polar Park and the Worcester Red Sox ballpark district development",
+            "CitySquare mixed-use redevelopment in downtown Worcester",
+            "Union Station renovation and Worcester Regional Transit Authority hub improvements",
+            "WPI's Foisie Innovation Studio and campus expansion projects"
+        ],
+        "credential_demand": "PMP certification is increasingly viewed as a valuable differentiator among Worcester-area employers, particularly in healthcare, insurance, and higher-education institutions that manage large, multi-year initiatives. Local job postings for project and program manager roles frequently list PMP or equivalent certification as preferred or required, reflecting broader regional demand for standardized project management expertise.",
+        "_researched": 1,
+        "city_spotlight": "<p>Worcester's healthcare and life sciences sector—anchored by UMass Memorial Health and UMass Chan Medical School—fuels consistent demand for skilled project managers navigating complex, regulated initiatives. Add the city's biotech growth and major infrastructure projects like Union Station's renovation, and professionals with PMP® certification find clear pathways to advancement across multiple industries. Granite PM Academy delivers live-virtual PMP Certification training to Worcester professionals nationwide, with flexible scheduling designed for working adults.</p>"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Worcester's healthcare, insurance, and advanced manufacturing sectors rely on skilled project managers to drive complex initiatives across clinical systems, enterprise technology, and production environments. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, allowing you to earn your credential on a schedule that fits your role. The PMP credential positions you competitively for project leadership roles across Worcester's major employers and expands your earning potential in a market where certification drives advancement.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1679818cd2.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:04.228892Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "01a36740fc729bd5",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Worcester's Healthcare and Project Management Leaders",
+            "text": "<p>UMass Memorial Health and UMass Chan Medical School anchor Worcester's project management landscape, where healthcare administrators, clinical program directors, and operations leaders manage initiatives that directly affect patient outcomes and institutional growth. In this high-stakes environment, the Project Management Professional (PMP) credential signals mastery of standardized practices that healthcare organizations increasingly demand. Whether you're coordinating a facility expansion, leading a digital transformation, or managing cross-departmental clinical initiatives, the PMP equips you with the frameworks and language that command respect across Worcester's healthcare sector—and positions you competitively as the city's biotech, insurance, and higher education employers also expand their project management expectations.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that meets the Project Management Institute's contact-hour requirements without requiring you to travel or rearrange your schedule. Our instructors are active certified practitioners who teach real-world application, not theory alone. You'll complete the curriculum at your own pace across a flexible timeline, prepare systematically for the PMP exam, and join a growing cohort of Worcester-area professionals who have earned this credential to advance their careers. When you're ready to sit for the exam, you'll have both the knowledge and the confidence that only rigorous, guided preparation can provide.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:08.326250Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "073ad87ccc8cd206",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Worcester's Healthcare and Life Sciences Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP® training meets all PMI contact-hour requirements, ensuring your certification is recognized by employers across Worcester's major healthcare systems, insurers, and manufacturing firms."
+                },
+                {
+                    "heading": "Live-Virtual Instruction Fits Working Schedules",
+                    "text": "Attend instructor-led PMP® training sessions live online—no pre-recorded videos, no self-paced delays. Granite's synchronous format lets you earn required contact hours while working full-time at UMass Memorial, WPI, Saint-Gobain, or elsewhere in the region."
+                },
+                {
+                    "heading": "Active Practitioners Teach Real-World Methods",
+                    "text": "Your instructors are working certified professionals—not trainers who read slides. They bring current PMP® exam knowledge and hands-on project experience, preparing you to pass the exam and lead complex initiatives immediately."
+                },
+                {
+                    "heading": "Credential Demanded Across Worcester's Top Industries",
+                    "text": "Healthcare systems, insurance firms, advanced manufacturers, and research universities in Worcester actively hire PMP®-certified project managers. The credential strengthens your candidacy at employers like UMass Memorial, The Hanover, Fallon Health, and WPI—and commands higher roles and compensation."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:12.748996Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "096742b4034dd351",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Worcester's Growing Sectors",
+            "text": "<p>Healthcare and higher education anchor Worcester's project management job market. UMass Memorial Health and UMass Chan Medical School manage complex clinical, research, and infrastructure initiatives that demand skilled project leadership. Beyond the medical ecosystem, The Hanover Insurance Group, MAPFRE USA, and Fallon Health employ certified project managers across enterprise programs and operational transformations. Local development is equally visible: the Union Station renovation and Worcester Regional Transit Authority hub improvements represent the kind of multi-phase, cross-functional initiatives where PMP-certified professionals drive results. These employers and projects signal sustained demand for standardized project management expertise in Worcester's core industries.</p><p>PMP certification carries weight in Worcester's competitive professional market, particularly among healthcare systems, insurers, and higher-education institutions that oversee large-scale, multi-year programs. Compensation for certified project managers in the Worcester area tracks with the broader Boston-Worcester corridor, with healthcare and insurance sectors offering competitive packages that reward the credential. Earning your PMP through Granite PM Academy's live-virtual program positions you to differentiate yourself in local hiring processes where PMP or equivalent certification increasingly appears as preferred or required. Completing the training on your schedule—without geographic constraints—lets you advance your career in Worcester while staying employed and engaged in your current role.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:16.830341Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "f98cf1b361bbf4fd",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Worcester",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's baseline requirements—typically a secondary degree plus years of professional project experience, or a four-year degree with fewer years required. Gather your credentials and work history before applying."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend sessions from anywhere, on a schedule that fits your job at healthcare, insurance, higher education, or advanced-manufacturing employers across Worcester. Our active certified practitioners deliver real-world examples throughout the curriculum."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your contact hours, submit your formal PMI application with documentation of your education and project experience. Pay the PMI examination fee. PMI will review and approve your application before you schedule your exam appointment."
+                },
+                {
+                    "heading": "Prepare and Pass the PMP Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor support—to build confidence. Schedule your exam at a testing center convenient to you. You'll answer questions on project initiation, planning, execution, monitoring, and closing across all industry contexts."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After earning your PMP, commit to PMI's three-year renewal cycle. Earn Professional Development Units (PDUs) by taking courses, attending conferences, mentoring, or publishing. Renew on schedule to keep your credential active and recognized by employers in your local job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:22.055664Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "fe5598f13f0f33fd",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for project managers in Worcester?",
+                    "answer": "<p>Yes. Worcester's largest employers—UMass Memorial Health, UMass Chan Medical School, Saint-Gobain, and The Hanover Insurance Group—increasingly list PMP or equivalent certification as preferred or required in job postings for project and program manager roles. Healthcare systems and insurance firms managing large, multi-year initiatives particularly value the credential as a standardized differentiator. Local demand for certified project managers continues to grow across healthcare, higher education, and financial services sectors.</p>"
+                },
+                {
+                    "question": "Which Worcester employers hire certified project managers most often?",
+                    "answer": "<p>Healthcare and higher education dominate Worcester's certified project manager hiring. UMass Memorial Health, UMass Chan Medical School, and Reliant Medical Group manage complex clinical and research initiatives requiring structured project management. Insurance firms including The Hanover Insurance Group, Fallon Health, and MAPFRE USA also seek PMP-certified professionals for enterprise programs. Worcester Polytechnic Institute, Clark University, and Worcester State University hire certified project managers for capital projects and research administration.</p>"
+                },
+                {
+                    "question": "Do Worcester project managers earn more with PMP certification?",
+                    "answer": "<p>Project manager compensation in the Worcester area tracks closely with the Boston-Worcester corridor, and PMP certification typically strengthens earning potential—particularly in healthcare, insurance, and higher-education sectors where the credential is most valued. Actual salary varies widely by industry, employer, and experience level, but certified professionals in these sectors often command competitive packages relative to non-certified peers in similar roles.</p>"
+                },
+                {
+                    "question": "Can I take PMP training while working full-time in Worcester?",
+                    "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, so you can attend from your workplace, home, or any location with internet access. This format suits Worcester professionals in healthcare systems, insurance offices, and university settings who need flexible scheduling around full-time project management responsibilities without commuting to a classroom.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:27.321518Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "0a734323203ac3be",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Worcester's healthcare and life sciences sector—anchored by UMass Memorial Health and UMass Chan Medical School—fuels steady demand for skilled project managers who can navigate complex clinical and research initiatives. The city's revitalization wave, from Polar Park's development to downtown redevelopment projects, has expanded opportunities across construction, biotech, and advanced manufacturing. Granite PM Academy delivers live-virtual PMP Certification Training to Worcester professionals seeking to advance their credentials and careers in this growing regional hub.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:05:28.938890Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "da67116e826b2a54",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Worcester",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Worcester",
+                    "url": "/pmp-bootcamp-worcester-ma/"
+                },
+                {
+                    "label": "CAPM Certification Training Worcester",
+                    "url": "/capm-certification-training-worcester-ma/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Worcester",
+                    "url": "/ai-training-worcester-ma/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Healthcare and life sciences",
-      "Higher education and research",
-      "Insurance and financial services",
-      "Advanced manufacturing and materials science",
-      "Biotechnology and biomanufacturing",
-      "Construction and real estate development"
-    ],
-    "top_employers": [
-      "UMass Memorial Health",
-      "UMass Chan Medical School",
-      "Saint-Gobain North America",
-      "The Hanover Insurance Group",
-      "Reliant Medical Group",
-      "Worcester Polytechnic Institute (WPI)",
-      "Clark University",
-      "Worcester State University",
-      "City of Worcester",
-      "Fallon Health",
-      "MAPFRE USA",
-      "UniBank"
-    ],
-    "salary_note": "Project manager compensation in the Worcester area tends to track closely with the broader Boston-Worcester corridor, with healthcare, insurance, and higher-education sectors offering competitive packages for PMP-certified candidates; exact figures vary widely by industry and experience level.",
-    "market_blurb": "Worcester's project management job market is anchored by its strong healthcare, higher education, and insurance sectors, with major institutions like UMass Memorial Health and UMass Chan Medical School driving steady demand for skilled program and project managers. The city's ongoing revitalization, including biotech and manufacturing growth, has created additional opportunities for professionals who can manage complex, cross-functional initiatives. As a regional hub between Boston and Springfield, Worcester continues to attract employers seeking project management talent across both public and private sectors.",
-    "notable_projects": [
-      "Polar Park and the Worcester Red Sox ballpark district development",
-      "CitySquare mixed-use redevelopment in downtown Worcester",
-      "Union Station renovation and Worcester Regional Transit Authority hub improvements",
-      "WPI's Foisie Innovation Studio and campus expansion projects"
-    ],
-    "credential_demand": "PMP certification is increasingly viewed as a valuable differentiator among Worcester-area employers, particularly in healthcare, insurance, and higher-education institutions that manage large, multi-year initiatives. Local job postings for project and program manager roles frequently list PMP or equivalent certification as preferred or required, reflecting broader regional demand for standardized project management expertise.",
-    "_researched": 1,
-    "city_spotlight": "<p>Worcester's healthcare and life sciences sector—anchored by UMass Memorial Health and UMass Chan Medical School—fuels consistent demand for skilled project managers navigating complex, regulated initiatives. Add the city's biotech growth and major infrastructure projects like Union Station's renovation, and professionals with PMP® certification find clear pathways to advancement across multiple industries. Granite PM Academy delivers live-virtual PMP Certification training to Worcester professionals nationwide, with flexible scheduling designed for working adults.</p>"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Worcester's healthcare, insurance, and advanced manufacturing sectors rely on skilled project managers to drive complex initiatives across clinical systems, enterprise technology, and production environments. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, allowing you to earn your credential on a schedule that fits your role. The PMP credential positions you competitively for project leadership roles across Worcester's major employers and expands your earning potential in a market where certification drives advancement.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1679818cd2.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:04.228892Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "01a36740fc729bd5",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-worcester-ma/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Worcester, MA, PMP exam prep Worcester, PMP course Worcester MA, project management certification Worcester, MA, PMI PMP training Worcester",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\",\r\n      \"name\": \"PMP Certification Training in Worcester, MA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Worcester, MA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Worcester, MA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#course\",\r\n      \"name\": \"PMP Certification Training in Worcester, MA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Worcester, MA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Worcester's Healthcare and Project Management Leaders",
-      "text": "<p>UMass Memorial Health and UMass Chan Medical School anchor Worcester's project management landscape, where healthcare administrators, clinical program directors, and operations leaders manage initiatives that directly affect patient outcomes and institutional growth. In this high-stakes environment, the Project Management Professional (PMP) credential signals mastery of standardized practices that healthcare organizations increasingly demand. Whether you're coordinating a facility expansion, leading a digital transformation, or managing cross-departmental clinical initiatives, the PMP equips you with the frameworks and language that command respect across Worcester's healthcare sector—and positions you competitively as the city's biotech, insurance, and higher education employers also expand their project management expectations.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that meets the Project Management Institute's contact-hour requirements without requiring you to travel or rearrange your schedule. Our instructors are active certified practitioners who teach real-world application, not theory alone. You'll complete the curriculum at your own pace across a flexible timeline, prepare systematically for the PMP exam, and join a growing cohort of Worcester-area professionals who have earned this credential to advance their careers. When you're ready to sit for the exam, you'll have both the knowledge and the confidence that only rigorous, guided preparation can provide.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:08.326250Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "073ad87ccc8cd206",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Worcester's Healthcare and Life Sciences Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMP® training meets all PMI contact-hour requirements, ensuring your certification is recognized by employers across Worcester's major healthcare systems, insurers, and manufacturing firms."
-        },
-        {
-          "heading": "Live-Virtual Instruction Fits Working Schedules",
-          "text": "Attend instructor-led PMP® training sessions live online—no pre-recorded videos, no self-paced delays. Granite's synchronous format lets you earn required contact hours while working full-time at UMass Memorial, WPI, Saint-Gobain, or elsewhere in the region."
-        },
-        {
-          "heading": "Active Practitioners Teach Real-World Methods",
-          "text": "Your instructors are working certified professionals—not trainers who read slides. They bring current PMP® exam knowledge and hands-on project experience, preparing you to pass the exam and lead complex initiatives immediately."
-        },
-        {
-          "heading": "Credential Demanded Across Worcester's Top Industries",
-          "text": "Healthcare systems, insurance firms, advanced manufacturers, and research universities in Worcester actively hire PMP®-certified project managers. The credential strengthens your candidacy at employers like UMass Memorial, The Hanover, Fallon Health, and WPI—and commands higher roles and compensation."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:12.748996Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "096742b4034dd351",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Worcester's Growing Sectors",
-      "text": "<p>Healthcare and higher education anchor Worcester's project management job market. UMass Memorial Health and UMass Chan Medical School manage complex clinical, research, and infrastructure initiatives that demand skilled project leadership. Beyond the medical ecosystem, The Hanover Insurance Group, MAPFRE USA, and Fallon Health employ certified project managers across enterprise programs and operational transformations. Local development is equally visible: the Union Station renovation and Worcester Regional Transit Authority hub improvements represent the kind of multi-phase, cross-functional initiatives where PMP-certified professionals drive results. These employers and projects signal sustained demand for standardized project management expertise in Worcester's core industries.</p><p>PMP certification carries weight in Worcester's competitive professional market, particularly among healthcare systems, insurers, and higher-education institutions that oversee large-scale, multi-year programs. Compensation for certified project managers in the Worcester area tracks with the broader Boston-Worcester corridor, with healthcare and insurance sectors offering competitive packages that reward the credential. Earning your PMP through Granite PM Academy's live-virtual program positions you to differentiate yourself in local hiring processes where PMP or equivalent certification increasingly appears as preferred or required. Completing the training on your schedule—without geographic constraints—lets you advance your career in Worcester while staying employed and engaged in your current role.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:16.830341Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "f98cf1b361bbf4fd",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Worcester",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's baseline requirements—typically a secondary degree plus years of professional project experience, or a four-year degree with fewer years required. Gather your credentials and work history before applying."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend sessions from anywhere, on a schedule that fits your job at healthcare, insurance, higher education, or advanced-manufacturing employers across Worcester. Our active certified practitioners deliver real-world examples throughout the curriculum."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing your contact hours, submit your formal PMI application with documentation of your education and project experience. Pay the PMI examination fee. PMI will review and approve your application before you schedule your exam appointment."
-        },
-        {
-          "heading": "Prepare and Pass the PMP Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor support—to build confidence. Schedule your exam at a testing center convenient to you. You'll answer questions on project initiation, planning, execution, monitoring, and closing across all industry contexts."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After earning your PMP, commit to PMI's three-year renewal cycle. Earn Professional Development Units (PDUs) by taking courses, attending conferences, mentoring, or publishing. Renew on schedule to keep your credential active and recognized by employers in your local job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:22.055664Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "fe5598f13f0f33fd",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for project managers in Worcester?",
-          "answer": "<p>Yes. Worcester's largest employers—UMass Memorial Health, UMass Chan Medical School, Saint-Gobain, and The Hanover Insurance Group—increasingly list PMP or equivalent certification as preferred or required in job postings for project and program manager roles. Healthcare systems and insurance firms managing large, multi-year initiatives particularly value the credential as a standardized differentiator. Local demand for certified project managers continues to grow across healthcare, higher education, and financial services sectors.</p>"
-        },
-        {
-          "question": "Which Worcester employers hire certified project managers most often?",
-          "answer": "<p>Healthcare and higher education dominate Worcester's certified project manager hiring. UMass Memorial Health, UMass Chan Medical School, and Reliant Medical Group manage complex clinical and research initiatives requiring structured project management. Insurance firms including The Hanover Insurance Group, Fallon Health, and MAPFRE USA also seek PMP-certified professionals for enterprise programs. Worcester Polytechnic Institute, Clark University, and Worcester State University hire certified project managers for capital projects and research administration.</p>"
-        },
-        {
-          "question": "Do Worcester project managers earn more with PMP certification?",
-          "answer": "<p>Project manager compensation in the Worcester area tracks closely with the Boston-Worcester corridor, and PMP certification typically strengthens earning potential—particularly in healthcare, insurance, and higher-education sectors where the credential is most valued. Actual salary varies widely by industry, employer, and experience level, but certified professionals in these sectors often command competitive packages relative to non-certified peers in similar roles.</p>"
-        },
-        {
-          "question": "Can I take PMP training while working full-time in Worcester?",
-          "answer": "<p>Yes. Granite PM Academy delivers PMP certification training entirely live-virtual, so you can attend from your workplace, home, or any location with internet access. This format suits Worcester professionals in healthcare systems, insurance offices, and university settings who need flexible scheduling around full-time project management responsibilities without commuting to a classroom.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:27.321518Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "0a734323203ac3be",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Worcester's healthcare and life sciences sector—anchored by UMass Memorial Health and UMass Chan Medical School—fuels steady demand for skilled project managers who can navigate complex clinical and research initiatives. The city's revitalization wave, from Polar Park's development to downtown redevelopment projects, has expanded opportunities across construction, biotech, and advanced manufacturing. Granite PM Academy delivers live-virtual PMP Certification Training to Worcester professionals seeking to advance their credentials and careers in this growing regional hub.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:05:28.938890Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "da67116e826b2a54",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-worcester-ma/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Worcester, MA, PMP exam prep Worcester, PMP course Worcester MA, project management certification Worcester, MA, PMI PMP training Worcester",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\",\r\n      \"name\": \"PMP Certification Training in Worcester, MA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Worcester, MA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Worcester, MA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#course\",\r\n      \"name\": \"PMP Certification Training in Worcester, MA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Worcester, MA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-worcester-ma/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:59:44+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }

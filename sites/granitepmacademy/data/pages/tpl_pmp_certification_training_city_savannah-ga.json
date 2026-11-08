@@ -1,422 +1,451 @@
 {
-  "template_id": "tpl_pmp_certification_training_city",
-  "city_id": "savannah-ga",
-  "slug": "pmp-certification-training-savannah-ga",
-  "title": "PMP Certification Training {city}",
-  "city_vars": {
-    "id": "savannah-ga",
-    "city": "Savannah",
-    "state": "Georgia",
-    "SS": "GA",
-    "city_slug": "savannah-ga",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [
-      "tier1"
+    "template_id": "tpl_pmp_certification_training_city",
+    "city_id": "savannah-ga",
+    "slug": "pmp-certification-training-savannah-ga",
+    "title": "PMP Certification Training {city}",
+    "city_vars": {
+        "id": "savannah-ga",
+        "city": "Savannah",
+        "state": "Georgia",
+        "SS": "GA",
+        "city_slug": "savannah-ga",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [
+            "tier1"
+        ],
+        "industries": [
+            "Port & Logistics/Maritime Trade",
+            "Manufacturing & Aerospace",
+            "Automotive/EV Production",
+            "Healthcare",
+            "Tourism & Hospitality",
+            "Construction & Real Estate Development"
+        ],
+        "top_employers": [
+            "Gulfstream Aerospace",
+            "Georgia Ports Authority",
+            "St. Joseph's/Candler Health System",
+            "Memorial Health University Medical Center (HCA Healthcare)",
+            "International Paper",
+            "JCB North America",
+            "Colonial Group",
+            "City of Savannah",
+            "Chatham County Government",
+            "Savannah/Hilton Head International Airport",
+            "Savannah College of Art and Design (SCAD)",
+            "Hyundai Motor Group Metaplant America (HMGMA)"
+        ],
+        "salary_note": "Project manager compensation in the Savannah area tends to track regional Southeast Georgia norms, with premiums for candidates holding PMP certification and experience in logistics, manufacturing, or healthcare. Demand has grown noticeably with large-scale industrial expansions, making certified PMs competitive for higher-paying roles.",
+        "market_blurb": "Savannah's project management job market is expanding alongside its role as a major U.S. port city and manufacturing hub, driven by growth in logistics, aerospace, and automotive sectors. The influx of large industrial investments, including automotive supply chain development near the city, is increasing demand for skilled project and program managers. Healthcare and construction sectors also continue to add steady project management roles to support regional growth.",
+        "notable_projects": [
+            "Hyundai Motor Group Metaplant America (HMGMA) in Bryan County near Savannah",
+            "Savannah Harbor Expansion Project (SHEP)",
+            "Georgia Ports Authority Garden City Terminal and Mason Mega Rail Terminal expansions",
+            "Gulfstream Aerospace facility expansions at Savannah/Hilton Head International Airport"
+        ],
+        "credential_demand": "PMP certification is increasingly valued by Savannah-area employers, particularly in logistics, manufacturing, and healthcare sectors experiencing rapid growth, though CAPM can serve as a strong entry point for those new to the field. Overall project management hiring demand in the region has risen alongside major industrial and infrastructure investments.",
+        "_researched": 1,
+        "city_spotlight": "<p>Savannah's project management pipeline is fueled by major industrial investments—notably Hyundai Motor Group Metaplant America and expansions at the Georgia Ports Authority—alongside established aerospace and healthcare employers. These sectors and the Savannah Harbor Expansion Project are driving steady demand for skilled PMs across logistics, manufacturing, and construction. Granite PM Academy delivers live-virtual PMP® Certification to Savannah professionals nationwide, on a schedule that fits working careers.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-savannah-ga.webp",
+        "city_image_alt": "Savannah, GA",
+        "city_image_credit": "Photo: Bigdaverhuberg, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Savannah.tif"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Savannah's port, aerospace, and healthcare sectors depend on coordinated, large-scale project delivery, making PMP® Certification Training essential for advancement in this market. Granite PM Academy delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, enabling you to earn your PMP® credential on your own schedule while working. Certification positions you competitively for leadership roles across Savannah's major employers and opens pathways to higher compensation in roles where structured project management is mission-critical.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP certification training {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_79418d1f50.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:00.885751Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "51197dc42262d004",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Savannah's Growing Project Management Market",
+            "text": "<p>As a major U.S. port city and emerging manufacturing hub, Savannah's demand for skilled project managers is accelerating across logistics, aerospace, automotive, and supply chain operations. The Georgia Ports Authority and companies like Gulfstream Aerospace and Hyundai Motor Group's Metaplant America are driving significant infrastructure and production initiatives that require certified professionals to lead complex, mission-critical initiatives. Alongside healthcare and construction sectors, Savannah's job market for project managers is expanding faster than the national average—making the Project Management Institute's PMP® certification a strategic credential for professionals seeking advancement, credibility, and competitive compensation in this growth corridor.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led sessions designed to meet PMI's contact-hour requirements and prepare you to pass the PMP® exam on your schedule. Our instructors are active certified practitioners with real-world project experience across industries, and every course is structured to bridge theory with practical application. Whether you're supporting operations at a healthcare system, managing construction projects, or coordinating logistics initiatives in Savannah's expanding port and industrial sectors, our training equips you with the frameworks and skills PMI employers recognize and value. Enroll today and move toward your PMP® credential and your next career milestone.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:04.897955Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "373d46b43a7695cc",
+            "_ai_locked": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Savannah's Growing Project Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets PMI's rigorous standards. Your contact hours count directly toward PMI eligibility—no secondary verification needed."
+                },
+                {
+                    "heading": "Live Virtual, Instructor-Led Format",
+                    "text": "Attend scheduled live classes from anywhere, with active certified PMP instructors teaching in real time. You'll satisfy the contact-hour requirement for PMP eligibility while keeping your work schedule intact."
+                },
+                {
+                    "heading": "Exam Prep From Practicing Professionals",
+                    "text": "Your instructors are active, certified project managers applying PMP principles daily in their own work. Their real-world experience translates into exam strategy and practical insights you won't find in self-study alone."
+                },
+                {
+                    "heading": "PMP Demand Among Savannah Employers",
+                    "text": "Gulfstream Aerospace, Georgia Ports Authority, Hyundai Motor Group, and major healthcare systems across Savannah actively recruit PMP-certified professionals. Certification positions you competitively for roles managing complex projects in maritime, aerospace, manufacturing, and healthcare sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:08.668794Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "1e41a628ca126927",
+            "_ai_locked": true
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Savannah's Growth Industries",
+            "text": "<p>Savannah's economy is anchored by major employers actively hiring certified project managers across logistics, manufacturing, and healthcare. The Georgia Ports Authority and its ongoing Garden City Terminal and Mason Mega Rail Terminal expansions represent sustained demand for PMs who can manage complex maritime and supply-chain operations. Gulfstream Aerospace, a cornerstone employer in the region, continues facility expansion at Savannah/Hilton Head International Airport, creating opportunities for professionals skilled in large-scale aerospace project delivery. Beyond aviation and ports, St. Joseph's/Candler Health System and Memorial Health University Medical Center drive consistent hiring for healthcare operations and capital project management. These employers increasingly prioritize candidates who hold PMP® certification, recognizing it as a marker of rigorous project discipline and capability to lead high-stakes initiatives.</p><p>The credential's value in Savannah is compounded by the region's industrial momentum. Project manager compensation in the area tracks regional Southeast Georgia norms and rises notably for certified professionals, especially those with experience in logistics, manufacturing, or healthcare—three sectors experiencing rapid growth locally. Completing PMP Certification Training with Granite PM Academy positions you to compete for these higher-paying, advancement-focused roles. As major industrial and infrastructure investments continue to reshape Savannah's workforce landscape, a recognized, portable PMP® credential becomes a strategic asset that demonstrates your readiness for leadership opportunities in a competitive market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:13.047375Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "bae02535a2fbd684",
+            "_ai_locked": true
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Certification Training — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "Live-Virtual PMP Training",
+                    "badge": "MOST POPULAR",
+                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$1,995",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ]
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Savannah",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "The PMP® requires a secondary degree plus documented project-management experience, or an associate degree with additional hours. Verify your education and work history meet PMI's requirements before enrolling. Granite PM Academy staff can review your background and clarify any questions about your specific qualifications."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions on a schedule that fits your work at Georgia Ports Authority, Gulfstream Aerospace, or other major employers in the region. Our interactive online classroom ensures you master the PMBOK® Guide and exam domains without disrupting your career."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, apply directly to PMI with your education and experience documentation. Pay the exam fee through PMI's registration portal. Granite PM Academy provides guidance on the application process so your submission is accurate and on time."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor Q&A sessions—to build confidence. Schedule your exam at a Pearson VUE test center on your timeline. Our instructors remain available to clarify difficult topics right up to test day."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "The PMP® is valid for three years. Renew by earning professional development units (PDUs) through training, volunteer work, or professional activity. Granite PM Academy offers continuing-education courses to help you stay current and maintain your competitive edge in Savannah's job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:18.404990Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "62b48dbb8623e452",
+            "_ai_locked": true
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Certification FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "Do I need to travel to {city} for this training?",
+                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+                },
+                {
+                    "question": "What are the PMP eligibility requirements?",
+                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+                },
+                {
+                    "question": "How long does it take to get PMP certified in {city}?",
+                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is this training PMI-approved?",
+                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Savannah project managers?",
+                    "answer": "<p>Yes. Savannah's rapid industrial growth—particularly in aerospace, automotive, port logistics, and healthcare—has created strong demand for certified project managers. Employers in these sectors increasingly value PMP credentials, and certified professionals typically command higher compensation than non-certified peers. With major expansions underway, timing a certification pursuit now positions you competitively for the roles being created.</p>"
+                },
+                {
+                    "question": "Which Savannah industries value PMP certification most?",
+                    "answer": "<p>PMP certification is especially valued in Savannah's fastest-growing sectors: port and logistics operations, aerospace and manufacturing, automotive production, and healthcare. These industries are experiencing significant investment and expansion, and project managers holding PMP credentials are in higher demand for leadership roles. CAPM is also a viable entry-level credential if you're new to project management in these fields.</p>"
+                },
+                {
+                    "question": "Can I attend Granite PM Academy's live-virtual PMP training from my Savannah workplace?",
+                    "answer": "<p>Yes. Our live-virtual format allows you to join from any location with internet access—including your office, home, or another facility in Savannah. This flexibility lets you balance training with your current work schedule, making it easier to pursue certification without disrupting your job or commuting to an in-person classroom.</p>"
+                },
+                {
+                    "question": "When should Savannah professionals pursue PMP certification given local job market growth?",
+                    "answer": "<p>Now is an advantageous time. Industrial expansions across logistics, manufacturing, and healthcare are creating new project management roles throughout Savannah and surrounding Southeast Georgia. Completing certification before competing for these positions increases your odds of landing higher-responsibility roles and better compensation. Waiting risks missing the peak demand window.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:23.406104Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "43be7ccb5bfadee4",
+            "_ai_locked": true
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Savannah's emergence as a major automotive and aerospace manufacturing center—anchored by Hyundai Motor Group's Metaplant and Gulfstream Aerospace expansions—is driving strong demand for skilled project managers across supply chain, logistics, and production roles. Georgia Ports Authority and ongoing harbor and terminal modernization projects further fuel growth in project management positions. Granite PM Academy delivers live-virtual PMP® Certification Training to Savannah professionals nationwide, offering flexible scheduling and PMI-aligned curriculum to help you advance in this dynamic market.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-11-08T20:04:25.358446Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "4c668e4d1246fc5e",
+            "_ai_locked": true
+        },
+        {
+            "type": "links_grid",
+            "lg_heading": "Other PM Certifications in Savannah",
+            "lg_subtext": "",
+            "lg_sublabel": "",
+            "lg_photo": "",
+            "lg_photo_alt": "",
+            "lg_cols": 3,
+            "lg_overlay": "0.6",
+            "lg_links": [
+                {
+                    "label": "PMP Bootcamp Savannah",
+                    "url": "/pmp-bootcamp-savannah-ga/"
+                },
+                {
+                    "label": "CAPM Certification Training Savannah",
+                    "url": "/capm-certification-training-savannah-ga/"
+                },
+                {
+                    "label": "PMI-CPMAI Certification Training Savannah",
+                    "url": "/ai-training-savannah-ga/"
+                }
+            ],
+            "lg_style": "light",
+            "lg_bg_color": "#f7f9fc",
+            "lg_accent": "accent",
+            "lg_accent_custom": "#fd783b",
+            "_sibling_links": true
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Start Your PMP Journey in {city} Today",
+            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        }
     ],
-    "industries": [
-      "Port & Logistics/Maritime Trade",
-      "Manufacturing & Aerospace",
-      "Automotive/EV Production",
-      "Healthcare",
-      "Tourism & Hospitality",
-      "Construction & Real Estate Development"
-    ],
-    "top_employers": [
-      "Gulfstream Aerospace",
-      "Georgia Ports Authority",
-      "St. Joseph's/Candler Health System",
-      "Memorial Health University Medical Center (HCA Healthcare)",
-      "International Paper",
-      "JCB North America",
-      "Colonial Group",
-      "City of Savannah",
-      "Chatham County Government",
-      "Savannah/Hilton Head International Airport",
-      "Savannah College of Art and Design (SCAD)",
-      "Hyundai Motor Group Metaplant America (HMGMA)"
-    ],
-    "salary_note": "Project manager compensation in the Savannah area tends to track regional Southeast Georgia norms, with premiums for candidates holding PMP certification and experience in logistics, manufacturing, or healthcare. Demand has grown noticeably with large-scale industrial expansions, making certified PMs competitive for higher-paying roles.",
-    "market_blurb": "Savannah's project management job market is expanding alongside its role as a major U.S. port city and manufacturing hub, driven by growth in logistics, aerospace, and automotive sectors. The influx of large industrial investments, including automotive supply chain development near the city, is increasing demand for skilled project and program managers. Healthcare and construction sectors also continue to add steady project management roles to support regional growth.",
-    "notable_projects": [
-      "Hyundai Motor Group Metaplant America (HMGMA) in Bryan County near Savannah",
-      "Savannah Harbor Expansion Project (SHEP)",
-      "Georgia Ports Authority Garden City Terminal and Mason Mega Rail Terminal expansions",
-      "Gulfstream Aerospace facility expansions at Savannah/Hilton Head International Airport"
-    ],
-    "credential_demand": "PMP certification is increasingly valued by Savannah-area employers, particularly in logistics, manufacturing, and healthcare sectors experiencing rapid growth, though CAPM can serve as a strong entry point for those new to the field. Overall project management hiring demand in the region has risen alongside major industrial and infrastructure investments.",
-    "_researched": 1,
-    "city_spotlight": "<p>Savannah's project management pipeline is fueled by major industrial investments—notably Hyundai Motor Group Metaplant America and expansions at the Georgia Ports Authority—alongside established aerospace and healthcare employers. These sectors and the Savannah Harbor Expansion Project are driving steady demand for skilled PMs across logistics, manufacturing, and construction. Granite PM Academy delivers live-virtual PMP® Certification to Savannah professionals nationwide, on a schedule that fits working careers.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-savannah-ga.webp",
-    "city_image_alt": "Savannah, GA",
-    "city_image_credit": "Photo: Bigdaverhuberg, CC BY-SA 4.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Savannah.tif"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Savannah's port, aerospace, and healthcare sectors depend on coordinated, large-scale project delivery, making PMP® Certification Training essential for advancement in this market. Granite PM Academy delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, enabling you to earn your PMP® credential on your own schedule while working. Certification positions you competitively for leadership roles across Savannah's major employers and opens pathways to higher compensation in roles where structured project management is mission-critical.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP certification training {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_79418d1f50.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:00.885751Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "51197dc42262d004",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-savannah-ga/",
+        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "meta_keywords": "PMP certification training Savannah, GA, PMP exam prep Savannah, PMP course Savannah GA, project management certification Savannah, GA, PMI PMP training Savannah",
+        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+        "og_image": "",
+        "service_name": "PMP Certification Training",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Certification Training {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\",\r\n      \"name\": \"PMP Certification Training in Savannah, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Savannah, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Savannah, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Savannah, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Savannah, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n    }\r\n  ]\r\n}",
+        "primary_keyword": "PMP Certification Training",
+        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Certification Training for Savannah's Growing Project Management Market",
-      "text": "<p>As a major U.S. port city and emerging manufacturing hub, Savannah's demand for skilled project managers is accelerating across logistics, aerospace, automotive, and supply chain operations. The Georgia Ports Authority and companies like Gulfstream Aerospace and Hyundai Motor Group's Metaplant America are driving significant infrastructure and production initiatives that require certified professionals to lead complex, mission-critical initiatives. Alongside healthcare and construction sectors, Savannah's job market for project managers is expanding faster than the national average—making the Project Management Institute's PMP® certification a strategic credential for professionals seeking advancement, credibility, and competitive compensation in this growth corridor.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led sessions designed to meet PMI's contact-hour requirements and prepare you to pass the PMP® exam on your schedule. Our instructors are active certified practitioners with real-world project experience across industries, and every course is structured to bridge theory with practical application. Whether you're supporting operations at a healthcare system, managing construction projects, or coordinating logistics initiatives in Savannah's expanding port and industrial sectors, our training equips you with the frameworks and skills PMI employers recognize and value. Enroll today and move toward your PMP® credential and your next career milestone.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:04.897955Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "373d46b43a7695cc",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification for Savannah's Growing Project Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training Path",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets PMI's rigorous standards. Your contact hours count directly toward PMI eligibility—no secondary verification needed."
-        },
-        {
-          "heading": "Live Virtual, Instructor-Led Format",
-          "text": "Attend scheduled live classes from anywhere, with active certified PMP instructors teaching in real time. You'll satisfy the contact-hour requirement for PMP eligibility while keeping your work schedule intact."
-        },
-        {
-          "heading": "Exam Prep From Practicing Professionals",
-          "text": "Your instructors are active, certified project managers applying PMP principles daily in their own work. Their real-world experience translates into exam strategy and practical insights you won't find in self-study alone."
-        },
-        {
-          "heading": "PMP Demand Among Savannah Employers",
-          "text": "Gulfstream Aerospace, Georgia Ports Authority, Hyundai Motor Group, and major healthcare systems across Savannah actively recruit PMP-certified professionals. Certification positions you competitively for roles managing complex projects in maritime, aerospace, manufacturing, and healthcare sectors."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:08.668794Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "1e41a628ca126927",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Savannah's Growth Industries",
-      "text": "<p>Savannah's economy is anchored by major employers actively hiring certified project managers across logistics, manufacturing, and healthcare. The Georgia Ports Authority and its ongoing Garden City Terminal and Mason Mega Rail Terminal expansions represent sustained demand for PMs who can manage complex maritime and supply-chain operations. Gulfstream Aerospace, a cornerstone employer in the region, continues facility expansion at Savannah/Hilton Head International Airport, creating opportunities for professionals skilled in large-scale aerospace project delivery. Beyond aviation and ports, St. Joseph's/Candler Health System and Memorial Health University Medical Center drive consistent hiring for healthcare operations and capital project management. These employers increasingly prioritize candidates who hold PMP® certification, recognizing it as a marker of rigorous project discipline and capability to lead high-stakes initiatives.</p><p>The credential's value in Savannah is compounded by the region's industrial momentum. Project manager compensation in the area tracks regional Southeast Georgia norms and rises notably for certified professionals, especially those with experience in logistics, manufacturing, or healthcare—three sectors experiencing rapid growth locally. Completing PMP Certification Training with Granite PM Academy positions you to compete for these higher-paying, advancement-focused roles. As major industrial and infrastructure investments continue to reshape Savannah's workforce landscape, a recognized, portable PMP® credential becomes a strategic asset that demonstrates your readiness for leadership opportunities in a competitive market.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:13.047375Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "bae02535a2fbd684",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Certification Training — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "Live-Virtual PMP Training",
-          "badge": "MOST POPULAR",
-          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$1,995",
-          "period": "per person",
-          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Savannah",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "The PMP® requires a secondary degree plus documented project-management experience, or an associate degree with additional hours. Verify your education and work history meet PMI's requirements before enrolling. Granite PM Academy staff can review your background and clarify any questions about your specific qualifications."
-        },
-        {
-          "heading": "Complete 35 Contact Hours of Training",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend sessions on a schedule that fits your work at Georgia Ports Authority, Gulfstream Aerospace, or other major employers in the region. Our interactive online classroom ensures you master the PMBOK® Guide and exam domains without disrupting your career."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After course completion, apply directly to PMI with your education and experience documentation. Pay the exam fee through PMI's registration portal. Granite PM Academy provides guidance on the application process so your submission is accurate and on time."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor Q&A sessions—to build confidence. Schedule your exam at a Pearson VUE test center on your timeline. Our instructors remain available to clarify difficult topics right up to test day."
-        },
-        {
-          "heading": "Maintain Your Credential",
-          "text": "The PMP® is valid for three years. Renew by earning professional development units (PDUs) through training, volunteer work, or professional activity. Granite PM Academy offers continuing-education courses to help you stay current and maintain your competitive edge in Savannah's job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:18.404990Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "62b48dbb8623e452",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ CAPM® + PMP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Certification FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "Do I need to travel to {city} for this training?",
-          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-        },
-        {
-          "question": "What are the PMP eligibility requirements?",
-          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-        },
-        {
-          "question": "How long does it take to get PMP certified in {city}?",
-          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is this training PMI-approved?",
-          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Savannah project managers?",
-          "answer": "<p>Yes. Savannah's rapid industrial growth—particularly in aerospace, automotive, port logistics, and healthcare—has created strong demand for certified project managers. Employers in these sectors increasingly value PMP credentials, and certified professionals typically command higher compensation than non-certified peers. With major expansions underway, timing a certification pursuit now positions you competitively for the roles being created.</p>"
-        },
-        {
-          "question": "Which Savannah industries value PMP certification most?",
-          "answer": "<p>PMP certification is especially valued in Savannah's fastest-growing sectors: port and logistics operations, aerospace and manufacturing, automotive production, and healthcare. These industries are experiencing significant investment and expansion, and project managers holding PMP credentials are in higher demand for leadership roles. CAPM is also a viable entry-level credential if you're new to project management in these fields.</p>"
-        },
-        {
-          "question": "Can I attend Granite PM Academy's live-virtual PMP training from my Savannah workplace?",
-          "answer": "<p>Yes. Our live-virtual format allows you to join from any location with internet access—including your office, home, or another facility in Savannah. This flexibility lets you balance training with your current work schedule, making it easier to pursue certification without disrupting your job or commuting to an in-person classroom.</p>"
-        },
-        {
-          "question": "When should Savannah professionals pursue PMP certification given local job market growth?",
-          "answer": "<p>Now is an advantageous time. Industrial expansions across logistics, manufacturing, and healthcare are creating new project management roles throughout Savannah and surrounding Southeast Georgia. Completing certification before competing for these positions increases your odds of landing higher-responsibility roles and better compensation. Waiting risks missing the peak demand window.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_injected_count": 4,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:23.406104Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "43be7ccb5bfadee4",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Savannah's emergence as a major automotive and aerospace manufacturing center—anchored by Hyundai Motor Group's Metaplant and Gulfstream Aerospace expansions—is driving strong demand for skilled project managers across supply chain, logistics, and production roles. Georgia Ports Authority and ongoing harbor and terminal modernization projects further fuel growth in project management positions. Granite PM Academy delivers live-virtual PMP® Certification Training to Savannah professionals nationwide, offering flexible scheduling and PMI-aligned curriculum to help you advance in this dynamic market.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_injected_count": 1,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-11-08T20:04:25.358446Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "4c668e4d1246fc5e",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Start Your PMP Journey in {city} Today",
-      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-savannah-ga/",
-    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "meta_keywords": "PMP certification training Savannah, GA, PMP exam prep Savannah, PMP course Savannah GA, project management certification Savannah, GA, PMI PMP training Savannah",
-    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-    "og_image": "",
-    "service_name": "PMP Certification Training",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Certification Training {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\",\r\n      \"name\": \"PMP Certification Training in Savannah, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Savannah, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Savannah, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Savannah, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Savannah, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-savannah-ga/\"\r\n    }\r\n  ]\r\n}",
-    "primary_keyword": "PMP Certification Training",
-    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-11-07T21:45:52+00:00",
-  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    "locked_blocks": [],
+    "generated_at": "2026-11-08T20:10:00+00:00",
+    "template_version": "a27d564d9db0b03adfd2e38239d752c9"
 }
