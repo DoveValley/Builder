@@ -253,6 +253,7 @@ function allowed_block_types() {
         'error_codes'     => 'Error Codes (manufacturer fault-code lookup for this page\'s appliance)',
         'comparison_table'=> 'Comparison Table (feature vs. competitor)',
         'ai_block'        => 'AI Block (city & service content)',
+        'sticky_cta'      => 'Sticky CTA Bar (fixed, slides in on scroll)',
     ];
 }
 
@@ -298,6 +299,7 @@ function grouped_block_types(): array {
             'split_cta'    => 'Split CTA',
             'email_banner' => 'Email capture banner',
             'cta_button'   => 'CTA button',
+            'sticky_cta'   => 'Sticky CTA bar (fixed, on scroll)',
         ],
         'Utility' => [
             'map_info'         => 'Map + info',
@@ -349,6 +351,7 @@ function block_descriptions(): array {
         'related_links'    => 'Curated list of related-page links — each one checked against this domain\'s real built pages before it renders, so it never points at a page that doesn\'t exist here.',
         'error_codes'      => 'Manufacturer fault-code lookup for this page\'s appliance brand/type — sourced only from official manufacturer documentation. Renders nothing when no researched data exists for the combo.',
         'ai_block'         => 'Placeholder filled by the AI generator — renders as any block type once generated',
+        'sticky_cta'       => 'Slim bar fixed to the top of the viewport, slides in after the visitor scrolls past a threshold, dismissible',
     ];
 }
 
@@ -1161,6 +1164,25 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($text)    echo '<'.$cbHeadTag.' class="cb-text" style="color:'.h($textColor).' !important;">'.h($text).'</'.$cbHeadTag.'>';
             if ($subtext) echo '<p class="cb-subtext" style="color:'.h($textColor).' !important;">'.h($subtext).'</p>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="cb-btn" style="color:'.h($btnFg).';background:'.h($btnBg).';">'.h($btnText).'</a>';
+            echo '</div></div>';
+            break;
+
+        /* ---- STICKY CTA BAR ---- */
+        case 'sticky_cta':
+            $scText     = $block['sc_text']       ?? '';
+            $scBtnText  = $block['sc_btn_text']   ?? '';
+            $scBtnUrl   = sanitize_url($block['sc_btn_url'] ?? '#');
+            $scBg       = $block['sc_bg']         ?? 'accent';
+            $scBgCustom = $block['sc_bg_custom']  ?? '#fd783b';
+            $scTextColor = $block['sc_text_color'] ?? '#ffffff';
+            if ($scText === '' && $scBtnText === '') break;
+
+            $scBgStyle = resolve_color($scBg, $scBgCustom);
+            echo '<div class="sticky-cta-bar" style="background:'.h($scBgStyle).';color:'.h($scTextColor).';">';
+            echo '<div class="sticky-cta-inner">';
+            if ($scText !== '') echo '<span class="sticky-cta-text">'.h($scText).'</span>';
+            if ($scBtnText !== '') echo '<a class="sticky-cta-btn" href="'.h($scBtnUrl).'" style="color:'.h($scBgStyle).';">'.h($scBtnText).'</a>';
+            echo '<button type="button" class="sticky-cta-close" aria-label="Dismiss" onclick="dismissStickyCta(this)">&times;</button>';
             echo '</div></div>';
             break;
 

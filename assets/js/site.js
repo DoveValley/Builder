@@ -38,6 +38,24 @@ scrollBtn.addEventListener('click', function() {
 window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 }
+var stickyCtaBar = document.querySelector('.sticky-cta-bar');
+if (stickyCtaBar && sessionStorage.getItem('stickyCtaDismissed') !== '1') {
+var stickyCtaShown = false;
+var checkStickyCta = function() {
+if (stickyCtaShown) return;
+if (window.scrollY > 500) {
+stickyCtaBar.classList.add('is-visible');
+stickyCtaShown = true;
+}
+};
+window.addEventListener('scroll', checkStickyCta, { passive: true });
+checkStickyCta();
+}
+window.dismissStickyCta = function(btn) {
+var bar = btn.closest('.sticky-cta-bar');
+if (bar) bar.classList.remove('is-visible');
+try { sessionStorage.setItem('stickyCtaDismissed', '1'); } catch (e) {}
+};
 window.toggleFq = function(id) {
 var answer = document.getElementById(id);
 var btn = answer ? answer.previousElementSibling : null;

@@ -583,6 +583,21 @@ function content_editor_scripts() {
                     </div>
                 </div>
             </div>
+            <div class="block-fields block-fields-sticky_cta is-hidden">
+                <p class="hint" style="margin:0 0 12px;">A slim bar fixed to the top of the viewport that slides in after the visitor scrolls, with a dismiss button.</p>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:2 1 220px;"><label>Bar text (optional)</label><input type="text" name="sc_text[]" placeholder="e.g. Renewing your PMP®?"></div>
+                    <div class="form-group" style="flex:1 1 140px;"><label>Button text</label><input type="text" name="sc_btn_text[]" placeholder="e.g. See Plans"></div>
+                    <div class="form-group" style="flex:1 1 140px;"><label>Button link</label><input type="text" name="sc_btn_url[]"></div>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 140px;"><label>Background</label>
+                        <?= color_mode_select('sc_bg', '', 'accent') ?>
+                        <input type="color" name="sc_bg_custom[]" value="#fd783b" style="margin-top:4px;">
+                    </div>
+                    <div class="form-group" style="flex:1 1 100px;"><label>Text color</label><input type="color" name="sc_text_color[]" value="#ffffff"></div>
+                </div>
+            </div>
             <div class="block-fields block-fields-faq_two_col is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:2 1 220px;"><label>Heading</label><input type="text" name="fq_heading[]" placeholder="e.g. FAQs – Pest Control in Katy"></div>

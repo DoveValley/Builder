@@ -62,6 +62,29 @@
         });
     }
 
+    // Sticky CTA bar (content block, not the global footer sticky-bottom-bar) —
+    // no-op if the page has no such block. Shows after scrolling past a
+    // threshold; dismissal is sessionStorage-scoped so it doesn't reappear on
+    // the same visit once closed, but isn't permanent across visits.
+    var stickyCtaBar = document.querySelector('.sticky-cta-bar');
+    if (stickyCtaBar && sessionStorage.getItem('stickyCtaDismissed') !== '1') {
+        var stickyCtaShown = false;
+        var checkStickyCta = function() {
+            if (stickyCtaShown) return;
+            if (window.scrollY > 500) {
+                stickyCtaBar.classList.add('is-visible');
+                stickyCtaShown = true;
+            }
+        };
+        window.addEventListener('scroll', checkStickyCta, { passive: true });
+        checkStickyCta();
+    }
+    window.dismissStickyCta = function(btn) {
+        var bar = btn.closest('.sticky-cta-bar');
+        if (bar) bar.classList.remove('is-visible');
+        try { sessionStorage.setItem('stickyCtaDismissed', '1'); } catch (e) {}
+    };
+
     // ---- FAQ Two Column toggle ----
     window.toggleFq = function(id) {
         var answer = document.getElementById(id);

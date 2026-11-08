@@ -359,6 +359,19 @@ function parse_blocks_from_post(): array {
                 if ($block['cb_text'] === '') continue 2;
                 break;
 
+            case 'sticky_cta':
+                $block['sc_text']    = trim($_POST['sc_text'][$i]     ?? '');
+                $block['sc_btn_text']= trim($_POST['sc_btn_text'][$i] ?? '');
+                $block['sc_btn_url'] = sanitize_url($_POST['sc_btn_url'][$i] ?? '');
+                $scBg = in_array($_POST['sc_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['sc_bg'][$i] : 'accent';
+                $block['sc_bg'] = $scBg;
+                $scc = trim($_POST['sc_bg_custom'][$i] ?? '#fd783b');
+                $block['sc_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $scc) ? $scc : '#fd783b';
+                $stc = trim($_POST['sc_text_color'][$i] ?? '#ffffff');
+                $block['sc_text_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $stc) ? $stc : '#ffffff';
+                if ($block['sc_text'] === '' && $block['sc_btn_text'] === '') continue 2;
+                break;
+
             case 'faq_two_col':
                 $block['fq_heading'] = trim($_POST['fq_heading'][$i]  ?? '');
                 $fqHlRaw = trim($_POST['fq_heading_level'][$i] ?? 'h2');

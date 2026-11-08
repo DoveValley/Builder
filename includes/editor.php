@@ -996,6 +996,36 @@ function render_content_blocks_editor($blocks) {
                     </div>
                 </div>
 
+                <?php /* ---- STICKY CTA BAR FIELDS ---- */ ?>
+                <div class="block-fields block-fields-sticky_cta <?= $type !== 'sticky_cta' ? 'is-hidden' : '' ?>">
+                    <p class="hint" style="margin:0 0 12px;">A slim bar fixed to the top of the viewport that slides in after the visitor scrolls, with a dismiss button. Add to an article page to nudge toward a specific link.</p>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Bar text (optional)</label>
+                            <input type="text" name="sc_text[]" value="<?= h($block['sc_text'] ?? '') ?>" placeholder="e.g. Renewing your PMP®?">
+                        </div>
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Button text</label>
+                            <input type="text" name="sc_btn_text[]" value="<?= h($block['sc_btn_text'] ?? '') ?>" placeholder="e.g. See Plans">
+                        </div>
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Button link</label>
+                            <input type="text" name="sc_btn_url[]" value="<?= h($block['sc_btn_url'] ?? '') ?>" placeholder="/pmi-pdu-renewal/">
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Background color</label>
+                            <?= color_mode_select('sc_bg', $block['sc_bg'] ?? 'accent', 'accent') ?>
+                            <input type="color" name="sc_bg_custom[]" value="<?= h($block['sc_bg_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
+                        </div>
+                        <div class="form-group" style="flex:1 1 120px;">
+                            <label>Text color</label>
+                            <input type="color" name="sc_text_color[]" value="<?= h($block['sc_text_color'] ?? '#ffffff') ?>">
+                        </div>
+                    </div>
+                </div>
+
                 <?php /* ---- FAQ TWO COLUMN FIELDS ---- */ ?>
                 <div class="block-fields block-fields-faq_two_col <?= $type !== 'faq_two_col' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
