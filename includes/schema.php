@@ -12,14 +12,31 @@
  */
 
 /**
- * Build FAQPage Question entities from a page's faq_two_col blocks.
+ * Build FAQPage Question entities from a page's faq_two_col AND faq blocks.
  * Returns [] when there are no answered questions.
+ *
+ * Originally only recognized faq_two_col (fq_items) — the single-column faq
+ * block type (faq_items, a different field name) was silently invisible to
+ * this function, so any page authored with a plain faq block got its stored
+ * FAQPage schema stripped by schema_apply_faqpage() below (which always
+ * removes the old node) with nothing derived to replace it. Found 2026-11-08:
+ * confirmed live on granitepmacademy that 15 pages built with faq blocks were
+ * serving zero FAQPage schema despite each one having a hand-authored
+ * FAQPage sitting unused in its stored schema field.
  */
 function faq_pairs_from_blocks(array $blocks): array {
     $pairs = [];
     foreach ($blocks as $block) {
-        if (!is_array($block) || ($block['type'] ?? '') !== 'faq_two_col') continue;
-        foreach ($block['fq_items'] ?? [] as $item) {
+        if (!is_array($block)) continue;
+        $blockType = $block['type'] ?? '';
+        if ($blockType === 'faq_two_col') {
+            $items = $block['fq_items'] ?? [];
+        } elseif ($blockType === 'faq') {
+            $items = $block['faq_items'] ?? [];
+        } else {
+            continue;
+        }
+        foreach ($items as $item) {
             $q = trim(html_entity_decode(strip_tags($item['question'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             $a = trim(html_entity_decode(strip_tags($item['answer']   ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
             if ($q !== '' && $a !== '') {
