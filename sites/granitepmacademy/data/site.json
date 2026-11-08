@@ -6198,6 +6198,70 @@
                             "badge": "",
                             "link": "/capm-renewal/",
                             "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI-ACP Renewal",
+                            "text": "PMI-ACP's own 30-PDU, 3-year renewal cycle — the full process.",
+                            "badge": "",
+                            "link": "/pmi-acp-renewal/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Reporting & Audit",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Report PDUs in CCRS",
+                            "text": "The exact fields for each activity type — Course/Training, Organization Meetings, Create Content, and Volunteer.",
+                            "badge": "",
+                            "link": "/report-pdus-ccrs/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "What Happens If You're Audited",
+                            "text": "What documentation PMI accepts, and how to stay prepared from day one.",
+                            "badge": "",
+                            "link": "/pmp-audit/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Best PMP PDU Courses, Compared",
+                            "text": "An honest, live-checked price comparison across providers.",
+                            "badge": "",
+                            "link": "/best-pmp-pdu-courses/",
+                            "btn_text": "Read the Guide"
                         }
                     ],
                     "cards_bg": "",
@@ -7779,15 +7843,15 @@
                     "text_color": "#333333",
                     "padding": "small",
                     "heading_text": "",
-                    "text": "<p>Report PDUs as you earn them rather than saving them up — it takes a few minutes per activity and removes the risk of forgetting a source entirely before your deadline.</p>"
+                    "text": "<p>Report PDUs as you earn them rather than saving them up — it takes a few minutes per activity and removes the risk of forgetting a source entirely before your deadline. For the exact fields per activity type, see our full <a href=\"/report-pdus-ccrs/\">CCRS reporting walkthrough</a>.</p>"
                 },
                 {
                     "type": "text",
                     "bg_color": "#ffffff",
                     "text_color": "#333333",
                     "padding": "normal",
-                    "heading_text": "How to Report a PDU, Step by Step",
-                    "text": "<p>PMI tracks PDUs through its Continuing Certification Requirements System (CCRS), reached from your account at pmi.org:</p><ol><li>Log in to pmi.org and open your certification dashboard.</li><li>Select <strong>Report PDUs</strong> and choose the activity category that matches what you did — Course or Training, Organization Meetings, Create Content, or Volunteer are the main ones.</li><li>Enter the provider or organization name, the dates, and the number of PDU hours.</li><li>Select which Talent Triangle area(s) the activity covers — most accredited courses tell you this on the certificate.</li><li>Submit. PMI applies it to your current cycle total immediately; you can see your running progress toward 60 (or your credential's total) at any time.</li></ol><p>Report PDUs as you earn them rather than saving them up — it takes a few minutes per activity and removes the risk of forgetting a source entirely before your deadline.</p>"
+                    "heading_text": "Audit Risk: Why Documentation Matters",
+                    "text": "<p>PMI randomly selects a percentage of renewals for audit. If yours is selected, you'll need to produce documentation for the PDUs you reported — typically a certificate, confirmation email, or a volunteering log with dates and hours. PMI recommends keeping that documentation for at least 18 months after your cycle ends, audit or not.</p><p>The activities most likely to cause trouble in an audit are exactly the ones easiest to report carelessly: self-directed reading with no log of what you actually read, volunteering with no record of hours, or a course from a provider that turns out not to be accredited. See our full breakdown of <a href=\"/pmp-audit/\">what happens if you're audited</a> — accepted documentation by activity type, and a practical system for staying ahead of it.</p>"
                 },
                 {
                     "type": "faq",
@@ -8631,6 +8695,694 @@
                 "bc_mid_label": "PDU & Renewal Resources",
                 "bc_mid_url": "/pdu-resources",
                 "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-renewal/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-renewal/\",\n      \"name\": \"How to Renew Your CAPM Certification | Granite PM Academy\",\n      \"description\": \"CAPM renewal: 15 PDUs every 3 years, 9 from Education, up to 6 from Giving Back. The full process, Talent Triangle minimums, and what happens if you miss it.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"CAPM Renewal\",\n            \"item\": \"https://granitepmacademy.com/capm-renewal/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many PDUs does CAPM renewal require?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"15 PDUs every three years — at least 9 from Education activities, with up to 6 allowed from Giving Back.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does CAPM have Talent Triangle minimums too?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, scaled down from the PMP's: 2 PDUs minimum in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 3 Education PDUs from any area.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I miss my CAPM renewal deadline?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The same suspension process applies across PMI credentials: your certification is suspended for up to one year, during which you can still reinstate by finishing your PDUs and paying the fee. After that year, it expires permanently and you'd need to reapply and retake the exam.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can CAPM PDUs count toward a future PMP?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — CAPM training hours apply toward the PMP's 35-hour Education requirement when you eventually pursue it, though PDU cycles themselves run independently per credential.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_report_pdus_ccrs": {
+            "title": "How to Report PDUs in CCRS, Step by Step",
+            "slug": "report-pdus-ccrs",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How to Report PDUs in CCRS, Step by Step",
+                    "text": "<p>You report your own PDUs through PMI's Continuing Certification Requirements System (CCRS), reached from your account at pmi.org — PMI's Handbook frames this as the certificant's own responsibility, not something a training provider does for you. The exact fields you fill in shift slightly depending on which activity category you're reporting, which is where most PDU explainers stop short.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Reporting a Course or Training",
+                    "text": "<p>The most common category, and the easiest to document. You'll enter the provider's name, the course title, the dates you completed it, the number of PDU hours, and which Talent Triangle&reg; area (or areas) it covers — most accredited providers print this directly on your certificate of completion, so check there before guessing.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Reporting Organization Meetings",
+                    "text": "<p>For a PMI chapter meeting, an employer-hosted PM training session, or a similar structured meeting with a defined topic: enter the organization's name, the meeting topic, the date, and the hours attended. Keep a sign-in confirmation or agenda as your documentation — chapter meetings rarely issue a formal certificate the way paid courses do.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Reporting Create Content",
+                    "text": "<p>Writing an article, book, presentation, or course material related to project management falls under Giving Back, not Education. Enter the content type, a title, the publication or completion date, and the hours spent creating it (not just the length of the final piece) — your documentation here is simply a link to or copy of the published work plus your own honest log of hours.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Reporting Volunteer or Practitioner Work",
+                    "text": "<p>Volunteering for a PM-related nonprofit, professional body, or working as a practicing project manager (in credential categories where that qualifies) also falls under Giving Back. Enter the organization or role, the dates, the hours, and a brief description of the work — this is the category PMI scrutinizes most closely in an audit, so a specific, honest description matters more here than in any other category.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Correcting or Reviewing What You've Already Reported",
+                    "text": "<p>Your activity history inside CCRS lets you review every PDU you've submitted for the current cycle — if you notice a typo in the hours or dates, you can go back and correct the entry rather than living with a mistake for the rest of your cycle.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "If You Hold More Than One PMI Credential",
+                    "text": "<p>Each credential runs its own independent three-year cycle with its own PDU total. A single activity genuinely relevant to more than one of your certifications can be reported to each, but you report it separately to each cycle — PMI doesn't automatically apply one submission across multiple certifications.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Related PDU Guides",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Renew Your PMP",
+                            "text": "The full renewal timeline this reporting process fits into.",
+                            "badge": "",
+                            "link": "/pmp-renewal/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "What Happens If You're Audited",
+                            "text": "Why keeping good records as you report matters.",
+                            "badge": "",
+                            "link": "/pmp-audit/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "Confirm which area an activity actually counts toward.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "How quickly does a reported PDU show up in my cycle total?",
+                            "answer": "PMI applies it to your current cycle total immediately after you submit — you can check your running progress toward your credential's total at any time."
+                        },
+                        {
+                            "question": "Can I edit a PDU after I've submitted it?",
+                            "answer": "Yes — your activity history in CCRS lets you review and correct entries you've already reported, so a typo in hours or dates isn't permanent."
+                        },
+                        {
+                            "question": "Do I need to report the same activity separately for each credential I hold?",
+                            "answer": "Yes — each credential runs its own independent cycle, so a single activity relevant to more than one of your certifications has to be reported to each cycle separately, not just once."
+                        },
+                        {
+                            "question": "What if I can't remember which Talent Triangle area an old activity falls under?",
+                            "answer": "Most accredited providers state the Talent Triangle area right on the certificate of completion — check there first before guessing."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Skip the Category-by-Category Tracking",
+                    "cb_subtext": "Granite's PDU bundles come with pre-filled documentation already itemized by Talent Triangle area.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "pmi pdu reporting",
+                "secondary_keywords": "pmi ccrs, how to report pdus to pmi, pdu claim code",
+                "meta_keywords": "pmi pdu reporting",
+                "meta_description": "How to report PDUs in PMI's CCRS system — the exact fields for Course/Training, Organization Meetings, Create Content, and Volunteer activities.",
+                "seo_title": "How to Report PDUs in CCRS, Step by Step | Granite PM Academy",
+                "og_title": "How to Report PDUs in CCRS, Step by Step",
+                "og_description": "A category-by-category walkthrough for reporting PDUs in PMI's CCRS system, plus how to correct an entry and handle multiple credentials.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/report-pdus-ccrs/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Report PDUs in CCRS",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/report-pdus-ccrs/#webpage\",\n      \"url\": \"https://granitepmacademy.com/report-pdus-ccrs/\",\n      \"name\": \"How to Report PDUs in CCRS, Step by Step | Granite PM Academy\",\n      \"description\": \"How to report PDUs in PMI's CCRS system — the exact fields for Course/Training, Organization Meetings, Create Content, and Volunteer activities.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Report PDUs in CCRS\",\n            \"item\": \"https://granitepmacademy.com/report-pdus-ccrs/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How quickly does a reported PDU show up in my cycle total?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI applies it to your current cycle total immediately after you submit — you can check your running progress toward your credential's total at any time.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I edit a PDU after I've submitted it?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — your activity history in CCRS lets you review and correct entries you've already reported, so a typo in hours or dates isn't permanent.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do I need to report the same activity separately for each credential I hold?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — each credential runs its own independent cycle, so a single activity relevant to more than one of your certifications has to be reported to each cycle separately, not just once.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What if I can't remember which Talent Triangle area an old activity falls under?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Most accredited providers state the Talent Triangle area right on the certificate of completion — check there first before guessing.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_pmp_audit": {
+            "title": "What Happens If PMI Audits Your PMP Renewal?",
+            "slug": "pmp-audit",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Happens If PMI Audits Your PMP Renewal?",
+                    "text": "<p>PMI randomly selects a percentage of certification holders for audit each cycle — PMI doesn't publish the exact rate. If you're selected, your renewal isn't complete until you produce documentation for the PDUs you reported, and the exact paperwork PMI accepts differs by activity type.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What an Audit Notice Looks Like",
+                    "text": "<p>If you're selected, PMI notifies you through your account and asks you to submit supporting documentation for some or all of the PDUs on your renewal application — check your notification for the specific activities flagged and the exact response window, since PMI doesn't apply a single fixed deadline across every case.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Documentation PMI Accepts, by Activity Type",
+                    "text": "<p><strong>Course or Training:</strong> a certificate of completion or confirmation email from the provider, showing the course title, your name, dates, and hours.</p><p><strong>Organization Meetings:</strong> a sign-in confirmation, attendance record, or the meeting agenda showing the topic and your attendance.</p><p><strong>Create Content:</strong> a copy of or link to the published work, plus your own log of the hours spent creating it.</p><p><strong>Volunteer or Practitioner Work:</strong> a log or written verification from the organization describing the role, dates, and hours — this category draws the most audit scrutiny since it has the least standardized paper trail.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Happens If You Can't Produce Documentation",
+                    "text": "<p>Your renewal is only completed after the audit is passed. An activity you can't document may not count toward your total, which can mean reporting a replacement PDU before you're done. This is the entire reason to keep documentation from the day you earn a PDU rather than trying to reconstruct it months later — PMI recommends keeping records for at least 18 months after your cycle ends.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "A Practical \"PDU Folder\" System",
+                    "text": "<p>Keep one running folder (digital or physical) for your entire cycle, and drop proof into it the same day you report each activity — a saved certificate, a forwarded confirmation email, or a one-line log entry for volunteer work with the date and hours. The habit costs a minute per activity; reconstructing a year's worth of free webinars from memory during an audit costs far more.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Stay Ahead of an Audit",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Report PDUs in CCRS",
+                            "text": "Get the category-by-category reporting mechanics right the first time.",
+                            "badge": "",
+                            "link": "/report-pdus-ccrs/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Free PMP PDUs",
+                            "text": "Free sources need just as much documentation as paid ones.",
+                            "badge": "",
+                            "link": "/free-pmp-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Renew Your PMP",
+                            "text": "Where the audit step fits into the full renewal timeline.",
+                            "badge": "",
+                            "link": "/pmp-renewal/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "What percentage of renewals get audited?",
+                            "answer": "PMI doesn't publish an audit rate — selection is described only as random, applying to a percentage of certification holders each cycle."
+                        },
+                        {
+                            "question": "Does an audit mean I did something wrong?",
+                            "answer": "No — PMI frames it as a random selection process, not a flag tied to suspicious activity. Being selected isn't itself a sign you reported anything incorrectly."
+                        },
+                        {
+                            "question": "What happens if I can't produce documentation for an activity?",
+                            "answer": "That specific activity may not count toward your total, which could mean you need to earn and report a replacement PDU before your renewal can complete — which is exactly why keeping documentation as you go matters more than trying to reconstruct it later."
+                        },
+                        {
+                            "question": "How long should I keep my PDU documentation?",
+                            "answer": "At least 18 months after your cycle ends, per PMI's own guidance — audits can occur after your renewal is already submitted."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Documentation Handled From the Start",
+                    "cb_subtext": "Granite's bundles come with pre-filled completion certificates — provider, dates, and Talent Triangle breakdown already itemized.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "pmp audit",
+                "secondary_keywords": "pmp audit forms, pmp audit after certification",
+                "meta_keywords": "pmp audit",
+                "meta_description": "PMI PDU audits explained: what triggers one, what documentation is accepted per activity type, and what happens if you can't produce it.",
+                "seo_title": "What Happens If PMI Audits Your PMP Renewal? | Granite PM Academy",
+                "og_title": "What Happens If PMI Audits Your PMP Renewal?",
+                "og_description": "What a PMI PDU audit actually involves — accepted documentation by activity type, response windows, and how to stay prepared from day one.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/pmp-audit/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "PMP Audit",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-audit/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-audit/\",\n      \"name\": \"What Happens If PMI Audits Your PMP Renewal? | Granite PM Academy\",\n      \"description\": \"PMI PDU audits explained: what triggers one, what documentation is accepted per activity type, and what happens if you can't produce it.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"PMP Audit\",\n            \"item\": \"https://granitepmacademy.com/pmp-audit/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What percentage of renewals get audited?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI doesn't publish an audit rate — selection is described only as random, applying to a percentage of certification holders each cycle.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does an audit mean I did something wrong?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — PMI frames it as a random selection process, not a flag tied to suspicious activity. Being selected isn't itself a sign you reported anything incorrectly.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I can't produce documentation for an activity?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"That specific activity may not count toward your total, which could mean you need to earn and report a replacement PDU before your renewal can complete — which is exactly why keeping documentation as you go matters more than trying to reconstruct it later.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How long should I keep my PDU documentation?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"At least 18 months after your cycle ends, per PMI's own guidance — audits can occur after your renewal is already submitted.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_pmi_acp_renewal": {
+            "title": "How to Renew Your PMI-ACP Certification",
+            "slug": "pmi-acp-renewal",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How to Renew Your PMI-ACP Certification",
+                    "text": "<p>PMI-ACP&reg; renewal requires <strong>30 PDUs every three years</strong> — at least 18 from Education activities, with up to 12 allowed from Giving Back. That sits between the CAPM&reg;'s 15-PDU cycle and the PMP&reg;'s 60-PDU cycle, and runs through the same CCRS reporting system and renewal mechanics as every other PMI credential.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "stats",
+                    "stats_heading": "PMI-ACP Renewal at a Glance",
+                    "stats_items": [
+                        {
+                            "number": "30",
+                            "label": "Total PDUs per 3-year cycle"
+                        },
+                        {
+                            "number": "18",
+                            "label": "Minimum from Education"
+                        },
+                        {
+                            "number": "12",
+                            "label": "Maximum from Giving Back"
+                        },
+                        {
+                            "number": "4",
+                            "label": "Minimum per Talent Triangle area"
+                        }
+                    ],
+                    "stats_bg_color": "custom",
+                    "stats_bg_custom": "#1a2e5a",
+                    "stats_text_color": "#ffffff"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How PMI-ACP Renewal Fits the Bigger Picture",
+                    "text": "<p>PMI-ACP&reg; shares its 30-PDU, 18-Education-minimum structure with several other PMI credentials — PMI-RMP&reg;, PMI-SP&reg;, PMI-CP&trade;, and PMI-CPMAI&reg; all run the same totals. Within that 18-PDU Education floor, PMI requires at least 4 PDUs in each of the three <a href=\"/pmi-talent-triangle/\">Talent Triangle&reg; areas</a> — Ways of Working, Power Skills, and Business Acumen — with the remaining 6 Education PDUs flexible across any area.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Reporting and Renewal Mechanics Are the Same Across Credentials",
+                    "text": "<p>Log in to your PMI dashboard, select <strong>Report PDUs</strong>, choose the activity category, and enter the provider, dates, hours, and which Talent Triangle area it covers — see the full <a href=\"/report-pdus-ccrs/\">category-by-category reporting walkthrough</a> for exact fields per activity type. Miss your cycle-end date and your certification moves to suspended status for up to a year before permanent expiration — identical to every other PMI credential's renewal rules.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "If You Also Hold a PMP or CAPM",
+                    "text": "<p>Each credential runs its own independent three-year cycle with its own PDU total — an activity relevant to both your PMI-ACP&reg; and a PMP&reg; you also hold has to be reported separately to each cycle, not just once.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "PMI-ACP Renewal Resources",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "What each category covers and how many PDUs you need.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Report PDUs in CCRS",
+                            "text": "The exact reporting mechanics, by activity type.",
+                            "badge": "",
+                            "link": "/report-pdus-ccrs/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "60-PDU Bundle",
+                            "text": "Covers the Talent Triangle minimums for any credential's cycle.",
+                            "badge": "",
+                            "link": "/60-pdu-bundle/",
+                            "btn_text": "View Plans"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "How many PDUs does PMI-ACP renewal require?",
+                            "answer": "30 PDUs every three years — at least 18 from Education activities, with up to 12 allowed from Giving Back."
+                        },
+                        {
+                            "question": "Does PMI-ACP have Talent Triangle minimums too?",
+                            "answer": "Yes — a minimum of 4 PDUs in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 6 Education PDUs flexible across any area."
+                        },
+                        {
+                            "question": "Is there a dedicated PMI-ACP PDU bundle?",
+                            "answer": "Not yet — Granite's current bundles are built around the PMP®, CAPM®, and general multi-credential renewal. Our 60-PDU bundle's content is broad enough to cover the Talent Triangle minimums for PMI-ACP holders too; see the full comparison table on our PDU renewal page."
+                        },
+                        {
+                            "question": "What happens if I miss my PMI-ACP renewal deadline?",
+                            "answer": "The same suspension process applies across PMI credentials: suspended status for up to one year (during which you can still reinstate by finishing your PDUs and paying the fee), then permanent expiration if the suspension period lapses too."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Cover Your Talent Triangle Minimums in One Course",
+                    "cb_subtext": "Self-paced, mapped to every Talent Triangle area, from a PMI Premier Authorized Training Partner.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "pmi acp renewal",
+                "secondary_keywords": "pmi acp renewal fee, pmi-acp pdu requirements",
+                "meta_keywords": "pmi acp renewal",
+                "meta_description": "PMI-ACP renewal: 30 PDUs every 3 years, 18 from Education, up to 12 from Giving Back. The full renewal process and Talent Triangle minimums.",
+                "seo_title": "How to Renew Your PMI-ACP Certification | Granite PM Academy",
+                "og_title": "How to Renew Your PMI-ACP Certification",
+                "og_description": "PMI-ACP's full renewal process: 30 PDUs every three years, the Education/Giving Back split, and the Talent Triangle minimums that apply.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/pmi-acp-renewal/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "PMI-ACP Renewal",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmi-acp-renewal/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmi-acp-renewal/\",\n      \"name\": \"How to Renew Your PMI-ACP Certification | Granite PM Academy\",\n      \"description\": \"PMI-ACP renewal: 30 PDUs every 3 years, 18 from Education, up to 12 from Giving Back. The full renewal process and Talent Triangle minimums.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"PMI-ACP Renewal\",\n            \"item\": \"https://granitepmacademy.com/pmi-acp-renewal/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many PDUs does PMI-ACP renewal require?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"30 PDUs every three years — at least 18 from Education activities, with up to 12 allowed from Giving Back.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does PMI-ACP have Talent Triangle minimums too?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — a minimum of 4 PDUs in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 6 Education PDUs flexible across any area.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is there a dedicated PMI-ACP PDU bundle?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Not yet — Granite's current bundles are built around the PMP®, CAPM®, and general multi-credential renewal. Our 60-PDU bundle's content is broad enough to cover the Talent Triangle minimums for PMI-ACP holders too; see the full comparison table on our PDU renewal page.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I miss my PMI-ACP renewal deadline?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The same suspension process applies across PMI credentials: suspended status for up to one year (during which you can still reinstate by finishing your PDUs and paying the fee), then permanent expiration if the suspension period lapses too.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_best_pdu_courses": {
+            "title": "Best PMP PDU Online Courses, Compared",
+            "slug": "best-pmp-pdu-courses",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Best PMP PDU Online Courses, Compared",
+                    "text": "<p>Several providers sell self-paced PDU bundles for PMP&reg; renewal, at prices ranging from under $20 on sale to nearly $300 — but price alone doesn't tell you whether a bundle actually clears every Talent Triangle&reg; minimum, or just hits a raw total. Below is an honest, factual comparison, pricing checked live in November 2026 since these platforms change promotions often.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "comparison_table",
+                    "ct_label": "PRICING CHECKED NOVEMBER 2026",
+                    "ct_heading": "What a 60-PDU Bundle Costs, by Provider",
+                    "ct_heading_level": "h2",
+                    "ct_col1_header": "Provider",
+                    "ct_col2_header": "60-PDU Bundle Price (checked live)",
+                    "ct_rows_raw": "Master of Project Academy|$97 (60-PDU bundle)\nPM PrepCast|$199 (60-PDU bundle — provider closing Dec. 4, 2026)\nPMTraining|$298 (reduced from $598 list)\nUdemy (various instructors)|$118-141 list, frequently on sale for $15-30\nGranite PM Academy|From $149 (Essentials), $299 (Renewal Complete, most popular), $499 (Premium)",
+                    "ct_callout": "Prices change frequently on all platforms, especially Udemy's near-continuous promotions — confirm current pricing directly with each provider before buying.",
+                    "ct_bg": "#ffffff"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What to Actually Check Before Buying",
+                    "text": "<p><strong>Does it cover all three Talent Triangle&reg; areas?</strong> A 60-PDU total means nothing if it's all clustered in one area and you fall short of the per-area minimum — check the course outline for Ways of Working, Power Skills, and Business Acumen coverage specifically, not just the total hour count.</p><p><strong>Is the provider a real PMI-recognized Education Provider?</strong> Not every course claiming to offer PDUs is accredited — verify this before paying, since an unaccredited course's hours may not survive a PMI audit.</p><p><strong>Does it include documentation you can actually use?</strong> A completion certificate with provider name, course title, dates, and hours is what CCRS asks for — some lower-cost bundles leave you to assemble this yourself after the fact.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Why Prices Vary So Much",
+                    "text": "<p>Lower-priced bundles (Master of Project Academy, Udemy's sale pricing) tend to be self-serve recorded video libraries with less structure around confirming your Talent Triangle&reg; split. Higher-priced bundles (PMTraining, Granite's higher tiers) typically add documentation support, guarantees, or live instructor access on top of the same base PDU content. Neither end of the price range is inherently \"better\" — it depends on how much hand-holding you want versus how much you're willing to track yourself.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Related PDU Guides",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Free PMP PDUs",
+                            "text": "Skip paid bundles entirely with legitimate free sources.",
+                            "badge": "",
+                            "link": "/free-pmp-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "What to check any bundle against before buying.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "60-PDU Bundle",
+                            "text": "Granite's own offering, pre-mapped to all three areas.",
+                            "badge": "",
+                            "link": "/60-pdu-bundle/",
+                            "btn_text": "View Plans"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Is the cheapest PDU course always the best choice?",
+                            "answer": "Not necessarily — cheaper bundles sometimes require more manual tracking to confirm they clear every Talent Triangle minimum, where a slightly pricier bundle may already be pre-mapped. Price alone doesn't tell you whether a course actually satisfies PMI's category requirements."
+                        },
+                        {
+                            "question": "Do I need a PMI Authorized Training Partner (ATP) specifically?",
+                            "answer": "No — PDU-eligible courses just need to come from a PMI-recognized Education Provider or otherwise meet PMI's self-directed learning criteria. ATP status specifically applies to exam-prep training for PMI certifications, not PDU courses."
+                        },
+                        {
+                            "question": "Can I mix free and paid PDU sources instead of buying one bundle?",
+                            "answer": "Yes — PMI doesn't care whether a PDU was free or paid, only that it's documented and tagged to the right Talent Triangle area. See our breakdown of legitimate free PDU sources if you'd rather assemble your own mix."
+                        },
+                        {
+                            "question": "Does PM PrepCast's closure affect its existing PDU certificates?",
+                            "answer": "PM PrepCast has announced it's closing December 4, 2026 — see our dedicated page on what that means for existing students and their PDU certificates."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Pre-Mapped to Every Talent Triangle Area",
+                    "cb_subtext": "No guesswork on category minimums — plans from $149, PMI Premier Authorized Training Partner.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "best pmp pdu online courses",
+                "secondary_keywords": "pdu online courses, pmp pdu online",
+                "meta_keywords": "best pmp pdu online courses",
+                "meta_description": "PMP PDU course providers compared by real, live-checked price (Nov 2026) — Master of Project Academy, PM PrepCast, PMTraining, Udemy, and Granite.",
+                "seo_title": "Best PMP PDU Online Courses, Compared (Nov 2026) | Granite PM Academy",
+                "og_title": "Best PMP PDU Online Courses, Compared",
+                "og_description": "An honest, live-checked price comparison of PMP PDU course providers, plus what actually matters beyond price when choosing one.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/best-pmp-pdu-courses/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Best PMP PDU Courses",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/best-pmp-pdu-courses/#webpage\",\n      \"url\": \"https://granitepmacademy.com/best-pmp-pdu-courses/\",\n      \"name\": \"Best PMP PDU Online Courses, Compared (Nov 2026) | Granite PM Academy\",\n      \"description\": \"PMP PDU course providers compared by real, live-checked price (Nov 2026) — Master of Project Academy, PM PrepCast, PMTraining, Udemy, and Granite.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Best PMP PDU Courses\",\n            \"item\": \"https://granitepmacademy.com/best-pmp-pdu-courses/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the cheapest PDU course always the best choice?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Not necessarily — cheaper bundles sometimes require more manual tracking to confirm they clear every Talent Triangle minimum, where a slightly pricier bundle may already be pre-mapped. Price alone doesn't tell you whether a course actually satisfies PMI's category requirements.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do I need a PMI Authorized Training Partner (ATP) specifically?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — PDU-eligible courses just need to come from a PMI-recognized Education Provider or otherwise meet PMI's self-directed learning criteria. ATP status specifically applies to exam-prep training for PMI certifications, not PDU courses.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I mix free and paid PDU sources instead of buying one bundle?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — PMI doesn't care whether a PDU was free or paid, only that it's documented and tagged to the right Talent Triangle area. See our breakdown of legitimate free PDU sources if you'd rather assemble your own mix.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does PM PrepCast's closure affect its existing PDU certificates?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PM PrepCast has announced it's closing December 4, 2026 — see our dedicated page on what that means for existing students and their PDU certificates.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
             },
             "last_modified": "2026-11-08"
         }
