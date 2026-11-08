@@ -770,16 +770,16 @@ __HOST_CANONICAL__
     ExpiresByType image/gif "access plus 1 year"
 </IfModule>
 
-<!-- Belt-and-suspenders for the ExpiresByType text/html rule above: mod_expires isn't
-     guaranteed to be enabled on every box in the fleet, and an <IfModule> wrapper fails
-     SILENTLY when it isn't — the directive just never applies, with nothing on screen
-     saying so, and a rebuilt page can then sit in a visitor's browser cache indefinitely
-     since nothing ever told it to revalidate. mod_headers is far more commonly enabled,
-     so this reaches the same "never serve stale HTML from disk" outcome through a
-     second, independent mechanism. Matches the explicit Cache-Control header
-     site-template.php already sends for the live-PHP preview path — this is the same
-     fix for the static-deployed-output path, which has no PHP response to attach a
-     header to and only ever had .htaccess to rely on. -->
+# Belt-and-suspenders for the ExpiresByType text/html rule above: mod_expires isn't
+# guaranteed to be enabled on every box in the fleet, and an IfModule wrapper fails
+# SILENTLY when it isn't — the directive just never applies, with nothing on screen
+# saying so, and a rebuilt page can then sit in a visitor's browser cache indefinitely
+# since nothing ever told it to revalidate. mod_headers is far more commonly enabled,
+# so this reaches the same "never serve stale HTML from disk" outcome through a
+# second, independent mechanism. Matches the explicit Cache-Control header
+# site-template.php already sends for the live-PHP preview path — this is the same
+# fix for the static-deployed-output path, which has no PHP response to attach a
+# header to and only ever had .htaccess to rely on.
 <IfModule mod_headers.c>
     <FilesMatch "\.html$">
         Header set Cache-Control "no-cache, must-revalidate"
