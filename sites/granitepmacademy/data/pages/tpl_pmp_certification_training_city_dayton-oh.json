@@ -1,307 +1,421 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "dayton-oh",
-    "slug": "pmp-certification-training-dayton-oh",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "dayton-oh",
-        "city": "Dayton",
-        "state": "Ohio",
-        "SS": "OH",
-        "city_slug": "dayton-oh",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier1"
-        ],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Advanced Manufacturing",
-            "Higher Education & Research",
-            "Logistics & Distribution",
-            "Information Technology"
-        ],
-        "top_employers": [
-            "Wright-Patterson Air Force Base",
-            "Premier Health",
-            "Kettering Health",
-            "Dayton Children's Hospital",
-            "CareSource",
-            "University of Dayton",
-            "Wright State University",
-            "Sinclair Community College",
-            "Reynolds and Reynolds",
-            "LexisNexis",
-            "Emerson"
-        ],
-        "salary_note": "Project management salaries in the Dayton area tend to track slightly below national metro averages but remain competitive given the region's lower cost of living, with defense, healthcare, and manufacturing employers often offering the most attractive compensation and benefits for certified PMs.",
-        "market_blurb": "Dayton, Ohio's project management job market is anchored by its strong aerospace and defense sector centered around Wright-Patterson Air Force Base, alongside robust healthcare systems and advanced manufacturing companies. The city's mix of large institutional employers, universities, and logistics operations creates steady demand for skilled project and program managers who can coordinate complex, multi-stakeholder initiatives.",
-        "notable_projects": [
-            "Wright-Patterson Air Force Base facility modernization and mission support projects",
-            "National Museum of the United States Air Force expansion",
-            "Dayton Children's Hospital campus expansion",
-            "University of Dayton River Campus development"
-        ],
-        "credential_demand": "Employers in the Dayton area, particularly in defense, healthcare, and manufacturing, frequently list PMP certification as a preferred or required qualification for project and program manager roles, reflecting broader national trends toward valuing formal project management credentials.",
-        "_researched": 1,
-        "city_spotlight": "<p>Dayton's aerospace and defense sector, anchored by Wright-Patterson Air Force Base, drives consistent demand for skilled project managers across defense contracting, mission support, and facility modernization initiatives. Healthcare systems, advanced manufacturing, and logistics operations amplify that need for professionals who can lead complex, multi-stakeholder programs. Granite PM Academy delivers live-virtual PMP® Certification training nationwide, helping Dayton professionals earn the credential employers in these sectors value most.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-dayton-oh.webp",
-        "city_image_alt": "Dayton Skyline - Sunset, OH",
-        "city_image_credit": "Photo: Wikimedia Commons",
-        "city_image_source": ""
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_af42f25e99.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "dayton-oh",
+  "slug": "pmp-certification-training-dayton-oh",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "dayton-oh",
+    "city": "Dayton",
+    "state": "Ohio",
+    "SS": "OH",
+    "city_slug": "dayton-oh",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-dayton-oh/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Dayton, OH, PMP exam prep Dayton, PMP course Dayton OH, project management certification Dayton, OH, PMI PMP training Dayton",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\",\r\n      \"name\": \"PMP Certification Training in Dayton, OH | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Dayton, OH. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Dayton, OH\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#course\",\r\n      \"name\": \"PMP Certification Training in Dayton, OH\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Dayton, OH. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Advanced Manufacturing",
+      "Higher Education & Research",
+      "Logistics & Distribution",
+      "Information Technology"
+    ],
+    "top_employers": [
+      "Wright-Patterson Air Force Base",
+      "Premier Health",
+      "Kettering Health",
+      "Dayton Children's Hospital",
+      "CareSource",
+      "University of Dayton",
+      "Wright State University",
+      "Sinclair Community College",
+      "Reynolds and Reynolds",
+      "LexisNexis",
+      "Emerson"
+    ],
+    "salary_note": "Project management salaries in the Dayton area tend to track slightly below national metro averages but remain competitive given the region's lower cost of living, with defense, healthcare, and manufacturing employers often offering the most attractive compensation and benefits for certified PMs.",
+    "market_blurb": "Dayton, Ohio's project management job market is anchored by its strong aerospace and defense sector centered around Wright-Patterson Air Force Base, alongside robust healthcare systems and advanced manufacturing companies. The city's mix of large institutional employers, universities, and logistics operations creates steady demand for skilled project and program managers who can coordinate complex, multi-stakeholder initiatives.",
+    "notable_projects": [
+      "Wright-Patterson Air Force Base facility modernization and mission support projects",
+      "National Museum of the United States Air Force expansion",
+      "Dayton Children's Hospital campus expansion",
+      "University of Dayton River Campus development"
+    ],
+    "credential_demand": "Employers in the Dayton area, particularly in defense, healthcare, and manufacturing, frequently list PMP certification as a preferred or required qualification for project and program manager roles, reflecting broader national trends toward valuing formal project management credentials.",
+    "_researched": 1,
+    "city_spotlight": "<p>Dayton's aerospace and defense sector, anchored by Wright-Patterson Air Force Base, drives consistent demand for skilled project managers across defense contracting, mission support, and facility modernization initiatives. Healthcare systems, advanced manufacturing, and logistics operations amplify that need for professionals who can lead complex, multi-stakeholder programs. Granite PM Academy delivers live-virtual PMP® Certification training nationwide, helping Dayton professionals earn the credential employers in these sectors value most.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-dayton-oh.webp",
+    "city_image_alt": "Dayton Skyline - Sunset, OH",
+    "city_image_credit": "Photo: Wikimedia Commons",
+    "city_image_source": ""
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dayton's aerospace, defense, healthcare, and advanced manufacturing sectors rely heavily on skilled project managers to coordinate complex, regulated initiatives. Granite PM Academy delivers live-virtual PMP Certification Training with active certified instructors, meeting all PMI contact-hour requirements to qualify for the PMP credential. Earning your PMP positions you competitively for leadership roles across Dayton's major employers and expands your career mobility in a credential-driven market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_af42f25e99.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:58:57.822317Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3f654622838d1112",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:45:52+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Dayton for Aerospace & Defense Professionals",
+      "text": "<p>Wright-Patterson Air Force Base and Dayton's aerospace and defense sector drive demand for rigorously certified project managers who can lead complex, federally regulated initiatives. Beyond defense contracting, healthcare systems like Premier Health and Kettering Health, advanced manufacturers, and logistics operations across the region all require professionals who can demonstrate mastery of formal project management methodologies. The PMP® credential—recognized globally and valued by PMI—signals to employers that you can manage scope, schedule, risk, and stakeholder engagement at the level their mission-critical work demands. For Dayton professionals aiming to advance into leadership roles or transition into higher-responsibility positions, PMP Certification Training builds both the knowledge and the professional credibility that open doors in this competitive market.</p><p>Granite PM Academy delivers PMP Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting PMI's rigorous contact-hour requirements for credential eligibility. Our instructors are active certified practitioners who bring real-world experience into every class, ensuring you learn not just theory but how to apply project management principles under pressure. Whether you're based in Dayton or anywhere nationwide, you'll work through our curriculum with peers, practice exam questions, and receive direct support from instructors who understand what it takes to pass the PMP® exam and excel in your role. Upon completion, you'll be equipped with the knowledge, confidence, and documented training record to pursue your PMP® certification.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:02.110541Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "15001eb851990d58",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Dayton's Aerospace & Defense Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® training meets PMI's rigorous standards. This authorization confirms your course satisfies PMI's contact-hour requirements for PMP® eligibility, so you can apply with confidence."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Attend live-virtual instructor-led classes from anywhere, fulfilling the contact-hour requirement without commuting or relocating. Dayton professionals balance work and certification through flexible scheduling that fits aerospace, healthcare, and manufacturing project timelines."
+        },
+        {
+          "heading": "Instructors Who Certify & Practice",
+          "text": "Your instructors hold active PMP® certifications and apply project-management expertise in real-world roles. This working knowledge translates into relevant examples and exam strategies that go beyond textbook content."
+        },
+        {
+          "heading": "Credential Valued by Dayton Employers",
+          "text": "Wright-Patterson Air Force Base, Premier Health, Emerson, and other major Dayton employers seek PMP®-certified project managers. The credential positions you competitively for advancement in aerospace, defense, healthcare, and manufacturing—industries that anchor Dayton's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:06.070658Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c5a186b8a77a980f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Dayton's Defense and Healthcare Hub",
+      "text": "<p>Wright-Patterson Air Force Base stands as a major anchor for project management hiring across the Dayton region, where facility modernization and mission support initiatives consistently demand certified program and project managers. Beyond defense, Premier Health, Kettering Health, and Dayton Children's Hospital—managing large-scale campus expansions and clinical infrastructure projects—actively recruit professionals with formal project management credentials. Reynolds and Reynolds, LexisNexis, and Emerson round out a diverse employer base spanning logistics, information technology, and advanced manufacturing. Organizations across these sectors frequently list PMP® certification as a preferred or required qualification for advancement into project and program management roles, reflecting how certification has become a standard credential in Dayton's competitive market.</p><p>Dayton's cost of living advantage means project management salaries, while tracking slightly below national metro averages, deliver strong real purchasing power—and employers in defense, healthcare, and manufacturing often sweeten compensation and benefits packages for certified professionals. Completing PMP Certification Training through Granite PM Academy positions you to meet the specific credential expectations of these dominant local employers and to compete for roles managing high-visibility infrastructure, clinical, and defense-sector projects. The credential signals to Dayton hiring managers that you meet PMI standards for scope, schedule, and stakeholder management—a tangible differentiator in a region where formal PM qualifications have become the norm for career progression.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:10.276067Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f0e7b0146c6dd321",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Dayton",
+      "steps_items": [
+        {
+          "heading": "1. Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Verify you meet these education and experience thresholds before enrolling. Dayton's aerospace, healthcare, and manufacturing sectors actively employ PMP-certified professionals."
+        },
+        {
+          "heading": "2. Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our sessions are interactive and led by active certified practitioners. You'll learn the PMBOK® Guide framework, exam domains, and real-world application—all on a schedule that fits your Dayton-area work and life."
+        },
+        {
+          "heading": "3. Submit Your PMI Application",
+          "text": "After course completion, submit your official PMP application to PMI, including proof of your education and project-management experience. Pay the PMI exam fee at that time. Our team can guide you through the application process to ensure accuracy and avoid delays."
+        },
+        {
+          "heading": "4. Prepare and Test",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor Q&A support—to build confidence. Schedule your exam through Pearson VUE. Our graduates report that targeted review and hands-on practice significantly strengthen exam readiness."
+        },
+        {
+          "heading": "5. Maintain Your Credential",
+          "text": "PMP certification remains valid for three years. During this cycle, earn Professional Development Units (PDUs) through approved training, volunteer work, or publishing. Renew before expiration to keep your credential active and stay competitive in Dayton's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:15.328406Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "0d02a23eb445993a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Dayton aerospace and defense careers?",
+          "answer": "<p>Yes. Wright-Patterson Air Force Base and related defense contractors in the Dayton region frequently list PMP certification as preferred or required for project and program manager roles. The credential directly aligns with the structured, risk-managed project environments common in aerospace and defense work, making it a competitive advantage for advancement and eligibility for higher-responsibility positions in this dominant local industry.</p>"
+        },
+        {
+          "question": "Which Dayton employers value PMP certification most for project managers?",
+          "answer": "<p>Healthcare systems including Premier Health, Kettering Health, and Dayton Children's Hospital; defense and manufacturing organizations; and major regional employers like CareSource, University of Dayton, and Reynolds and Reynolds actively seek or require PMP-certified professionals. Certification is especially valued in roles overseeing clinical implementations, infrastructure projects, and complex manufacturing or logistics initiatives—all significant to Dayton's economy.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Dayton workplace or home office?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMP certification training as live-virtual instruction, allowing you to participate from anywhere with internet access—whether your office, home, or a hybrid location. This format accommodates Dayton professionals working in healthcare systems, manufacturing facilities, defense contractors, and corporate settings without requiring travel or time away from your workplace.</p>"
+        },
+        {
+          "question": "When should Dayton professionals pursue PMP certification in today's job market?",
+          "answer": "<p>Dayton's healthcare, defense, and advanced manufacturing employers increasingly list PMP certification as a preferred qualification for promotion to project and program manager roles. If you are currently managing projects or planning a transition into formal project management, obtaining certification now strengthens your candidacy and salary positioning in a competitive local market where credentials directly influence career trajectory.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:20.615218Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "45d7d1c3b04d4535",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Dayton's aerospace and defense sector, anchored by Wright-Patterson Air Force Base, drives steady demand for skilled project managers across the region's hospitals, manufacturers, and logistics operations. Complex multi-stakeholder initiatives at major employers like Premier Health and University of Dayton require PMP-certified professionals who can lead coordinated programs. Granite PM Academy delivers live-virtual PMP Certification Training to Dayton professionals nationwide, on a schedule built for working adults.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:59:22.201526Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "900306f85bff9ee3",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-dayton-oh/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Dayton, OH, PMP exam prep Dayton, PMP course Dayton OH, project management certification Dayton, OH, PMI PMP training Dayton",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\",\r\n      \"name\": \"PMP Certification Training in Dayton, OH | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Dayton, OH. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Dayton, OH\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#course\",\r\n      \"name\": \"PMP Certification Training in Dayton, OH\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Dayton, OH. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dayton-oh/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:45:52+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

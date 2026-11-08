@@ -1,302 +1,416 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "fresno-ca",
-    "slug": "pmp-certification-training-fresno-ca",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "fresno-ca",
-        "city": "Fresno",
-        "state": "California",
-        "SS": "CA",
-        "city_slug": "fresno-ca",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "industries": [
-            "Agriculture and agribusiness",
-            "Healthcare and medical services",
-            "Construction and infrastructure",
-            "Logistics, warehousing and distribution",
-            "Education (K-12 and higher education)",
-            "Government and public administration"
-        ],
-        "top_employers": [
-            "Community Medical Centers",
-            "Saint Agnes Medical Center",
-            "Fresno Unified School District",
-            "City of Fresno",
-            "County of Fresno",
-            "California State University, Fresno",
-            "Pelco Inc.",
-            "Amazon",
-            "Zacky Farms",
-            "Producers Dairy Foods"
-        ],
-        "salary_note": "Project manager compensation in Fresno tends to trail larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living, but demand remains steady across healthcare, construction, and public-sector projects. Candidates with PMP certification and industry-specific experience are generally positioned for more competitive offers.",
-        "market_blurb": "Fresno's project management job market is shaped by its role as a hub for agriculture, healthcare, and logistics in California's Central Valley, alongside steady public-sector and construction activity tied to regional growth. As infrastructure and development projects expand in and around the city, employers increasingly seek certified project managers who can coordinate complex, multi-stakeholder initiatives. The market is smaller than coastal California hubs but offers consistent opportunities tied to the region's economic base.",
-        "notable_projects": [
-            "California High-Speed Rail Central Valley segment (Fresno construction corridor)",
-            "Fresno State campus facility and program expansions",
-            "Fresno Chaffee Zoo expansion projects",
-            "Fresno Yosemite International Airport terminal and infrastructure improvements"
-        ],
-        "credential_demand": "PMP certification is viewed favorably by many Fresno-area employers, particularly in healthcare, construction, and government sectors where structured project oversight is valued. While not universally required, holding a PMP or CAPM can strengthen a candidate's competitiveness in local project management job postings.",
-        "_researched": 1,
-        "city_spotlight": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers—particularly as infrastructure projects like the California High-Speed Rail corridor and Fresno State campus expansions reshape the region. Employers across government, construction, and medical services increasingly value the PMP credential to lead complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Fresno professionals nationwide, offering flexible scheduling to fit working schedules.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_ee5f2962f0.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "fresno-ca",
+  "slug": "pmp-certification-training-fresno-ca",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "fresno-ca",
+    "city": "Fresno",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "fresno-ca",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fresno-ca/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Fresno, CA, PMP exam prep Fresno, PMP course Fresno CA, project management certification Fresno, CA, PMI PMP training Fresno",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\",\r\n      \"name\": \"PMP Certification Training in Fresno, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fresno, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fresno, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#course\",\r\n      \"name\": \"PMP Certification Training in Fresno, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fresno, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Agriculture and agribusiness",
+      "Healthcare and medical services",
+      "Construction and infrastructure",
+      "Logistics, warehousing and distribution",
+      "Education (K-12 and higher education)",
+      "Government and public administration"
+    ],
+    "top_employers": [
+      "Community Medical Centers",
+      "Saint Agnes Medical Center",
+      "Fresno Unified School District",
+      "City of Fresno",
+      "County of Fresno",
+      "California State University, Fresno",
+      "Pelco Inc.",
+      "Amazon",
+      "Zacky Farms",
+      "Producers Dairy Foods"
+    ],
+    "salary_note": "Project manager compensation in Fresno tends to trail larger California metros like San Francisco or Los Angeles, reflecting the region's lower cost of living, but demand remains steady across healthcare, construction, and public-sector projects. Candidates with PMP certification and industry-specific experience are generally positioned for more competitive offers.",
+    "market_blurb": "Fresno's project management job market is shaped by its role as a hub for agriculture, healthcare, and logistics in California's Central Valley, alongside steady public-sector and construction activity tied to regional growth. As infrastructure and development projects expand in and around the city, employers increasingly seek certified project managers who can coordinate complex, multi-stakeholder initiatives. The market is smaller than coastal California hubs but offers consistent opportunities tied to the region's economic base.",
+    "notable_projects": [
+      "California High-Speed Rail Central Valley segment (Fresno construction corridor)",
+      "Fresno State campus facility and program expansions",
+      "Fresno Chaffee Zoo expansion projects",
+      "Fresno Yosemite International Airport terminal and infrastructure improvements"
+    ],
+    "credential_demand": "PMP certification is viewed favorably by many Fresno-area employers, particularly in healthcare, construction, and government sectors where structured project oversight is valued. While not universally required, holding a PMP or CAPM can strengthen a candidate's competitiveness in local project management job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fresno's Central Valley position as a regional hub for agriculture, healthcare, and logistics creates steady demand for certified project managers—particularly as infrastructure projects like the California High-Speed Rail corridor and Fresno State campus expansions reshape the region. Employers across government, construction, and medical services increasingly value the PMP credential to lead complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Fresno professionals nationwide, offering flexible scheduling to fit working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Fresno's healthcare, education, and government sectors rely on skilled project managers to deliver complex initiatives across Community Medical Centers, Fresno Unified School District, and the City and County of Fresno. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led contact hours required by PMI to sit for the PMP exam, on a schedule that fits working professionals. Earning your PMP credential positions you to lead high-impact projects and advance your career across Fresno's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_ee5f2962f0.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:01.319550Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8f60532a3072a92f",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T22:03:29+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Fresno's Growing Project Management Sector",
+      "text": "<p>Fresno's role as California's Central Valley hub for agriculture, healthcare, and logistics has created sustained demand for project managers who can lead complex, multi-stakeholder initiatives across these industries and beyond. Major employers—from Community Medical Centers and Saint Agnes Medical Center to the City of Fresno, County of Fresno, and the region's distribution and construction firms—increasingly seek professionals with the Project Management Institute's PMP® credential to manage infrastructure projects, supply-chain expansions, and organizational initiatives. As Fresno continues to grow, the ability to demonstrate mastery of standardized project management frameworks and proven best practices has become a competitive advantage for career advancement and expanded responsibility in the local job market.</p><p>Granite PM Academy delivers live-virtual PMP® Certification Training nationwide through PMI-authorized instruction, taught by active certified practitioners with real-world experience across industries. Our structured curriculum satisfies the Project Management Institute's contact-hour requirements for credential eligibility and combines expert-led sessions with practical problem-solving so you can apply frameworks immediately in your role. Whether you work in healthcare, construction, public administration, or logistics in Fresno, our flexible virtual format lets you earn your PMP® without interrupting your career, and you'll graduate ready to sit for the PMI examination with the skills and confidence Fresno's employers are actively seeking.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:05.489484Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b2aa488a9c1c821e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Fresno's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets all PMI standards. You receive official contact hours recognized by the Project Management Institute, satisfying a core requirement for PMP eligibility and renewal."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Attend live-virtual instructor-led classes on your own time without commuting. Our interactive format delivers the contact hours required for PMP certification while letting Fresno professionals balance work, education, and family commitments."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Learn from active certified practitioners—not just trainers who teach theory. Your instructors apply PMP frameworks in real-world projects, bringing current best practices and practical problem-solving directly into every session."
+        },
+        {
+          "heading": "Credential Valued by Fresno Employers",
+          "text": "Fresno's healthcare systems, government agencies, construction firms, and agricultural operations actively hire credentialed project managers. The PMP credential signals advanced expertise to employers like Community Medical Centers, the City of Fresno, and major logistics providers expanding in the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:09.402831Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "2633fcbdc018172c",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Fresno",
+      "text": "<p>Fresno's healthcare sector is among the region's largest employers of project managers, with Community Medical Centers and Saint Agnes Medical Center overseeing facility upgrades, system implementations, and care-delivery expansions. Beyond healthcare, the City of Fresno, County of Fresno, and Fresno Unified School District manage ongoing capital projects and operational initiatives that require structured project oversight. Construction and infrastructure work remains steady, bolstered by major undertakings like the California High-Speed Rail Central Valley segment and Fresno Yosemite International Airport terminal improvements. Agricultural and logistics operations, anchored by employers such as Amazon and regional agribusiness firms, also depend on certified project managers to coordinate complex, time-sensitive work.</p><p>A PMP or CAPM credential strengthens your competitiveness in Fresno's job market, particularly in healthcare, construction, and government sectors where formal project management expertise is increasingly valued. While salaries for project managers in Fresno tend to be lower than in larger California metros, the lower cost of living makes compensation reasonable, and demand across these industries remains consistent. Candidates who combine PMP certification with relevant industry experience position themselves for stronger offers and advancement opportunities. Completing PMP Certification Training through Granite PM Academy—delivered entirely online with live instruction—lets you earn your credential while staying rooted in Fresno, without compromising on the rigor or recognition that employers in your area expect.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:13.418347Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f9e0828e3b866189",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fresno",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a secondary degree plus documented project-management experience, or a high school diploma with additional experience hours. Review PMI's specific education and work-hour thresholds to verify you meet baseline requirements before enrolling in training."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend sessions on a schedule that fits your work commitments—whether you work in healthcare, construction, logistics, or education across Fresno. You'll earn the 35 formal contact hours PMI mandates."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing training, submit your PMP application directly to PMI, including proof of your education and project experience. Pay the associated exam fee through PMI's portal. Allow processing time before your eligibility window opens for exam scheduling."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor support—to build confidence in the PMP domains. Schedule your computer-based exam at a Pearson Vue testing center. Test-takers typically need several weeks of focused study after course completion."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to PMI's 3-year renewal cycle by earning Professional Development Units (PDUs) through training, volunteering, or other approved activities. Plan to accumulate units annually so renewal remains manageable and your credential stays current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:18.468443Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "1850163193be074e",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Fresno healthcare project managers?",
+          "answer": "<p>Yes. Community Medical Centers, Saint Agnes Medical Center, and other healthcare systems in Fresno increasingly value structured project management credentials for clinical IT, facility expansion, and operational initiatives. The PMP credential strengthens your competitiveness in these organizations, where compliance and coordinated oversight are critical. While not universally required, certified project managers often advance faster and command stronger compensation packages in Fresno's healthcare sector.</p>"
+        },
+        {
+          "question": "Which Fresno employers actively seek PMP-certified project management professionals?",
+          "answer": "<p>Fresno's public sector (City and County government), education (Fresno Unified School District, California State University, Fresno), healthcare systems, and construction firms regularly list PMP or CAPM as preferred or required credentials. Agriculture-related firms managing large-scale operations and logistics companies also value the certification. Local employers recognize the PMP as evidence of discipline, risk management capability, and professional commitment—particularly important in Fresno's construction and infrastructure sectors.</p>"
+        },
+        {
+          "question": "Does PMP certification improve project manager compensation in Fresno?",
+          "answer": "<p>Fresno project manager salaries generally trail larger California metros due to the region's lower cost of living, but PMP certification and industry-specific experience position you for more competitive offers within the local market. Certified professionals in healthcare, construction, and government tend to earn higher salaries than non-certified peers at similar experience levels. The credential is particularly valuable when combined with experience in Fresno's dominant industries.</p>"
+        },
+        {
+          "question": "Can I complete PMP training in Fresno while working full-time?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual training format means you attend from your office, home, or anywhere with internet access—no travel to a physical classroom required. This flexibility works well for Fresno professionals balancing work with full-time jobs at major employers. You can fit course sessions around your work schedule and advance your certification without disrupting your current role or relocating.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:24.212066Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "74e06686f2dd3f23",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fresno's Central Valley position as an agriculture and logistics hub drives steady demand for certified project managers across healthcare, construction, and infrastructure sectors. Major employers including Community Medical Centers, Fresno State, and the City of Fresno routinely seek PMP® credential holders to lead complex, multi-stakeholder initiatives—from campus expansions to regional development projects. Granite PM Academy delivers live-virtual PMP® Certification Training to Fresno professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:25.954453Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3b135adb3c6f8af9",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fresno-ca/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Fresno, CA, PMP exam prep Fresno, PMP course Fresno CA, project management certification Fresno, CA, PMI PMP training Fresno",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\",\r\n      \"name\": \"PMP Certification Training in Fresno, CA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fresno, CA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fresno, CA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#course\",\r\n      \"name\": \"PMP Certification Training in Fresno, CA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fresno, CA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fresno-ca/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T22:03:29+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

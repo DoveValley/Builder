@@ -1,308 +1,422 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "fort-collins-co",
-    "slug": "pmp-certification-training-fort-collins-co",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "fort-collins-co",
-        "city": "Fort Collins",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "fort-collins-co",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "industries": [
-            "Technology & Electronics Manufacturing",
-            "Clean Energy & Renewable Technology",
-            "Higher Education",
-            "Healthcare",
-            "Craft Brewing & Food/Beverage Production",
-            "Aerospace & Industrial Manufacturing"
-        ],
-        "top_employers": [
-            "Colorado State University",
-            "Woodward, Inc.",
-            "UCHealth Poudre Valley Hospital",
-            "Advanced Energy Industries",
-            "Broadcom",
-            "New Belgium Brewing",
-            "Anheuser-Busch",
-            "Otterbox",
-            "City of Fort Collins",
-            "Larimer County",
-            "Poudre School District",
-            "Bohemian Foundation"
-        ],
-        "salary_note": "Project manager pay in Fort Collins tends to track Colorado Front Range averages, with roles in engineering, manufacturing, and healthcare typically commanding the most competitive compensation; certified candidates (PMP) are generally positioned for stronger offers, though exact figures vary widely by industry and experience.",
-        "market_blurb": "Fort Collins's project management job market is shaped by its strong base in technology and electronics manufacturing, clean energy, higher education, and healthcare, anchored by Colorado State University and companies like Woodward and Advanced Energy Industries. The city's growing craft-beverage and outdoor-recreation sectors add further demand for skilled coordinators and program managers. Overall, the market reflects steady demand for structured project delivery across both private industry and public-sector initiatives.",
-        "notable_projects": [
-            "Fort Collins Connexion municipal broadband buildout",
-            "Woodward, Inc. campus expansion and facility development in Fort Collins",
-            "Colorado State University capital construction and campus modernization projects",
-            "UCHealth Poudre Valley Hospital facility expansions"
-        ],
-        "credential_demand": "PMP and CAPM credentials are increasingly valued by Fort Collins-area employers in engineering, manufacturing, and healthcare administration, where structured project delivery is essential; while not universally required, certification is often cited as a differentiator in local job postings and career advancement.",
-        "_researched": 1,
-        "city_spotlight": "<p>Fort Collins's technology and clean-energy sectors—home to employers like Woodward and Advanced Energy Industries—drive steady demand for skilled project managers across private industry and public infrastructure initiatives. From Colorado State University's campus modernization to the Fort Collins Connexion broadband buildout, PMP-certified professionals command leadership roles in the city's most ambitious undertakings. Granite PM Academy delivers live-virtual PMP Certification training to Fort Collins professionals seeking to formalize their credentials and advance in a competitive, growth-oriented market.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-fort-collins-co.webp",
-        "city_image_alt": "Downtown Fort Collins Colorado, CO",
-        "city_image_credit": "Photo: Citycommunications at English Wikipedia, CC BY 3.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Collins_Colorado.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1b4262456b.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "fort-collins-co",
+  "slug": "pmp-certification-training-fort-collins-co",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "fort-collins-co",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "fort-collins-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fort-collins-co/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Fort Collins, CO, PMP exam prep Fort Collins, PMP course Fort Collins CO, project management certification Fort Collins, CO, PMI PMP training Fort Collins",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\",\r\n      \"name\": \"PMP Certification Training in Fort Collins, CO | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fort Collins, CO. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fort Collins, CO\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#course\",\r\n      \"name\": \"PMP Certification Training in Fort Collins, CO\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fort Collins, CO. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Technology & Electronics Manufacturing",
+      "Clean Energy & Renewable Technology",
+      "Higher Education",
+      "Healthcare",
+      "Craft Brewing & Food/Beverage Production",
+      "Aerospace & Industrial Manufacturing"
+    ],
+    "top_employers": [
+      "Colorado State University",
+      "Woodward, Inc.",
+      "UCHealth Poudre Valley Hospital",
+      "Advanced Energy Industries",
+      "Broadcom",
+      "New Belgium Brewing",
+      "Anheuser-Busch",
+      "Otterbox",
+      "City of Fort Collins",
+      "Larimer County",
+      "Poudre School District",
+      "Bohemian Foundation"
+    ],
+    "salary_note": "Project manager pay in Fort Collins tends to track Colorado Front Range averages, with roles in engineering, manufacturing, and healthcare typically commanding the most competitive compensation; certified candidates (PMP) are generally positioned for stronger offers, though exact figures vary widely by industry and experience.",
+    "market_blurb": "Fort Collins's project management job market is shaped by its strong base in technology and electronics manufacturing, clean energy, higher education, and healthcare, anchored by Colorado State University and companies like Woodward and Advanced Energy Industries. The city's growing craft-beverage and outdoor-recreation sectors add further demand for skilled coordinators and program managers. Overall, the market reflects steady demand for structured project delivery across both private industry and public-sector initiatives.",
+    "notable_projects": [
+      "Fort Collins Connexion municipal broadband buildout",
+      "Woodward, Inc. campus expansion and facility development in Fort Collins",
+      "Colorado State University capital construction and campus modernization projects",
+      "UCHealth Poudre Valley Hospital facility expansions"
+    ],
+    "credential_demand": "PMP and CAPM credentials are increasingly valued by Fort Collins-area employers in engineering, manufacturing, and healthcare administration, where structured project delivery is essential; while not universally required, certification is often cited as a differentiator in local job postings and career advancement.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fort Collins's technology and clean-energy sectors—home to employers like Woodward and Advanced Energy Industries—drive steady demand for skilled project managers across private industry and public infrastructure initiatives. From Colorado State University's campus modernization to the Fort Collins Connexion broadband buildout, PMP-certified professionals command leadership roles in the city's most ambitious undertakings. Granite PM Academy delivers live-virtual PMP Certification training to Fort Collins professionals seeking to formalize their credentials and advance in a competitive, growth-oriented market.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-fort-collins-co.webp",
+    "city_image_alt": "Downtown Fort Collins Colorado, CO",
+    "city_image_credit": "Photo: Citycommunications at English Wikipedia, CC BY 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Collins_Colorado.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Fort Collins's advanced manufacturing, clean energy, and higher-education sectors rely on project managers who can demonstrate PMI standards. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, preparing you to sit for the exam on your schedule. Earning your PMP credential strengthens your candidacy for senior roles across the region's growing technology, aerospace, and renewable-energy employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1b4262456b.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:34.344276Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ccc75d3c6680eaee",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:58:22+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Fort Collins for Project Leaders",
+      "text": "<p>Fort Collins's thriving technology and electronics manufacturing sector—anchored by industry leaders like Woodward and Broadcom—drives consistent demand for credentialed project managers who can navigate complex product development cycles and cross-functional delivery. Beyond manufacturing, Colorado State University, Advanced Energy Industries, and the city's expanding clean-energy ecosystem require skilled professionals to coordinate research initiatives, capital projects, and organizational change. The PMP® (Project Management Professional) credential, offered by the Project Management Institute, signals to these employers that you've mastered structured frameworks for scope, schedule, budget, and risk management. In Fort Collins's competitive job market, the PMP® distinguishes you as a leader ready to manage mission-critical initiatives in industries that define the region's economic future.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP® Certification Training nationwide, including professionals preparing to sit for the exam from Fort Collins and surrounding communities. Our curriculum meets PMI's contact-hour requirements and is taught by active certified practitioners who bring real-world delivery experience to every session. The combination of structured coursework, interactive problem-solving, and exam-focused preparation equips you to earn your PMP® credential and immediately apply those skills in your current role. Whether you're advancing within your organization or positioning yourself for leadership opportunities across Fort Collins's diverse industries, the PMP® opens doors—and Granite PM Academy provides the pathway to earn it on your schedule.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:38.728544Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f05a842bc8d7a85d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP® Certification for Fort Collins's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® preparation meets PMI standards and qualifies you to sit for the exam. You receive official contact hours recognized by the Project Management Institute—no workarounds, no gaps."
+        },
+        {
+          "heading": "Live Virtual, Full Contact Hours",
+          "text": "Instructor-led training delivered live online satisfies PMI's contact-hour requirement for PMP® eligibility. Study from Fort Collins on your schedule while maintaining the interactive, real-time instruction that builds competency beyond exam mechanics."
+        },
+        {
+          "heading": "Instructors Who Practice Project Management",
+          "text": "Your instructors are active certified practitioners applying PMP® principles in their own work. They bring field experience—not theory alone—into every lesson, grounding certification study in the decisions you'll face as a project manager."
+        },
+        {
+          "heading": "Credential Demanded by Fort Collins Employers",
+          "text": "Fort Collins's technology, clean energy, aerospace, and healthcare sectors actively recruit PMP®-certified professionals. Colorado State University, Woodward, UCHealth, and Advanced Energy Industries value the credential as proof of structured project leadership—a differentiator in a competitive local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:42.993624Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "fc720b568044269a",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fort Collins",
+      "text": "<p>Fort Collins's thriving engineering and manufacturing sector—anchored by companies like Woodward, Inc. and Broadcom—creates consistent demand for certified project managers across hardware development, facilities expansion, and production operations. Colorado State University's ongoing capital construction and campus modernization initiatives, alongside UCHealth Poudre Valley Hospital's facility expansions, further drive project leadership needs in higher education and healthcare administration. The Fort Collins Connexion municipal broadband buildout demonstrates how infrastructure and technology projects at the city and county level also require disciplined project delivery. These organizations increasingly value candidates who hold the PMP® credential, viewing it as a marker of structured methodology and accountability in roles where coordinating teams, budgets, and timelines directly impacts organizational success.</p><p>Earning your PMP® certification positions you competitively in Fort Collins's job market, particularly in engineering, manufacturing, and healthcare—sectors where project managers typically command stronger compensation packages. While the credential is not universally required, local employers frequently cite it as a differentiator in job postings and a pathway to advancement into senior project leadership roles. Completing Granite PM Academy's PMP Certification Training through our live-virtual platform gives you the skills and credential recognition that Fort Collins-area employers actively seek, without requiring you to leave your current schedule or location. Whether you're supporting a campus expansion, a product launch, or a healthcare facility project, the PMP® designation signals to your employer that you bring real-world rigor to every initiative you lead.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:47.641216Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "793e86ff317952f3",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fort Collins",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience before you apply. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma—and ensure your project hours meet the standard. Granite PM Academy's advisors can clarify eligibility questions before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP prep course, delivered online nationwide. The structured curriculum covers all domains of the PMBOK® Guide and integrates real-world scenarios relevant to Fort Collins's technology, manufacturing, and energy sectors. You'll complete the full contact-hour requirement on a schedule that fits your work calendar."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your 35 contact hours, you'll submit your formal application to PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application process to ensure accuracy and timely approval. Once PMI verifies your eligibility, you'll receive authorization to schedule your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy offers exam-preparation resources and practice testing to reinforce key concepts before exam day. You'll take the computer-based PMP® exam at a Pearson VUE testing center. Our instructors remain available to clarify challenging topics as you finalize your readiness."
+        },
+        {
+          "heading": "Maintain Your Credential Over Three Years",
+          "text": "Once certified, you'll earn and report Professional Development Units (PDUs) across a standard three-year renewal cycle to keep your PMP® active. Granite PM Academy offers ongoing PDU-eligible learning opportunities, webinars, and resources to support your continuous professional development and career growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:53.136509Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b1273c8fe37ab936",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Fort Collins engineering and manufacturing careers?",
+          "answer": "<p>Yes. Fort Collins's dominant employers in technology, electronics manufacturing, and aerospace—including companies like Woodward and Broadcom—increasingly cite PMP or CAPM credentials as differentiators in job postings and promotion criteria. Structured project delivery is essential in these fields, and certification signals mastery of those disciplines to local hiring managers, often positioning you for stronger offers and faster advancement.</p>"
+        },
+        {
+          "question": "Which Fort Collins employers value PMP certification most?",
+          "answer": "<p>Engineering, manufacturing, and healthcare sectors show the strongest demand. Major local employers in advanced energy, electronics, and UCHealth Poudre Valley Hospital routinely list PMP certification as preferred or valued. Clean energy and renewable technology companies also prioritize certified project managers. While certification is not universally required, it is widely recognized as a competitive advantage across these industries in the Fort Collins market.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Fort Collins workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format is designed for working professionals and can be attended from any location with reliable internet—including your office, home, or coworking space in Fort Collins. You participate in real-time instruction and peer interaction without travel, making it practical for Fort Collins-area professionals managing full work schedules.</p>"
+        },
+        {
+          "question": "When should Fort Collins project managers pursue PMP certification?",
+          "answer": "<p>Fort Collins's competitive job market rewards early certification. If you're in or entering a role at a local engineering, manufacturing, healthcare, or clean energy firm, pursuing certification sooner positions you ahead of peers and can open advancement opportunities before internal or external job transitions occur. The Fort Collins market trend shows certified candidates command stronger consideration, making timing a strategic career decision.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:00:58.736147Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "afc6d61c8ac7d1be",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Collins's project management demand spans technology, clean energy, higher education, and healthcare—with Colorado State University, Woodward, and Advanced Energy Industries anchoring a robust market for skilled coordinators and program managers. Major initiatives like the Fort Collins Connexion broadband buildout and ongoing university capital projects create steady demand for structured project delivery. Granite PM Academy delivers live-virtual PMP® Certification Training to Fort Collins professionals nationwide, helping you earn the credential employers in this region actively seek.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:00.532750Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "c2641c4eeeb9c3a4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fort-collins-co/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Fort Collins, CO, PMP exam prep Fort Collins, PMP course Fort Collins CO, project management certification Fort Collins, CO, PMI PMP training Fort Collins",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\",\r\n      \"name\": \"PMP Certification Training in Fort Collins, CO | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fort Collins, CO. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fort Collins, CO\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#course\",\r\n      \"name\": \"PMP Certification Training in Fort Collins, CO\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fort Collins, CO. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-collins-co/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:58:22+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

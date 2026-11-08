@@ -1,306 +1,420 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "los-alamos-nm",
-    "slug": "pmp-certification-training-los-alamos-nm",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "los-alamos-nm",
-        "city": "Los Alamos",
-        "state": "New Mexico",
-        "SS": "NM",
-        "city_slug": "los-alamos-nm",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "industries": [
-            "National security and defense research",
-            "Nuclear science and engineering",
-            "Federal government and public administration",
-            "Environmental remediation and management",
-            "Scientific research and development",
-            "Information technology and cybersecurity"
-        ],
-        "top_employers": [
-            "Los Alamos National Laboratory (LANL)",
-            "Triad National Security, LLC",
-            "N3B Los Alamos",
-            "U.S. Department of Energy (Los Alamos Field Office)",
-            "National Nuclear Security Administration (NNSA)",
-            "Los Alamos County Government",
-            "Los Alamos Public Schools",
-            "Los Alamos National Bank",
-            "Longenecker & Associates",
-            "Zia Engineering & Environmental Consultants"
-        ],
-        "salary_note": "Project managers in Los Alamos, particularly those supporting LANL and its contractors, tend to see competitive compensation driven by the demand for cleared, technically skilled personnel; exact figures vary widely by contractor, clearance level, and program scope.",
-        "market_blurb": "Los Alamos's project management job market is heavily shaped by Los Alamos National Laboratory and its extensive network of federal contractors, creating steady demand for professionals who can manage complex scientific, engineering, and environmental remediation programs. The city's economy is closely tied to national security and nuclear research, making experience with government contracting and technical project oversight highly valuable. Opportunities also extend to county government and supporting infrastructure projects tied to the Lab's growth.",
-        "notable_projects": [
-            "LANL plutonium pit production modernization program",
-            "Legacy environmental remediation and cleanup at LANL (managed by N3B Los Alamos)",
-            "Chemistry and Metallurgy Research Replacement (CMRR) facility upgrades",
-            "Los Alamos County infrastructure and utility improvement projects"
-        ],
-        "credential_demand": "PMP certification is increasingly valued among Los Alamos employers, especially LANL contractors managing large federal programs, as it signals proficiency in the structured project controls and compliance requirements common to national laboratory work; CAPM can serve as a useful entry point for those new to the field.",
-        "_researched": 1,
-        "city_spotlight": "<p>Los Alamos's project management market centers on Los Alamos National Laboratory and its federal contractor network, where professionals manage complex scientific, engineering, and environmental remediation programs tied to national security and nuclear research. PMP® certification is highly valued in this specialized sector, positioning you to lead government contracting initiatives and technical oversight roles. Granite PM Academy delivers live-virtual PMP® Certification training nationwide, enabling Los Alamos professionals to earn their credential on a schedule that fits demanding technical careers.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-los-alamos-nm.webp",
-        "city_image_alt": "Los Alamos Aerial, NM",
-        "city_image_credit": "Photo: Los Alamos National Laboratory, Public domain",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Los_Alamos_Aerial.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_405a9907ef.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "los-alamos-nm",
+  "slug": "pmp-certification-training-los-alamos-nm",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "los-alamos-nm",
+    "city": "Los Alamos",
+    "state": "New Mexico",
+    "SS": "NM",
+    "city_slug": "los-alamos-nm",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Los Alamos, NM, PMP exam prep Los Alamos, PMP course Los Alamos NM, project management certification Los Alamos, NM, PMI PMP training Los Alamos",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\",\r\n      \"name\": \"PMP Certification Training in Los Alamos, NM | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Los Alamos, NM. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Los Alamos, NM\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#course\",\r\n      \"name\": \"PMP Certification Training in Los Alamos, NM\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Los Alamos, NM. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "National security and defense research",
+      "Nuclear science and engineering",
+      "Federal government and public administration",
+      "Environmental remediation and management",
+      "Scientific research and development",
+      "Information technology and cybersecurity"
+    ],
+    "top_employers": [
+      "Los Alamos National Laboratory (LANL)",
+      "Triad National Security, LLC",
+      "N3B Los Alamos",
+      "U.S. Department of Energy (Los Alamos Field Office)",
+      "National Nuclear Security Administration (NNSA)",
+      "Los Alamos County Government",
+      "Los Alamos Public Schools",
+      "Los Alamos National Bank",
+      "Longenecker & Associates",
+      "Zia Engineering & Environmental Consultants"
+    ],
+    "salary_note": "Project managers in Los Alamos, particularly those supporting LANL and its contractors, tend to see competitive compensation driven by the demand for cleared, technically skilled personnel; exact figures vary widely by contractor, clearance level, and program scope.",
+    "market_blurb": "Los Alamos's project management job market is heavily shaped by Los Alamos National Laboratory and its extensive network of federal contractors, creating steady demand for professionals who can manage complex scientific, engineering, and environmental remediation programs. The city's economy is closely tied to national security and nuclear research, making experience with government contracting and technical project oversight highly valuable. Opportunities also extend to county government and supporting infrastructure projects tied to the Lab's growth.",
+    "notable_projects": [
+      "LANL plutonium pit production modernization program",
+      "Legacy environmental remediation and cleanup at LANL (managed by N3B Los Alamos)",
+      "Chemistry and Metallurgy Research Replacement (CMRR) facility upgrades",
+      "Los Alamos County infrastructure and utility improvement projects"
+    ],
+    "credential_demand": "PMP certification is increasingly valued among Los Alamos employers, especially LANL contractors managing large federal programs, as it signals proficiency in the structured project controls and compliance requirements common to national laboratory work; CAPM can serve as a useful entry point for those new to the field.",
+    "_researched": 1,
+    "city_spotlight": "<p>Los Alamos's project management market centers on Los Alamos National Laboratory and its federal contractor network, where professionals manage complex scientific, engineering, and environmental remediation programs tied to national security and nuclear research. PMP® certification is highly valued in this specialized sector, positioning you to lead government contracting initiatives and technical oversight roles. Granite PM Academy delivers live-virtual PMP® Certification training nationwide, enabling Los Alamos professionals to earn their credential on a schedule that fits demanding technical careers.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-los-alamos-nm.webp",
+    "city_image_alt": "Los Alamos Aerial, NM",
+    "city_image_credit": "Photo: Los Alamos National Laboratory, Public domain",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Los_Alamos_Aerial.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Los Alamos's concentration in national security, nuclear science, and federal research demands project managers who can navigate complex, regulated environments—precisely what PMP Certification Training from Granite PM Academy equips you to do. Our live-virtual, instructor-led program satisfies PMI's contact-hour education requirement, delivered on a schedule that fits working professionals. Earn your PMP credential and strengthen your qualifications for advancement within LANL, NNSA, and the region's specialized defense and research sector.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_405a9907ef.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:57.142844Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5971c0fc633c841b",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:54:32+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Los Alamos Project Managers",
+      "text": "<p>Los Alamos National Laboratory and its extensive network of federal contractors drive one of the region's most specialized project management markets. Professionals managing complex scientific, engineering, and environmental remediation programs across national security and nuclear research initiatives need credentials that demonstrate command of rigorous planning, risk management, and stakeholder coordination. The PMP® (Project Management Professional) certification—the gold standard from the Project Management Institute—signals to LANL, Triad National Security, and other major employers that you can lead technical projects within the demanding frameworks of government contracting and federal oversight. In Los Alamos, this credential directly strengthens your competitiveness for roles in program management, systems oversight, and technical project leadership.</p><p>Granite PM Academy delivers PMP® Certification Training through live-virtual, instructor-led courses that meet the Project Management Institute's contact-hour requirements and fit working professionals' schedules. Our instructors are active certified practitioners with real-world project experience; they teach the PMBOK® Guide framework, exam strategy, and practical application in a structured program designed to prepare you for certification. Whether you're advancing within a federal contractor, transitioning into Los Alamos's growing infrastructure sector, or strengthening your credentials for county or laboratory roles, our training gives you the knowledge and confidence to pass the PMP® exam and step into your next career opportunity.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:01.258951Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "c195a8fa78c59fe7",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Los Alamos's Security and Research Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization—Credential That Counts",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP training meets PMI's rigorous standards. This authorization matters when you're competing for roles at national security and research organizations that demand verified, credentialed project leaders."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without sacrificing flexibility. Attend from anywhere, stay engaged with real-time instructors, and complete your required training hours on a schedule that works around your current role."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Your instructors are certified PMP professionals actively managing projects today—not academics or retired consultants. They bring current real-world insights into complex program delivery, risk management, and stakeholder leadership that you'll apply immediately in your organization."
+        },
+        {
+          "heading": "Strengthen Your Position at Los Alamos Employers",
+          "text": "Organizations like Los Alamos National Laboratory, Triad National Security, and federal agencies across the region prioritize PMP credentials for program and project leadership roles. The credential signals mastery of the frameworks these employers depend on for national security, nuclear science, and research programs."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:05.491883Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "12144fd0449f82c2",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in National Security",
+      "text": "<p>Los Alamos National Laboratory and its contracting partners drive sustained demand for certified project managers across national security, nuclear science, and federal research programs. Organizations including Triad National Security, LLC, N3B Los Alamos, and the U.S. Department of Energy's Los Alamos Field Office hire PMs to lead complex initiatives—from the plutonium pit production modernization program to the Chemistry and Metallurgy Research Replacement facility upgrades and ongoing legacy environmental remediation efforts. These large-scale federal projects require disciplined project controls, rigorous compliance oversight, and the structured methodology that PMP® certification demonstrates.</p><p>Earning your PMP® credential positions you competitively in a market where cleared, technically skilled project managers command strong compensation packages. Employers here prioritize candidates who can manage the complexity and compliance demands unique to national laboratory work. Granite PM Academy's live-virtual PMP Certification Training meets the scheduling needs of working professionals and delivers the PMI-aligned frameworks Los Alamos contractors expect. Whether you hold relevant professional experience or are launching your PM career with CAPM®, completing your certification with us equips you to advance into roles managing the region's most consequential federal and research programs.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:09.145581Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "895cdc1dccf3285a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP® Certification in Los Alamos",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour requirements for your background—typically a secondary degree paired with professional PM hours, or a four-year degree with fewer hours required. Gather your project documentation before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course. Attend all sessions synchronously from Los Alamos on your schedule; no commute required. Our active certified practitioners deliver real-world scenarios and frameworks aligned to PMI's current exam content outline."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and complete the formal PMP® application, including your education, work history, and training documentation. Pay PMI's examination fee directly. Allow time for PMI's application review process before your exam date."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor office hours—to reinforce knowledge and build confidence. Schedule your computer-based exam at a Pearson VUE testing center. You'll receive your results immediately upon completion."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle by attending training, leading projects, contributing to the profession, or giving back to your community. Renew your credential with PMI before expiration to keep it active in your local and national job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:14.342892Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b195a287447a2563",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Los Alamos National Laboratory careers?",
+          "answer": "<p>Yes. LANL and its contractors increasingly value PMP certification when managing large federal programs requiring structured project controls and compliance documentation. The credential signals capability in the methodologies expected across national security and defense research, giving you a competitive edge in promotion and program-lead roles. Compensation for cleared, technically skilled project managers in Los Alamos tends to be competitive, and certification supports justification for advancement.</p>"
+        },
+        {
+          "question": "Which Los Alamos employers specifically hire for PMP-certified project managers?",
+          "answer": "<p>LANL contractors—including Triad National Security, N3B Los Alamos, and others managing federal nuclear science and environmental remediation programs—actively seek PMP-certified professionals. The National Nuclear Security Administration and U.S. Department of Energy Los Alamos Field Office also value the credential for program oversight roles. IT, cybersecurity, and scientific research programs across these organizations increasingly require or prefer PMP holders for project leadership positions.</p>"
+        },
+        {
+          "question": "Can I attend PMP training in Los Alamos while working at LANL or as a contractor?",
+          "answer": "<p>Yes. Granite PM Academy offers live-virtual PMP training delivered nationwide, so you can attend from your workplace, home, or any location with internet access—no travel required. This format is particularly convenient for Los Alamos professionals managing demanding federal project schedules who need flexibility to balance training with work commitments.</p>"
+        },
+        {
+          "question": "When should Los Alamos professionals pursue PMP certification given local job demand?",
+          "answer": "<p>The Los Alamos job market favors PMP-certified candidates now, especially as LANL and its contractors expand programs in national security, nuclear science, and environmental management. Pursuing certification earlier rather than later positions you ahead of peers and improves eligibility for higher-level roles. If you meet prerequisites, enrolling soon maximizes your advantage in a credential-conscious local market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:20.080253Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "015c527fa3a204a3",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Los Alamos's project management landscape centers on Los Alamos National Laboratory and its federal contractor network, where demand for professionals skilled in complex scientific, engineering, and environmental remediation programs remains steady. Government contracting expertise and technical project oversight are particularly valued across LANL, the Department of Energy, and supporting infrastructure initiatives. Granite PM Academy delivers live-virtual PMP® Certification Training to Los Alamos professionals nationwide, helping you earn the credential that advances your career in this specialized market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:02:21.780505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4cf6b1937ce16583",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Los Alamos, NM, PMP exam prep Los Alamos, PMP course Los Alamos NM, project management certification Los Alamos, NM, PMI PMP training Los Alamos",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\",\r\n      \"name\": \"PMP Certification Training in Los Alamos, NM | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Los Alamos, NM. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Los Alamos, NM\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#course\",\r\n      \"name\": \"PMP Certification Training in Los Alamos, NM\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Los Alamos, NM. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-los-alamos-nm/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:54:32+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

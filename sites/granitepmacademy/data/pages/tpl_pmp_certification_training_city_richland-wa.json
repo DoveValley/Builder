@@ -1,306 +1,420 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "richland-wa",
-    "slug": "pmp-certification-training-richland-wa",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "richland-wa",
-        "city": "Richland",
-        "state": "Washington",
-        "SS": "WA",
-        "city_slug": "richland-wa",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier3"
-        ],
-        "industries": [
-            "Energy & Nuclear (Hanford Site cleanup)",
-            "Environmental Remediation",
-            "Scientific Research (National Laboratories)",
-            "Government & Federal Contracting",
-            "Healthcare",
-            "Agriculture & Food Processing"
-        ],
-        "top_employers": [
-            "Pacific Northwest National Laboratory (PNNL)",
-            "Bechtel National",
-            "Washington River Protection Solutions",
-            "Mission Support Alliance",
-            "Energy Northwest",
-            "Kadlec Regional Medical Center",
-            "Battelle",
-            "Jacobs Engineering",
-            "Fluor Corporation",
-            "Lockheed Martin (Hanford Site support)"
-        ],
-        "salary_note": "Project managers in the Richland area, particularly those working with Department of Energy contractors and national laboratories, tend to command competitive compensation due to strong demand for certified professionals in federal and technical program management roles. Exact figures vary widely by employer, contract type, and clearance requirements, so candidates should research specific employer postings rather than rely on a fixed range.",
-        "market_blurb": "Richland, Washington, sits at the heart of the Tri-Cities region and hosts a project management job market heavily shaped by the Hanford Site cleanup mission, national laboratory research, and federal contracting. Demand for skilled project and program managers remains steady, driven by large-scale environmental remediation, energy infrastructure, and scientific research initiatives. The presence of major DOE contractors and PNNL creates consistent opportunities for professionals with formal project management training.",
-        "notable_projects": [
-            "Hanford Site Waste Treatment and Immobilization Plant (Vit Plant)",
-            "Hanford Site environmental cleanup managed by the U.S. Department of Energy",
-            "PNNL research facility and campus expansions",
-            "Energy Northwest Columbia Generating Station operations and upgrades"
-        ],
-        "credential_demand": "PMP certification is highly regarded among Richland-area employers, especially DOE contractors and engineering firms managing complex, federally regulated projects, where formal project management credentials are often preferred or required. Job postings in the region frequently list PMP or equivalent certification as a qualifying or preferred credential for project and program manager roles.",
-        "_researched": 1,
-        "city_spotlight": "<p>Richland's project management demand is anchored by the Hanford Site cleanup mission, where the Department of Energy, contractors like Bechtel National and Washington River Protection Solutions, and Pacific Northwest National Laboratory drive large-scale environmental remediation and federal contracting work. Skilled PMP®-certified professionals are sought to lead these complex, mission-critical initiatives. Granite PM Academy delivers live-virtual PMP® Certification training to Richland professionals nationwide, enabling you to earn your credential on your schedule.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-richland-wa.webp",
-        "city_image_alt": "Downtown Richland, WA",
-        "city_image_credit": "Photo: Corbin Harder, CC BY-SA 4.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Richland.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c99d428b85.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "richland-wa",
+  "slug": "pmp-certification-training-richland-wa",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "richland-wa",
+    "city": "Richland",
+    "state": "Washington",
+    "SS": "WA",
+    "city_slug": "richland-wa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-richland-wa/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Richland, WA, PMP exam prep Richland, PMP course Richland WA, project management certification Richland, WA, PMI PMP training Richland",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\",\r\n      \"name\": \"PMP Certification Training in Richland, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Richland, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Richland, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Richland, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Richland, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Energy & Nuclear (Hanford Site cleanup)",
+      "Environmental Remediation",
+      "Scientific Research (National Laboratories)",
+      "Government & Federal Contracting",
+      "Healthcare",
+      "Agriculture & Food Processing"
+    ],
+    "top_employers": [
+      "Pacific Northwest National Laboratory (PNNL)",
+      "Bechtel National",
+      "Washington River Protection Solutions",
+      "Mission Support Alliance",
+      "Energy Northwest",
+      "Kadlec Regional Medical Center",
+      "Battelle",
+      "Jacobs Engineering",
+      "Fluor Corporation",
+      "Lockheed Martin (Hanford Site support)"
+    ],
+    "salary_note": "Project managers in the Richland area, particularly those working with Department of Energy contractors and national laboratories, tend to command competitive compensation due to strong demand for certified professionals in federal and technical program management roles. Exact figures vary widely by employer, contract type, and clearance requirements, so candidates should research specific employer postings rather than rely on a fixed range.",
+    "market_blurb": "Richland, Washington, sits at the heart of the Tri-Cities region and hosts a project management job market heavily shaped by the Hanford Site cleanup mission, national laboratory research, and federal contracting. Demand for skilled project and program managers remains steady, driven by large-scale environmental remediation, energy infrastructure, and scientific research initiatives. The presence of major DOE contractors and PNNL creates consistent opportunities for professionals with formal project management training.",
+    "notable_projects": [
+      "Hanford Site Waste Treatment and Immobilization Plant (Vit Plant)",
+      "Hanford Site environmental cleanup managed by the U.S. Department of Energy",
+      "PNNL research facility and campus expansions",
+      "Energy Northwest Columbia Generating Station operations and upgrades"
+    ],
+    "credential_demand": "PMP certification is highly regarded among Richland-area employers, especially DOE contractors and engineering firms managing complex, federally regulated projects, where formal project management credentials are often preferred or required. Job postings in the region frequently list PMP or equivalent certification as a qualifying or preferred credential for project and program manager roles.",
+    "_researched": 1,
+    "city_spotlight": "<p>Richland's project management demand is anchored by the Hanford Site cleanup mission, where the Department of Energy, contractors like Bechtel National and Washington River Protection Solutions, and Pacific Northwest National Laboratory drive large-scale environmental remediation and federal contracting work. Skilled PMP®-certified professionals are sought to lead these complex, mission-critical initiatives. Granite PM Academy delivers live-virtual PMP® Certification training to Richland professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-richland-wa.webp",
+    "city_image_alt": "Downtown Richland, WA",
+    "city_image_credit": "Photo: Corbin Harder, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Richland.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Richland's Energy, Nuclear, and Federal Contracting sectors depend on PMP-certified project managers to lead complex, regulated initiatives at scale. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn the credential on a schedule that fits your current role. A PMP credential opens pathways to higher responsibility and compensation across the region's largest employers and contractors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c99d428b85.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:39.026448Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "7c19eb1b61731244",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:54:07+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Richland for Federal Contractors",
+      "text": "<p>Richland's project management landscape is defined by the Hanford Site cleanup mission and the presence of major Department of Energy contractors and national laboratories. Professionals managing environmental remediation, nuclear facility operations, scientific research initiatives, and federal infrastructure projects face complex stakeholder demands, strict compliance requirements, and multi-year timelines that demand formally validated project management expertise. The PMP® certification—the gold standard credential from the Project Management Institute—demonstrates your capability to lead these high-stakes initiatives and positions you competitively within Richland's steady, well-established market for skilled program and project managers.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP® Certification Training nationwide, including to professionals in Richland and the Tri-Cities region. Our courses satisfy the contact-hour requirements mandated by PMI for PMP® eligibility, are taught by active certified practitioners with real-world project leadership experience, and are designed to prepare you thoroughly for the PMP® exam. Whether you are advancing within a federal contracting organization, transitioning into a project management role at a national laboratory, or seeking credential recognition across the energy and environmental sectors, our structured, interactive training model gets you exam-ready on your schedule—and moving toward certification.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:42.921677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2314bdc7f10f7d36",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Richland's Energy & Nuclear Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Value",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. This status means your PMP training meets PMI standards and satisfies the contact-hour requirement for application—no questions about eligibility later. Your credential carries full PMI backing."
+        },
+        {
+          "heading": "Live Instruction, Flexible Virtual Format",
+          "text": "Attend instructor-led training sessions entirely online on your schedule. Active certified practitioners teach each course, delivering real-world context and exam strategy. No pre-recorded videos or asynchronous modules—live interaction with experienced professionals."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "PMP exam readiness is woven throughout the curriculum, not tacked on at the end. Instructors cover exam domains, question formats, and test-taking strategy alongside core project management concepts. Study materials and practice exams complement classroom instruction."
+        },
+        {
+          "heading": "Demand Among Richland's Major Employers",
+          "text": "Federal contractors and national laboratories operating in Richland—including PNNL, Bechtel National, Fluor Corporation, and Jacobs Engineering—actively hire certified project and program managers for complex cleanup, remediation, and research programs. PMP certification strengthens your candidacy significantly."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:47.039363Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "14bfed7318aedf68",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Richland's Federal Sector",
+      "text": "<p>Richland's economy centers on federal energy and environmental work, creating sustained demand for certified project managers. Pacific Northwest National Laboratory, Bechtel National, Washington River Protection Solutions, and other major contractors managing the Hanford Site's environmental cleanup and the Vit Plant continuously recruit skilled PMs to oversee complex, multi-year initiatives. PNNL's research facility and campus expansions, along with Energy Northwest's Columbia Generating Station operations and upgrades, further reinforce the region's reliance on disciplined project governance. These employers—many handling Department of Energy contracts—consistently seek professionals who can demonstrate formal credentials and deep familiarity with federally regulated project delivery.</p><p>A PMP® certification is particularly valuable in Richland because it signals to DOE contractors and engineering firms that you meet the rigorous standards their projects demand. The region's competitive labor market for project managers means certified professionals command strong compensation, though exact figures vary by employer, contract type, and security clearance requirements. Completing PMP Certification Training through Granite PM Academy—delivered live-virtually and designed for working professionals—positions you to qualify for higher-responsibility roles and advance your career in one of the Pacific Northwest's most stable, technically demanding job markets. Research specific employer postings to understand how certification unlocks opportunity at organizations managing some of the nation's most complex infrastructure and remediation work.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:51.388064Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c7a361e50c2d21b7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Richland",
+      "steps_items": [
+        {
+          "heading": "Confirm Your PMP Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour requirements for your background—typically a bachelor's degree plus project experience, or an associate degree with additional hours. Gather transcripts and project records before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend synchronous sessions from your location in Richland on a schedule that fits your work at PNNL, Hanford Site support contractors, or regional healthcare and energy employers. Active certified practitioners lead all instruction."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the 35-hour course, submit your official PMP application to PMI with transcripts, work history, and proof of training hours. Pay PMI's examination fee. PMI will verify your credentials and grant eligibility to sit for the exam within a defined window."
+        },
+        {
+          "heading": "Prepare and Test for the PMP Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor support—to build confidence in the PMP exam's format and domains. Schedule your exam with Pearson VUE. Test from home or an approved proctoring center and complete the 4-hour, computer-based assessment."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, your PMP credential is valid for three years. Within that cycle, earn Professional Development Units (PDUs) by attending approved training, conferences, or project management work. Submit your renewal application and fee to PMI before expiration to maintain active status in your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:56.852791Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "3f9fe5e3720c0900",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Richland project managers?",
+          "answer": "<p>Yes, especially if you work with DOE contractors, national laboratories, or engineering firms managing federally regulated projects. Richland-area employers—including those supporting Hanford Site cleanup and environmental remediation—frequently list PMP or equivalent certification as preferred or required for advancement into project and program manager roles. The credential signals your readiness to lead complex, compliance-heavy initiatives that dominate this region's market.</p>"
+        },
+        {
+          "question": "Do Richland employers like PNNL and Bechtel value PMP certification?",
+          "answer": "<p>Strongly. Major Richland employers managing DOE contracts, national laboratory programs, and technical remediation projects prioritize formal project management credentials. PMP certification is widely recognized and valued across the region's dominant industries—energy, nuclear, environmental remediation, and federal contracting. Job postings from these organizations frequently highlight PMP or equivalent as a qualifying credential for competitive roles.</p>"
+        },
+        {
+          "question": "When should Richland project managers pursue PMP certification?",
+          "answer": "<p>Now is an optimal time. Richland's robust demand for certified project managers—driven by ongoing Hanford Site work, national laboratory expansion, and DOE contractor hiring—means certified professionals encounter strong competition for senior roles and advancement. Early certification positions you ahead of peers and aligns with employer preferences. Delaying risks missing openings where PMP is listed as preferred or required.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Richland workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training live-virtual, meaning you can join from your office, home, or any location with internet access. This flexibility is ideal for Richland professionals balancing demanding schedules at national laboratories and engineering firms. You'll participate in real-time instruction without travel, making it easier to maintain work commitments while earning your certification.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:02.254418Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2ee6b31be57ffc26",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Richland's project management landscape is shaped by the Hanford Site cleanup mission and major DOE contractors like PNNL and Bechtel National, creating steady demand for certified program and project managers across environmental remediation, energy infrastructure, and federal contracting. The PMP® credential is highly valued in this market, where large-scale initiatives such as the Waste Treatment and Immobilization Plant and ongoing site remediation require formally trained leadership. Granite PM Academy delivers live-virtual PMP Certification Training nationwide, making it accessible to Richland professionals pursuing this credential on their own schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:04.131257Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "52d0d768469677a7",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-richland-wa/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Richland, WA, PMP exam prep Richland, PMP course Richland WA, project management certification Richland, WA, PMI PMP training Richland",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\",\r\n      \"name\": \"PMP Certification Training in Richland, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Richland, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Richland, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Richland, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Richland, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-richland-wa/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:54:07+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

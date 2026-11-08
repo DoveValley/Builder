@@ -1,402 +1,402 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "lancaster-pa",
-    "slug": "ai-training-lancaster-pa",
-    "title": "PMI-CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "lancaster-pa",
-        "city": "Lancaster",
-        "state": "Pennsylvania",
-        "SS": "PA",
-        "city_slug": "lancaster-pa",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier4"
-        ],
-        "industries": [
-            "Healthcare",
-            "Manufacturing",
-            "Agriculture & Food Processing",
-            "Insurance & Financial Services",
-            "Education",
-            "Tourism & Hospitality"
-        ],
-        "top_employers": [
-            "Penn Medicine Lancaster General Health",
-            "Armstrong World Industries",
-            "High Companies",
-            "Fulton Financial Corporation",
-            "Willow Valley Communities",
-            "Franklin & Marshall College",
-            "Turkey Hill Dairy",
-            "Woodstream Corporation",
-            "Lancaster County Government",
-            "Millersville University"
-        ],
-        "salary_note": "Project manager compensation in Lancaster tends to track slightly below larger metros like Philadelphia or Harrisburg, but demand remains steady across healthcare, manufacturing, and financial services sectors. Employers increasingly favor candidates with PMP or CAPM credentials when filling mid- to senior-level PM roles.",
-        "market_blurb": "Lancaster, PA's project management job market is anchored by its strong healthcare, manufacturing, and agribusiness sectors, with organizations like Penn Medicine Lancaster General Health and Armstrong World Industries regularly seeking PM talent. The city's mix of established manufacturers, financial institutions, and a growing healthcare system creates consistent opportunities for certified project and program managers.",
-        "notable_projects": [
-            "Penn Medicine Lancaster General Health campus and facility expansions",
-            "High Companies mixed-use and commercial real estate developments in downtown Lancaster",
-            "Lancaster County Convention Center and downtown revitalization initiatives",
-            "Turkey Hill Experience and related regional tourism development projects"
-        ],
-        "credential_demand": "While not every Lancaster-area job posting explicitly requires PMP or CAPM certification, employers in healthcare, manufacturing, and financial services increasingly view these credentials favorably for project and program management roles, especially as organizations formalize project governance practices.",
-        "_researched": 1,
-        "city_spotlight": "<p>Lancaster's healthcare and manufacturing sectors—anchored by Penn Medicine Lancaster General Health and Armstrong World Industries—drive steady demand for certified project managers across the region. The city's diverse employer base in healthcare, financial services, and agribusiness creates consistent career advancement opportunities for PMP®-credentialed professionals. Granite PM Academy delivers live-virtual PMP Certification training to Lancaster professionals, enabling you to earn your credential on your schedule while advancing in your local market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Healthcare systems, manufacturers, and financial institutions across Lancaster rely on skilled project managers to deliver mission-critical initiatives. Granite PM Academy's live-virtual PMI-CPMAI Certification Training delivers the instructor-led instruction and contact hours required by PMI, taught by active certified practitioners and designed for working professionals. Earn your credential on a schedule that fits your role, and position yourself for advancement in Lancaster's dynamic project-management market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6a365a85e3.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:05.389201Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "6757d5a4068f6793",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training for Lancaster's Healthcare Leaders",
-            "text": "<p>Lancaster's healthcare sector, anchored by Penn Medicine Lancaster General Health and a expanding network of medical facilities, drives consistent demand for certified program and portfolio managers who can navigate complex, multi-stakeholder initiatives. Healthcare organizations in Lancaster increasingly rely on professionals credentialed in program and portfolio management—skills the PMI-CPMAI Certification demonstrates—to oversee clinical system implementations, facility expansions, and care delivery transformations. Whether you work in Lancaster's hospitals, medical practices, or health-related enterprises, or support the manufacturing and financial services sectors that also anchor the region's economy, the PMI-CPMAI credential signals your ability to manage interdependent programs and align organizational strategy through disciplined portfolio oversight.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules across Lancaster and beyond. As a PMI Authorized Training Partner, we deliver the complete contact-hour requirement for PMI-CPMAI eligibility, taught by active certified practitioners with real-world program management experience. Our flexible virtual format means you earn your certification without geographic constraints while maintaining the interactive instruction and peer collaboration that matter most. Start your PMI-CPMAI journey with Granite PM Academy and position yourself for advancement in Lancaster's dynamic healthcare, manufacturing, and professional services markets.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:09.573289Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "96d55cec9e0d67e9",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification: Lancaster's Path to Advanced Project Leadership",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy holds PMI authorization to deliver PMI-CPMAI training, guaranteeing your certification meets the global standard employers—including Lancaster's major healthcare systems and manufacturers—actively seek and respect."
-                },
-                {
-                    "heading": "Live-Virtual Instruction Fits Working Schedules",
-                    "text": "Attend instructor-led sessions from anywhere on a schedule that works around your current role. Our live-virtual format delivers the contact hours required for PMI-CPMAI eligibility without disrupting your career momentum in Lancaster's fast-paced industries."
-                },
-                {
-                    "heading": "Instructors Bring Active Certification Experience",
-                    "text": "Learn from certified practitioners actively managing complex programs and projects. Instructors share real-world frameworks and problem-solving approaches that translate directly into your role, strengthening your readiness for both the exam and the work ahead."
-                },
-                {
-                    "heading": "Credential Demand Across Lancaster's Key Industries",
-                    "text": "Healthcare systems, manufacturing firms, financial services, and government agencies across Lancaster increasingly hire project and program managers who hold advanced PMI credentials. PMI-CPMAI positions you competitively for senior roles at employers driving the region's economy."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:13.619853Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "9c301c89a6a83017",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "The AI Project Management Gap, By the Numbers",
-            "stats_heading_level": "h2",
-            "stats_bg_color": "custom",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#0d1b3e",
-            "skin": "",
-            "stats_items": [
-                {
-                    "number": "80%+",
-                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-                },
-                {
-                    "number": "2x",
-                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-                },
-                {
-                    "number": "~20%",
-                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
-                },
-                {
-                    "number": "62%",
-                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-                }
-            ]
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing in Lancaster",
-            "text": "<p>Healthcare remains Lancaster's largest employment sector, and Penn Medicine Lancaster General Health's ongoing campus and facility expansions represent sustained demand for skilled project managers overseeing complex capital initiatives. Beyond healthcare, manufacturers like Armstrong World Industries and Woodstream Corporation, along with financial services firms anchored by Fulton Financial Corporation, regularly staff project and program management roles as they modernize operations and undertake infrastructure improvements. Real estate and mixed-use development projects—such as High Companies' downtown Lancaster initiatives and the Lancaster County Convention Center revitalization efforts—also create mid-level PM positions across construction, commercial leasing, and hospitality coordination. These employers across healthcare, manufacturing, financial services, and real estate actively seek professionals who can demonstrate formal project governance expertise.</p><p>While project manager compensation in Lancaster tracks slightly below larger regional metros, steady demand across these core industries means certified credentials increasingly influence hiring and advancement decisions. Employers in healthcare, manufacturing, and financial services now routinely favor PMP and CAPM candidates when filling project management roles, especially as organizations formalize their project governance practices. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the recognized credentials and structured project management framework that Lancaster employers value, positioning you competitively for roles that offer genuine career progression and the opportunity to drive meaningful projects in your community.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:21.519551Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "68ddf621728666da",
-            "_ai_locked": true
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMI-CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing in Lancaster's healthcare sector?",
-                    "answer": "<p>Yes. Lancaster's largest employer cluster—Penn Medicine Lancaster General Health and related healthcare organizations—increasingly adopt formal project governance frameworks. As healthcare systems expand service lines, upgrade IT infrastructure, and manage regulatory compliance initiatives, they seek project managers who can demonstrate structured methodology knowledge. The CPMAI credential signals that capability and can strengthen advancement prospects in clinical operations, capital projects, and health IT roles where demand remains steady.</p>"
-                },
-                {
-                    "question": "Which Lancaster employers value PMI project management certifications most?",
-                    "answer": "<p>Healthcare systems, manufacturing firms like Armstrong World Industries and Woodstream Corporation, and financial services organizations including Fulton Financial Corporation increasingly favor PMP and CAPM credentials when filling mid- to senior-level project roles. These industries—healthcare, manufacturing, and financial services—dominate Lancaster's economy and are formalizing project governance practices. Education and government employers, including Millersville University and Lancaster County Government, also recognize certification value for internal project and program management advancement.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMI-CPMAI training from my Lancaster workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join synchronous instruction from any location with internet access—including your workplace, home office, or a quiet workspace during business hours. Many Lancaster professionals attend from their employer's offices or arrange quiet time during the training schedule. Check with your organization about scheduling flexibility; some employers offer study time or tuition support for professional credentials in project management.</p>"
-                },
-                {
-                    "question": "Does Lancaster's job market favor certification timing for project managers?",
-                    "answer": "<p>Lancaster's project management demand—strongest in healthcare, manufacturing, and financial services—remains steady year-round rather than seasonal. However, many organizations plan budget allocations and hiring cycles in early calendar year. Earning your CPMAI credential before spring hiring activity may increase visibility for mid-level and senior project roles. Concurrent with or shortly before updating your resume positions you competitively as formalization of PM practices accelerates across Lancaster's dominant industries.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:27.912195Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "0e2614d4f88a0551",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Lancaster's healthcare expansion—anchored by Penn Medicine Lancaster General Health's ongoing campus development—is driving consistent demand for certified project managers across the region's hospitals, manufacturers, and financial institutions. With established employers like Armstrong World Industries and Fulton Financial Corporation regularly seeking PM talent, a PMI-CPMAI certification positions professionals to lead complex initiatives in this growing market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lancaster professionals nationwide, enabling you to earn the credential on your schedule.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:31.305700Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "9bd5de2b40bc5c25",
-            "_ai_locked": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "lancaster-pa",
+  "slug": "ai-training-lancaster-pa",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "lancaster-pa",
+    "city": "Lancaster",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "lancaster-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
     ],
-    "seo": {
-        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-lancaster-pa/",
-        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Lancaster, PA, AI courses Lancaster, CPMAI certification Lancaster, AI project management training Lancaster, PA, AI for project managers Lancaster",
-        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "PMI-CPMAI Certification Training",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "PMI-CPMAI {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\",\n      \"name\": \"PMI-CPMAI Certification Training in Lancaster, PA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Lancaster, PA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Lancaster, PA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Lancaster, PA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Lancaster, PA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n    }\n  ]\n}",
-        "primary_keyword": "PMI-CPMAI Certification Training",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Agriculture & Food Processing",
+      "Insurance & Financial Services",
+      "Education",
+      "Tourism & Hospitality"
+    ],
+    "top_employers": [
+      "Penn Medicine Lancaster General Health",
+      "Armstrong World Industries",
+      "High Companies",
+      "Fulton Financial Corporation",
+      "Willow Valley Communities",
+      "Franklin & Marshall College",
+      "Turkey Hill Dairy",
+      "Woodstream Corporation",
+      "Lancaster County Government",
+      "Millersville University"
+    ],
+    "salary_note": "Project manager compensation in Lancaster tends to track slightly below larger metros like Philadelphia or Harrisburg, but demand remains steady across healthcare, manufacturing, and financial services sectors. Employers increasingly favor candidates with PMP or CAPM credentials when filling mid- to senior-level PM roles.",
+    "market_blurb": "Lancaster, PA's project management job market is anchored by its strong healthcare, manufacturing, and agribusiness sectors, with organizations like Penn Medicine Lancaster General Health and Armstrong World Industries regularly seeking PM talent. The city's mix of established manufacturers, financial institutions, and a growing healthcare system creates consistent opportunities for certified project and program managers.",
+    "notable_projects": [
+      "Penn Medicine Lancaster General Health campus and facility expansions",
+      "High Companies mixed-use and commercial real estate developments in downtown Lancaster",
+      "Lancaster County Convention Center and downtown revitalization initiatives",
+      "Turkey Hill Experience and related regional tourism development projects"
+    ],
+    "credential_demand": "While not every Lancaster-area job posting explicitly requires PMP or CAPM certification, employers in healthcare, manufacturing, and financial services increasingly view these credentials favorably for project and program management roles, especially as organizations formalize project governance practices.",
+    "_researched": 1,
+    "city_spotlight": "<p>Lancaster's healthcare and manufacturing sectors—anchored by Penn Medicine Lancaster General Health and Armstrong World Industries—drive steady demand for certified project managers across the region. The city's diverse employer base in healthcare, financial services, and agribusiness creates consistent career advancement opportunities for PMP®-credentialed professionals. Granite PM Academy delivers live-virtual PMP Certification training to Lancaster professionals, enabling you to earn your credential on your schedule while advancing in your local market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Healthcare systems, manufacturers, and financial institutions across Lancaster rely on skilled project managers to deliver mission-critical initiatives. Granite PM Academy's live-virtual PMI-CPMAI Certification Training delivers the instructor-led instruction and contact hours required by PMI, taught by active certified practitioners and designed for working professionals. Earn your credential on a schedule that fits your role, and position yourself for advancement in Lancaster's dynamic project-management market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6a365a85e3.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:05.389201Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6757d5a4068f6793",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T23:45:52+00:00",
-    "template_version": "e367ab35f866563e4b67165c4814e125"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Lancaster's Healthcare Leaders",
+      "text": "<p>Lancaster's healthcare sector, anchored by Penn Medicine Lancaster General Health and a expanding network of medical facilities, drives consistent demand for certified program and portfolio managers who can navigate complex, multi-stakeholder initiatives. Healthcare organizations in Lancaster increasingly rely on professionals credentialed in program and portfolio management—skills the PMI-CPMAI Certification demonstrates—to oversee clinical system implementations, facility expansions, and care delivery transformations. Whether you work in Lancaster's hospitals, medical practices, or health-related enterprises, or support the manufacturing and financial services sectors that also anchor the region's economy, the PMI-CPMAI credential signals your ability to manage interdependent programs and align organizational strategy through disciplined portfolio oversight.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules across Lancaster and beyond. As a PMI Authorized Training Partner, we deliver the complete contact-hour requirement for PMI-CPMAI eligibility, taught by active certified practitioners with real-world program management experience. Our flexible virtual format means you earn your certification without geographic constraints while maintaining the interactive instruction and peer collaboration that matter most. Start your PMI-CPMAI journey with Granite PM Academy and position yourself for advancement in Lancaster's dynamic healthcare, manufacturing, and professional services markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:09.573289Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "96d55cec9e0d67e9",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification: Lancaster's Path to Advanced Project Leadership",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy holds PMI authorization to deliver PMI-CPMAI training, guaranteeing your certification meets the global standard employers—including Lancaster's major healthcare systems and manufacturers—actively seek and respect."
+        },
+        {
+          "heading": "Live-Virtual Instruction Fits Working Schedules",
+          "text": "Attend instructor-led sessions from anywhere on a schedule that works around your current role. Our live-virtual format delivers the contact hours required for PMI-CPMAI eligibility without disrupting your career momentum in Lancaster's fast-paced industries."
+        },
+        {
+          "heading": "Instructors Bring Active Certification Experience",
+          "text": "Learn from certified practitioners actively managing complex programs and projects. Instructors share real-world frameworks and problem-solving approaches that translate directly into your role, strengthening your readiness for both the exam and the work ahead."
+        },
+        {
+          "heading": "Credential Demand Across Lancaster's Key Industries",
+          "text": "Healthcare systems, manufacturing firms, financial services, and government agencies across Lancaster increasingly hire project and program managers who hold advanced PMI credentials. PMI-CPMAI positions you competitively for senior roles at employers driving the region's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:13.619853Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9c301c89a6a83017",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Lancaster",
+      "text": "<p>Healthcare remains Lancaster's largest employment sector, and Penn Medicine Lancaster General Health's ongoing campus and facility expansions represent sustained demand for skilled project managers overseeing complex capital initiatives. Beyond healthcare, manufacturers like Armstrong World Industries and Woodstream Corporation, along with financial services firms anchored by Fulton Financial Corporation, regularly staff project and program management roles as they modernize operations and undertake infrastructure improvements. Real estate and mixed-use development projects—such as High Companies' downtown Lancaster initiatives and the Lancaster County Convention Center revitalization efforts—also create mid-level PM positions across construction, commercial leasing, and hospitality coordination. These employers across healthcare, manufacturing, financial services, and real estate actively seek professionals who can demonstrate formal project governance expertise.</p><p>While project manager compensation in Lancaster tracks slightly below larger regional metros, steady demand across these core industries means certified credentials increasingly influence hiring and advancement decisions. Employers in healthcare, manufacturing, and financial services now routinely favor PMP and CAPM candidates when filling project management roles, especially as organizations formalize their project governance practices. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the recognized credentials and structured project management framework that Lancaster employers value, positioning you competitively for roles that offer genuine career progression and the opportunity to drive meaningful projects in your community.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:21.519551Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "68ddf621728666da",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Lancaster's healthcare sector?",
+          "answer": "<p>Yes. Lancaster's largest employer cluster—Penn Medicine Lancaster General Health and related healthcare organizations—increasingly adopt formal project governance frameworks. As healthcare systems expand service lines, upgrade IT infrastructure, and manage regulatory compliance initiatives, they seek project managers who can demonstrate structured methodology knowledge. The CPMAI credential signals that capability and can strengthen advancement prospects in clinical operations, capital projects, and health IT roles where demand remains steady.</p>"
+        },
+        {
+          "question": "Which Lancaster employers value PMI project management certifications most?",
+          "answer": "<p>Healthcare systems, manufacturing firms like Armstrong World Industries and Woodstream Corporation, and financial services organizations including Fulton Financial Corporation increasingly favor PMP and CAPM credentials when filling mid- to senior-level project roles. These industries—healthcare, manufacturing, and financial services—dominate Lancaster's economy and are formalizing project governance practices. Education and government employers, including Millersville University and Lancaster County Government, also recognize certification value for internal project and program management advancement.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Lancaster workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join synchronous instruction from any location with internet access—including your workplace, home office, or a quiet workspace during business hours. Many Lancaster professionals attend from their employer's offices or arrange quiet time during the training schedule. Check with your organization about scheduling flexibility; some employers offer study time or tuition support for professional credentials in project management.</p>"
+        },
+        {
+          "question": "Does Lancaster's job market favor certification timing for project managers?",
+          "answer": "<p>Lancaster's project management demand—strongest in healthcare, manufacturing, and financial services—remains steady year-round rather than seasonal. However, many organizations plan budget allocations and hiring cycles in early calendar year. Earning your CPMAI credential before spring hiring activity may increase visibility for mid-level and senior project roles. Concurrent with or shortly before updating your resume positions you competitively as formalization of PM practices accelerates across Lancaster's dominant industries.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:27.912195Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0e2614d4f88a0551",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lancaster's healthcare expansion—anchored by Penn Medicine Lancaster General Health's ongoing campus development—is driving consistent demand for certified project managers across the region's hospitals, manufacturers, and financial institutions. With established employers like Armstrong World Industries and Fulton Financial Corporation regularly seeking PM talent, a PMI-CPMAI certification positions professionals to lead complex initiatives in this growing market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Lancaster professionals nationwide, enabling you to earn the credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:31.305700Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9bd5de2b40bc5c25",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-lancaster-pa/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Lancaster, PA, AI courses Lancaster, CPMAI certification Lancaster, AI project management training Lancaster, PA, AI for project managers Lancaster",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\",\n      \"name\": \"PMI-CPMAI Certification Training in Lancaster, PA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Lancaster, PA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Lancaster, PA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Lancaster, PA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Lancaster, PA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-lancaster-pa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-lancaster-pa/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T23:45:52+00:00",
+  "template_version": "e367ab35f866563e4b67165c4814e125"
 }

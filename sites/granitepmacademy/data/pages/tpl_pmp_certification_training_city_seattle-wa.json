@@ -1,304 +1,418 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "seattle-wa",
-    "slug": "pmp-certification-training-seattle-wa",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "seattle-wa",
-        "city": "Seattle",
-        "state": "Washington",
-        "SS": "WA",
-        "city_slug": "seattle-wa",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "exp-tier1",
-            "expansion-2026"
-        ],
-        "industries": [
-            "Technology",
-            "Retail",
-            "Travel & Logistics",
-            "Forest Products/Manufacturing",
-            "Higher Education",
-            "Healthcare"
-        ],
-        "top_employers": [
-            "Amazon",
-            "Starbucks",
-            "Nordstrom",
-            "Expedia Group",
-            "Weyerhaeuser",
-            "Zillow",
-            "Getty Images",
-            "University of Washington"
-        ],
-        "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. General (non-PMP-specific) Project Manager pay in Seattle runs roughly $112,000-$117,000/yr per Glassdoor/Indeed/ZipRecruiter.",
-        "market_blurb": "Seattle is headquartered by Amazon, Starbucks, Nordstrom, Expedia Group, Weyerhaeuser, Zillow, and Getty Images, alongside the University of Washington and hospital systems such as Virginia Mason and Swedish Medical Center.",
-        "notable_projects": [
-            "Sound Transit 2 Line 'Crosslake Connection' - full 2 Line opened March 2026, including the world's first light rail on a floating bridge",
-            "Overlook Walk - elevated pedestrian bridge linking Pike Place Market to the central waterfront",
-            "Washington State Convention Center 'Summit' expansion - ~$2B, 573,770 sq ft, LEED Platinum"
-        ],
-        "credential_demand": "Seattle's concentration of large tech, retail, and healthcare employers running complex multi-year programs - reflected in major current infrastructure work like the Sound Transit expansion and Waterfront Seattle rebuild - makes PMP certification plausibly valued.",
-        "_researched": 1,
-        "city_spotlight": "<p>Seattle's employer base includes Amazon, Starbucks, Nordstrom, Expedia Group. Seattle is headquartered by Amazon, Starbucks, Nordstrom, Expedia Group, Weyerhaeuser, Zillow, and Getty Images, alongside the University of Washington and hospital systems such as Virginia Mason and Swedish Medical Center. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Seattle professionals seeking to advance their project management careers.</p>",
-        "city_image_alt": "Seattle, WA",
-        "city_image_credit": "Photo: Michael Neubert, CC BY 2.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Kerry_Park_view_of_Seattle,_Mt_Rainier_(28356722347).jpg",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-seattle-wa.webp"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_2ce86991a5.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "seattle-wa",
+  "slug": "pmp-certification-training-seattle-wa",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "seattle-wa",
+    "city": "Seattle",
+    "state": "Washington",
+    "SS": "WA",
+    "city_slug": "seattle-wa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "exp-tier1",
+      "expansion-2026"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-seattle-wa/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Seattle, WA, PMP exam prep Seattle, PMP course Seattle WA, project management certification Seattle, WA, PMI PMP training Seattle",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\",\r\n      \"name\": \"PMP Certification Training in Seattle, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Seattle, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Seattle, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Seattle, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Seattle, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Technology",
+      "Retail",
+      "Travel & Logistics",
+      "Forest Products/Manufacturing",
+      "Higher Education",
+      "Healthcare"
+    ],
+    "top_employers": [
+      "Amazon",
+      "Starbucks",
+      "Nordstrom",
+      "Expedia Group",
+      "Weyerhaeuser",
+      "Zillow",
+      "Getty Images",
+      "University of Washington"
+    ],
+    "salary_note": "No city-specific PMP salary data independently verified; PMP-certified project managers report a median salary of $135,000 nationally versus $109,157 for non-certified peers (PMI's 14th Edition Earning Power Salary Survey), a premium that holds across most regions. General (non-PMP-specific) Project Manager pay in Seattle runs roughly $112,000-$117,000/yr per Glassdoor/Indeed/ZipRecruiter.",
+    "market_blurb": "Seattle is headquartered by Amazon, Starbucks, Nordstrom, Expedia Group, Weyerhaeuser, Zillow, and Getty Images, alongside the University of Washington and hospital systems such as Virginia Mason and Swedish Medical Center.",
+    "notable_projects": [
+      "Sound Transit 2 Line 'Crosslake Connection' - full 2 Line opened March 2026, including the world's first light rail on a floating bridge",
+      "Overlook Walk - elevated pedestrian bridge linking Pike Place Market to the central waterfront",
+      "Washington State Convention Center 'Summit' expansion - ~$2B, 573,770 sq ft, LEED Platinum"
+    ],
+    "credential_demand": "Seattle's concentration of large tech, retail, and healthcare employers running complex multi-year programs - reflected in major current infrastructure work like the Sound Transit expansion and Waterfront Seattle rebuild - makes PMP certification plausibly valued.",
+    "_researched": 1,
+    "city_spotlight": "<p>Seattle's employer base includes Amazon, Starbucks, Nordstrom, Expedia Group. Seattle is headquartered by Amazon, Starbucks, Nordstrom, Expedia Group, Weyerhaeuser, Zillow, and Getty Images, alongside the University of Washington and hospital systems such as Virginia Mason and Swedish Medical Center. Granite PM Academy delivers live-virtual PMP&reg; Certification Training to Seattle professionals seeking to advance their project management careers.</p>",
+    "city_image_alt": "Seattle, WA",
+    "city_image_credit": "Photo: Michael Neubert, CC BY 2.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Kerry_Park_view_of_Seattle,_Mt_Rainier_(28356722347).jpg",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-seattle-wa.webp"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Seattle's technology, retail, and logistics sectors depend on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy's live-virtual PMP Certification Training satisfies PMI's required contact hours through instructor-led instruction you can complete from anywhere, preparing you to earn the PMP credential that employers across the region—from Fortune 500 companies to growing startups—actively seek in their hiring.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_2ce86991a5.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:03.932548Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fb6c6411d0cdfa8e",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T22:07:43+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Seattle for Tech and Enterprise Leaders",
+      "text": "<p>Seattle's economy is anchored by technology giants and Fortune 500 companies—from Amazon to Expedia Group—where project management excellence directly shapes competitive advantage and career trajectory. In a city where tech, logistics, retail, and manufacturing industries compete for talent, the PMP® credential has become essential for professionals seeking to advance into leadership roles and command positions that demand formal, internationally recognized expertise. Seattle employers across healthcare systems like Virginia Mason and Swedish Medical Center, plus major retailers and manufacturers, consistently seek PMP-certified professionals to lead mission-critical initiatives. For working professionals in Seattle, PMP Certification Training is an investment that aligns your skills with the rigorous standards these organizations expect and that the Project Management Institute (PMI) upholds globally.</p><p>Granite PM Academy is an authorized PMI Authorized Training Partner delivering live-virtual, instructor-led PMP Certification Training designed to fit the schedules of Seattle-area professionals without geographic limitations. Our courses satisfy the PMI contact-hour requirements for PMP eligibility and are taught by active certified practitioners with real-world experience across diverse industries. Whether you are in technology, healthcare, logistics, or manufacturing, you'll learn proven frameworks and practices tested in environments like Seattle's. Our program guides you from enrollment through exam readiness, providing the knowledge, strategies, and confidence to earn your PMP® credential and unlock the leadership opportunities your career demands.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:08.471851Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2dafbd1151975205",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Seattle's Tech and Retail Leaders Demand PMP Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Legitimacy",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP training meets PMI standards and prepares you for the official PMI examination. This authorization is your assurance that the curriculum and instruction align with industry-recognized project management competencies."
+        },
+        {
+          "heading": "Live Instruction Fits Working Professionals' Schedules",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP eligibility without forcing you into a classroom. Attend from anywhere, interact with instructors in real time, and complete your certification requirement while managing Seattle's demanding tech and retail work pace."
+        },
+        {
+          "heading": "Learn from Active Certified Project Managers",
+          "text": "Your instructors are active certified practitioners applying PMP principles daily in their own careers. That real-world experience translates into practical exam preparation and strategies you can deploy immediately in your role, not theoretical concepts disconnected from how projects actually run."
+        },
+        {
+          "heading": "Boost Hiring Appeal at Seattle's Major Employers",
+          "text": "Amazon, Expedia Group, Starbucks, and other Seattle employers actively hire certified project managers. The PMP credential differentiates your profile in a competitive regional market and signals readiness for leadership roles across technology, retail, logistics, and healthcare sectors dominant in the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:12.629732Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ff025da5a7743f48",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Seattle's Tech Hub",
+      "text": "<p>Seattle's concentration of major employers in technology, retail, and logistics creates sustained demand for certified project managers overseeing complex, multi-year initiatives. Amazon, Expedia Group, and Zillow routinely manage large-scale programs that require formal project governance and delivery expertise. The region's infrastructure transformation—including Sound Transit's 2 Line expansion, which opened in March 2026 with the world's first light rail on a floating bridge, and the Washington State Convention Center's $2 billion Summit expansion—demonstrates the scale and complexity of programs running concurrently across the region. Organizations executing work of this magnitude actively seek professionals who can demonstrate structured methodology and risk-management capability.</p><p>The PMP® credential carries measurable weight in a market where employers competing for talent value formal qualifications. Nationally, PMP®-certified project managers report a median salary advantage over non-certified peers, a premium that holds across most regions. In Seattle, general project manager compensation ranges in the mid-five-figure bands, and the credential positions you to advance within that range and access leadership roles at the employers shaping the city's economy. Completing PMP Certification Training with Granite PM Academy—delivered live-virtual and designed around the PMI® examination framework—gives you the methodology and credential recognition that Seattle's largest organizations expect when hiring for strategic delivery roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:17.151755Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "6c3d0ee2753e9ff7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Seattle",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years. Document your work history and education now—you'll need these details for your PMI application. Verify you meet the baseline before enrolling in training."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend sessions on your schedule from anywhere; no commute to a Seattle classroom required. You'll cover all five process groups, ten knowledge areas, and exam domains with active certified practitioners leading every class."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 hours, submit your formal PMI PMP application, including your education credentials and project-experience summary. Pay the PMI examination fee at submission. PMI will audit and approve your eligibility before you can schedule your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A sessions—to solidify your readiness. Schedule your computer-based exam at a testing center or proctored online. Plan to sit for the four-hour, 180-question exam within three to six months of application approval."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, you earn the PMP mark and join PMI's global community. Renew your credential every three years by earning professional development units (PDUs) through training, conferences, volunteering, or publishing. Granite PM Academy offers ongoing PDU-eligible sessions to support your continuous learning."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:22.590862Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "bb14a390ef0525a4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Seattle tech and retail project managers?",
+          "answer": "<p>Seattle's largest employers—Amazon, Starbucks, Expedia Group, and Zillow—manage complex, multi-year programs across technology, retail, and logistics. PMP® certification signals mastery of standardized frameworks these organizations value. While general project manager pay in Seattle averages $112,000–$117,000 annually, PMI data shows PMP-certified professionals typically earn a meaningful premium over non-certified peers. In a competitive market anchored by Fortune 500 operations, the credential strengthens advancement and negotiating power.</p>"
+        },
+        {
+          "question": "Which Seattle industries most value PMP certification for career growth?",
+          "answer": "<p>Seattle's dominant sectors—technology, retail, travel and logistics, healthcare, and higher education—all run portfolio-heavy operations requiring disciplined project delivery. Large infrastructure projects like Sound Transit expansion and Waterfront Seattle rebuild further underscore credential demand across the region. Organizations managing these initiatives actively seek PMP®-certified professionals to lead cross-functional teams and ensure on-time, on-budget execution across complex environments.</p>"
+        },
+        {
+          "question": "Can I take PMP training in Seattle while working full-time remotely?",
+          "answer": "<p>Yes. Granite PM Academy's training is 100% live-virtual, designed for working professionals. Whether you're based in Seattle, working from a home office, or moving between locations, you can attend sessions on your own schedule without commuting to a physical classroom. This format fits Seattle's distributed workforce culture, common across tech, healthcare, and corporate sectors throughout the region.</p>"
+        },
+        {
+          "question": "When should Seattle project managers pursue PMP certification in their career?",
+          "answer": "<p>Seattle's job market rewards early credential investment. If you're managing projects at Amazon, Expedia, Nordstrom, or mid-market firms, certification typically opens doors to senior and program-management roles faster than waiting. Given the region's concentration of large employers running concurrent initiatives, completing certification while employed—rather than after a role change—positions you to lead larger budgets and teams sooner and negotiate from strength.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:29.206792Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e9e5921c4e249d05",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Seattle's technology and retail sectors—anchored by Amazon, Starbucks, and Zillow—drive sustained demand for skilled project managers overseeing everything from corporate innovation to major infrastructure like the Sound Transit 2 Line's floating bridge and the Washington State Convention Center expansion. The PMP® credential opens doors across these competitive industries and the healthcare and higher-education institutions that fuel the region's economy. Granite PM Academy delivers live-virtual PMP Certification Training to Seattle professionals nationwide, with flexible scheduling designed for working adults balancing career growth.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:31.176393Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "490dc6548bcc4887",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-seattle-wa/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Seattle, WA, PMP exam prep Seattle, PMP course Seattle WA, project management certification Seattle, WA, PMI PMP training Seattle",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\",\r\n      \"name\": \"PMP Certification Training in Seattle, WA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Seattle, WA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Seattle, WA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#course\",\r\n      \"name\": \"PMP Certification Training in Seattle, WA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Seattle, WA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-seattle-wa/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T22:07:43+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

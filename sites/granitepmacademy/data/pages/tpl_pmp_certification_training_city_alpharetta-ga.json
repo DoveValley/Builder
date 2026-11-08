@@ -1,307 +1,421 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "alpharetta-ga",
-    "slug": "pmp-certification-training-alpharetta-ga",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "alpharetta-ga",
-        "city": "Alpharetta",
-        "state": "Georgia",
-        "SS": "GA",
-        "city_slug": "alpharetta-ga",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier5"
-        ],
-        "industries": [
-            "Technology & Software Development",
-            "Financial Technology (Fintech)",
-            "Telecommunications",
-            "Healthcare IT",
-            "Professional & Business Services",
-            "Corporate Headquarters/Shared Services"
-        ],
-        "top_employers": [
-            "ADP",
-            "Verizon",
-            "LexisNexis Risk Solutions",
-            "McKesson Corporation",
-            "Hewlett Packard Enterprise",
-            "Cisco Systems",
-            "Oracle",
-            "SalesLoft",
-            "Fiserv",
-            "Kaiser Permanente",
-            "Comcast"
-        ],
-        "salary_note": "Project manager compensation in the Alpharetta area tends to be competitive with the broader Atlanta metro, reflecting the concentration of technology, fintech, and corporate headquarters operations that actively recruit certified PM talent. Exact pay varies widely by industry, experience, and certification level, so candidates should reference current local job postings and salary surveys rather than a fixed figure.",
-        "market_blurb": "Known as the 'Technology City of the South,' Alpharetta, GA hosts a dense cluster of technology, telecommunications, and fintech companies that regularly need skilled project and program managers to run software rollouts, infrastructure upgrades, and process improvement initiatives. The city's mix of large corporate campuses and growing mid-size firms creates steady demand for professionals who can demonstrate formal project management training and certification. This concentration of enterprise employers makes Alpharetta one of the stronger regional markets in Georgia for project management careers.",
-        "notable_projects": [
-            "Avalon mixed-use development expansion",
-            "Alpharetta City Center development",
-            "Halcyon mixed-use development",
-            "North Point Mall redevelopment initiatives"
-        ],
-        "credential_demand": "Employers in Alpharetta's technology and corporate sectors frequently list PMP certification as preferred or required for project and program manager roles, reflecting broader national trends favoring standardized PM credentials. CAPM and related training are also valued for entry-level and associate positions as a stepping stone toward PMP certification.",
-        "_researched": 1,
-        "city_spotlight": "<p>Alpharetta's reputation as the 'Technology City of the South' draws major employers like ADP, Verizon, and Cisco Systems that depend on skilled project managers to deliver software rollouts, infrastructure upgrades, and fintech initiatives. The concentration of enterprise headquarters and mid-size tech firms creates sustained demand for professionals with formal PMP® Certification. Granite PM Academy delivers live-virtual PMP Certification training nationwide, serving Alpharetta professionals seeking the credential to advance in this competitive, growth-focused market.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-alpharetta-ga.webp",
-        "city_image_alt": "Alpharetta, Georgia City Hall, GA",
-        "city_image_credit": "Photo: Thomson200, CC0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Alpharetta,_Georgia_City_Hall.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1172c1db62.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "alpharetta-ga",
+  "slug": "pmp-certification-training-alpharetta-ga",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "alpharetta-ga",
+    "city": "Alpharetta",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "alpharetta-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier5"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Alpharetta, GA, PMP exam prep Alpharetta, PMP course Alpharetta GA, project management certification Alpharetta, GA, PMI PMP training Alpharetta",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\",\r\n      \"name\": \"PMP Certification Training in Alpharetta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Alpharetta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Alpharetta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Alpharetta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Alpharetta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Technology & Software Development",
+      "Financial Technology (Fintech)",
+      "Telecommunications",
+      "Healthcare IT",
+      "Professional & Business Services",
+      "Corporate Headquarters/Shared Services"
+    ],
+    "top_employers": [
+      "ADP",
+      "Verizon",
+      "LexisNexis Risk Solutions",
+      "McKesson Corporation",
+      "Hewlett Packard Enterprise",
+      "Cisco Systems",
+      "Oracle",
+      "SalesLoft",
+      "Fiserv",
+      "Kaiser Permanente",
+      "Comcast"
+    ],
+    "salary_note": "Project manager compensation in the Alpharetta area tends to be competitive with the broader Atlanta metro, reflecting the concentration of technology, fintech, and corporate headquarters operations that actively recruit certified PM talent. Exact pay varies widely by industry, experience, and certification level, so candidates should reference current local job postings and salary surveys rather than a fixed figure.",
+    "market_blurb": "Known as the 'Technology City of the South,' Alpharetta, GA hosts a dense cluster of technology, telecommunications, and fintech companies that regularly need skilled project and program managers to run software rollouts, infrastructure upgrades, and process improvement initiatives. The city's mix of large corporate campuses and growing mid-size firms creates steady demand for professionals who can demonstrate formal project management training and certification. This concentration of enterprise employers makes Alpharetta one of the stronger regional markets in Georgia for project management careers.",
+    "notable_projects": [
+      "Avalon mixed-use development expansion",
+      "Alpharetta City Center development",
+      "Halcyon mixed-use development",
+      "North Point Mall redevelopment initiatives"
+    ],
+    "credential_demand": "Employers in Alpharetta's technology and corporate sectors frequently list PMP certification as preferred or required for project and program manager roles, reflecting broader national trends favoring standardized PM credentials. CAPM and related training are also valued for entry-level and associate positions as a stepping stone toward PMP certification.",
+    "_researched": 1,
+    "city_spotlight": "<p>Alpharetta's reputation as the 'Technology City of the South' draws major employers like ADP, Verizon, and Cisco Systems that depend on skilled project managers to deliver software rollouts, infrastructure upgrades, and fintech initiatives. The concentration of enterprise headquarters and mid-size tech firms creates sustained demand for professionals with formal PMP® Certification. Granite PM Academy delivers live-virtual PMP Certification training nationwide, serving Alpharetta professionals seeking the credential to advance in this competitive, growth-focused market.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-alpharetta-ga.webp",
+    "city_image_alt": "Alpharetta, Georgia City Hall, GA",
+    "city_image_credit": "Photo: Thomson200, CC0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Alpharetta,_Georgia_City_Hall.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Alpharetta's concentration of technology, fintech, and telecommunications employers—including ADP, Verizon, and SalesLoft—drives consistent demand for certified project managers who can lead cross-functional teams through complex digital initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to earn the credential on your schedule while advancing into higher-responsibility roles at the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_1172c1db62.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:08.704356Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "327a0448083d7a20",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T22:04:24+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Alpharetta for Tech Leaders",
+      "text": "<p>Alpharetta's identity as the Technology City of the South rests on a concentration of enterprise software, telecommunications, and fintech organizations—including industry giants like Verizon, Cisco Systems, Oracle, and SalesLoft—that depend on skilled project managers to deliver complex software rollouts, infrastructure upgrades, and digital transformation initiatives. Professionals working within Alpharetta's technology and corporate services ecosystem face regular pressure to demonstrate formal project management credentials; the PMP® certification has become a standard expectation for advancement into senior delivery and program leadership roles. In a market where employers across ADP, LexisNexis Risk Solutions, and healthcare IT firms routinely seek candidates with validated project management training, earning your PMP® signals readiness to manage mission-critical work at enterprise scale.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP® Certification Training nationwide, including to professionals based in Alpharetta and across Georgia. Our curriculum meets the Project Management Institute's contact-hour requirements and is taught by active certified practitioners who bring real-world delivery experience to every session. Whether you are balancing a full-time role at a major Alpharetta employer or managing your own study schedule, our flexible live-virtual format lets you prepare for the PMP® exam without geographic or scheduling constraints. Upon completion and successful exam passage, you will join a community of credentialed project managers positioned for higher-impact roles and competitive compensation in one of the Southeast's strongest project management markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:13.203018Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "9cffa33ed71f5240",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Alpharetta's Technology & Finance Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® coursework meets PMI's rigorous standards. This partnership guarantees your contact hours satisfy credential eligibility requirements, eliminating uncertainty about training quality or regulatory compliance."
+        },
+        {
+          "heading": "Live-Virtual Instruction, Your Schedule",
+          "text": "Our live-virtual, instructor-led format delivers real-time engagement without commuting. Active certified practitioners teach every session, modeling current best practices. You earn required contact hours from anywhere—ideal for Alpharetta professionals balancing work at major employers while pursuing advancement."
+        },
+        {
+          "heading": "Expert Instructors, Exam-Ready Support",
+          "text": "Your instructors hold active PMP® and related certifications, bringing field experience to every module. Beyond instruction, we provide targeted exam-preparation resources to maximize your readiness—reducing anxiety and improving confidence on test day."
+        },
+        {
+          "heading": "Credential Valued by Local Employers",
+          "text": "Alpharetta's technology, fintech, healthcare IT, and professional-services sectors actively hire PMP®-certified project managers. The credential strengthens your candidacy at companies like ADP, Verizon, LexisNexis, and others headquartered or operating in the region, directly boosting career mobility and earning potential."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:17.528871Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1b270c2328adcfbe",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Alpharetta's Tech Hub",
+      "text": "<p>Alpharetta's concentration of technology, fintech, and corporate headquarters has created sustained demand for certified project managers. Major employers including ADP, Verizon, SalesLoft, and Cisco Systems regularly recruit PMP-certified professionals to lead initiatives across software development, telecommunications, and business operations. Visible local projects—from the Avalon mixed-use development expansion to the Alpharetta City Center redevelopment—illustrate the breadth of complex, multi-disciplinary work that depends on skilled project leadership. These organizations consistently list PMP certification as preferred or required for project and program manager roles, reflecting both national credential trends and Alpharetta's own competitive hiring standards.</p><p>Pursuing PMP Certification Training through Granite PM Academy positions you directly for roles in a market where the credential carries measurable weight. Project manager compensation in the Alpharetta area remains competitive with the broader Atlanta metro, supported by the region's density of technology, fintech, and corporate shared-services operations actively seeking certified talent. Completing live-virtual PMP training allows you to advance your credentials on your own schedule while working toward positions that value the PMI® standard. Entry-level candidates should also consider CAPM training as a foundation path; either credential opens doors with employers who view formal PM training as essential to career progression in this competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:21.665427Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "398c8d4e75ac86f2",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your PMP Certification Pathway in Alpharetta",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree with three years of project-management experience, or a high school diploma with five years of equivalent experience. Review PMI's full eligibility criteria to ensure you meet education and experience thresholds before applying."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend synchronous sessions from your location, interact with active certified practitioners, and cover the PMBOK® Guide framework across the required contact-hour commitment at your own pace."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing Granite PM Academy's training, submit your formal application to PMI with proof of education and project experience. Pay the PMI exam fee and await approval of your eligibility before scheduling your exam appointment."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Leverage Granite PM Academy's exam-preparation resources, including practice questions and study materials aligned to current PMP® test domains. Schedule your computer-based exam and complete the assessment to earn your credential."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "Earn professional development units (PDUs) over a three-year renewal cycle to keep your PMP® active. Pursue ongoing training, volunteer work, or professional involvement to meet PMI's maintenance requirement and stay current in your field."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:26.157295Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "824c6baa2ad2049c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Do major Alpharetta tech and fintech employers require PMP certification?",
+          "answer": "<p>Yes. Alpharetta's concentration of technology, fintech, and corporate headquarters—including major software, telecommunications, and financial services operations—frequently lists PMP certification as preferred or required for project and program manager roles. Entry-level candidates often pursue CAPM first as a stepping stone. Check current job postings from local employers to confirm certification expectations for your target role and career level.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Alpharetta project managers?",
+          "answer": "<p>For Alpharetta professionals in technology, fintech, healthcare IT, and corporate services, PMP certification typically strengthens career advancement and salary competitiveness. The credential aligns with how local employers evaluate manager capability and leadership readiness. However, value depends on your industry, role, and current experience. Survey current Alpharetta job postings and salary data to assess ROI for your specific career path.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual PMP training from Alpharetta?",
+          "answer": "<p>Yes. Granite PM Academy delivers 100% live-virtual PMP certification training nationwide, so you can attend from your Alpharetta office, home, or anywhere with reliable internet. This format lets you balance study with full-time work at ADP, Cisco, Oracle, or other local employers without travel. Check the course schedule to find a start date that fits your timeline.</p>"
+        },
+        {
+          "question": "What do project managers earn in Alpharetta, and does PMP help?",
+          "answer": "<p>Project manager compensation in Alpharetta is competitive with the broader Atlanta metro, driven by high concentrations of technology, fintech, and corporate headquarters recruiting certified PM talent. Pay varies widely by industry, experience, and certification level. Reference current Alpharetta job postings and salary surveys for realistic ranges. PMP certification generally supports upward mobility and negotiating power in this market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:31.646078Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "22efa1ab301b9f5e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Alpharetta's thriving technology and fintech sector—home to enterprise leaders like ADP, Verizon, and LexisNexis Risk Solutions—consistently seeks project managers equipped with formal PMP® certification to lead software rollouts, infrastructure upgrades, and digital transformation initiatives. The city's blend of large corporate campuses and expanding mid-market firms creates strong demand for professionals who can demonstrate structured project management credentials. Granite PM Academy delivers live-virtual PMP® Certification Training to Alpharetta professionals nationwide, with flexible scheduling designed for working adults pursuing this PMI-recognized credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T19:56:33.420626Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "7e34fad075b74e11",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Alpharetta, GA, PMP exam prep Alpharetta, PMP course Alpharetta GA, project management certification Alpharetta, GA, PMI PMP training Alpharetta",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\",\r\n      \"name\": \"PMP Certification Training in Alpharetta, GA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Alpharetta, GA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Alpharetta, GA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#course\",\r\n      \"name\": \"PMP Certification Training in Alpharetta, GA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Alpharetta, GA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-alpharetta-ga/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T22:04:24+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

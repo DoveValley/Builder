@@ -1,303 +1,417 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "san-antonio-tx",
-    "slug": "pmp-certification-training-san-antonio-tx",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "san-antonio-tx",
-        "city": "San Antonio",
-        "state": "Texas",
-        "SS": "TX",
-        "city_slug": "san-antonio-tx",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [],
-        "industries": [
-            "defense/military",
-            "healthcare",
-            "finance/insurance",
-            "technology",
-            "energy",
-            "government"
-        ],
-        "top_employers": [
-            "USAA",
-            "H-E-B",
-            "Baptist Health System",
-            "Rackspace",
-            "Valero",
-            "CPS Energy",
-            "CHRISTUS Health",
-            "University Health",
-            "City of San Antonio",
-            "Joint Base San Antonio (JBSA)"
-        ],
-        "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
-        "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives.",
-        "city_spotlight": "<p>San Antonio's defense and military sector, anchored by Joint Base San Antonio, drives sustained demand for PMP-certified project managers across infrastructure, facility expansion, and mission-critical operations. USAA, CPS Energy, and the healthcare corridor further expand opportunities for certified professionals managing complex initiatives. Granite PM Academy delivers live-virtual PMP Certification to San Antonio professionals, combining flexible scheduling with PMI-aligned preparation to help you earn your credential and advance in a competitive local market.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-antonio-tx.webp",
-        "city_image_alt": "San Antonio Botanical Garden Overlook View, TX",
-        "city_image_credit": "Photo: Jouaienttoi, CC BY-SA 4.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Antonio_Botanical_Garden_Overlook_View.jpg",
-        "notable_projects": [
-            "USAA corporate campus expansions in San Antonio",
-            "CPS Energy infrastructure and grid modernization projects",
-            "Joint Base San Antonio facility and mission expansion initiatives",
-            "San Antonio International Airport terminal expansion program"
-        ],
-        "credential_demand": "PMP certification is commonly listed as preferred or required in San Antonio job postings for project and program manager roles, particularly within healthcare systems, defense/military contracting, and energy/utility employers like CPS Energy. Overall demand for formal project management skills remains steady across the region's healthcare, government, and technology sectors."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_ab9d46e59e.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "san-antonio-tx",
+  "slug": "pmp-certification-training-san-antonio-tx",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "san-antonio-tx",
+    "city": "San Antonio",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "san-antonio-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [],
+    "industries": [
+      "defense/military",
+      "healthcare",
+      "finance/insurance",
+      "technology",
+      "energy",
+      "government"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training San Antonio, TX, PMP exam prep San Antonio, PMP course San Antonio TX, project management certification San Antonio, TX, PMI PMP training San Antonio",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\",\r\n      \"name\": \"PMP Certification Training in San Antonio, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in San Antonio, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in San Antonio, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#course\",\r\n      \"name\": \"PMP Certification Training in San Antonio, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in San Antonio, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "top_employers": [
+      "USAA",
+      "H-E-B",
+      "Baptist Health System",
+      "Rackspace",
+      "Valero",
+      "CPS Energy",
+      "CHRISTUS Health",
+      "University Health",
+      "City of San Antonio",
+      "Joint Base San Antonio (JBSA)"
+    ],
+    "salary_note": "PMP-certified project managers in San Antonio average $105,000–$125,000 annually, with defense and healthcare sector roles frequently reaching $130,000+",
+    "market_blurb": "San Antonio is home to Joint Base San Antonio, one of the largest US military installations, alongside a major healthcare corridor and a growing tech sector anchored by USAA and Rackspace. All three sectors actively recruit PMP-certified project managers to lead infrastructure, IT, and operational initiatives.",
+    "city_spotlight": "<p>San Antonio's defense and military sector, anchored by Joint Base San Antonio, drives sustained demand for PMP-certified project managers across infrastructure, facility expansion, and mission-critical operations. USAA, CPS Energy, and the healthcare corridor further expand opportunities for certified professionals managing complex initiatives. Granite PM Academy delivers live-virtual PMP Certification to San Antonio professionals, combining flexible scheduling with PMI-aligned preparation to help you earn your credential and advance in a competitive local market.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-antonio-tx.webp",
+    "city_image_alt": "San Antonio Botanical Garden Overlook View, TX",
+    "city_image_credit": "Photo: Jouaienttoi, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Antonio_Botanical_Garden_Overlook_View.jpg",
+    "notable_projects": [
+      "USAA corporate campus expansions in San Antonio",
+      "CPS Energy infrastructure and grid modernization projects",
+      "Joint Base San Antonio facility and mission expansion initiatives",
+      "San Antonio International Airport terminal expansion program"
+    ],
+    "credential_demand": "PMP certification is commonly listed as preferred or required in San Antonio job postings for project and program manager roles, particularly within healthcare systems, defense/military contracting, and energy/utility employers like CPS Energy. Overall demand for formal project management skills remains steady across the region's healthcare, government, and technology sectors."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>San Antonio's defense, healthcare, and energy sectors depend on certified project managers to lead complex, regulated initiatives across JBSA, Baptist Health System, Valero, and other major employers. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to sit for the PMP exam on your timeline. Earning your PMP credential positions you to advance into senior project leadership roles commanding competitive compensation across the city's largest industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_ab9d46e59e.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:41.381459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b063205da8c23182",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:45:52+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in San Antonio for Defense and Military Leaders",
+      "text": "<p>San Antonio's role as home to Joint Base San Antonio, one of the largest U.S. military installations, creates sustained demand for PMP-certified project managers across defense contracting, infrastructure modernization, and military operations support. Alongside this cornerstone sector, the city's major healthcare systems, financial services leaders like USAA, and growing technology employers all actively recruit professionals who hold PMP® certification to manage complex programs and coordinate cross-functional teams. For San Antonio professionals working in these industries—or supporting them—the PMP credential signals readiness to lead at the program and portfolio level, often unlocking advancement and higher compensation bands.</p><p>Granite PM Academy delivers PMP Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led courses designed to fit working schedules while meeting all contact-hour requirements for credential eligibility. Our instructors are active certified practitioners with real-world project experience who teach the latest PMBOK® Guide framework and exam strategies in real time. Whether you're based in San Antonio or work remotely for one of the city's major employers, our nationwide platform ensures you receive the same rigorous, interactive preparation. Upon completion and successful examination, you'll hold a credential recognized across defense, healthcare, finance, technology, and government sectors—opening doors to leadership roles and career advancement in San Antonio's thriving project-management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:45.695162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4d236a01563b498d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for San Antonio's Defense and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets all Project Management Institute standards. This official authorization guarantees your contact hours count toward PMI eligibility, eliminating uncertainty about credential acceptance."
+        },
+        {
+          "heading": "Live-Virtual Classes, Your Schedule",
+          "text": "Attend instructor-led PMP training entirely online, synchronously, meeting PMI contact-hour requirements without commuting. Balancing work at USAA, Baptist Health System, or CPS Energy becomes manageable when training fits your calendar, not the classroom's."
+        },
+        {
+          "heading": "Instructors Who Certify and Practice",
+          "text": "Your instructors hold active PMP credentials and work in real project environments. They bring current case studies and problem-solving approaches—not outdated theory—into every live session."
+        },
+        {
+          "heading": "Credential Demand Across San Antonio Employers",
+          "text": "Defense contractors, healthcare networks, financial services, and energy utilities across San Antonio actively hire PMP-certified program and project managers. The credential directly strengthens your candidacy for roles at major regional employers and positions you for advancement in high-demand sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:49.858350Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a26d7f480f63a2e7",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in San Antonio",
+      "text": "<p>San Antonio's defense and military sector anchors steady demand for certified project managers, particularly at Joint Base San Antonio, where facility and mission expansion initiatives require skilled program oversight. Beyond defense, USAA's ongoing corporate campus expansions, CPS Energy's infrastructure and grid modernization projects, and large healthcare systems including Baptist Health System and CHRISTUS Health all actively recruit project managers to lead complex, multi-phase initiatives. H-E-B and Rackspace round out the region's diverse employer base, each managing significant operational and technology projects. PMP certification is frequently listed as preferred or required in job postings across these sectors, signaling that formal credentialing directly strengthens your candidacy in San Antonio's competitive market.</p><p>The investment in PMP Certification Training pays measurable returns in this market. Project and program managers holding the PMP credential command compensation that reflects the credential's value—healthcare, defense, and energy employers particularly recognize certified practitioners and compensate accordingly, with defense and healthcare sector roles frequently exceeding typical local ranges. Granite PM Academy's live-virtual PMP training lets you earn the credential on your schedule while working full-time, without relocating or adjusting to classroom constraints. Completing the program positions you to meet San Antonio employers' stated preferences and to compete confidently for roles managing the infrastructure, healthcare, and defense projects that define the region's economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:03:54.358124Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f0be16da3d79a228",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in San Antonio",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of education and project-management experience. Review PMI's specific hour and credential requirements for the PMP®—whether you hold a bachelor's degree, relevant certifications, or equivalent experience. Granite PM Academy's advisors can verify your qualifications before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course delivered nationwide. Attend interactive sessions covering the PMBOK® Guide and exam domains. Our schedule accommodates working professionals across San Antonio's defense, healthcare, finance, technology, energy, and government sectors—learn alongside peers from major regional employers and organizations."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the course, complete and submit your PMP® application directly to PMI. Document your project-management experience, education, and contact hours from Granite PM Academy. Pay PMI's exam fee and await approval—typically within days. Our team provides guidance through each field of the application."
+        },
+        {
+          "heading": "Prepare and Pass the Exam",
+          "text": "Granite PM Academy offers targeted exam-prep resources, practice questions, and review sessions to reinforce concepts. Schedule your exam at a PMI-authorized testing center. Our instructors and materials help you approach the exam with confidence and clarity on the PMP® domains and real-world scenarios."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "Earn Professional Development Units (PDUs) across a three-year renewal cycle to keep your credential active. PMI offers diverse ways to earn PDUs—formal training, conferences, volunteering, and self-directed learning. Plan your PDU strategy early and track progress to ensure seamless renewal and continued professional growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:00.054935Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "3408078cc0b404e7",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for San Antonio defense and healthcare careers?",
+          "answer": "<p>Yes. Defense contracting, military support roles at JBSA, and major healthcare systems in San Antonio—including Baptist Health System, CHRISTUS Health, and University Health—consistently list PMP or advanced project management credentials as preferred or required for program and project manager positions. The credential directly strengthens candidacy for roles managing complex, regulated initiatives in these sectors.</p>"
+        },
+        {
+          "question": "Which San Antonio employers most value PMP certification in job postings?",
+          "answer": "<p>PMP certification appears frequently in San Antonio postings from healthcare systems (Baptist Health, CHRISTUS, University Health), federal contractors supporting JBSA, energy utilities (CPS Energy, Valero), technology firms (Rackspace), and government agencies. Finance and insurance employers including USAA also recognize the credential as a competitive advantage for internal promotion and hiring.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in San Antonio?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows San Antonio professionals to attend training from their workplace, home, or preferred location, with flexible scheduling designed to fit working schedules. This eliminates commute time while maintaining real-time instructor interaction and peer collaboration across cohorts.</p>"
+        },
+        {
+          "question": "How does San Antonio's job market affect timing for PMP certification?",
+          "answer": "<p>San Antonio's steady demand for certified project managers across healthcare, defense, energy, and government sectors means the credential holds consistent value year-round. However, pursuing certification before a planned role transition—such as moving into program leadership at a major employer—aligns your timeline with internal promotion cycles and strengthens applications when positions open.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:05.051210Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ef25473096da0d9a",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>San Antonio's defense and military sector, anchored by Joint Base San Antonio, drives sustained demand for PMP-certified project managers across infrastructure, operations, and mission-critical initiatives. Healthcare systems, energy providers like CPS Energy, and tech firms including USAA and Rackspace similarly compete for skilled practitioners to lead complex modernization and expansion programs. Granite PM Academy delivers live-virtual PMP Certification Training to San Antonio professionals, flexible scheduling designed around working schedules and career advancement timelines.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:06.758188Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "77ae1034b640679a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training San Antonio, TX, PMP exam prep San Antonio, PMP course San Antonio TX, project management certification San Antonio, TX, PMI PMP training San Antonio",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\",\r\n      \"name\": \"PMP Certification Training in San Antonio, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in San Antonio, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in San Antonio, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#course\",\r\n      \"name\": \"PMP Certification Training in San Antonio, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in San Antonio, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-san-antonio-tx/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:45:52+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

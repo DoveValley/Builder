@@ -1,300 +1,414 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "sumter-sc",
-    "slug": "pmp-certification-training-sumter-sc",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "sumter-sc",
-        "city": "Sumter",
-        "state": "South Carolina",
-        "SS": "SC",
-        "city_slug": "sumter-sc",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "industries": [
-            "Aerospace & Defense",
-            "Advanced Manufacturing",
-            "Healthcare",
-            "Education & Workforce Training",
-            "Government & Public Administration",
-            "Logistics & Distribution"
-        ],
-        "top_employers": [
-            "Shaw Air Force Base",
-            "Continental Tire (Sumter County Plant)",
-            "Pilgrim's Pride Corporation",
-            "Prisma Health Tuomey",
-            "Sumter School District",
-            "City of Sumter",
-            "Sumter County Government",
-            "Central Carolina Technical College"
-        ],
-        "salary_note": "Project manager compensation in Sumter tends to track slightly below larger South Carolina metros like Columbia or Charleston, reflecting the area's cost of living, but demand is competitive for candidates with manufacturing, defense, or healthcare project experience. Certified professionals (PMP/CAPM) generally command a premium over non-certified peers in local postings.",
-        "market_blurb": "Sumter's project management job market is shaped by its mix of advanced manufacturing, military operations at Shaw Air Force Base, and healthcare services through Prisma Health Tuomey. Growth in manufacturing investment and defense-related infrastructure has steadily increased demand for skilled project coordinators and managers who can oversee complex, multi-phase initiatives. Employers increasingly value formal project management credentials as local industries scale operations and modernize facilities.",
-        "notable_projects": [
-            "Continental Tire Sumter County Plant expansion and production ramp-up",
-            "Shaw Air Force Base facility and infrastructure modernization projects",
-            "Sumter School District capital improvement and facilities upgrade initiatives",
-            "Prisma Health Tuomey hospital campus renovations and service expansions"
-        ],
-        "credential_demand": "While Sumter's job market is smaller than major metro areas, employers in manufacturing, defense, and healthcare increasingly list PMP or CAPM certification as preferred or advantageous for project coordination and management roles. Demand for structured project management skills is rising as local industries pursue larger capital projects and expansions.",
-        "_researched": 1,
-        "city_spotlight": "<p>Sumter's project management demand is anchored in advanced manufacturing, aerospace and defense operations at Shaw Air Force Base, and healthcare modernization. Major initiatives—from Continental Tire's production ramp-up to facility expansions across Prisma Health Tuomey and the School District—require skilled managers who hold formal credentials. Employers increasingly expect the PMP® certification as local industries scale and modernize. Granite PM Academy delivers live-virtual PMP Certification training to Sumter professionals nationwide, on schedules designed for working adults.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6a67513257.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "sumter-sc",
+  "slug": "pmp-certification-training-sumter-sc",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "sumter-sc",
+    "city": "Sumter",
+    "state": "South Carolina",
+    "SS": "SC",
+    "city_slug": "sumter-sc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-sumter-sc/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Sumter, SC, PMP exam prep Sumter, PMP course Sumter SC, project management certification Sumter, SC, PMI PMP training Sumter",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\",\r\n      \"name\": \"PMP Certification Training in Sumter, SC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Sumter, SC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Sumter, SC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#course\",\r\n      \"name\": \"PMP Certification Training in Sumter, SC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Sumter, SC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Aerospace & Defense",
+      "Advanced Manufacturing",
+      "Healthcare",
+      "Education & Workforce Training",
+      "Government & Public Administration",
+      "Logistics & Distribution"
+    ],
+    "top_employers": [
+      "Shaw Air Force Base",
+      "Continental Tire (Sumter County Plant)",
+      "Pilgrim's Pride Corporation",
+      "Prisma Health Tuomey",
+      "Sumter School District",
+      "City of Sumter",
+      "Sumter County Government",
+      "Central Carolina Technical College"
+    ],
+    "salary_note": "Project manager compensation in Sumter tends to track slightly below larger South Carolina metros like Columbia or Charleston, reflecting the area's cost of living, but demand is competitive for candidates with manufacturing, defense, or healthcare project experience. Certified professionals (PMP/CAPM) generally command a premium over non-certified peers in local postings.",
+    "market_blurb": "Sumter's project management job market is shaped by its mix of advanced manufacturing, military operations at Shaw Air Force Base, and healthcare services through Prisma Health Tuomey. Growth in manufacturing investment and defense-related infrastructure has steadily increased demand for skilled project coordinators and managers who can oversee complex, multi-phase initiatives. Employers increasingly value formal project management credentials as local industries scale operations and modernize facilities.",
+    "notable_projects": [
+      "Continental Tire Sumter County Plant expansion and production ramp-up",
+      "Shaw Air Force Base facility and infrastructure modernization projects",
+      "Sumter School District capital improvement and facilities upgrade initiatives",
+      "Prisma Health Tuomey hospital campus renovations and service expansions"
+    ],
+    "credential_demand": "While Sumter's job market is smaller than major metro areas, employers in manufacturing, defense, and healthcare increasingly list PMP or CAPM certification as preferred or advantageous for project coordination and management roles. Demand for structured project management skills is rising as local industries pursue larger capital projects and expansions.",
+    "_researched": 1,
+    "city_spotlight": "<p>Sumter's project management demand is anchored in advanced manufacturing, aerospace and defense operations at Shaw Air Force Base, and healthcare modernization. Major initiatives—from Continental Tire's production ramp-up to facility expansions across Prisma Health Tuomey and the School District—require skilled managers who hold formal credentials. Employers increasingly expect the PMP® certification as local industries scale and modernize. Granite PM Academy delivers live-virtual PMP Certification training to Sumter professionals nationwide, on schedules designed for working adults.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Sumter's aerospace, defense, manufacturing, and healthcare sectors depend on skilled project managers to deliver complex initiatives on time and within budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirement, enabling you to earn the credential recognized across these industries without leaving your region. A PMP certification positions you for advancement and higher responsibility within Sumter's largest employers and across the broader professional market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_6a67513257.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:32.971106Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ec1c6f82548e6077",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:53:21+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Sumter for Defense & Manufacturing Leaders",
+      "text": "<p>Shaw Air Force Base and Sumter's advanced manufacturing sector are reshaping the region's demand for certified project managers. As defense-related infrastructure modernization and manufacturing investment accelerate across Sumter County, employers—from Continental Tire to Pilgrim's Pride—increasingly require formal project management credentials for coordinators and managers overseeing complex, multi-phase operations. The PMP® (Project Management Professional) certification has become the gold standard credential that signals competency to local aerospace, defense, and manufacturing employers. For professionals in Sumter working in these growth industries, PMP® certification directly strengthens career advancement, salary competitiveness, and eligibility for leadership roles managing budgets, timelines, and cross-functional teams.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner, offering live-virtual instructor-led courses taught by active certified practitioners with real-world project experience. Our programs satisfy the required contact hours mandated by the Project Management Institute and prepare you to sit for the PMP® exam with confidence. Every Sumter professional who enrolls receives the same rigorous, nationally recognized training and support—flexible scheduling for working professionals, comprehensive curriculum covering all five domains of the PMBOK® Guide, and direct access to instructors during and after class. Whether you're advancing your career in Sumter's defense, healthcare, or manufacturing sectors, Granite PM Academy equips you with the knowledge, tools, and credentials employers value.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:37.249258Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "94cf072d85bf4e88",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Sumter's Aerospace & Defense Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours satisfy PMI's eligibility requirements for the PMP® credential. You train with confidence that every hour counts toward your certification application."
+        },
+        {
+          "heading": "Live-Virtual, Instructor-Led Format",
+          "text": "Attend instructor-led sessions 100% online on a schedule that fits your work at Shaw Air Force Base, Continental Tire, or other Sumter employers. No self-paced modules—real-time instruction with active certified practitioners answering your questions as you learn."
+        },
+        {
+          "heading": "Exam Prep Built into Training",
+          "text": "Granite PM Academy weaves exam-preparation support throughout the course, not as an add-on. You practice with real exam-style questions and gain the strategic knowledge certified practitioners use to pass on their first attempt."
+        },
+        {
+          "heading": "Local Demand for Project Leaders",
+          "text": "Sumter's aerospace, defense, manufacturing, and healthcare sectors actively hire project managers and program managers. The PMP® credential signals to employers like those in Sumter's major industries that you meet the highest professional standards for leading complex initiatives."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:41.130201Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "372a156c80e3595f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Sumter",
+      "text": "<p>Shaw Air Force Base stands as a cornerstone employer driving project management demand across Sumter. The base's ongoing facility and infrastructure modernization projects require skilled professionals to coordinate complex timelines, budgets, and cross-functional teams. Beyond defense, Continental Tire's Sumter County Plant expansion and production ramp-up represents another significant source of PM roles, as does Prisma Health Tuomey's hospital campus renovation and service expansion work. Sumter School District's capital improvement initiatives add further local opportunities. Employers in these sectors—manufacturing, aerospace and defense, and healthcare—increasingly list PMP® or CAPM® certification as preferred or advantageous when filling project coordination and management positions, reflecting the rising complexity of local capital projects and operational initiatives.</p><p>Earning your PMP® or CAPM® credential through Granite PM Academy positions you competitively in Sumter's job market. While project manager compensation in the area tracks slightly below larger South Carolina metros, certified professionals command a measurable premium over non-certified counterparts in local postings. As demand for structured project management expertise grows among manufacturers, defense contractors, and healthcare systems undertaking larger expansions, your certification becomes a differentiator that opens doors and accelerates advancement. Granite PM Academy's live-virtual training model fits professionals already working in Sumter, allowing you to complete coursework and exam prep on a schedule that works alongside your current role—and emerge ready to compete for higher-impact opportunities in your local market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:45.334899Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "dc381b0c07f20b2a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Sumter",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's official eligibility criteria to verify your background qualifies. Granite PM Academy's enrollment team can clarify requirements and help you understand your candidacy before you commit."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course—delivered entirely online so you can learn from Sumter on your schedule. Our instructors guide you through real-world project scenarios and exam domains over structured classroom sessions. Completion of this formal education satisfies PMI's contact-hour requirement."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your training hours, submit your PMI application through the Project Management Institute's official portal. Include proof of your education and experience, then pay the associated exam fee. PMI will review and approve your application before you schedule your test."
+        },
+        {
+          "heading": "Prepare and Sit for the PMP Exam",
+          "text": "Granite PM Academy provides exam-preparation resources and practice to strengthen your readiness. Schedule your proctored exam when you feel confident. The PMP exam tests your knowledge of project processes, frameworks, and real-world application—our instructors help you master each domain."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Your PMP remains valid for three years. During this cycle, earn Professional Development Units (PDUs) by completing approved educational activities, training, or certifications. PMI's renewal process keeps your credential current and demonstrates your ongoing commitment to project-management excellence."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:50.246881Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "e61cb0f613d75a06",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for project managers at Sumter's defense and manufacturing employers?",
+          "answer": "<p>Yes. Shaw Air Force Base, Continental Tire, and Pilgrim's Pride all manage significant capital projects and operational initiatives where structured project management skills are increasingly valued. Local employers in aerospace, defense, and advanced manufacturing now list PMP or CAPM as preferred qualifications for project coordination and management roles. Certified professionals typically command a measurable premium over non-certified peers in Sumter job postings, making the credential a competitive advantage in these growing sectors.</p>"
+        },
+        {
+          "question": "What Sumter industries or employers most value PMP certification?",
+          "answer": "<p>Healthcare, defense, advanced manufacturing, and government agencies in the Sumter area are the strongest drivers of PMP demand. Prisma Health Tuomey, City of Sumter, and Sumter County Government regularly pursue multi-phase operational and infrastructure projects where certified project managers stand out. Manufacturing plants and logistics operations also increasingly require formal project management credentials as they scale production and coordinate supply-chain initiatives. Healthcare and defense sectors in particular show rising demand for certified professionals.</p>"
+        },
+        {
+          "question": "Can I attend PMP certification training from my workplace in Sumter?",
+          "answer": "<p>Yes. Granite PM Academy delivers all training as live-virtual instruction, so you can attend from your office, home, or any location with internet access. This format works well for Sumter professionals balancing full-time roles at local employers—you attend classes on the schedule that fits your work commitments without commuting or relocating. Virtual attendance also lets you participate in real-time instructor interaction and peer discussion from your preferred location.</p>"
+        },
+        {
+          "question": "How does Sumter's job market timing affect when to pursue PMP certification?",
+          "answer": "<p>Sumter's smaller but growing market means certified candidates stand out quickly once they earn the credential. With demand for project management skills rising across defense, healthcare, and manufacturing sectors, timing your certification to align with your employer's strategic initiatives—facility expansions, new contracts, or system upgrades—can position you for immediate advancement or new roles. Starting certification now positions you ahead of competition in a market where credentials are increasingly preferred.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:56.676803Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3effea11fa1bb458",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Shaw Air Force Base and Continental Tire's Sumter County operations drive steady demand for credentialed project managers overseeing defense infrastructure modernization and advanced manufacturing expansion. Local employers across aerospace, healthcare, and government increasingly require formal project management credentials as complex, multi-phase initiatives expand. Granite PM Academy delivers live-virtual PMP Certification Training to Sumter professionals nationwide, enabling you to earn your credential on your schedule.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:04:58.218709Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9370131f2a6ed825",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-sumter-sc/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Sumter, SC, PMP exam prep Sumter, PMP course Sumter SC, project management certification Sumter, SC, PMI PMP training Sumter",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\",\r\n      \"name\": \"PMP Certification Training in Sumter, SC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Sumter, SC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Sumter, SC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#course\",\r\n      \"name\": \"PMP Certification Training in Sumter, SC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Sumter, SC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sumter-sc/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:53:21+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }

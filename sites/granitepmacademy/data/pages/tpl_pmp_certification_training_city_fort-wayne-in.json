@@ -1,308 +1,422 @@
 {
-    "template_id": "tpl_pmp_certification_training_city",
-    "city_id": "fort-wayne-in",
-    "slug": "pmp-certification-training-fort-wayne-in",
-    "title": "PMP Certification Training {city}",
-    "city_vars": {
-        "id": "fort-wayne-in",
-        "city": "Fort Wayne",
-        "state": "Indiana",
-        "SS": "IN",
-        "city_slug": "fort-wayne-in",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "industries": [
-            "Manufacturing (automotive and heavy equipment)",
-            "Healthcare and medical services",
-            "Insurance and financial services",
-            "Logistics and distribution",
-            "Defense and aerospace components",
-            "Food and agribusiness processing"
-        ],
-        "top_employers": [
-            "Parkview Health",
-            "Lutheran Health Network",
-            "General Motors Fort Wayne Assembly Plant",
-            "BAE Systems",
-            "Steel Dynamics",
-            "Sweetwater Sound",
-            "Vera Bradley",
-            "Do it Best Corp.",
-            "Franklin Electric",
-            "Brotherhood Mutual Insurance Company",
-            "Lincoln Financial Group",
-            "Ash Brokerage"
-        ],
-        "salary_note": "Project management roles in Fort Wayne tend to pay competitively within the regional Midwest market, with healthcare, manufacturing, and insurance employers actively seeking certified PMs; exact compensation varies widely by industry and experience level, so candidates should expect a range rather than a fixed figure.",
-        "market_blurb": "Fort Wayne's project management job market is anchored by its strong manufacturing, healthcare, insurance, and logistics sectors, all of which rely on skilled project and program managers to oversee expansions, system implementations, and process improvements. As the second-largest city in Indiana, Fort Wayne continues to see steady demand for PM talent tied to corporate growth and infrastructure investment. Employers across these industries increasingly value formal project management training as organizations scale operations.",
-        "notable_projects": [
-            "Electric Works redevelopment of the former General Electric campus",
-            "Riverfront Fort Wayne development along the three rivers",
-            "Parkview Health facility expansions, including Parkview Randallia",
-            "General Motors Fort Wayne Assembly Plant production and facility upgrades"
-        ],
-        "credential_demand": "PMP and CAPM certifications are increasingly referenced in Fort Wayne job postings, particularly within healthcare systems, manufacturing firms, and insurance companies looking to standardize project delivery practices. While not universally required, certified project managers are generally viewed as more competitive candidates in the local hiring market.",
-        "_researched": 1,
-        "city_spotlight": "<p>Fort Wayne's manufacturing and healthcare sectors—anchored by employers like General Motors Fort Wayne Assembly Plant and Parkview Health—drive steady demand for skilled project managers overseeing facility upgrades, system implementations, and process improvements. As Indiana's second-largest city, Fort Wayne's logistics, insurance, and defense industries increasingly prioritize formal PM credentials during organizational expansion. Granite PM Academy delivers live-virtual PMP® Certification training to Fort Wayne professionals, enabling you to earn your credential on your schedule while working.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-fort-wayne-in.webp",
-        "city_image_alt": "Historic Fort Wayne, Fort Wayne, IN",
-        "city_image_credit": "Photo: Momoneymoproblemz, CC0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Historic_Fort_Wayne,_Fort_Wayne,_Indiana,_May_2014.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#pmp_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMP certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_cef0d6eb14.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "35",
-                    "label": "PMI contact hours included with every PMP course"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMP Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMP Training",
-                    "badge": "MOST POPULAR",
-                    "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,995",
-                    "period": "per person",
-                    "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#pmp_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "pmp_pathway",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": ""
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                },
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "PMP Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "Do I need to travel to {city} for this training?",
-                    "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
-                },
-                {
-                    "question": "What are the PMP eligibility requirements?",
-                    "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
-                },
-                {
-                    "question": "How long does it take to get PMP certified in {city}?",
-                    "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
-                },
-                {
-                    "question": "What is your pass guarantee?",
-                    "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-                },
-                {
-                    "question": "Is this training PMI-approved?",
-                    "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Start Your PMP Journey in {city} Today",
-            "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#pmp_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "fort-wayne-in",
+  "slug": "pmp-certification-training-fort-wayne-in",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "fort-wayne-in",
+    "city": "Fort Wayne",
+    "state": "Indiana",
+    "SS": "IN",
+    "city_slug": "fort-wayne-in",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/",
-        "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "meta_keywords": "PMP certification training Fort Wayne, IN, PMP exam prep Fort Wayne, PMP course Fort Wayne IN, project management certification Fort Wayne, IN, PMI PMP training Fort Wayne",
-        "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
-        "og_image": "",
-        "service_name": "PMP Certification Training",
-        "service_type": "Professional Certification Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-        "bc_label": "PMP Certification Training {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\",\r\n      \"name\": \"PMP Certification Training in Fort Wayne, IN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fort Wayne, IN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fort Wayne, IN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#course\",\r\n      \"name\": \"PMP Certification Training in Fort Wayne, IN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fort Wayne, IN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n    }\r\n  ]\r\n}",
-        "primary_keyword": "PMP Certification Training",
-        "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+    "industries": [
+      "Manufacturing (automotive and heavy equipment)",
+      "Healthcare and medical services",
+      "Insurance and financial services",
+      "Logistics and distribution",
+      "Defense and aerospace components",
+      "Food and agribusiness processing"
+    ],
+    "top_employers": [
+      "Parkview Health",
+      "Lutheran Health Network",
+      "General Motors Fort Wayne Assembly Plant",
+      "BAE Systems",
+      "Steel Dynamics",
+      "Sweetwater Sound",
+      "Vera Bradley",
+      "Do it Best Corp.",
+      "Franklin Electric",
+      "Brotherhood Mutual Insurance Company",
+      "Lincoln Financial Group",
+      "Ash Brokerage"
+    ],
+    "salary_note": "Project management roles in Fort Wayne tend to pay competitively within the regional Midwest market, with healthcare, manufacturing, and insurance employers actively seeking certified PMs; exact compensation varies widely by industry and experience level, so candidates should expect a range rather than a fixed figure.",
+    "market_blurb": "Fort Wayne's project management job market is anchored by its strong manufacturing, healthcare, insurance, and logistics sectors, all of which rely on skilled project and program managers to oversee expansions, system implementations, and process improvements. As the second-largest city in Indiana, Fort Wayne continues to see steady demand for PM talent tied to corporate growth and infrastructure investment. Employers across these industries increasingly value formal project management training as organizations scale operations.",
+    "notable_projects": [
+      "Electric Works redevelopment of the former General Electric campus",
+      "Riverfront Fort Wayne development along the three rivers",
+      "Parkview Health facility expansions, including Parkview Randallia",
+      "General Motors Fort Wayne Assembly Plant production and facility upgrades"
+    ],
+    "credential_demand": "PMP and CAPM certifications are increasingly referenced in Fort Wayne job postings, particularly within healthcare systems, manufacturing firms, and insurance companies looking to standardize project delivery practices. While not universally required, certified project managers are generally viewed as more competitive candidates in the local hiring market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Fort Wayne's manufacturing and healthcare sectors—anchored by employers like General Motors Fort Wayne Assembly Plant and Parkview Health—drive steady demand for skilled project managers overseeing facility upgrades, system implementations, and process improvements. As Indiana's second-largest city, Fort Wayne's logistics, insurance, and defense industries increasingly prioritize formal PM credentials during organizational expansion. Granite PM Academy delivers live-virtual PMP® Certification training to Fort Wayne professionals, enabling you to earn your credential on your schedule while working.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-fort-wayne-in.webp",
+    "city_image_alt": "Historic Fort Wayne, Fort Wayne, IN",
+    "city_image_credit": "Photo: Momoneymoproblemz, CC0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Historic_Fort_Wayne,_Fort_Wayne,_Indiana,_May_2014.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Fort Wayne's manufacturing, defense, and logistics sectors depend on professionals who can manage complex, regulated projects across automotive, aerospace, and supply-chain operations. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour education requirements, letting you earn this globally recognized credential without interrupting your schedule. A PMP demonstrates to employers in this region that you can lead cross-functional teams and deliver projects on time and within scope—a competitive advantage in industries where project discipline directly impacts margins and compliance.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_cef0d6eb14.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:00.857357Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d2bfcc2ea1d50b92",
+      "_ai_locked": true
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-07T21:52:14+00:00",
-    "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training for Fort Wayne's Growing Project Management Sector",
+      "text": "<p>Fort Wayne's manufacturing heartland—anchored by major automotive and heavy equipment operations—depends on skilled project managers to coordinate complex production expansions, supply chain initiatives, and capital equipment deployments. Across the city's defense, aerospace, healthcare, logistics, and insurance sectors, employers are scaling operations and increasingly expect their teams to hold formal project management credentials. The PMP® (Project Management Professional) certification signals to these organizations that you can lead initiatives to time, budget, and scope while managing stakeholder expectations and organizational risk. For professionals in Fort Wayne seeking advancement, the PMP® opens doors across the industries that define the region's job market.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live-virtual PMP® Certification Training designed for working professionals in Fort Wayne and beyond. Our instructor-led courses meet the contact-hour requirements mandated by the Project Management Institute, taught by active certified practitioners with real-world experience. You'll learn the PMBOK® Guide framework, prepare rigorously for the PMP® exam, and complete your training entirely online on a schedule that fits your work and life. Whether you're pursuing your first certification or building credentials for a leadership role, Granite PM Academy provides the structured, expert instruction you need to pass your exam and advance your project management career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:04.804627Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "754809ef7e6fe64a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification: Fort Wayne's Path to Advanced Project Leadership",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMP® certification training that meets PMI's rigorous standards. Your contact hours count directly toward PMI credential eligibility—no gaps, no workarounds, just straightforward compliance with the world's leading project management body."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend live-virtual instructor-led sessions on your own schedule without commuting to a classroom. Real-time interaction with certified practitioners ensures you ask questions, clarify complex topics, and retain the knowledge needed to pass the PMP® exam on your first attempt."
+        },
+        {
+          "heading": "Exam Prep From Active Practitioners",
+          "text": "Your instructors hold active PMP® and related certifications and apply project management daily in their professional roles. They translate real-world problem-solving into exam strategy, helping you move beyond memorization to genuine competency and confidence."
+        },
+        {
+          "heading": "Credential Valued Across Fort Wayne Industries",
+          "text": "Manufacturing, healthcare, defense, logistics, and financial services employers across Fort Wayne—from General Motors to BAE Systems to Parkview Health—seek PMP® certified professionals for senior project and program roles. The credential directly strengthens your candidacy in the region's largest hiring sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:08.928929Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "88945cbfed713f37",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Fort Wayne",
+      "text": "<p>Fort Wayne's manufacturing and healthcare sectors are among the region's largest employers of project managers. General Motors Fort Wayne Assembly Plant continues to invest in production and facility upgrades that demand skilled project leadership, while Parkview Health's ongoing facility expansions—including Parkview Randallia—create recurring demand for certified professionals who can manage complex, regulated initiatives. Steel Dynamics, Franklin Electric, and BAE Systems similarly rely on project managers to oversee operations and capital projects. Beyond these anchors, the redevelopment of Electric Works, transforming the historic General Electric campus, and the Riverfront Fort Wayne development initiative along the three rivers represent the type of large-scale, multi-stakeholder projects where certified project managers add measurable value. These initiatives signal sustained investment and growth in the local economy.</p><p>Earning your PMP® or CAPM® credential positions you as a more competitive candidate in Fort Wayne's hiring landscape. Healthcare systems, manufacturing firms, and insurance companies here are increasingly seeking certified project managers to standardize project delivery practices. While the credential is not universally mandated, employers actively reference PMP and CAPM certifications in job postings and tend to view certified professionals as stronger applicants. Project management roles in Fort Wayne generally offer competitive compensation within the regional Midwest market, with actual pay varying by industry, employer size, and experience. By completing Granite PM Academy's live-virtual PMP Certification Training, you gain recognized credentials that directly address what local employers are actively seeking—giving you an edge as you advance your career in this growing market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:13.185721Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "18a90c09f9e0599e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fort Wayne",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's formal prerequisites—typically a bachelor's degree plus documented project-leadership hours, or equivalent combinations. Granite PM Academy's advisors can verify your qualifications at no cost and identify any gaps before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Attend sessions remotely on a schedule that fits your work commitments. Our active certified practitioners guide you through the PMBOK® Guide framework and real-world applications over five days of interactive instruction."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, submit your official PMI PMP application with proof of education and experience. Pay the required examination fee directly to PMI. Granite PM Academy staff will clarify which documents you need and answer questions about the submission process."
+        },
+        {
+          "heading": "Prepare and Pass the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests, study guides, and instructor office hours. Schedule your proctored exam through PMI's testing partner. Our support extends through your exam day to ensure you feel confident in the testing format and content."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After certification, earn Professional Development Units (PDUs) every three years to renew your PMP. Granite PM Academy and PMI offer multiple pathways—training courses, volunteering, and published work all count. Plan your PDU strategy early to keep your credential active throughout your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:18.456886Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "9f7519f08f38f1d4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI sets four eligibility paths based on education: a secondary diploma (high school or equivalent) requires 60 months of project leadership experience; an associate's degree requires 48 months; a bachelor's degree requires 36 months; and a bachelor's or postgraduate degree from a PMI Global Accreditation Center (GAC)-accredited program requires just 24 months. Every path also requires 35 hours of project management education &mdash; our course satisfies this requirement in full.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Fort Wayne manufacturing careers?",
+          "answer": "<p>Yes. Fort Wayne's automotive and heavy equipment manufacturing sector—including major employers like GM Fort Wayne Assembly and Steel Dynamics—increasingly values certified project managers to standardize delivery practices and improve operational efficiency. While not universally required, PMP certification strengthens your candidacy in a competitive regional hiring market and qualifies you for roles managing cross-functional production and supply-chain initiatives.</p>"
+        },
+        {
+          "question": "Which Fort Wayne employers actively seek PMP-certified project managers?",
+          "answer": "<p>Healthcare systems (Parkview Health, Lutheran Health Network), manufacturing firms (GM, Steel Dynamics, Franklin Electric), and insurance companies (Brotherhood Mutual, Lincoln Financial Group) actively reference PMP and CAPM certifications in job postings. These employers are standardizing project delivery practices and view certified PMs as more competitive candidates. Defense contractors and logistics firms in the region also prioritize the credential.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual PMP training from my Fort Wayne workplace?",
+          "answer": "<p>Yes. Our live-virtual training is 100% online and accessible from anywhere with internet connectivity—including your office, home, or coworking space. Many Fort Wayne professionals participate during or around their work schedule. Confirm with your employer any policies on professional development during work hours, and ensure a quiet, distraction-free environment for optimal learning during live sessions.</p>"
+        },
+        {
+          "question": "How does Fort Wayne's job market affect timing for PMP certification?",
+          "answer": "<p>Fort Wayne's healthcare, manufacturing, and insurance sectors are actively hiring project managers with PMP credentials. If you're planning a career move or advancement within these industries, earning your certification before applying can significantly improve your competitiveness. Starting your training now positions you to enter the job market credential-ready, especially if you're transitioning roles or seeking higher-level project leadership in the region.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_injected_count": 4,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:23.723339Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "63707295bc0f2d94",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Wayne's manufacturing and healthcare sectors—anchored by employers like General Motors Fort Wayne Assembly Plant and Parkview Health—drive steady demand for skilled project managers overseeing facility expansions, production upgrades, and system implementations. As Indiana's second-largest city, Fort Wayne's logistics, insurance, and defense industries similarly rely on formal PM expertise to scale operations and manage complex initiatives. Granite PM Academy delivers live-virtual PMP® Certification Training to Fort Wayne professionals seeking to advance their careers and meet the credential standards employers in these sectors increasingly require.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:01:25.421275Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "2f5f121e295e5075",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Fort Wayne, IN, PMP exam prep Fort Wayne, PMP course Fort Wayne IN, project management certification Fort Wayne, IN, PMI PMP training Fort Wayne",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\",\r\n      \"name\": \"PMP Certification Training in Fort Wayne, IN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Fort Wayne, IN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Fort Wayne, IN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#course\",\r\n      \"name\": \"PMP Certification Training in Fort Wayne, IN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Fort Wayne, IN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-fort-wayne-in/\"\r\n    }\r\n  ]\r\n}",
+    "primary_keyword": "PMP Certification Training",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-07T21:52:14+00:00",
+  "template_version": "2d97ea64f61a8aa6da819820d22bf3cc"
 }
