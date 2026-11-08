@@ -6377,12 +6377,68 @@
                     "cards_centered": false
                 },
                 {
-                    "type": "text",
-                    "bg_color": "#f8fafc",
-                    "text_color": "#6b7280",
-                    "padding": "small",
-                    "heading_text": "",
-                    "text": "<p style=\"font-size:0.9rem;\">More topics — Talent Triangle category deep-dives, CCRS reporting walkthroughs, audit prep, and other PMI certifications — are on the way. Check back, or start with the full renewal guide above.</p>"
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Talent Triangle Categories, In Depth",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 4,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Ways of Working PDUs",
+                            "text": "Agile, predictive, and hybrid delivery training — what qualifies and what doesn't.",
+                            "badge": "",
+                            "link": "/ways-of-working-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Power Skills PDUs",
+                            "text": "Leadership, communication, and conflict-resolution training, explained.",
+                            "badge": "",
+                            "link": "/power-skills-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business Acumen PDUs",
+                            "text": "Strategy, finance, and industry-context training, explained.",
+                            "badge": "",
+                            "link": "/business-acumen-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Giving Back PDUs",
+                            "text": "The real caps, all five activity types, and whether it's worth the time.",
+                            "badge": "",
+                            "link": "/giving-back-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
                 },
                 {
                     "type": "cta_banner",
@@ -7178,6 +7234,60 @@
                             "text": "Formerly “Strategic and Business Management.” Understanding how your project connects to business goals, industry, and finances. Counts: business strategy or finance courses, industry-specific training, market-trend webinars relevant to your sector."
                         }
                     ]
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Go Deeper on Each Area",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Ways of Working PDUs",
+                            "text": "The full qualifying-activity list, what doesn't count, and the minimum by credential.",
+                            "badge": "",
+                            "link": "/ways-of-working-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Power Skills PDUs",
+                            "text": "The full qualifying-activity list, what doesn't count, and the minimum by credential.",
+                            "badge": "",
+                            "link": "/power-skills-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business Acumen PDUs",
+                            "text": "The full qualifying-activity list, what doesn't count, and the minimum by credential.",
+                            "badge": "",
+                            "link": "/business-acumen-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
                 },
                 {
                     "type": "feature_columns",
@@ -9383,6 +9493,793 @@
                 "bc_mid_label": "PDU & Renewal Resources",
                 "bc_mid_url": "/pdu-resources",
                 "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/best-pmp-pdu-courses/#webpage\",\n      \"url\": \"https://granitepmacademy.com/best-pmp-pdu-courses/\",\n      \"name\": \"Best PMP PDU Online Courses, Compared (Nov 2026) | Granite PM Academy\",\n      \"description\": \"PMP PDU course providers compared by real, live-checked price (Nov 2026) — Master of Project Academy, PM PrepCast, PMTraining, Udemy, and Granite.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Best PMP PDU Courses\",\n            \"item\": \"https://granitepmacademy.com/best-pmp-pdu-courses/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the cheapest PDU course always the best choice?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Not necessarily — cheaper bundles sometimes require more manual tracking to confirm they clear every Talent Triangle minimum, where a slightly pricier bundle may already be pre-mapped. Price alone doesn't tell you whether a course actually satisfies PMI's category requirements.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do I need a PMI Authorized Training Partner (ATP) specifically?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — PDU-eligible courses just need to come from a PMI-recognized Education Provider or otherwise meet PMI's self-directed learning criteria. ATP status specifically applies to exam-prep training for PMI certifications, not PDU courses.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I mix free and paid PDU sources instead of buying one bundle?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — PMI doesn't care whether a PDU was free or paid, only that it's documented and tagged to the right Talent Triangle area. See our breakdown of legitimate free PDU sources if you'd rather assemble your own mix.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does PM PrepCast's closure affect its existing PDU certificates?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PM PrepCast has announced it's closing December 4, 2026 — see our dedicated page on what that means for existing students and their PDU certificates.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_ways_of_working_pdus": {
+            "title": "Ways of Working PDUs: What Counts and How Many You Need",
+            "slug": "ways-of-working-pdus",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Ways of Working PDUs: What Counts and How Many You Need",
+                    "text": "<p>Ways of Working is the Talent Triangle&reg; category covering the actual delivery mechanics of running a project — predictive, agile, or hybrid. PMP&reg; holders need a minimum of <strong>8 PDUs</strong> in this area per three-year cycle (out of 60 total); the minimum scales down for other credentials. Here's exactly what qualifies, what doesn't, and how to document it.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "comparison_table",
+                    "ct_label": "BY CREDENTIAL",
+                    "ct_heading": "Ways of Working Minimum, by Credential",
+                    "ct_heading_level": "h2",
+                    "ct_col1_header": "Credential",
+                    "ct_col2_header": "Minimum Ways of Working PDUs",
+                    "ct_rows_raw": "PMP / PgMP / PfMP / PMI-PBA|8 of 60 total\nPMI-ACP / PMI-RMP / PMI-SP / PMI-CP / PMI-CPMAI|4 of 30 total\nPMI-PMOCP|3 of 30 total\nCAPM|2 of 15 total",
+                    "ct_callout": "Figures confirmed against PMI's Continuing Certification Requirements (CCR) Handbook, November 2026.",
+                    "ct_bg": "#ffffff"
+                },
+                {
+                    "type": "feature_columns",
+                    "fc_heading": "What Qualifies as Ways of Working",
+                    "fc_heading_level": "h2",
+                    "fc_subheading": "",
+                    "fc_bg_color": "#f0f4f8",
+                    "fc_num_cols": 2,
+                    "columns": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Predictive / Waterfall Methodology",
+                            "text": "Scheduling, work breakdown structures, critical path method, earned value management, and traditional project-control techniques."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Agile & Hybrid Frameworks",
+                            "text": "Scrum, Kanban, SAFe, Lean, XP, and hybrid delivery approaches that blend predictive and agile methods."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Risk Management Methodology",
+                            "text": "Courses specifically on identifying, assessing, and managing project risk — not general risk theory unrelated to delivery."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PM Tool Training Tied to Delivery",
+                            "text": "Training in tools like MS Project, Primavera, or Jira, specifically for scheduling, sprint planning, or tracking project work."
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Does NOT Count",
+                    "text": "<p><strong>Generic software training unrelated to project delivery.</strong> A broad Excel or general computing course doesn't qualify just because you might use the tool on a project — the course content has to be about project delivery methodology itself.</p><p><strong>Leadership or communication courses.</strong> Those fall under Power Skills, even if delivered to project managers.</p><p><strong>Business strategy or financial courses.</strong> Those fall under Business Acumen, regardless of how relevant they feel to your day-to-day project work.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Documenting a Ways of Working PDU",
+                    "text": "<p>Keep the course certificate or completion confirmation showing the provider, course title, dates, and hours — most accredited providers will already label the course as \"Ways of Working\" or the older \"Technical Project Management\" terminology on the certificate itself, since that's the Talent Triangle&reg; area PMI uses for audits.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "The Other Talent Triangle Categories",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Power Skills PDUs",
+                            "text": "The interpersonal and leadership category.",
+                            "badge": "",
+                            "link": "/power-skills-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business Acumen PDUs",
+                            "text": "The strategy and business-context category.",
+                            "badge": "",
+                            "link": "/business-acumen-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Giving Back PDUs",
+                            "text": "The optional, capped category — with real limits.",
+                            "badge": "",
+                            "link": "/giving-back-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Does general software training count as a Ways of Working PDU?",
+                            "answer": "Only if it's specifically about using the tool for project delivery (e.g., a course on using Jira or MS Project for sprint planning or scheduling) — a generic software tutorial unrelated to project methodology doesn't qualify."
+                        },
+                        {
+                            "question": "Is Six Sigma or Lean training a Ways of Working PDU?",
+                            "answer": "Yes, if the course focuses on process/delivery methodology relevant to managing projects — the process-improvement angle fits this category rather than Business Acumen."
+                        },
+                        {
+                            "question": "How many Ways of Working PDUs does a PMP need?",
+                            "answer": "A minimum of 8 of the 60 total, though you can exceed that minimum — there's no upper cap on Education PDUs in any single area."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Covered Automatically in One Bundle",
+                    "cb_subtext": "Granite's PDU bundles already clear the Ways of Working minimum alongside the other two Talent Triangle areas.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "ways of working pdus",
+                "secondary_keywords": "pmi ways of working",
+                "meta_keywords": "ways of working pdus",
+                "meta_description": "Ways of Working PDUs explained: what qualifies (agile, predictive, hybrid delivery training), what doesn't, and the minimum by credential.",
+                "seo_title": "Ways of Working PDUs: What Counts & How Many You Need | Granite PM Academy",
+                "og_title": "Ways of Working PDUs: What Counts and How Many You Need",
+                "og_description": "The Ways of Working Talent Triangle category: real qualifying activities, what doesn't count, and the minimum PDUs required by credential.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/ways-of-working-pdus/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Ways of Working PDUs",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ways-of-working-pdus/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ways-of-working-pdus/\",\n      \"name\": \"Ways of Working PDUs: What Counts & How Many You Need | Granite PM Academy\",\n      \"description\": \"Ways of Working PDUs explained: what qualifies (agile, predictive, hybrid delivery training), what doesn't, and the minimum by credential.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Ways of Working PDUs\",\n            \"item\": \"https://granitepmacademy.com/ways-of-working-pdus/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does general software training count as a Ways of Working PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Only if it's specifically about using the tool for project delivery (e.g., a course on using Jira or MS Project for sprint planning or scheduling) — a generic software tutorial unrelated to project methodology doesn't qualify.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is Six Sigma or Lean training a Ways of Working PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, if the course focuses on process/delivery methodology relevant to managing projects — the process-improvement angle fits this category rather than Business Acumen.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many Ways of Working PDUs does a PMP need?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"A minimum of 8 of the 60 total, though you can exceed that minimum — there's no upper cap on Education PDUs in any single area.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_power_skills_pdus": {
+            "title": "Power Skills PDUs: What Counts and How Many You Need",
+            "slug": "power-skills-pdus",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Power Skills PDUs: What Counts and How Many You Need",
+                    "text": "<p>Power Skills is the Talent Triangle&reg; category covering the interpersonal side of leading a project — communication, conflict resolution, and team motivation. PMP&reg; holders need a minimum of <strong>8 PDUs</strong> in this area per three-year cycle (out of 60 total); the minimum scales down for other credentials.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "comparison_table",
+                    "ct_label": "BY CREDENTIAL",
+                    "ct_heading": "Power Skills Minimum, by Credential",
+                    "ct_heading_level": "h2",
+                    "ct_col1_header": "Credential",
+                    "ct_col2_header": "Minimum Power Skills PDUs",
+                    "ct_rows_raw": "PMP / PgMP / PfMP / PMI-PBA|8 of 60 total\nPMI-ACP / PMI-RMP / PMI-SP / PMI-CP / PMI-CPMAI|4 of 30 total\nPMI-PMOCP|7 of 30 total\nCAPM|2 of 15 total",
+                    "ct_callout": "Figures confirmed against PMI's Continuing Certification Requirements (CCR) Handbook, November 2026. Note PMI-PMOCP weights this category higher than the others — 7 of its 20-PDU Education floor.",
+                    "ct_bg": "#ffffff"
+                },
+                {
+                    "type": "feature_columns",
+                    "fc_heading": "What Qualifies as Power Skills",
+                    "fc_heading_level": "h2",
+                    "fc_subheading": "",
+                    "fc_bg_color": "#f0f4f8",
+                    "fc_num_cols": 2,
+                    "columns": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Leadership & Team Motivation",
+                            "text": "Courses on motivating a project team, leading through influence rather than authority, and building team cohesion."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Communication & Negotiation",
+                            "text": "Stakeholder communication, difficult conversations, and negotiation training specifically applicable to project work."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Conflict Resolution",
+                            "text": "Courses on managing and resolving conflict within a team or between stakeholders."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Coaching & Mentoring",
+                            "text": "Training on coaching or mentoring other project professionals — both the skill-building course itself and, separately, the act of mentoring (which falls under Giving Back instead)."
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Does NOT Count",
+                    "text": "<p><strong>Technical scheduling or delivery-methodology training.</strong> That falls under Ways of Working, even when delivered to the same audience of project managers.</p><p><strong>Business strategy or financial training.</strong> That falls under Business Acumen.</p><p><strong>Generic motivational content with no interpersonal-skill substance.</strong> A course has to teach an actual communication, leadership, or conflict-resolution skill — not just general inspiration.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Documenting a Power Skills PDU",
+                    "text": "<p>Keep the course certificate showing provider, title, dates, and hours. If the course doesn't explicitly label itself \"Power Skills\" (older courses may still use the original \"Leadership\" terminology), you classify it yourself based on the actual interpersonal-skill content — note your reasoning when you report it in case of an audit.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "The Other Talent Triangle Categories",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Ways of Working PDUs",
+                            "text": "The project-delivery mechanics category.",
+                            "badge": "",
+                            "link": "/ways-of-working-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business Acumen PDUs",
+                            "text": "The strategy and business-context category.",
+                            "badge": "",
+                            "link": "/business-acumen-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Giving Back PDUs",
+                            "text": "The optional, capped category — with real limits.",
+                            "badge": "",
+                            "link": "/giving-back-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Does a public-speaking course count as a Power Skills PDU?",
+                            "answer": "Generally yes, if the content is relevant to leading or influencing a project team — a course purely on acting or broadcast presentation technique with no PM context is a harder case to justify in an audit."
+                        },
+                        {
+                            "question": "Is emotional intelligence training a Power Skills PDU?",
+                            "answer": "Yes — EQ, conflict resolution, and team motivation training fit squarely under Power Skills, since the category covers the interpersonal side of leading people."
+                        },
+                        {
+                            "question": "How many Power Skills PDUs does a PMP need?",
+                            "answer": "A minimum of 8 of the 60 total, with no upper cap — you can earn more than 8 if you want."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Covered Automatically in One Bundle",
+                    "cb_subtext": "Granite's PDU bundles already clear the Power Skills minimum alongside the other two Talent Triangle areas.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "power skills pdu",
+                "secondary_keywords": "pmi power skills pdu, pmp leadership pdu",
+                "meta_keywords": "power skills pdu",
+                "meta_description": "Power Skills PDUs explained: what qualifies (leadership, communication, conflict resolution training), what doesn't, and the minimum by credential.",
+                "seo_title": "Power Skills PDUs: What Counts & How Many You Need | Granite PM Academy",
+                "og_title": "Power Skills PDUs: What Counts and How Many You Need",
+                "og_description": "The Power Skills Talent Triangle category: real qualifying activities, what doesn't count, and the minimum PDUs required by credential.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/power-skills-pdus/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Power Skills PDUs",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/power-skills-pdus/#webpage\",\n      \"url\": \"https://granitepmacademy.com/power-skills-pdus/\",\n      \"name\": \"Power Skills PDUs: What Counts & How Many You Need | Granite PM Academy\",\n      \"description\": \"Power Skills PDUs explained: what qualifies (leadership, communication, conflict resolution training), what doesn't, and the minimum by credential.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Power Skills PDUs\",\n            \"item\": \"https://granitepmacademy.com/power-skills-pdus/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does a public-speaking course count as a Power Skills PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Generally yes, if the content is relevant to leading or influencing a project team — a course purely on acting or broadcast presentation technique with no PM context is a harder case to justify in an audit.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is emotional intelligence training a Power Skills PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — EQ, conflict resolution, and team motivation training fit squarely under Power Skills, since the category covers the interpersonal side of leading people.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many Power Skills PDUs does a PMP need?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"A minimum of 8 of the 60 total, with no upper cap — you can earn more than 8 if you want.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_business_acumen_pdus": {
+            "title": "Business Acumen PDUs: What Counts and How Many You Need",
+            "slug": "business-acumen-pdus",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Business Acumen PDUs: What Counts and How Many You Need",
+                    "text": "<p>Business Acumen is the Talent Triangle&reg; category covering how a project connects to organizational strategy, finances, and industry context. PMP&reg; holders need a minimum of <strong>8 PDUs</strong> in this area per three-year cycle (out of 60 total); the minimum scales down for other credentials — except PMI-PMOCP&reg;, which weights this category the highest of all three.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "comparison_table",
+                    "ct_label": "BY CREDENTIAL",
+                    "ct_heading": "Business Acumen Minimum, by Credential",
+                    "ct_heading_level": "h2",
+                    "ct_col1_header": "Credential",
+                    "ct_col2_header": "Minimum Business Acumen PDUs",
+                    "ct_rows_raw": "PMP / PgMP / PfMP / PMI-PBA|8 of 60 total\nPMI-ACP / PMI-RMP / PMI-SP / PMI-CP / PMI-CPMAI|4 of 30 total\nPMI-PMOCP|10 of 30 total\nCAPM|2 of 15 total",
+                    "ct_callout": "Figures confirmed against PMI's Continuing Certification Requirements (CCR) Handbook, November 2026. PMI-PMOCP weights this category the highest of the three — 10 of its 20-PDU Education floor, reflecting the strategic/portfolio focus of that credential.",
+                    "ct_bg": "#ffffff"
+                },
+                {
+                    "type": "feature_columns",
+                    "fc_heading": "What Qualifies as Business Acumen",
+                    "fc_heading_level": "h2",
+                    "fc_subheading": "",
+                    "fc_bg_color": "#f0f4f8",
+                    "fc_num_cols": 2,
+                    "columns": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business & Organizational Strategy",
+                            "text": "Courses connecting project outcomes to broader organizational or portfolio strategy."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Financial Management",
+                            "text": "Budgeting, ROI analysis, cost-benefit analysis, and financial literacy training relevant to project decision-making."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Industry-Specific Context",
+                            "text": "Training on the business dynamics of your specific industry (construction, IT, healthcare, etc.) as it applies to running projects in that sector."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Contracts, Procurement & Legal Business Context",
+                            "text": "Courses on the business and legal fundamentals of vendor contracts and procurement decisions within a project."
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Does NOT Count",
+                    "text": "<p><strong>Technical delivery-methodology training.</strong> That falls under Ways of Working, even if the course touches on project outcomes.</p><p><strong>Leadership or communication training.</strong> That falls under Power Skills.</p><p><strong>Narrowly technical skill-building unrelated to business context.</strong> A coding bootcamp or tool-specific technical certification, for instance, doesn't qualify here just because the output eventually supports a business goal.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Documenting a Business Acumen PDU",
+                    "text": "<p>Keep the course certificate showing provider, title, dates, and hours. Business Acumen activities are sometimes less obviously labeled than Ways of Working or Power Skills courses — if a course doesn't explicitly state the Talent Triangle&reg; area, briefly note why it fits (strategy, finance, or industry context) in case of an audit.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "The Other Talent Triangle Categories",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Ways of Working PDUs",
+                            "text": "The project-delivery mechanics category.",
+                            "badge": "",
+                            "link": "/ways-of-working-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Power Skills PDUs",
+                            "text": "The interpersonal and leadership category.",
+                            "badge": "",
+                            "link": "/power-skills-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Giving Back PDUs",
+                            "text": "The optional, capped category — with real limits.",
+                            "badge": "",
+                            "link": "/giving-back-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Does an industry certification course count as a Business Acumen PDU?",
+                            "answer": "If it's teaching business or industry context relevant to how projects fit into organizational goals, generally yes — a narrowly technical certification unrelated to business strategy is a harder case."
+                        },
+                        {
+                            "question": "Is a finance-for-non-financial-managers course a Business Acumen PDU?",
+                            "answer": "Yes — budgeting, ROI analysis, and financial literacy training relevant to project decision-making fit this category well."
+                        },
+                        {
+                            "question": "How many Business Acumen PDUs does a PMP need?",
+                            "answer": "A minimum of 8 of the 60 total, with no upper cap."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Covered Automatically in One Bundle",
+                    "cb_subtext": "Granite's PDU bundles already clear the Business Acumen minimum alongside the other two Talent Triangle areas.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "business acumen pdu",
+                "secondary_keywords": "pmp business acumen pdu, pmi business acumen",
+                "meta_keywords": "business acumen pdu",
+                "meta_description": "Business Acumen PDUs explained: what qualifies (strategy, finance, industry-context training), what doesn't, and the minimum by credential.",
+                "seo_title": "Business Acumen PDUs: What Counts & How Many You Need | Granite PM Academy",
+                "og_title": "Business Acumen PDUs: What Counts and How Many You Need",
+                "og_description": "The Business Acumen Talent Triangle category: real qualifying activities, what doesn't count, and the minimum PDUs required by credential.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/business-acumen-pdus/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Business Acumen PDUs",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/business-acumen-pdus/#webpage\",\n      \"url\": \"https://granitepmacademy.com/business-acumen-pdus/\",\n      \"name\": \"Business Acumen PDUs: What Counts & How Many You Need | Granite PM Academy\",\n      \"description\": \"Business Acumen PDUs explained: what qualifies (strategy, finance, industry-context training), what doesn't, and the minimum by credential.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Business Acumen PDUs\",\n            \"item\": \"https://granitepmacademy.com/business-acumen-pdus/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does an industry certification course count as a Business Acumen PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"If it's teaching business or industry context relevant to how projects fit into organizational goals, generally yes — a narrowly technical certification unrelated to business strategy is a harder case.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is a finance-for-non-financial-managers course a Business Acumen PDU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — budgeting, ROI analysis, and financial literacy training relevant to project decision-making fit this category well.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many Business Acumen PDUs does a PMP need?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"A minimum of 8 of the 60 total, with no upper cap.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_giving_back_pdus": {
+            "title": "Giving Back PDUs: The Real Caps and What Actually Counts",
+            "slug": "giving-back-pdus",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Giving Back PDUs: The Real Caps and What Actually Counts",
+                    "text": "<p>Giving Back is the one PDU category with a hard ceiling rather than a minimum — for a PMP&reg;, it's capped at <strong>25 of your 60 total PDUs</strong>, and it's entirely optional (you can earn all 60 from Education instead). Within that 25, one specific sub-category has its own tighter cap that catches people off guard.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "comparison_table",
+                    "ct_label": "GIVING BACK CAPS",
+                    "ct_heading": "Giving Back Caps, by Credential",
+                    "ct_heading_level": "h2",
+                    "ct_col1_header": "Credential",
+                    "ct_col2_header": "Giving Back Maximum",
+                    "ct_rows_raw": "PMP / PgMP / PfMP / PMI-PBA|25 of 60 total\nPMI-ACP / PMI-RMP / PMI-SP / PMI-CP / PMI-CPMAI|12 of 30 total\nPMI-PMOCP|10 of 30 total\nCAPM|6 of 15 total",
+                    "ct_callout": "Figures confirmed against PMI's Continuing Certification Requirements (CCR) Handbook, November 2026. These are maximums, not minimums — Giving Back can be skipped entirely by earning the full total from Education.",
+                    "ct_bg": "#ffffff"
+                },
+                {
+                    "type": "feature_columns",
+                    "fc_heading": "The Five Giving Back Activity Types",
+                    "fc_heading_level": "h2",
+                    "fc_subheading": "",
+                    "fc_bg_color": "#f0f4f8",
+                    "fc_num_cols": 3,
+                    "columns": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Create Content",
+                            "text": "Writing an article, book, presentation, or course material related to project management. No PMI-stated individual sub-cap beyond the overall Giving Back maximum."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Give a Presentation",
+                            "text": "Delivering a presentation at a conference, chapter meeting, or similar event on PM-related content."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Share Knowledge",
+                            "text": "Informal knowledge transfer — mentoring other project professionals or similar knowledge-sharing activity."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Volunteer",
+                            "text": "Volunteering for a PM-related nonprofit or professional body — committee work, event organizing, or similar."
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Work as a Practitioner",
+                            "text": "Working in a role related to the certification. This is the one Giving Back sub-category PMI specifically caps: 8 of the 25 PDUs for PMP/PgMP/PfMP/PMI-PBA (lower for smaller-cycle credentials). This sub-cap counts against — not in addition to — the overall 25."
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "The Mistake That Catches People Off Guard",
+                    "text": "<p>Assuming your day-to-day PM job itself generates PDUs. It doesn't — \"Working as a Practitioner\" credit applies to a specific, PMI-defined activity, not blanket credit for simply holding a PM role. And even within that sub-category, it's capped at 8 of your 25 Giving Back PDUs — the remaining 17 have to come from the other four activity types if you're relying on Giving Back at all.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Is Giving Back Worth the Time?",
+                    "text": "<p>Giving Back activities (mentoring, volunteering, writing) often feel more rewarding than sitting through another course, but they typically take real time to document properly — a log of hours and a description of the work, rather than a provider-issued certificate. If you're short on time, leaning on Education PDUs (which usually come with cleaner documentation built in) for the bulk of your requirement and using Giving Back selectively, for activities you'd genuinely do anyway, tends to be the more efficient path.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "The Other Talent Triangle Categories",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Ways of Working PDUs",
+                            "text": "The project-delivery mechanics category.",
+                            "badge": "",
+                            "link": "/ways-of-working-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Power Skills PDUs",
+                            "text": "The interpersonal and leadership category.",
+                            "badge": "",
+                            "link": "/power-skills-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Business Acumen PDUs",
+                            "text": "The strategy and business-context category.",
+                            "badge": "",
+                            "link": "/business-acumen-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Can I renew entirely through Giving Back, with no paid or free courses?",
+                            "answer": "No — Giving Back is capped at 25 of 60 PDUs for a PMP, and you must earn at least 35 from Education. You can skip Giving Back entirely and earn all 60 from Education, but you can't flip that ratio."
+                        },
+                        {
+                            "question": "Does working as a project manager automatically earn me PDUs?",
+                            "answer": "No — routine day-to-day PM work doesn't itself earn PDUs. \"Working as a Practitioner\" is a specific, capped Giving Back category with its own PMI-defined criteria, not credit for simply having a PM job."
+                        },
+                        {
+                            "question": "Do Giving Back PDUs need documentation too?",
+                            "answer": "Yes — PMI can audit Giving Back claims the same as Education ones. Keep a log of what you did, when, and for how long, same as you would for a course certificate."
+                        },
+                        {
+                            "question": "How many Giving Back PDUs can I use for a PMP cycle?",
+                            "answer": "Up to 25 of the 60 total, with a further sub-cap of 8 specifically on \"Working as a Practitioner\" within that 25."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Skip the Category Math Entirely",
+                    "cb_subtext": "Granite's bundles are built entirely from Education PDUs, pre-mapped to all three Talent Triangle areas — no Giving Back tracking required.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "pmi giving back pdu",
+                "secondary_keywords": "giving back pdus, pmi pdu work as a practitioner, pmi pdu for reading books",
+                "meta_keywords": "pmi giving back pdu",
+                "meta_description": "PMI Giving Back PDUs explained: the real 25-PDU cap, the 8-PDU practitioner sub-cap, all five activity types, and whether it's worth the time.",
+                "seo_title": "Giving Back PDUs: The Real Caps and What Counts | Granite PM Academy",
+                "og_title": "Giving Back PDUs: The Real Caps and What Actually Counts",
+                "og_description": "Giving Back PDU caps explained in full: the overall maximum, the practitioner sub-cap, all five activity types, and documentation requirements.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/giving-back-pdus/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Giving Back PDUs",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/giving-back-pdus/#webpage\",\n      \"url\": \"https://granitepmacademy.com/giving-back-pdus/\",\n      \"name\": \"Giving Back PDUs: The Real Caps and What Counts | Granite PM Academy\",\n      \"description\": \"PMI Giving Back PDUs explained: the real 25-PDU cap, the 8-PDU practitioner sub-cap, all five activity types, and whether it's worth the time.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Giving Back PDUs\",\n            \"item\": \"https://granitepmacademy.com/giving-back-pdus/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I renew entirely through Giving Back, with no paid or free courses?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — Giving Back is capped at 25 of 60 PDUs for a PMP, and you must earn at least 35 from Education. You can skip Giving Back entirely and earn all 60 from Education, but you can't flip that ratio.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does working as a project manager automatically earn me PDUs?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — routine day-to-day PM work doesn't itself earn PDUs. \\\"Working as a Practitioner\\\" is a specific, capped Giving Back category with its own PMI-defined criteria, not credit for simply having a PM job.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do Giving Back PDUs need documentation too?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — PMI can audit Giving Back claims the same as Education ones. Keep a log of what you did, when, and for how long, same as you would for a course certificate.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many Giving Back PDUs can I use for a PMP cycle?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Up to 25 of the 60 total, with a further sub-cap of 8 specifically on \\\"Working as a Practitioner\\\" within that 25.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
             },
             "last_modified": "2026-11-08"
         }
