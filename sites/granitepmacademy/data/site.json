@@ -6137,8 +6137,18 @@
                     "cards_heading_level": "h2",
                     "cards_subhead": "",
                     "cards_subtext": "",
-                    "cards_cols": 2,
+                    "cards_cols": 3,
                     "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "What Is a PDU?",
+                            "text": "New here? Start with the basic definition before anything else.",
+                            "badge": "",
+                            "link": "/what-is-a-pdu/",
+                            "btn_text": "Read the Guide"
+                        },
                         {
                             "icon": "",
                             "image": "",
@@ -6157,6 +6167,36 @@
                             "text": "What the renewal fee typically costs, the full renewal process, and what happens if you miss your deadline.",
                             "badge": "",
                             "link": "/pmp-renewal-fee/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PDU vs. CEU",
+                            "text": "They're not the same unit — here's the real difference and whether one converts to the other.",
+                            "badge": "",
+                            "link": "/pdu-vs-ceu/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Is PMP Renewal Worth It?",
+                            "text": "The real cost of renewing vs. the real cost of letting it expire.",
+                            "badge": "",
+                            "link": "/is-pmp-renewal-worth-it/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "CAPM Renewal",
+                            "text": "CAPM's own 15-PDU, 3-year renewal cycle — the full process.",
+                            "badge": "",
+                            "link": "/capm-renewal/",
                             "btn_text": "Read the Guide"
                         }
                     ],
@@ -6769,6 +6809,16 @@
                             "badge": "",
                             "link": "/35-pdu-bundle/",
                             "btn_text": "View 35-PDU Bundle"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How Does CAPM Renewal Work?",
+                            "text": "The full CAPM renewal process, requirements, and timeline.",
+                            "badge": "",
+                            "link": "/capm-renewal/",
+                            "btn_text": "Read the Guide"
                         },
                         {
                             "icon": "",
@@ -7765,8 +7815,18 @@
                     "cards_heading_level": "h2",
                     "cards_subhead": "",
                     "cards_subtext": "",
-                    "cards_cols": 3,
+                    "cards_cols": 4,
                     "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "What Is a PDU?",
+                            "text": "New to PMI renewal? Start with the basics of what a PDU actually is.",
+                            "badge": "",
+                            "link": "/what-is-a-pdu/",
+                            "btn_text": "Read the Guide"
+                        },
                         {
                             "icon": "",
                             "image": "",
@@ -7816,6 +7876,16 @@
                             "badge": "",
                             "link": "/corporate-pdu-training/",
                             "btn_text": "See Corporate Options"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Is PMP Renewal Worth It?",
+                            "text": "The real cost of renewing vs. the real cost of letting it expire.",
+                            "badge": "",
+                            "link": "/is-pmp-renewal-worth-it/",
+                            "btn_text": "Read the Guide"
                         }
                     ],
                     "cards_bg": "#f0f4f8",
@@ -7863,6 +7933,704 @@
                 "bc_mid_label": "PDU & Renewal Resources",
                 "bc_mid_url": "/pdu-resources",
                 "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-renewal/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-renewal/\",\n      \"name\": \"How to Renew Your PMP® Certification | Granite PM Academy\",\n      \"description\": \"How to renew your PMP® certification: earn 60 PDUs across 3 years, report them in CCRS, and pay your fee. Full timeline, requirements, and FAQ.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"PMP Renewal\",\n            \"item\": \"https://granitepmacademy.com/pmp-renewal/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I fall short on PDUs by my renewal date?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Your certification can be suspended until you report enough PDUs to meet the requirement — including the per-area Talent Triangle minimums, not just the total.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I earn more than 60 PDUs for a PMP cycle?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, but anything beyond 60 doesn't carry over to your next cycle — PMI resets the count at each renewal.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do PDU requirements differ for CAPM or PMI-CPMAI?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — both the total and the Education/Giving Back split scale down from the PMP's numbers. See the full comparison table on our PDU renewal page for exact figures by credential.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_what_is_a_pdu": {
+            "title": "What Is a PDU in Project Management?",
+            "slug": "what-is-a-pdu",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What Is a PDU in Project Management?",
+                    "text": "<p>A PDU (Professional Development Unit) is the unit PMI uses to measure continuing education for everyone who holds one of its certifications. One PDU generally equals <strong>one hour</strong> spent on a qualifying learning or professional activity. PMP&reg;, CAPM&reg;, and PMI's other credentials all require a set number of PDUs every renewal cycle to keep the certification active — the exact total depends on which credential you hold.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Why PDUs Exist",
+                    "text": "<p>Passing a PMI certification exam proves you knew the material on exam day. PDUs exist so the credential keeps meaning something years later — rather than a one-time test with no ongoing upkeep, every PMI credential runs on a renewal cycle that requires you to keep learning and stay current with how the profession evolves. It's the same logic behind continuing-education requirements in other licensed and certified professions.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How Many PDUs You Need Depends on Your Credential",
+                    "text": "<p>Every PMI credential has its own PDU total and cycle length. PMP&reg;, PgMP&reg;, PfMP&reg;, and PMI-PBA&reg; holders need 60 PDUs every three years. PMI-ACP&reg;, PMI-RMP&reg;, PMI-SP&reg;, PMI-CP&trade;, and PMI-CPMAI&reg; need 30 every three years. CAPM&reg; needs 15 every three years. Disciplined Agile credentials run on a shorter one-year cycle with 7 agile-topic PDUs. See the full <a href=\"/pmi-pdu-renewal/\">credential comparison table</a> for exact figures.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "The Two PDU Categories",
+                    "text": "<p>Every PDU falls into one of two categories. <strong>Education</strong> PDUs come from courses, training, webinars, and similar structured learning, and PMI requires a minimum number of these (35 of the 60 for a PMP&reg;). <strong>Giving Back</strong> PDUs come from volunteering, creating content, mentoring, or working as a practitioner — optional, and capped at a maximum rather than required (25 of the 60 for a PMP&reg;). On top of that split, PMI also requires minimum PDUs in each of three <a href=\"/pmi-talent-triangle/\">Talent Triangle&reg; areas</a> — Ways of Working, Power Skills, and Business Acumen.</p>"
+                },
+                {
+                    "type": "stats",
+                    "stats_heading": "PDUs at a Glance",
+                    "stats_items": [
+                        {
+                            "number": "1 hr",
+                            "label": "Typical value of 1 PDU"
+                        },
+                        {
+                            "number": "0.25",
+                            "label": "Smallest fractional PDU PMI accepts"
+                        },
+                        {
+                            "number": "2",
+                            "label": "PDU categories — Education and Giving Back"
+                        },
+                        {
+                            "number": "3",
+                            "label": "Talent Triangle areas every credential tracks"
+                        }
+                    ],
+                    "stats_bg_color": "custom",
+                    "stats_bg_custom": "#1a2e5a",
+                    "stats_text_color": "#ffffff"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Who Actually Needs to Earn PDUs",
+                    "text": "<p>Anyone holding an active PMI certification with an ongoing renewal requirement — which is every PMI credential except the entry-level Disciplined Agile certifications, which run on their own shorter cycle. PDUs aren't something you earn before certifying; they only start counting once you're already certified and your cycle has begun.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Related PDU Guides",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PDU vs. CEU",
+                            "text": "They sound similar but aren't the same unit — here's the real difference.",
+                            "badge": "",
+                            "link": "/pdu-vs-ceu/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "The three skill areas every PDU gets sorted into.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Renew Your PMP",
+                            "text": "The full renewal process once you understand what a PDU is.",
+                            "badge": "",
+                            "link": "/pmp-renewal/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Do I earn PDUs for studying before I pass my certification exam?",
+                            "answer": "No. PDUs only count toward renewal once you hold the credential — your three-year cycle starts the day PMI confirms you passed, not when you began preparing."
+                        },
+                        {
+                            "question": "Do PDUs expire?",
+                            "answer": "Not individually during your cycle — but they don't carry forward indefinitely either. Only PDUs earned in the final 12 months of a cycle can carry over into the next one, and only up to a credential-specific cap."
+                        },
+                        {
+                            "question": "Is a PDU the same as a CEU?",
+                            "answer": "No — they're different units from different organizations. See our full breakdown of PDU vs. CEU."
+                        },
+                        {
+                            "question": "Does 1 PDU always equal exactly 1 hour?",
+                            "answer": "Yes for whole-hour activities, and PMI also accepts fractional PDUs down to 0.25 (15 minutes) for shorter qualifying activities."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Ready to Earn Your PDUs in One Place?",
+                    "cb_subtext": "Self-paced bundles from $149, every Talent Triangle area covered, from a PMI Premier Authorized Training Partner.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "what is a pdu in project management",
+                "secondary_keywords": "pdu meaning in pmp, what are pdus, what is pdu in pmp",
+                "meta_keywords": "what is a pdu in project management",
+                "meta_description": "A PDU (Professional Development Unit) is PMI's unit for continuing education — generally 1 hour of qualifying activity. How PDUs work, by credential.",
+                "seo_title": "What Is a PDU in Project Management? | Granite PM Academy",
+                "og_title": "What Is a PDU in Project Management?",
+                "og_description": "PMI's continuing-education unit, explained: what counts as 1 PDU, the two categories, and how many you need by credential.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/what-is-a-pdu/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "What Is a PDU",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/what-is-a-pdu/#webpage\",\n      \"url\": \"https://granitepmacademy.com/what-is-a-pdu/\",\n      \"name\": \"What Is a PDU in Project Management? | Granite PM Academy\",\n      \"description\": \"A PDU (Professional Development Unit) is PMI's unit for continuing education — generally 1 hour of qualifying activity. How PDUs work, by credential.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"What Is a PDU\",\n            \"item\": \"https://granitepmacademy.com/what-is-a-pdu/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do I earn PDUs for studying before I pass my certification exam?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No. PDUs only count toward renewal once you hold the credential — your three-year cycle starts the day PMI confirms you passed, not when you began preparing.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do PDUs expire?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Not individually during your cycle — but they don't carry forward indefinitely either. Only PDUs earned in the final 12 months of a cycle can carry over into the next one, and only up to a credential-specific cap.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is a PDU the same as a CEU?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — they're different units from different organizations. See our full breakdown of PDU vs. CEU.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does 1 PDU always equal exactly 1 hour?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes for whole-hour activities, and PMI also accepts fractional PDUs down to 0.25 (15 minutes) for shorter qualifying activities.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_pdu_vs_ceu": {
+            "title": "PDU vs. CEU: What's the Difference?",
+            "slug": "pdu-vs-ceu",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "PDU vs. CEU: What's the Difference?",
+                    "text": "<p>A PDU (Professional Development Unit) is PMI's own unit for continuing education, used only for PMI certifications like the PMP&reg; and CAPM&reg;. A CEU (Continuing Education Unit) is an older, more general unit that many other professional bodies, state licensing boards, and universities use — and the two aren't interchangeable. PMI doesn't accept a CEU certificate as automatic proof of PDUs; it has its own hour-based system.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Side by Side",
+                    "text": "<p><strong>PDU</strong> — issued and tracked by PMI, specific to PMI certifications, generally 1 PDU per 1 contact hour, reported directly in PMI's own CCRS system.</p><p><strong>CEU</strong> — a more general continuing-education measure used across many fields (nursing, teaching, real estate, and others), traditionally defined as 10 contact hours per 1 CEU — a very different scale from PMI's own system. CEUs are typically issued and tracked by whichever licensing body or accrediting organization governs that other profession, not by PMI.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Does a CEU Convert to a PDU?",
+                    "text": "<p>Not through any published conversion formula — PMI doesn't publish a CEU-to-PDU rate, and a CEU certificate by itself isn't proof of PDU eligibility. What actually matters is the <strong>underlying activity</strong>: if the course content genuinely maps to one of the three Talent Triangle&reg; areas (Ways of Working, Power Skills, or Business Acumen) and you can document real contact hours and a provider name, you can report that activity to PMI as a PDU in its own hour-based terms — regardless of whether the provider also happened to label it with CEUs for a different licensing body.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Why the Confusion Happens",
+                    "text": "<p>Many project managers also hold a license or credential in another field (engineering, healthcare, finance) where CEUs are the standard unit, or they take continuing-education courses through a university extension program that only speaks in CEU terms. It's a natural assumption that one continuing-education system should translate cleanly into another, but PMI's PDU system was built independently and doesn't formally recognize CEU as a unit at all.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What to Do If Your Course Only Issued a CEU Certificate",
+                    "text": "<p>Check whether the provider is a PMI-recognized Education Provider (ERP) first — if so, it likely already issues PDU certificates separately, and you should request that instead. If it isn't, you can still self-report the activity under \"Course or Training\" in CCRS, using your own documentation of the real hours spent and how the content maps to a Talent Triangle area — keep that documentation in case of an audit, since the CEU certificate alone won't satisfy PMI's own record-keeping standard.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Related PDU Guides",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "What Is a PDU?",
+                            "text": "The full definition and how PDUs are counted.",
+                            "badge": "",
+                            "link": "/what-is-a-pdu/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "The three areas your PDUs need to map to.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Free PMP PDUs",
+                            "text": "Legitimate free sources, properly documented.",
+                            "badge": "",
+                            "link": "/free-pmp-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Can I submit a CEU certificate directly to PMI for PDU credit?",
+                            "answer": "Not as a conversion. PMI doesn't publish a CEU-to-PDU conversion rate — what matters is whether the underlying activity meets PMI's own criteria (relevant topic, accredited or documentable provider, real contact hours), reported in PMI's own hour-based PDU system, not the CEU number on the certificate."
+                        },
+                        {
+                            "question": "Which professions use CEUs instead of PDUs?",
+                            "answer": "CEUs are common in nursing, teaching, real estate, and many state-licensed professions. PDUs are specific to PMI's own certifications."
+                        },
+                        {
+                            "question": "If my course only gives me a CEU certificate, can I still report it to PMI?",
+                            "answer": "Possibly — if the course content is genuinely relevant to one of the Talent Triangle areas and you have documentation (provider name, dates, real contact hours), you can self-report it as a PDU activity. The CEU label itself doesn't matter to PMI; the content and documentation do."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Skip the Conversion Guesswork",
+                    "cb_subtext": "Granite's PDU bundles are built in PMI's own PDU terms from the start — no CEU-to-PDU translation needed.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "pdu vs ceu",
+                "secondary_keywords": "ceu to pdu conversion, pmp ceu vs pdu",
+                "meta_keywords": "pdu vs ceu",
+                "meta_description": "PDU vs. CEU explained: PMI's own PDU system vs. the general Continuing Education Unit other professions use, and whether one converts to the other.",
+                "seo_title": "PDU vs. CEU: What's the Difference? | Granite PM Academy",
+                "og_title": "PDU vs. CEU: What's the Difference?",
+                "og_description": "PDUs are PMI's own unit; CEUs are a broader continuing-education measure used elsewhere. Here's how they differ and whether a CEU counts toward PMI renewal.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/pdu-vs-ceu/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "PDU vs. CEU",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pdu-vs-ceu/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pdu-vs-ceu/\",\n      \"name\": \"PDU vs. CEU: What's the Difference? | Granite PM Academy\",\n      \"description\": \"PDU vs. CEU explained: PMI's own PDU system vs. the general Continuing Education Unit other professions use, and whether one converts to the other.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"PDU vs. CEU\",\n            \"item\": \"https://granitepmacademy.com/pdu-vs-ceu/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I submit a CEU certificate directly to PMI for PDU credit?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Not as a conversion. PMI doesn't publish a CEU-to-PDU conversion rate — what matters is whether the underlying activity meets PMI's own criteria (relevant topic, accredited or documentable provider, real contact hours), reported in PMI's own hour-based PDU system, not the CEU number on the certificate.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Which professions use CEUs instead of PDUs?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"CEUs are common in nursing, teaching, real estate, and many state-licensed professions. PDUs are specific to PMI's own certifications.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"If my course only gives me a CEU certificate, can I still report it to PMI?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Possibly — if the course content is genuinely relevant to one of the Talent Triangle areas and you have documentation (provider name, dates, real contact hours), you can self-report it as a PDU activity. The CEU label itself doesn't matter to PMI; the content and documentation do.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_is_renewal_worth_it": {
+            "title": "Is It Worth Renewing Your PMP Certification?",
+            "slug": "is-pmp-renewal-worth-it",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "Is It Worth Renewing Your PMP Certification?",
+                    "text": "<p>For most people actively working in or applying for project management roles, yes — renewing is almost always worth it, because the real alternative isn't \"save money,\" it's <strong>losing the credential entirely and having to retake the exam from scratch</strong>. The honest exception is if you've permanently moved away from project management and are certain you'll never need the designation again.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "The Real Cost of Renewing",
+                    "text": "<p>Renewal costs two things: a PMI renewal fee (commonly cited around $60 for members and $150 for non-members, though PMI doesn't publish a fixed figure — confirm the current amount in your own account) and however you choose to earn your 60 PDUs, which can range from $0 (free sources, with real time invested tracking them) to a <a href=\"/pmi-pdu-renewal/\">paid bundle</a> that covers the whole requirement in one pass.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "The Real Cost of NOT Renewing",
+                    "text": "<p>This is the comparison that actually settles the question for most people. Missing your renewal deadline doesn't just delay things quietly — your certification moves to <strong>suspended</strong> status for up to one year. During suspension you can't use the PMP&reg; designation at all. If you reinstate within that year, it just takes finishing your PDUs and paying the fee — no exam retake. But if the suspension period lapses too, your certification <strong>expires permanently</strong>: you'd need to reapply from scratch, meet the eligibility requirements again, pay the full exam fee again, and retake the exam. Against that outcome, the renewal cost is small.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "What You Actually Get for Staying Current",
+                    "text": "<p>A PMP&reg; in active, good standing keeps the designation usable wherever employers or job postings specifically ask for it, and demonstrates ongoing professional engagement with the field rather than a credential frozen at whatever the standards were when you first passed. PMI also periodically updates its exam content outline and the <em>PMBOK&reg; Guide</em> itself, so the renewal cycle is partly how the credential stays tied to current practice rather than a fixed snapshot from years ago.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "When It Might Genuinely Not Be Worth It",
+                    "text": "<p>If you've permanently left project management as a career and have no plan to return to a role where the credential matters, the ongoing renewal cost and PDU effort may not pay off for you specifically. That's a smaller group than it might seem — many people underestimate how often the credential resurfaces as useful later in a career that shifts back toward PM-adjacent work.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "Make Renewal Easy",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "How to Renew Your PMP",
+                            "text": "The full step-by-step process and timeline.",
+                            "badge": "",
+                            "link": "/pmp-renewal/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Free PMP PDUs",
+                            "text": "Keep the cost at $0 if you have the time to track it.",
+                            "badge": "",
+                            "link": "/free-pmp-pdus/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "60-PDU Bundle",
+                            "text": "Or handle the whole requirement in one self-paced course.",
+                            "badge": "",
+                            "link": "/60-pdu-bundle/",
+                            "btn_text": "View Plans"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "Can I let my PMP lapse and just renew it later for free?",
+                            "answer": "No — once the one-year suspension period lapses without renewal, your certification expires permanently. There's no reduced-cost reinstatement; you'd need to reapply from scratch, including a new application, new fees, and retaking the exam."
+                        },
+                        {
+                            "question": "Does a lapsed PMP look bad to employers?",
+                            "answer": "Opinions vary, but the practical issue is simpler: once it expires, you can no longer use the PMP designation at all until you recertify from zero — a bigger setback than the relatively small cost of keeping it current."
+                        },
+                        {
+                            "question": "Is the Giving Back route (free PDUs) a good way to make renewal \"worth it\" financially?",
+                            "answer": "Often yes for the cost side, if you have the time to track it — see our full breakdown of free PDU sources and what PMI caps."
+                        },
+                        {
+                            "question": "What if I've moved out of project management entirely?",
+                            "answer": "That's the one case where renewal is a genuinely closer call — if you're certain you'll never use the credential again professionally, the ongoing cost may not be worth it for you specifically."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "Don't Let It Lapse",
+                    "cb_subtext": "Plans from $149 — a fraction of what re-earning the credential from scratch would cost.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "is it worth to renew pmp certification",
+                "secondary_keywords": "do we need to renew pmp, is pmp renewal worth it",
+                "meta_keywords": "is it worth to renew pmp certification",
+                "meta_description": "Is PMP renewal worth it? The real cost of renewing vs. the real cost of letting it expire and having to retake the exam from scratch.",
+                "seo_title": "Is It Worth Renewing Your PMP Certification? | Granite PM Academy",
+                "og_title": "Is It Worth Renewing Your PMP Certification?",
+                "og_description": "Weighing the real cost of PMP renewal against the real cost of letting your certification expire and starting over from scratch.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/is-pmp-renewal-worth-it/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "Is PMP Renewal Worth It",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/is-pmp-renewal-worth-it/#webpage\",\n      \"url\": \"https://granitepmacademy.com/is-pmp-renewal-worth-it/\",\n      \"name\": \"Is It Worth Renewing Your PMP Certification? | Granite PM Academy\",\n      \"description\": \"Is PMP renewal worth it? The real cost of renewing vs. the real cost of letting it expire and having to retake the exam from scratch.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"Is PMP Renewal Worth It\",\n            \"item\": \"https://granitepmacademy.com/is-pmp-renewal-worth-it/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I let my PMP lapse and just renew it later for free?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No — once the one-year suspension period lapses without renewal, your certification expires permanently. There's no reduced-cost reinstatement; you'd need to reapply from scratch, including a new application, new fees, and retaking the exam.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does a lapsed PMP look bad to employers?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Opinions vary, but the practical issue is simpler: once it expires, you can no longer use the PMP designation at all until you recertify from zero — a bigger setback than the relatively small cost of keeping it current.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the Giving Back route (free PDUs) a good way to make renewal \\\"worth it\\\" financially?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Often yes for the cost side, if you have the time to track it — see our full breakdown of free PDU sources and what PMI caps.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What if I've moved out of project management entirely?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"That's the one case where renewal is a genuinely closer call — if you're certain you'll never use the credential again professionally, the ongoing cost may not be worth it for you specifically.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "last_modified": "2026-11-08"
+        },
+        "page_capm_renewal": {
+            "title": "How to Renew Your CAPM Certification",
+            "slug": "capm-renewal",
+            "page_type": "other",
+            "content_blocks": [
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How to Renew Your CAPM Certification",
+                    "text": "<p>CAPM&reg; renewal requires <strong>15 PDUs every three years</strong> — at least 9 from Education activities, with up to 6 allowed from Giving Back. That's a much smaller cycle than the PMP&reg;'s 60 PDUs, but it runs through the same PMI system: report your PDUs in CCRS and pay your renewal fee before your cycle-end date.</p>",
+                    "heading_level": "h1"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#555555",
+                    "padding": "small",
+                    "heading_text": "",
+                    "text": "<p style=\"font-style:italic;color:#777;\">Reviewed by the Granite PM Academy Instructional Team, PMI Premier Authorized Training Partner &middot; Last updated November 2026</p>"
+                },
+                {
+                    "type": "stats",
+                    "stats_heading": "CAPM Renewal at a Glance",
+                    "stats_items": [
+                        {
+                            "number": "15",
+                            "label": "Total PDUs per 3-year cycle"
+                        },
+                        {
+                            "number": "9",
+                            "label": "Minimum from Education"
+                        },
+                        {
+                            "number": "6",
+                            "label": "Maximum from Giving Back"
+                        },
+                        {
+                            "number": "2",
+                            "label": "Minimum per Talent Triangle area"
+                        }
+                    ],
+                    "stats_bg_color": "custom",
+                    "stats_bg_custom": "#1a2e5a",
+                    "stats_text_color": "#ffffff"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How CAPM Renewal Differs From PMP Renewal",
+                    "text": "<p>The structure is identical — a 3-year cycle, an Education/Giving Back split, and per-area <a href=\"/pmi-talent-triangle/\">Talent Triangle&reg;</a> minimums — just scaled to smaller totals. CAPM&reg;'s 9-PDU Education floor splits into a 2-PDU minimum in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 3 Education PDUs flexible across any area. The same CCRS reporting system, suspension rules, and audit process apply to CAPM&reg; as to every other PMI credential.</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "How to Report Your PDUs",
+                    "text": "<p>Log in to your PMI dashboard, select <strong>Report PDUs</strong>, choose the activity category (Course or Training, Organization Meetings, Create Content, or Volunteer), enter the provider, dates, and hours, and tag which Talent Triangle area the activity covers. Report PDUs as you earn them rather than saving them for the end of your cycle — see the full <a href=\"/pmp-renewal/\">step-by-step reporting walkthrough</a> for more detail (the mechanics are identical across credentials, only the totals differ).</p>"
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#333333",
+                    "padding": "normal",
+                    "heading_text": "If You're Planning to Pursue the PMP Later",
+                    "text": "<p>Your CAPM&reg; training hours apply directly toward the PMP&reg;'s 35-hour Education requirement once you're experience-eligible — but each credential still runs its own independent 3-year PDU cycle once certified, so a CAPM&reg; renewal doesn't carry over into a future PMP&reg; cycle automatically.</p>"
+                },
+                {
+                    "type": "cards",
+                    "cards_label": "",
+                    "cards_heading": "CAPM Renewal Resources",
+                    "cards_heading_level": "h2",
+                    "cards_subhead": "",
+                    "cards_subtext": "",
+                    "cards_cols": 3,
+                    "cards_items": [
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "CAPM PDU Bundle",
+                            "text": "All 15 PDUs for your CAPM renewal cycle, mapped to the Talent Triangle.",
+                            "badge": "",
+                            "link": "/capm-pdus/",
+                            "btn_text": "View Plans"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "PMI Talent Triangle Explained",
+                            "text": "What each category covers and how many PDUs you need.",
+                            "badge": "",
+                            "link": "/pmi-talent-triangle/",
+                            "btn_text": "Read the Guide"
+                        },
+                        {
+                            "icon": "",
+                            "image": "",
+                            "alt": "",
+                            "heading": "Free PMP PDUs",
+                            "text": "Many free sources work for CAPM holders too.",
+                            "badge": "",
+                            "link": "/free-pmp-pdus/",
+                            "btn_text": "Read the Guide"
+                        }
+                    ],
+                    "cards_bg": "#f0f4f8",
+                    "cards_head_color": "",
+                    "cards_head_color_custom": "#1a1a2e",
+                    "cards_card_bg": "",
+                    "cards_border": "",
+                    "cards_item_head_color": "",
+                    "cards_item_head_color_custom": "#1a1a2e",
+                    "cards_text_color": "",
+                    "cards_accent": "accent",
+                    "cards_accent_custom": "",
+                    "cards_badge_accent": "accent",
+                    "cards_badge_accent_custom": "",
+                    "cards_centered": false
+                },
+                {
+                    "type": "faq",
+                    "faq_heading": "A Few Common Questions",
+                    "faq_cols": 1,
+                    "faq_items": [
+                        {
+                            "question": "How many PDUs does CAPM renewal require?",
+                            "answer": "15 PDUs every three years — at least 9 from Education activities, with up to 6 allowed from Giving Back."
+                        },
+                        {
+                            "question": "Does CAPM have Talent Triangle minimums too?",
+                            "answer": "Yes, scaled down from the PMP's: 2 PDUs minimum in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 3 Education PDUs from any area."
+                        },
+                        {
+                            "question": "What happens if I miss my CAPM renewal deadline?",
+                            "answer": "The same suspension process applies across PMI credentials: your certification is suspended for up to one year, during which you can still reinstate by finishing your PDUs and paying the fee. After that year, it expires permanently and you'd need to reapply and retake the exam."
+                        },
+                        {
+                            "question": "Can CAPM PDUs count toward a future PMP?",
+                            "answer": "Yes — CAPM training hours apply toward the PMP's 35-hour Education requirement when you eventually pursue it, though PDU cycles themselves run independently per credential."
+                        }
+                    ]
+                },
+                {
+                    "type": "cta_banner",
+                    "cb_bg": "accent",
+                    "cb_bg_custom": "",
+                    "cb_text_color": "#ffffff",
+                    "cb_padding": "normal",
+                    "cb_text": "All 15 CAPM PDUs in One Course",
+                    "cb_subtext": "Self-paced, mapped to every Talent Triangle area, from a PMI Premier Authorized Training Partner.",
+                    "cb_btn_text": "See the PDU Renewal Bundle",
+                    "cb_btn_url": "/pmi-pdu-renewal/"
+                }
+            ],
+            "seo": {
+                "primary_keyword": "capm renewal",
+                "secondary_keywords": "capm pdu requirements",
+                "meta_keywords": "capm renewal",
+                "meta_description": "CAPM renewal: 15 PDUs every 3 years, 9 from Education, up to 6 from Giving Back. The full process, Talent Triangle minimums, and what happens if you miss it.",
+                "seo_title": "How to Renew Your CAPM Certification | Granite PM Academy",
+                "og_title": "How to Renew Your CAPM Certification",
+                "og_description": "CAPM's full renewal process: 15 PDUs every three years, the Education/Giving Back split, and the Talent Triangle minimums that apply.",
+                "og_image": "",
+                "canonical_url": "https://granitepmacademy.com/capm-renewal/",
+                "service_name": "",
+                "service_type": "",
+                "service_area": "",
+                "service_description": "",
+                "bc_hide": false,
+                "bc_label": "CAPM Renewal",
+                "bc_mid_label": "PDU & Renewal Resources",
+                "bc_mid_url": "/pdu-resources",
+                "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-renewal/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-renewal/\",\n      \"name\": \"How to Renew Your CAPM Certification | Granite PM Academy\",\n      \"description\": \"CAPM renewal: 15 PDUs every 3 years, 9 from Education, up to 6 from Giving Back. The full process, Talent Triangle minimums, and what happens if you miss it.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PDU & Renewal Resources\",\n            \"item\": \"https://granitepmacademy.com/pdu-resources/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 3,\n            \"name\": \"CAPM Renewal\",\n            \"item\": \"https://granitepmacademy.com/capm-renewal/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How many PDUs does CAPM renewal require?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"15 PDUs every three years — at least 9 from Education activities, with up to 6 allowed from Giving Back.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Does CAPM have Talent Triangle minimums too?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes, scaled down from the PMP's: 2 PDUs minimum in each of Ways of Working, Power Skills, and Business Acumen, with the remaining 3 Education PDUs from any area.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What happens if I miss my CAPM renewal deadline?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"The same suspension process applies across PMI credentials: your certification is suspended for up to one year, during which you can still reinstate by finishing your PDUs and paying the fee. After that year, it expires permanently and you'd need to reapply and retake the exam.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can CAPM PDUs count toward a future PMP?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes — CAPM training hours apply toward the PMP's 35-hour Education requirement when you eventually pursue it, though PDU cycles themselves run independently per credential.\"\n          }\n        }\n      ]\n    }\n  ]\n}"
             },
             "last_modified": "2026-11-08"
         }
