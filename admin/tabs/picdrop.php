@@ -271,6 +271,9 @@
                                         <?php if (!$s['token']): ?>
                                             <div style="margin-top:2px;font-size:.72rem;color:#94a3b8;font-style:italic;">
                                                 <?= h(picdrop_crop_hint($s['block_type'], picdrop_leaf($s['field']))) ?>
+                                                <?php if (isset(PICDROP_FIXED_RATIO_FIELDS[$s['block_type'] . '.' . picdrop_leaf($s['field'])])): ?>
+                                                    <a href="#" class="pd-info" data-pd-info="fixed_ratio" title="How this gets kept at the right shape" style="color:#94a3b8;text-decoration:none;">&#9432;</a>
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
 
@@ -693,6 +696,8 @@
                         'Clears the prompt box so you can type your own one-off change instead of picking a canned mode. Everything else in the photo is kept as-is — only the change you describe gets applied.'],
                     force_scope: ['In Force-regen scope',
                         'Ticked means a batch run’s Force-regenerate photos option will give every domain built from this master its own unique version of this slot; unticked, Force-regenerate skips it entirely and every domain keeps whatever photo it already has. Ticking captures whichever photo is currently ACTIVE here (Real or AI, whichever shows the blue border) as the slot’s standing reference — reusing its own generation prompt if it’s an AI photo, or a safe “subtle variation” instruction if it’s a Real photo, so every domain still ends up with a genuinely distinct photo either way. Unticking removes it from scope for the next run.'],
+                    fixed_ratio: ['Always kept at the right shape',
+                        'This slot’s box on the live page never changes shape — it’s always 4:3, on every device. So every new photo dropped or AI-generated here is automatically cropped to that exact 4:3 shape the moment it’s saved, trimming only whatever’s extra off the sides or bottom — never stretching or adding anything. You never need to pick a Shape manually for this slot; Adjust view’s Shape picker is still there if you ever want a different, deliberate crop than the automatic one.'],
                     template_sync: ['Landing template',
                         'This card edits the master template itself, not a live domain. Confirming a photo here now does two things at once: it updates this template record, AND it writes the same photo straight onto the master’s own already-built preview page, so the two never drift apart again. This only syncs the one photo you just confirmed, on this one template — it never touches any other template or any live domain’s pages.']
                 };

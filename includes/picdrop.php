@@ -239,6 +239,55 @@ function picdrop_crop_hint(string $blockType, string $field): string {
 const PICDROP_MIN_SANE_DIM = 150;
 
 /**
+ * block_type.field pairs whose box is a HARDCODED ratio in style.src.css — not
+ * merely "whatever's already on file," unlike most of picdrop_crop_hint()'s table
+ * (image_left/image_right/image_text's ratio comes from their own per-block Photo
+ * Ratio field; hero_grid/wide_banner/tab_services/map_info are fixed-HEIGHT, not
+ * fixed-ratio, boxes). Ground truth is the same `.hs-image-wrap { aspect-ratio: 4/3 }`
+ * -style rule picdrop_crop_hint() already describes in English for these same four.
+ *
+ * Found to matter 2026-11-08: a live fleet-wide audit showed 196 of 218 slots across
+ * these 4 types were NOT actually 4:3 (mostly 1.5–2.15:1) despite the CSS box always
+ * having been 4:3 — picdrop_slot_target() returning "whatever's already there" meant
+ * a wrong-shaped seed photo propagated its wrong shape forever, since nothing ever
+ * compared it against the box's real ratio. This table is read by
+ * picdrop_target_for_ratio() below so a correct target can be computed instead.
+ */
+const PICDROP_FIXED_RATIO_FIELDS = [
+    'hero_split.hs_photo'     => [4, 3],
+    'feature_split.fs_photo'  => [4, 3],
+    'image_features.if_photo' => [4, 3],
+    'gallery.photo'           => [4, 3],
+];
+
+/**
+ * Given a slot's current (possibly wrong) width/height and its block type + field,
+ * returns the width/height it SHOULD be — unchanged for any slot not in
+ * PICDROP_FIXED_RATIO_FIELDS (nothing to compare against), otherwise trimmed to the
+ * real ratio. Trim-only, never upscale: whichever dimension is already small enough
+ * for the target ratio is kept exactly as-is, and only the oversized dimension is
+ * reduced — the same "crop the excess, don't stretch or add pixels" rule
+ * img_fit_to()'s north-gravity crop already applies to the pixels themselves, just
+ * decided here instead at the box-size level. Used by both picdrop_slot_target()
+ * (the live, forward-only fix) and the one-off backfill script for already-wrong
+ * slots, so both compute the exact same corrected box for the same input.
+ */
+function picdrop_target_for_ratio(int $curW, int $curH, string $blockType, string $field): array {
+    $key = $blockType . '.' . $field;
+    if (!isset(PICDROP_FIXED_RATIO_FIELDS[$key]) || $curW < 1 || $curH < 1) return [$curW, $curH];
+    [$rw, $rh] = PICDROP_FIXED_RATIO_FIELDS[$key];
+    $targetRatio = $rw / $rh;
+    $curRatio    = $curW / $curH;
+    if (abs($curRatio - $targetRatio) / $targetRatio < 0.02) return [$curW, $curH]; // already close enough
+    if ($curRatio > $targetRatio) {
+        // Too wide — keep height, trim width (crop the sides).
+        return [(int) round($curH * $targetRatio), $curH];
+    }
+    // Too narrow/tall — keep width, trim height (crop the bottom; north gravity keeps the top).
+    return [$curW, (int) round($curW / $targetRatio)];
+}
+
+/**
  * The target box to fit/crop a new or adjusted image into, derived from the slot's
  * own current size — EXCEPT when that size is too small in both directions to be a
  * real photo slot. Trusting it anyway is how one bad seed file (a 90×90 placeholder
@@ -248,12 +297,18 @@ const PICDROP_MIN_SANE_DIM = 150;
  * [0, 0] tells the caller "no sane target", which img_fit_to() already treats as
  * "optimise only, don't force a box" — the same escape hatch it uses for a slot with
  * no size at all, reused here rather than inventing a second one.
+ *
+ * For the 4 block_type.field pairs with a real hardcoded CSS ratio
+ * (PICDROP_FIXED_RATIO_FIELDS), "what's already there" is corrected to that ratio
+ * first via picdrop_target_for_ratio() — otherwise a wrong-shaped seed photo would
+ * keep re-confirming its own wrong shape as correct forever, which is exactly how
+ * 196 of 218 such slots ended up not actually matching their box (found 2026-11-08).
  */
 function picdrop_slot_target(array $slot): array {
     $w = (int) $slot['w'];
     $h = (int) $slot['h'];
     if ($w < PICDROP_MIN_SANE_DIM && $h < PICDROP_MIN_SANE_DIM) return [0, 0];
-    return [$w, $h];
+    return picdrop_target_for_ratio($w, $h, (string) ($slot['block_type'] ?? ''), picdrop_leaf((string) ($slot['field'] ?? '')));
 }
 
 /**
