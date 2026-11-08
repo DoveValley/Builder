@@ -1542,5 +1542,30 @@
     "output_tokens": 194520,
     "api_calls": 609,
     "estimated_cost_usd": 1.535773
+  },
+  {
+    "run_id": "85fa6305-7612-4809-8cce-89cf61294634",
+    "started_at": "2026-11-08T20:16:21.916923Z",
+    "finished_at": "2026-11-08T20:17:54.248812Z",
+    "duration_ms": 92331,
+    "dry_run": false,
+    "options": {
+      "site": "granitepmacademy",
+      "page": "landing",
+      "all": false,
+      "file": "tpl_cpmai_certification_training_city",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 155,
+    "pages_skipped": 930,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 155,
+    "cities_researched": 0,
+    "input_tokens": 169787,
+    "output_tokens": 71204,
+    "api_calls": 155,
+    "estimated_cost_usd": 0.525807
   }
 ]

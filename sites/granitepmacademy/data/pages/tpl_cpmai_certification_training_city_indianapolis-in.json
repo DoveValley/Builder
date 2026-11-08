@@ -1,433 +1,474 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "indianapolis-in",
-    "slug": "ai-training-indianapolis-in",
-    "title": "PMI-CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "indianapolis-in",
-        "city": "Indianapolis",
-        "state": "Indiana",
-        "SS": "IN",
-        "city_slug": "indianapolis-in",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier6"
-        ],
-        "industries": [
-            "Life Sciences & Pharmaceuticals",
-            "Healthcare & Health Systems",
-            "Logistics & Distribution",
-            "Insurance & Financial Services",
-            "Advanced Manufacturing",
-            "Technology & Software"
-        ],
-        "top_employers": [
-            "Eli Lilly and Company",
-            "Elevance Health",
-            "Indiana University Health",
-            "Ascension St. Vincent",
-            "Community Health Network",
-            "Roche Diagnostics",
-            "FedEx",
-            "Allison Transmission",
-            "Corteva Agriscience",
-            "Republic Airways",
-            "Citizens Energy Group",
-            "State of Indiana"
-        ],
-        "salary_note": "Project management roles in Indianapolis are in steady demand across healthcare, life sciences, and logistics, with compensation generally competitive with other Midwest metro markets. Exact pay varies widely by industry and certification level, so candidates should expect a range that reflects experience and sector rather than a single fixed figure.",
-        "market_blurb": "Indianapolis offers a diverse project management job market anchored by major life sciences and healthcare organizations like Eli Lilly and Elevance Health, alongside a strong logistics sector built around the city's central location and FedEx's major hub. Manufacturing and insurance firms also continue to drive steady need for skilled project and program managers across both private and public sectors.",
-        "notable_projects": [
-            "Eli Lilly's LEAP Innovation District development in downtown Indianapolis",
-            "Indiana University Health's new downtown academic health center replacement project",
-            "Elanco Animal Health's global headquarters campus in Indianapolis",
-            "Indianapolis International Airport ground and cargo facility expansions supporting the FedEx hub"
-        ],
-        "credential_demand": "PMP certification is frequently listed as a preferred or required qualification in Indianapolis job postings, especially within healthcare systems, pharmaceutical companies, and logistics operations. Employers generally value formal project management training as a signal of readiness for cross-functional and large-scale initiative leadership.",
-        "_researched": 1,
-        "city_spotlight": "<p>Indianapolis's life sciences and healthcare sector—anchored by employers like Eli Lilly and Elevance Health—creates steady demand for credentialed project managers overseeing everything from drug development initiatives to major facility expansions. The city's central logistics hub and diverse manufacturing base amplify those opportunities. Granite PM Academy delivers live-virtual PMP® Certification to Indianapolis professionals seeking to advance in this competitive market.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Indianapolis's life sciences, healthcare, and logistics sectors rely on skilled project managers to coordinate complex initiatives across distributed teams and tight regulatory environments. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's education requirements, letting you earn this credential on your schedule while working. A PMI-CPMAI designation strengthens your prospects in Indianapolis's competitive advanced manufacturing, pharma, and health systems job market.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_d1b2f13e19.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:42.528372Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "180c7c77f92f85cd",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Indianapolis",
-            "text": "<p>Indianapolis's project management landscape is shaped largely by life sciences and pharmaceutical giants like Eli Lilly and Elevance Health, where certified practitioners are essential to managing complex product development, regulatory, and operational initiatives. The city's healthcare systems—including Indiana University Health, Ascension St. Vincent, and Community Health Network—also depend on skilled program and project managers to coordinate large-scale clinical and infrastructure programs. Beyond these anchors, Indianapolis hosts a robust logistics sector centered on FedEx's regional hub, plus a strong manufacturing and insurance base that together create steady, diverse demand for certified project management professionals. If you work in or aspire to advance within any of these sectors in Indianapolis, PMI-CPMAI certification demonstrates your capability to lead certified associate-level projects and strengthens your candidacy for roles requiring formal project management credentials.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit working professionals' schedules. Our program satisfies the contact-hour requirements mandated by PMI and is taught by active certified practitioners who bring real-world experience to every session. Whether you are beginning your project management career or transitioning into a new role in Indianapolis's competitive market, our structured curriculum prepares you to pass the PMI-CPMAI exam with confidence. Enroll with us and take the first step toward a recognized credential that opens doors across life sciences, healthcare, logistics, manufacturing, and beyond.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:46.633694Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "ec0e558d1a050dd1",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification Training for Indianapolis's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI-Authorized Credential Path",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner delivering PMI-CPMAI training that satisfies PMI's contact-hour requirements. Your completion certificate carries full PMI recognition, positioning you for credential advancement and employer trust across Indianapolis's major industries."
-                },
-                {
-                    "heading": "Live-Virtual Instruction, Real-World Expertise",
-                    "text": "Study with active certified practitioners through live-virtual sessions that meet PMI's mandated contact hours. Instructors bring current project-management experience into every class, translating frameworks into the practical challenges faced by Life Sciences, Healthcare, and Manufacturing organizations hiring in your region."
-                },
-                {
-                    "heading": "Exam Readiness and Ongoing Support",
-                    "text": "Beyond instruction, Granite PM Academy provides structured exam-preparation resources and guidance to help you pass on schedule. Clear pathways to success reduce study uncertainty and keep your certification timeline on track as you prepare for the next step in your career."
-                },
-                {
-                    "heading": "Indianapolis Employers Actively Hiring PMI Credential Holders",
-                    "text": "Eli Lilly, Elevance Health, Indiana University Health, FedEx, Roche Diagnostics, and Allison Transmission routinely seek project and program managers with PMI credentials. The PMI-CPMAI training equips you with the recognized foundation these employers value, opening doors to roles that command competitive compensation in Indianapolis's high-demand sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:51.312900Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "4efee9d989dcbd6e",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "The AI Project Management Gap, By the Numbers",
-            "stats_heading_level": "h2",
-            "stats_bg_color": "custom",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#0d1b3e",
-            "skin": "",
-            "stats_items": [
-                {
-                    "number": "80%+",
-                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-                },
-                {
-                    "number": "2x",
-                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-                },
-                {
-                    "number": "~20%",
-                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
-                },
-                {
-                    "number": "62%",
-                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-                }
-            ]
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Demand Across Indianapolis Life Sciences",
-            "text": "<p>Indianapolis's robust life sciences and pharmaceutical sector drives consistent demand for certified project managers. Eli Lilly and Company, one of the world's largest pharmaceutical employers, maintains major operations here and is actively developing the LEAP Innovation District in downtown Indianapolis—a multiyear initiative requiring skilled cross-functional leadership. Elevance Health, Roche Diagnostics, and Elanco Animal Health also maintain significant local presences and regularly seek professionals who can coordinate complex, regulated initiatives. Beyond pharma, healthcare systems including Indiana University Health and Ascension St. Vincent are expanding clinical and administrative infrastructure, while logistics operators tied to the FedEx hub and Indianapolis International Airport expansions need project managers to oversee ground, cargo, and supply-chain operations.</p><p>The PMP credential is frequently listed as preferred or required in Indianapolis job postings across these sectors, signaling employers' expectation that candidates possess formal project management training and readiness for large-scale initiative leadership. Project management roles in Indianapolis remain in steady demand, with compensation that generally tracks competitive with other Midwest markets—varying by industry, experience, and certification level rather than following a single fixed range. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential expectation and advance into higher-responsibility roles across life sciences, healthcare, logistics, and advanced manufacturing—the industries that define Indianapolis's job market.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:00.017846Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "0e18ff24d4048cb7",
-            "_ai_locked": true
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMI-CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing in Indianapolis's life sciences sector?",
-                    "answer": "<p>Yes. Indianapolis is home to major pharmaceutical and life sciences employers—including Eli Lilly and Roche Diagnostics—where project managers regularly lead complex product development, regulatory, and cross-functional initiatives. PMP certification is frequently listed as preferred or required in Indianapolis job postings across these companies, signaling readiness for large-scale program leadership and improving your competitive standing within the region's strongest growth industries.</p>"
-                },
-                {
-                    "question": "Which Indianapolis employers value PMP certification most for project managers?",
-                    "answer": "<p>Healthcare systems (Indiana University Health, Ascension St. Vincent, Community Health Network), pharmaceutical firms (Eli Lilly, Roche Diagnostics), logistics operations (FedEx, Allison Transmission), and insurance providers (Elevance Health) consistently prioritize PMP or equivalent credentials in job descriptions. The credential signals competency in managing regulated environments, vendor relationships, and enterprise-scale projects—all central to how these Indianapolis-based organizations operate.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMI-CPMAI training from my Indianapolis workplace?",
-                    "answer": "<p>Yes. Granite PM Academy delivers all PMI-CPMAI training as live-virtual instruction, so you can join from your office, home, or any location with internet access. This format works well for Indianapolis professionals balancing full-time roles at major employers; you attend real-time classes without commuting to a physical classroom, and recorded sessions support flexible schedules across multiple time zones.</p>"
-                },
-                {
-                    "question": "Does Indianapolis's project management job market favor early certification timing?",
-                    "answer": "<p>Yes. Steady demand for certified project managers across Indianapolis healthcare, logistics, and life sciences sectors means employers are actively recruiting. Earning your credential sooner positions you to apply for postings before they close and demonstrates initiative to recruiters. Given the region's competitive compensation and growth trajectory in these industries, early certification can accelerate your career progression.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:05.582752Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "7b8a8e9eaabc8b4a",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Indianapolis's life sciences and healthcare sector—anchored by Eli Lilly, Elevance Health, and Indiana University Health—creates sustained demand for credentialed project managers overseeing major initiatives like Eli Lilly's LEAP Innovation District and IU Health's downtown academic health center replacement. The city's logistics infrastructure, centered on FedEx's major hub, and its growing advanced manufacturing base further expand PM career opportunities across private and public employers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Indianapolis professionals seeking to advance their credentials and competitiveness in this dynamic market.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:09.260979Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b7f42c3231a557f0",
-            "_ai_locked": true
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Other PM Certifications in Indianapolis",
-            "lg_subtext": "",
-            "lg_sublabel": "",
-            "lg_photo": "",
-            "lg_photo_alt": "",
-            "lg_cols": 3,
-            "lg_overlay": "0.6",
-            "lg_links": [
-                {
-                    "label": "PMP Certification Training Indianapolis",
-                    "url": "/pmp-certification-training-indianapolis-in/"
-                },
-                {
-                    "label": "PMP Bootcamp Indianapolis",
-                    "url": "/pmp-bootcamp-indianapolis-in/"
-                },
-                {
-                    "label": "CAPM Certification Training Indianapolis",
-                    "url": "/capm-certification-training-indianapolis-in/"
-                }
-            ],
-            "lg_style": "light",
-            "lg_bg_color": "#f7f9fc",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#fd783b",
-            "_sibling_links": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "indianapolis-in",
+  "slug": "ai-training-indianapolis-in",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "indianapolis-in",
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "SS": "IN",
+    "city_slug": "indianapolis-in",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
     ],
-    "seo": {
-        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-indianapolis-in/",
-        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Indianapolis, IN, AI courses Indianapolis, CPMAI certification Indianapolis, AI project management training Indianapolis, IN, AI for project managers Indianapolis",
-        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "PMI-CPMAI Certification Training",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "PMI-CPMAI {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\",\n      \"name\": \"PMI-CPMAI Certification Training in Indianapolis, IN | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Indianapolis, IN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Indianapolis, IN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Indianapolis, IN\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Indianapolis, IN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n    }\n  ]\n}",
-        "primary_keyword": "PMI-CPMAI Certification Training",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Life Sciences & Pharmaceuticals",
+      "Healthcare & Health Systems",
+      "Logistics & Distribution",
+      "Insurance & Financial Services",
+      "Advanced Manufacturing",
+      "Technology & Software"
+    ],
+    "top_employers": [
+      "Eli Lilly and Company",
+      "Elevance Health",
+      "Indiana University Health",
+      "Ascension St. Vincent",
+      "Community Health Network",
+      "Roche Diagnostics",
+      "FedEx",
+      "Allison Transmission",
+      "Corteva Agriscience",
+      "Republic Airways",
+      "Citizens Energy Group",
+      "State of Indiana"
+    ],
+    "salary_note": "Project management roles in Indianapolis are in steady demand across healthcare, life sciences, and logistics, with compensation generally competitive with other Midwest metro markets. Exact pay varies widely by industry and certification level, so candidates should expect a range that reflects experience and sector rather than a single fixed figure.",
+    "market_blurb": "Indianapolis offers a diverse project management job market anchored by major life sciences and healthcare organizations like Eli Lilly and Elevance Health, alongside a strong logistics sector built around the city's central location and FedEx's major hub. Manufacturing and insurance firms also continue to drive steady need for skilled project and program managers across both private and public sectors.",
+    "notable_projects": [
+      "Eli Lilly's LEAP Innovation District development in downtown Indianapolis",
+      "Indiana University Health's new downtown academic health center replacement project",
+      "Elanco Animal Health's global headquarters campus in Indianapolis",
+      "Indianapolis International Airport ground and cargo facility expansions supporting the FedEx hub"
+    ],
+    "credential_demand": "PMP certification is frequently listed as a preferred or required qualification in Indianapolis job postings, especially within healthcare systems, pharmaceutical companies, and logistics operations. Employers generally value formal project management training as a signal of readiness for cross-functional and large-scale initiative leadership.",
+    "_researched": 1,
+    "city_spotlight": "<p>Indianapolis's life sciences and healthcare sector—anchored by employers like Eli Lilly and Elevance Health—creates steady demand for credentialed project managers overseeing everything from drug development initiatives to major facility expansions. The city's central logistics hub and diverse manufacturing base amplify those opportunities. Granite PM Academy delivers live-virtual PMP® Certification to Indianapolis professionals seeking to advance in this competitive market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Indianapolis's life sciences, healthcare, and logistics sectors rely on skilled project managers to coordinate complex initiatives across distributed teams and tight regulatory environments. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's education requirements, letting you earn this credential on your schedule while working. A PMI-CPMAI designation strengthens your prospects in Indianapolis's competitive advanced manufacturing, pharma, and health systems job market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_d1b2f13e19.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:42.528372Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "180c7c77f92f85cd",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-08T20:10:01+00:00",
-    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Indianapolis",
+      "text": "<p>Indianapolis's project management landscape is shaped largely by life sciences and pharmaceutical giants like Eli Lilly and Elevance Health, where certified practitioners are essential to managing complex product development, regulatory, and operational initiatives. The city's healthcare systems—including Indiana University Health, Ascension St. Vincent, and Community Health Network—also depend on skilled program and project managers to coordinate large-scale clinical and infrastructure programs. Beyond these anchors, Indianapolis hosts a robust logistics sector centered on FedEx's regional hub, plus a strong manufacturing and insurance base that together create steady, diverse demand for certified project management professionals. If you work in or aspire to advance within any of these sectors in Indianapolis, PMI-CPMAI certification demonstrates your capability to lead certified associate-level projects and strengthens your candidacy for roles requiring formal project management credentials.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit working professionals' schedules. Our program satisfies the contact-hour requirements mandated by PMI and is taught by active certified practitioners who bring real-world experience to every session. Whether you are beginning your project management career or transitioning into a new role in Indianapolis's competitive market, our structured curriculum prepares you to pass the PMI-CPMAI exam with confidence. Enroll with us and take the first step toward a recognized credential that opens doors across life sciences, healthcare, logistics, manufacturing, and beyond.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:46.633694Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ec0e558d1a050dd1",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification Training for Indianapolis's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner delivering PMI-CPMAI training that satisfies PMI's contact-hour requirements. Your completion certificate carries full PMI recognition, positioning you for credential advancement and employer trust across Indianapolis's major industries."
+        },
+        {
+          "heading": "Live-Virtual Instruction, Real-World Expertise",
+          "text": "Study with active certified practitioners through live-virtual sessions that meet PMI's mandated contact hours. Instructors bring current project-management experience into every class, translating frameworks into the practical challenges faced by Life Sciences, Healthcare, and Manufacturing organizations hiring in your region."
+        },
+        {
+          "heading": "Exam Readiness and Ongoing Support",
+          "text": "Beyond instruction, Granite PM Academy provides structured exam-preparation resources and guidance to help you pass on schedule. Clear pathways to success reduce study uncertainty and keep your certification timeline on track as you prepare for the next step in your career."
+        },
+        {
+          "heading": "Indianapolis Employers Actively Hiring PMI Credential Holders",
+          "text": "Eli Lilly, Elevance Health, Indiana University Health, FedEx, Roche Diagnostics, and Allison Transmission routinely seek project and program managers with PMI credentials. The PMI-CPMAI training equips you with the recognized foundation these employers value, opening doors to roles that command competitive compensation in Indianapolis's high-demand sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:39:51.312900Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4efee9d989dcbd6e",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Demand Across Indianapolis Life Sciences",
+      "text": "<p>Indianapolis's robust life sciences and pharmaceutical sector drives consistent demand for certified project managers. Eli Lilly and Company, one of the world's largest pharmaceutical employers, maintains major operations here and is actively developing the LEAP Innovation District in downtown Indianapolis—a multiyear initiative requiring skilled cross-functional leadership. Elevance Health, Roche Diagnostics, and Elanco Animal Health also maintain significant local presences and regularly seek professionals who can coordinate complex, regulated initiatives. Beyond pharma, healthcare systems including Indiana University Health and Ascension St. Vincent are expanding clinical and administrative infrastructure, while logistics operators tied to the FedEx hub and Indianapolis International Airport expansions need project managers to oversee ground, cargo, and supply-chain operations.</p><p>The PMP credential is frequently listed as preferred or required in Indianapolis job postings across these sectors, signaling employers' expectation that candidates possess formal project management training and readiness for large-scale initiative leadership. Project management roles in Indianapolis remain in steady demand, with compensation that generally tracks competitive with other Midwest markets—varying by industry, experience, and certification level rather than following a single fixed range. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential expectation and advance into higher-responsibility roles across life sciences, healthcare, logistics, and advanced manufacturing—the industries that define Indianapolis's job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:00.017846Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "0e18ff24d4048cb7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction Project Manager",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Indianapolis's life sciences sector?",
+          "answer": "<p>Yes. Indianapolis is home to major pharmaceutical and life sciences employers—including Eli Lilly and Roche Diagnostics—where project managers regularly lead complex product development, regulatory, and cross-functional initiatives. PMP certification is frequently listed as preferred or required in Indianapolis job postings across these companies, signaling readiness for large-scale program leadership and improving your competitive standing within the region's strongest growth industries.</p>"
+        },
+        {
+          "question": "Which Indianapolis employers value PMP certification most for project managers?",
+          "answer": "<p>Healthcare systems (Indiana University Health, Ascension St. Vincent, Community Health Network), pharmaceutical firms (Eli Lilly, Roche Diagnostics), logistics operations (FedEx, Allison Transmission), and insurance providers (Elevance Health) consistently prioritize PMP or equivalent credentials in job descriptions. The credential signals competency in managing regulated environments, vendor relationships, and enterprise-scale projects—all central to how these Indianapolis-based organizations operate.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMI-CPMAI training from my Indianapolis workplace?",
+          "answer": "<p>Yes. Granite PM Academy delivers all PMI-CPMAI training as live-virtual instruction, so you can join from your office, home, or any location with internet access. This format works well for Indianapolis professionals balancing full-time roles at major employers; you attend real-time classes without commuting to a physical classroom, and recorded sessions support flexible schedules across multiple time zones.</p>"
+        },
+        {
+          "question": "Does Indianapolis's project management job market favor early certification timing?",
+          "answer": "<p>Yes. Steady demand for certified project managers across Indianapolis healthcare, logistics, and life sciences sectors means employers are actively recruiting. Earning your credential sooner positions you to apply for postings before they close and demonstrates initiative to recruiters. Given the region's competitive compensation and growth trajectory in these industries, early certification can accelerate your career progression.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:05.582752Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7b8a8e9eaabc8b4a",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Indianapolis's life sciences and healthcare sector—anchored by Eli Lilly, Elevance Health, and Indiana University Health—creates sustained demand for credentialed project managers overseeing major initiatives like Eli Lilly's LEAP Innovation District and IU Health's downtown academic health center replacement. The city's logistics infrastructure, centered on FedEx's major hub, and its growing advanced manufacturing base further expand PM career opportunities across private and public employers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Indianapolis professionals seeking to advance their credentials and competitiveness in this dynamic market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:09.260979Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b7f42c3231a557f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "cpmai_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMI-CPMAI Certification in Indianapolis",
+      "steps_items": [
+        {
+          "heading": "Start Without Prerequisites",
+          "text": "PMI-CPMAI requires no prior project management, AI, or technical certifications to enroll. You can begin immediately—ideal for Indianapolis professionals in life sciences, healthcare, logistics, and advanced manufacturing who want to lead AI-enabled projects without collecting another credential first."
+        },
+        {
+          "heading": "Complete Granite PM Academy's Prep Course",
+          "text": "Enroll in our live-virtual, instructor-led PMI-CPMAI Exam Prep Course. Over several weeks, you'll master the CPMAI Methodology for managing AI projects from inception through operationalization, covering governance, risk, team dynamics, and real-world deployment scenarios relevant to your industry."
+        },
+        {
+          "heading": "Schedule Your Exam Through Pearson VUE",
+          "text": "Register for the proctored exam within 12 months of completing prep training. Choose an in-person test center or online-proctored format—both available to Indianapolis candidates—and select your preferred date across a flexible 12-month eligibility window."
+        },
+        {
+          "heading": "Sit for the Exam with Support",
+          "text": "Take the comprehensive assessment with exam-preparation materials and study resources from Granite PM Academy. If you need a retake, PMI permits up to three attempts within your 365-day eligibility period at no penalty to your professional standing."
+        },
+        {
+          "heading": "Maintain Your PMI-CPMAI Credential",
+          "text": "Earn 30 Professional Development Units (PDUs) over your three-year renewal cycle to keep your credential active. Stay current with AI governance, emerging methodologies, and project leadership through approved PMI learning activities and community engagement."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:17:02.653413Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "cpmai_pathway",
+      "_ai_input_hash": "7fac8d69ae4bc9cf",
+      "_ai_locked": true
+    },
+    {
+      "type": "links_grid",
+      "lg_heading": "Other PM Certifications in Indianapolis",
+      "lg_subtext": "",
+      "lg_sublabel": "",
+      "lg_photo": "",
+      "lg_photo_alt": "",
+      "lg_cols": 3,
+      "lg_overlay": "0.6",
+      "lg_links": [
+        {
+          "label": "PMP Certification Training Indianapolis",
+          "url": "/pmp-certification-training-indianapolis-in/"
+        },
+        {
+          "label": "PMP Bootcamp Indianapolis",
+          "url": "/pmp-bootcamp-indianapolis-in/"
+        },
+        {
+          "label": "CAPM Certification Training Indianapolis",
+          "url": "/capm-certification-training-indianapolis-in/"
+        }
+      ],
+      "lg_style": "light",
+      "lg_bg_color": "#f7f9fc",
+      "lg_accent": "accent",
+      "lg_accent_custom": "#fd783b",
+      "_sibling_links": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-indianapolis-in/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Indianapolis, IN, AI courses Indianapolis, CPMAI certification Indianapolis, AI project management training Indianapolis, IN, AI for project managers Indianapolis",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\",\n      \"name\": \"PMI-CPMAI Certification Training in Indianapolis, IN | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Indianapolis, IN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Indianapolis, IN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Indianapolis, IN\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Indianapolis, IN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-indianapolis-in/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-indianapolis-in/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-08T20:16:04+00:00",
+  "template_version": "4e0b2f9205ad4d8c5848468e2b093f36"
 }

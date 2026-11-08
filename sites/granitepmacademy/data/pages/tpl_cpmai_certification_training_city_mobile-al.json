@@ -1,432 +1,473 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "mobile-al",
-    "slug": "ai-training-mobile-al",
-    "title": "PMI-CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "mobile-al",
-        "city": "Mobile",
-        "state": "Alabama",
-        "SS": "AL",
-        "city_slug": "mobile-al",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier2"
-        ],
-        "industries": [
-            "Shipbuilding & Marine Manufacturing",
-            "Aerospace Manufacturing",
-            "Maritime & Port Operations/Logistics",
-            "Healthcare",
-            "Chemical & Industrial Manufacturing",
-            "Construction & Infrastructure"
-        ],
-        "top_employers": [
-            "Austal USA",
-            "Airbus U.S. Manufacturing Facility",
-            "AM/NS Calvert",
-            "Alabama State Port Authority",
-            "USA Health",
-            "Infirmary Health",
-            "Continental Tire",
-            "Evonik Corporation",
-            "International Paper",
-            "Mobile County Public School System",
-            "City of Mobile"
-        ],
-        "salary_note": "Project manager compensation in Mobile tends to track slightly below national metro averages but remains competitive within Alabama, particularly in shipbuilding, aerospace, and industrial manufacturing where demand for certified PMs is strong. Employers in these sectors often offer premium pay for candidates with PMP certification and manufacturing or engineering project experience.",
-        "market_blurb": "Mobile's project management job market is anchored by its strong shipbuilding, aerospace, and maritime/port sectors, with companies like Austal USA and Airbus driving consistent demand for skilled program and project managers. Healthcare systems and chemical/industrial manufacturers in the region also regularly seek project management talent to support expansions and operational initiatives. As a growing Gulf Coast industrial hub, Mobile offers steady opportunities for certified project managers across both public and private sectors.",
-        "notable_projects": [
-            "Airbus A320 Family aircraft production expansion at Brookley Aeroplex",
-            "Austal USA shipbuilding programs for the U.S. Navy (including Independence-class and future combatant ship contracts)",
-            "I-10 Mobile River Bridge and Bayway project",
-            "Port of Mobile container terminal and infrastructure expansion (Alabama State Port Authority)"
-        ],
-        "credential_demand": "PMP certification is increasingly valued by Mobile-area employers, especially in shipbuilding, aerospace, and industrial manufacturing, where large-scale, multi-phase projects require formal project management expertise. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
-        "_researched": 1,
-        "city_spotlight": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and the Airbus A320 production expansion at Brookley Aeroplex—drive consistent demand for skilled project managers across industrial, maritime, and healthcare employers. The Port of Mobile's infrastructure growth and major infrastructure projects like the I-10 Mobile River Bridge further strengthen opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Mobile professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Mobile's shipbuilding, aerospace, and port operations sectors demand skilled project managers who can coordinate complex, regulated initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, preparing you to earn this credential on your schedule. Employers across Maritime, Manufacturing, and Healthcare in Mobile recognize PMI-CPMAI as proof of advanced stakeholder management and risk competency.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_59bb1699aa.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:40:59.596656Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "fc3d92e989bf8ece",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training for Mobile's Project Leaders",
-            "text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by industry leaders like Austal USA and the Airbus U.S. Manufacturing Facility—create a robust demand for certified project managers who can oversee complex, regulated programs from conception through delivery. Whether you work in maritime manufacturing, port operations, healthcare systems, or chemical production, the PMI-CPMAI Certification signals to employers across Mobile's industrial landscape that you possess the foundational knowledge and discipline to manage scope, schedule, budget, and risk. For professionals in this growing Gulf Coast hub, the credential opens doors to advancement in roles where structured project governance is non-negotiable, and where documented competency in project management frameworks directly supports career growth and organizational performance.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led instruction designed to fit the schedules of working professionals in Mobile and across the nation. As a PMI Authorized Training Partner, we provide comprehensive contact-hour instruction that satisfies PMI's eligibility requirements, taught by active certified practitioners with real-world experience in program and project delivery. Our approach combines rigorous curriculum coverage with practical problem-solving, ensuring you're prepared not only to pass the exam but to apply certified practices immediately in your role. Enroll with Granite PM Academy and take the next step toward your PMI-CPMAI credential and the professional recognition that advances your career in Mobile's dynamic project-driven industries.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:03.816801Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "1dbecbecca8b354b",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification for Mobile's Advanced Manufacturing Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Legitimacy",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets PMI's rigorous standards. This authorization guarantees your certification is recognized across industries—from shipbuilding to healthcare—and valued by employers nationwide who demand verified project-management expertise."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Virtual Schedule",
-                    "text": "Attend live-virtual classes led by active certified practitioners—no recordings, no self-paced gaps. Our instructor-led format satisfies PMI's contact-hour requirements while letting you train from Mobile on your schedule, balancing work and certification without classroom commutes."
-                },
-                {
-                    "heading": "Real-World Practitioners, Exam-Ready Support",
-                    "text": "Your instructors hold active PMI certifications and apply project-management daily in complex organizations. Granite pairs expert instruction with dedicated exam-prep support, so you enter the PMI-CPMAI exam confident and ready to pass on your first attempt."
-                },
-                {
-                    "heading": "Mobile's High-Growth Industries Need PMI-CPMAI Leaders",
-                    "text": "Austal USA, Airbus, and AM/NS Calvert—along with the Alabama State Port Authority and major healthcare systems—actively seek professionals with PMI credentials to lead capital projects, supply-chain programs, and operational transformations. The PMI-CPMAI credential positions you for advancement in Mobile's fastest-growing sectors."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:08.505671Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "db4043378eed79aa",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "The AI Project Management Gap, By the Numbers",
-            "stats_heading_level": "h2",
-            "stats_bg_color": "custom",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#0d1b3e",
-            "skin": "",
-            "stats_items": [
-                {
-                    "number": "80%+",
-                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-                },
-                {
-                    "number": "2x",
-                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-                },
-                {
-                    "number": "~20%",
-                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
-                },
-                {
-                    "number": "62%",
-                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-                }
-            ]
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Mobile's Advanced Industries",
-            "text": "<p>Mobile's economy centers on large-scale, complex manufacturing and maritime operations that depend on certified project managers. Austal USA's shipbuilding programs for the U.S. Navy—including Independence-class and future combatant ship contracts—require rigorous project oversight across multiple phases and specialized teams. Similarly, the Airbus A320 Family aircraft production expansion at Brookley Aeroplex demands formal project management expertise to coordinate design, fabrication, and delivery milestones. The Alabama State Port Authority's container terminal and infrastructure expansion projects, along with major infrastructure initiatives like the I-10 Mobile River Bridge and Bayway project, further underscore the region's reliance on skilled project professionals. Healthcare systems such as USA Health and Infirmary Health, as well as chemical and industrial manufacturers, also employ certified project managers for capital projects and operational improvements.</p><p>In Mobile's shipbuilding, aerospace, and industrial manufacturing sectors, PMP® and CAPM® credentials are increasingly listed as preferred qualifications in project management postings, and employers often reward certified professionals with premium compensation. While project manager salaries in Mobile track slightly below national metro averages, competitive demand within these high-skill industries—particularly for candidates with formal certification and relevant engineering or manufacturing experience—supports strong career advancement opportunities. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet this local credential demand and differentiate yourself in a market where large-scale, multi-phase projects are the norm rather than the exception.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:17.008867Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "57066f4038451a38",
-            "_ai_locked": true
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMI-CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-                    "name": "Marcus R.",
-                    "location": "Senior PM, Deloitte",
-                    "initials": "MR",
-                    "avatar_color": "accent",
-                    "result_badge": "✓ PMP® — Passed first attempt"
-                },
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMP certification worth it for project managers in Mobile's shipbuilding industry?",
-                    "answer": "<p>Yes. Austal USA, International Paper, and other major shipbuilding and industrial employers in Mobile increasingly list PMP or CAPM as preferred qualifications for project management roles. Large-scale, multi-phase construction and manufacturing projects demand formal credentialing. While not always mandatory, certification often strengthens advancement prospects and can support competitive compensation within Alabama's market.</p>"
-                },
-                {
-                    "question": "Which Mobile employers actively hire certified project managers?",
-                    "answer": "<p>Shipbuilding firms, aerospace manufacturers, the Alabama State Port Authority, chemical and industrial operations, and healthcare systems throughout Mobile actively recruit project managers with PMP or CAPM credentials. Austal USA, Airbus U.S. Manufacturing Facility, and AM/NS Calvert particularly value certified professionals for complex, regulated projects. Construction and infrastructure roles also favor credentials as project scope and stakeholder coordination increase.</p>"
-                },
-                {
-                    "question": "Can I attend PMI-CPMAI training from my Mobile workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's training is 100% live-virtual and can be accessed from anywhere with internet connectivity, including your office, home, or facility. This format suits Mobile professionals who need flexibility around shipyard schedules, manufacturing shifts, or healthcare operations. No travel or commute required.</p>"
-                },
-                {
-                    "question": "Should I pursue PMP certification now or wait in Mobile's job market?",
-                    "answer": "<p>Certification timing matters in Mobile's competitive sectors. Demand for certified project managers is steady in shipbuilding, aerospace, and port operations—industries that anchor the local economy. Earning your credential sooner positions you ahead of peers in these high-demand fields and can accelerate advancement before roles fill. Delaying may mean competing against newly certified candidates during hiring cycles.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:22.423534Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "77921f44a84c06e7",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and Airbus's Brookley Aeroplex operations—consistently demand skilled project managers to lead complex defense and commercial programs. From port infrastructure expansion to major naval construction contracts, the region's industrial base creates steady opportunities for certified professionals across maritime, manufacturing, and healthcare. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Mobile professionals, enabling you to earn your credential on your schedule while building the expertise employers in this thriving Gulf Coast hub actively seek.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:26.060052Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "f8d4e03f0448f745",
-            "_ai_locked": true
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Other PM Certifications in Mobile",
-            "lg_subtext": "",
-            "lg_sublabel": "",
-            "lg_photo": "",
-            "lg_photo_alt": "",
-            "lg_cols": 3,
-            "lg_overlay": "0.6",
-            "lg_links": [
-                {
-                    "label": "PMP Certification Training Mobile",
-                    "url": "/pmp-certification-training-mobile-al/"
-                },
-                {
-                    "label": "PMP Bootcamp Mobile",
-                    "url": "/pmp-bootcamp-mobile-al/"
-                },
-                {
-                    "label": "CAPM Certification Training Mobile",
-                    "url": "/capm-certification-training-mobile-al/"
-                }
-            ],
-            "lg_style": "light",
-            "lg_bg_color": "#f7f9fc",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#fd783b",
-            "_sibling_links": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "mobile-al",
+  "slug": "ai-training-mobile-al",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "mobile-al",
+    "city": "Mobile",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "mobile-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
     ],
-    "seo": {
-        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-mobile-al/",
-        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Mobile, AL, AI courses Mobile, CPMAI certification Mobile, AI project management training Mobile, AL, AI for project managers Mobile",
-        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "PMI-CPMAI Certification Training",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "PMI-CPMAI {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\",\n      \"name\": \"PMI-CPMAI Certification Training in Mobile, AL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Mobile, AL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Mobile, AL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Mobile, AL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Mobile, AL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n    }\n  ]\n}",
-        "primary_keyword": "PMI-CPMAI Certification Training",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Shipbuilding & Marine Manufacturing",
+      "Aerospace Manufacturing",
+      "Maritime & Port Operations/Logistics",
+      "Healthcare",
+      "Chemical & Industrial Manufacturing",
+      "Construction & Infrastructure"
+    ],
+    "top_employers": [
+      "Austal USA",
+      "Airbus U.S. Manufacturing Facility",
+      "AM/NS Calvert",
+      "Alabama State Port Authority",
+      "USA Health",
+      "Infirmary Health",
+      "Continental Tire",
+      "Evonik Corporation",
+      "International Paper",
+      "Mobile County Public School System",
+      "City of Mobile"
+    ],
+    "salary_note": "Project manager compensation in Mobile tends to track slightly below national metro averages but remains competitive within Alabama, particularly in shipbuilding, aerospace, and industrial manufacturing where demand for certified PMs is strong. Employers in these sectors often offer premium pay for candidates with PMP certification and manufacturing or engineering project experience.",
+    "market_blurb": "Mobile's project management job market is anchored by its strong shipbuilding, aerospace, and maritime/port sectors, with companies like Austal USA and Airbus driving consistent demand for skilled program and project managers. Healthcare systems and chemical/industrial manufacturers in the region also regularly seek project management talent to support expansions and operational initiatives. As a growing Gulf Coast industrial hub, Mobile offers steady opportunities for certified project managers across both public and private sectors.",
+    "notable_projects": [
+      "Airbus A320 Family aircraft production expansion at Brookley Aeroplex",
+      "Austal USA shipbuilding programs for the U.S. Navy (including Independence-class and future combatant ship contracts)",
+      "I-10 Mobile River Bridge and Bayway project",
+      "Port of Mobile container terminal and infrastructure expansion (Alabama State Port Authority)"
+    ],
+    "credential_demand": "PMP certification is increasingly valued by Mobile-area employers, especially in shipbuilding, aerospace, and industrial manufacturing, where large-scale, multi-phase projects require formal project management expertise. While not always mandatory, PMP or CAPM credentials are frequently listed as preferred qualifications in local project management job postings.",
+    "_researched": 1,
+    "city_spotlight": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and the Airbus A320 production expansion at Brookley Aeroplex—drive consistent demand for skilled project managers across industrial, maritime, and healthcare employers. The Port of Mobile's infrastructure growth and major infrastructure projects like the I-10 Mobile River Bridge further strengthen opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Mobile professionals nationwide, enabling you to earn your credential on a schedule that fits your career.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Mobile's shipbuilding, aerospace, and port operations sectors demand skilled project managers who can coordinate complex, regulated initiatives across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's contact-hour requirements, preparing you to earn this credential on your schedule. Employers across Maritime, Manufacturing, and Healthcare in Mobile recognize PMI-CPMAI as proof of advanced stakeholder management and risk competency.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_59bb1699aa.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:40:59.596656Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fc3d92e989bf8ece",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-08T20:10:01+00:00",
-    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training for Mobile's Project Leaders",
+      "text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by industry leaders like Austal USA and the Airbus U.S. Manufacturing Facility—create a robust demand for certified project managers who can oversee complex, regulated programs from conception through delivery. Whether you work in maritime manufacturing, port operations, healthcare systems, or chemical production, the PMI-CPMAI Certification signals to employers across Mobile's industrial landscape that you possess the foundational knowledge and discipline to manage scope, schedule, budget, and risk. For professionals in this growing Gulf Coast hub, the credential opens doors to advancement in roles where structured project governance is non-negotiable, and where documented competency in project management frameworks directly supports career growth and organizational performance.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led instruction designed to fit the schedules of working professionals in Mobile and across the nation. As a PMI Authorized Training Partner, we provide comprehensive contact-hour instruction that satisfies PMI's eligibility requirements, taught by active certified practitioners with real-world experience in program and project delivery. Our approach combines rigorous curriculum coverage with practical problem-solving, ensuring you're prepared not only to pass the exam but to apply certified practices immediately in your role. Enroll with Granite PM Academy and take the next step toward your PMI-CPMAI credential and the professional recognition that advances your career in Mobile's dynamic project-driven industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:03.816801Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "1dbecbecca8b354b",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Mobile's Advanced Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Legitimacy",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets PMI's rigorous standards. This authorization guarantees your certification is recognized across industries—from shipbuilding to healthcare—and valued by employers nationwide who demand verified project-management expertise."
+        },
+        {
+          "heading": "Live Instructors, Flexible Virtual Schedule",
+          "text": "Attend live-virtual classes led by active certified practitioners—no recordings, no self-paced gaps. Our instructor-led format satisfies PMI's contact-hour requirements while letting you train from Mobile on your schedule, balancing work and certification without classroom commutes."
+        },
+        {
+          "heading": "Real-World Practitioners, Exam-Ready Support",
+          "text": "Your instructors hold active PMI certifications and apply project-management daily in complex organizations. Granite pairs expert instruction with dedicated exam-prep support, so you enter the PMI-CPMAI exam confident and ready to pass on your first attempt."
+        },
+        {
+          "heading": "Mobile's High-Growth Industries Need PMI-CPMAI Leaders",
+          "text": "Austal USA, Airbus, and AM/NS Calvert—along with the Alabama State Port Authority and major healthcare systems—actively seek professionals with PMI credentials to lead capital projects, supply-chain programs, and operational transformations. The PMI-CPMAI credential positions you for advancement in Mobile's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:08.505671Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "db4043378eed79aa",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Mobile's Advanced Industries",
+      "text": "<p>Mobile's economy centers on large-scale, complex manufacturing and maritime operations that depend on certified project managers. Austal USA's shipbuilding programs for the U.S. Navy—including Independence-class and future combatant ship contracts—require rigorous project oversight across multiple phases and specialized teams. Similarly, the Airbus A320 Family aircraft production expansion at Brookley Aeroplex demands formal project management expertise to coordinate design, fabrication, and delivery milestones. The Alabama State Port Authority's container terminal and infrastructure expansion projects, along with major infrastructure initiatives like the I-10 Mobile River Bridge and Bayway project, further underscore the region's reliance on skilled project professionals. Healthcare systems such as USA Health and Infirmary Health, as well as chemical and industrial manufacturers, also employ certified project managers for capital projects and operational improvements.</p><p>In Mobile's shipbuilding, aerospace, and industrial manufacturing sectors, PMP® and CAPM® credentials are increasingly listed as preferred qualifications in project management postings, and employers often reward certified professionals with premium compensation. While project manager salaries in Mobile track slightly below national metro averages, competitive demand within these high-skill industries—particularly for candidates with formal certification and relevant engineering or manufacturing experience—supports strong career advancement opportunities. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet this local credential demand and differentiate yourself in a market where large-scale, multi-phase projects are the norm rather than the exception.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:17.008867Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "57066f4038451a38",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior Project Manager",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Mobile's shipbuilding industry?",
+          "answer": "<p>Yes. Austal USA, International Paper, and other major shipbuilding and industrial employers in Mobile increasingly list PMP or CAPM as preferred qualifications for project management roles. Large-scale, multi-phase construction and manufacturing projects demand formal credentialing. While not always mandatory, certification often strengthens advancement prospects and can support competitive compensation within Alabama's market.</p>"
+        },
+        {
+          "question": "Which Mobile employers actively hire certified project managers?",
+          "answer": "<p>Shipbuilding firms, aerospace manufacturers, the Alabama State Port Authority, chemical and industrial operations, and healthcare systems throughout Mobile actively recruit project managers with PMP or CAPM credentials. Austal USA, Airbus U.S. Manufacturing Facility, and AM/NS Calvert particularly value certified professionals for complex, regulated projects. Construction and infrastructure roles also favor credentials as project scope and stakeholder coordination increase.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI training from my Mobile workplace?",
+          "answer": "<p>Yes. Granite PM Academy's training is 100% live-virtual and can be accessed from anywhere with internet connectivity, including your office, home, or facility. This format suits Mobile professionals who need flexibility around shipyard schedules, manufacturing shifts, or healthcare operations. No travel or commute required.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait in Mobile's job market?",
+          "answer": "<p>Certification timing matters in Mobile's competitive sectors. Demand for certified project managers is steady in shipbuilding, aerospace, and port operations—industries that anchor the local economy. Earning your credential sooner positions you ahead of peers in these high-demand fields and can accelerate advancement before roles fill. Delaying may mean competing against newly certified candidates during hiring cycles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:22.423534Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "77921f44a84c06e7",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by Austal USA and Airbus's Brookley Aeroplex operations—consistently demand skilled project managers to lead complex defense and commercial programs. From port infrastructure expansion to major naval construction contracts, the region's industrial base creates steady opportunities for certified professionals across maritime, manufacturing, and healthcare. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Mobile professionals, enabling you to earn your credential on your schedule while building the expertise employers in this thriving Gulf Coast hub actively seek.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:26.060052Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f8d4e03f0448f745",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "cpmai_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMI-CPMAI Certification",
+      "steps_items": [
+        {
+          "heading": "Start Without Prerequisites",
+          "text": "No prior project management, technical, or AI certification is required to enroll in PMI-CPMAI training. This open-entry model lets you build AI project leadership skills immediately—ideal for professionals across Mobile's shipbuilding, aerospace, and port operations sectors ready to lead next-generation initiatives."
+        },
+        {
+          "heading": "Complete the Exam Prep Course",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMI-CPMAI Exam Prep Course, covering the CPMAI Methodology from project inception through AI operationalization. You'll work through real-world frameworks and case studies with active certified practitioners. Enrollment closes one year before your exam attempt."
+        },
+        {
+          "heading": "Schedule Your Exam with Pearson VUE",
+          "text": "Register your exam through Pearson VUE within 12 months of course completion. Choose an in-person test center or online-proctored option that fits your schedule. The exam window is fixed; plan ahead to secure your preferred date and delivery method."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides focused exam-preparation support to strengthen your readiness. If you don't pass on your first attempt, PMI allows up to two additional attempts within your 365-day eligibility period at no additional enrollment cost, removing the pressure of a single sitting."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After passing, you'll earn the PMI-CPMAI™ credential valid for three years. Maintain it by earning 30 Professional Development Units across the renewal cycle through PMI-approved courses, conferences, volunteer work, or published contributions. This ensures your AI project-management expertise stays current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:17:17.774955Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "cpmai_pathway",
+      "_ai_input_hash": "d1df274f2a6acec2",
+      "_ai_locked": true
+    },
+    {
+      "type": "links_grid",
+      "lg_heading": "Other PM Certifications in Mobile",
+      "lg_subtext": "",
+      "lg_sublabel": "",
+      "lg_photo": "",
+      "lg_photo_alt": "",
+      "lg_cols": 3,
+      "lg_overlay": "0.6",
+      "lg_links": [
+        {
+          "label": "PMP Certification Training Mobile",
+          "url": "/pmp-certification-training-mobile-al/"
+        },
+        {
+          "label": "PMP Bootcamp Mobile",
+          "url": "/pmp-bootcamp-mobile-al/"
+        },
+        {
+          "label": "CAPM Certification Training Mobile",
+          "url": "/capm-certification-training-mobile-al/"
+        }
+      ],
+      "lg_style": "light",
+      "lg_bg_color": "#f7f9fc",
+      "lg_accent": "accent",
+      "lg_accent_custom": "#fd783b",
+      "_sibling_links": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-mobile-al/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Mobile, AL, AI courses Mobile, CPMAI certification Mobile, AI project management training Mobile, AL, AI for project managers Mobile",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\",\n      \"name\": \"PMI-CPMAI Certification Training in Mobile, AL | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Mobile, AL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Mobile, AL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Mobile, AL\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Mobile, AL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-mobile-al/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-mobile-al/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-08T20:16:04+00:00",
+  "template_version": "4e0b2f9205ad4d8c5848468e2b093f36"
 }

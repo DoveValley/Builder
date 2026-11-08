@@ -88,3 +88,29 @@ The Handbook consistently frames PDU reporting as the **certificant's own respon
 
 - Exact current renewal fee in dollars (see above — PMI doesn't publish a fixed number; verify live).
 - Whether an ATP has ANY provider-side CCRS reporting capability (see above — evidence points to "no," but the ATP Program Handbook itself (`authorized-training-partner-handbook.pdf` on pmi.org) wasn't read page-by-page; worth a direct confirmation from PMI's ATP team before finalizing $299 tier copy).
+
+## PMI-CPMAI initial certification (not renewal) — verified against PMI's own exam content outline
+
+Source: `PMI-CPMAI™ Exam Content Outline`, published September 2025, fetched directly from
+`https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/pmicpmai-exam-content-outline2025-updated.pdf`
+on 2026-11-08. Also cross-checked against PMI's "CPMAI to PMI-CPMAI™ Transition FAQs" page
+(pmi.org/certifications/certification-resources/cpmai-faq).
+
+- Full name: **PMI Certified Professional in Managing AI (PMI-CPMAI)™**. Replaced "Cognitive
+  Project Management in AI (CPMAI)™ v7" on **2025-09-30**, following PMI's acquisition of
+  Cognilytica in September 2024.
+- **No prior project management, technical, or AI experience or certifications required to enroll**
+  — this is a genuine differentiator vs. PMP/CAPM, not a simplification.
+- Completing the **PMI-CPMAI Exam Prep Course is required** before you can schedule the exam.
+  Registration/purchase happens through PMI's own myPMI system; no PMI membership required.
+- Exam: **120 total questions** (100 scored + 20 unscored pretest, placed randomly), **160 minutes
+  (2 hr 40 min)** allotted, no scheduled breaks, computer-based via **Pearson VUE** — in-person at a
+  test center (PMI's recommended option) or online-proctored.
+- You have **12 months (1 year) from the time of purchase** to obtain the certification.
+- Retake policy: up to **3 attempts within a 365-day eligibility period**; suggested 30-day study
+  gap before retaking; each retake requires its own exam fee.
+- Must agree to the **PMI Code of Ethics and Professional Conduct** before registering.
+- Exam content: 5 domains — Support Responsible and Trustworthy AI Efforts (15%), Identify Business
+  Needs and Solutions (26%), Identify Data Needs (26%), Manage AI Model Development and Evaluation
+  (16%), Operationalize AI Solution (17%).
+- Maintenance: **30 PDUs every 3 years** (matches the existing PDU-cycle table above).

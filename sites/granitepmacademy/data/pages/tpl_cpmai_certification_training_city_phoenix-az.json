@@ -1,437 +1,478 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "phoenix-az",
-    "slug": "ai-training-phoenix-az",
-    "title": "PMI-CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "phoenix-az",
-        "city": "Phoenix",
-        "state": "Arizona",
-        "SS": "AZ",
-        "city_slug": "phoenix-az",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier6"
-        ],
-        "industries": [
-            "Semiconductor & Advanced Manufacturing",
-            "Healthcare Systems",
-            "Aerospace & Defense",
-            "Financial Services & Banking",
-            "Construction & Real Estate Development",
-            "Technology"
-        ],
-        "top_employers": [
-            "Banner Health",
-            "Intel",
-            "Honeywell",
-            "Wells Fargo",
-            "Bank of America",
-            "American Express",
-            "Charles Schwab",
-            "City of Phoenix",
-            "Arizona State University",
-            "JPMorgan Chase",
-            "USAA",
-            "Freeport-McMoRan"
-        ],
-        "salary_note": "Project manager compensation in the Phoenix area tends to be competitive with national averages and varies significantly by industry and certification level, with PMP-certified professionals generally commanding higher pay than non-certified peers. Demand has grown alongside the region's expanding tech manufacturing and healthcare sectors, making experienced PMs increasingly sought after.",
-        "market_blurb": "Phoenix's project management job market is expanding steadily, fueled by growth in semiconductor manufacturing, healthcare systems, and financial services. Major infrastructure and corporate expansions across the metro area continue to create demand for skilled project and program managers. The city's diverse economic base, spanning tech, aerospace, and construction, offers strong career mobility for certified PM professionals.",
-        "notable_projects": [
-            "TSMC Arizona semiconductor fabrication facility expansion in North Phoenix",
-            "Phoenix Sky Harbor International Airport modernization and terminal projects",
-            "Loop 202 South Mountain Freeway construction",
-            "Intel's Ocotillo campus expansion in nearby Chandler"
-        ],
-        "credential_demand": "PMP certification is highly regarded among Phoenix-area employers, particularly in construction, healthcare, and technology manufacturing sectors, and frequently appears as a preferred or required qualification in local job postings. CAPM is also recognized as a valuable entry point for professionals building toward full PMP certification in this competitive market.",
-        "_researched": 1,
-        "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector—anchored by major facility expansions like TSMC's North Phoenix operation—is driving sustained demand for skilled project managers across the metro area. Healthcare systems, aerospace, and financial services employers including Banner Health, Intel, and Honeywell continue to invest in infrastructure and corporate growth, creating strong career opportunities for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training to Phoenix professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-phoenix-az.webp",
-        "city_image_alt": "Downtown Phoenix Aerial Looking Northeast, AZ",
-        "city_image_credit": "Photo: DPPed, CC BY-SA 3.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Phoenix's semiconductor and advanced manufacturing sectors depend on project managers who master complex stakeholder coordination and resource constraints. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with active certified practitioners, meeting all PMI education requirements on a schedule that fits working professionals. Earning your PMI-CPMAI positions you competitively across the region's defense contractors, healthcare systems, and financial services firms.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_a0491327dd.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:31.927591Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "4c20b148fe1542b6",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Phoenix, Arizona",
-            "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's demand for skilled program and project managers, with Intel and other major players investing heavily in the metro area. As these industries expand, so does competition for certified professionals who can lead complex, multi-phase initiatives across technical and organizational boundaries. The PMI-CPMAI® (Certified Associate in Project Management) credential demonstrates your readiness to manage real-world projects in these high-growth fields. Whether you work in semiconductor fabrication, healthcare systems, aerospace, or financial services—all sectors with strong presence in Phoenix—this certification signals to employers like Banner Health, Honeywell, and major financial institutions that you have proven project management competencies grounded in PMI standards.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual PMI-CPMAI Certification Training nationwide, including for professionals in the Phoenix area. Our instructor-led courses cover all contact-hour requirements for the credential and are taught by active certified practitioners with real-world experience across industries and project types. You'll engage in a structured, interactive learning environment that fits your schedule while meeting PMI's rigorous standards. Upon completion, you'll be ready to sit for the PMI-CPMAI exam and take the next step in your project management career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:35.822672Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "bf5d47616a90713e",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification for Phoenix's Advanced Manufacturing Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets all official contact-hour requirements without additional paperwork. Employers across Phoenix's semiconductor, aerospace, and healthcare sectors recognize PMI authorization as the standard for legitimate project management credentials."
-                },
-                {
-                    "heading": "Live-Virtual Learning on Your Schedule",
-                    "text": "Instructor-led sessions delivered live online satisfy PMI's contact-hour mandate while letting you train from anywhere—no commute, no classroom constraints. This format works for professionals balancing roles at Banner Health, Intel, Honeywell, and other major Phoenix employers who need flexible certification paths."
-                },
-                {
-                    "heading": "Learn from Active Certified Practitioners",
-                    "text": "Your instructors hold current PMI certifications and work actively in project and program management—not just teach from textbooks. This real-world perspective ensures you master concepts directly applicable to construction, financial services, aerospace, and technology projects hiring in the Phoenix market."
-                },
-                {
-                    "heading": "Phoenix's Employers Demand This Credential",
-                    "text": "Banks, manufacturers, and defense contractors hiring project managers in Phoenix increasingly require or strongly prefer PMI certification. The PMI-CPMAI validates your capability to lead complex programs—a differentiator when competing for roles at organizations actively recruiting across the region's key industries."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:40.235431Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "98fb4c896584948c",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "The AI Project Management Gap, By the Numbers",
-            "stats_heading_level": "h2",
-            "stats_bg_color": "custom",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#0d1b3e",
-            "skin": "",
-            "stats_items": [
-                {
-                    "number": "80%+",
-                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-                },
-                {
-                    "number": "2x",
-                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-                },
-                {
-                    "number": "~20%",
-                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
-                },
-                {
-                    "number": "62%",
-                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-                }
-            ]
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Phoenix's Growth Industries",
-            "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's project management landscape. Major employers including Intel, Honeywell, and Banner Health actively recruit certified project managers to lead complex initiatives—from Intel's Ocotillo campus expansion in nearby Chandler to the TSMC Arizona semiconductor fabrication facility expansion in North Phoenix. Financial services firms such as Wells Fargo, Bank of America, and Charles Schwab also maintain substantial operations here, as do construction and infrastructure organizations managing projects like the Phoenix Sky Harbor International Airport modernization and the Loop 202 South Mountain Freeway. These employers consistently seek professionals who hold PMP® or CAPM® credentials, making certification a competitive advantage in Phoenix's dynamic job market.</p><p>Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet the credential demand that has accelerated alongside the region's tech manufacturing and healthcare expansion. Project managers in the Phoenix area who hold PMP® certification command respect and compensation packages competitive with national standards, and the gap between certified and non-certified professionals continues to widen. CAPM® certification serves as a recognized entry point for those building toward full PMP® status, enabling you to establish credibility quickly in this increasingly competitive market. By earning your credential through live-virtual training designed around your schedule, you'll be ready to advance into roles across construction, healthcare systems, aerospace and defense, and financial services—industries where Phoenix's growth is creating genuine demand for experienced, certified professionals.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:48.908517Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "07998e77ea1ca9f1",
-            "_ai_locked": true
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMI-CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing for Phoenix project managers?",
-                    "answer": "<p>Yes, particularly if you work in Phoenix's fast-growing semiconductor, healthcare, or aerospace sectors. PMP certification is highly regarded by major local employers and frequently appears in job postings as preferred or required. Certified professionals typically command higher compensation than non-certified peers, and the credential positions you competitively in a region where PM demand has grown significantly with tech manufacturing and healthcare expansion.</p>"
-                },
-                {
-                    "question": "Which Phoenix industries most value PMP and CAPM credentials?",
-                    "answer": "<p>Construction, healthcare systems, semiconductor manufacturing, aerospace and defense, and financial services firms in the Phoenix area actively seek PMP-certified project managers. CAPM is recognized as a strong entry point for early-career professionals in these sectors. Large Phoenix employers across these industries—from healthcare networks to advanced manufacturing operations—regularly list these credentials as preferred qualifications, making certification a strategic asset for career advancement.</p>"
-                },
-                {
-                    "question": "Can I attend PMI-CPMAI live-virtual training while working in Phoenix?",
-                    "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered entirely live-virtual, so you can attend from your workplace, home, or any location with internet access throughout Phoenix and beyond. This flexibility allows working professionals in demanding roles—whether at a financial services firm downtown or a manufacturing facility in the metro area—to earn certification without disrupting their schedules.</p>"
-                },
-                {
-                    "question": "Should Phoenix project managers get certified now or wait for better timing?",
-                    "answer": "<p>Phoenix's competitive job market and rising PM demand—driven by continued growth in tech manufacturing and healthcare—favor early certification. Employers across the region actively hire certified professionals, and the longer you delay, the more you may fall behind peers competing for advancement. If you meet eligibility requirements, pursuing certification now positions you to capitalize on strong local demand and command higher compensation sooner.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:54.599877Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "c620ac2a0a64a151",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving sustained demand for skilled project managers, with major expansions like TSMC's North Phoenix facility and Intel's Chandler campus creating high-visibility career opportunities. Employers including Banner Health, Honeywell, and financial services leaders across the metro actively recruit certified PM professionals to lead complex initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Phoenix professionals nationwide, enabling you to earn your credential while managing your local career trajectory.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:58.069898Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "730c446b1279c51a",
-            "_ai_locked": true
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Other PM Certifications in Phoenix",
-            "lg_subtext": "",
-            "lg_sublabel": "",
-            "lg_photo": "",
-            "lg_photo_alt": "",
-            "lg_cols": 3,
-            "lg_overlay": "0.6",
-            "lg_links": [
-                {
-                    "label": "PMP Certification Training Phoenix",
-                    "url": "/pmp-certification-training-phoenix-az/"
-                },
-                {
-                    "label": "PMP Bootcamp Phoenix",
-                    "url": "/pmp-bootcamp-phoenix-az/"
-                },
-                {
-                    "label": "CAPM Certification Training Phoenix",
-                    "url": "/capm-certification-training-phoenix-az/"
-                }
-            ],
-            "lg_style": "light",
-            "lg_bg_color": "#f7f9fc",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#fd783b",
-            "_sibling_links": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "phoenix-az",
+  "slug": "ai-training-phoenix-az",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "phoenix-az",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "SS": "AZ",
+    "city_slug": "phoenix-az",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
     ],
-    "seo": {
-        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-phoenix-az/",
-        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Phoenix, AZ, AI courses Phoenix, CPMAI certification Phoenix, AI project management training Phoenix, AZ, AI for project managers Phoenix",
-        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "PMI-CPMAI Certification Training",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "PMI-CPMAI {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\",\n      \"name\": \"PMI-CPMAI Certification Training in Phoenix, AZ | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Phoenix, AZ for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Phoenix, AZ\",\n            \"item\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Phoenix, AZ\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Phoenix, AZ who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n    }\n  ]\n}",
-        "primary_keyword": "PMI-CPMAI Certification Training",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Semiconductor & Advanced Manufacturing",
+      "Healthcare Systems",
+      "Aerospace & Defense",
+      "Financial Services & Banking",
+      "Construction & Real Estate Development",
+      "Technology"
+    ],
+    "top_employers": [
+      "Banner Health",
+      "Intel",
+      "Honeywell",
+      "Wells Fargo",
+      "Bank of America",
+      "American Express",
+      "Charles Schwab",
+      "City of Phoenix",
+      "Arizona State University",
+      "JPMorgan Chase",
+      "USAA",
+      "Freeport-McMoRan"
+    ],
+    "salary_note": "Project manager compensation in the Phoenix area tends to be competitive with national averages and varies significantly by industry and certification level, with PMP-certified professionals generally commanding higher pay than non-certified peers. Demand has grown alongside the region's expanding tech manufacturing and healthcare sectors, making experienced PMs increasingly sought after.",
+    "market_blurb": "Phoenix's project management job market is expanding steadily, fueled by growth in semiconductor manufacturing, healthcare systems, and financial services. Major infrastructure and corporate expansions across the metro area continue to create demand for skilled project and program managers. The city's diverse economic base, spanning tech, aerospace, and construction, offers strong career mobility for certified PM professionals.",
+    "notable_projects": [
+      "TSMC Arizona semiconductor fabrication facility expansion in North Phoenix",
+      "Phoenix Sky Harbor International Airport modernization and terminal projects",
+      "Loop 202 South Mountain Freeway construction",
+      "Intel's Ocotillo campus expansion in nearby Chandler"
+    ],
+    "credential_demand": "PMP certification is highly regarded among Phoenix-area employers, particularly in construction, healthcare, and technology manufacturing sectors, and frequently appears as a preferred or required qualification in local job postings. CAPM is also recognized as a valuable entry point for professionals building toward full PMP certification in this competitive market.",
+    "_researched": 1,
+    "city_spotlight": "<p>Phoenix's semiconductor and advanced manufacturing sector—anchored by major facility expansions like TSMC's North Phoenix operation—is driving sustained demand for skilled project managers across the metro area. Healthcare systems, aerospace, and financial services employers including Banner Health, Intel, and Honeywell continue to invest in infrastructure and corporate growth, creating strong career opportunities for PMP®-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training to Phoenix professionals, enabling you to earn your credential on a schedule that fits your career.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-phoenix-az.webp",
+    "city_image_alt": "Downtown Phoenix Aerial Looking Northeast, AZ",
+    "city_image_credit": "Photo: DPPed, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Phoenix_Aerial_Looking_Northeast.jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Phoenix's semiconductor and advanced manufacturing sectors depend on project managers who master complex stakeholder coordination and resource constraints. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with active certified practitioners, meeting all PMI education requirements on a schedule that fits working professionals. Earning your PMI-CPMAI positions you competitively across the region's defense contractors, healthcare systems, and financial services firms.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_a0491327dd.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:31.927591Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4c20b148fe1542b6",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-08T20:10:01+00:00",
-    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Phoenix, Arizona",
+      "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's demand for skilled program and project managers, with Intel and other major players investing heavily in the metro area. As these industries expand, so does competition for certified professionals who can lead complex, multi-phase initiatives across technical and organizational boundaries. The PMI-CPMAI® (Certified Associate in Project Management) credential demonstrates your readiness to manage real-world projects in these high-growth fields. Whether you work in semiconductor fabrication, healthcare systems, aerospace, or financial services—all sectors with strong presence in Phoenix—this certification signals to employers like Banner Health, Honeywell, and major financial institutions that you have proven project management competencies grounded in PMI standards.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual PMI-CPMAI Certification Training nationwide, including for professionals in the Phoenix area. Our instructor-led courses cover all contact-hour requirements for the credential and are taught by active certified practitioners with real-world experience across industries and project types. You'll engage in a structured, interactive learning environment that fits your schedule while meeting PMI's rigorous standards. Upon completion, you'll be ready to sit for the PMI-CPMAI exam and take the next step in your project management career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:35.822672Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "bf5d47616a90713e",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI-CPMAI Certification for Phoenix's Advanced Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets all official contact-hour requirements without additional paperwork. Employers across Phoenix's semiconductor, aerospace, and healthcare sectors recognize PMI authorization as the standard for legitimate project management credentials."
+        },
+        {
+          "heading": "Live-Virtual Learning on Your Schedule",
+          "text": "Instructor-led sessions delivered live online satisfy PMI's contact-hour mandate while letting you train from anywhere—no commute, no classroom constraints. This format works for professionals balancing roles at Banner Health, Intel, Honeywell, and other major Phoenix employers who need flexible certification paths."
+        },
+        {
+          "heading": "Learn from Active Certified Practitioners",
+          "text": "Your instructors hold current PMI certifications and work actively in project and program management—not just teach from textbooks. This real-world perspective ensures you master concepts directly applicable to construction, financial services, aerospace, and technology projects hiring in the Phoenix market."
+        },
+        {
+          "heading": "Phoenix's Employers Demand This Credential",
+          "text": "Banks, manufacturers, and defense contractors hiring project managers in Phoenix increasingly require or strongly prefer PMI certification. The PMI-CPMAI validates your capability to lead complex programs—a differentiator when competing for roles at organizations actively recruiting across the region's key industries."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:40.235431Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "98fb4c896584948c",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Phoenix's Growth Industries",
+      "text": "<p>Phoenix's semiconductor and advanced manufacturing sector is reshaping the region's project management landscape. Major employers including Intel, Honeywell, and Banner Health actively recruit certified project managers to lead complex initiatives—from Intel's Ocotillo campus expansion in nearby Chandler to the TSMC Arizona semiconductor fabrication facility expansion in North Phoenix. Financial services firms such as Wells Fargo, Bank of America, and Charles Schwab also maintain substantial operations here, as do construction and infrastructure organizations managing projects like the Phoenix Sky Harbor International Airport modernization and the Loop 202 South Mountain Freeway. These employers consistently seek professionals who hold PMP® or CAPM® credentials, making certification a competitive advantage in Phoenix's dynamic job market.</p><p>Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet the credential demand that has accelerated alongside the region's tech manufacturing and healthcare expansion. Project managers in the Phoenix area who hold PMP® certification command respect and compensation packages competitive with national standards, and the gap between certified and non-certified professionals continues to widen. CAPM® certification serves as a recognized entry point for those building toward full PMP® status, enabling you to establish credibility quickly in this increasingly competitive market. By earning your credential through live-virtual training designed around your schedule, you'll be ready to advance into roles across construction, healthcare systems, aerospace and defense, and financial services—industries where Phoenix's growth is creating genuine demand for experienced, certified professionals.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:48.908517Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "07998e77ea1ca9f1",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction Project Manager",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing for Phoenix project managers?",
+          "answer": "<p>Yes, particularly if you work in Phoenix's fast-growing semiconductor, healthcare, or aerospace sectors. PMP certification is highly regarded by major local employers and frequently appears in job postings as preferred or required. Certified professionals typically command higher compensation than non-certified peers, and the credential positions you competitively in a region where PM demand has grown significantly with tech manufacturing and healthcare expansion.</p>"
+        },
+        {
+          "question": "Which Phoenix industries most value PMP and CAPM credentials?",
+          "answer": "<p>Construction, healthcare systems, semiconductor manufacturing, aerospace and defense, and financial services firms in the Phoenix area actively seek PMP-certified project managers. CAPM is recognized as a strong entry point for early-career professionals in these sectors. Large Phoenix employers across these industries—from healthcare networks to advanced manufacturing operations—regularly list these credentials as preferred qualifications, making certification a strategic asset for career advancement.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training while working in Phoenix?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered entirely live-virtual, so you can attend from your workplace, home, or any location with internet access throughout Phoenix and beyond. This flexibility allows working professionals in demanding roles—whether at a financial services firm downtown or a manufacturing facility in the metro area—to earn certification without disrupting their schedules.</p>"
+        },
+        {
+          "question": "Should Phoenix project managers get certified now or wait for better timing?",
+          "answer": "<p>Phoenix's competitive job market and rising PM demand—driven by continued growth in tech manufacturing and healthcare—favor early certification. Employers across the region actively hire certified professionals, and the longer you delay, the more you may fall behind peers competing for advancement. If you meet eligibility requirements, pursuing certification now positions you to capitalize on strong local demand and command higher compensation sooner.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:54.599877Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "c620ac2a0a64a151",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Phoenix's semiconductor and advanced manufacturing sector is driving sustained demand for skilled project managers, with major expansions like TSMC's North Phoenix facility and Intel's Chandler campus creating high-visibility career opportunities. Employers including Banner Health, Honeywell, and financial services leaders across the metro actively recruit certified PM professionals to lead complex initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Phoenix professionals nationwide, enabling you to earn your credential while managing your local career trajectory.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:41:58.069898Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "730c446b1279c51a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "cpmai_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMI-CPMAI Certification in Phoenix",
+      "steps_items": [
+        {
+          "heading": "Start with No Prerequisites",
+          "text": "PMI-CPMAI requires no prior project management, AI experience, or certifications to enroll. Whether you're new to credential training or expanding your skillset, you can begin immediately—no gatekeeping. This direct entry is ideal for Phoenix professionals across Semiconductor & Advanced Manufacturing, Aerospace & Defense, Healthcare, and Financial Services who need to lead AI-enabled initiatives now."
+        },
+        {
+          "heading": "Complete Granite PM Academy's Prep Course",
+          "text": "Enroll in our live-virtual, instructor-led PMI-CPMAI Exam Prep Course. You'll master the CPMAI Methodology for managing AI projects from inception through operationalization, covering governance, risk, team dynamics, and deployment. Complete the full curriculum within your chosen schedule before scheduling your exam. Our active certified practitioners guide you through real-world project scenarios and exam-aligned content."
+        },
+        {
+          "heading": "Schedule Your Exam via Pearson VUE",
+          "text": "Register your exam appointment through Pearson VUE within 12 months of finishing the prep course. Choose an in-person test center or online-proctored option that fits your calendar. You'll have multiple opportunities to schedule across Phoenix's business calendar and can select the format that suits your preparation and comfort level."
+        },
+        {
+          "heading": "Take the PMI-CPMAI Examination",
+          "text": "Sit for your exam with full support from Granite PM Academy's exam-preparation resources. The assessment is comprehensive and scenario-based, reflecting real AI project management decisions. If you don't pass on your first attempt, PMI permits up to three attempts within your 365-day eligibility window—you have room to refine and retest."
+        },
+        {
+          "heading": "Maintain Your Active Credential",
+          "text": "Once certified, earn 30 PDUs (Professional Development Units) across the standard three-year renewal cycle to keep your PMI-CPMAI active. Granite PM Academy and PMI offer multiple pathways to accumulate PDUs through courses, conferences, and approved learning activities. Staying current ensures your credential reflects your ongoing expertise in AI-enabled project delivery."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:17:28.738956Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "cpmai_pathway",
+      "_ai_input_hash": "d078902333aeedbe",
+      "_ai_locked": true
+    },
+    {
+      "type": "links_grid",
+      "lg_heading": "Other PM Certifications in Phoenix",
+      "lg_subtext": "",
+      "lg_sublabel": "",
+      "lg_photo": "",
+      "lg_photo_alt": "",
+      "lg_cols": 3,
+      "lg_overlay": "0.6",
+      "lg_links": [
+        {
+          "label": "PMP Certification Training Phoenix",
+          "url": "/pmp-certification-training-phoenix-az/"
+        },
+        {
+          "label": "PMP Bootcamp Phoenix",
+          "url": "/pmp-bootcamp-phoenix-az/"
+        },
+        {
+          "label": "CAPM Certification Training Phoenix",
+          "url": "/capm-certification-training-phoenix-az/"
+        }
+      ],
+      "lg_style": "light",
+      "lg_bg_color": "#f7f9fc",
+      "lg_accent": "accent",
+      "lg_accent_custom": "#fd783b",
+      "_sibling_links": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-phoenix-az/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Phoenix, AZ, AI courses Phoenix, CPMAI certification Phoenix, AI project management training Phoenix, AZ, AI for project managers Phoenix",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\",\n      \"name\": \"PMI-CPMAI Certification Training in Phoenix, AZ | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Phoenix, AZ for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Phoenix, AZ\",\n            \"item\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Phoenix, AZ\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Phoenix, AZ who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-phoenix-az/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-phoenix-az/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-08T20:16:04+00:00",
+  "template_version": "4e0b2f9205ad4d8c5848468e2b093f36"
 }

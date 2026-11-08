@@ -159,7 +159,7 @@
                     {
                         "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
                         "name": "Marcus R.",
-                        "location": "Senior PM, Deloitte",
+                        "location": "Senior Project Manager",
                         "initials": "MR",
                         "avatar_color": "accent",
                         "result_badge": "✓ PMP® — Passed first attempt"
@@ -167,7 +167,7 @@
                     {
                         "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
                         "name": "Sarah L.",
-                        "location": "IT Project Lead, Microsoft",
+                        "location": "IT Project Lead",
                         "initials": "SL",
                         "avatar_color": "#0d9488",
                         "result_badge": "✓ CAPM® + PMP® Certified"
@@ -175,7 +175,7 @@
                     {
                         "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
                         "name": "David K.",
-                        "location": "Construction PM, Turner Corp",
+                        "location": "Construction Project Manager",
                         "initials": "DK",
                         "avatar_color": "highlight",
                         "result_badge": "✓ Entire team PMP® certified"
@@ -444,7 +444,7 @@
                     {
                         "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
                         "name": "Marcus R.",
-                        "location": "Senior PM, Deloitte",
+                        "location": "Senior Project Manager",
                         "initials": "MR",
                         "avatar_color": "accent",
                         "result_badge": "✓ PMP® — Passed first attempt"
@@ -452,7 +452,7 @@
                     {
                         "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
                         "name": "Sarah L.",
-                        "location": "IT Project Lead, Microsoft",
+                        "location": "IT Project Lead",
                         "initials": "SL",
                         "avatar_color": "#0d9488",
                         "result_badge": "✓ CAPM® + PMP® Certified"
@@ -460,7 +460,7 @@
                     {
                         "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
                         "name": "David K.",
-                        "location": "Construction PM, Turner Corp",
+                        "location": "Construction Project Manager",
                         "initials": "DK",
                         "avatar_color": "highlight",
                         "result_badge": "✓ Entire team PMP® certified"
@@ -737,7 +737,7 @@
                     {
                         "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
                         "name": "Marcus R.",
-                        "location": "Senior PM, Deloitte",
+                        "location": "Senior Project Manager",
                         "initials": "MR",
                         "avatar_color": "accent",
                         "result_badge": "✓ PMP® — Passed first attempt"
@@ -745,7 +745,7 @@
                     {
                         "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
                         "name": "Sarah L.",
-                        "location": "IT Project Lead, Microsoft",
+                        "location": "IT Project Lead",
                         "initials": "SL",
                         "avatar_color": "#0d9488",
                         "result_badge": "✓ CAPM® + PMP® Certified"
@@ -753,7 +753,7 @@
                     {
                         "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
                         "name": "David K.",
-                        "location": "Construction PM, Turner Corp",
+                        "location": "Construction Project Manager",
                         "initials": "DK",
                         "avatar_color": "highlight",
                         "result_badge": "✓ Entire team PMP® certified"
@@ -1030,7 +1030,7 @@
                     {
                         "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
                         "name": "Marcus R.",
-                        "location": "Senior PM, Deloitte",
+                        "location": "Senior Project Manager",
                         "initials": "MR",
                         "avatar_color": "accent",
                         "result_badge": "✓ PMP® — Passed first attempt"
@@ -1038,7 +1038,7 @@
                     {
                         "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
                         "name": "Sarah L.",
-                        "location": "IT Project Lead, Microsoft",
+                        "location": "IT Project Lead",
                         "initials": "SL",
                         "avatar_color": "#0d9488",
                         "result_badge": "✓ CAPM® + PMP® Certified"
@@ -1046,7 +1046,7 @@
                     {
                         "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
                         "name": "David K.",
-                        "location": "Construction PM, Turner Corp",
+                        "location": "Construction Project Manager",
                         "initials": "DK",
                         "avatar_color": "highlight",
                         "result_badge": "✓ Entire team PMP® certified"
@@ -1106,6 +1106,20 @@
                 "ai_inject_field": "mi_info_text",
                 "ai_inject_mode": "replace",
                 "ai_model": "claude-haiku-4-5-20251001"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "cpmai_pathway",
+                "ai_mode": "standalone",
+                "ai_render_as": "steps",
+                "ai_model": "claude-haiku-4-5-20251001",
+                "ai_inject_target": null,
+                "ai_inject_field": null,
+                "ai_inject_mode": null,
+                "ai_prompt_override": "",
+                "skin": "light",
+                "steps_heading": "",
+                "steps_items": []
             },
             {
                 "type": "links_grid",

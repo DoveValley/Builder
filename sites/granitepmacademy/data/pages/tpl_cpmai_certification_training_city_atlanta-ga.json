@@ -1,437 +1,478 @@
 {
-    "template_id": "tpl_cpmai_certification_training_city",
-    "city_id": "atlanta-ga",
-    "slug": "ai-training-atlanta-ga",
-    "title": "PMI-CPMAI Certification Training {city}",
-    "city_vars": {
-        "id": "atlanta-ga",
-        "city": "Atlanta",
-        "state": "Georgia",
-        "SS": "GA",
-        "city_slug": "atlanta-ga",
-        "phone": "",
-        "tel": "",
-        "zip": "",
-        "address": "",
-        "lat": "",
-        "lng": "",
-        "website": "",
-        "tags": [
-            "tier5"
-        ],
-        "industries": [
-            "Logistics and Supply Chain",
-            "Information Technology",
-            "Film and Entertainment",
-            "Healthcare",
-            "Financial Services (Fintech)",
-            "Construction and Real Estate Development"
-        ],
-        "top_employers": [
-            "The Home Depot",
-            "Delta Air Lines",
-            "The Coca-Cola Company",
-            "UPS",
-            "Southern Company",
-            "Cox Enterprises",
-            "AT&T",
-            "Emory University and Emory Healthcare",
-            "Wellstar Health System",
-            "NCR Voyix",
-            "Turner Broadcasting (Warner Bros. Discovery)",
-            "Georgia-Pacific"
-        ],
-        "salary_note": "Project manager compensation in Atlanta tends to track close to national averages, with variation based on industry (tech and logistics roles often pay at the higher end) and level of certification. Demand for experienced, credentialed project managers remains strong, giving candidates with PMP certification leverage in salary negotiations.",
-        "market_blurb": "Atlanta's project management job market is robust, fueled by the city's diverse economic base spanning logistics, technology, healthcare, and entertainment. As headquarters to major corporations like Delta, UPS, and The Home Depot, the metro area consistently generates demand for skilled project and program managers. The city's growing tech sector and status as a logistics hub further reinforce steady hiring activity in this field.",
-        "notable_projects": [
-            "Hartsfield-Jackson Atlanta International Airport capital improvement and terminal modernization projects",
-            "The Centennial Yards mixed-use development in downtown Atlanta",
-            "MARTA transit expansion initiatives",
-            "Microsoft's Atlanta data center and campus development"
-        ],
-        "credential_demand": "PMP certification is widely valued among Atlanta-area employers, particularly in logistics, IT, and healthcare sectors, and frequently appears as a preferred or required qualification in local project management job postings. CAPM is also recognized as a solid entry point for those building a project management career in the region.",
-        "_researched": 1,
-        "city_spotlight": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta, and The Home Depot—drives consistent demand for skilled project managers across the metro area. Add the city's thriving tech ecosystem, healthcare institutions, and major infrastructure initiatives like MARTA transit expansion, and the PMP credential becomes a clear asset for career advancement. Granite PM Academy delivers live-virtual PMP Certification to Atlanta professionals, combining flexible scheduling with PMI-aligned training.</p>",
-        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-atlanta-ga.webp",
-        "city_image_alt": "A2ATL20250614-0721 in Atlanta, GA",
-        "city_image_credit": "Photo: AtlChampion, CC BY-SA 4.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:A2ATL20250614-0721_(cropped).jpg"
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Atlanta's logistics, supply chain, and healthcare sectors depend on skilled project managers to coordinate complex operations across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's contact-hour requirements on a flexible schedule, helping you earn the credential without disrupting your current role. The PMI-CPMAI distinction strengthens your profile for advancement within Atlanta's largest employers and fastest-growing industries.</p>",
-            "hs_btn_text": "See Upcoming Dates",
-            "hs_btn_url": "#cpmai_schedule",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_69b048716a.webp",
-            "hs_bg_photo": "",
-            "hs_mobile_order": "",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:45.347475Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "40deefef9358af01",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_market_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Atlanta, GA",
-            "text": "<p>Atlanta's logistics and supply chain sector—anchored by industry titans like UPS and The Home Depot—creates sustained demand for certified program and portfolio managers who can orchestrate complex, multi-initiative environments. As the city's Fortune 500 companies and mid-market firms expand operations across technology, healthcare, and real estate development, organizations increasingly seek professionals who hold credentials demonstrating mastery of program and portfolio governance. The PMI-CPMAI Certification validates your ability to align strategic objectives with program execution, a capability Atlanta's employers actively recruit for and reward with career advancement opportunities.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that meets the contact-hour requirements for this credential while fitting the schedules of working professionals across Atlanta and beyond. Our faculty consists of active certified practitioners who bring real-world experience to every session, ensuring the frameworks and tools you learn translate directly to your projects. By completing our program, you'll earn the structured preparation, mentorship, and verified training hours necessary to sit for the PMI-CPMAI exam with confidence—positioning yourself for leadership roles in program management throughout your Atlanta career.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:48.934053Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "5c7769892e406cef",
-            "_ai_locked": true,
-            "id": "ai_block_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Atlanta's Supply Chain Leaders Choose PMI-CPMAI Certification",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Training Partner",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMI-CPMAI training that meets all PMI requirements. Your certification carries full PMI credibility with employers across Atlanta's major industries—no questions about program legitimacy or rigor."
-                },
-                {
-                    "heading": "Live-Virtual Classes, Flexible Schedule",
-                    "text": "Attend instructor-led sessions live via video from anywhere, on your schedule. Granite PM Academy's live-virtual format satisfies all PMI contact-hour requirements for PMI-CPMAI eligibility while letting you balance work at Delta, UPS, or Home Depot with your professional development."
-                },
-                {
-                    "heading": "Instructors Who Certify and Practice",
-                    "text": "Your instructors are active certified practitioners—not just trainers. They bring real-world project and program management experience to every lesson, translating concepts into the scenarios you'll face in Atlanta's logistics, IT, healthcare, and financial services environments."
-                },
-                {
-                    "heading": "Atlanta Employers Hire PMI-CPMAI Professionals",
-                    "text": "Atlanta's largest employers—including logistics, supply chain, IT, healthcare, and construction firms—actively seek PMI-certified program managers. PMI-CPMAI credential strengthens your candidacy for advancement roles across the city's fastest-growing sectors and top-tier organizations."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:53.260180Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "84e78f1dd33f76ad",
-            "_ai_locked": true,
-            "id": "ai_block_2"
-        },
-        {
-            "type": "stats",
-            "stats_heading": "The AI Project Management Gap, By the Numbers",
-            "stats_heading_level": "h2",
-            "stats_bg_color": "custom",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#0d1b3e",
-            "skin": "",
-            "stats_items": [
-                {
-                    "number": "80%+",
-                    "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
-                },
-                {
-                    "number": "2x",
-                    "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
-                },
-                {
-                    "number": "~20%",
-                    "label": "of project managers report strong practical AI skills today — PMI, 2025"
-                },
-                {
-                    "number": "62%",
-                    "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
-                }
-            ]
-        },
-        {
-            "type": "stats",
-            "stats_heading": "",
-            "stats_bg_color": "accent",
-            "stats_text_color": "#ffffff",
-            "stats_bg_custom": "#2563eb",
-            "skin": "accent",
-            "stats_items": [
-                {
-                    "number": "6",
-                    "label": "PMI certifications offered"
-                },
-                {
-                    "number": "<1%",
-                    "label": "Of organizations hold PMI Premier ATP status — we do"
-                },
-                {
-                    "number": "90",
-                    "label": "Day pass guarantee — or your next course is free"
-                }
-            ]
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Atlanta's Growth Industries",
-            "text": "<p>Atlanta's logistics and supply chain sector anchors demand for certified project managers, with UPS, Delta Air Lines, and The Home Depot all headquartered here and managing complex operations across distribution networks, fleet modernization, and retail expansion. Beyond logistics, healthcare systems including Emory Healthcare and Wellstar employ PMs across clinical IT projects and facility development, while technology and entertainment sectors—including Turner Broadcasting and Microsoft's Atlanta data center campus—create additional roles in infrastructure and software delivery. Major initiatives like the Hartsfield-Jackson Atlanta International Airport capital improvement projects and The Centennial Yards mixed-use development in downtown Atlanta demonstrate the scale and visibility of project management work in the region.</p><p>PMP® and CAPM® certifications are widely recognized by Atlanta employers across logistics, IT, and healthcare, often appearing as preferred or required qualifications in local job postings. Project manager compensation in Atlanta tends to track close to national averages, with roles in tech and logistics typically at the higher end of the range—and PMP® certification gives candidates leverage in salary negotiations. Completing Granite PM Academy's PMI-CPMAI Certification Training positions you to meet that credential demand directly, equipping you with the recognized standard employers here actively seek when filling experienced and entry-level project management roles.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:01.501580Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "fd57301f8f7220cc",
-            "_ai_locked": true
-        },
-        {
-            "type": "pricing_cards",
-            "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
-            "pc_cols": "2",
-            "pc_bg": "#f0f4f8",
-            "pc_items": [
-                {
-                    "name": "Live-Virtual PMI-CPMAI Training",
-                    "badge": "AI-FOCUSED",
-                    "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
-                    "sublabel": "",
-                    "meta": "Next cohort: see schedule below",
-                    "price": "$1,495",
-                    "period": "per person",
-                    "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
-                    "btn_text": "See Upcoming Dates",
-                    "btn_url": "#cpmai_schedule"
-                },
-                {
-                    "name": "Group / Corporate Training",
-                    "badge": "5+ SEATS",
-                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-                    "sublabel": "",
-                    "meta": "Contact us for a quote",
-                    "price": "Custom",
-                    "period": "per engagement",
-                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-                    "btn_text": "Request a Quote",
-                    "btn_url": "/contact-us"
-                }
-            ]
-        },
-        {
-            "type": "custom_html",
-            "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
-        },
-        {
-            "type": "testimonials",
-            "tm_label": "STUDENT RESULTS",
-            "tm_main_heading": "They passed. You can too.",
-            "tm_heading": "",
-            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-            "tm_bg_color": "#ffffff",
-            "tm_text_color": "#1a2e5a",
-            "tm_accent": "highlight",
-            "tm_accent_custom": "#ffc000",
-            "tm_badge_accent": "custom",
-            "tm_badge_accent_custom": "#10b981",
-            "tm_cols": 3,
-            "skin": "subtle",
-            "tm_items": [
-                {
-                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
-                    "name": "Sarah L.",
-                    "location": "IT Project Lead, Microsoft",
-                    "initials": "SL",
-                    "avatar_color": "#0d9488",
-                    "result_badge": "✓ CAPM® + PMP® Certified"
-                },
-                {
-                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-                    "name": "David K.",
-                    "location": "Construction PM, Turner Corp",
-                    "initials": "DK",
-                    "avatar_color": "highlight",
-                    "result_badge": "✓ Entire team PMP® certified"
-                }
-            ]
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
-            "fq_bg_color": "#f0f4f8",
-            "fq_item_bg": "#ffffff",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#1a2e5a",
-            "fq_icon_bg_custom": "#c8960a",
-            "fq_items": [
-                {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
-                },
-                {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
-                },
-                {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
-                },
-                {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
-                },
-                {
-                    "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing in Atlanta's logistics sector?",
-                    "answer": "<p>Atlanta's logistics and supply-chain roles—particularly within UPS, Delta, and similar major employers—increasingly list PMP or related certifications as preferred qualifications. PMI-CPMAI training equips professionals to manage complex, technology-driven projects common in this sector. While certification alone does not guarantee advancement, it strengthens your candidacy and provides negotiating leverage in a competitive market where experienced, credentialed project managers command respect.</p>"
-                },
-                {
-                    "question": "Which Atlanta industries most value PMI-CPMAI project management credentials?",
-                    "answer": "<p>Healthcare, IT, and logistics sectors in Atlanta show particularly strong demand for certified project managers. Emory Healthcare, Wellstar Health System, and major tech employers actively seek PMP and CAPM holders for roles overseeing digital transformation and operational projects. Film and entertainment (Warner Bros. Discovery), financial services, and construction also recognize PMI credentials as a competitive asset in local hiring.</p>"
-                },
-                {
-                    "question": "Can I attend PMI-CPMAI live-virtual training from my Atlanta workplace?",
-                    "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered entirely live-virtual, so you can attend from your office, home, or any location with reliable internet. This flexibility works well for Atlanta professionals balancing full-time roles at major employers while pursuing certification. You'll interact with instructors and peers in real time, regardless of your physical location.</p>"
-                },
-                {
-                    "question": "How does Atlanta's project manager job market affect certification timing?",
-                    "answer": "<p>Atlanta's strong, consistent demand for credentialed project managers—especially in tech and healthcare—means pursuing certification sooner rather than later gives you an edge. The market favors those who combine experience with formal credentials; waiting can mean missing promotion opportunities or higher-paying roles. Starting your training now positions you to capitalize on current hiring momentum in your sector.</p>"
-                }
-            ],
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "append",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:07.131511Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "693192fea0940938",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Atlanta's logistics and supply chain sector—anchored by UPS and The Home Depot—drives consistent demand for skilled project managers across the metro. Major capital initiatives like Hartsfield-Jackson Airport's terminal modernization and MARTA transit expansion further fuel hiring in this field. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Atlanta professionals seeking the credentials employers in these sectors actively seek.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:10.377695Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "6d4151bdee53f339",
-            "_ai_locked": true
-        },
-        {
-            "type": "links_grid",
-            "lg_heading": "Other PM Certifications in Atlanta",
-            "lg_subtext": "",
-            "lg_sublabel": "",
-            "lg_photo": "",
-            "lg_photo_alt": "",
-            "lg_cols": 3,
-            "lg_overlay": "0.6",
-            "lg_links": [
-                {
-                    "label": "PMP Certification Training Atlanta",
-                    "url": "/pmp-certification-training-atlanta-ga/"
-                },
-                {
-                    "label": "PMP Bootcamp Atlanta",
-                    "url": "/pmp-bootcamp-atlanta-ga/"
-                },
-                {
-                    "label": "CAPM Certification Training Atlanta",
-                    "url": "/capm-certification-training-atlanta-ga/"
-                }
-            ],
-            "lg_style": "light",
-            "lg_bg_color": "#f7f9fc",
-            "lg_accent": "accent",
-            "lg_accent_custom": "#fd783b",
-            "_sibling_links": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Lead AI Projects from {city}",
-            "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
-            "cb_btn_text": "See Upcoming Dates",
-            "cb_btn_url": "#cpmai_schedule",
-            "cb_bg": "custom",
-            "cb_bg_custom": "#1a2e5a",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
-        }
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "atlanta-ga",
+  "slug": "ai-training-atlanta-ga",
+  "title": "PMI-CPMAI Certification Training {city}",
+  "city_vars": {
+    "id": "atlanta-ga",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "atlanta-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier5"
     ],
-    "seo": {
-        "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "canonical_url": "https://granitepmacademy.com/ai-training-atlanta-ga/",
-        "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "meta_keywords": "AI training Atlanta, GA, AI courses Atlanta, CPMAI certification Atlanta, AI project management training Atlanta, GA, AI for project managers Atlanta",
-        "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
-        "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
-        "og_image": "",
-        "service_name": "PMI-CPMAI Certification Training",
-        "service_type": "Professional Training",
-        "service_area": "{city}, {SS}",
-        "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
-        "bc_label": "PMI-CPMAI {city}",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\",\n      \"name\": \"PMI-CPMAI Certification Training in Atlanta, GA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Atlanta, GA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Atlanta, GA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Atlanta, GA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Atlanta, GA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n    }\n  ]\n}",
-        "primary_keyword": "PMI-CPMAI Certification Training",
-        "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+    "industries": [
+      "Logistics and Supply Chain",
+      "Information Technology",
+      "Film and Entertainment",
+      "Healthcare",
+      "Financial Services (Fintech)",
+      "Construction and Real Estate Development"
+    ],
+    "top_employers": [
+      "The Home Depot",
+      "Delta Air Lines",
+      "The Coca-Cola Company",
+      "UPS",
+      "Southern Company",
+      "Cox Enterprises",
+      "AT&T",
+      "Emory University and Emory Healthcare",
+      "Wellstar Health System",
+      "NCR Voyix",
+      "Turner Broadcasting (Warner Bros. Discovery)",
+      "Georgia-Pacific"
+    ],
+    "salary_note": "Project manager compensation in Atlanta tends to track close to national averages, with variation based on industry (tech and logistics roles often pay at the higher end) and level of certification. Demand for experienced, credentialed project managers remains strong, giving candidates with PMP certification leverage in salary negotiations.",
+    "market_blurb": "Atlanta's project management job market is robust, fueled by the city's diverse economic base spanning logistics, technology, healthcare, and entertainment. As headquarters to major corporations like Delta, UPS, and The Home Depot, the metro area consistently generates demand for skilled project and program managers. The city's growing tech sector and status as a logistics hub further reinforce steady hiring activity in this field.",
+    "notable_projects": [
+      "Hartsfield-Jackson Atlanta International Airport capital improvement and terminal modernization projects",
+      "The Centennial Yards mixed-use development in downtown Atlanta",
+      "MARTA transit expansion initiatives",
+      "Microsoft's Atlanta data center and campus development"
+    ],
+    "credential_demand": "PMP certification is widely valued among Atlanta-area employers, particularly in logistics, IT, and healthcare sectors, and frequently appears as a preferred or required qualification in local project management job postings. CAPM is also recognized as a solid entry point for those building a project management career in the region.",
+    "_researched": 1,
+    "city_spotlight": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta, and The Home Depot—drives consistent demand for skilled project managers across the metro area. Add the city's thriving tech ecosystem, healthcare institutions, and major infrastructure initiatives like MARTA transit expansion, and the PMP credential becomes a clear asset for career advancement. Granite PM Academy delivers live-virtual PMP Certification to Atlanta professionals, combining flexible scheduling with PMI-aligned training.</p>",
+    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-atlanta-ga.webp",
+    "city_image_alt": "A2ATL20250614-0721 in Atlanta, GA",
+    "city_image_credit": "Photo: AtlChampion, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:A2ATL20250614-0721_(cropped).jpg"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Atlanta's logistics, supply chain, and healthcare sectors depend on skilled project managers to coordinate complex operations across distributed teams. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that fulfills PMI's contact-hour requirements on a flexible schedule, helping you earn the credential without disrupting your current role. The PMI-CPMAI distinction strengthens your profile for advancement within Atlanta's largest employers and fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_69b048716a.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:45.347475Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "40deefef9358af01",
+      "_ai_locked": true,
+      "id": "hero_split_1",
+      "_ai_injected_count": 1
     },
-    "locked_blocks": [],
-    "generated_at": "2026-11-08T20:10:01+00:00",
-    "template_version": "636b19b2010ea344ae6cc71c27ff2a00"
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMI-CPMAI Certification Training in Atlanta, GA",
+      "text": "<p>Atlanta's logistics and supply chain sector—anchored by industry titans like UPS and The Home Depot—creates sustained demand for certified program and portfolio managers who can orchestrate complex, multi-initiative environments. As the city's Fortune 500 companies and mid-market firms expand operations across technology, healthcare, and real estate development, organizations increasingly seek professionals who hold credentials demonstrating mastery of program and portfolio governance. The PMI-CPMAI Certification validates your ability to align strategic objectives with program execution, a capability Atlanta's employers actively recruit for and reward with career advancement opportunities.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that meets the contact-hour requirements for this credential while fitting the schedules of working professionals across Atlanta and beyond. Our faculty consists of active certified practitioners who bring real-world experience to every session, ensuring the frameworks and tools you learn translate directly to your projects. By completing our program, you'll earn the structured preparation, mentorship, and verified training hours necessary to sit for the PMI-CPMAI exam with confidence—positioning yourself for leadership roles in program management throughout your Atlanta career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:48.934053Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5c7769892e406cef",
+      "_ai_locked": true,
+      "id": "ai_block_1"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Atlanta's Supply Chain Leaders Choose PMI-CPMAI Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMI-CPMAI training that meets all PMI requirements. Your certification carries full PMI credibility with employers across Atlanta's major industries—no questions about program legitimacy or rigor."
+        },
+        {
+          "heading": "Live-Virtual Classes, Flexible Schedule",
+          "text": "Attend instructor-led sessions live via video from anywhere, on your schedule. Granite PM Academy's live-virtual format satisfies all PMI contact-hour requirements for PMI-CPMAI eligibility while letting you balance work at Delta, UPS, or Home Depot with your professional development."
+        },
+        {
+          "heading": "Instructors Who Certify and Practice",
+          "text": "Your instructors are active certified practitioners—not just trainers. They bring real-world project and program management experience to every lesson, translating concepts into the scenarios you'll face in Atlanta's logistics, IT, healthcare, and financial services environments."
+        },
+        {
+          "heading": "Atlanta Employers Hire PMI-CPMAI Professionals",
+          "text": "Atlanta's largest employers—including logistics, supply chain, IT, healthcare, and construction firms—actively seek PMI-certified program managers. PMI-CPMAI credential strengthens your candidacy for advancement roles across the city's fastest-growing sectors and top-tier organizations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:37:53.260180Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "84e78f1dd33f76ad",
+      "_ai_locked": true,
+      "id": "ai_block_2"
+    },
+    {
+      "type": "stats",
+      "stats_heading": "The AI Project Management Gap, By the Numbers",
+      "stats_heading_level": "h2",
+      "stats_bg_color": "custom",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#0d1b3e",
+      "skin": "",
+      "stats_items": [
+        {
+          "number": "80%+",
+          "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+        },
+        {
+          "number": "2x",
+          "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+        },
+        {
+          "number": "~20%",
+          "label": "of project managers report strong practical AI skills today — PMI, 2025"
+        },
+        {
+          "number": "62%",
+          "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Atlanta's Growth Industries",
+      "text": "<p>Atlanta's logistics and supply chain sector anchors demand for certified project managers, with UPS, Delta Air Lines, and The Home Depot all headquartered here and managing complex operations across distribution networks, fleet modernization, and retail expansion. Beyond logistics, healthcare systems including Emory Healthcare and Wellstar employ PMs across clinical IT projects and facility development, while technology and entertainment sectors—including Turner Broadcasting and Microsoft's Atlanta data center campus—create additional roles in infrastructure and software delivery. Major initiatives like the Hartsfield-Jackson Atlanta International Airport capital improvement projects and The Centennial Yards mixed-use development in downtown Atlanta demonstrate the scale and visibility of project management work in the region.</p><p>PMP® and CAPM® certifications are widely recognized by Atlanta employers across logistics, IT, and healthcare, often appearing as preferred or required qualifications in local job postings. Project manager compensation in Atlanta tends to track close to national averages, with roles in tech and logistics typically at the higher end of the range—and PMP® certification gives candidates leverage in salary negotiations. Completing Granite PM Academy's PMI-CPMAI Certification Training positions you to meet that credential demand directly, equipping you with the recognized standard employers here actively seek when filling experienced and entry-level project management roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:01.501580Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "fd57301f8f7220cc",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMI-CPMAI Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMI-CPMAI Training",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual PMI-CPMAI training covering PMI's official AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "PMI-CPMAI official curriculum\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ CAPM® + PMP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction Project Manager",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is PMI-CPMAI certification worth pursuing in Atlanta's logistics sector?",
+          "answer": "<p>Atlanta's logistics and supply-chain roles—particularly within UPS, Delta, and similar major employers—increasingly list PMP or related certifications as preferred qualifications. PMI-CPMAI training equips professionals to manage complex, technology-driven projects common in this sector. While certification alone does not guarantee advancement, it strengthens your candidacy and provides negotiating leverage in a competitive market where experienced, credentialed project managers command respect.</p>"
+        },
+        {
+          "question": "Which Atlanta industries most value PMI-CPMAI project management credentials?",
+          "answer": "<p>Healthcare, IT, and logistics sectors in Atlanta show particularly strong demand for certified project managers. Emory Healthcare, Wellstar Health System, and major tech employers actively seek PMP and CAPM holders for roles overseeing digital transformation and operational projects. Film and entertainment (Warner Bros. Discovery), financial services, and construction also recognize PMI credentials as a competitive asset in local hiring.</p>"
+        },
+        {
+          "question": "Can I attend PMI-CPMAI live-virtual training from my Atlanta workplace?",
+          "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered entirely live-virtual, so you can attend from your office, home, or any location with reliable internet. This flexibility works well for Atlanta professionals balancing full-time roles at major employers while pursuing certification. You'll interact with instructors and peers in real time, regardless of your physical location.</p>"
+        },
+        {
+          "question": "How does Atlanta's project manager job market affect certification timing?",
+          "answer": "<p>Atlanta's strong, consistent demand for credentialed project managers—especially in tech and healthcare—means pursuing certification sooner rather than later gives you an edge. The market favors those who combine experience with formal credentials; waiting can mean missing promotion opportunities or higher-paying roles. Starting your training now positions you to capitalize on current hiring momentum in your sector.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:07.131511Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "693192fea0940938",
+      "_ai_locked": true,
+      "id": "faq_two_col_1",
+      "_ai_injected_count": 4
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Atlanta's logistics and supply chain sector—anchored by UPS and The Home Depot—drives consistent demand for skilled project managers across the metro. Major capital initiatives like Hartsfield-Jackson Airport's terminal modernization and MARTA transit expansion further fuel hiring in this field. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Atlanta professionals seeking the credentials employers in these sectors actively seek.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-10-29T04:38:10.377695Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "6d4151bdee53f339",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "cpmai_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMI-CPMAI Certification in Atlanta",
+      "steps_items": [
+        {
+          "heading": "Start Without Prerequisites",
+          "text": "PMI-CPMAI requires no prior project management certification, AI expertise, or technical background to enroll. This open-access model lets Atlanta professionals pivot into AI-enabled project leadership immediately, without collecting intermediate credentials first."
+        },
+        {
+          "heading": "Complete Granite PM Academy's Prep Course",
+          "text": "Enroll in our live-virtual, instructor-led PMI-CPMAI Exam Prep Course, covering the CPMAI Methodology for managing AI projects from inception through operationalization. Instruction is delivered 100% online, allowing you to learn on your schedule while maintaining your current role."
+        },
+        {
+          "heading": "Schedule Your Exam via Pearson VUE",
+          "text": "Register for the PMI-CPMAI exam through Pearson VUE within 12 months of completing the prep course. Choose from in-person testing at a local center or online proctoring, and select your preferred date and time slot."
+        },
+        {
+          "heading": "Sit for the Certification Exam",
+          "text": "Take the exam with structured support materials from Granite PM Academy. If you need a retake, PMI permits up to three attempts within your 365-day eligibility window, giving you multiple opportunities to achieve passing score."
+        },
+        {
+          "heading": "Maintain Your PMI-CPMAI Credential",
+          "text": "Earn 30 Professional Development Units (PDUs) over the standard three-year renewal cycle to keep your certification active. Renewal aligns with your career growth and keeps your credential current in Atlanta's competitive project-management landscape."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-11-08T20:16:31.641786Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "cpmai_pathway",
+      "_ai_input_hash": "714ace8a2091c2b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "links_grid",
+      "lg_heading": "Other PM Certifications in Atlanta",
+      "lg_subtext": "",
+      "lg_sublabel": "",
+      "lg_photo": "",
+      "lg_photo_alt": "",
+      "lg_cols": 3,
+      "lg_overlay": "0.6",
+      "lg_links": [
+        {
+          "label": "PMP Certification Training Atlanta",
+          "url": "/pmp-certification-training-atlanta-ga/"
+        },
+        {
+          "label": "PMP Bootcamp Atlanta",
+          "url": "/pmp-bootcamp-atlanta-ga/"
+        },
+        {
+          "label": "CAPM Certification Training Atlanta",
+          "url": "/capm-certification-training-atlanta-ga/"
+        }
+      ],
+      "lg_style": "light",
+      "lg_bg_color": "#f7f9fc",
+      "lg_accent": "accent",
+      "lg_accent_custom": "#fd783b",
+      "_sibling_links": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-atlanta-ga/",
+    "meta_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Atlanta, GA, AI courses Atlanta, CPMAI certification Atlanta, AI project management training Atlanta, GA, AI for project managers Atlanta",
+    "og_title": "PMI-CPMAI Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-CPMAI certification training for project managers in {city}, {SS} — live-virtual, instructor-led AI project management courses from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "PMI-CPMAI Certification Training",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "PMI-CPMAI {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\",\n      \"name\": \"PMI-CPMAI Certification Training in Atlanta, GA | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training in Atlanta, GA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Training Atlanta, GA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#course\",\n      \"name\": \"PMI-CPMAI Certification Training in Atlanta, GA\",\n      \"description\": \"PMI-CPMAI certification training for project managers in Atlanta, GA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-atlanta-ga/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects \\u2014 covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-atlanta-ga/\"\n    }\n  ]\n}",
+    "primary_keyword": "PMI-CPMAI Certification Training",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-11-08T20:16:04+00:00",
+  "template_version": "4e0b2f9205ad4d8c5848468e2b093f36"
 }
