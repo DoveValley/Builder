@@ -61,7 +61,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Corpus Christi's energy, port, and defense sectors depend on professionals who can coordinate complex, high-stakes projects across multiple teams and timelines. Granite PM Academy delivers live-virtual CAPM Certification Training that satisfies PMI's education requirement, taught by active certified practitioners and structured around your schedule. Earning your CAPM credential positions you competitively for project coordinator and assistant project manager roles throughout the region's major employers.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -76,7 +76,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:30.242840Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "9dd7257e98cd9276",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -87,7 +95,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training for Corpus Christi Project Managers",
+            "text": "<p>Corpus Christi's role as a major energy and shipping hub creates distinctive demand for formally trained project managers. The Port of Corpus Christi, combined with the region's petrochemical refineries and ongoing infrastructure investments, drives employers to prioritize candidates with recognized credentials. Beyond the energy sector, healthcare systems like CHRISTUS Spohn, military operations at Naval Air Station Corpus Christi, and construction projects tied to industrial expansion all require skilled project coordinators and managers. The Certified Associate in Project Management (CAPM®) credential signals to these employers that you understand structured project delivery and can contribute immediately to complex, high-stakes initiatives. In Corpus Christi's competitive market, CAPM certification helps you stand out and qualify for roles that demand both technical knowledge and professional credibility.</p><p>Granite PM Academy delivers CAPM® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our program satisfies the contact-hour requirement for CAPM® eligibility and is taught by active certified practitioners with real-world project experience. You'll learn the PMBOK® Guide framework, explore essential tools and techniques, and prepare thoroughly for the CAPM® exam—all without relocating or adjusting your work in Corpus Christi. Upon completion, you'll hold a credential recognized across industries and employers in your region, positioning you for advancement in project management roles and competitive compensation as you build your career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:34.353677Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "9c5466e41e8f25d1",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -98,7 +117,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification for Corpus Christi's Energy & Port Sector",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your CAPM contact hours meet PMI eligibility standards directly. No question about credential validity—you're learning from a program recognized by the Project Management Institute itself."
+                },
+                {
+                    "heading": "Live-Virtual Classes, On Your Schedule",
+                    "text": "Attend live instructor-led sessions from anywhere, satisfying all contact-hour requirements for CAPM without commuting. Balancing work in oil & gas, maritime logistics, or healthcare? Our virtual format fits working professionals in Corpus Christi and beyond."
+                },
+                {
+                    "heading": "Instructors with Real Project Experience",
+                    "text": "Your instructors are active certified practitioners—not trainers reading slides. They bring hands-on project-management experience into every class, anchoring concepts in scenarios you'll face on the job, not textbook examples."
+                },
+                {
+                    "heading": "Credential Valued by Major Local Employers",
+                    "text": "Valero Energy, Port of Corpus Christi, CHRISTUS Spohn Health System, and regional defense contractors prioritize project-management credentials for advancement. CAPM demonstrates foundational rigor and positions you for roles managing initiatives in energy, logistics, and healthcare."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:38.384622Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "4fdd2bf389000eda",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -135,7 +182,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Energy-Driven Corpus Christi",
+            "text": "<p>Corpus Christi's economy is anchored by major energy, port, and industrial employers who actively seek certified project managers. Valero Energy, Flint Hills Resources, and Citgo Petroleum operate large refining operations that depend on skilled project coordination for maintenance, safety, and capital improvements. The Port of Corpus Christi—one of the nation's busiest—drives demand for project managers across maritime logistics and infrastructure roles, particularly as initiatives like the Channel Improvement Project and the Harbor Bridge Replacement Project move forward. CHRISTUS Spohn Health System and the City of Corpus Christi also hire project managers for operational and construction-related work, rounding out a diversified local job market.</p><p>The CAPM® credential is increasingly valued by Corpus Christi employers in oil, gas, petrochemical, construction, and maritime sectors as evidence of project management competence. While not universally mandatory, earning your CAPM through Granite PM Academy positions you competitively for both entry and mid-level project coordination roles across these industries. Project manager compensation in the region tends to reflect strong demand from refining, port, and infrastructure employers—particularly for candidates who can demonstrate certified expertise. Completing live-virtual CAPM Certification Training gives you a recognized credential without geographic barriers, allowing you to enter or advance within Corpus Christi's industrially active job market on your own schedule.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:42.751997Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "618db4a991fe4477",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -194,7 +252,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to CAPM Certification in Corpus Christi",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree and completion of project management education hours—no prior work experience necessary. This makes CAPM ideal for professionals across Corpus Christi's Oil & Gas, Port & Maritime, Healthcare, and Defense sectors who are new to formal project management but ready to advance."
+                },
+                {
+                    "heading": "Complete 23 Hours of Project Management Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format covers the PMBOK Guide framework in a structured, interactive setting designed for working professionals who need flexibility and fast-track completion without sacrificing depth."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Register with the Project Management Institute and pay the associated exam fee. Granite PM Academy provides guidance through this process to ensure your application meets PMI's requirements and moves toward exam eligibility without delay."
+                },
+                {
+                    "heading": "Prepare and Sit for the CAPM Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study materials, and instructor support—to build confidence before test day. Our team helps you identify knowledge gaps and reinforces key concepts aligned to the official CAPM exam domains."
+                },
+                {
+                    "heading": "Maintain Your CAPM Credential",
+                    "text": "Earn professional development units over a three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing PDU opportunities and renewal support, helping you stay current with project management best practices throughout your career."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:47.289681Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "6c96eee6123de078",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -254,19 +343,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing in Corpus Christi's energy sector?",
+                    "answer": "<p>Yes. Corpus Christi's major petrochemical refineries, oil companies, and port operators increasingly prioritize certified project managers for coordination roles. While CAPM is not always mandatory, holding the credential strengthens your candidacy in a competitive market where energy and maritime employers actively seek professionals who can demonstrate structured PM knowledge. Certification signals capability for roles supporting refining, infrastructure, and logistics projects that drive the regional economy.</p>"
+                },
+                {
+                    "question": "Which Corpus Christi industries most value CAPM or PMP certification?",
+                    "answer": "<p>Oil & gas refineries, port and maritime logistics operations, construction and engineering firms, and public sector agencies (military, city, county, school district) in Corpus Christi most actively seek certified project managers. Healthcare systems like CHRISTUS Spohn and educational institutions also recognize certification as a professional advantage. Employers in these sectors view CAPM as evidence of foundational PM rigor, especially for candidates entering or advancing within project coordination roles.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual CAPM classes while working in Corpus Christi?",
+                    "answer": "<p>Yes. Granite PM Academy delivers all CAPM training live-virtual nationwide, meaning you can attend from your workplace, home, or anywhere with internet access in Corpus Christi. This format suits the schedules of professionals working at Valero, the Port, CCIS, NAS Corpus Christi, and other major employers. You maintain your work commitments while earning certification without travel or on-site class requirements.</p>"
+                },
+                {
+                    "question": "Does Corpus Christi's job market make early CAPM certification valuable?",
+                    "answer": "<p>Yes. Corpus Christi's active energy, construction, and port sectors consistently generate project management openings, and employers in these industries favor candidates who hold or are pursuing CAPM early in their careers. Earning certification before competing for promotions or new roles positions you advantageously in a region where petrochemical, maritime, and infrastructure projects create sustained demand for certified project coordinators.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:53.667998Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "79f7aa8cc276fb14",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Corpus Christi's energy and maritime sectors—anchored by the Port of Corpus Christi, major refineries, and ongoing LNG facility expansion—create sustained demand for certified project managers across infrastructure, petrochemical, and logistics roles. Military operations, healthcare systems, and education institutions add further breadth to local employer need. Granite PM Academy delivers live-virtual CAPM Certification Training to Corpus Christi professionals seeking the credential that employers in these industries increasingly require.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -277,7 +390,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:55.480956Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "c91b939ff78785c0",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

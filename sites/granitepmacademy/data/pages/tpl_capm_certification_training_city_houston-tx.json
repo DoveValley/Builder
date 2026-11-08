@@ -61,7 +61,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Houston's energy, petrochemical, and construction sectors depend on skilled project managers to deliver complex, regulated initiatives. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education you need to sit for the CAPM exam, taught by active certified practitioners. Earning your CAPM establishes foundational credibility with major Houston employers and positions you for advancement in project-driven roles across the region's largest industries.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -76,7 +76,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:43.847734Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "1afa7d1c586dfa2d",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -87,7 +95,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training in Houston for Project Managers",
+            "text": "<p>Houston's dominance as a global energy hub—home to ExxonMobil, Chevron, Shell, and dozens of major oil, gas, and petrochemical firms—creates exceptional demand for credentialed project managers who can lead complex, high-stakes initiatives. Yet the credential market extends far beyond energy: NASA's Johnson Space Center, the Texas Medical Center, construction giants like Bechtel, and thriving aerospace and manufacturing sectors all actively recruit professionals with recognized project management credentials. The CAPM (Certified Associate in Project Management) certification, administered by the Project Management Institute, signals to Houston employers across these industries that you have mastered foundational PM methodology and can step confidently into junior and mid-level project roles. In a city where infrastructure, industrial expansion, and healthcare projects run continuously, CAPM holders distinguish themselves in a competitive job market and often command stronger compensation and advancement opportunities than uncertified peers.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led classes that fit working professionals' schedules. Our courses satisfy the contact-hour requirements mandated by PMI for CAPM eligibility and are taught by active certified practitioners with real-world project experience. The live-virtual format means you learn from anywhere, with direct interaction and expert guidance throughout—no self-paced videos or recorded content alone. Upon successful completion and PMI exam passage, you'll hold a credential recognized by employers across Houston's energy, construction, healthcare, and aerospace sectors. Start your path to CAPM certification today and position yourself for your next career move.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:48.473595Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "fd2d6c4452525ebc",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -98,7 +117,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification for Houston's Energy and Aerospace Talent",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering CAPM® training that meets all PMI credential prerequisites. Your completion certificate satisfies contact-hour requirements, positioning you to apply for the CAPM® exam with confidence and full PMI recognition."
+                },
+                {
+                    "heading": "Live Virtual, Instructor-Led Format",
+                    "text": "Attend scheduled live-virtual classes led by active certified practitioners, eliminating commute time while maintaining real-time interaction. This format meets CAPM® contact-hour mandates and accommodates Houston's demanding project schedules across energy, construction, and aerospace sectors."
+                },
+                {
+                    "heading": "Exam Prep from Active Practitioners",
+                    "text": "Your instructors are working certified project managers, not full-time trainers. They integrate current best practices and real-world scenarios into exam-preparation modules, helping you grasp both PMBOK® concepts and the reasoning behind CAPM® test questions."
+                },
+                {
+                    "heading": "Credential Valued by Houston Employers",
+                    "text": "ExxonMobil, Chevron, Shell, Baker Hughes, Bechtel, and other major Houston employers actively hire CAPM®-certified professionals for project-support and coordination roles. The credential demonstrates baseline competency in PM frameworks these firms depend on across energy, construction, aerospace, and industrial operations."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:52.957270Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "56012948afa179ad",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -135,7 +182,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Houston's Energy Sector",
+            "text": "<p>Houston's energy industry—anchored by global leaders like ExxonMobil, Chevron, Shell, and ConocoPhillips—generates sustained demand for skilled project managers across upstream, downstream, and petrochemical operations. Beyond energy, major employers in construction and engineering (including Bechtel), healthcare (Memorial Hermann Health System, Houston Methodist), and aerospace (NASA Johnson Space Center) actively recruit certified project managers to oversee complex initiatives. Local initiatives such as Port of Houston expansion efforts, Texas Medical Center growth projects, and NASA's Artemis program support activities all rely on structured project management discipline, creating real-world opportunities for professionals who hold recognized credentials.</p><p>In Houston's competitive labor market, a CAPM certification signals foundational competency to employers who frequently list PMP or equivalent credentials as differentiators for advancement into mid- and senior-level roles. Project management salaries in the region scale meaningfully based on certification level, years of experience, and industry—particularly in oil and gas and engineering fields where standardized expertise commands premium compensation. Completing CAPM Certification Training through Granite PM Academy positions you to enter this credential-conscious market with a validated qualification, opening pathways to roles with organizations that view PMI credentials as essential for career progression and pay growth.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:56.693680Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "10333830f8fff954",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -194,7 +252,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to CAPM Certification in Houston",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your CAPM Eligibility",
+                    "text": "CAPM requires only a secondary diploma (or global equivalent) and completion of a formal project management education program—no prior work experience needed. This makes CAPM ideal for Houston professionals entering project management roles across energy, construction, healthcare, and aerospace sectors."
+                },
+                {
+                    "heading": "Complete 23 Hours of PM Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required project management coursework into a focused schedule, letting you balance certification training with your current role while gaining practical, immediately applicable knowledge."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your education hours, apply directly through PMI and submit your exam fee. Granite PM Academy guides you through the application process to ensure all documentation is in order before you sit for the exam."
+                },
+                {
+                    "heading": "Prepare and Pass the CAPM Exam",
+                    "text": "Use Granite PM Academy's exam-prep resources, practice questions, and instructor support to build confidence. Our trainers help you master PMBOK® Guide concepts and test-taking strategies so you arrive at the exam fully prepared."
+                },
+                {
+                    "heading": "Maintain Your CAPM Credential",
+                    "text": "CAPM certification is valid for three years. Maintain your status by earning professional development units (PDUs) through PMI-approved activities, training, and project involvement—keeping your credential current and strengthening your marketability in Houston's competitive PM landscape."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:34:01.165226Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "1a664436ce7f1b44",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -254,19 +343,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing for Houston energy sector careers?",
+                    "answer": "<p>Yes. Houston's energy, petrochemical, and engineering sectors—anchored by major employers like ExxonMobil, Chevron, Shell, and Baker Hughes—actively seek certified project managers. CAPM demonstrates foundational PM rigor and often positions you for advancement and higher compensation tiers within these competitive, standards-driven industries where credentials directly influence career progression and pay scaling.</p>"
+                },
+                {
+                    "question": "Which Houston employers value CAPM or PMP certification most?",
+                    "answer": "<p>Energy and oil & gas firms, engineering and construction companies, aerospace organizations near NASA Johnson Space Center, and major healthcare systems like Memorial Hermann and Houston Methodist prioritize PMP or CAPM credentials when evaluating mid-level and senior project management candidates. Many job postings in these sectors list certification as a differentiator, making CAPM a strategic stepping stone toward PMP or direct qualification for roles requiring standardized PM expertise.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual CAPM training from my Houston workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM training runs entirely online, allowing you to attend from your office, home, or anywhere with internet access. This format suits Houston professionals managing demanding schedules in energy, healthcare, and construction sectors, and eliminates travel time while maintaining real-time instructor interaction and peer collaboration.</p>"
+                },
+                {
+                    "question": "How does Houston's job market affect when to pursue CAPM certification?",
+                    "answer": "<p>Houston's strong demand for project management credentials across energy, engineering, and healthcare sectors means certified professionals move into higher-paying roles faster than non-certified peers. If you're currently in a related role or planning a career shift within these industries, pursuing CAPM sooner amplifies your competitive advantage in a tight, credential-conscious local market.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:34:06.311781Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "aea8e8f6cab8503e",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Houston's global energy sector—anchored by ExxonMobil, Chevron, Shell, and other major operators—drives consistent demand for certified project managers across oil & gas, construction, aerospace, and healthcare. Major initiatives like Port of Houston expansion and NASA Johnson Space Center's Artemis program support activities underscore the city's need for skilled PMs who can navigate complex, high-stakes delivery. Granite PM Academy delivers live-virtual CAPM® Certification Training to Houston professionals seeking credentials that align with these market opportunities.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -277,7 +390,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:34:07.988247Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "e3c9e54547eca8f8",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

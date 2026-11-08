@@ -59,7 +59,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Spartanburg's automotive, advanced manufacturing, and logistics sectors depend on professionals who can coordinate complex, multi-phase operations—exactly what the CAPM Certification validates. Granite PM Academy delivers live-virtual, instructor-led CAPM Certification Training that satisfies PMI's contact-hour education requirement, letting you earn this credential on your schedule while working. A CAPM credential strengthens your qualifications for project coordinator and entry-level project management roles across Spartanburg's largest employers.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -74,7 +74,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:24.928916Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "45a2c3e67bbe178b",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -85,7 +93,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training for Spartanburg Project Managers",
+            "text": "<p>Spartanburg's position as a manufacturing and logistics hub—home to BMW Manufacturing, Milliken & Company, and major distribution centers for national retailers and e-commerce platforms—has created sustained demand for skilled project managers who can lead complex supply chain, facility expansion, and production coordination initiatives. The Certified Associate in Project Management (CAPM®) credential is particularly valuable in this environment, where employers across automotive, materials science, healthcare, and distribution sectors consistently seek professionals who can demonstrate foundational project management competency and familiarity with the PMBOK® Guide framework. In Spartanburg, CAPM® certification signals readiness to advance into coordinator and specialist roles where structured scheduling, resource planning, and stakeholder communication are essential to operations success.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers CAPM® Certification Training through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our instructors are active certified practitioners who bring real-world project experience into every class, and our curriculum satisfies the contact-hour requirement needed to sit for the CAPM® exam. Whether you're early in your project management career or transitioning into a formal PM role at one of Spartanburg's major employers, our structured training approach prepares you to pass the exam and apply project management principles on day one. Start your path to certification today and strengthen your competitive position in the Spartanburg job market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:29.085766Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "f0a42943a33b5e89",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -96,7 +115,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification for Spartanburg's Manufacturing and Logistics Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your CAPM training meets PMI's rigorous standards. Employers across Spartanburg's automotive, textile, and distribution sectors trust PMI credentials. Your certification carries immediate credibility with BMW, Milliken, and regional logistics operations."
+                },
+                {
+                    "heading": "Live Instruction Counts Toward Contact Hours",
+                    "text": "Our live-virtual instructor-led format satisfies the contact-hour requirement for CAPM eligibility. No recorded lectures or self-paced modules—real-time instruction with active certified practitioners. You earn your hours while learning from professionals actively practicing project management in today's workplace."
+                },
+                {
+                    "heading": "Exam Readiness Built Into Every Session",
+                    "text": "Granite instructors embed exam-preparation strategies throughout the curriculum, not as an afterthought. You'll practice with sample questions, review high-risk topics, and understand the test format before exam day. Active practitioners know what the CAPM tests and how Spartanburg professionals can pass it."
+                },
+                {
+                    "heading": "Local Demand: Spartanburg's Growing PM Market",
+                    "text": "Automotive suppliers, distribution centers, and healthcare systems in Spartanburg increasingly hire project managers with formal credentials. CAPM signals readiness to employers like Adidas, Amazon, and regional manufacturers investing in process improvement and operational excellence. Your certification opens doors across the region's fastest-growing sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:33.878285Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "0469cbcfcb8e1447",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -133,7 +180,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Spartanburg's Growing Industries",
+            "text": "<p>Spartanburg's automotive and advanced manufacturing sectors are among the largest employers of project managers in the region. BMW Manufacturing Co. continues to invest in its Plant Spartanburg operations, including a significant electric vehicle production expansion that requires skilled project coordinators and managers to oversee complex engineering and logistics workflows. Milliken & Company, a century-old innovator in textiles and materials science, actively seeks certified professionals for R&D center enhancements and operational improvements. Spartanburg Regional Healthcare System's ongoing facility expansions and modernization initiatives also depend on project management expertise, as do the region's major logistics hubs—including Amazon Fulfillment Center and the Adidas Distribution Center—where certified professionals help optimize supply chain and warehouse operations.</p><p>The CAPM certification is increasingly valued by Spartanburg employers across manufacturing, healthcare, and logistics as a way to standardize project delivery and demonstrate your capability to manage timelines, budgets, and stakeholder communication. While not universally required, certified project managers often command stronger offers and advance more quickly into engineering, operations, and expansion-related roles. Completing CAPM Certification Training with Granite PM Academy—delivered live-virtual and designed for working professionals—positions you to meet that regional demand without disrupting your current schedule. In a market where experienced PMP and CAPM holders track regional and national benchmarks for competitive compensation, adding this credential signals your commitment to the discipline and prepares you to lead the infrastructure and operational projects reshaping Spartanburg's industrial landscape.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:38.287719Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "72d07049522dd482",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -192,7 +250,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to CAPM Certification in Spartanburg",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree and completion of formal project management education—but no prior work experience. If you hold a high school diploma or higher and are ready to formalize your project management knowledge, you meet the baseline requirement to begin."
+                },
+                {
+                    "heading": "Complete 23 Hours of PM Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format delivers the required contact hours in a focused timeframe, fitting the schedules of working professionals across Spartanburg's logistics, manufacturing, and healthcare sectors."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After coursework completion, submit your application directly to PMI and pay the associated exam fee. Granite PM Academy staff will guide you through the submission process to ensure accuracy and timely approval."
+                },
+                {
+                    "heading": "Prepare and Pass the CAPM Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources and practice materials to build confidence. Schedule your proctored exam when you feel ready, then sit for the assessment at an authorized testing center."
+                },
+                {
+                    "heading": "Maintain Your CAPM Credential",
+                    "text": "After certification, earn professional development units (PDUs) across the standard three-year renewal cycle to keep your credential active. Continuing education keeps your project management skills current and positions you for advancement."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:42.338262Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "f93142d042373811",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -252,19 +341,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing in Spartanburg's manufacturing and healthcare sectors?",
+                    "answer": "<p>Yes. Spartanburg's major employers—including BMW Manufacturing, Milliken & Company, and Spartanburg Regional Healthcare System—increasingly prefer or seek certified project managers to standardize project delivery and improve operational efficiency. While CAPM is not always a strict requirement, the credential strengthens your candidacy for engineering, operations, and expansion roles across manufacturing, logistics, and healthcare, where process discipline directly impacts competitiveness.</p>"
+                },
+                {
+                    "question": "Which Spartanburg employers value CAPM certification most?",
+                    "answer": "<p>Automotive manufacturing and suppliers, advanced textile mills, healthcare systems, and logistics/distribution centers—including the region's major distribution and fulfillment operations—actively seek certified project managers. These industries rely on structured project delivery for new equipment deployments, facility expansions, and supply-chain improvements. CAPM demonstrates your commitment to recognized PM standards, making you a stronger candidate in these high-demand sectors.</p>"
+                },
+                {
+                    "question": "Can I attend Granite PM Academy's CAPM training while working in Spartanburg?",
+                    "answer": "<p>Yes. Granite PM Academy delivers live-virtual CAPM training nationwide, so you can attend from your workplace, home, or anywhere with internet access. This flexibility is especially valuable for Spartanburg professionals managing production or operations schedules at manufacturing plants and distribution centers, allowing you to earn your certification without relocating or disrupting your current role.</p>"
+                },
+                {
+                    "question": "How does Spartanburg's job market affect the timing of CAPM certification?",
+                    "answer": "<p>Spartanburg's manufacturing and logistics sectors frequently launch facility expansions and process improvements requiring certified project leaders. If you work in or target automotive, textile, healthcare, or distribution roles, pursuing CAPM now positions you ahead of demand spikes tied to regional growth. Early certification can accelerate advancement and align your skills with employer priorities before competitive openings intensify.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:48.048676Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "6ed56c552a9999d2",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Spartanburg's automotive and advanced manufacturing sector—led by BMW's plant expansion into electric vehicle production—drives consistent demand for skilled project managers who can oversee complex supply chain, facility, and capital initiatives. The region's logistics hubs, healthcare system modernization efforts, and materials science innovation create additional PM career pathways across industries. Granite PM Academy delivers live-virtual CAPM Certification Training to Spartanburg professionals seeking to formalize their credentials and advance in this growing market.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -275,7 +388,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:49.878361Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "8ca0621066eb0dc3",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

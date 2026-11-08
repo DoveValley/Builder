@@ -59,7 +59,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Oak Ridge's major employers in nuclear research, national security, and advanced manufacturing rely heavily on certified project managers to coordinate complex, regulated initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training that fulfills PMI's required contact hours, preparing you to earn the CAPM credential on your schedule. The certification strengthens your qualifications for project coordinator and entry-level PM roles across Oak Ridge's government contracting and scientific research sectors.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -74,7 +74,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:08.736380Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "3c2c0e5f1cac9a27",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -85,7 +93,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training for Oak Ridge Project Managers",
+            "text": "<p>Oak Ridge's economy is anchored by large-scale federal research, nuclear security, and government contracting—sectors where the Certified Associate in Project Management (CAPM®) credential is increasingly expected of professionals managing complex, regulated programs. Whether you work at Oak Ridge National Laboratory, the Y-12 National Security Complex, or one of the major contractors supporting these institutions, the CAPM® demonstrates your mastery of project management fundamentals and your alignment with PMI standards that govern work across the Department of Energy complex and affiliated organizations. In a market where scientific rigor, compliance, and stakeholder accountability define success, this certification sets you apart and opens pathways to senior roles in program oversight and strategic delivery.</p><p>Granite PM Academy delivers live-virtual, instructor-led CAPM® Certification Training that meets PMI's eligibility and contact-hour requirements, allowing you to earn your credential without disrupting your work schedule. Our courses are taught by active certified practitioners who bring real-world experience to every lesson, ensuring you learn not just theory but practical application. Upon completion and successful passage of the CAPM® exam, you'll hold a credential recognized across federal agencies, private contractors, and research organizations nationwide—a meaningful step toward higher compensation, expanded job mobility, and leadership opportunities in Oak Ridge's project-driven market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:12.867543Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "f450bfed5bfc4b4d",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -96,7 +115,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification for Oak Ridge's Project Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Credential Path",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Our CAPM Certification Training delivers the PMI-recognized contact hours required for eligibility, ensuring your certification counts with Oak Ridge employers in defense contracting, energy, and national security sectors."
+                },
+                {
+                    "heading": "Live-Virtual, Instructor-Led Format",
+                    "text": "Attend live classes online on a schedule that fits your work demands. Real-time instruction satisfies PMI contact-hour requirements without travel. Engage directly with instructors and peers, ask questions as they arise, and complete the pathway to sit for the CAPM exam."
+                },
+                {
+                    "heading": "Active Practitioners Teaching You",
+                    "text": "Your instructors are active certified professionals applying project management daily in their roles. They bring real-world context to frameworks and tools, not textbook theory alone. This working knowledge accelerates your readiness for both the exam and your first certified project."
+                },
+                {
+                    "heading": "Credential Demanded by Oak Ridge Employers",
+                    "text": "Oak Ridge National Laboratory, Y-12 National Security Complex, and major engineering contractors (Bechtel, Jacobs, Fluor) hire project and program managers with CAPM or PMP credentials. The certification signals readiness for the structured, regulated environments defining Oak Ridge's nuclear, defense, and energy sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:17.253744Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "26311e7ec3dc58fc",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -133,7 +180,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Oak Ridge's Federal Sector",
+            "text": "<p>Oak Ridge's economy is anchored by federal contractors and national laboratories managing some of the nation's most complex scientific and security missions. Oak Ridge National Laboratory, Y-12 National Security Complex, and their supporting firms—including Bechtel National, Jacobs Engineering Group, and UCOR—actively seek certified project managers to lead and coordinate work across nuclear research, energy science, and environmental remediation programs. Major initiatives like the Uranium Processing Facility construction at Y-12, the Frontier exascale supercomputer project at ORNL, and the Spallation Neutron Source Proton Power Upgrade demonstrate the scale and technical rigor of local work. These organizations depend on structured project management methodologies to deliver on tight federal timelines and regulatory requirements.</p><p>The CAPM® certification is viewed favorably by Oak Ridge employers, particularly those managing DOE, national laboratory, and defense-related contracts where formal project management credentials are often preferred or required for advancement. Project managers supporting federal and national security work in the area typically command competitive compensation reflecting the technical complexity and security demands of their roles—though exact pay depends on employer, clearance level, and experience. Completing CAPM Certification Training through Granite PM Academy equips you with PMI-recognized credentials and practical methodologies that resonate directly with how Oak Ridge contractors and laboratories operate, positioning you competitively for roles managing the region's high-stakes infrastructure and research initiatives.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:21.315312Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "7ca379fe9031d528",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -192,7 +250,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Pathway to CAPM Certification in Oak Ridge",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree (high school diploma, associate, or equivalent) and completion of project management education—no prior work experience needed. This makes CAPM ideal for Oak Ridge professionals entering project management roles in nuclear research, national security, and advanced engineering environments."
+                },
+                {
+                    "heading": "Complete 23 Hours of Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp, delivered entirely online and designed for working professionals. Our intensive format compresses the required contact hours into a schedule that fits your career without travel or classroom conflicts."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your education, submit your formal application to PMI and pay the exam fee. Granite PM Academy guides you through the application process to ensure all requirements are met before you schedule your exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources and practice materials to build confidence in the CAPM knowledge domains. Schedule your exam through PMI's testing partner and demonstrate your project management competency in a proctored environment."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "CAPM credentials renew on a three-year cycle. Earn professional development units (PDUs) through continuing education, volunteer work, and professional involvement to keep your certification active and current in your career."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:25.554917Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "11e0fd4cff380dd8",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -252,19 +341,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth it for Oak Ridge National Laboratory project managers?",
+                    "answer": "<p>Yes. Oak Ridge's dominant employers—ORNL, Y-12, and major federal contractors—routinely list PMP or CAPM as preferred qualifications in project and program management roles. CAPM demonstrates foundational PM rigor and aligns with the formal methodologies required on DOE and national security contracts. It also positions you competitively for advancement and higher-responsibility assignments in Oak Ridge's technical project environment.</p>"
+                },
+                {
+                    "question": "Which Oak Ridge employers value CAPM or PMP certification most?",
+                    "answer": "<p>Federal contractors and DOE-affiliated organizations—including Consolidated Nuclear Security, Bechtel National, Jacobs Engineering, UCOR, and Fluor—actively seek certified project managers. Government contracting, nuclear research, and environmental management roles in Oak Ridge typically favor formal credentials because complex, regulated work demands documented PM competency. CAPM serves as an entry-level credential that opens doors to these sectors.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual CAPM training while working at Oak Ridge facilities?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual CAPM training runs entirely online, so you can attend from home or any private location with secure internet. Many Oak Ridge professionals working on classified or secure projects prefer remote training options. Confirm your employer's security policies regarding course access and any required notifications before enrolling.</p>"
+                },
+                {
+                    "question": "Should I pursue CAPM certification now or wait in Oak Ridge's job market?",
+                    "answer": "<p>Oak Ridge's project management job market remains steady due to long-term DOE operations, environmental remediation work, and national security priorities. Certification strengthens your candidacy immediately and removes eligibility timing as a barrier to advancement. If you're planning a role change or seeking promotion within the next 6–12 months, pursuing CAPM now maximizes your competitive advantage.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:31.545552Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "09bc6a99e8eb4e2a",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Oak Ridge's project management market centers on nuclear research, national security, and federal contracting—institutions like Oak Ridge National Laboratory and Y-12 National Security Complex drive steady demand for credentialed PMs across large-scale scientific and engineering programs. Major initiatives such as the Uranium Processing Facility construction and the Frontier exascale supercomputer project create consistent opportunities for skilled practitioners. Granite PM Academy delivers live-virtual CAPM® Certification Training to Oak Ridge professionals nationwide, combining flexible scheduling with PMI-aligned preparation.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -275,7 +388,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:35:33.256878Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "8ae77fce5e72d4bc",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

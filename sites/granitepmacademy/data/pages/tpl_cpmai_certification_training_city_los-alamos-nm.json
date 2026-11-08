@@ -59,7 +59,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
+            "hs_subtext": "<p>Los Alamos's concentration in national security, nuclear science, and federal research demands project managers who master complex compliance and stakeholder coordination. Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that fulfill PMI's contact-hour requirements, enabling you to earn credentials recognized across LANL, NNSA, and the region's defense and environmental remediation sectors. The PMI-CPMAI equips you to advance in roles where rigorous project governance and risk management directly shape your career trajectory in Los Alamos's specialized market.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
@@ -74,7 +74,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:40:33.449567Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "96bf38cf9b87bb74",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -85,7 +93,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMI-CPMAI Certification Training for Los Alamos Project Managers",
+            "text": "<p>Los Alamos National Laboratory and its extensive network of federal contractors dominate the region's project management landscape, creating sustained demand for professionals skilled in managing complex scientific, engineering, and environmental remediation initiatives. The PMI-CPMAI (Certified Practitioner in the Management of Agile Initiatives) credential is uniquely valuable in Los Alamos, where many organizations blend traditional project controls with adaptive methodologies to deliver national security and nuclear research programs. Government contracting experience combined with agile project management expertise positions professionals to advance into senior roles overseeing technical programs and cross-functional teams in this specialized market.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions designed for working professionals nationwide, including those in Los Alamos. Our PMI Authorized Training Partner status ensures your coursework satisfies the contact-hour requirements needed to sit for the PMI-CPMAI exam. All instruction is delivered by active certified practitioners who bring real-world project experience to every lesson, helping you apply agile principles to the types of high-stakes initiatives common in your region. Upon completion, you'll be positioned to advance your career and earn a credential recognized across government and commercial sectors.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:40:37.167048Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "e98594684771eee4",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -96,7 +115,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMI-CPMAI Certification for Los Alamos's Security & Science Workforce",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Guarantees Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your PMI-CPMAI completion certificate meets all PMI eligibility requirements—no additional paperwork or third-party validation needed. Employers at LANL, NNSA, and federal contractors trust PMI-authorized credentials."
+                },
+                {
+                    "heading": "Live Instruction Meets Contact-Hour Requirements",
+                    "text": "Synchronous instructor-led sessions ensure you earn required contact hours in real time, not through self-paced modules. Active certified practitioners teach every class, delivering current project-management practices relevant to national security, nuclear science, and federal compliance environments."
+                },
+                {
+                    "heading": "Exam Readiness Built Into Every Course",
+                    "text": "Dedicated exam-preparation content, practice scenarios, and instructor feedback reduce anxiety and boost first-attempt pass confidence. You receive targeted review focused on high-difficulty domains, not generic study guides."
+                },
+                {
+                    "heading": "Open Doors at Los Alamos's Top Employers",
+                    "text": "Program and project managers at LANL, Triad National Security, N3B, and DOE offices increasingly hold PMI-CPMAI credentials. This certification signals competency to the employers actively hiring in Los Alamos's defense, nuclear, and IT sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:40:41.890522Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "e9a4dbcae3b21225",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -156,7 +203,17 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Los Alamos's National Security Sector",
+            "text": "<p>Los Alamos National Laboratory and its contractors—including Triad National Security, LLC and N3B Los Alamos—anchor the region's demand for certified project managers. These organizations manage some of the nation's most complex federal programs, from the plutonium pit production modernization initiative to the Chemistry and Metallurgy Research Replacement facility upgrades and ongoing legacy environmental remediation. Certified project managers lead cross-functional teams across these high-stakes programs, where structured governance, compliance documentation, and risk management are non-negotiable. The U.S. Department of Energy's Los Alamos Field Office and the National Nuclear Security Administration also contract for skilled PM talent, as do local government and engineering firms supporting infrastructure and environmental projects throughout the county.</p><p>Earning your PMI-CPMAI certification positions you to compete effectively in a market where cleared, technically skilled project managers command strong compensation packages. Employers here increasingly value the PMP credential as proof of mastery in the formal controls and documentation standards essential to national laboratory and federal program work. Completing Granite PM Academy's live-virtual PMI-CPMAI Certification Training lets you prepare on your own schedule while gaining the knowledge and credentials Los Alamos employers actively seek. Whether you are launching a PM career with the CAPM or advancing to the PMP, this credential signals to LANL contractors and federal agencies that you understand the rigor their mission demands.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:40:50.718274Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "66343e6a84b05444",
+            "_ai_locked": true
         },
         {
             "type": "pricing_cards",
@@ -238,37 +295,61 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the PMI-CPMAI certification?",
-                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+                    "question": "What is the CPMAI certification?",
+                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
                 },
                 {
-                    "question": "Who should pursue the PMI-CPMAI in {city}?",
-                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the CPMAI in {city}?",
+                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
-                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+                    "question": "Is there a prerequisite for the CPMAI course?",
+                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
                 },
                 {
-                    "question": "How is the PMI-CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Is PMI-CPMAI certification valuable for Los Alamos National Laboratory project managers?",
+                    "answer": "<p>Yes. LANL and its contractors increasingly value PMP certification because national laboratory work demands rigorous project controls, compliance documentation, and structured governance—all core to PMI standards. The credential signals to employers like Triad National Security, LLC and N3B Los Alamos that you can manage complex federal programs with the discipline these roles require, making you more competitive for advancement and higher-tier assignments.</p>"
+                },
+                {
+                    "question": "Which Los Alamos employers hire project managers with PMI certifications?",
+                    "answer": "<p>Major Los Alamos employers—including the U.S. Department of Energy Field Office, NNSA, Triad National Security, and LANL contractors—actively seek certified project managers for nuclear science, defense research, environmental remediation, and federal program delivery roles. CAPM suits entry-level candidates; PMP is especially valued among those managing large-scope, multi-year initiatives in national security and scientific research.</p>"
+                },
+                {
+                    "question": "Can I attend PMI-CPMAI live-virtual training while working at Los Alamos employers?",
+                    "answer": "<p>Yes. Our training is 100% live-virtual and nationwide, so you can attend from your office, home, or anywhere with internet access. This flexibility is ideal for Los Alamos professionals balancing full-time roles at LANL, contractors, or government agencies. Many participants schedule training during low-intensity project phases or coordinate with their employer's professional development calendar.</p>"
+                },
+                {
+                    "question": "Should Los Alamos project managers get certified before or after changing roles?",
+                    "answer": "<p>Timing depends on your career stage. Pursuing certification before a promotion—especially to senior PM roles at LANL contractors or federal agencies—can strengthen your candidacy in Los Alamos's competitive, clearance-dependent job market. Early-career professionals in entry roles may certify via CAPM first. Either way, the local demand for cleared, skilled project managers means certification improves your positioning regardless of timing.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:40:56.646902Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "369bc0ae3d00c34e",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Los Alamos's project management landscape centers on Los Alamos National Laboratory and its federal contracting ecosystem, where demand runs high for professionals managing complex scientific, engineering, and environmental remediation initiatives tied to national security and nuclear research. Government contracting experience and technical project oversight are particularly valued assets in this specialized market. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Los Alamos professionals seeking to formalize credentials and advance in this mission-critical sector.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -279,7 +360,14 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:41:00.311336Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "abb4f0ca78fbe884",
+            "_ai_locked": true
         },
         {
             "type": "cta_banner",

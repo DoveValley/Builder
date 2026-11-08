@@ -55,7 +55,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Fairfield's Healthcare, Government, Manufacturing, and Defense sectors depend on skilled project coordinators to manage complex initiatives. Granite PM Academy delivers live-virtual CAPM Certification Training with an instructor-led format that fulfills PMI's education requirements, letting you earn your credential on your schedule while working. Completing your CAPM positions you for advancement across Fairfield's largest employers and opens doors to roles where certified coordinators command recognition and higher earning potential.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -70,7 +70,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:56.845091Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "e04cace936a50de0",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -81,7 +89,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training in Fairfield, CA",
+            "text": "<p>Fairfield's project management landscape is anchored by Travis Air Force Base and its surrounding defense and logistics ecosystem, where structured certification credentials open doors to mission-critical roles in supply chain coordination, facility management, and operational planning. Beyond the military sector, the city's healthcare giants—NorthBay Healthcare and Kaiser Permanente Fairfield Medical Center—alongside established manufacturers like Anheuser-Busch and the Walmart Distribution Center, consistently seek certified professionals to lead cross-functional initiatives. As Solano County's seat, Fairfield also generates steady demand for certified project coordinators in public administration and infrastructure development. For professionals in these industries, the CAPM® (Certified Associate in Project Management) credential signals foundational competency in scheduling, budgeting, and risk management—skills that employers in Fairfield actively value when advancing careers into project leadership roles.</p><p>Granite PM Academy delivers PMI-authorized CAPM Certification Training entirely through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting all PMI contact-hour requirements for the credential. Our instructors are active certified practitioners who bring real-world problem-solving experience into every class, ensuring the curriculum reflects how projects actually unfold in today's organizations. Whether you're building a foundation for promotion within a healthcare system, manufacturing operation, or public-sector agency in Fairfield, our cohort-based training model connects you with peers across your region while maintaining the rigor PMI demands. Upon completion, you'll be prepared to sit for the CAPM exam and take the next step in your project management career.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:01.236674Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "24b54b19cea7d5f7",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -92,7 +111,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification: Fairfield's Path to Project Leadership",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Credential Training",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your CAPM® training meets PMI standards and prepares you for the official exam. This authorization guarantees curriculum rigor and instructor qualifications recognized globally by employers."
+                },
+                {
+                    "heading": "Live-Virtual Instruction, Real Contact Hours",
+                    "text": "Attend live instructor-led sessions online, meeting PMI's contact-hour requirement for CAPM® eligibility without commuting. Our synchronous format lets you ask questions in real time while balancing work and family commitments in Fairfield."
+                },
+                {
+                    "heading": "Active Practitioners Teaching You",
+                    "text": "Your instructors are active certified practitioners applying project-management principles daily in their careers. This real-world perspective translates textbook concepts into strategies you'll use immediately in healthcare, logistics, manufacturing, and government roles."
+                },
+                {
+                    "heading": "Skills Fairfield Employers Demand",
+                    "text": "Fairfield's largest employers—Travis Air Force Base, NorthBay Healthcare, Kaiser Permanente, and major distribution centers—actively hire project coordinators and managers with CAPM® certification. The credential signals readiness for structured roles managing timelines, budgets, and cross-functional teams."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:05.220978Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "22945f3b652bd189",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -129,7 +176,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Fairfield's Growing Sectors",
+            "text": "<p>Travis Air Force Base stands as a primary driver of project management hiring in Fairfield, with ongoing facility and infrastructure modernization projects creating sustained demand for certified professionals. Beyond defense, NorthBay Healthcare and Kaiser Permanente Fairfield Medical Center regularly staff project managers to oversee facility expansions and operational improvements. The City of Fairfield and Solano County government operations, along with the Solano Transportation Authority's I-80/I-680/SR-12 Interchange Improvement Project, represent additional employment pipelines where structured project governance is essential. Manufacturing and logistics employers—including the region's distribution and production operations—similarly rely on certified project managers to coordinate complex initiatives. These employers span healthcare, government, defense-adjacent contracting, and industrial sectors where formal PM processes are the norm.</p><p>CAPM certification carries measurable weight in Fairfield's job market, particularly among employers in healthcare, government, and defense-related roles where certification is increasingly cited as a competitive advantage for advancement. The region's position between the Bay Area and Sacramento corridor means project manager compensation tends to track broader regional standards, with certified candidates typically enjoying stronger negotiating leverage—especially in the more specialized sectors that dominate local hiring. Completing CAPM Certification Training through Granite PM Academy positions you to enter or advance within Fairfield's established employer base immediately, with a credential that meets evolving industry standards. Our live-virtual format means you can earn your certification while remaining engaged in your current role and community.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:10.011862Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "bf30fd19e9c58e34",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -188,7 +246,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to CAPM Certification in Fairfield",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree (high school diploma, associate, or equivalent) and completion of project management education hours. Crucially, no prior work experience is required—making CAPM ideal for career-changers and early-career professionals at Fairfield employers like NorthBay Healthcare, Travis Air Force Base, and government agencies seeking to formalize their PM foundation."
+                },
+                {
+                    "heading": "Complete 23 Contact Hours of Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required contact hours into a focused program you can complete without travel, fitting the schedules of working professionals across Fairfield's Healthcare, Government, Manufacturing, and Logistics sectors."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "Once your education is documented, apply directly to PMI and pay the associated exam fee. Granite PM Academy guides you through the application process to ensure all credentials and contact-hour documentation are submitted correctly and on time."
+                },
+                {
+                    "heading": "Prepare and Pass the CAPM Exam",
+                    "text": "Study using Granite PM Academy's exam-preparation resources and practice materials. Our instructors—active certified practitioners—provide targeted coaching to reinforce key concepts and exam strategy, helping you sit for the CAPM exam with confidence."
+                },
+                {
+                    "heading": "Maintain Your CAPM Credential",
+                    "text": "CAPM credentials renew on a three-year cycle. You'll earn professional development units (PDUs) through continuing education, conference attendance, and volunteer work. Granite PM Academy offers PDU-eligible courses to support your ongoing professional growth and credential maintenance."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:14.727930Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "d98155743f2c101c",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -248,19 +337,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing for Fairfield healthcare project managers?",
+                    "answer": "<p>Healthcare systems like NorthBay Healthcare and Kaiser Permanente Fairfield Medical Center increasingly rely on formal project management processes for clinical implementations, EHR rollouts, and operational improvements. CAPM certification strengthens your credentials for mid-level roles in these organizations, where structured methodology and PMI credentials are valued. While not universally mandated, the certification provides competitive advantage in a region where healthcare employers actively seek certified talent.</p>"
+                },
+                {
+                    "question": "Which Fairfield employers value CAPM and PMP certifications most?",
+                    "answer": "<p>Defense-related, government, and healthcare sectors in and around Fairfield—including Travis Air Force Base, Solano County administration, City of Fairfield departments, and regional healthcare networks—prioritize formal project management credentials. Manufacturing and logistics employers like the Walmart Distribution Center and Anheuser-Busch also increasingly recognize PMP and CAPM as differentiators for advancement. Government contracting roles especially benefit from PMI certification as a standard qualification marker.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual CAPM training from my Fairfield workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's live-virtual training is conducted entirely online, so you can join from your office, home, or anywhere with reliable internet connectivity. This flexibility suits Fairfield professionals working across dispersed locations—from healthcare campuses to government offices to distribution centers—and eliminates commute barriers between Fairfield's major employment hubs.</p>"
+                },
+                {
+                    "question": "How does Fairfield's job market timing affect when to pursue CAPM certification?",
+                    "answer": "<p>Fairfield's position between the Bay Area and Sacramento, combined with active hiring in healthcare, defense contracting, and public administration, creates year-round demand for certified project managers. However, government fiscal cycles and healthcare budget planning peaks in early fall and spring often drive hiring surges. Completing CAPM during off-peak quarters positions you to enter the market during high-demand hiring windows in your target sector.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:20.643380Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "113ebfca0fbef961",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Fairfield's project management demand flows from Travis Air Force Base infrastructure modernization, regional healthcare expansion at NorthBay and Kaiser, and established manufacturing operations. As Solano County's seat, the city sustains steady public-sector coordination roles across infrastructure and community development. Granite PM Academy delivers live-virtual CAPM Certification Training to Fairfield professionals nationwide, on flexible schedules suited to working practitioners.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -271,7 +384,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:22.111095Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "3201d0e5cb1231fc",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

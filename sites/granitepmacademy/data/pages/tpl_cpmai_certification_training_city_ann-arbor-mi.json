@@ -59,7 +59,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
+            "hs_subtext": "<p>Ann Arbor's concentration of research institutions, healthcare systems, and advanced technology companies—from University of Michigan and Michigan Medicine to Toyota's technical center and leading software firms—creates sustained demand for credentialed project managers. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's education requirements and fits working professionals' schedules. Earning this credential positions you to advance into higher-responsibility roles managing complex initiatives across the region's most innovative sectors.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
@@ -74,7 +74,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:40.639444Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "89a49476264f0b94",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -85,7 +93,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMI-CPMAI Certification Training for Ann Arbor's Growing PM Workforce",
+            "text": "<p>Ann Arbor's project management market is uniquely shaped by the University of Michigan and Michigan Medicine—two of the region's largest employers and institutions that depend on skilled program and project managers to drive research initiatives, capital projects, and operational excellence. Beyond academia and healthcare, the city's expanding presence in software development, mobility technology, and biomedical innovation (anchored by companies like Google, Duo Security, and emerging biotech firms) means organizations across sectors are actively hiring certified practitioners. The PMI-CPMAI (Certified Associate in Project Management) credential signals to employers that you understand foundational PM frameworks, risk management, and stakeholder communication—skills that apply equally to a university capital campaign, a healthcare system upgrade, or a software product launch. For Ann Arbor professionals entering or advancing in project management, this certification opens doors across the city's diverse economic base.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led classes that meet PMI's contact-hour requirements for this credential. Our instructors are active certified practitioners with real-world experience applying project management disciplines in complex environments. The live-virtual format means you attend structured, interactive sessions from anywhere—no need to travel, and no recorded-lecture format that compromises learning. We guide you through the body of knowledge, teach exam strategy, and ensure you complete the rigorous preparation necessary to earn your PMI-CPMAI credential. Whether you're building your PM foundation or moving toward advanced certifications like the PMP®, this certification positions you competitively in Ann Arbor's job market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:45.419703Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "2b71f0c0e7211b11",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -96,7 +115,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMI-CPMAI Training for Ann Arbor's Growing Tech & Research Sectors",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorized Instruction",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering PMI-CPMAI curriculum that meets PMI's rigorous content and delivery standards. Your training sits on a foundation recognized across the project-management profession and accepted by employers nationwide."
+                },
+                {
+                    "heading": "Live-Virtual Format, Full Contact Hours",
+                    "text": "All training is delivered live and online by certified instructors, satisfying the contact-hour requirement for PMI-CPMAI eligibility without requiring travel or classroom attendance. Schedule classes around work and family commitments while meeting every credential prerequisite."
+                },
+                {
+                    "heading": "Instructors Leading Real Projects Today",
+                    "text": "Your instructors are active certified practitioners managing portfolios, teams, and complex initiatives in their current roles. They bring current methodologies, practical troubleshooting, and on-the-job credibility directly into every session and exam-preparation discussion."
+                },
+                {
+                    "heading": "Local Employer Demand for Certified Leaders",
+                    "text": "Ann Arbor's University of Michigan, healthcare systems, automotive innovators, and software firms prioritize project and program management credentials when hiring and promoting. PMI-CPMAI certification signals readiness to lead initiatives in the region's fastest-growing career sectors."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:49.636985Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "ad15ba7d482cd43b",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -156,7 +203,17 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Ann Arbor's Research & Healthcare Hub",
+            "text": "<p>Ann Arbor's economy centers on world-class research and healthcare institutions that depend on skilled project managers to drive complex, multi-year initiatives. University of Michigan and Michigan Medicine are among the largest employers in the region and consistently hire certified project managers to oversee everything from clinical expansions to research infrastructure. Beyond healthcare, a growing technology sector—including Google's Ann Arbor office and software firms like Barracuda Networks and Thomson Reuters—creates steady demand for PMs who can manage cross-functional teams and deliver structured results. Real-time examples include oversight of Michigan Medicine's hospital and research facility expansions, and the University's Mcity autonomous vehicle testing facility, both projects that require the planning rigor and stakeholder coordination that certification demonstrates.</p><p>The PMI-CPMAI credential is increasingly valued in Ann Arbor's job market, particularly among healthcare systems and technology firms seeking candidates with formal project delivery training. Compensation for certified project managers in the region is competitive, driven by the concentration of research-intensive and healthcare employers who often invest heavily in talent with recognized credentials. Completing PMI-CPMAI Certification Training through Granite PM Academy—delivered live-virtual nationwide—positions you to meet the eligibility pathway for higher-level credentials like the PMP®, opening doors to senior PM roles and leadership positions in Ann Arbor's most dynamic industries. The combination of local demand and your credential creates clear advancement potential in a market where structured project management expertise commands genuine employer attention.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:37:58.169709Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "8fc698a225203b57",
+            "_ai_locked": true
         },
         {
             "type": "pricing_cards",
@@ -238,37 +295,61 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the PMI-CPMAI certification?",
-                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
+                    "question": "What is the CPMAI certification?",
+                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
                 },
                 {
-                    "question": "Who should pursue the PMI-CPMAI in {city}?",
-                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the CPMAI in {city}?",
+                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
-                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
+                    "question": "Is there a prerequisite for the CPMAI course?",
+                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
                 },
                 {
-                    "question": "How is the PMI-CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+                },
+                {
+                    "question": "Is PMI-CPMAI certification worth it for Ann Arbor healthcare project managers?",
+                    "answer": "<p>Yes. Michigan Medicine and Trinity Health, two of Ann Arbor's largest employers, increasingly seek certified project managers for clinical workflows, research initiatives, and infrastructure projects. Healthcare organizations value structured PM credentials to ensure compliance and cross-functional coordination. The credential strengthens your competitive position within Ann Arbor's robust healthcare and biomedical sector.</p>"
+                },
+                {
+                    "question": "Which Ann Arbor employers actively hire certified project managers?",
+                    "answer": "<p>University of Michigan, Michigan Medicine, Toyota Motor North America's Ann Arbor Technical Center, and growing tech firms including Google and Barracuda Networks regularly recruit certified PMs. Research institutions and healthcare systems favor PMP and CAPM holders for complex, multi-phase projects. Tech and automotive roles often emphasize structured delivery methodologies that the certification directly supports.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMI-CPMAI training from my Ann Arbor workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's training is 100% live-virtual, so you can participate from your office, home, or any location with internet access. Many Ann Arbor professionals join from their workplaces during flexible scheduling windows. Confirm with your employer on any internal policies regarding professional development time.</p>"
+                },
+                {
+                    "question": "When should Ann Arbor professionals pursue PMI-CPMAI certification?",
+                    "answer": "<p>Demand for certified project managers in Ann Arbor remains strong across healthcare, research, and technology sectors. Early certification—particularly if you're in an entry or mid-level role—positions you ahead in a competitive local market. Ann Arbor's mix of University research, healthcare expansion, and tech growth means employers continuously recruit certified talent, making timing flexible but earlier pursuit beneficial.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:38:03.461574Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "f4cfc3fbfe752bda",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Ann Arbor's project management demand is anchored by the University of Michigan and Michigan Medicine, whose ongoing facility expansions and research initiatives require skilled program leaders—alongside growth in mobility tech and software sectors driven by companies like Google and Duo Security. This blend of higher education, healthcare, and technology creates consistent opportunities for PMs across both sectors. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Ann Arbor professionals nationwide, helping you meet credential requirements on your schedule.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -279,7 +360,14 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:38:07.309796Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "c880b11e08064bb3",
+            "_ai_locked": true
         },
         {
             "type": "cta_banner",

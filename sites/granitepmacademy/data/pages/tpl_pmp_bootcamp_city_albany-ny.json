@@ -60,7 +60,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Bootcamp in {city_state} is an intensive four-day program designed for professionals who need to prepare for the PMP exam efficiently. Live-virtual instruction, 500+ practice questions, and a 90-day pass guarantee.</p>",
+            "hs_subtext": "<p>Albany's public sector, healthcare, and higher education employers rely heavily on certified project managers to deliver complex infrastructure and operational initiatives. Granite PM Academy's PMP Bootcamp is a live-virtual, instructor-led program that fulfills PMI's required contact-hour education and prepares you to sit for the PMP exam. Earning your PMP credential positions you competitively for advancement in Albany's mission-critical organizations.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#pmp_boot_schedule",
             "hs_caption1": "",
@@ -75,7 +75,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:23.216921Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "50fd840d1ce7acef",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -86,7 +94,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Bootcamp in Albany: Advance Your PM Career in New York's Capital",
+            "text": "<p>Albany's project management landscape is distinctly shaped by its role as New York's state capital, where government and public-sector program management roles form the backbone of steady employment. Alongside this stable foundation, the region is experiencing robust growth in healthcare systems, higher education institutions, and the Albany Nanotech Complex—all sectors where certified project managers command competitive advantage. Whether you're advancing within state government, healthcare administration, SUNY system operations, or emerging tech manufacturing, the PMP® credential signals expertise that local employers actively seek. In Albany's mixed economy of established public-sector positions and expanding private-sector opportunity, PMP® certification positions you to move into leadership roles and higher compensation bands across industries.</p><p>Granite PM Academy delivers PMP® Bootcamp as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that fit the schedules of working professionals. Our program meets the contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners with real-world experience across industries. You'll gain the knowledge and confidence needed to pass the PMP® exam on your first attempt, with flexible scheduling options and comprehensive study resources. Upon completion, you'll hold a credential recognized globally and valued by employers throughout Albany and beyond—opening doors to advancement, new opportunities, and professional credibility in project management.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:27.229431Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "ebd55393207b9dc5",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -97,7 +116,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Path for Albany's Government and Healthcare Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training You Can Trust",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your bootcamp hours meet PMI's rigorous standards for PMP eligibility. You receive an official Authorized Training Partner certificate upon completion—a credential requirement recognized directly by PMI."
+                },
+                {
+                    "heading": "Live Instruction Fits Working Schedules",
+                    "text": "Our live-virtual, instructor-led format delivers all required contact hours without geographic limits. Attend from anywhere, maintain your job, and interact in real time with instructors and peers—no asynchronous recordings or self-paced gaps in accountability."
+                },
+                {
+                    "heading": "Learn from Active Practitioners",
+                    "text": "Your instructors hold active PMP® credentials and apply project management daily in real environments. They bring current case studies and troubleshooting wisdom into every session, bridging classroom theory and workplace practice."
+                },
+                {
+                    "heading": "PMP® Demand Across Albany Employers",
+                    "text": "State government, SUNY administration, healthcare systems, and energy utilities in the Albany region actively hire PMP-certified professionals for program and operations roles. The credential accelerates advancement in these high-employment sectors and strengthens your candidacy for leadership positions."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:31.332037Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "11db372cc868acd1",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -134,7 +181,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Albany's Growing Tech and Government Sectors",
+            "text": "<p>Albany's robust state government presence, combined with expansion in healthcare, higher education, and advanced manufacturing, creates steady demand for certified project managers. New York State Government and the SUNY System Administration employ project managers across infrastructure, policy, and operational initiatives—roles where PMP® certification is frequently listed as preferred or required. Nearby, the GlobalFoundries Fab 8 expansion in Malta and the Albany Nanotech Complex modernization at SUNY Polytechnic Institute underscore the region's investment in semiconductor and nanotechnology sectors, both of which depend on skilled project managers to deliver complex, regulated work. Albany Medical Center, St. Peter's Health Partners, and other regional healthcare systems similarly seek certified professionals to lead capital projects, IT implementations, and operational improvements.</p><p>While project manager compensation in Albany tracks somewhat below major metros like New York City, the steady, diversified demand from state agencies, healthcare providers, and technology employers keeps the market competitive—and certified PMs command a clear premium over non-certified peers. Completing the PMP Bootcamp positions you to compete effectively for these roles and to advance into senior project leadership in sectors that anchor Albany's economy. The credential signals to local employers in government, healthcare, and life sciences that you meet industry standards for scope, schedule, and resource management, opening doors to positions that reward both certification and experience.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:35.613071Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "5d7280ccae60aa88",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -181,7 +239,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Albany",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years. Verify your education and work history meet these thresholds before enrolling. Granite PM Academy's advisors can review your background and clarify any questions about qualifying experience."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual PMP Bootcamp, delivered by active certified practitioners. You'll attend instructor-led sessions online, covering the PMBOK Guide framework and real-world case studies. The bootcamp is structured to fit working professionals' schedules while preparing you for exam content and rigor."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the bootcamp, complete your official PMI application, documenting your education and project experience. Pay the associated exam fee directly to PMI. Granite PM Academy guides you through the application portal and can answer questions about required documentation and submission steps."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—study guides, practice tests, and Q&A support—to solidify your knowledge. Schedule your exam with Pearson VUE when you feel ready. On exam day, you'll answer 180 multiple-choice questions in a proctored environment, either online or at a test center."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After passing, you'll earn the PMP designation for a three-year cycle. During that period, earn Professional Development Units (PDUs) by attending training, speaking, publishing, or leading project-management activities. Before your renewal date, submit your PDUs to PMI and pay the renewal fee to keep your credential active."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:41.134597Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "c36cc2e87e5bed0b",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -241,19 +330,43 @@
                 {
                     "question": "What is your pass guarantee?",
                     "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Albany government and healthcare careers?",
+                    "answer": "<p>Yes. New York State Government and Albany Medical Center are among the region's largest employers, and both sectors increasingly list PMP® as a preferred or required qualification in project management postings. Certified professionals typically command a measurable premium over non-certified peers in these industries. The credential signals standardized competency in governance and stakeholder management—skills highly valued in public-sector and clinical operations roles.</p>"
+                },
+                {
+                    "question": "Which Albany employers actively recruit PMP-certified project managers?",
+                    "answer": "<p>State government agencies, the SUNY System Administration, University at Albany, and major healthcare employers including Albany Medical Center and St. Peter's Health Partners regularly post roles requiring or strongly preferring PMP® certification. Additionally, growing sectors like semiconductor manufacturing (GlobalFoundries), insurance (CDPHP, MVP Health Care, KeyBank), and utilities (National Grid) in the Albany region view the credential as a competitive differentiator for advancement into senior project and program leadership roles.</p>"
+                },
+                {
+                    "question": "Can I take the PMP bootcamp for Albany professionals while working full-time?",
+                    "answer": "<p>Yes. Our live-virtual bootcamp format allows Albany professionals to attend from their workplace, home, or any location with internet access, making it compatible with full-time employment schedules. Many Albany-area government, healthcare, and technology employees use the flexible online delivery to prepare for certification without disrupting their workdays. This model is particularly practical for those balancing current project demands with credential advancement.</p>"
+                },
+                {
+                    "question": "How does Albany's job market affect the timing of PMP certification?",
+                    "answer": "<p>Albany's steady demand for certified project managers—driven by state government, healthcare system expansion, and technology sector growth—means the credential remains valuable year-round. However, certifying before major hiring cycles in your target sector can strengthen your candidacy. Government agencies and healthcare systems often budget for new project roles in Q1 and Q3, so planning your bootcamp completion around those windows can align your certification with local hiring momentum.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:47.060608Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "05da917c3f913319",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Albany's project management demand is rooted in its dual economy: New York State Government and SUNY System Administration anchor stable public-sector roles, while the Albany Nanotech Complex and GlobalFoundries Fab 8 expansion drive growth in semiconductor and life-sciences program management. Healthcare systems, higher education institutions, and utilities round out a resilient job market for both early-career and experienced PMs. Granite PM Academy's live-virtual PMP Bootcamp serves Albany professionals seeking PMI certification on a flexible schedule.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -264,7 +377,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:43:48.910520Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "a2a5340a8f5017ee",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

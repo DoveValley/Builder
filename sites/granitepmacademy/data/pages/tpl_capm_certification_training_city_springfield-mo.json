@@ -59,7 +59,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Springfield's healthcare, manufacturing, and logistics sectors depend on skilled project managers to coordinate complex initiatives across large organizations like CoxHealth, Mercy Springfield Communities, and Prime Inc. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education requirement through instructor-led instruction, enabling you to earn this entry-level credential while maintaining your current role. A CAPM® certification strengthens your project management foundation and improves your competitive standing for advancement opportunities across Springfield's major employers.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -74,7 +74,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:26.036945Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "f079a5f25638b30d",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -85,7 +93,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training for Springfield's Project Management Professionals",
+            "text": "<p>Springfield's healthcare systems—anchored by CoxHealth, Mercy Springfield Communities, and Missouri State University—drive consistent demand for credentialed project managers overseeing facility expansions, clinical IT implementations, and infrastructure upgrades. Alongside this healthcare foundation, the region's robust logistics, manufacturing, and distribution operations create a steady pipeline of project roles across companies like Prime Inc., O'Reilly Automotive, and Kraft Heinz. For professionals in Springfield seeking to advance into formal project management positions or transition from related fields, the CAPM (Certified Associate in Project Management) credential demonstrates foundational competency in processes, terminology, and best practices that employers across healthcare, operations, and corporate functions actively value and recruit for.</p><p>Granite PM Academy delivers CAPM Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions that satisfy PMI's contact-hour requirements without requiring travel or classroom attendance. Our active certified practitioners bring real-world project experience into every module, helping you grasp not just theory but application across multiple industries. Whether you're employed by one of Springfield's major employers, working in the nonprofit sector, or considering a career shift into project management, our flexible scheduling accommodates working professionals. Upon completion, you'll be prepared to sit for the CAPM exam and earn a credential recognized nationwide—positioning you competitively for advancement within Springfield's growing project management market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:29.985391Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "144c316e3c8f9dfd",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -96,7 +115,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification for Springfield's Growing Project Management Careers",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization, Nationwide Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your CAPM training meets PMI's rigorous standards, and your credential carries weight with employers across Springfield's healthcare, manufacturing, and logistics sectors who value PMI-sanctioned preparation."
+                },
+                {
+                    "heading": "Live Virtual, Flexible Schedule",
+                    "text": "Instructor-led sessions delivered live online satisfy all contact-hour requirements for CAPM eligibility without commuting or classroom constraints. Attend from Springfield while learning from active certified practitioners delivering real-world project-management insight."
+                },
+                {
+                    "heading": "Exam Prep Built Into Training",
+                    "text": "Granite PM Academy integrates exam-preparation support throughout the course, not as an afterthought. Practice scenarios, question walkthroughs, and targeted review aligned to CAPM test domains strengthen your readiness before test day."
+                },
+                {
+                    "heading": "Local Demand: Credential That Fits Springfield's Market",
+                    "text": "Springfield employers—CoxHealth, Bass Pro Shops, O'Reilly Automotive, Prime Inc., and Missouri State University among them—hire project managers across healthcare, retail, manufacturing, and education. CAPM certification signals foundational competency these organizations seek, opening career pathways in a region with active hiring."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:34.169478Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "e665efb38dd89a60",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -133,7 +180,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Springfield, Missouri",
+            "text": "<p>Healthcare dominates Springfield's project management landscape, with CoxHealth and Mercy Springfield Communities driving ongoing facility expansions and service line growth that require skilled project oversight. Beyond healthcare, O'Reilly Automotive, Prime Inc., and Kraft Heinz represent manufacturing and logistics employers actively hiring certified project coordinators and managers to optimize operations and capital projects. City Utilities of Springfield and Missouri State University also maintain steady demand for credentialed professionals managing infrastructure, IT, and institutional initiatives. MoDOT's I-44 corridor improvements and the City of Springfield's Grant Avenue Parkway redevelopment further illustrate the breadth of project-driven work across both public and private sectors in the region.</p><p>The CAPM credential opens doors in a Springfield market where formal project management training is increasingly valued—particularly within healthcare, manufacturing, and logistics organizations that frequently list CAPM or PMP® certification as preferred or required qualifications. While project manager compensation in Springfield tracks slightly below national metro averages, it remains competitive within Missouri, and healthcare and logistics employers often offer the strongest packages for certified candidates. Completing CAPM Certification Training through Granite PM Academy positions you to qualify for entry-level project coordinator roles and advance into higher-responsibility positions, directly connecting your credential investment to the active hiring and career-progression patterns you'll encounter in Springfield's job market.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:37.981704Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "c9611c47329deca4",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -192,7 +250,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your CAPM Certification Path in Springfield",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree (high school diploma, associate, or equivalent) and completion of project management education hours. Critically, no prior work experience is necessary—making CAPM accessible to career-changers and early-stage professionals entering Springfield's diverse job market."
+                },
+                {
+                    "heading": "Complete 23 Hours of Education",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot-camp course. Our intensive format compresses the required project management education into focused sessions you can complete while managing your current responsibilities—no travel to Springfield classrooms required."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "File your official PMI application and pay the associated exam fee. Granite PM Academy guides you through the submission process to ensure your eligibility is confirmed and your application reaches PMI without delay."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources to strengthen your knowledge across project management domains. Our instructors—active certified practitioners—provide targeted coaching so you enter the proctored CAPM exam confident and ready."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "CAPM credentials renew on a three-year cycle. Earn professional development units (PDUs) by continuing your project management education, participating in professional activities, or advancing to the PMP credential to keep your certification current and competitive."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:42.261871Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "b425852d8b0ab55d",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -252,19 +341,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing for Springfield project management careers?",
+                    "answer": "<p>Yes, particularly if you work in Springfield's dominant healthcare, manufacturing, or logistics sectors. CAPM is valued for entry-level and associate project coordinator roles across these industries, and employers like CoxHealth, Mercy Springfield Communities, and Prime Inc. frequently list formal project management credentials as preferred qualifications. The certification signals structured PM knowledge and improves your competitiveness in a market where credential demand is growing.</p>"
+                },
+                {
+                    "question": "Which Springfield employers actively seek CAPM or PMP certified candidates?",
+                    "answer": "<p>Healthcare systems (CoxHealth, Mercy Springfield Communities), manufacturing and logistics firms (O'Reilly Automotive, Prime Inc., Kraft Heinz, Associated Electric Cooperative), and City Utilities of Springfield regularly list PMP or CAPM as preferred or required qualifications. Educational institutions and retail/distribution operations also value the credential. These employers recognize formal certification as a marker of professional PM capability and often provide stronger advancement and compensation packages to credentialed candidates.</p>"
+                },
+                {
+                    "question": "What do project managers in Springfield typically earn with CAPM certification?",
+                    "answer": "<p>Springfield PM compensation tends to track slightly below national metro averages but remains competitive within Missouri. Healthcare, manufacturing, and logistics employers—your region's strongest hiring sectors—typically offer the most competitive packages for certified candidates. Exact salary ranges are negotiable and vary widely by industry, employer, and experience level, so candidates should research current postings and prepare to negotiate based on your specific role and background.</p>"
+                },
+                {
+                    "question": "Can Springfield professionals take live-virtual CAPM training during work hours?",
+                    "answer": "<p>Yes. Granite PM Academy's CAPM training is 100% live-virtual, so you can attend from your workplace, home office, or any location with internet access. This flexibility allows Springfield professionals at CoxHealth, City Utilities, or other employers to balance training with existing responsibilities and coordinate scheduling without travel or commute constraints.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:47.721682Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "f8121b01d070f733",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Springfield's healthcare systems—led by CoxHealth and Mercy Springfield Communities—drive consistent demand for project managers overseeing facility expansions, campus renovations, and service-line rollouts across southwest Missouri's largest economic hub. Manufacturing, logistics, and public-sector infrastructure projects add further depth to the local PM job market. Granite PM Academy delivers live-virtual CAPM® Certification Training to Springfield professionals seeking to formalize their credentials and advance their careers in these growth sectors.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -275,7 +388,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:36:49.390049Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "8d1122dfdae449f1",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

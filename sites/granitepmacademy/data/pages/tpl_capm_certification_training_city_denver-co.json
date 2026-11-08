@@ -61,7 +61,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s CAPM Certification Training in {city_state} prepares you to earn the Certified Associate in Project Management credential. Our three-day live-virtual course satisfies PMI’s 23 contact hour requirement and is ideal for professionals launching or transitioning into project management.</p>",
+            "hs_subtext": "<p>Denver's aerospace, energy, and financial-services sectors rely heavily on certified project managers to deliver complex initiatives. Granite PM Academy's live-virtual CAPM Certification Training delivers the PMI contact-hour education you need to sit for the CAPM exam, taught by active certified practitioners. Earning your CAPM credential positions you competitively for project coordinator and assistant project manager roles across Denver's largest employers.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#capm_schedule",
             "hs_caption1": "",
@@ -76,7 +76,15 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:54.000164Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "70684c34696f585c",
+            "_ai_locked": true,
+            "id": "hero_split_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "ai_block",
@@ -87,7 +95,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "CAPM Certification Training for Denver's Project Management Professionals",
+            "text": "<p>Denver's aerospace and defense sector, anchored by major employers like Lockheed Martin, has created a particularly strong demand for certified project managers who can manage complex, regulated initiatives. Across the city's equally robust energy, healthcare, and technology industries, organizations are actively seeking professionals who hold the Certified Associate in Project Management (CAPM®) credential—a qualification that signals foundational PM competency and readiness for advancement. Whether you're supporting infrastructure development, product launches, or mission-critical programs at one of Denver's leading employers or a growing startup, the CAPM® demonstrates your commitment to professional standards and positions you competitively in a market where project management expertise commands respect and career momentum.</p><p>Granite PM Academy delivers live-virtual CAPM® Certification Training nationwide, meeting PMI's rigorous contact-hour requirements through instructor-led instruction taught by active certified practitioners. Our flexible scheduling allows Denver professionals to earn your credential without disrupting your work or relocating, and our PMI Authorized Training Partner status ensures every hour counts toward your eligibility. From course enrollment through exam readiness, we focus on translating PMI's Project Management Body of Knowledge into practical understanding, so you graduate not just with credentials, but with confidence in your ability to lead projects in Denver's competitive marketplace.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:32:58.003034Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "09e4a39bbfa5faf1",
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -98,7 +117,35 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "CAPM Certification Training for Denver's Aerospace and Defense Professionals",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorized Training Partner",
+                    "text": "Granite PM Academy delivers CAPM® preparation as an official PMI Authorized Training Partner. Your coursework satisfies PMI contact-hour requirements, positioning you to sit for the CAPM® exam with confidence and full credential recognition."
+                },
+                {
+                    "heading": "Live-Virtual Instruction, Real Schedules",
+                    "text": "Attend instructor-led sessions entirely online—no commute, no disruption to your Lockheed Martin, United Airlines, or other Denver-area role. Flexible scheduling accommodates working professionals balancing career and certification without geographic constraints."
+                },
+                {
+                    "heading": "Active Practitioners Lead Every Module",
+                    "text": "Your instructors hold active PMI credentials and apply project-management discipline in their own careers. Expect case studies and problem-solving drawn from aerospace, telecommunications, energy, healthcare, and financial services contexts—the industries defining Denver's job market."
+                },
+                {
+                    "heading": "Credential Valued by Denver Employers",
+                    "text": "CAPM® certification opens doors at Newmont Corporation, DaVita, Kaiser Permanente Colorado, Charles Schwab, and other major Denver employers seeking entry-level and emerging project managers. The credential signals readiness for advancement in a competitive local talent pool."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:02.061230Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "b99e91b55323b66c",
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -135,7 +182,18 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Denver's Aerospace Hub",
+            "text": "<p>Denver's aerospace and defense sector anchors demand for certified project managers across the metro area. Lockheed Martin, a major regional employer, relies on skilled PMs to oversee complex programs—as do telecom giant Lumen Technologies and healthcare innovators like DaVita and Kaiser Permanente Colorado. Beyond corporate employers, the City and County of Denver and regional transit authority continue to invest in transformative infrastructure: the RTD FasTracks Transit Expansion and the Central 70 Project (I-70 expansion) represent the scale of project work underway locally. These initiatives require certified professionals who can manage timelines, budgets, and cross-functional teams in high-stakes environments.</p><p>Earning your CAPM® credential through Granite PM Academy positions you competitively within Denver's growing tech, aerospace, and healthcare sectors. Project manager compensation in the Denver area remains competitive with national urban benchmarks, and employers in these industries actively seek candidates with PMP® or CAPM® certification—many listing the credential as preferred or required. Completing CAPM Certification Training signals to local hiring managers that you meet PMI®'s standardized competency framework, directly strengthening your candidacy for roles with Newmont Corporation, Arrow Electronics, Charles Schwab, and other regional firms. In a market where certified talent commands sustained demand and above-average compensation, the credential becomes a tangible asset for career advancement and earning potential.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:06.291189Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "5aaac62d76c702fe",
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -194,7 +252,38 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to CAPM Certification in Denver",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "CAPM requires a secondary degree and completion of project management education hours—but no prior work experience. If you hold a high school diploma or higher, you're eligible to start. This makes CAPM ideal for career-changers and early-career professionals entering Denver's aerospace, defense, energy, and technology sectors."
+                },
+                {
+                    "heading": "Complete 23 Hours of Instruction",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led bootcamp. Our intensive format compresses the required contact hours into a focused schedule, taught by active certified practitioners. You'll study the PMBOK® Guide and CAPM exam domains without disrupting your current role."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing your education hours, submit your formal application to PMI and pay the exam fee. Granite PM Academy guides you through the process to ensure your credentials are documented and accepted. This step formally registers you as a CAPM exam candidate."
+                },
+                {
+                    "heading": "Prepare and Pass the Exam",
+                    "text": "Granite PM Academy provides targeted exam-preparation support to reinforce domain knowledge and test-taking strategy. You'll sit for the computer-based CAPM exam at a PMI-approved test center. Our review resources help you approach the exam with confidence."
+                },
+                {
+                    "heading": "Maintain Your Credential",
+                    "text": "CAPM is valid for three years. Maintain your credential by earning professional development units (PDUs) through continuing education, volunteer work, or PMI membership activities. Renewal keeps your qualification current and demonstrates ongoing commitment to project management excellence."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:11.106478Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "capm_pathway",
+            "_ai_input_hash": "fec99a50c00dee9b",
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -254,19 +343,43 @@
                 {
                     "question": "Is this training delivered online?",
                     "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+                },
+                {
+                    "question": "Is CAPM certification worth pursuing for Denver aerospace and defense careers?",
+                    "answer": "<p>Yes. Denver's aerospace and defense sector—anchored by major employers like Lockheed Martin—consistently values CAPM and PMP credentials as proof of standardized project management competency. Many local job postings in this industry list CAPM as preferred or required. The credential signals readiness for advancement and often correlates with above-average compensation for certified professionals in Denver's competitive urban market.</p>"
+                },
+                {
+                    "question": "Which Denver industries and employers most value CAPM certification?",
+                    "answer": "<p>Aerospace and defense (Lockheed Martin), healthcare (Kaiser Permanente Colorado, Children's Hospital Colorado, DaVita), telecommunications (United Airlines operations, Lumen Technologies), and financial services (Charles Schwab) actively seek certified project managers in the Denver area. Technology, energy, and municipal roles (City and County of Denver) also show sustained demand for CAPM-credentialed professionals, reflecting Denver's diverse and growing economy.</p>"
+                },
+                {
+                    "question": "Can I attend Granite PM Academy's CAPM training from my Denver workplace?",
+                    "answer": "<p>Yes. Granite PM Academy delivers CAPM certification training as live-virtual instruction, so you can attend from your Denver office, home, or any location with internet access. This flexibility allows working professionals in Denver's fast-paced sectors to earn certification without commuting or relocating, fitting easily into a full-time schedule.</p>"
+                },
+                {
+                    "question": "Should Denver project managers get CAPM certified now or wait for career advancement?",
+                    "answer": "<p>The Denver job market shows strong, sustained demand for certified project managers across aerospace, healthcare, IT, and financial services. Earning CAPM early—even before your first formal PM role—positions you competitively for entry and mid-level positions that often list certification as preferred. Early certification can accelerate both hiring and salary growth in Denver's competitive urban market.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:16.637232Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "2641307a092318fa",
+            "_ai_locked": true,
+            "id": "faq_two_col_1",
+            "_ai_injected_count": 4
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Denver's aerospace and defense sector—anchored by Lockheed Martin and supported by major infrastructure projects like the Denver International Airport Great Hall Renovation and Central 70 expansion—creates sustained demand for credentialed project managers across the region. The city's thriving telecommunications, energy, healthcare, and financial services industries add breadth to career opportunities for CAPM® certification holders. Granite PM Academy delivers live-virtual CAPM® Certification Training to Denver professionals nationwide, enabling you to earn your credential on your schedule.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -277,7 +390,15 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T04:33:18.339685Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "5db58a14aca00b59",
+            "_ai_locked": true,
+            "id": "map_info_1",
+            "_ai_injected_count": 1
         },
         {
             "type": "cta_banner",

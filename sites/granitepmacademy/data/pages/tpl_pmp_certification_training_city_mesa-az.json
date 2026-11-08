@@ -53,7 +53,7 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Granite PM Academy’s PMP Certification Training in {city_state} prepares you to pass the Project Management Professional exam. Our four-day live-virtual course is taught by active certified practitioners and satisfies PMI’s 35 education hour requirement.</p>",
+            "hs_subtext": "<p>Mesa's aerospace, defense, and aviation sectors—home to Boeing's Apache production, Lockheed Martin, and MD Helicopters—demand project managers who speak the language of complex manufacturing and government compliance. Granite PM Academy's live-virtual PMP Certification Training delivers the instructor-led, PMI contact-hour education required to earn your credential on a schedule that fits your work. A PMP opens doors across Mesa's largest employers and positions you to lead high-stakes projects in industries where certified expertise commands respect and career advancement.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#pmp_schedule",
             "hs_caption1": "",
@@ -68,7 +68,14 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:30.347757Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "027b3d207c516c97",
+            "_ai_locked": true
         },
         {
             "type": "ai_block",
@@ -79,7 +86,17 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Certification Training for Mesa's Aerospace & Defense Professionals",
+            "text": "<p>Mesa's aerospace and defense manufacturing sector—anchored by Boeing's AH-64 Apache production line at Falcon Field, alongside MD Helicopters and Lockheed Martin operations—represents one of Arizona's most dynamic project management markets. Engineers, program coordinators, and technical leaders in these industries face intense pressure to deliver complex, regulated programs on time and within budget. PMP® Certification demonstrates mastery of the formal processes and risk frameworks that aerospace and defense employers demand, positioning Mesa professionals for advancement into senior program management and leadership roles where the credential is often a baseline expectation.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners with real-world experience across regulated industries. Whether you're employed at one of Mesa's major manufacturers, in healthcare administration, education, or government, our flexible virtual format eliminates commute barriers while maintaining the instructor interaction and peer collaboration that accelerate learning. Upon completion and successful examination, you'll hold a credential recognized globally—opening pathways to higher compensation, broader project scope, and career mobility in Mesa's competitive professional landscape.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:34.257385Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "a42c77b273a9aa52",
+            "_ai_locked": true
         },
         {
             "type": "ai_block",
@@ -90,7 +107,34 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification for Mesa's Aerospace and Defense Professionals",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training Guarantee",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your contact hours count toward PMP eligibility requirements without needing to verify third-party credentials. Start your certification journey on a foundation recognized by the Project Management Institute."
+                },
+                {
+                    "heading": "Live Instruction, Your Schedule",
+                    "text": "Attend live-virtual instructor-led classes from anywhere—no recorded lectures or self-paced modules. Real-time interaction with certified practitioners satisfies PMI contact-hour requirements while letting you balance work and study. Participate fully without relocating or commuting."
+                },
+                {
+                    "heading": "Instructors With Active Certifications",
+                    "text": "Your instructors hold active PMP and other PMI credentials and apply current project-management practices in their own roles. Learn exam strategy and real-world frameworks from practitioners who use them daily, not trainers reading slides."
+                },
+                {
+                    "heading": "Credential Valued by Mesa Employers",
+                    "text": "Aerospace, defense, healthcare, and government employers across Mesa actively recruit PMP-certified professionals for program and project leadership roles. The credential signals readiness for advancement at organizations like Boeing, Lockheed Martin, Banner Health, and the City of Mesa."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:38.413768Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "65c5fd7c591269bf",
+            "_ai_locked": true
         },
         {
             "type": "stats",
@@ -127,7 +171,17 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Mesa's Defense Sector",
+            "text": "<p>Mesa's aerospace and defense manufacturing cluster, centered at Falcon Field, creates substantial demand for certified project managers. Boeing's AH-64 Apache production line, MD Helicopters, and Lockheed Martin all operate in the region, managing complex, milestone-driven programs that rely on disciplined project management. Beyond manufacturing, Banner Health's large-scale healthcare operations, Mesa Public Schools, and the City of Mesa also employ project managers to oversee capital projects, system implementations, and organizational initiatives. These employers actively seek professionals who can demonstrate formal PMP® certification—a credential that signals competency in the structured methodologies these organizations depend on.</p><p>The PMP® credential carries measurable career value across most regions, with certified project managers reporting notably higher earning potential than their non-certified counterparts. In Mesa's defense and aerospace-heavy economy, that premium becomes especially relevant: program-managed manufacturing environments reward the discipline, risk management, and stakeholder communication that PMP® training emphasizes. Completing PMP Certification Training through Granite PM Academy equips you with the knowledge and credentials to compete for these roles while maintaining the flexibility of live-virtual instruction designed around working professionals' schedules. For those advancing careers in Mesa's largest employment sectors, the investment in certification directly connects to measurable career progression.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:42.672026Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "cb6e75b35c2c6246",
+            "_ai_locked": true
         },
         {
             "type": "pricing_cards",
@@ -174,7 +228,37 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Mesa",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires a combination of formal education and verifiable project-management experience. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma shapes your experience threshold. Gather documentation of your project work before you apply."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours of Training",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Certification Training course. Our experienced, active certified practitioners deliver interactive sessions on PMI's five process groups and ten knowledge areas. Attend all sessions, participate in case studies, and earn your formal 35 contact hours—a prerequisite for PMI application."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After course completion, create your PMI profile and submit your official PMP application, including your verified education and project-management experience. Pay PMI's examination fee. PMI will review your submission; most applicants receive approval within two weeks. Respond promptly to any audit requests."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and review sessions—to reinforce course content. Schedule your computer-based exam with Pearson VUE at a test center convenient to you. Prepare thoroughly, then sit for the four-hour, 200-question assessment."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "Upon passing, you earn your PMP credential with a three-year renewal cycle. Maintain it by earning professional development units (PDUs) through authorized training, conference attendance, volunteer work, or self-directed learning. Plan ahead so you meet PMI's renewal requirements before your credential expires."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:48.076998Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "9ce8488f097b7f51",
+            "_ai_locked": true
         },
         {
             "type": "testimonials",
@@ -238,19 +322,42 @@
                 {
                     "question": "Is this training PMI-approved?",
                     "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Mesa aerospace and defense careers?",
+                    "answer": "<p>Yes. Mesa's aerospace and defense sector—including Apache helicopter production and multiple contractors at Falcon Field—operates in program-managed, milestone-driven environments where PMP® certification is genuinely valued. PMI data shows certified project managers earn a median premium of approximately $26,000 annually over non-certified peers nationally, a gap that holds across most regions. For professionals in Mesa's manufacturing and defense roles, the credential directly aligns with employer expectations and career progression.</p>"
+                },
+                {
+                    "question": "Which Mesa employers or industries value PMP certification most?",
+                    "answer": "<p>PMP® certification carries strong demand across Mesa's largest sectors: aerospace/defense manufacturing (Boeing, Lockheed Martin, MD Helicopters), healthcare operations (Banner Health's large-scale project portfolios), government (City of Mesa), and education (Mesa Public Schools). Defense contractors and large health systems in particular prioritize or require certification for program and project leadership roles. If you work in any of these industries, certification strengthens your candidacy for advancement.</p>"
+                },
+                {
+                    "question": "Can Mesa professionals take live-virtual PMP training from their workplace?",
+                    "answer": "<p>Yes. Granite PM Academy's PMP® certification training is 100% live-virtual and nationwide, meaning you can attend from any location—your workplace, home, or office—with a reliable internet connection. Mesa professionals working at Banner Health, Boeing, Lockheed Martin, or any employer can join live instructor-led sessions without traveling to a physical classroom, making it convenient to balance work and certification.</p>"
+                },
+                {
+                    "question": "Should Mesa project managers pursue PMP certification now or wait?",
+                    "answer": "<p>Mesa's job market for certified project managers is active across aerospace, healthcare, and government sectors. If you're planning a role change or advancement—especially within defense contractors or Banner Health—pursuing certification sooner strengthens your position. The longer timeline also gives you flexibility to complete required contact hours and exam prep without rushing. Starting now positions you ahead of the competition in Mesa's competitive industries.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true
+            "fq_open": true,
+            "_ai_injected_count": 4,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:53.939522Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "a1abab89d5506bf3",
+            "_ai_locked": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
+            "mi_info_text": "<p>Mesa's aerospace-defense manufacturing cluster at Falcon Field—home to Boeing's AH-64 Apache production line, MD Helicopters, and Lockheed Martin—creates sustained demand for skilled project managers across defense contracting and related sectors. Healthcare and education employers add further opportunity for PM professionals seeking advancement. Granite PM Academy delivers live-virtual PMP® Certification Training to Mesa professionals nationwide, enabling you to earn your credential on your schedule while building the capabilities today's regional employers require.</p>",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -261,7 +368,14 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001"
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_injected_count": 1,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-10-29T02:14:55.631933Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "543f0ad55cebdc3f",
+            "_ai_locked": true
         },
         {
             "type": "cta_banner",
