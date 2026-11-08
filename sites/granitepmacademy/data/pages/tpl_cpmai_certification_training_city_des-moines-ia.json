@@ -61,30 +61,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Des Moines's insurance, financial services, and healthcare sectors rely on skilled project managers to drive complex initiatives across large operations. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction that fulfills PMI's contact-hour requirements, enabling you to earn this credential on your own schedule. Completing your PMI-CPMAI positions you for advancement and expanded responsibility across Des Moines's largest employers and growing professional market.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-des-moines-ia__tpl_cpmai_certification_training_city_des-moines-ia_b6de89f7.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_c99e6ae7c9.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:44.699799Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "9a5f5089c5fa8096",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -95,18 +87,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Des Moines for Insurance & Financial Services",
-            "text": "<p>Des Moines's position as a national insurance and financial services hub creates consistent demand for certified project managers who can lead system implementations, process transformations, and regulatory compliance initiatives. Major employers like Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide regularly invest in infrastructure and technology upgrades that require skilled project leadership. Beyond insurance, Des Moines's agribusiness, healthcare, and technology sectors all pursue certified PMs to manage complex initiatives. The PMI-CPMAI (Certified Associate in Project Management) credential validates your ability to support and coordinate projects across these growth industries, positioning you as a more competitive candidate in a market where employers actively seek structured project discipline.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that meet PMI contact-hour requirements without classroom constraints. Our active certified practitioners bring real-world project experience to every course, ensuring you learn frameworks that apply immediately to your role. Whether you're based in Des Moines or anywhere across the nation, you'll complete a structured curriculum, gain hands-on practice with industry-standard tools and processes, and prepare thoroughly for the PMI-CPMAI exam. Upon completion, you'll hold a credential recognized by Des Moines employers and valued across the project management profession—opening doors for career advancement and higher responsibility in your current organization or beyond.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:48.687528Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "c717981307402dc2",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -117,35 +98,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CAPM Certification for Des Moines Project Professionals",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Value",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your training hours meet PMI's rigorous standards for the CAPM exam. This authorization guarantees your certificate counts toward eligibility—no questions about course validity when you apply to sit for the exam."
-                },
-                {
-                    "heading": "Live Instructors, Real-World Experience",
-                    "text": "Your instructors are active certified practitioners managing projects across industries today, not trainers reading slides. They bring current methodology, real challenges, and practical problem-solving into every live-virtual session, so you learn how certification frameworks apply to actual work."
-                },
-                {
-                    "heading": "Flexible Live-Virtual Format, Full Rigor",
-                    "text": "Attend live instructor-led sessions entirely online, fitting certification training into your schedule without commute or relocation. You complete required contact hours in real time with an instructor and cohort, ensuring accountability and the peer interaction that deepens learning."
-                },
-                {
-                    "heading": "Des Moines Employers Hiring Certified Project Managers",
-                    "text": "Principal Financial Group, Wellmark, Corteva, and other major Des Moines employers actively seek CAPM and PMP credential holders for program management, process improvement, and IT project roles. CAPM positions you for entry-level and mid-career advancement across insurance, agribusiness, healthcare, and government sectors strong in Iowa's capital."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:53.528967Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "fd52a32b40bd8e44",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -175,26 +128,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Des Moines",
-            "text": "<p>Des Moines's insurance and financial services sector—anchored by Principal Financial Group, Wellmark Blue Cross Blue Shield, EMC Insurance, and Nationwide—drives consistent demand for certified project managers overseeing everything from digital transformation initiatives to infrastructure upgrades. Beyond financial services, healthcare systems like UnityPoint Health and MercyOne, technology expansions such as Microsoft data center projects in West Des Moines and the Meta data center campus in nearby Altoona, and major civic initiatives like the Principal Riverwalk downtown development all require skilled project leaders. These organizations actively recruit PMs with credentials that demonstrate structured delivery expertise.</p><p>A PMI-CPMAI certification positions you competitively in Des Moines's talent market, particularly within insurance, healthcare, and technology-focused employers where the credential is viewed as a meaningful signal of project delivery capability. While compensation for project managers in this region tracks slightly below national coastal averages, the lower cost of living and strong benefits packages—especially in financial services and healthcare roles—make the total package attractive. Completing PMI-CPMAI Certification Training through Granite PM Academy gives you the recognized credential and practical framework that local employers value, enhancing your ability to advance into higher-responsibility roles and command stronger offers as the region's major employers continue expanding operations.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:38:57.400604Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "5dc655b689cea876",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -205,17 +158,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Des Moines",
-            "text": "<p>Des Moines's thriving insurance and financial services sector drives consistent demand for certified project managers. Principal Financial Group, Wellmark Blue Cross Blue Shield, Nationwide, and EMC Insurance all maintain significant operations here and regularly hire PMs to lead cross-functional delivery initiatives. Beyond corporate headquarters, technology infrastructure projects—including Microsoft data center expansions in West Des Moines and the Meta data center campus in Altoona—have created specialized PM roles in the region. Healthcare systems like UnityPoint Health and MercyOne, along with major employers in agribusiness and manufacturing, also seek skilled project leaders to manage complex transformations and operational improvements.</p><p>Earning your PMI-CPMAI credential through Granite PM Academy positions you competitively in a market where PMP and CAPM certifications signal credibility to local hiring managers, especially within insurance, healthcare, and IT-driven organizations. While Des Moines project manager compensation tends to run slightly below coastal market averages, the region's lower cost of living makes certified roles financially attractive—and employers here, particularly in financial services and healthcare, typically offer strong benefits packages. Completing live-virtual training with active certified practitioners gives you the knowledge and credential to stand out in local job postings and advance your career without the premium price tag of coastal markets.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:01.336567Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "5dc655b689cea876",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -254,6 +197,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                },
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -264,61 +240,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing for Des Moines project managers?",
-                    "answer": "<p>Yes, especially if you work in insurance, financial services, or healthcare—Des Moines's largest employer sectors. While PMP and CAPM credentials remain the primary certifications employers seek, PMI-CPMAI signals advanced capability in AI-driven project delivery, an increasingly valued skill. Given competitive local compensation and strong employer investment in talent development, earning a credential that differentiates you can accelerate promotion and salary growth in Des Moines's growing tech-enabled roles.</p>"
-                },
-                {
-                    "question": "Which Des Moines employers hire PMs certified in artificial intelligence?",
-                    "answer": "<p>Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—all major Des Moines employers—are investing in digital transformation and data-driven operations. Insurance, healthcare, and financial services organizations increasingly value PMs who can lead AI-augmented projects and manage emerging technology risks. Corteva Agriscience and MidAmerican Energy also prioritize project leaders with modern credentials. PMI-CPMAI positions you for these high-impact roles in industries where Des Moines talent competes nationally.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMI-CPMAI training while working in Des Moines?",
-                    "answer": "<p>Yes. Granite PM Academy delivers all training live-virtual, so you attend from your office, home, or anywhere with internet access—no travel required. This format works well for Des Moines professionals balancing full-time roles at major employers. You can participate in real-time instruction and peer discussion without disrupting your schedule or commute, making it practical for busy project managers in any local industry.</p>"
-                },
-                {
-                    "question": "Should Des Moines PMs get certified before or after job transitions?",
-                    "answer": "<p>Timing depends on your goals. If you're job-hunting, earning PMI-CPMAI before applying strengthens your candidacy at Des Moines's insurance, healthcare, and tech employers, where credentials visibly influence hiring decisions. If you're established in a role, pursuing certification can unlock internal promotions or project leadership opportunities. Either way, Des Moines's stable, employer-loyal market rewards certified professionals—so early completion tends to maximize ROI.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:08.086971Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "a59afdabbecbc4da",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Des Moines's insurance and financial services sector—anchored by employers like Principal Financial Group and Wellmark Blue Cross Blue Shield—fuels consistent demand for certified project managers overseeing system implementations and process improvements. Healthcare systems, agribusiness firms, and data center operations across the region similarly rely on structured PM leadership for facility expansions and technology deployments. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Des Moines professionals, combining flexible scheduling with the credential employers in your market actively seek.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -329,39 +281,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:09.823906Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "73677a0a13d7d118",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Des Moines's insurance and financial services sector—anchored by Principal Financial Group, Wellmark Blue Cross Blue Shield, and Nationwide—fuels steady demand for project managers leading system implementations and process improvements. Healthcare, agribusiness, and data center investments across the region create additional opportunities for structured PM leadership. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Des Moines professionals nationwide, on a schedule that fits working schedules.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:11.494967Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "73677a0a13d7d118",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -395,6 +315,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:09+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:41:59+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }

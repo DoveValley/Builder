@@ -59,30 +59,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Oak Ridge's concentration of national security, nuclear research, and advanced manufacturing projects demands rigorous project governance. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with instructor-led instruction and contact hours that satisfy PMI's education requirements, enabling you to lead complex, high-stakes initiatives across the Department of Energy, national laboratories, and government contracting firms operating in this region. Earning your PMI-CPMAI credential positions you for advancement in Oak Ridge's specialized, compliance-heavy project environment.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-oak-ridge-tn__tpl_cpmai_certification_training_city_oak-ridge-tn_1729f553.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_4aea92fbc5.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:09.575588Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "305858f286ad71e1",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -93,18 +85,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Oak Ridge, TN",
-            "text": "<p>Oak Ridge's position as a national center for nuclear research, energy science, and federal security operations creates a distinctive demand for credentialed project managers. Organizations like Oak Ridge National Laboratory, the Y-12 National Security Complex, and the major federal contractors operating throughout the region—including Bechtel National, Jacobs Engineering Group, and Fluor Corporation—manage complex, mission-critical programs that depend on rigorous project governance and compliance. The PMI-CPMAI certification signals to these employers that you understand the frameworks, risk management approaches, and stakeholder coordination essential to large-scale scientific, engineering, and environmental remediation initiatives. In Oak Ridge's competitive market, this credential distinguishes you as a professional committed to industry standards and positions you for advancement in roles overseeing federal contracts, research programs, and national security projects.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI-authorized partner through live-virtual, instructor-led sessions designed for working professionals. Our curriculum covers all contact-hour requirements for the PMI-CPMAI credential and is taught by active certified practitioners with hands-on experience in project management disciplines. Whether you are working in Oak Ridge or anywhere nationwide, our flexible virtual format accommodates your schedule while providing the interactive instruction and real-world examples you need to master the material and pass your certification exam. Upon completion, you will hold a credential recognized across federal contracting, research institutions, and industry—a meaningful credential for your career trajectory.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:13.968946Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "5fa738be97acc969",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -115,35 +96,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification for Oak Ridge's Security and Energy Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Training Partner",
-                    "text": "Granite PM Academy is an official PMI Authorized Training Partner, delivering PMI-CPMAI curriculum that meets all PMI standards. Your training hours are recognized by PMI and count directly toward certification eligibility—no gaps, no second-guessing."
-                },
-                {
-                    "heading": "Live Instructors, Flexible Schedule",
-                    "text": "Attend live-virtual instructor-led sessions on your schedule; no recorded playback or self-paced substitutes. Real-time interaction satisfies PMI's contact-hour requirement, and you complete certification preparation without commuting or relocating from Oak Ridge."
-                },
-                {
-                    "heading": "Certified Practitioners Teach the Course",
-                    "text": "Your instructors are active certified project and program managers with hands-on experience in complex, regulated environments. They bring current best practices into every session—not theory alone—so you learn what works in the field today."
-                },
-                {
-                    "heading": "Credential Valued in Oak Ridge's Market",
-                    "text": "Oak Ridge's major employers—including the National Laboratory, National Security Complex, and federal contractors—hire project managers and program coordinators. PMI-CPMAI demonstrates your capability in the portfolio and program management expertise these organizations prioritize."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:18.166948Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "de12c1bc4bcb09da",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -173,26 +126,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Oak Ridge's Nuclear Sector",
-            "text": "<p>Oak Ridge National Laboratory, Y-12 National Security Complex, and their supporting contractors—including Bechtel National, Jacobs Engineering Group, and Fluor Corporation—anchor a robust demand for certified project managers across nuclear research, national security, and defense initiatives. Major undertakings like the Uranium Processing Facility construction at Y-12 and the Frontier exascale supercomputer project at ORNL exemplify the scale and complexity of work managed locally. Environmental remediation and modernization programs led by UCOR further expand the market for skilled project and program managers who can navigate technical delivery, regulatory compliance, and federal contracting requirements.</p><p>In Oak Ridge's specialized industries, the PMP® credential—and related certifications like the CAPM®—carries measurable weight, particularly for roles supporting Department of Energy and national laboratory contracts where structured project management methodologies are often required or strongly preferred. Project managers with formal credentials tend to advance faster and command competitive compensation reflecting the technical depth and security-clearance demands of local work. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential expectation and compete effectively for advancement in a market where methodology expertise directly translates to career and financial gains.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:21.933753Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "9deeb3649c3e700e",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -203,17 +156,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Oak Ridge's Nuclear and Energy Sector",
-            "text": "<p>Oak Ridge's economy is anchored by nuclear research, national security, and advanced scientific facilities—sectors that depend on rigorous project management. Oak Ridge National Laboratory, Y-12 National Security Complex, and contractors like Bechtel National, Jacobs Engineering Group, and UCOR all hire certified project managers to lead complex, mission-critical work. Current initiatives such as the Uranium Processing Facility construction at Y-12 and the Frontier exascale supercomputer project at ORNL exemplify the scale and technical depth of local projects. These organizations seek professionals who can coordinate multidisciplinary teams, manage federal compliance requirements, and deliver on tight timelines—precisely the competencies the PMI-CPMAI® certification validates.</p><p>In Oak Ridge's specialized market, a formal project management credential carries distinct weight. PMP® and related certifications are frequently listed as preferred or advantageous in local job postings, particularly for roles supporting Department of Energy, national laboratory, and defense-related contracts where structured methodologies are not optional but embedded in operational standards. Project managers in this area, especially those with security clearances and experience on federal contracts, command competitive compensation reflecting the technical complexity and regulatory rigor of their work. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet Oak Ridge employers' expectations and compete effectively for roles that offer both career advancement and the financial rewards commensurate with specialized, high-stakes project leadership.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:26.409673Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "9deeb3649c3e700e",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -252,6 +195,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -262,61 +238,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing for Oak Ridge project managers?",
-                    "answer": "<p>Yes, especially if you work in nuclear research, national security, or DOE-funded environments. Oak Ridge's largest employers—ORNL, Y-12, and major contractors like Bechtel and Jacobs—regularly seek formalized project management credentials. The PMP and related certifications are often listed as preferred qualifications on federal and defense contract roles, where structured methodologies and compliance documentation are mandatory. For technical project managers navigating complex, security-sensitive initiatives, the credential strengthens both competitiveness and credibility.</p>"
-                },
-                {
-                    "question": "Which Oak Ridge employers value PMP and CPMAI certifications most?",
-                    "answer": "<p>Oak Ridge National Laboratory, Y-12 National Security Complex, Consolidated Nuclear Security, Bechtel National, Jacobs Engineering Group, and UCOR prioritize certified project managers, especially for roles managing DOE contracts and environmental remediation projects. Government contracting, advanced manufacturing, and scientific research teams in the area frequently list PMP certification as advantageous or required. If your role touches federal funding, nuclear operations, or national security protocols, the credential signals competence in risk management and stakeholder oversight that these employers expect.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMI-CPMAI training while working at Oak Ridge facilities?",
-                    "answer": "<p>Yes. Granite PM Academy's entire program is live-virtual and accessible nationwide, so you can participate from your home, office, or any location with secure internet access. Many Oak Ridge professionals attend courses during their own schedule while working remotely or on flexible hours. Check your employer's IT security policies if you plan to join from a facility network (some DOE and national lab sites have restricted access protocols), but the course itself requires only standard web connectivity.</p>"
-                },
-                {
-                    "question": "How does Oak Ridge's job market affect PMI-CPMAI certification timing?",
-                    "answer": "<p>Oak Ridge's project management demand is consistent year-round due to ongoing DOE contracts, national security initiatives, and long-term research programs. However, federal fiscal cycles and contractor award seasons (typically fall and early winter) can drive hiring spikes. Completing your certification before fall job postings appear positions you competitively. Since many Oak Ridge roles require security clearance processing (which extends hiring timelines), holding certification before you apply strengthens your candidacy and reduces barriers to entry.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:33.467023Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "0bb7c35271c0bb95",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Oak Ridge's project management market centers on nuclear research, national security, and federal contracting—with Oak Ridge National Laboratory, Y-12 National Security Complex, and major contractors like Bechtel and Jacobs Engineering driving consistent demand for credentialed program and project managers across large-scale scientific and environmental remediation initiatives. The PMI-CPMAI credential is particularly valued in this specialized, compliance-heavy sector. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training nationwide, serving Oak Ridge professionals seeking flexible, expert-led preparation without geographic constraints.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -327,39 +279,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:35.373232Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b4465c75237543e8",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Oak Ridge's project management market centers on nuclear research, national security, and federal contracting—with major employers like Oak Ridge National Laboratory and Y-12 National Security Complex driving steady demand for credentialed PMs across large-scale scientific and engineering programs. The Uranium Processing Facility construction at Y-12 and ongoing Department of Energy modernization initiatives underscore the value of PMI certification in this specialized sector. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Oak Ridge professionals nationwide, on a schedule built for working practitioners.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:37.271621Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b4465c75237543e8",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -393,6 +313,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:07+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:39:39+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }

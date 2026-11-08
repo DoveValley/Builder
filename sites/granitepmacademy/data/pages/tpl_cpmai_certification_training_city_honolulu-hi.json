@@ -61,30 +61,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Honolulu's tourism, military, healthcare, and government sectors depend on project managers who can navigate complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with active certified practitioners as instructors, meeting all PMI contact-hour requirements for this advanced credential. Earning your PMI-CPMAI positions you competitively for leadership roles across Hawaii's largest employers and industries.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-honolulu-hi__tpl_cpmai_certification_training_city_honolulu-hi_e3db0aa8.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_de575e21fb.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:31.216336Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "7dec64533c58b710",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -95,18 +87,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training for Honolulu's Project Leaders",
-            "text": "<p>Honolulu's robust military and defense sector, anchored by Joint Base Pearl Harbor-Hickam and supported by federal and state government agencies, demands project managers who can navigate complex, multi-stakeholder environments with precision and compliance rigor. The PMI-CPMAI (Certified Associate in Project Management) credential equips professionals across Honolulu's tourism, healthcare, construction, and public infrastructure sectors with the foundational project management framework recognized by the Project Management Institute. For professionals in this city's unique mix of industries—where coordination across military, civilian, and private organizations is routine—CAPM certification demonstrates your commitment to standardized PM practices and positions you competitively for advancement in roles requiring structured project oversight.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions available nationwide. Our active certified practitioners guide you through the PMBOK® Guide framework while ensuring you accumulate the contact hours required for PMI eligibility and exam readiness. Whether you're advancing within Honolulu's government agencies, healthcare systems, or construction initiatives, our flexible online format fits your schedule without compromising rigor. Upon completion, you'll be prepared to sit for the CAPM exam and earn a credential that opens doors across the Pacific region and beyond.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:35.255127Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "8fcc1c3d5936e383",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -117,35 +98,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification Path for Honolulu's Growing Project Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Recognition",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your certification meets PMI standards. Employers across Honolulu's defense, healthcare, and government sectors trust PMI credentials as the baseline for project management competency and advancement."
-                },
-                {
-                    "heading": "Live Virtual Learning Fits Your Schedule",
-                    "text": "Instructor-led live-virtual sessions deliver the required contact hours without commuting across Oahu. Earn your PMI-CPMAI on your timeline while maintaining full-time work at major local employers like Hawaiian Electric Industries, Kaiser Permanente, or the State of Hawaii."
-                },
-                {
-                    "heading": "Learn from Active Certified Practitioners",
-                    "text": "Your instructors hold current PMI certifications and actively manage real projects. Their hands-on experience translates into practical exam prep and insights you'll apply immediately in Honolulu's construction, tourism, military, and renewable energy sectors."
-                },
-                {
-                    "heading": "Credential Demand in Honolulu's Key Industries",
-                    "text": "The Queen's Health Systems, U.S. Navy, City and County of Honolulu, and Matson, Inc. routinely hire project and program managers with PMI credentials. Certification directly strengthens your candidacy for roles managing mission-critical initiatives across healthcare, defense, government, and maritime operations locally."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:39.454533Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "97ba67bfd71b8925",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -175,26 +128,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Honolulu",
-            "text": "<p>Honolulu's largest employers across healthcare, government, defense, and construction actively recruit certified project managers to lead complex, regulated initiatives. The Queen's Health Systems and Kaiser Permanente Hawaii manage ongoing clinical and operational projects requiring skilled PMs; the City and County of Honolulu, State of Hawaii, and U.S. Navy (Joint Base Pearl Harbor-Hickam) oversee infrastructure and modernization work; and Hawaiian Electric Industries drives utility and renewable energy projects. Real-world examples include the Honolulu Rail Transit Project (Skyline), managed by the Honolulu Authority for Rapid Transportation (HART), the Pearl Harbor Naval Shipyard modernization, and the Aloha Stadium redevelopment—each demanding experienced project managers to navigate scope, budget, and stakeholder coordination at scale.</p><p>Holding a PMP® or CAPM® credential strengthens your candidacy in Honolulu's competitive job market, particularly among government, healthcare, and construction organizations managing large, regulated projects. While not always mandatory, certification demonstrates expertise and commitment to the discipline—qualities employers value when filling program and project management roles. Compensation in Honolulu reflects the region's high cost of living; government, healthcare, and military-related positions often offer strong benefits and stable pay rather than inflated base salaries, making the credential's return on investment meaningful over a career. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the skills and credentials these local employers seek, positioning you to advance into roles where demand remains steady and career progression is tied directly to your ability to deliver results on mission-critical projects.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:44.056747Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "0afb8d8bba846c32",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -205,17 +158,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Honolulu",
-            "text": "<p>Honolulu's largest employers—The Queen's Health Systems, Kaiser Permanente Hawaii, Hawaiian Electric Industries, and the U.S. Navy at Joint Base Pearl Harbor-Hickam—actively recruit certified project managers to oversee complex, mission-critical initiatives. The Honolulu Authority for Rapid Transportation (HART) continues to advance the Honolulu Rail Transit Project, a multiphase infrastructure undertaking that demands experienced PMs to coordinate budgets, timelines, and stakeholder expectations across construction and government sectors. Healthcare systems and military defense operations particularly depend on skilled project and program managers to navigate regulatory requirements, capital projects, and operational improvements—roles where certification and structured PM training meaningfully improve hiring prospects.</p><p>PMI credentials such as the PMP and CAPM have become increasingly valued in Honolulu's competitive job market, especially among government agencies, construction firms managing major redevelopments, and healthcare organizations overseeing capital expansion and technology deployment. While not universally mandatory, holding a recognized credential strengthens your candidacy and signals readiness for advancement. Compensation for project managers in Honolulu reflects the region's high cost of living; government, healthcare, and military-affiliated roles often provide competitive total packages—including benefits and stability—that offset base-salary variations. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the knowledge and credentials employers here actively seek, positioning you to compete effectively for roles across Honolulu's growing construction, defense, and healthcare sectors.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:48.334146Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "0afb8d8bba846c32",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -254,6 +197,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -264,61 +240,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth getting in Honolulu's healthcare sector?",
-                    "answer": "<p>Yes. Honolulu's major healthcare employers—The Queen's Health Systems and Kaiser Permanente Hawaii—regularly manage large, regulated clinical and operational projects. CPMAI certification strengthens your candidacy for program and project leadership roles in these organizations, where structured methodology and AI-informed decision-making are increasingly valued for resource allocation, infrastructure, and digital transformation initiatives.</p>"
-                },
-                {
-                    "question": "Which Honolulu employers hire certified project managers most?",
-                    "answer": "<p>Government agencies (State of Hawaii, City and County of Honolulu), defense contractors at Joint Base Pearl Harbor-Hickam, healthcare systems, and construction firms actively recruit certified project managers. PMP and CAPM credentials are particularly valued in these sectors for managing regulated, multi-stakeholder, and capital-intensive projects. CPMAI certification adds demonstrated competency in modern project intelligence and risk analysis.</p>"
-                },
-                {
-                    "question": "Can I take PMI-CPMAI training online from my Honolulu workplace?",
-                    "answer": "<p>Yes. Granite PM Academy delivers all CPMAI training as live-virtual sessions, so you can attend from your office, home, or any location with reliable internet. This flexibility works well for Honolulu professionals managing demanding schedules across government, healthcare, and military sectors. You'll participate in real-time instruction and group activities regardless of where you log in.</p>"
-                },
-                {
-                    "question": "Should I pursue CPMAI certification before Honolulu's job market shifts?",
-                    "answer": "<p>Demand for certified project managers in Honolulu remains steady across construction, defense, and healthcare—sectors central to the local economy. Completing certification now positions you ahead in a competitive market where employers increasingly prefer candidates with current, recognized credentials. The earlier you earn it, the sooner you can leverage it in promotion and role-transition conversations.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:53.876703Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "1b6f8cf368ca23b2",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Honolulu's project management demand is fueled by a dynamic blend of military infrastructure, healthcare expansion, and major civic projects like the Honolulu Rail Transit (Skyline) initiative—creating steady opportunities for professionals who can lead complex, multi-stakeholder programs. Employers ranging from the U.S. Navy and State of Hawaii to Kaiser Permanente and Hawaiian Airlines consistently seek skilled PMs to navigate the city's construction, transit, and modernization efforts. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Honolulu professionals nationwide, helping you meet the credential requirements and competencies your local market values.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -329,39 +281,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:56.096601Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "f9eeaaeaa80fc8bb",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Honolulu's project management demand centers on its distinctive blend of tourism, military, healthcare, and infrastructure sectors—sectors where multi-stakeholder coordination is essential. Major initiatives like the Honolulu Rail Transit Project (Skyline) and Pearl Harbor Naval Shipyard modernization, combined with large employers such as The Queen's Health Systems and the U.S. Navy, create steady opportunities for credentialed program and project managers. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Honolulu professionals nationwide, on a schedule designed for working adults.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:39:57.973250Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "f9eeaaeaa80fc8bb",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -395,6 +315,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:04+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:35:34+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }

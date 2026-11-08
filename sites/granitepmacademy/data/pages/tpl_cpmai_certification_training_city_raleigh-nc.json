@@ -61,30 +61,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Raleigh's technology, biotech, financial services, and government sectors depend on skilled project managers to lead complex initiatives. Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that satisfies PMI's required contact hours, enabling you to earn credentials recognized across these high-growth industries without sacrificing work or schedule flexibility.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-raleigh-nc__tpl_cpmai_certification_training_city_raleigh-nc_005bffd3.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_30b6d8dd65.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:38.733561Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "0683c521fad2b7d0",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -95,18 +87,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training for Raleigh's Growing PM Market",
-            "text": "<p>Raleigh's position at the heart of the Research Triangle creates distinctive demand for certified project managers across technology, biotechnology, and higher-education sectors—industries where structured program delivery and compliance oversight directly impact organizational success. Beyond the tech and life-sciences core, Raleigh's expanding finance, healthcare, and state-government employers are actively seeking professionals who can demonstrate mastery of adaptive project frameworks and stakeholder management. The PMI-CPMAI Certification signals that capability to employers across these sectors and validates your readiness to lead increasingly complex initiatives in a market where skilled coordinators and program leads command consistent opportunity.</p><p>Granite PM Academy delivers live-virtual, instructor-led PMI-CPMAI Certification Training that meets all contact-hour requirements for credential eligibility, taught by active certified practitioners with real-world experience across industries. Our flexible virtual format means you can complete your training on your schedule while maintaining your current role—no need to travel or interrupt your work. Upon completion, you'll be positioned to sit for the PMI-CPMAI exam and join the community of credentialed professionals who advance Raleigh's project-management standards. Begin your certification journey with a partner authorized by the Project Management Institute to prepare you for lasting career impact.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:42.688766Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "459d5cc0591d0092",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -117,35 +98,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification for Raleigh's Research Triangle Tech Leaders",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Training Partner",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your training meets PMI standards and your contact hours count toward PMI-CPMAI eligibility. No third-party verification delays—your path to certification is direct and PMI-recognized from day one."
-                },
-                {
-                    "heading": "Live Instruction, Virtual Flexibility",
-                    "text": "Attend live-virtual instructor-led sessions that satisfy PMI-CPMAI contact-hour requirements without relocating. Engage in real-time with instructors and cohort members, then access recordings—balancing Raleigh's demanding tech and biotech schedules with rigorous, interactive learning."
-                },
-                {
-                    "heading": "Instructors Who Certify, Then Teach",
-                    "text": "Our instructors are active certified practitioners managing real projects—not classroom-only trainers. They bring current best practices and practical problem-solving into every session, grounding PMI-CPMAI concepts in the methodologies your peers at Red Hat, Fidelity, and WakeMed use daily."
-                },
-                {
-                    "heading": "Credential Built for Raleigh's Growth Industries",
-                    "text": "PMI-CPMAI certification positions you for advancement in Raleigh's booming technology, biotech, financial services, and government sectors—all hiring certified project and program managers. Local employers recognize PMI credentials as a competitive edge for leadership roles and specialized project portfolios."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:47.235344Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "e439f4840c25b74b",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -175,26 +128,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Raleigh's Tech and Healthcare Hub",
-            "text": "<p>Raleigh's position as the anchor of the Research Triangle has created sustained demand for certified project managers across technology, healthcare, and government sectors. Red Hat, IBM, and Cisco Systems employ hundreds of professionals managing complex software and infrastructure initiatives, while major healthcare systems like WakeMed Health & Hospitals oversee continuous operational and capital projects. Beyond private enterprise, the State of North Carolina and City of Raleigh regularly hire project managers for public administration, and ongoing infrastructure investments—including the Raleigh Union Station transit hub redevelopment and RDU International Airport expansion—demonstrate the breadth of PM roles available locally. NC State University's Centennial Campus development represents the kind of large-scale, multidisciplinary project that rewards certified project management expertise.</p><p>PMP® certification is widely recognized and often preferred or required in Raleigh-area job postings, particularly within technology, healthcare, and government sectors. Employers in the Research Triangle increasingly value formal project management credentials as a differentiator for mid- and senior-level roles. Project manager compensation in the Raleigh area tends to be competitive with other major Southeastern tech and finance hubs, reflecting strong demand from this mix of technology, biotech, and corporate employers—and PMP-certified candidates generally command a premium over non-certified peers. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that credential demand and advance your career in Raleigh's competitive market, whether you're targeting private-sector innovation, healthcare operations, or public-sector leadership.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:51.506446Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "6acff22e893a8b26",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -205,17 +158,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Raleigh's Growing Tech Hub",
-            "text": "<p>Raleigh's position as the anchor of the Research Triangle has created sustained demand for certified project managers across technology, healthcare, government, and financial services. Red Hat, IBM, and Cisco Systems—major employers headquartered or with significant operations in the region—routinely seek PMP-certified professionals to lead complex infrastructure and software initiatives. Beyond corporate technology firms, WakeMed Health & Hospitals, the City of Raleigh, and the State of North Carolina employ project managers to oversee everything from clinical system implementations to capital improvements. Even large-scale local initiatives like the Raleigh Union Station transit hub redevelopment and RDU International Airport's terminal expansion underscore the region's appetite for skilled practitioners who can manage multimillion-dollar, mission-critical projects.</p><p>PMP® certification is widely recognized and often preferred—sometimes required—in Raleigh-area job postings, particularly within technology, healthcare, and government sectors where employers use formal credentials to identify candidates ready for mid- and senior-level responsibility. Project manager compensation in the Raleigh area remains competitive with other major Southeastern tech and finance hubs, and certified candidates generally command a premium over non-certified peers. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to meet that expectation and compete effectively in a market where the Research Triangle's diverse employer base—from Fortune 500 financial institutions like Fidelity Investments and Truist to NC State University's Centennial Campus research operations—values demonstrated project management expertise as a clear differentiator.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:55.844802Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "6acff22e893a8b26",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -254,6 +197,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -264,61 +240,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing for Raleigh project managers?",
-                    "answer": "<p>Yes, particularly if you work in technology, healthcare, or government sectors that dominate the Research Triangle. PMP certification is widely recognized and often preferred or required in local job postings, especially for mid- and senior-level roles. Certified candidates typically command a premium over non-certified peers, making it a strong investment for career advancement in Raleigh's competitive market.</p>"
-                },
-                {
-                    "question": "Which Raleigh employers value PMP or CAPM certification most?",
-                    "answer": "<p>Technology firms in Research Triangle Park, biotech companies, healthcare systems like WakeMed, financial services firms such as Fidelity and Truist, and state government agencies actively seek certified project managers. Red Hat, IBM, and Cisco Systems also value formal credentials as differentiators for advancement. The Research Triangle's mix of tech, biotech, and corporate employers creates strong, consistent demand for PMI-recognized certifications.</p>"
-                },
-                {
-                    "question": "Can I take live-virtual CPMAI training while working at my Raleigh office?",
-                    "answer": "<p>Yes. Granite PM Academy's PMI-CPMAI training is delivered entirely live-virtual, so you can attend from your workplace, home, or any location with internet access. This flexibility is ideal for Raleigh professionals balancing full-time roles at major employers—you participate in real-time instruction without relocating or commuting to a physical classroom.</p>"
-                },
-                {
-                    "question": "How does Raleigh's job market affect when I should get certified?",
-                    "answer": "<p>Raleigh's strong demand for certified project managers means the credential pays dividends year-round, but timing your certification around internal promotions or job searches maximizes ROI. If you're targeting roles at tech companies, healthcare systems, or state agencies, early certification positions you competitively. The Research Triangle's growth makes certification valuable at any career stage, though mid-level professionals often see the fastest advancement gains.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:42:01.515740Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "b2601f8eda85d16b",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Raleigh's Research Triangle anchors one of the nation's strongest technology and life-sciences hubs, where Red Hat, IBM, and biotech firms alongside WakeMed and state government generate consistent demand for skilled project managers. Major initiatives—including Raleigh Union Station's transit redevelopment and RDU Airport's terminal expansion—underscore the region's growing infrastructure and corporate investment. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Raleigh professionals nationwide, enabling you to earn your credential on your schedule while advancing in this dynamic market.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -329,39 +281,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:42:03.460093Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b9cceae75d33d451",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Raleigh's Research Triangle anchors a robust project management market, where technology giants like Red Hat and IBM drive persistent demand for certified coordinators and program leads. Healthcare systems, financial services, and state government add further diversity to opportunities for skilled PMs managing everything from airport terminal expansions to university campus development. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Raleigh professionals nationwide, helping you earn the credential employers in this region actively seek.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:42:05.199927Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b9cceae75d33d451",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -395,6 +315,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:18+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:52:35+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }

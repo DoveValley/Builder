@@ -59,30 +59,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Oxnard's aerospace, defense, maritime, and advanced manufacturing sectors rely on project managers who meet PMI standards. Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that satisfy PMI's contact-hour requirements, enabling you to earn this credential on your schedule. The CAPM credential strengthens your competitiveness for project coordinator and assistant project manager roles across the region's major employers and growth industries.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-oxnard-ca__tpl_cpmai_certification_training_city_oxnard-ca_7f10bcd3.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_2ad4d27dcd.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:22.020670Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "d16241085d31cb72",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -93,18 +85,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training for Oxnard's Defense and Manufacturing Leaders",
-            "text": "<p>Oxnard's project management landscape is anchored by Naval Base Ventura County and advanced manufacturing operations that demand rigorous coordination of complex, mission-critical initiatives. Professionals in defense contracting, aerospace, and precision manufacturing—alongside those in the Port of Hueneme's logistics operations and growing healthcare sector—face real pressure to demonstrate structured PM competency. The PMI-CPMAI Certification validates your ability to manage projects in regulated, high-stakes environments where compliance, resource allocation, and stakeholder coordination directly affect outcomes. For Oxnard-based professionals working within or supporting these industries, earning this PMI credential signals readiness for senior project and program roles.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training through live-virtual, instructor-led sessions that meet PMI's rigorous contact-hour requirements and prepare you for the certification exam. Our instructors are active, certified practitioners with real-world experience in complex project environments. You'll learn from anywhere, on a schedule that fits your career, and complete the training that satisfies eligibility requirements for credential application. Whether you're advancing within Oxnard's defense, manufacturing, healthcare, or municipal sectors, this certification positions you for expanded responsibility and competitive advancement in your field.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:26.194885Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "1c40d4bdcafd0335",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -115,35 +96,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI Certification Path for Oxnard's Aerospace and Defense Sector",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorized Training Partner",
-                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMI-CPMAI training meets PMI's rigorous curriculum and instructor standards. This authorization ensures your contact hours count directly toward PMI credential eligibility—no guesswork, no gaps."
-                },
-                {
-                    "heading": "Live-Virtual Instruction, Full Contact Hours",
-                    "text": "Every class is live and instructor-led via video, satisfying PMI's contact-hour requirement for the PMI-CPMAI credential. You attend synchronously, ask questions in real time, and receive documented completion—all from your Oxnard home or office."
-                },
-                {
-                    "heading": "Instructors Who Practice Project Management",
-                    "text": "Your instructors are active certified practitioners with hands-on experience managing complex projects and programs. They bring real-world challenges and solutions into every session, not academic theory alone—you learn how certification concepts work in practice."
-                },
-                {
-                    "heading": "Credential Built for Oxnard's Growth Industries",
-                    "text": "Oxnard's aerospace, defense, advanced manufacturing, maritime logistics, and healthcare sectors all rely on credentialed project managers to lead cross-functional teams and meet compliance demands. PMI-CPMAI certification positions you competitively for supervisory and program-management roles at employers like Naval Base Ventura County, Haas Automation, Port of Hueneme, and regional healthcare systems."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:30.808089Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f6ee05c5bb27b560",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -173,26 +126,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Oxnard's Growing Sectors",
-            "text": "<p>Oxnard's largest employers span defense, advanced manufacturing, healthcare, and maritime logistics—all sectors where certified project managers are in active demand. Naval Base Ventura County drives steady infrastructure and capital improvement work, while the Port of Hueneme's ongoing Wharf Improvement and modernization program creates project oversight roles across engineering and operations. Haas Automation, one of the region's major machine-tool manufacturers, and St. John's Regional Medical Center (Dignity Health) regularly seek professionals with formal project management credentials to lead cross-functional teams. The City of Oxnard itself, along with its GREAT Program for advanced water purification infrastructure, represents significant public-sector project management opportunity for candidates who hold recognized credentials.</p><p>In the Oxnard area, project manager compensation tracks Southern California and Ventura County norms, with a meaningful premium for candidates who bring documented expertise in defense, manufacturing, or healthcare project delivery. Employers in these fields compete actively for certified talent, making PMP and CAPM credentials a genuine competitive advantage on applications and in interviews—often the differentiator when qualifications are otherwise close. Completing PMI-CPMAI Certification Training through Granite PM Academy equips you with the knowledge and credential recognition that Oxnard employers value, delivered entirely online at a pace that fits your current work and life. Whether you're aiming to advance within a large employer or expand your candidacy across the region's growing infrastructure and manufacturing sectors, this certification strengthens your position in a local market where formal project management rigor is increasingly preferred.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:35.615657Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "f09da47abaac9548",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -203,17 +156,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers Growing in Oxnard",
-            "text": "<p>Oxnard's largest employers—Naval Base Ventura County, the Port of Hueneme, Haas Automation, and St. John's Regional Medical Center—regularly hire and promote project managers to oversee complex operations and capital initiatives. The Port's Wharf Improvement and modernization program, Naval Base Ventura County's ongoing infrastructure projects, and the city's GREAT Program for advanced water purification all depend on skilled project leaders to manage timelines, budgets, and cross-functional teams. Healthcare systems and advanced manufacturing facilities in the area similarly rely on certified professionals to drive efficiency and compliance. These sectors actively seek candidates with formal project management credentials, recognizing that structured training translates directly to operational success.</p><p>While PMP and CAPM certification is not universally mandated in Oxnard-area postings, it is frequently preferred—particularly in defense, healthcare, and manufacturing roles where employers compete for proven talent. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to stand out in a regional market where credentials meaningfully strengthen candidacy for both private-sector and public infrastructure roles. Formal project management training equips you with the frameworks and tools that employers across Oxnard's dominant industries recognize and value, improving your ability to advance into higher-responsibility positions and command competitive compensation aligned with Southern California norms in your sector.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:39.719018Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "f09da47abaac9548",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -252,6 +195,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -262,61 +238,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth pursuing for Oxnard manufacturing and defense careers?",
-                    "answer": "<p>Yes, especially if you work in or target advanced manufacturing, aerospace, or defense sectors tied to employers like Haas Automation or Naval Base Ventura County. These industries frequently prefer or list PMP and related certifications in job postings. Formal project management credentials strengthen your candidacy for roles managing complex, regulated projects—where certified professionals often compete more effectively for advancement and cross-sector opportunities in Ventura County's competitive talent market.</p>"
-                },
-                {
-                    "question": "Which Oxnard-area employers value project management certification most?",
-                    "answer": "<p>Defense, healthcare, manufacturing, and public-sector employers in Oxnard—including those at Naval Base Ventura County, St. John's Regional Medical Center, The Wonderful Company, and City of Oxnard—actively seek certified project managers. Port of Hueneme and logistics-tied roles also benefit from formal credentials. Certification is often listed as preferred rather than required, but it meaningfully improves your profile when competing for specialized or leadership-track positions in these sectors.</p>"
-                },
-                {
-                    "question": "Can I take PMI-CPMAI training from my Oxnard workplace during business hours?",
-                    "answer": "<p>Yes. Granite PM Academy delivers all PMI-CPMAI training live-virtual nationwide, so you can attend from your office, workplace, or home with a reliable internet connection. Many Oxnard professionals in healthcare, manufacturing, and public agencies schedule sessions during or around work hours. Confirm with your employer about any tuition assistance or scheduling flexibility—many Ventura County employers support professional development for team members pursuing recognized credentials.</p>"
-                },
-                {
-                    "question": "How does Oxnard's job market affect timing for PMP or CAPM certification?",
-                    "answer": "<p>Oxnard's defense, healthcare, and manufacturing sectors show steady demand for certified project managers, making certification a smart long-term investment regardless of season. However, if you're pursuing a promotion or external role, completing certification 2–3 months before your target job search can strengthen your application when employers screen for credentials. Defense and regulated healthcare roles often move on longer timelines; plan accordingly to align certification with your career timeline.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:46.206804Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "e1736e7f0693d508",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Oxnard's project management demand spans naval defense, advanced manufacturing, maritime logistics, and healthcare—with Naval Base Ventura County, Haas Automation, and Port of Hueneme among the region's largest employers driving ongoing infrastructure and operational initiatives. Professionals managing capital improvements, facilities coordination, and supply-chain projects across these sectors compete for roles that reward PMI-CPMAI certification. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Oxnard professionals nationwide, combining flexible scheduling with the rigorous curriculum employers in this market recognize and value.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -327,39 +279,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:48.302745Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "182d1b45e8ccf2c0",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Oxnard's naval defense operations, port logistics, and advanced manufacturing base create consistent demand for skilled project managers. Naval Base Ventura County, Port of Hueneme, and employers like Haas Automation regularly seek professionals to lead infrastructure, IT, and operational initiatives across defense, maritime, and industrial sectors. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Oxnard professionals nationwide, enabling you to earn your credential on your schedule while building expertise that matches local market needs.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:41:49.947409Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "182d1b45e8ccf2c0",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -393,6 +313,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:06+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:37:31+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }

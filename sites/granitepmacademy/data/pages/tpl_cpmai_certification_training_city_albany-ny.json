@@ -60,30 +60,22 @@
         {
             "type": "hero_split",
             "hs_heading": "{primary_keyword} in {city_state}",
-            "hs_subtext": "<p>Albany's public sector, healthcare, and higher-education employers increasingly demand structured project management credentials for advancement. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training with an active certified instructor, meeting all PMI contact-hour requirements on a schedule that fits working professionals. Earning your PMI-CPMAI opens doors across New York State Government, SUNY institutions, Albany Medical Center, and the region's growing insurance and energy sectors.</p>",
+            "hs_subtext": "<p>Granite PM Academy's PMI-CPMAI Certification Training in {city_state} prepares you to manage AI and machine learning projects using PMI's official AI project management methodology. A growing credential for project managers working with AI initiatives.</p>",
             "hs_btn_text": "See Upcoming Dates",
             "hs_btn_url": "#cpmai_schedule",
             "hs_caption1": "",
             "hs_caption2": "",
-            "hs_photo_alt": "AI training for project managers {city} {SS}",
+            "hs_photo_alt": "PMI-CPMAI certification training {city} {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#f0f4f8",
-            "hs_photo": "sites/granitepmacademy/uploads/media/pmi-cpmai-certification-training-albany-ny__tpl_cpmai_certification_training_city_albany-ny_c0f4c1c4.webp",
+            "hs_photo": "sites/granitepmacademy/uploads/media/ai_hero_e156b75a2f.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:19.047943Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "c2f48926f8c0ee94",
-            "_ai_locked": true,
-            "id": "hero_split_1",
-            "_ai_injected_count": 1,
-            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp"
+            "_hs_photo_orig": "sites/granitepmacademy/uploads/media/hero_professional.webp"
         },
         {
             "type": "ai_block",
@@ -94,18 +86,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "PMI-CPMAI Certification Training in Albany, NY",
-            "text": "<p>Albany's project management landscape is shaped fundamentally by its status as New York's state capital, where government and public-sector program management roles form the backbone of steady, skilled employment. Beyond the state apparatus itself, Albany's economy now draws significant PM demand from healthcare systems like Albany Medical Center and St. Peter's Health Partners, research-intensive institutions within the SUNY system, and the advanced manufacturing corridor anchored by the Albany Nanotech Complex. For professionals in these sectors—whether you're advancing within government administration, coordinating clinical initiatives, managing academic research programs, or supporting semiconductor operations—the PMI-CPMAI® certification signals competency in change and complexity management, credentials that differentiate you in Albany's competitive market for certified practitioners.</p><p>Granite PM Academy delivers PMI-CPMAI Certification Training as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules. Our courses satisfy the contact-hour requirements mandated by PMI and are taught by active certified practitioners with real-world project and program experience. Whether you're early in your career or transitioning into certified practice, our structured curriculum prepares you to pass the PMI-CPMAI exam and immediately apply change-management frameworks to your role in Albany's government, healthcare, academic, or industrial sectors. Upon completion, you'll hold a credential recognized across industries and employers, positioning you for advancement and expanded career opportunities.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:23.159835Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_market_intro",
-            "_ai_input_hash": "8d7e866ca9e75d6b",
-            "_ai_locked": true,
-            "id": "ai_block_1"
+            "ai_prompt_override": ""
         },
         {
             "type": "ai_block",
@@ -116,35 +97,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "PMI-CPMAI Certification: Albany's Government & Healthcare Path",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "PMI Authorization Ensures Credential Integrity",
-                    "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your PMI-CPMAI training meets all official PMI standards and eligibility requirements. This authorization removes guesswork—your contact hours count, your coursework aligns with PMI frameworks, and your path to certification is recognized nationwide and by Albany employers."
-                },
-                {
-                    "heading": "Live-Virtual Classes Fit Working Schedules",
-                    "text": "Our live-virtual instructor-led format delivers all required contact hours without commute time, letting you balance certification with your current role at New York State Government, SUNY, Albany Medical Center, or other major employers. Interactive online sessions keep you engaged while maintaining the flexibility Albany professionals need."
-                },
-                {
-                    "heading": "Learn from Active Certified Practitioners",
-                    "text": "Your instructors are active certified practitioners—not curriculum readers. They bring real-world project and program management experience into every lesson, translating PMI frameworks into scenarios you'll face in healthcare systems, government agencies, higher education, and utilities sectors where Albany's workforce concentrates."
-                },
-                {
-                    "heading": "Meet Albany's Rising Demand for Certified Leaders",
-                    "text": "State and local government agencies, SUNY System Administration, Albany Medical Center, and energy utilities increasingly require or prefer PMI-CPMAI certification for project leadership roles. This credential positions you competitively among Albany's largest employers and aligns your skills with the industries driving the regional job market."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:27.574919Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "0d1d7d55fd69ddc9",
-            "_ai_locked": true,
-            "id": "ai_block_2"
+            "ai_prompt_override": ""
         },
         {
             "type": "stats",
@@ -174,26 +127,26 @@
             ]
         },
         {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "text",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Albany's Growing Sectors",
-            "text": "<p>New York State Government stands as Albany's largest employer of project managers, overseeing infrastructure, policy implementation, and operational initiatives across state agencies. Alongside government, SUNY System Administration, University at Albany, and Albany Medical Center maintain robust portfolios of concurrent projects—from the Albany Nanotech Complex expansion through SUNY Polytechnic Institute to ongoing healthcare facility upgrades. St. Peter's Health Partners, National Grid, and CDPHP similarly rely on certified project managers to coordinate complex, multi-stakeholder initiatives. Whether managing capital improvements at Empire State Plaza, coordinating research infrastructure, or overseeing energy and utility projects, certified practitioners in Albany find steady demand from employers who view standardized project management credentials as essential to operational success.</p><p>The PMI-CPMAI credential carries particular weight in Albany's public-sector, healthcare, and technology job markets, where PMP certification is frequently listed as a preferred or required qualification. While project manager compensation in the Albany region remains competitive—tracking slightly below major metropolitan centers but reflecting strong regional demand—certified professionals command a measurable premium over non-credentialed peers. Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for roles across state government, higher education, life sciences, and emerging semiconductor and nanotechnology sectors. The combination of live-virtual instruction and rigorous curriculum preparation directly addresses the credential standards that Albany employers actively seek, accelerating your entry into a market where standardized project management practices are no longer optional.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:32.003122Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "ce96305c42b87137",
-            "_ai_locked": true,
-            "id": "ai_block_3"
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ]
         },
         {
             "type": "ai_block",
@@ -204,17 +157,7 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Project Management Careers in Albany's Growing Sectors",
-            "text": "<p>New York State Government stands as Albany's largest employer of project managers, managing infrastructure, policy implementation, and administrative initiatives across multiple agencies. Alongside government, the city's healthcare sector—anchored by Albany Medical Center and St. Peter's Health Partners—drives consistent demand for certified PMs overseeing clinical expansion, facility upgrades, and IT integration projects. The region's emerging technology and advanced manufacturing hub adds further momentum: SUNY Polytechnic Institute's Albany Nanotech Complex expansion and GlobalFoundries' Fab 8 facility in nearby Malta represent major capital investments requiring skilled project oversight. Employers across these sectors increasingly list PMP® certification as a preferred or required qualification, signaling clear market appetite for standardized project management credentials.</p><p>Completing PMI-CPMAI Certification Training through Granite PM Academy positions you to compete effectively for these roles. While project manager compensation in Albany tracks slightly below major metropolitan markets, the steady demand from state government, healthcare, and technology employers keeps salaries competitive—and certified professionals with recognized credentials command a measurable premium over non-certified peers. By earning your credential through live-virtual training designed for working professionals, you gain the industry-recognized qualification that Albany employers actively seek, without interrupting your career or relocating. This credential opens pathways to advancement within the region's largest and fastest-growing sectors.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:36.099900Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "ce96305c42b87137",
-            "_ai_locked": true
+            "ai_prompt_override": ""
         },
         {
             "type": "pricing_cards",
@@ -253,6 +196,39 @@
             "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
         },
         {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned my CAPM through Granite PM Academy, then came back six months later for my PMP once I had the experience to qualify. Same quality instructor, same pass guarantee, same live format both times. There's nowhere else I'd go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ CAPM® + PMP® Certified"
+                }
+            ]
+        },
+        {
             "type": "faq_two_col",
             "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
             "fq_bg_color": "#f0f4f8",
@@ -263,61 +239,37 @@
             "fq_icon_bg_custom": "#c8960a",
             "fq_items": [
                 {
-                    "question": "What is the CPMAI certification?",
-                    "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+                    "question": "What is the PMI-CPMAI certification?",
+                    "answer": "<p>PMI-CPMAI (PMI Certified Professional in Managing AI) is PMI's own credential for project managers who lead, manage, or contribute to AI-driven projects. PMI acquired Cognilytica, the methodology's original developer, in September 2024, making this an official PMI credential, not a separate third-party certification. It covers the AI project lifecycle, data management for PMs, responsible AI governance, and practical AI tool application — without requiring a data science background.</p>"
                 },
                 {
-                    "question": "Who should pursue the CPMAI in {city}?",
-                    "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+                    "question": "Who should pursue the PMI-CPMAI in {city}?",
+                    "answer": "<p>The PMI-CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don't need a data science background; this credential is about managing the projects, not building the models.</p>"
                 },
                 {
-                    "question": "Is there a prerequisite for the CPMAI course?",
-                    "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+                    "question": "Is there a prerequisite for the PMI-CPMAI course?",
+                    "answer": "<p>No prior project management, technical, or AI experience is required to enroll — but PMI does require completion of the PMI-CPMAI Exam Prep Course before you can schedule the exam itself. Granite PM Academy's course satisfies that requirement directly, so there's no separate hoop to jump through.</p>"
                 },
                 {
-                    "question": "How is the CPMAI different from the PMP?",
-                    "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+                    "question": "How is the PMI-CPMAI different from the PMP?",
+                    "answer": "<p>The PMP covers general project management across all domains. The PMI-CPMAI is specifically focused on AI and machine learning projects — unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
                 },
                 {
                     "question": "Is this course delivered online?",
-                    "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
-                },
-                {
-                    "question": "Is PMI-CPMAI certification worth it for Albany project managers?",
-                    "answer": "<p>Yes, particularly if you work in state government, healthcare, or technology. Albany's largest employers—New York State Government, SUNY System Administration, Albany Medical Center, and GlobalFoundries—increasingly list PMP or related credentials as preferred or required qualifications. Certified project managers in the region command a measurable premium over non-certified peers, and standardized project management practices are actively reshaping how these sectors operate. The credential positions you competitively within Albany's steady, credential-conscious job market.</p>"
-                },
-                {
-                    "question": "Which Albany employers most value PMI-CPMAI or PMP certification?",
-                    "answer": "<p>State and local government agencies, the SUNY System Administration, Albany Medical Center, St. Peter's Health Partners, and technology firms like GlobalFoundries consistently highlight PMP or equivalent credentials in their project management postings. Healthcare and life sciences organizations prioritize structured certification to ensure regulatory compliance and operational rigor. Government roles especially value PMI credentials as a marker of standardized methodology. If you target any of these sectors, certification directly strengthens your candidacy.</p>"
-                },
-                {
-                    "question": "Can I attend live-virtual PMI-CPMAI training from my Albany workplace?",
-                    "answer": "<p>Yes. Granite PM Academy delivers all PMI-CPMAI training live-virtual, so you can participate from your Albany office, home, or any location with stable internet. This format works well for professionals balancing work schedules—common among Albany's government and healthcare employees—and eliminates travel time to a physical classroom. You retain the interactive, real-time instruction of live training while maintaining workplace flexibility.</p>"
-                },
-                {
-                    "question": "Does Albany's job market affect when I should pursue PMI-CPMAI?",
-                    "answer": "<p>Albany's project management demand is steady but deliberate—driven by long-term government initiatives, healthcare system expansion, and semiconductor industry growth rather than rapid hiring surges. If you're already employed in state government, higher education, or healthcare, pursuing certification now positions you ahead as roles open and organizations formalize their credential requirements. The regional market rewards proactive certification over reactive job-hunting; early credentialing increases both salary trajectory and internal advancement opportunities.</p>"
+                    "answer": "<p>Yes. Our PMI-CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
                 }
             ],
             "ai_type_id": "faq_local",
             "ai_inject_field": "fq_items",
             "ai_inject_mode": "append",
             "ai_model": "claude-haiku-4-5-20251001",
-            "fq_open": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:42.310303Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "dd63d65f0381c6ef",
-            "_ai_locked": true,
-            "id": "faq_two_col_1",
-            "_ai_injected_count": 4
+            "fq_open": true
         },
         {
             "type": "map_info",
             "mi_map_heading": "{city}, {state} Map",
             "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>As New York's state capital, Albany anchors a robust project management market built on government administration, SUNY system operations, and healthcare delivery—roles where structured program oversight is essential. Growth in semiconductor manufacturing through the Albany Nanotech Complex and GlobalFoundries expansion adds technical project demand. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Albany professionals seeking credentials that advance careers across public sector, life sciences, and advanced manufacturing.</p>",
+            "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
             "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
@@ -328,39 +280,7 @@
             "ai_type_id": "city_spotlight",
             "ai_inject_field": "mi_info_text",
             "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:44.016336Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b915ffcf54cc60bf",
-            "_ai_locked": true,
-            "id": "map_info_1",
-            "_ai_injected_count": 1
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "<p>Albany's project management market is rooted in state government administration, with growing demand across healthcare systems, higher education, and the Albany Nanotech Complex—creating consistent opportunities for both entry-level and experienced practitioners. Major employers including New York State Government, SUNY System Administration, Albany Medical Center, and GlobalFoundries actively seek certified project managers to lead initiatives ranging from infrastructure upgrades to advanced manufacturing expansion. Granite PM Academy delivers live-virtual PMI-CPMAI Certification Training to Albany professionals nationwide, enabling you to earn your credential while managing your local career momentum.</p>",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#1f2937",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "ai_type_id": "city_spotlight",
-            "ai_inject_field": "mi_info_text",
-            "ai_inject_mode": "replace",
-            "ai_model": "claude-haiku-4-5-20251001",
-            "_ai_injected_count": 1,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-10-29T04:37:45.856817Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_spotlight",
-            "_ai_input_hash": "b915ffcf54cc60bf",
-            "_ai_locked": true
+            "ai_model": "claude-haiku-4-5-20251001"
         },
         {
             "type": "cta_banner",
@@ -394,6 +314,6 @@
         "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-11-07T20:22:06+00:00",
-    "template_version": "b7fe9ed0219cc7591114e9bbe1909bdb"
+    "generated_at": "2026-11-07T23:37:45+00:00",
+    "template_version": "e367ab35f866563e4b67165c4814e125"
 }
