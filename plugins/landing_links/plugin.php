@@ -12,10 +12,36 @@ register_plugin(
 );
 
 add_hook('shortcode_content', function(string $html, string $pathPrefix = ''): string {
-    if (strpos($html, '[locations]') === false) return $html;
+    if (strpos($html, '[locations') === false) return $html;
     global $data;
-    $cfg = $data['landing_links'] ?? [];
-    return str_replace('[locations]', _landing_links_render($cfg), $html);
+    $baseCfg = $data['landing_links'] ?? [];
+    // Supports both the bare [locations] (uses the admin-configured global defaults) and
+    // an inline-attribute form, e.g. [locations template="tpl_pmp_bootcamp_city" format="columns" cols="4"],
+    // which a page can embed to show only ITS OWN service's current city pages — reading live
+    // from page-index.json/templates.json/cities.json means it never goes stale as cities are
+    // added, removed, or renamed (the alternative, a hand-maintained city list per page, is
+    // exactly the staleness bug this was built to replace).
+    return preg_replace_callback('/\[locations([^\]]*)\]/', function($m) use ($baseCfg) {
+        $attrs = [];
+        if (trim($m[1]) !== '' && preg_match_all('/(\w+)="([^"]*)"/', $m[1], $am, PREG_SET_ORDER)) {
+            foreach ($am as $a) $attrs[$a[1]] = $a[2];
+        }
+        $cfg = $baseCfg;
+        foreach (['template_filter' => 'template', 'format' => 'format', 'cols' => 'cols', 'link_text' => 'link_text'] as $cfgKey => $attrKey) {
+            if (isset($attrs[$attrKey])) $cfg[$cfgKey] = $attrs[$attrKey];
+        }
+        // Default link_text to city-only when a page filters to one template and doesn't
+        // override it — set here in PHP, NEVER as a literal {city}/{SS} token typed into a
+        // custom_html block's stored text, because custom_html runs through
+        // apply_course_shortcodes() (site_vars.city/SS, the business's own HQ default)
+        // BEFORE this shortcode hook ever sees it — a {city}/{SS} token embedded in the
+        // stored HTML gets silently resolved to the business's default city for every row,
+        // not the row's own city (the exact bug this comment is here to prevent repeating).
+        if (isset($attrs['template']) && !isset($attrs['link_text'])) {
+            $cfg['link_text'] = '{city}, {SS}';
+        }
+        return _landing_links_render($cfg);
+    }, $html);
 });
 
 function _landing_links_render(array $cfg): string {

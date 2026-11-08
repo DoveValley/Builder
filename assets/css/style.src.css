@@ -4500,6 +4500,58 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.18);
 }
 
+/* Landing Links ([locations] shortcode output) — used standalone on /training-locations/
+   and, filtered per-template, embedded on each national service page. */
+.ll-locations { font-size: 0.95rem; }
+.ll-locations.ll-by-state { display: flex; flex-direction: column; gap: 28px; }
+.ll-state-group { break-inside: avoid; }
+.ll-state-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-heading, #1a1a2e);
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.ll-city-group { margin-bottom: 14px; }
+.ll-city-group:last-child { margin-bottom: 0; }
+.ll-city-heading {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-content-text, #555e6d);
+    margin: 0 0 6px;
+    display: block;
+}
+.ll-pages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+}
+.ll-pages li { margin: 0; }
+.ll-pages a {
+    display: inline-block;
+    padding: 7px 14px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: var(--btn-radius, 999px);
+    color: var(--color-heading, #1a1a2e);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
+}
+.ll-pages a:hover {
+    background: var(--color-heading, #1a1a2e);
+    border-color: var(--color-heading, #1a1a2e);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+.ll-locations.ll-columns { column-gap: 28px; }
+
 /* ============================================================
    ERROR CODES BLOCK
    ============================================================ */
