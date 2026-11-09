@@ -2112,7 +2112,7 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $dbRegistrar = strtolower(trim((string) ($_POST['registrar'] ?? '')));
         $dbDomainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
-        if (!in_array($dbRegistrar, infra_registrar_buyable(), true)) { echo json_encode(['error' => 'Choose a configured, buy-wired registrar first.']); break; }
+        if (!in_array($dbRegistrar, infra_registrar_buyable_for_new_purchases(), true)) { echo json_encode(['error' => 'Choose a configured, buy-wired registrar first.']); break; }
         if (!infra_registrar_config($dbRegistrar)) { echo json_encode(['error' => "No saved credentials for '{$dbRegistrar}'."]); break; }
         if (!$dbDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
         echo json_encode(domainbuy_launch($batchDir, $masterId, $batchId,

@@ -17,10 +17,12 @@ require_once __DIR__ . '/../includes/multisite/batch_options.php'; // ms_batch_o
 require_once __DIR__ . '/infra/lib/state.php'; // infra_niche() — only used inside the CLI job, not this file directly
 require_once __DIR__ . '/infra/lib/registrar.php'; // infra_registrar_buyable()/_config()/_type_def() — Buy Domains card's dropdown
 
-// Buy Domains card: only registrars that can actually complete a purchase over the
-// API (infra_registrar_buyable()) AND already have saved credentials — offering one
-// with no credentials would just fail immediately on click.
-$msBuyRegistrars = array_values(array_filter(infra_registrar_buyable(), fn($n) => (bool) infra_registrar_config($n)));
+// Buy Domains card: only registrars that can actually complete a NEW purchase over
+// the API (infra_registrar_buyable_for_new_purchases() — excludes Cloudflare, see
+// its own docblock) AND already have saved credentials — offering one with no
+// credentials would just fail immediately on click.
+$msBuyRegistrars = array_values(array_filter(infra_registrar_buyable_for_new_purchases(),
+    fn($n) => (bool) infra_registrar_config($n)));
 
 // Section-order rotation pin counts, persisted per BATCH (rotation_settings_save.php) — this
 // batch's own choice, not shared with any other batch off the same master. Pre-fills the

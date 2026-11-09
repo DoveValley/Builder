@@ -333,6 +333,22 @@ function infra_registrar_buyable(): array
 }
 
 /**
+ * infra_registrar_buyable(), minus Cloudflare — the one place every NEW buy flow
+ * should pull its registrar list from. Standing rule
+ * (feedback_no_cloudflare_registrar_domains, 2026-09-20): a Cloudflare Registrar
+ * domain sits on whatever CF account bought it, and CF #0 — the account most new
+ * buys land on — is logged in under Scott's real name, not pseudonymous like the
+ * rest of the fleet's CF accounts. Kept separate from infra_registrar_buyable()
+ * itself rather than editing it in place, since that function also answers "can
+ * this registrar buy at all" for places that aren't offering a NEW purchase
+ * (e.g. reading what registrar an already-owned domain is on).
+ */
+function infra_registrar_buyable_for_new_purchases(): array
+{
+    return array_values(array_diff(infra_registrar_buyable(), ['cloudflare']));
+}
+
+/**
  * Configured registrars that can answer "is this available?", best first.
  *
  * Who CHECKS and who BUYS are separate decisions. Availability is a public fact —

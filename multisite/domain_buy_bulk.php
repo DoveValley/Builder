@@ -49,7 +49,7 @@ if (!ms_valid_master_id($masterId) || !ms_batch_exists($masterId, $batchId)) {
 }
 $domainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim($d)), explode(',', $domainsArg))));
 if (!$domainsIn) { fwrite(STDERR, "No domains given.\n"); exit(2); }
-if (!in_array($registrar, infra_registrar_buyable(), true)) {
+if (!in_array($registrar, infra_registrar_buyable_for_new_purchases(), true)) {
     fwrite(STDERR, "'{$registrar}' is not a configured, buy-wired registrar.\n"); exit(2);
 }
 if (!infra_registrar_config($registrar)) {
