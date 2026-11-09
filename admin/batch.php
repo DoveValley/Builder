@@ -121,11 +121,12 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
 
     <?php include __DIR__ . '/_batch_steps.php'; ?>
 
+    <script src="../assets/admin/ms-poll.js"></script>
+
     <?php include __DIR__ . '/_batch_panels.php'; ?>
 
 </div>
 
-<script src="../assets/admin/ms-poll.js"></script>
 <script>
 const BP_CSRF     = <?= json_encode($csrfToken) ?>;
 const BP_MASTER   = <?= json_encode($masterId) ?>;
