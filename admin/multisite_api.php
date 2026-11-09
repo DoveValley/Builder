@@ -11,6 +11,8 @@ require_once __DIR__ . '/../includes/multisite/master_lint.php';
 require_once __DIR__ . '/../includes/multisite/deploy.php';
 require_once __DIR__ . '/../includes/multisite/page_pool.php'; // ms_page_pool_status()/_reset() — row_list/pool_reset
 require_once __DIR__ . '/../includes/multisite/content_check.php'; // cc_run() — content_check_run
+require_once __DIR__ . '/infra/lib/state.php'; // infra_niche() — domain_buy_bulk's registrar dropdown/dedupe
+require_once __DIR__ . '/infra/lib/registrar.php'; // infra_registrar_buyable()/_config() — domain_buy_bulk
 
 header('Content-Type: application/json');
 
@@ -228,6 +230,18 @@ function ctmb_launch(string $action, string $batchDir, string $masterId, string 
         @file_put_contents($batchDir . '/ctm_bulk/' . $result['run_id'] . '.action', $action);
     }
     return $result;
+}
+
+/**
+ * Same shape as ctmb_launch() above, deliberately a SEPARATE directory/lock —
+ * buying domains and CTM phone-number actions are unrelated operations with no
+ * real resource conflict, so one running never has to block the other.
+ */
+function domainbuy_launch(string $batchDir, string $masterId, string $batchId, array $args): array
+{
+    return ms_launch_job($batchDir . '/domain_buy', '__MS_DOMAINBUY_DONE__',
+        'A domain purchase run is already in progress for this batch — wait for it to finish.',
+        BASE_DIR . '/multisite/domain_buy_bulk.php', array_merge([$masterId, '--batch=' . $batchId], $args));
 }
 
 switch ($action) {
@@ -2086,6 +2100,39 @@ switch ($action) {
         if ($cbAction === '' && $report) $cbAction = (string) ($report['action'] ?? '');
         echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'], 'dead' => $j['dead'],
                           'run_id' => $run['run_id'], 'action' => $cbAction, 'report' => $report]);
+        break;
+
+    // Buy a real domain for each checked row via the registrar dropdown. 100%
+    // infra_domain_buy() (admin/infra/lib/acquire.php) underneath — same function
+    // the Infra console's own single-domain buy already uses, so availability
+    // re-checking, pending/async-registrar confirmation, and receipt-writing are
+    // not reimplemented here. Real money, not reversible — confirmed client-side
+    // before this fires (see msDomainBuy in _batch_panels.php).
+    case 'domain_buy_bulk':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $dbRegistrar = strtolower(trim((string) ($_POST['registrar'] ?? '')));
+        $dbDomainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
+        if (!in_array($dbRegistrar, infra_registrar_buyable(), true)) { echo json_encode(['error' => 'Choose a configured, buy-wired registrar first.']); break; }
+        if (!infra_registrar_config($dbRegistrar)) { echo json_encode(['error' => "No saved credentials for '{$dbRegistrar}'."]); break; }
+        if (!$dbDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+        echo json_encode(domainbuy_launch($batchDir, $masterId, $batchId,
+            ['--domains=' . implode(',', $dbDomainsIn), '--registrar=' . $dbRegistrar]));
+        break;
+
+    // Own poll endpoint — same shape as ctm_bulk_status, separate directory/report
+    // file since this runs under its own lock (domainbuy_launch), independent of
+    // the 4 CTM actions above.
+    case 'domain_buy_bulk_status':
+        $dbRun = ms_job_resolve_run($batchDir . '/domain_buy', (string) ($_GET['run_id'] ?? ''));
+        if (!$dbRun) { echo json_encode(['none' => true]); break; }
+        $dbJ = ms_job_read_out($dbRun['path'], '__MS_DOMAINBUY_DONE__');
+        $dbReport = null;
+        if ($dbJ['done']) {
+            $dbRp = json_decode((string) @file_get_contents($batchDir . '/domain_buy_report.json'), true);
+            if (is_array($dbRp)) $dbReport = $dbRp;
+        }
+        echo json_encode(['output' => $dbJ['log'], 'done' => $dbJ['done'], 'exit' => $dbJ['exit'], 'dead' => $dbJ['dead'],
+                          'run_id' => $dbRun['run_id'], 'action' => 'buy_domains', 'report' => $dbReport]);
         break;
 
     default:

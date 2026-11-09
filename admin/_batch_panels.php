@@ -14,6 +14,13 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_read() — other per-master settings this file reads
 require_once __DIR__ . '/../includes/multisite/batch.php'; // ms_batch_file_read() — per-BATCH settings (rotation pins, checkbox defaults)
 require_once __DIR__ . '/../includes/multisite/batch_options.php'; // ms_batch_options_settings() — every checkbox's persisted default
+require_once __DIR__ . '/infra/lib/state.php'; // infra_niche() — only used inside the CLI job, not this file directly
+require_once __DIR__ . '/infra/lib/registrar.php'; // infra_registrar_buyable()/_config()/_type_def() — Buy Domains card's dropdown
+
+// Buy Domains card: only registrars that can actually complete a purchase over the
+// API (infra_registrar_buyable()) AND already have saved credentials — offering one
+// with no credentials would just fail immediately on click.
+$msBuyRegistrars = array_values(array_filter(infra_registrar_buyable(), fn($n) => (bool) infra_registrar_config($n)));
 
 // Section-order rotation pin counts, persisted per BATCH (rotation_settings_save.php) — this
 // batch's own choice, not shared with any other batch off the same master. Pre-fills the
@@ -154,6 +161,25 @@ function ms_ctm_card_end(string $prefix): void {
             <span id="ms-areacode-msg" class="hint" style="margin-left:8px;"></span>
         </div>
     <?php ms_ctm_card_end('areacode'); ?>
+    <?php ms_ctm_card_start('buy', 'Buy Domains'); ?>
+        <span class="hint" style="margin-left:6px;">For each checked row: register the real domain already set on that row, over the chosen registrar's API. Uses the exact same purchase path as the Infra console's own single-domain Buy — real availability re-check right before buying (a stale "available" flag is never trusted), real money, not a preview.</span>
+        <div style="margin-top:8px;">
+            <?php if (!$msBuyRegistrars): ?>
+                <span class="hint" style="color:#991b1b;">No registrar is both buy-wired and has saved credentials — add one on the Infra console's Servers/Registrars tab first.</span>
+            <?php else: ?>
+                <select id="ms-buy-registrar" style="width:200px;">
+                    <?php foreach ($msBuyRegistrars as $r): ?>
+                        <option value="<?= h($r) ?>"><?= h(infra_registrar_type_def($r)['label'] ?? $r) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="button" class="btn btn-primary" id="ms-buy-btn" onclick="msDomainBuy()">Buy Domains (<span id="ms-buy-count">0</span> selected)</button>
+            <?php endif; ?>
+            <span id="ms-buy-msg" class="hint" style="margin-left:8px;"></span>
+            <div class="hint" style="margin-top:4px;width:100%;">
+                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no domain yet is nothing to buy — add one first. A domain this console already owns is skipped, not re-bought.
+            </div>
+        </div>
+    <?php ms_ctm_card_end('buy'); ?>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
@@ -2318,6 +2344,8 @@ function ms_ctm_card_end(string $prefix): void {
         if (el4) el4.textContent = n;
         const el5 = document.getElementById('ms-areacode-count');
         if (el5) el5.textContent = n;
+        const el6 = document.getElementById('ms-buy-count');
+        if (el6) el6.textContent = n;
     }
 
     // ── Shared launch+poll plumbing for all 4 CTM bulk actions below. Each one now
@@ -2331,11 +2359,15 @@ function ms_ctm_card_end(string $prefix): void {
     // buys/releases risk two domains colliding on the same number. Only the
     // *visibility* changed here, not the order or the logic.
     const msCtmBulkTimers = {};
+    // statusAction defaults to 'ctm_bulk_status' when omitted — only buy_domains
+    // needs its own (own directory/lock server-side, see domainbuy_launch() in
+    // multisite_api.php; buying domains and CTM phone actions share no resource).
     const msCtmBulkIds = {
         ctm_get_numbers:     { btn: 'ms-ctm-btn',     msg: 'ms-ctm-msg',     out: 'ms-ctm-out',     results: 'ms-ctm-results',     details: 'ms-ctm-details',     clearSelectionAfter: true },
         ctm_set_routing:     { btn: 'ms-route-btn',   msg: 'ms-route-msg',   out: 'ms-route-out',   results: 'ms-route-results',   details: 'ms-route-details',   clearSelectionAfter: false },
         ctm_release_numbers: { btn: 'ms-release-btn', msg: 'ms-release-msg', out: 'ms-release-out', results: 'ms-release-results', details: 'ms-release-details', clearSelectionAfter: true },
         ctm_resync_numbers:  { btn: 'ms-resync-btn',  msg: 'ms-resync-msg',  out: 'ms-resync-out',  results: 'ms-resync-results',  details: 'ms-resync-details',  clearSelectionAfter: false },
+        buy_domains:         { btn: 'ms-buy-btn',     msg: 'ms-buy-msg',     out: 'ms-buy-out',     results: 'ms-buy-results',     details: 'ms-buy-details',     clearSelectionAfter: true, statusAction: 'domain_buy_bulk_status' },
     };
 
     function msRenderCtmBulkResults(action, resEl, rows) {
@@ -2370,6 +2402,12 @@ function ms_ctm_card_end(string $prefix): void {
                 const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
                 return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — ' + summary + warn + '</div>';
             }).join('');
+        } else if (action === 'buy_domains') {
+            resEl.innerHTML = rows.map(r => {
+                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+                if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' — ' + esc(r.message) + '</div>';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — bought</div>';
+            }).join('');
         }
     }
 
@@ -2390,7 +2428,7 @@ function ms_ctm_card_end(string $prefix): void {
     }
     function msPollCtmBulk(action, runId) {
         const ids = msCtmBulkIds[action];
-        fetch('multisite_api.php?action=ctm_bulk_status&run_id=' + encodeURIComponent(runId))
+        fetch('multisite_api.php?action=' + (ids.statusAction || 'ctm_bulk_status') + '&run_id=' + encodeURIComponent(runId))
             .then(r => r.json())
             .then(d => {
                 msCtmBulkTracker(action).reset();
@@ -2442,6 +2480,28 @@ function ms_ctm_card_end(string $prefix): void {
                     document.getElementById(ids.msg).textContent = 'Working… (resumed)';
                 }
                 msCtmBulkWatch(action, d.run_id);
+            })
+            .catch(() => {});
+    }
+
+    // Same resume reasoning as msResumeCtmBulk above, for buy_domains' own
+    // directory/lock (domainbuy_launch) — a separate job family, so it needs its
+    // own "anything still running?" check rather than overloading ctm_bulk_status.
+    // No prefix mapping needed here: the report's 'action' field is already the
+    // literal msCtmBulkIds key ('buy_domains'), not a bare CTM action name.
+    function msResumeDomainBuy() {
+        fetch('multisite_api.php?action=domain_buy_bulk_status')
+            .then(r => r.json())
+            .then(d => {
+                if (d.none || !d.run_id || !d.action) return;
+                const ids = msCtmBulkIds[d.action];
+                if (!ids) return;
+                document.getElementById(ids.out).style.display = 'block';
+                if (!d.done) {
+                    document.getElementById(ids.btn).disabled = true;
+                    document.getElementById(ids.msg).textContent = 'Working… (resumed)';
+                }
+                msCtmBulkWatch(d.action, d.run_id);
             })
             .catch(() => {});
     }
@@ -2532,6 +2592,21 @@ function ms_ctm_card_end(string $prefix): void {
         if (!domains.length) { document.getElementById('ms-resync-msg').textContent = 'Select at least one row first.'; return; }
         msCtmBulkStart('ctm_resync_numbers', { account_id: accountId },
             'Sync CTM\'s label, area code, and call routing for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' to match what\'s on file?\n\nReal CTM writes for anything found out of sync — not a preview.');
+    };
+
+    // ── "Buy Domains" — reuses msCtmSelected same as the four CTM actions above
+    // (same readiness gate: a row needs a domain set either way). 100%
+    // infra_domain_buy() underneath (admin/infra/lib/acquire.php, see
+    // multisite/domain_buy_bulk.php) — real money, not reversible, so the confirm()
+    // text says so plainly, same pattern as msCtmGetNumbers' own real-purchase confirm.
+    window.msDomainBuy = function () {
+        const domains = Object.keys(msCtmSelected);
+        const sel = document.getElementById('ms-buy-registrar');
+        const registrar = sel ? sel.value : '';
+        if (!registrar) { document.getElementById('ms-buy-msg').textContent = 'Choose a registrar first.'; return; }
+        if (!domains.length) { document.getElementById('ms-buy-msg').textContent = 'Select at least one row first.'; return; }
+        msCtmBulkStart('buy_domains', { registrar: registrar },
+            'Buy ' + domains.length + ' real domain(s) via ' + sel.options[sel.selectedIndex].text + '? This is a real purchase, not a preview.\n\nEach domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.');
     };
 
     // ── "Insert/verify primary area code selected" — real AI-plus-web-search check,
@@ -2924,5 +2999,6 @@ function ms_ctm_card_end(string $prefix): void {
     msLoadRows();
     msResumeAreaCodeCheck();
     msResumeCtmBulk();
+    msResumeDomainBuy();
 })();
 </script>
