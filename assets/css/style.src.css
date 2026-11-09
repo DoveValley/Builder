@@ -870,6 +870,13 @@ a:hover {
 }
 .steps-grid-card .step-number {
     background: var(--skin-dark-bg, #0d1f3c);
+    /* --skin-dark-bg is genuinely dark on every domain (confirmed independent of the
+       accent-heading WCAG pick — see the cta_banner button fix, same bug class: a
+       background override here without a matching text-color override left this
+       inheriting --skin-accent-heading from the base .step-number rule above, which
+       is picked to pair with the ACCENT-colored circle, not this dark one — on any
+       domain where that pick resolves dark, the number became invisible. */
+    color: #fff;
     width: 72px;
     height: 72px;
     font-size: 1.75rem;
