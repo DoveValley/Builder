@@ -1752,14 +1752,21 @@ switch ($action) {
         // every row_list poll.
         $kwFile = ACTIVE_SITE_DIR . '/data/keyword_map.json';
         $out = [];
-        foreach (ms_rows_by_domain($paramsPath) as $dom => $r) {
-            $rec = infra_state_get_domain($dom);
+        // Keyed by ms_rows_by_key() (domain, or a synthetic per-line key for a row
+        // that has no domain yet) so a city-only row is listed and editable too —
+        // ms_rows_by_domain() would silently collapse every blank-domain row onto
+        // one '' entry instead. A blank-domain row can never be live or have a page
+        // pool yet, so those lookups are only done once a real domain exists.
+        foreach (ms_rows_by_key($paramsPath) as $key => $r) {
+            $dom = strtolower(trim((string) ($r['domain'] ?? '')));
+            $rec = $dom !== '' ? infra_state_get_domain($dom) : null;
             unset($r['ftp_pass'], $r['_line']);
             $out[] = [
+                'key'        => $key,
                 'domain'     => $dom,
                 'fields'     => $r,
                 'status'     => $rec['status'] ?? '',
-                'pool'       => ms_page_pool_status($masterId, $kwFile, $dom),
+                'pool'       => $dom !== '' ? ms_page_pool_status($masterId, $kwFile, $dom) : null,
             ];
         }
         echo json_encode(['rows' => $out]);
@@ -1784,17 +1791,43 @@ switch ($action) {
     case 'row_save':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/state.php';
-        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
-        $byDomain = ms_rows_by_domain($paramsPath);
-        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
-        $rec = infra_state_get_domain($dom);
-        if ($rec && ($rec['status'] ?? '') === 'live') {
-            echo json_encode(['error' => "{$dom} is LIVE — use Correct & Regenerate for live rows."]);
-            break;
+        // Identified by key, not bare domain — a row with no domain yet (seeded
+        // city-only, see ms_rows_by_key()) has no domain to identify it by. Still
+        // accepts a plain 'domain' as the key for any older caller/bookmarked flow,
+        // since key === domain for any row that already has one.
+        $rowKey = trim((string) ($_POST['key'] ?? $_POST['domain'] ?? ''));
+        $byKey = ms_rows_by_key($paramsPath);
+        if (!isset($byKey[$rowKey])) { echo json_encode(['error' => "Not in this batch's target list: {$rowKey}"]); break; }
+        $curDom = strtolower(trim((string) ($byKey[$rowKey]['domain'] ?? '')));
+        if ($curDom !== '') {
+            $rec = infra_state_get_domain($curDom);
+            if ($rec && ($rec['status'] ?? '') === 'live') {
+                echo json_encode(['error' => "{$curDom} is LIVE — use Correct & Regenerate for live rows."]);
+                break;
+            }
         }
-        foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
-        $byDomain[$dom] = ms_scrub_stale_area_code([$byDomain[$dom]], $paramsPath)[0];
-        $rv = ms_validate_rows([$byDomain[$dom]]);
+        // Domain itself isn't in MS_ROW_EDITABLE_COLS (changing an EXISTING domain
+        // is a bigger, separate operation elsewhere) — but a row with no domain yet
+        // needs exactly one way to get its first one, so that one case is handled
+        // here explicitly: only when the row is currently domain-less, and only
+        // after the same format + duplicate checks upload_csv/row_add already apply.
+        if ($curDom === '' && array_key_exists('domain', $_POST)) {
+            $newDom = strtolower(trim((string) $_POST['domain']));
+            if ($newDom !== '') {
+                if (!ms_valid_domain($newDom)) { echo json_encode(['error' => "Not saved — invalid domain '{$_POST['domain']}'"]); break; }
+                foreach (ms_rows_by_key($paramsPath) as $k => $r) {
+                    if ($k === $rowKey) continue;
+                    if (strtolower(trim((string) ($r['domain'] ?? ''))) === $newDom) {
+                        echo json_encode(['error' => "Not saved — '{$newDom}' is already used by another row in this batch"]);
+                        break 2;
+                    }
+                }
+                $byKey[$rowKey]['domain'] = $newDom;
+            }
+        }
+        foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byKey[$rowKey][$c] = trim((string) $_POST[$c]);
+        $byKey[$rowKey] = ms_scrub_stale_area_code([$byKey[$rowKey]], $paramsPath)[0];
+        $rv = ms_validate_rows([$byKey[$rowKey]]);
         // An edit here is filling a row in incrementally, not finishing it - a row
         // still missing OTHER fields you're not touching right now must still be
         // saveable. Completeness is what the real pre-build Validation step
@@ -1809,7 +1842,7 @@ switch ($action) {
             fn($e) => strpos($e, 'missing required') !== 0
         ));
         if ($blocking) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $blocking)]); break; }
-        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        ms_write_rows_by_key($batchDir, $paramsPath, $byKey);
         echo json_encode(['saved' => true]);
         break;
 
@@ -1889,21 +1922,28 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/state.php';
         require_once __DIR__ . '/infra/lib/claim.php';
-        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
-        $byDomain = ms_rows_by_domain($paramsPath);
-        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
-        $rec = infra_state_get_domain($dom);
-        if ($rec && ($rec['status'] ?? '') === 'live') {
-            echo json_encode(['error' => "{$dom} is LIVE — remove it via unclaim/teardown in the Infra console instead."]);
-            break;
+        // Identified by key, not bare domain — same reason as row_save: a city-only
+        // row with no domain yet still needs to be deletable one at a time.
+        $rowKey = trim((string) ($_POST['key'] ?? $_POST['domain'] ?? ''));
+        $byKey = ms_rows_by_key($paramsPath);
+        if (!isset($byKey[$rowKey])) { echo json_encode(['error' => "Not in this batch's target list: {$rowKey}"]); break; }
+        $dom = strtolower(trim((string) ($byKey[$rowKey]['domain'] ?? '')));
+        if ($dom !== '') {
+            $rec = infra_state_get_domain($dom);
+            if ($rec && ($rec['status'] ?? '') === 'live') {
+                echo json_encode(['error' => "{$dom} is LIVE — remove it via unclaim/teardown in the Infra console instead."]);
+                break;
+            }
         }
-        unset($byDomain[$dom]);
-        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        unset($byKey[$rowKey]);
+        ms_write_rows_by_key($batchDir, $paramsPath, $byKey);
         // Without this, D.Buy still shows the domain claimed by this batch even
         // though its row is gone — it silently drops out of the "available" pool
         // (the oldest-unclaimed picker, and D.Finder's own Claim for Batch) with
         // no sign anything is wrong. Found by cross-checking after a real delete.
-        infra_unclaim_from_batch($dom);
+        // Only meaningful once a row actually has a domain — nothing to unclaim
+        // for one that never got that far.
+        if ($dom !== '') infra_unclaim_from_batch($dom);
         echo json_encode(['deleted' => true]);
         break;
 

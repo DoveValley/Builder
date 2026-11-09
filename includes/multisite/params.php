@@ -426,6 +426,53 @@ function ms_rows_by_domain(string $paramsPath): array {
 }
 
 /**
+ * Like ms_rows_by_domain(), but keyed by a stable per-row identifier instead of bare
+ * domain — the real domain when the row has one, else a synthetic "_line{N}" key
+ * built from the row's own CSV line number. ms_rows_by_domain() collapses every
+ * blank-domain row onto the same '' key (silently keeping only the last one) — fine
+ * for callers that only ever care about rows that already have a domain, but it
+ * means a batch seeded with city-only rows (no domain yet) is invisible to anything
+ * built on that function. This gives every row a real, distinct key regardless of
+ * whether domain is filled in yet, so the per-row editor can list/edit/delete a
+ * city-only row the same way it does a domain-having one.
+ */
+function ms_rows_by_key(string $paramsPath): array {
+    if (!is_file($paramsPath)) return [];
+    $p = ms_parse_csv($paramsPath);
+    if ($p['error']) return [];
+    $out = [];
+    foreach ($p['rows'] as $r) {
+        $d = strtolower(trim((string) ($r['domain'] ?? '')));
+        $key = $d !== '' ? $d : '_line' . (int) ($r['_line'] ?? 0);
+        $out[$key] = $r;
+    }
+    return $out;
+}
+
+/**
+ * Write a key-keyed row map back to params.csv — same atomic/versioned write as
+ * ms_write_rows_by_domain() below, just keyed by ms_rows_by_key()'s key so a row
+ * with no domain yet doesn't need one to be found and saved.
+ */
+function ms_write_rows_by_key(string $batchDir, string $paramsPath, array $byKey): void {
+    $header = MS_KNOWN_COLS;
+    if (is_file($paramsPath)) {
+        $p = ms_parse_csv($paramsPath);
+        if (!$p['error'] && $p['header']) $header = $p['header'];
+    }
+    $known = array_fill_keys($header, true);
+    foreach ($byKey as $row) {
+        foreach (array_keys($row) as $k) {
+            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
+        }
+    }
+    $tmp = tempnam(sys_get_temp_dir(), 'mskey');
+    ms_write_csv($tmp, $header, array_values($byKey));
+    ms_store_params_csv($batchDir, $tmp);
+    @unlink($tmp);
+}
+
+/**
  * Write a domain-keyed row map back to the batch's params.csv — used by the per-row
  * editor so one row's edit never re-derives (or risks dropping) every other row the
  * way a whole-file re-upload does. Goes through ms_store_params_csv() same as

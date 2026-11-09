@@ -2117,9 +2117,12 @@ function ms_ctm_card_end(string $prefix): void {
     // Fields this quick editor touches — matches MS_ROW_EDITABLE_COLS server-side.
     // Keeping the table's own columns to a readable subset; every other CSV column
     // (analytics_id, landing_cities, etc.) still round-trips untouched through save.
-    let msRows = {};          // domain -> {fields, status}
-    let msRowOrder = [];      // domains in the order params.csv stores them (the intended go-live sequence) — never sorted
-    let msEditingDomain = null;
+    let msRows = {};          // key -> {domain, fields, status, pool} — key is the domain
+                              // when the row has one, else a synthetic per-line key
+                              // (see ms_rows_by_key() server-side) so a city-only row
+                              // with no domain yet still gets a stable identity.
+    let msRowOrder = [];      // keys in the order params.csv stores them (the intended go-live sequence) — never sorted
+    let msEditingKey = null;
     let msUnlockedConfirm = {};   // domain -> the confirm string that unlocked a LIVE row
     let msCtmSelected = {};       // domain -> true, for the "Get CTM Phone Numbers" toolbar
 
@@ -2131,9 +2134,9 @@ function ms_ctm_card_end(string $prefix): void {
 
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
-        const domains = msRowOrder;
-        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="12" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
-        tbody.innerHTML = domains.map((domain, i) => msRenderRowPair(domain, i + 1)).join('');
+        const keys = msRowOrder;
+        if (!keys.length) { tbody.innerHTML = '<tr><td colspan="12" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        tbody.innerHTML = keys.map((key, i) => msRenderRowPair(key, i + 1)).join('');
     }
 
     // Page-pool staleness notice — only rendered when there's actually something to act
@@ -2172,26 +2175,42 @@ function ms_ctm_card_end(string $prefix): void {
         return esc(f.forward_to);
     }
 
-    function msRenderRowPair(domain, rowNum) {
-        const r = msRows[domain] || {};
+    function msRenderRowPair(key, rowNum) {
+        const r = msRows[key] || {};
         const f = r.fields || {};
+        const domain = r.domain || '';
+        const hasDomain = domain !== '';
         const isLive = r.status === 'live';
-        const editing = msEditingDomain === domain;
+        const editing = msEditingKey === key;
+        const keyEsc = key.replace(/'/g, "\\'");
         const numCell = '<td class="hint">' + rowNum + '</td>';
+        // A row with no domain yet gets a plain text input here instead of the usual
+        // display-only cell — the one place a row's FIRST domain gets typed in (see
+        // ms_rows_by_key()/row_save's domain-less-only branch server-side). Once a
+        // domain is set it's permanent here; editing an existing one is a separate,
+        // bigger operation (row_correct, for live rows only — there's no path to
+        // change a non-live row's already-set domain from this table on purpose,
+        // same as before this change).
         const domainCell = isLive
             ? '<a href="https://' + esc(domain) + '" target="_blank" rel="noopener">' + esc(domain) + '</a>'
-            : esc(domain);
+            : (editing && !hasDomain
+                ? '<input class="ms-row-input" data-f="domain" placeholder="domain.com" style="width:160px;">'
+                : esc(domain));
         // NOT disabled for LIVE rows: this checkbox now drives two actions, not one.
         // Get CTM Phone Numbers still refuses a live row (checked server-side, in
         // multisite_api.php's ctm_get_numbers case) since changing the tracking
         // number itself needs a rebuild — but Set Call Routing is explicitly safe on
         // a live domain (it only ever changes CTM's own forwarding config), and a
         // disabled checkbox here was blocking that for nearly every real row in the
-        // fleet.
-        const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '" style="width:20px;height:20px;cursor:pointer"' +
-            (msCtmSelected[domain] ? ' checked' : '') +
-            (isLive ? ' title="LIVE — Get CTM Phone Numbers and Release CTM Numbers will both refuse this row; Set Call Routing works on it fine"' : '') +
-            ' onclick="msCtmToggleOne(this)"></td>';
+        // fleet. A row with no domain yet has nothing for any CTM action to act on,
+        // so its checkbox is just disabled rather than omitted — keeps the column
+        // aligned without implying the row is selectable.
+        const checkCell = hasDomain
+            ? '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '" style="width:20px;height:20px;cursor:pointer"' +
+              (msCtmSelected[domain] ? ' checked' : '') +
+              (isLive ? ' title="LIVE — Get CTM Phone Numbers and Release CTM Numbers will both refuse this row; Set Call Routing works on it fine"' : '') +
+              ' onclick="msCtmToggleOne(this)"></td>'
+            : '<td><input type="checkbox" disabled title="Add a domain first — CTM actions need one" style="width:20px;height:20px;"></td>';
         let cells;
         if (editing) {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
@@ -2203,7 +2222,7 @@ function ms_ctm_card_end(string $prefix): void {
                 '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="state" value="' + esc(f.state || '') + '" style="width:100px;" placeholder="Florida"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
-                '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + domain.replace(/'/g, "\\'") + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
+                '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + (isLive ? domain.replace(/'/g, "\\'") : keyEsc) + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
                 '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button>' + msPoolNotice(r.pool, domain) + '</td>';
         } else {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
@@ -2219,12 +2238,12 @@ function ms_ctm_card_end(string $prefix): void {
                     ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button> ' +
                       '<span title="The resulting Save and Regenerate is a background job — safe to navigate away or close this tab once you click it, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span> ' +
                       '<span class="hint" style="cursor:pointer;font-size:1.05rem;" onclick="bpShowInfo(this)" data-info="No photo PROCESSING happens — the cosmetic hero-stamp/crop-jitter pass is skipped outright, since it is deterministic per domain and this button has no reason to spend time re-doing it. Upload itself is completely normal: it only ever sends a file whose content actually changed, so your existing live photos are never overwritten by this button, but a page that genuinely needs a photo it never had before (new content, not yet live) still gets it — this is NOT a blanket photo block, just real incremental sync like every other file.\n\nYou can safely leave this screen or close the tab once you click Save and Regenerate — this runs as one real background job on the server, not something your browser has to stay open to finish.\n\nSaves the edited fields on this row, then automatically rebuilds just this one domain (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Build) and uploads it live once that finishes. Every step is always full strength, with no caching shortcuts beyond the Images skip described above.\n\nIf another build is already running in this batch, this is queued, not lost — it waits its turn and launches automatically once the batch frees up, even if you close this tab or the page reloads in the meantime.">ⓘ</span>'
-                    : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
-                      '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
+                    : '<button type="button" class="btn" onclick="msRowEditStart(\'' + keyEsc + '\')">Edit</button> ' +
+                      '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + keyEsc + '\')">Delete</button>') +
                 msPoolNotice(r.pool, domain) +
                 '</td>';
         }
-        return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
+        return '<tr data-key="' + esc(key) + '" data-domain="' + esc(domain) + '">' + cells + '</tr>' +
             '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="12"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
@@ -2233,7 +2252,7 @@ function ms_ctm_card_end(string $prefix): void {
             const d = await (await fetch('multisite_api.php?action=row_list')).json();
             msRows = {};
             msRowOrder = [];
-            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status, pool: r.pool }; msRowOrder.push(r.domain); });
+            (d.rows || []).forEach(r => { msRows[r.key] = { domain: r.domain, fields: r.fields, status: r.status, pool: r.pool }; msRowOrder.push(r.key); });
         } catch (e) { /* leave whatever was already shown */ }
         // Drop selections for domains that no longer exist (deleted, or never matched).
         Object.keys(msCtmSelected).forEach(d => { if (!msRows[d]) delete msCtmSelected[d]; });
@@ -2639,29 +2658,31 @@ function ms_ctm_card_end(string $prefix): void {
             .catch(() => {});
     }
 
-    window.msRowEditStart = function (domain) { msEditingDomain = domain; msRenderRowsTable(); };
-    window.msRowEditCancel = function () { msEditingDomain = null; msRenderRowsTable(); };
+    window.msRowEditStart = function (key) { msEditingKey = key; msRenderRowsTable(); };
+    window.msRowEditCancel = function () { msEditingKey = null; msRenderRowsTable(); };
 
-    function msRowCollectFields(domain) {
-        const tr = document.querySelector('#ms-rows-table tr[data-domain="' + CSS.escape(domain) + '"]');
+    function msRowCollectFields(key) {
+        const tr = document.querySelector('#ms-rows-table tr[data-key="' + CSS.escape(key) + '"]');
         const out = {};
         tr.querySelectorAll('.ms-row-input').forEach(inp => { out[inp.dataset.f] = inp.value.trim(); });
         return out;
     }
 
-    window.msRowSave = async function (domain) {
-        const fields = msRowCollectFields(domain);
-        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('domain', domain);
+    window.msRowSave = async function (key) {
+        const fields = msRowCollectFields(key);
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('key', key);
         Object.keys(fields).forEach(k => fd.append(k, fields[k]));
         const d = await (await fetch('multisite_api.php?action=row_save', { method: 'POST', body: fd })).json();
         if (d.error) { alert(d.error); return; }
-        msEditingDomain = null;
+        msEditingKey = null;
         await msLoadRows();
     };
 
-    window.msRowDelete = function (domain) {
-        if (!confirm('Remove ' + domain + ' from this batch\'s target list?\n\nAny host/FTP account it already has is untouched — this only removes the row.')) return;
-        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('domain', domain);
+    window.msRowDelete = function (key) {
+        const r = msRows[key] || {};
+        const label = r.domain || ((r.fields && r.fields.city) ? r.fields.city : key);
+        if (!confirm('Remove ' + label + ' from this batch\'s target list?\n\nAny host/FTP account it already has is untouched — this only removes the row.')) return;
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('key', key);
         fetch('multisite_api.php?action=row_delete', { method: 'POST', body: fd })
             .then(r => r.json()).then(d => { if (d.error) { alert(d.error); return; } msLoadRows(); });
     };
@@ -2674,7 +2695,7 @@ function ms_ctm_card_end(string $prefix): void {
         if (typed === null) return;
         if (typed.trim().toLowerCase() !== domain.toLowerCase()) { alert('Did not match — nothing unlocked.'); return; }
         msUnlockedConfirm[domain] = typed.trim();
-        msEditingDomain = domain;
+        msEditingKey = domain;   // a live row's key is always its own domain (see ms_rows_by_key())
         msRenderRowsTable();
     };
 
@@ -2697,7 +2718,7 @@ function ms_ctm_card_end(string $prefix): void {
         } else if (d.ctm_resync && d.ctm_resync.warning) {
             alert('Saved. CTM resync note: ' + d.ctm_resync.warning);
         }
-        msEditingDomain = null;
+        msEditingKey = null;
         delete msUnlockedConfirm[domain];
         await msLoadRows();
         msRegenerateOne(domain);   // one combined flow: correct, then rebuild + redeploy just this domain
