@@ -38,7 +38,7 @@ const MS_ROW_EDITABLE_COLS = [
     'business', 'business_short', 'phone', 'area_code', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
     'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
     'years_in_business', 'mission_statement',
-    'landing_cities', 'theme_preset', 'web3forms_key',
+    'landing_cities', 'theme_preset', 'web3forms_key', 'registrar',
 ];
 
 $batchId = ''; $batchDir = ''; $paramsPath = ''; $runsDir = '';
@@ -2108,15 +2108,22 @@ switch ($action) {
     // re-checking, pending/async-registrar confirmation, and receipt-writing are
     // not reimplemented here. Real money, not reversible — confirmed client-side
     // before this fires (see msDomainBuy in _batch_panels.php).
+    // registrar is OPTIONAL — blank means each domain buys through its OWN
+    // params.csv `registrar` column (domain_buy_bulk.php resolves + validates that
+    // per domain); a non-blank value overrides every checked row to that one
+    // registrar, same as this action's original single-registrar behavior.
     case 'domain_buy_bulk':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $dbRegistrar = strtolower(trim((string) ($_POST['registrar'] ?? '')));
         $dbDomainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
-        if (!in_array($dbRegistrar, infra_registrar_buyable_for_new_purchases(), true)) { echo json_encode(['error' => 'Choose a configured, buy-wired registrar first.']); break; }
-        if (!infra_registrar_config($dbRegistrar)) { echo json_encode(['error' => "No saved credentials for '{$dbRegistrar}'."]); break; }
+        if ($dbRegistrar !== '') {
+            if (!in_array($dbRegistrar, infra_registrar_buyable_for_new_purchases(), true)) { echo json_encode(['error' => 'Choose a configured, buy-wired registrar first.']); break; }
+            if (!infra_registrar_config($dbRegistrar)) { echo json_encode(['error' => "No saved credentials for '{$dbRegistrar}'."]); break; }
+        }
         if (!$dbDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
-        echo json_encode(domainbuy_launch($batchDir, $masterId, $batchId,
-            ['--domains=' . implode(',', $dbDomainsIn), '--registrar=' . $dbRegistrar]));
+        $dbArgs = ['--domains=' . implode(',', $dbDomainsIn)];
+        if ($dbRegistrar !== '') $dbArgs[] = '--registrar=' . $dbRegistrar;
+        echo json_encode(domainbuy_launch($batchDir, $masterId, $batchId, $dbArgs));
         break;
 
     // Own poll endpoint — same shape as ctm_bulk_status, separate directory/report

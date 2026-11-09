@@ -498,7 +498,25 @@ $bucketCrosstab = $bucketLatest ? infra_city_bucket_crosstab($bucketLatest['rows
       actually call itself, so it doesn't carry over into the brand name.
     </li>
     <li>
-      <strong>Buy the domains.</strong> <em>Detailed in a future update to this page — not yet written.</em>
+      <strong>Decide and check a registrar spread (optional, before buying), then buy.</strong>
+      Default/standing rule: never Cloudflare Registrar for new domains — a CF-registered domain sits
+      on whatever CF account bought it, and the account most new buys land on is tied to a real name,
+      not pseudonymous like the rest of the fleet's CF accounts. Among the rest (NameSilo, Dynadot,
+      Porkbun, Spaceship, Gandi, Namecheap as of this writing), spreading purchases across several
+      registrars avoids one account holding — and one leak exposing — the whole batch. If spreading,
+      pre-assign each row a `registrar` value using the same fair-scheduling spread already used for
+      row order (place whichever registrar is most "overdue" relative to its own even-spacing
+      interval at each slot) — a naive <code>row_position % registrar_count</code> assignment can
+      silently lock every box into the same half of the registrar pool forever whenever the box size
+      and registrar count share a common factor (e.g. 20 boxes, 6 registrars, both divisible by 2).
+      <br><br>
+      The Batch Detailed panel's "Buy Domains" card (next to Get/Release/Resync CTM Phone Numbers)
+      does the actual buying — check rows, leave the registrar dropdown on its default
+      ("use each row's own registrar") to execute a pre-planned spread in one click, or pick an
+      explicit registrar to override every checked row to that one. Each domain is re-checked for
+      availability immediately before buying (a stale "available" flag from the naming step is never
+      trusted) and the real purchase goes through the same path the Infra console's own single-domain
+      Buy uses — real money, not a preview, confirmed before it fires.
     </li>
   </ol>
 </div>

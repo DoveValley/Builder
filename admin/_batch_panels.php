@@ -20,9 +20,13 @@ require_once __DIR__ . '/infra/lib/registrar.php'; // infra_registrar_buyable()/
 // Buy Domains card: only registrars that can actually complete a NEW purchase over
 // the API (infra_registrar_buyable_for_new_purchases() — excludes Cloudflare, see
 // its own docblock) AND already have saved credentials — offering one with no
-// credentials would just fail immediately on click.
+// credentials would just fail immediately on click. Also used by the per-row
+// Registrar column's inline <select> (admin/_batch_panels.php's own script), same
+// list, same reasoning — one source for both.
 $msBuyRegistrars = array_values(array_filter(infra_registrar_buyable_for_new_purchases(),
     fn($n) => (bool) infra_registrar_config($n)));
+$msBuyRegistrarLabels = array_combine($msBuyRegistrars,
+    array_map(fn($n) => infra_registrar_type_def($n)['label'] ?? $n, $msBuyRegistrars));
 
 // Section-order rotation pin counts, persisted per BATCH (rotation_settings_save.php) — this
 // batch's own choice, not shared with any other batch off the same master. Pre-fills the
@@ -164,21 +168,22 @@ function ms_ctm_card_end(string $prefix): void {
         </div>
     <?php ms_ctm_card_end('areacode'); ?>
     <?php ms_ctm_card_start('buy', 'Buy Domains'); ?>
-        <span class="hint" style="margin-left:6px;">For each checked row: register the real domain already set on that row, over the chosen registrar's API. Uses the exact same purchase path as the Infra console's own single-domain Buy — real availability re-check right before buying (a stale "available" flag is never trusted), real money, not a preview.</span>
+        <span class="hint" style="margin-left:6px;">For each checked row: register the real domain already set on that row. By default each row buys through its OWN <code>registrar</code> column value (fill that in ahead of time, e.g. a pre-planned spread across registrars) — the dropdown is only an OVERRIDE, forcing every checked row through one registrar regardless of its own column. Uses the exact same purchase path as the Infra console's own single-domain Buy — real availability re-check right before buying (a stale "available" flag is never trusted), real money, not a preview.</span>
         <div style="margin-top:8px;">
             <?php if (!$msBuyRegistrars): ?>
                 <span class="hint" style="color:#991b1b;">No registrar is both buy-wired and has saved credentials — add one on the Infra console's Servers/Registrars tab first.</span>
             <?php else: ?>
-                <select id="ms-buy-registrar" style="width:200px;">
+                <select id="ms-buy-registrar" style="width:260px;">
+                    <option value="">— use each row's own registrar —</option>
                     <?php foreach ($msBuyRegistrars as $r): ?>
-                        <option value="<?= h($r) ?>"><?= h(infra_registrar_type_def($r)['label'] ?? $r) ?></option>
+                        <option value="<?= h($r) ?>">Override: all checked → <?= h(infra_registrar_type_def($r)['label'] ?? $r) ?></option>
                     <?php endforeach; ?>
                 </select>
                 <button type="button" class="btn btn-primary" id="ms-buy-btn" onclick="msDomainBuy()">Buy Domains (<span id="ms-buy-count">0</span> selected)</button>
             <?php endif; ?>
             <span id="ms-buy-msg" class="hint" style="margin-left:8px;"></span>
             <div class="hint" style="margin-top:4px;width:100%;">
-                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no domain yet is nothing to buy — add one first. A domain this console already owns is skipped, not re-bought.
+                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no domain yet is nothing to buy — add one first. A row with no registrar assigned and no override selected is skipped and reported, not guessed at. A domain this console already owns is skipped, not re-bought.
             </div>
         </div>
     <?php ms_ctm_card_end('buy'); ?>
@@ -187,9 +192,9 @@ function ms_ctm_card_end(string $prefix): void {
             <thead><tr>
                 <th style="width:34px;">#</th>
                 <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)" style="width:20px;height:20px;cursor:pointer"></th>
-                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th style="width:120px;">Routes to</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
+                <th style="width:90px;">Status</th><th>Domain</th><th style="width:100px;">Registrar</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th style="width:120px;">Routes to</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
             </tr></thead>
-            <tbody><tr><td colspan="12" class="hint">Loading…</td></tr></tbody>
+            <tbody><tr><td colspan="13" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
@@ -1234,6 +1239,11 @@ function ms_ctm_card_end(string $prefix): void {
     const csrfToken = <?= json_encode($csrfToken) ?>;
     const bpMasterId = <?= json_encode($masterId ?? '') ?>;
     const bpBatchId  = <?= json_encode($batchId ?? '') ?>;
+    // Same list + labels the Buy Domains card's registrar dropdown uses — reused
+    // here so a single row's registrar can be set/corrected inline without
+    // re-running the fleet-wide spread assignment.
+    const msBuyRegistrars = <?= json_encode($msBuyRegistrars) ?>;
+    const msBuyRegistrarLabels = <?= json_encode($msBuyRegistrarLabels) ?>;
     let msPollTimer = null;
 
     // esc() is window.esc from admin/_batch_servers.php's IIFE (included above, still
@@ -2163,7 +2173,7 @@ function ms_ctm_card_end(string $prefix): void {
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
         const keys = msRowOrder;
-        if (!keys.length) { tbody.innerHTML = '<tr><td colspan="12" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        if (!keys.length) { tbody.innerHTML = '<tr><td colspan="13" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
         tbody.innerHTML = keys.map((key, i) => msRenderRowPair(key, i + 1)).join('');
     }
 
@@ -2243,6 +2253,10 @@ function ms_ctm_card_end(string $prefix): void {
         if (editing) {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + domainCell + '</td>' +
+                '<td><select class="ms-row-input" data-f="registrar" style="width:110px;">' +
+                    '<option value=""' + (!f.registrar ? ' selected' : '') + '>—</option>' +
+                    msBuyRegistrars.map(reg => '<option value="' + esc(reg) + '"' + (f.registrar === reg ? ' selected' : '') + '>' + esc(msBuyRegistrarLabels[reg] || reg) + '</option>').join('') +
+                '</select></td>' +
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
@@ -2255,6 +2269,7 @@ function ms_ctm_card_end(string $prefix): void {
         } else {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + domainCell + '</td>' +
+                '<td>' + esc(msBuyRegistrarLabels[f.registrar] || f.registrar || '') + '</td>' +
                 '<td>' + esc(f.business || '') + '</td>' +
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
@@ -2272,7 +2287,7 @@ function ms_ctm_card_end(string $prefix): void {
                 '</td>';
         }
         return '<tr data-key="' + esc(key) + '" data-domain="' + esc(domain) + '">' + cells + '</tr>' +
-            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="12"><div class="ms-row-progress hint"></div></td></tr>';
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="13"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
     async function msLoadRows() {
@@ -2406,9 +2421,10 @@ function ms_ctm_card_end(string $prefix): void {
             }).join('');
         } else if (action === 'buy_domains') {
             resEl.innerHTML = rows.map(r => {
-                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
-                if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' — ' + esc(r.message) + '</div>';
-                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — bought</div>';
+                const via = r.registrar ? ' (' + esc(r.registrar) + ')' : '';
+                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + via + ' — ' + esc(r.error) + '</div>';
+                if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + via + ' — ' + esc(r.message) + '</div>';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + via + ' — bought</div>';
             }).join('');
         }
     }
@@ -2601,14 +2617,20 @@ function ms_ctm_card_end(string $prefix): void {
     // infra_domain_buy() underneath (admin/infra/lib/acquire.php, see
     // multisite/domain_buy_bulk.php) — real money, not reversible, so the confirm()
     // text says so plainly, same pattern as msCtmGetNumbers' own real-purchase confirm.
+    // Registrar is now OPTIONAL: blank (the default option) means each checked row
+    // buys through its OWN params.csv `registrar` column — a pre-planned spread
+    // across registrars executes in one click, no manual grouping. Picking an
+    // explicit registrar here overrides every checked row to that one, same as the
+    // original single-registrar behavior.
     window.msDomainBuy = function () {
         const domains = Object.keys(msCtmSelected);
         const sel = document.getElementById('ms-buy-registrar');
         const registrar = sel ? sel.value : '';
-        if (!registrar) { document.getElementById('ms-buy-msg').textContent = 'Choose a registrar first.'; return; }
         if (!domains.length) { document.getElementById('ms-buy-msg').textContent = 'Select at least one row first.'; return; }
-        msCtmBulkStart('buy_domains', { registrar: registrar },
-            'Buy ' + domains.length + ' real domain(s) via ' + sel.options[sel.selectedIndex].text + '? This is a real purchase, not a preview.\n\nEach domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.');
+        const confirmMsg = registrar
+            ? 'Buy ' + domains.length + ' real domain(s) via ' + sel.options[sel.selectedIndex].text + '? This is a real purchase, not a preview.\n\nEach domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.'
+            : 'Buy ' + domains.length + ' real domain(s), each through its OWN registrar column value? This is a real purchase, not a preview.\n\nA row with no registrar assigned is skipped and reported, not guessed at. Each domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.';
+        msCtmBulkStart('buy_domains', { registrar: registrar }, confirmMsg);
     };
 
     // ── "Insert/verify primary area code selected" — real AI-plus-web-search check,
