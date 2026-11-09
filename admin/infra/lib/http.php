@@ -15,14 +15,21 @@ function infra_http_calls_reset(): void { $GLOBALS['__infra_http_calls'] = 0; }
 /**
  * @param string $method GET|POST|PUT|DELETE
  * @param string $url
- * @param array  $opts   headers[], body(string|array), verify(bool), timeout(int)
- * @return array{code:int,raw:string,json:mixed,error:string}
+ * @param array  $opts   headers[], body(string|array), verify(bool), timeout(int), capture_headers(bool)
+ * @return array{code:int,raw:string,json:mixed,error:string,headers:array<string,string>}
  */
 function infra_http(string $method, string $url, array $opts = []): array
 {
     $GLOBALS['__infra_http_calls'] = infra_http_calls() + 1;
     $verify  = $opts['verify']  ?? true;    // secure by default; callers to self-signed origins (Plesk :8443) pass verify=false
     $timeout = $opts['timeout'] ?? 20;
+    // Opt-in only — every existing caller is unaffected. Needed for APIs that put
+    // real data in a response HEADER instead of the body (Spaceship's domain
+    // registration returns 202 with the operation id in `spaceship-async-
+    // operationid`, nothing in the JSON body at all — confirmed against the real
+    // API docs, not assumed). Keyed lowercase since HTTP header names are
+    // case-insensitive and servers don't agree on casing.
+    $respHeaders = [];
     $headers = $opts['headers'] ?? [];
 
     $ch = curl_init();
@@ -59,6 +66,13 @@ function infra_http(string $method, string $url, array $opts = []): array
         $body = is_string($opts['body']) ? $opts['body'] : json_encode($opts['body']);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
     }
+    if (!empty($opts['capture_headers'])) {
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($ch, $line) use (&$respHeaders) {
+            $parts = explode(':', $line, 2);
+            if (count($parts) === 2) $respHeaders[strtolower(trim($parts[0]))] = trim($parts[1]);
+            return strlen($line);
+        });
+    }
 
     $raw   = curl_exec($ch);
     $code  = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -72,7 +86,8 @@ function infra_http(string $method, string $url, array $opts = []): array
     }
 
     return [
-        'code'  => $code,
+        'code'    => $code,
+        'headers' => $respHeaders,
         'raw'   => is_string($raw) ? $raw : '',
         'json'  => $json,
         'error' => $error,

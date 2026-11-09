@@ -1368,7 +1368,7 @@ function infra_reg_porkbun_register(string $domain, int $years, array $cfg, arra
 function infra_reg_spaceship_call(array $cfg, string $method, string $path, ?array $body = null): array
 {
     $opts = [
-        'verify' => true, 'timeout' => 30,
+        'verify' => true, 'timeout' => 30, 'capture_headers' => true,
         'headers' => [
             'X-Api-Key: '    . ($cfg['api_key'] ?? ''),
             'X-Api-Secret: ' . ($cfg['api_secret'] ?? ''),
@@ -1384,7 +1384,7 @@ function infra_reg_spaceship_call(array $cfg, string $method, string $path, ?arr
     foreach ((array) ($r['json']['data'] ?? []) as $d) {
         if (is_array($d) && ($d['details'] ?? '') !== '') $msg .= ' — ' . $d['details'];
     }
-    return ['ok' => $ok, 'code' => $r['code'], 'message' => $msg, 'json' => $r['json'] ?? []];
+    return ['ok' => $ok, 'code' => $r['code'], 'message' => $msg, 'json' => $r['json'] ?? [], 'headers' => $r['headers'] ?? []];
 }
 
 /** Read-only credential test; also reports how many domains the account holds. */
@@ -1472,12 +1472,49 @@ function infra_reg_spaceship_contact_id(array $cfg, string $name): array
 }
 
 /**
+ * GET /async-operations/{operationId} — the only way to learn whether a 202-accepted
+ * registration actually went through. Confirmed against the real API docs: status is
+ * one of pending/success/failed; a failure's real reason lives in 'details', not
+ * surfaced anywhere else.
+ *
+ * @return array{status:string, details:string}
+ */
+function infra_reg_spaceship_operation_status(array $cfg, string $operationId): array
+{
+    $r = infra_reg_spaceship_call($cfg, 'GET', '/async-operations/' . rawurlencode($operationId));
+    if (!$r['ok']) return ['status' => '', 'details' => $r['message']];
+    return [
+        'status'  => strtolower((string) ($r['json']['status'] ?? '')),
+        'details' => (string) ($r['json']['details'] ?? ''),
+    ];
+}
+
+/**
  * Buy one domain.
  *
  * ⚠ Registration answers 202 ACCEPTED with an async operation id — the domain is not
  * registered when this returns. Reading a 202 as failure is a mistake already made
  * once here with Cloudflare's registrar API, and the cost of it is buying twice, so
  * a 202 is reported as accepted-and-pending rather than as an error.
+ *
+ * The operation id is NOT in the JSON body (confirmed against the real API docs —
+ * registration returns "no content" there) — it only exists in the
+ * `spaceship-async-operationid` response HEADER, which infra_http() now captures when
+ * asked (see infra_reg_spaceship_call()'s capture_headers). Without this, there was no
+ * way to ever check GET /async-operations/{id} and this call was pure guesswork —
+ * accepted-and-pending forever, with infra_domain_buy()'s generic list-owned retry
+ * loop as the only real confirmation, which only catches success, never a real reason
+ * for failure.
+ *
+ * ⚠ A near-miss worth remembering: a live test against a plain GET call found a
+ * DIFFERENT header, `spaceship-operation-id` (no "async"), present on every response —
+ * a generic per-request trace id, not this one. Looks identical at a glance; shipping
+ * that one would have silently never worked (always "operation not found"). Caught by
+ * cross-checking against pgiki/spaceship-python's real, working source
+ * (`_api/base.py`'s `ASYNC_OPERATION_HEADER` constant) before trusting a live probe of
+ * the wrong endpoint — the 202 registration response itself was never actually
+ * re-tested with real money, so this is the best available confirmation, not a
+ * live-verified fact.
  */
 function infra_reg_spaceship_register(string $domain, int $years, array $cfg, array $opts = []): array
 {
@@ -1497,10 +1534,38 @@ function infra_reg_spaceship_register(string $domain, int $years, array $cfg, ar
     ]);
 
     if ($r['ok'] || $r['code'] === 202) {
-        $op  = (string) ($r['json']['operationId'] ?? $r['json']['id'] ?? '');
-        $msg = 'Spaceship: registration accepted'
-            . ($op !== '' ? ' (operation ' . $op . ')' : '')
-            . ' — it completes asynchronously';
+        // Header key wins — the JSON fallback here is belt-and-suspenders in case a
+        // future API version starts echoing it in the body too, not relied on.
+        $op = (string) ($r['headers']['spaceship-async-operationid'] ?? $r['json']['operationId'] ?? $r['json']['id'] ?? '');
+
+        // Poll for the real outcome. pgiki/spaceship-python (a real, working
+        // implementation) defaults to a 300s timeout / 5s interval for this exact
+        // wait — most .com registrations resolve far sooner, but it's not
+        // instant-only. 12 tries * 5s = ~60s is a middle ground: generous enough to
+        // catch the normal case, bounded enough that one slow domain in a 100-row
+        // batch doesn't block confirmation of the rest for unreasonably long. This
+        // runs inside the already-detached domain_buy_bulk.php job, not a live HTTP
+        // request, so blocking here is fine either way.
+        $finalStatus = ''; $finalDetails = '';
+        if ($op !== '') {
+            for ($try = 0; $try < 12; $try++) {
+                if ($try > 0) sleep(5);
+                $s = infra_reg_spaceship_operation_status($cfg, $op);
+                if ($s['status'] === 'success' || $s['status'] === 'failed') {
+                    $finalStatus = $s['status']; $finalDetails = $s['details'];
+                    break;
+                }
+            }
+        }
+
+        if ($finalStatus === 'failed') {
+            return ['ok' => false, 'message' => 'Spaceship: registration failed — ' . ($finalDetails ?: 'no further detail given')];
+        }
+
+        $msg = $finalStatus === 'success'
+            ? 'Spaceship: registration confirmed' . ($op !== '' ? ' (operation ' . $op . ')' : '')
+            : 'Spaceship: registration accepted' . ($op !== '' ? ' (operation ' . $op . ')' : '')
+                . ' — it completes asynchronously' . ($op === '' ? ' (no operation id captured — cannot confirm, falling back to list-owned check)' : ', still pending after ~60s');
         // The create call above already asked for autoRenew, but nothing ever
         // confirmed it actually took — infra_reg_spaceship_set_autorenew() existed
         // for exactly this and had zero callers. Namecheap is known to accept an
@@ -1514,11 +1579,11 @@ function infra_reg_spaceship_register(string $domain, int $years, array $cfg, ar
             $msg .= $a['ok'] ? ', auto-renew ON'
                              : ' ⚠ auto-renew NOT confirmed (' . $a['message'] . ') — set it before the term lapses';
         }
-        // Accepted is not registered — same as Gandi below. Without 'pending' here,
-        // infra_domain_buy()'s confirm-before-receipt polling never triggers for
-        // Spaceship at all, and an order that's merely accepted gets a receipt
-        // written immediately, same risk the Gandi comment describes.
-        return ['ok' => true, 'pending' => true, 'message' => $msg];
+        // Only mark 'pending' (triggers infra_domain_buy()'s own confirm-before-
+        // receipt loop) when the operation status DIDN'T resolve to a real success —
+        // a confirmed success writes the receipt immediately instead of waiting on
+        // a second, less certain check.
+        return ['ok' => true, 'pending' => $finalStatus !== 'success', 'message' => $msg];
     }
     return ['ok' => false, 'message' => 'Spaceship error: ' . $r['message']];
 }
