@@ -432,6 +432,77 @@ $bucketCrosstab = $bucketLatest ? infra_city_bucket_crosstab($bucketLatest['rows
   </p>
 </div>
 
+<div class="ic-note" style="margin-bottom:14px">
+  <strong style="font-size:15px">After cities are selected — what happens next</strong>
+  <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
+    Everything above produces a ranked, scored city list. Once you've picked the cities you're actually
+    building — the xlsx download above, or a locked list like appliance's next-400 — three more steps turn
+    that list into live, buyable sites. None of them run automatically from this tab; each is its own pass,
+    usually done once per expansion batch.
+  </p>
+  <ol style="font-size:13px;line-height:1.6;color:#374151;margin:10px 0 0;padding-left:20px">
+    <li>
+      <strong>Order the cities within each batch.</strong> A batch's row order is also its go-live
+      order (box assignment is positional — box 1-20, then 1-20 again), so a list that's well-scored but
+      unordered can still cluster badly. Three separate constraints, each a different granularity — fixing
+      one does not fix the others:
+      <ol type="a" style="margin:4px 0 0;padding-left:20px">
+        <li><strong>Geographic de-clustering.</strong> Cap at 7-8 cities per real metro (anchor-based
+          clustering, not chain-linkage — chain-linkage telescopes genuinely distinct metros into one false
+          blob). Within that, a global minimum-mile floor checked against every other selected city
+          fleet-wide, not just same-metro ones.</li>
+        <li><strong>State diversity across batches.</strong> No single state should concentrate in one
+          launch wave. A naive per-state round-robin gives good spread but uneven batch totals; try every
+          starting offset per state (largest state first) and keep whichever minimizes the spread of
+          running batch totals — gets both even batch sizes and even state spread.</li>
+        <li><strong>State diversity within one batch's row order.</strong> Cross-batch spread says nothing
+          about order inside a single file — a batch can still open with 13 same-state rows in a row even
+          after the first two constraints are satisfied. Fix with a fair-scheduling pass: at every row
+          slot, place whichever state is most "overdue" relative to its own ideal even-spacing interval,
+          excluding whatever was just placed.</li>
+      </ol>
+    </li>
+    <li>
+      <strong>Decide and check domain names.</strong> Default/standing convention is surname-or-brand +
+      service, never a city name (<code>beckappliancerepair.com</code>, not
+      <code>dallasappliancerepair.com</code>) — a city baked into the domain can't be re-pointed to a
+      different city later. City-based naming is only used when explicitly decided per-batch (appliance's
+      next-400 did this deliberately). When city-based naming is the call, use a priority-ordered pattern
+      cascade and check each city against the first available pattern, in order — don't just pick pattern 1
+      and stop at whichever cities it's available for:
+      <ol type="a" style="margin:4px 0 0;padding-left:20px">
+        <li><code>{city}appliancerepair.com</code> — exact match, best quality</li>
+        <li><code>{city}appliancerepairs.com</code> — plural, same quality</li>
+        <li><code>{city}applianceservice.com</code> — alternate core keyword, same quality</li>
+        <li><code>{city}appliancerepairpros.com</code> — "pros" suffix, matches existing fleet vocabulary</li>
+        <li><code>{city}applianceexperts.com</code> — trust-signal word</li>
+        <li><code>{city}appliancetechs.com</code> — casual/modern trust-signal word</li>
+        <li><code>{city}appliancesolutions.com</code> — most generic-sounding, last resort</li>
+      </ol>
+      Check availability in bulk via the registrar module (<code>infra_registrar_check_availability()</code>,
+      NameSilo is batched 50/request and free to check), not one-off lookups. <strong>Watch for same-name
+      cities in different states</strong> — e.g. two different "Fairfield"s — which collapse onto an
+      identical domain string unless caught; resolve by giving each a different pattern from the cascade
+      (not a state abbreviation appended to the name — Google already knows a site's city/state from its
+      content, so the domain itself doesn't need to carry it). If the whole fleet's pattern distribution
+      ends up too concentrated on one or two patterns, rebalance by moving a portion of the dominant
+      pattern's cities down the cascade and re-checking.
+    </li>
+    <li>
+      <strong>Name the business.</strong> The business name mirrors the domain almost exactly — just the
+      domain string read as a normal title (<code>denverappliancerepair.com</code> →
+      "Denver Appliance Repair"). <strong>One deliberate exception: the plural "repairs" domain pattern
+      still gets a singular business name.</strong> A domain on <code>appliancerepairs</code> (chosen
+      purely because the singular was already taken) is still "Denver Appliance Repair," not "Denver
+      Appliance Repairs" — the plural is a domain-availability artifact, not something a real company would
+      actually call itself, so it doesn't carry over into the brand name.
+    </li>
+    <li>
+      <strong>Buy the domains.</strong> <em>Detailed in a future update to this page — not yet written.</em>
+    </li>
+  </ol>
+</div>
+
 <?php /* Standalone, NOT inside the Data 2 form on purpose (fixed 2026-10-26): the
          per-row Select/Delete buttons each need their own <form> — nested inside
          another <form>, browsers silently drop the inner one and those buttons end
