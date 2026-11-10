@@ -32,9 +32,10 @@ $bsStyle = [
 ];
 ?>
 <style>
-.bs-table       { width:100%; border-collapse:collapse; font-size:.88rem; }
-.bs-table th    { text-align:left; padding:7px 10px; border-bottom:1px solid #e2e8f0; font-size:.76rem; text-transform:uppercase; letter-spacing:.04em; color:#64748b; font-weight:700; }
-.bs-table td    { padding:11px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+/* Base table rules (border-collapse, header/cell padding) are deliberately NOT
+   redefined here — they're byte-identical to .be-table in _batch_explainer.php,
+   which admin/batch.php always includes first, so this file reuses that class
+   on the table itself below instead of keeping a second copy that could drift. */
 .bs-step        { font-weight:700; color:#0f172a; }
 .bs-does        { color:#475569; font-size:.83rem; margin-top:2px; }
 .bs-where       { color:#94a3b8; font-size:.78rem; margin-top:3px; }
@@ -72,7 +73,7 @@ $bsStyle = [
         thing to do. And a green tick only means the thing <em>exists</em>; it can't tell you the thing is good.
     </p>
 
-    <table class="bs-table">
+    <table class="be-table">
         <thead>
             <tr>
                 <th style="width:24%;">Step</th>
