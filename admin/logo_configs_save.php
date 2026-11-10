@@ -15,7 +15,7 @@
  * which one is active — both stay on file regardless of which is active.
  *
  * POST: csrf_token, logos = JSON [{name, icon, icon_bg, in_rotation}, …],
- *       text = JSON {active: 1|2, options: [{line1_source, line1_custom,
+ *       text = JSON {active: 1|2|3, options: [{line1_source, line1_custom,
  *       line1_color, line2_source, line2_custom, line2_color}, {…}]},
  *       single_logo_id
  */
@@ -72,7 +72,9 @@ $t = json_decode($_POST['text'] ?? '', true);
 if (!is_array($t)) $t = [];
 $tOptions = is_array($t['options'] ?? null) ? array_values($t['options']) : [];
 $text = [
-    'active'  => in_array((int)($t['active'] ?? 1), [1, 2], true) ? (int)($t['active'] ?? 1) : 1,
+    // 3 = per-domain conditional (Option 1 if the business name's first word
+    // matches the city, else Option 2) — see ms_resolve_logo_lines().
+    'active'  => in_array((int)($t['active'] ?? 1), [1, 2, 3], true) ? (int)($t['active'] ?? 1) : 1,
     'options' => [
         ll_save_normalize_option($tOptions[0] ?? [], $validSources),
         ll_save_normalize_option($tOptions[1] ?? [], $validSources),
@@ -88,7 +90,7 @@ $singleId = isset($_POST['single_logo_id']) && ctype_digit((string)$_POST['singl
 if ($singleId > count($logos)) $singleId = 0;   // stale id (config removed) → clear
 
 $doc = [
-    '_about' => $existing['_about'] ?? 'Per-site Logo Library. Each config = icon only (text/name/rotation) — independent of the Visual Identity color presets. `text` = two saved line1/2 source+color arrangements ("Option 1"/"Option 2") shared by every config in this library, plus `active` (1 or 2) picking which one applies. `single_logo_id` = the config applied to THIS site; `in_rotation` per config = whether the multisite build rotates through it when generating clones.',
+    '_about' => $existing['_about'] ?? 'Per-site Logo Library. Each config = icon only (text/name/rotation) — independent of the Visual Identity color presets. `text` = two saved line1/2 source+color arrangements ("Option 1"/"Option 2") shared by every config in this library, plus `active`: 1 = always Option 1, 2 = always Option 2, 3 = per-domain (Option 1 if the business name\'s first word matches the city, else Option 2). `single_logo_id` = the config applied to THIS site; `in_rotation` per config = whether the multisite build rotates through it when generating clones.',
     'single_logo_id' => $singleId,
     'text' => $text,
     'logos' => $logos,

@@ -49,7 +49,7 @@ $llTextOptionsRaw = is_array($llTextRaw['options'] ?? null) ? array_values($llTe
 // Option 2 starts as a copy to edit from.
 if ($llTextOptionsRaw === null) $llTextOptionsRaw = [$llTextRaw, $llTextRaw];
 $llText = [
-    'active'  => in_array((int)($llTextRaw['active'] ?? 1), [1, 2], true) ? (int)($llTextRaw['active'] ?? 1) : 1,
+    'active'  => in_array((int)($llTextRaw['active'] ?? 1), [1, 2, 3], true) ? (int)($llTextRaw['active'] ?? 1) : 1,
     'options' => [
         ll_normalize_text_option($llTextOptionsRaw[0] ?? []),
         ll_normalize_text_option($llTextOptionsRaw[1] ?? ($llTextOptionsRaw[0] ?? [])),
@@ -95,7 +95,8 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked configs when generating clone sites (or a row's <code>logo_config</code> column overrides) — independently of which color preset each clone gets.</li>
     </ul>
     <div style="border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:14px;background:#f8fafc;">
-        <div style="font-weight:600;font-size:.9rem;margin-bottom:10px;">Line 1 / Line 2 — applies to every logo below. Tick which option is active; both stay saved either way.</div>
+        <div style="font-weight:600;font-size:.9rem;margin-bottom:10px;">Line 1 / Line 2 — applies to every logo below. Tick which is active; all three stay saved either way.</div>
+        <div id="ll-text-opt-3" style="margin-bottom:10px;"></div>
         <div id="ll-text-opt-1" style="margin-bottom:10px;"></div>
         <div id="ll-text-opt-2"></div>
     </div>
@@ -143,7 +144,16 @@ function llResolveSource(source, custom){
     if (source === 'business_rest')  return llBizRest();
     return LL_BIZ;
 }
-function llActiveText(){ return LL_TEXT.options[LL_TEXT.active - 1]; }
+// Option 3 = per-domain conditional (Option 1 if the business name's first
+// word matches the city, else Option 2) — same rule, same word1 extraction,
+// as ms_resolve_logo_lines() uses for the real build. Preview uses THIS
+// site's own real business/city (LL_BIZ/LL_CITY), so it shows exactly what
+// the real build would pick for this domain.
+function llConditionMatches(){ return llBizWord1().toLowerCase() === LL_CITY.trim().toLowerCase() && llBizWord1() !== ''; }
+function llActiveText(){
+    if (LL_TEXT.active === 3) return LL_TEXT.options[llConditionMatches() ? 0 : 1];
+    return LL_TEXT.options[LL_TEXT.active - 1];
+}
 function llPreviewSrc(i, type){
     var p = LL[i];
     var t = llActiveText();
@@ -293,7 +303,22 @@ function llTextOptionHtml(n){
       + '</div>'
       + '</div>';
 }
+// Option 3 has no fields of its own — it just picks between Options 1 and 2
+// per domain (see llConditionMatches()/ms_resolve_logo_lines()), so its block
+// is a fixed description, not an editable form.
+function llTextOption3Html(){
+    var active = LL_TEXT.active === 3;
+    var matchNow = llConditionMatches();
+    return '<div style="border:1px solid '+(active?'#2563eb':'#e2e8f0')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+      + '<label style="display:flex;align-items:center;gap:7px;font-weight:600;cursor:pointer;margin:0;">'
+      +   '<input type="radio" name="ll-text-active" value="3" class="ll-text-active-radio"'+(active?' checked':'')+'> Option 3 — automatic</label>'
+      + '<div class="hint" style="margin:4px 0 0 25px;">If the first word of the business name is the same as the city, use Option 1; if not, use Option 2.'
+      +   (active ? ' For this site right now: <strong>'+(matchNow?'matches — using Option 1':'does not match — using Option 2')+'</strong> (“'+llEsc(llBizWord1())+'” vs “'+llEsc(LL_CITY)+'”).' : '')
+      + '</div>'
+      + '</div>';
+}
 function llRenderTextOptions(){
+    document.getElementById('ll-text-opt-3').innerHTML = llTextOption3Html();
     document.getElementById('ll-text-opt-1').innerHTML = llTextOptionHtml(1);
     document.getElementById('ll-text-opt-2').innerHTML = llTextOptionHtml(2);
     document.querySelectorAll('#ll-text-opt-1 select, #ll-text-opt-2 select, #ll-text-opt-1 .ll-tf, #ll-text-opt-2 .ll-tf')

@@ -110,23 +110,24 @@ function ms_pick_font(string $masterId, array $params): string {
 
 /**
  * Load this master's Logo Library (array, or []) — each entry already carries
- * the library's shared, ACTIVE line1/2 text+color (merged in here), so every
- * caller downstream (ms_pick_logo_config(), ms_resolve_logo_lines(), the
- * admin panel's own re-read of this same function) sees one consistent shape
- * without needing to know the text settings live separately from the icon.
+ * the library's shared text SETTINGS (merged in here as 'text_active' +
+ * 'text_options'), so every caller downstream (ms_pick_logo_config(), the
+ * admin panel's own re-read of this same function) sees one consistent
+ * shape. Deliberately NOT resolved down to concrete line1/2 strings here —
+ * that happens in ms_resolve_logo_lines(), the first point in this pipeline
+ * that actually has a domain's real business/city ($siteVars), which Option
+ * 3 (added 2026-11-10) needs to decide between Option 1 and Option 2.
  *
  * Line 1/2 text+color apply to the WHOLE library, not per logo (changed
  * 2026-11-10 — previously each of the up-to-10 entries duplicated these 6
  * fields, which drifted out of sync and needed hand-editing every entry to
- * change consistently, e.g. switching the whole library to a word1/rest
- * split), saved as TWO arrangements ("Option 1"/"Option 2", added same day)
- * with one `active` flag picking which applies — only the active one is
- * merged onto every entry here; the inactive one just sits on file until
- * picked. Old-format files (saved before Option 1/2 existed, no top-level
- * 'options' key under 'text') fall back to treating the old flat 'text'
- * object as Option 1 so nothing breaks before a resave; the array-union below
- * gives $shared's 6 keys priority over anything stale still sitting on an
- * individual entry.
+ * change consistently), saved as TWO arrangements ("Option 1"/"Option 2")
+ * plus a 3-way `active` flag: 1 = always Option 1, 2 = always Option 2,
+ * 3 = per-domain — Option 1 if the business name's first word matches the
+ * city, else Option 2 (see ms_resolve_logo_lines()). Old-format files (saved
+ * before Option 1/2 existed, no top-level 'options' key under 'text') fall
+ * back to treating the old flat 'text' object as Option 1 so nothing breaks
+ * before a resave.
  */
 function ms_load_logo_configs(string $masterId): array {
     $file = BASE_DIR . '/sites/' . $masterId . '/multisite/logo_configs.json';
@@ -136,16 +137,8 @@ function ms_load_logo_configs(string $masterId): array {
     $textDoc = is_array($ld['text'] ?? null) ? $ld['text'] : [];
     $options = is_array($textDoc['options'] ?? null) ? array_values($textDoc['options']) : null;
     if ($options === null) $options = [$textDoc, $textDoc]; // pre-Option-1/2 flat shape
-    $active = in_array((int)($textDoc['active'] ?? 1), [1, 2], true) ? (int)($textDoc['active'] ?? 1) : 1;
-    $chosen = is_array($options[$active - 1] ?? null) ? $options[$active - 1] : [];
-    $shared = [
-        'line1_source' => (string)($chosen['line1_source'] ?? 'business'),
-        'line1_custom' => (string)($chosen['line1_custom'] ?? ''),
-        'line1_color'  => ($chosen['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
-        'line2_source' => (string)($chosen['line2_source'] ?? 'city'),
-        'line2_custom' => (string)($chosen['line2_custom'] ?? ''),
-        'line2_color'  => ($chosen['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
-    ];
+    $active = in_array((int)($textDoc['active'] ?? 1), [1, 2, 3], true) ? (int)($textDoc['active'] ?? 1) : 1;
+    $shared = ['text_active' => $active, 'text_options' => $options];
     foreach ($logos as &$l) $l = $shared + $l;
     unset($l);
     return $logos;
@@ -214,14 +207,33 @@ function ms_resolve_logo_text(string $source, string $custom, array $siteVars): 
  * the city) is defined exactly once.
  */
 function ms_resolve_logo_lines(?array $config, array $siteVars, string $masterId): array {
-    $line1Source = (string)($config['line1_source'] ?? 'business');
-    $line2Source = (string)($config['line2_source'] ?? 'city');
-    $line1Custom = (string)($config['line1_custom'] ?? '');
-    $line2Custom = (string)($config['line2_custom'] ?? '');
+    // Which of the library's two saved text options applies — see
+    // ms_load_logo_configs()'s docblock. Option 3 is per-domain: the one place
+    // in this whole pipeline that has $siteVars, so it's the only place that
+    // CAN decide it. Falls back to Option 1 if text_options is missing/short
+    // (a config loaded some other way than ms_load_logo_configs(), or a
+    // zero-config site with no library at all).
+    $textActive = (int)($config['text_active'] ?? 1);
+    $textOptions = is_array($config['text_options'] ?? null) ? array_values($config['text_options']) : [];
+    if ($textActive === 2) {
+        $chosen = $textOptions[1] ?? [];
+    } elseif ($textActive === 3) {
+        // Same word1 extraction as ms_resolve_logo_text()'s 'business_word1'
+        // case above, for consistency — not a separate split rule.
+        $word1 = strtolower(preg_split('/\s+/', trim((string)($siteVars['business'] ?? '')), 2)[0] ?? '');
+        $city  = strtolower(trim((string)($siteVars['city'] ?? '')));
+        $chosen = ($word1 !== '' && $word1 === $city) ? ($textOptions[0] ?? []) : ($textOptions[1] ?? []);
+    } else {
+        $chosen = $textOptions[0] ?? [];
+    }
+    $line1Source = (string)($chosen['line1_source'] ?? $config['line1_source'] ?? 'business');
+    $line2Source = (string)($chosen['line2_source'] ?? $config['line2_source'] ?? 'city');
+    $line1Custom = (string)($chosen['line1_custom'] ?? $config['line1_custom'] ?? '');
+    $line2Custom = (string)($chosen['line2_custom'] ?? $config['line2_custom'] ?? '');
     // Per-line color mode ('accent'/'dark') — default preserves the historical
     // fixed pairing (line1=accent, line2=dark) for configs saved before this existed.
-    $line1Color = ($config['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent';
-    $line2Color = ($config['line2_color'] ?? 'dark')   === 'accent' ? 'accent' : 'dark';
+    $line1Color = ($chosen['line1_color'] ?? $config['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent';
+    $line2Color = ($chosen['line2_color'] ?? $config['line2_color'] ?? 'dark')   === 'accent' ? 'accent' : 'dark';
     // Icon tile background ('dark'/'accent') — default preserves the historical
     // dark-tile+accent-drawing pairing for configs saved before this existed.
     $iconBg = ($config['icon_bg'] ?? 'dark') === 'accent' ? 'accent' : 'dark';
