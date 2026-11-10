@@ -77,6 +77,25 @@ $fclColour = !$fclConfigured ? '#94a3b8' : ($fcl['engaged'] > 0 ? '#16a34a' : '#
     </div>
     <?php endif; ?>
 
+    <?php if ($fclConfigured && $fclHas):
+        // fleet_trends.php is deliberately a separate, read-only module (see its own
+        // docblock) — this card only calls into it and renders what comes back, same
+        // as it already does with calls_audit.php above.
+        require_once __DIR__ . '/infra/lib/fleet_trends.php';
+        $fclWeeks = $faWeeks ?? 8;
+        $fclTrend = fleet_trend_calls($faScope ?? null, $fclWeeks);
+    ?>
+    <details open style="margin-top:8px">
+        <summary class="fa-sum">Trend (<?= (int) $fclWeeks ?> weeks)</summary>
+        <div style="margin:8px 0 4px"><?= fleet_trend_svg($fclTrend['calls'], ['color' => '#2563eb']) ?></div>
+        <div style="font:.78rem/1.6 ui-monospace,monospace;color:#475569;max-height:160px;overflow:auto">
+            <?php foreach ($fclTrend['log'] as $fclLogLine): ?>
+                <div><strong><?= h($fclLogLine['week']) ?>:</strong> <?= h($fclLogLine['text']) ?></div>
+            <?php endforeach; ?>
+        </div>
+    </details>
+    <?php endif; ?>
+
     <?php if ($fclConfigured && $fclHas): ?>
     <details style="margin-top:8px" ontoggle="faLoadRows(this,'calls','fcl-rows')">
         <summary class="fa-sum">Per site (<?= count($fcl['domains']) ?>)</summary>

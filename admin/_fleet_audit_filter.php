@@ -25,6 +25,13 @@ if ($faBatch !== '' && $faNiche !== '' && !in_array($faBatch, $faBatches[$faNich
     $faBatch = '';
 }
 $faScope = infra_audit_scope($faNiche, $faBatch);
+// Shared time-range for each card's weekly trend chart/log (fleet_trends.php) —
+// one control here rather than four independent ones, since the four are meant
+// to be read side by side over the same window. Clamped to a fixed allowed set
+// so a hand-edited URL can't ask for, say, 9000 weeks of SQLite scanning.
+$faWeeksOptions = [4, 8, 13, 26];
+$faWeeks = (int) ($_GET['faweeks'] ?? 8);
+if (!in_array($faWeeks, $faWeeksOptions, true)) $faWeeks = 8;
 ?>
 <div class="card" style="margin:0 0 16px;padding:10px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f8fafc">
     <strong style="font-size:.82rem;color:#475569">Scope</strong>
@@ -46,8 +53,14 @@ $faScope = infra_audit_scope($faNiche, $faBatch);
                 <option value="<?= h($bid) ?>" <?= $faBatch === $bid ? 'selected' : '' ?>><?= h($bid) ?></option>
             <?php endforeach; ?>
         </select>
+        <select name="faweeks" onchange="this.form.submit()" title="Trend chart/log window below each card"
+                style="padding:5px 7px;border:1px solid #d1d5db;border-radius:6px;font-size:.82rem">
+            <?php foreach ($faWeeksOptions as $fwOpt): ?>
+                <option value="<?= $fwOpt ?>" <?= $faWeeks === $fwOpt ? 'selected' : '' ?>><?= $fwOpt ?> weeks</option>
+            <?php endforeach; ?>
+        </select>
         <?php if ($faNiche !== '' || $faBatch !== ''): ?>
-            <a href="sites.php#fleet-audit" style="font-size:.78rem;color:#2563eb;text-decoration:none">Clear</a>
+            <a href="sites.php?faweeks=<?= $faWeeks ?>#fleet-audit" style="font-size:.78rem;color:#2563eb;text-decoration:none">Clear</a>
         <?php endif; ?>
     </form>
     <span style="font-size:.78rem;color:#94a3b8">
