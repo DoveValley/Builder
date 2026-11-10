@@ -152,8 +152,11 @@
     window.msUpWipeGate = function () {
         const wipe = document.getElementById('ms-up-wipe');
         const only = document.getElementById('ms-up-only').value.trim();
-        document.getElementById('ms-up-wipe-hint').style.display = wipe.checked ? 'block' : 'none';
+        // Force-uncheck FIRST, then set the hint's visibility from the corrected
+        // state — doing it in the other order (as before) left the red hint shown
+        // even after this same function had just unchecked the box.
         if (wipe.checked && !only) wipe.checked = false;
+        document.getElementById('ms-up-wipe-hint').style.display = wipe.checked ? 'block' : 'none';
     };
 
     window.msUploadSites = async function () {
