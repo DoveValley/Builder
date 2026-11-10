@@ -468,13 +468,34 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
     usort($numbers, fn($a, $b) => ctm_number_pattern_score($b['phone_number'] ?? $b['number'] ?? '')
         <=> ctm_number_pattern_score($a['phone_number'] ?? $a['number'] ?? ''));
 
-    $candidate = $numbers[0];
+    // Try each pooled candidate in pattern-score order until one actually buys, instead
+    // of only ever trying numbers[0]. CTM's search results are a snapshot, not a hold
+    // (see ctm_pool_numbers()'s own docblock on why pooling exists at all) — a number
+    // that was free at search time can be gone by purchase time, which CTM reports as
+    // a 200 with no `number` object rather than a clean error. Found live on
+    // westminsterapplianceservice.com, 2026-11-10: failed twice in a row on exactly
+    // this error even though the area code's pool had 20 untried candidates sitting
+    // right there both times. Confirmed via a live CTM account scan first that neither
+    // failed attempt had actually purchased anything (no stray/unlabeled number, no
+    // charge) before concluding retrying the pool was safe.
+    $candidate = null;
+    $buy = null;
+    $tried = 0;
+    $lastError = '';
+    foreach ($numbers as $n) {
+        $phoneE164 = $n['phone_number'] ?? $n['number'] ?? null;
+        if (!$phoneE164) continue;
+        $tried++;
+        $buy = ctm_buy_number($accountId, $phoneE164);
+        if ($buy['ok']) { $candidate = $n; break; }
+        $lastError = $buy['error'];
+        $buy = null;
+    }
+    if ($tried === 0) return ['ok' => false, 'error' => 'Search result had no usable phone number field.'];
+    if ($buy === null) {
+        return ['ok' => false, 'error' => "Purchase failed on every pooled candidate ({$tried} tried): {$lastError}"];
+    }
     $bestScore = ctm_number_pattern_score($candidate['phone_number'] ?? $candidate['number'] ?? '');
-    $phoneE164 = $candidate['phone_number'] ?? $candidate['number'] ?? null;
-    if (!$phoneE164) return ['ok' => false, 'error' => 'Search result had no usable phone number field.'];
-
-    $buy = ctm_buy_number($accountId, $phoneE164);
-    if (!$buy['ok']) return ['ok' => false, 'error' => "Purchase failed: {$buy['error']}"];
 
     $number    = $buy['number'];
     $numberId  = $number['id'] ?? null;
@@ -495,6 +516,9 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
     } else {
         $warning = 'Bought a number but the purchase response had no id — could not label it.';
     }
+    if ($tried > 1) {
+        $warning = trim($warning . ' ' . ($tried - 1) . " earlier candidate(s) in this area code failed to purchase (already gone) before this one went through.");
+    }
 
     return [
         'ok'             => true,
@@ -505,6 +529,7 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
         'warning'        => $warning,
         'pool_attempts'  => $pooled['attempts'],
         'pool_size'      => count($numbers),
+        'buy_tried'      => $tried,
         'pattern_score'  => $bestScore,
     ];
 }
