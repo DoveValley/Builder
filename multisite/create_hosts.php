@@ -66,9 +66,20 @@ foreach ($rows as $r) {
     if ($d !== '') infra_state_upsert_domain(['domain' => $d, 'batch' => $masterId . '/' . $batchId]);
 }
 
-/* The plan: which boxes, how many each. */
+// Strict positional box mode (includes/multisite/box_assignment.php), toggled per
+// batch (box_assignment.json, Target List card's checkbox) — ON by default for any
+// batch that has never saved a choice. Read up here, before the plan check just
+// below: under strict mode each row's own `box` column decides placement and the
+// Pick-deployment-servers plan is never consulted, so requiring one to exist first
+// was blocking Create Host entirely for anyone using strict mode and nothing else —
+// exactly the setup the Target List card's own "Order of operations" recommends.
+require __DIR__ . '/../includes/multisite/box_assignment.php';
+$strictBox = ms_box_assignment_settings(ms_batch_file_read($masterId, $batchId, 'box_assignment.json'))['strict_mode'];
+
+/* The plan: which boxes, how many each. Only required when strict mode is OFF —
+   strict mode reads each row's own `box` column instead and never looks at this. */
 $plan = ms_batch_servers($masterId, $batchId);
-if (!$plan) { fwrite(STDERR, "No deployment servers picked for this batch — choose them first.\n"); exit(2); }
+if (!$plan && !$strictBox) { fwrite(STDERR, "No deployment servers picked for this batch — choose them first.\n"); exit(2); }
 
 $fleet = [];
 foreach (infra_hestia_servers() as $s) $fleet[$s['id'] ?? ''] = $s;
@@ -203,17 +214,12 @@ function ch_registrar_of(string $domain): string
     return $r;
 }
 
-// Strict positional box mode (includes/multisite/box_assignment.php), toggled per
-// batch (box_assignment.json, Target List's own checkbox) — off by default for any
-// batch that existed before this mode did, so nothing already running changes
-// behavior on its own. ON means box comes straight from each row's own `box`
-// column (set by the Target List's "Auto-fill" button, or edited by hand), the
-// same way registrar already works for Buy Domains — not recomputed here, not
-// randomized, no registrar tiebreak (a pre-planned registrar spread already
-// avoided the clustering that tiebreak exists to prevent — see box_assignment.php).
-require_once __DIR__ . '/../includes/multisite/box_assignment.php';
-$strictBox = ms_box_assignment_settings(ms_batch_file_read($masterId, $batchId, 'box_assignment.json'))['strict_mode'];
-
+// $strictBox already read near the top (before the deployment-servers plan check).
+// ON means box comes straight from each row's own `box` column (set by the Target
+// List's "Auto-fill" button, or edited by hand), the same way registrar already
+// works for Buy Domains — not recomputed here, not randomized, no registrar
+// tiebreak (a pre-planned registrar spread already avoided the clustering that
+// tiebreak exists to prevent — see box_assignment.php).
 $assignment = [];   // row index => server
 $unplaced   = [];
 if ($strictBox) {
@@ -284,9 +290,13 @@ if ($strictBox) {
     }
 }
 
-foreach ($plan as $p) {
-    $c = count(array_filter($assignment, fn($s) => ($s['id'] ?? '') === $p['server_id']));
-    printf("  %-10s %s\n", $p['label'] ?? $p['server_id'], $c . ' site' . ($c === 1 ? '' : 's'));
+// Counted from the real per-row assignment, not $plan — $plan is empty under strict
+// mode (it never gets consulted there), and a summary with nothing in it reads as
+// "nothing happened" even when every row just got placed from its own `box` column.
+$byBox = [];
+foreach ($assignment as $s) { $sid = $s['id'] ?? ''; $byBox[$sid] = ($byBox[$sid] ?? 0) + 1; }
+foreach ($byBox as $sid => $c) {
+    printf("  %-10s %s\n", $fleet[$sid]['label'] ?? $sid, $c . ' site' . ($c === 1 ? '' : 's'));
 }
 if ($unplaced) {
     printf("  ! %d row(s) have nowhere to go — the plan does not allocate them. They are left untouched.\n", count($unplaced));
