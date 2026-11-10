@@ -2240,6 +2240,51 @@ switch ($action) {
                           'run_id' => $run['run_id'], 'action' => $cbAction, 'report' => $report]);
         break;
 
+    // Read-only pre-flight for Buy Domains: for the checked domains, resolve
+    // which registrar each would actually buy through (override if one's picked,
+    // else that row's own `registrar` column — same resolution
+    // multisite/domain_buy_bulk.php itself uses), tally how many land on each,
+    // and check that registrar's REAL balance against a conservative flat
+    // estimate. Not exact pricing — the real price is re-checked per domain at
+    // buy time regardless, same as it always was; this just catches "this
+    // registrar obviously doesn't have enough" before a mixed-registrar run
+    // buys its way through some rows and then starts failing on others.
+    // Three of six registrars (Porkbun, Spaceship, Gandi) have no balance API
+    // at all — reported as 'unknown', not assumed fine.
+    case 'buy_funding_check':
+        require_once __DIR__ . '/infra/lib/registrar.php';
+        $bfDomains = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
+        $bfOverride = strtolower(trim((string) ($_POST['registrar'] ?? '')));
+        if (!$bfDomains) { echo json_encode(['error' => 'No domains selected.']); break; }
+
+        $byDomain = ms_rows_by_domain($paramsPath);
+        $countByReg = []; $unresolved = 0;
+        foreach ($bfDomains as $d) {
+            $row = $byDomain[$d] ?? [];
+            $reg = $bfOverride !== '' ? $bfOverride : strtolower(trim((string) ($row['registrar'] ?? '')));
+            if ($reg === '') { $unresolved++; continue; }
+            $countByReg[$reg] = ($countByReg[$reg] ?? 0) + 1;
+        }
+
+        $estPerDomain = 15.00;   // deliberately a little above every real registrar's own .com price seen so far
+        $out = [];
+        foreach ($countByReg as $reg => $count) {
+            $v = infra_registrar_verify($reg);
+            $estCost = round($count * $estPerDomain, 2);
+            $balance = ($v['balance'] !== null && $v['balance'] !== '') ? (float) $v['balance'] : null;
+            $out[] = [
+                'registrar'      => $reg,
+                'count'          => $count,
+                'estimated_cost' => $estCost,
+                'balance'        => $balance,
+                'currency'       => $v['currency'] ?? '',
+                'verify_ok'      => (bool) $v['ok'],
+                'sufficient'     => $balance === null ? null : ($balance >= $estCost),
+            ];
+        }
+        echo json_encode(['ok' => true, 'registrars' => $out, 'unresolved' => $unresolved, 'est_per_domain' => $estPerDomain]);
+        break;
+
     // Buy a real domain for each checked row via the registrar dropdown. 100%
     // infra_domain_buy() (admin/infra/lib/acquire.php) underneath — same function
     // the Infra console's own single-domain buy already uses, so availability

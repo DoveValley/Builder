@@ -225,6 +225,7 @@ function ms_ctm_card_end(string $prefix): void {
                     <?php endforeach; ?>
                 </select>
                 <button type="button" class="btn btn-primary" id="ms-buy-btn" onclick="msDomainBuy()">Buy Domains (<span id="ms-buy-count">0</span> selected)</button>
+                <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Real money, not a preview. Last step of the order of operations above — do this after Auto-fill Box / CF Acct, Auto-fill Registrar, and Check Distribution (plus Fix State Clustering if that found anything).\n\nBefore it fires: resolves which registrar each checked row will actually use (the override dropdown if one's picked, else that row's own Registrar column), tallies how many land on each, and checks each one's REAL current balance against a conservative flat estimate. Shows a warning right in the confirm dialog if any registrar looks short on funds, or if its balance can't be checked at all (3 of the 6 registrars have no balance API).\n\nThen: real availability re-check per domain right before buying — a stale 'available' flag from the naming step is never trusted. A row with no domain yet, or no registrar assigned and no override selected, is skipped and reported, never guessed at. A domain this console already owns is skipped, not re-bought.">&#9432;</a>
             <?php endif; ?>
             <span id="ms-buy-msg" class="hint" style="margin-left:8px;"></span>
             <div class="hint" style="margin-top:4px;width:100%;">
@@ -2836,14 +2837,40 @@ function ms_ctm_card_end(string $prefix): void {
     // across registrars executes in one click, no manual grouping. Picking an
     // explicit registrar here overrides every checked row to that one, same as the
     // original single-registrar behavior.
-    window.msDomainBuy = function () {
+    window.msDomainBuy = async function () {
         const domains = Object.keys(msCtmSelected);
         const sel = document.getElementById('ms-buy-registrar');
         const registrar = sel ? sel.value : '';
-        if (!domains.length) { document.getElementById('ms-buy-msg').textContent = 'Select at least one row first.'; return; }
+        const msgEl = document.getElementById('ms-buy-msg');
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+
+        // Funding pre-flight: resolve which registrar each checked row would
+        // actually buy through, and check its REAL balance against a
+        // conservative flat estimate before the confirm dialog even shows —
+        // a registrar running dry partway through a mixed-registrar run is
+        // what this catches (multisite_api.php's buy_funding_check).
+        msgEl.textContent = 'Checking registrar funding…';
+        let fundingNote = '';
+        try {
+            const fd = new FormData();
+            fd.append('csrf_token', csrfToken);
+            domains.forEach(d => fd.append('domains[]', d));
+            fd.append('registrar', registrar);
+            const fc = await (await fetch('multisite_api.php?action=buy_funding_check', { method: 'POST', body: fd })).json();
+            if (!fc.error && fc.registrars) {
+                const short = fc.registrars.filter(r => r.sufficient === false);
+                const unknown = fc.registrars.filter(r => r.sufficient === null);
+                const lines = [];
+                short.forEach(r => lines.push('  ⚠ ' + r.registrar + ': balance ' + r.balance + ' ' + (r.currency || '') + ' looks too low for ' + r.count + ' domain(s) (~' + r.estimated_cost + ' est.)'));
+                unknown.forEach(r => lines.push('  ? ' + r.registrar + ': no balance API — ' + r.count + ' domain(s), can\'t verify funds automatically'));
+                if (lines.length) fundingNote = '\n\nFunding check (estimated, not exact pricing):\n' + lines.join('\n');
+            }
+        } catch (e) { /* funding check failing silently just means no warning shown — the real buy's own per-domain checks still apply */ }
+        msgEl.textContent = '';
+
         const confirmMsg = registrar
-            ? 'Buy ' + domains.length + ' real domain(s) via ' + sel.options[sel.selectedIndex].text + '? This is a real purchase, not a preview.\n\nEach domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.'
-            : 'Buy ' + domains.length + ' real domain(s), each through its OWN registrar column value? This is a real purchase, not a preview.\n\nA row with no registrar assigned is skipped and reported, not guessed at. Each domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.';
+            ? 'Buy ' + domains.length + ' real domain(s) via ' + sel.options[sel.selectedIndex].text + '? This is a real purchase, not a preview.\n\nEach domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.' + fundingNote
+            : 'Buy ' + domains.length + ' real domain(s), each through its OWN registrar column value? This is a real purchase, not a preview.\n\nA row with no registrar assigned is skipped and reported, not guessed at. Each domain is re-checked for availability right before buying — one already taken or already owned is skipped and reported, not charged for.' + fundingNote;
         msCtmBulkStart('buy_domains', { registrar: registrar }, confirmMsg);
     };
 
