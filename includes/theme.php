@@ -48,11 +48,28 @@ const GF_FONT_METRICS = [
  *  family even though the box height is already correct. */
 const GF_SERIF_FAMILIES = ['Noto Serif', 'Playfair Display', 'Merriweather'];
 
+/** CSS generic font-family keywords — these MUST stay unquoted, or the browser treats
+ *  them as a literal (nonexistent) font name instead of the actual generic fallback. */
+const CSS_GENERIC_FONT_FAMILIES = ['sans-serif', 'serif', 'monospace', 'cursive', 'fantasy',
+    'system-ui', 'ui-sans-serif', 'ui-serif', 'ui-monospace', 'ui-rounded'];
+
 /**
  * A stored font value is a full CSS stack ("Source Sans Pro, sans-serif"), not a bare
  * name — resolves the alias + splices in the metric-matched fallback (see
  * THEME_FONT_FAMILY_ALIASES / GF_FONT_METRICS above) against just its FIRST segment,
  * then re-attaches whatever else was already in the stack.
+ *
+ * Every real name gets quoted before rejoining. Confirmed live via a real Chromium
+ * render: "Source Sans 3" unquoted computed the page's actual body font to "Times New
+ * Roman", not even plain sans-serif — "3" is a CSS NUMBER token, not a valid identifier,
+ * so the unquoted multi-token family name fails to parse; font-family is an inherited
+ * property, so a value invalid at computed-value time falls back to the INHERITED value
+ * (ultimately the browser default), not to var()'s own fallback argument, which only
+ * applies when the custom property is undefined, not when it resolves to something
+ * invalid. Quoting is always valid for a real name regardless of spaces or digits, so
+ * this removes the whole class of bug for any current or future font, not just this
+ * one — the one thing that must stay bare is a true CSS generic keyword (sans-serif
+ * etc.), which is only ever recognized unquoted.
  */
 function theme_resolve_font_stack(string $stack): string {
     $parts = array_map(fn($p) => trim($p, " '\""), explode(',', $stack));
@@ -62,7 +79,11 @@ function theme_resolve_font_stack(string $stack): string {
     if (isset(GF_FONT_METRICS[$realName])) {
         array_unshift($rest, "{$realName} Fallback");
     }
-    return implode(', ', array_merge([$realName], $rest));
+    $quoted = array_map(
+        fn($name) => in_array(strtolower($name), CSS_GENERIC_FONT_FAMILIES, true) ? $name : "'{$name}'",
+        array_merge([$realName], $rest)
+    );
+    return implode(', ', $quoted);
 }
 
 function theme_css_vars($theme) {
