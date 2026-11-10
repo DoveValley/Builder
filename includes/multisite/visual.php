@@ -108,11 +108,39 @@ function ms_pick_font(string $masterId, array $params): string {
     return $pool[ms_variant($domain, count($pool), 'font')] ?? $pool[0];
 }
 
-/** Load this master's Logo Library (array, or []). */
+/**
+ * Load this master's Logo Library (array, or []) — each entry already carries
+ * the library's shared line1/2 text+color (merged in here), so every caller
+ * downstream (ms_pick_logo_config(), ms_resolve_logo_lines(), the admin
+ * panel's own re-read of this same function) sees one consistent shape
+ * without needing to know the text settings live separately from the icon.
+ *
+ * Line 1/2 text+color apply to the WHOLE library, not per logo (changed
+ * 2026-11-10 — previously each of the up-to-10 entries duplicated these 6
+ * fields, which drifted out of sync and needed hand-editing every entry to
+ * change consistently, e.g. switching the whole library to a word1/rest
+ * split). Old-format files (saved before this existed, no top-level 'text'
+ * key) fall back to the historical per-logo defaults so nothing breaks
+ * before a resave; the array-union below gives $shared's 6 keys priority
+ * over anything stale still sitting on an individual entry.
+ */
 function ms_load_logo_configs(string $masterId): array {
     $file = BASE_DIR . '/sites/' . $masterId . '/multisite/logo_configs.json';
     $ld = @json_decode((string)@file_get_contents($file), true);
-    return is_array($ld['logos'] ?? null) ? array_values($ld['logos']) : [];
+    $logos = is_array($ld['logos'] ?? null) ? array_values($ld['logos']) : [];
+    if (!$logos) return [];
+    $text = is_array($ld['text'] ?? null) ? $ld['text'] : [];
+    $shared = [
+        'line1_source' => (string)($text['line1_source'] ?? 'business'),
+        'line1_custom' => (string)($text['line1_custom'] ?? ''),
+        'line1_color'  => ($text['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
+        'line2_source' => (string)($text['line2_source'] ?? 'city'),
+        'line2_custom' => (string)($text['line2_custom'] ?? ''),
+        'line2_color'  => ($text['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+    ];
+    foreach ($logos as &$l) $l = $shared + $l;
+    unset($l);
+    return $logos;
 }
 
 /**

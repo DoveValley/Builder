@@ -21,18 +21,23 @@ $llSingleId = (int)($llDoc['single_logo_id'] ?? 0);
 $llLogos    = [];
 foreach (($llDoc['logos'] ?? []) as $l) {
     $llLogos[] = [
-        'name'         => (string)($l['name'] ?? ''),
-        'icon'         => (string)($l['icon'] ?? ''),
-        'icon_bg'      => ($l['icon_bg'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
-        'line1_source' => (string)($l['line1_source'] ?? 'business'),
-        'line1_custom' => (string)($l['line1_custom'] ?? ''),
-        'line1_color'  => ($l['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
-        'line2_source' => (string)($l['line2_source'] ?? 'city'),
-        'line2_custom' => (string)($l['line2_custom'] ?? ''),
-        'line2_color'  => ($l['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
-        'in_rotation'  => array_key_exists('in_rotation', $l) ? (bool)$l['in_rotation'] : true,
+        'name'        => (string)($l['name'] ?? ''),
+        'icon'        => (string)($l['icon'] ?? ''),
+        'icon_bg'     => ($l['icon_bg'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+        'in_rotation' => array_key_exists('in_rotation', $l) ? (bool)$l['in_rotation'] : true,
     ];
 }
+// Line 1/2 text+color apply to the WHOLE library, one shared block — not per
+// logo (changed 2026-11-10, see ms_load_logo_configs()'s docblock for why).
+$llTextRaw = is_array($llDoc['text'] ?? null) ? $llDoc['text'] : [];
+$llText = [
+    'line1_source' => (string)($llTextRaw['line1_source'] ?? 'business'),
+    'line1_custom' => (string)($llTextRaw['line1_custom'] ?? ''),
+    'line1_color'  => ($llTextRaw['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
+    'line2_source' => (string)($llTextRaw['line2_source'] ?? 'city'),
+    'line2_custom' => (string)($llTextRaw['line2_custom'] ?? ''),
+    'line2_color'  => ($llTextRaw['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+];
 $llIcons = [];
 foreach (glob(ACTIVE_SITE_DIR . '/multisite/icons/*.svg') ?: [] as $f) $llIcons[] = basename($f);
 
@@ -67,11 +72,24 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
 ?>
 <div class="card" id="ll-visual">
     <h2 style="margin-top:0;">Logo Library</h2>
-    <p class="hint" style="margin-bottom:6px;">Build a library of logo arrangements — an icon plus what goes on line&nbsp;1 and line&nbsp;2 (business name, city, or your own custom text). Colors always follow <em>this site's current brand colors above</em> — a Logo Config controls text and icon only. Then:</p>
+    <p class="hint" style="margin-bottom:6px;">Build a library of logo arrangements — each is an icon, plus one shared line&nbsp;1/line&nbsp;2 text arrangement below that applies to every config in this library. Colors always follow <em>this site's current brand colors above</em>. Then:</p>
     <ul class="hint" style="margin:0 0 12px 18px;line-height:1.7;">
         <li><strong>Use for this site</strong> — applies one config to <em>this</em> site now (regenerates the logo + favicon).</li>
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked configs when generating clone sites (or a row's <code>logo_config</code> column overrides) — independently of which color preset each clone gets.</li>
     </ul>
+    <div style="border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:14px;background:#f8fafc;">
+        <div style="font-weight:600;font-size:.9rem;margin-bottom:8px;">Line 1 / Line 2 — applies to every logo below</div>
+        <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;">
+            <div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 1</label><span id="ll-text-line1-select"></span></div>
+            <div style="flex:1;min-width:160px;"><input type="text" id="ll-text-line1-custom" placeholder="Custom text…" style="display:none;width:100%;"></div>
+            <div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label><span id="ll-text-line1-color"></span></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-top:8px;">
+            <div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 2</label><span id="ll-text-line2-select"></span></div>
+            <div style="flex:1;min-width:160px;"><input type="text" id="ll-text-line2-custom" placeholder="Custom text…" style="display:none;width:100%;"></div>
+            <div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label><span id="ll-text-line2-color"></span></div>
+        </div>
+    </div>
     <?php if (!$llIcons): ?>
         <p class="hint" style="color:#b45309;">No brand icons yet — add SVGs in the <strong>Brand icons</strong> card above. Until then logos render as a wordmark only.</p>
     <?php endif; ?>
@@ -92,6 +110,7 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
 
 <script>
 var LL        = <?= json_encode($llLogos, JSON_UNESCAPED_SLASHES) ?>;
+var LL_TEXT   = <?= json_encode($llText, JSON_UNESCAPED_SLASHES) ?>;   // shared line1/2 text+color, applies to every logo below
 var LL_ICONS  = <?= json_encode($llIcons, JSON_UNESCAPED_SLASHES) ?>;
 var LL_TOPBG  = <?= json_encode($llTopBg) ?>;
 var LL_NAVBG  = <?= json_encode($llNavBg) ?>;
@@ -121,10 +140,10 @@ function llPreviewSrc(i, type){
         + '&accent=' + encodeURIComponent(LL_ACCENT)
         + '&dark='   + encodeURIComponent(LL_DARK)
         + '&icon='   + encodeURIComponent(p.icon || '')
-        + '&line1='  + encodeURIComponent(llResolveSource(p.line1_source, p.line1_custom))
-        + '&line2='  + encodeURIComponent(llResolveSource(p.line2_source, p.line2_custom))
-        + '&line1_color=' + encodeURIComponent(p.line1_color || 'accent')
-        + '&line2_color=' + encodeURIComponent(p.line2_color || 'dark')
+        + '&line1='  + encodeURIComponent(llResolveSource(LL_TEXT.line1_source, LL_TEXT.line1_custom))
+        + '&line2='  + encodeURIComponent(llResolveSource(LL_TEXT.line2_source, LL_TEXT.line2_custom))
+        + '&line1_color=' + encodeURIComponent(LL_TEXT.line1_color || 'accent')
+        + '&line2_color=' + encodeURIComponent(LL_TEXT.line2_color || 'dark')
         + '&icon_bg='     + encodeURIComponent(p.icon_bg || 'dark')
         + '&_='      + llBust;
 }
@@ -191,16 +210,6 @@ function llCardHtml(i){
       +     '<div style="flex:1;"><label style="margin-top:0;">Icon</label><select class="ll-f" data-i="'+i+'" data-k="icon">'+icons+'</select></div>'
       +     '<div style="flex:1;"><label style="margin-top:0;">Icon colors</label>'+llIconBgSelect(i,p.icon_bg)+'</div>'
       +   '</div>'
-      +   '<div style="display:flex;gap:14px;margin-top:8px;align-items:flex-end;">'
-      +     '<div style="flex:1;"><label style="margin-top:0;">Line 1</label>'+llSourceSelect(i,'line1',p.line1_source)+'</div>'
-      +     '<div style="flex:1;"><input type="text" class="ll-f" data-i="'+i+'" data-k="line1_custom" placeholder="Custom text…" value="'+llEsc(p.line1_custom)+'" style="'+(p.line1_source!=='custom'?'display:none;':'')+'"></div>'
-      +     '<div style="flex:0 0 90px;"><label style="margin-top:0;">Color</label>'+llColorSelect(i,'line1',p.line1_color)+'</div>'
-      +   '</div>'
-      +   '<div style="display:flex;gap:14px;margin-top:8px;align-items:flex-end;">'
-      +     '<div style="flex:1;"><label style="margin-top:0;">Line 2</label>'+llSourceSelect(i,'line2',p.line2_source)+'</div>'
-      +     '<div style="flex:1;"><input type="text" class="ll-f" data-i="'+i+'" data-k="line2_custom" placeholder="Custom text…" value="'+llEsc(p.line2_custom)+'" style="'+(p.line2_source!=='custom'?'display:none;':'')+'"></div>'
-      +     '<div style="flex:0 0 90px;"><label style="margin-top:0;">Color</label>'+llColorSelect(i,'line2',p.line2_color)+'</div>'
-      +   '</div>'
       +   '<button type="button" onclick="llRemove('+i+')" style="margin-top:12px;background:none;border:0;color:#dc2626;cursor:pointer;font-size:.85rem;padding:0;">✕ Remove logo</button>'
       + '</div>'
       + '</div>';
@@ -212,7 +221,6 @@ function llRender(){
         var ev = (el.tagName === 'SELECT') ? 'change' : 'input';
         el.addEventListener(ev, function(){
             LL[i][k] = el.value;
-            if (k === 'line1_source' || k === 'line2_source') { llRender(); llAutoSave(); return; }
             if (k !== 'name') llPreview(i);
         });
         el.addEventListener('change', llAutoSave);
@@ -225,9 +233,7 @@ function llRender(){
 }
 function llAdd(){
     if (LL.length >= 10) return;
-    LL.push({name:'Logo '+(LL.length+1), icon:(LL_ICONS[LL.length % Math.max(1,LL_ICONS.length)]||''), icon_bg:'dark',
-              line1_source:'business', line1_custom:'', line1_color:'accent',
-              line2_source:'city', line2_custom:'', line2_color:'dark', in_rotation:true});
+    LL.push({name:'Logo '+(LL.length+1), icon:(LL_ICONS[LL.length % Math.max(1,LL_ICONS.length)]||''), icon_bg:'dark', in_rotation:true});
     llRender();
     llAutoSave();
 }
@@ -245,8 +251,33 @@ function llPayload(){
     var fd = new FormData();
     fd.append('csrf_token', LL_CSRF);
     fd.append('logos', JSON.stringify(LL));
+    fd.append('text', JSON.stringify(LL_TEXT));
     fd.append('single_logo_id', LL_SINGLE >= 0 ? (LL_SINGLE + 1) : 0);
     return fd;
+}
+// The shared Line 1/Line 2 block above the library — one control set, not one
+// per logo (see LL_TEXT's own comment). Rendered once; its two selects use the
+// same llSourceSelect()/llColorSelect() helpers every per-card field used to.
+function llRenderText(){
+    document.getElementById('ll-text-line1-select').innerHTML = llSourceSelect('text','line1',LL_TEXT.line1_source);
+    document.getElementById('ll-text-line2-select').innerHTML = llSourceSelect('text','line2',LL_TEXT.line2_source);
+    document.getElementById('ll-text-line1-color').innerHTML  = llColorSelect('text','line1',LL_TEXT.line1_color);
+    document.getElementById('ll-text-line2-color').innerHTML  = llColorSelect('text','line2',LL_TEXT.line2_color);
+    var c1 = document.getElementById('ll-text-line1-custom'), c2 = document.getElementById('ll-text-line2-custom');
+    c1.value = LL_TEXT.line1_custom; c1.style.display = LL_TEXT.line1_source === 'custom' ? '' : 'none';
+    c2.value = LL_TEXT.line2_custom; c2.style.display = LL_TEXT.line2_source === 'custom' ? '' : 'none';
+    document.querySelectorAll('#ll-text-line1-select select, #ll-text-line2-select select, #ll-text-line1-color select, #ll-text-line2-color select')
+        .forEach(function(el){
+            el.addEventListener('change', function(){
+                LL_TEXT[el.getAttribute('data-k')] = el.value;
+                llRenderText();
+                llAllPreviews();
+                llAutoSave();
+            });
+        });
+    c1.oninput = function(){ LL_TEXT.line1_custom = c1.value; llAllPreviews(); };
+    c2.oninput = function(){ LL_TEXT.line2_custom = c2.value; llAllPreviews(); };
+    c1.onchange = c2.onchange = llAutoSave;
 }
 var llSaveTimer = null;
 function llAutoSave(){ clearTimeout(llSaveTimer); llSaveTimer = setTimeout(function(){ llSave(); }, 600); }
@@ -273,6 +304,7 @@ function llUse(i){
         document.getElementById('ll-apply-form').submit();
     });
 }
+llRenderText();
 llRender();
 </script>
 </div>

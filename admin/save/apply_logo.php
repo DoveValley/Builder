@@ -11,10 +11,17 @@ require_once __DIR__ . '/../../includes/multisite/visual.php'; // ms_generate_lo
 $activeTab = 'genvisual';
 
 $logoFile = ACTIVE_SITE_DIR . '/multisite/logo_configs.json';
+// Raw doc, kept only for the single_logo_id write-back below — must preserve
+// 'text' and each entry exactly as stored, not the merged shape.
 $doc      = @json_decode((string)@file_get_contents($logoFile), true) ?: [];
-$logos    = is_array($doc['logos'] ?? null) ? $doc['logos'] : [];
 
 $logoId = (int)($_POST['logo_id'] ?? 0);
+
+// ms_load_logo_configs(), not a raw re-read of $doc['logos'] — that function
+// is the one place the library's shared line1/2 text+color get merged onto
+// each entry (see its own docblock); reading the file directly here would
+// silently resolve against stale per-entry text fields instead.
+$logos = ms_load_logo_configs(ACTIVE_SITE_ID);
 
 // Find the config by its stored id (1-based), else by ordinal fallback.
 $config = null;
