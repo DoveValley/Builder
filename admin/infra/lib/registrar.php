@@ -447,7 +447,12 @@ function infra_reg_dynadot_verify(array $cfg): array
     $resp = $j['AccountInfoResponse'] ?? $j['Response'] ?? $j;
     $stat = strtolower((string) ($resp['ResponseCode'] ?? $resp['Status'] ?? ''));
     $ok   = $r['code'] >= 200 && $r['code'] < 300 && ($stat === '0' || $stat === 'success');
-    $bal  = $resp['AccountInfo']['Balance'] ?? $resp['Balance'] ?? null;
+    // Dynadot's own field is "AccountBalance" (a string like "$120.80", dollar
+    // sign and all) — "Balance" never appears in a real response, found by
+    // reading the raw JSON directly rather than trusting an assumed key name.
+    $bal  = $resp['AccountInfo']['AccountBalance'] ?? $resp['AccountBalance']
+          ?? $resp['AccountInfo']['Balance'] ?? $resp['Balance'] ?? null;
+    if ($bal !== null) $bal = ltrim((string) $bal, '$');
     return ['ok' => $ok,
             'message' => $ok ? 'Dynadot API OK' : ('Dynadot: ' . (($resp['Error'] ?? '') ?: ('HTTP ' . $r['code']))),
             'balance' => $bal !== null ? (string) $bal : null, 'currency' => 'USD'];
@@ -1499,9 +1504,22 @@ function infra_reg_spaceship_operation_status(array $cfg, string $operationId): 
 {
     $r = infra_reg_spaceship_call($cfg, 'GET', '/async-operations/' . rawurlencode($operationId));
     if (!$r['ok']) return ['status' => '', 'details' => $r['message']];
+    // Seen live: a real registration answered with 'details' as an ARRAY (e.g.
+    // one entry per validation issue), not the plain string the docs implied —
+    // a bare (string) cast on that produces the literal word "Array" plus a PHP
+    // warning, silently swallowing whatever the real detail said. Flatten
+    // instead: scalars join as-is, anything nested (object/array) is JSON so no
+    // information is dropped.
+    $details = $r['json']['details'] ?? '';
+    if (is_array($details)) {
+        $details = implode('; ', array_map(
+            fn($d) => is_scalar($d) ? (string) $d : json_encode($d),
+            $details
+        ));
+    }
     return [
         'status'  => strtolower((string) ($r['json']['status'] ?? '')),
-        'details' => (string) ($r['json']['details'] ?? ''),
+        'details' => (string) $details,
     ];
 }
 
