@@ -153,6 +153,24 @@ function ms_page_slug_exists(string $slug): bool {
     return isset($existSlugs[$slug]);
 }
 
+/**
+ * Does THIS domain have a real, published blog post at this slug? The sibling check
+ * to ms_page_slug_exists() above, for the one URL shape that function can never see —
+ * a blog post lives in $data['posts'], not $data['pages']/the page index, so a
+ * related_links candidate pointing at blog/{slug} used to be silently unresolvable
+ * regardless of whether the post actually existed (found via a real audit: service
+ * pages had zero real links into any blog post, even topically relevant ones).
+ */
+function ms_blog_post_slug_exists(string $slug): bool {
+    global $data;
+    foreach (($data['posts'] ?? []) as $post) {
+        if (is_array($post) && ($post['slug'] ?? '') === $slug && ($post['status'] ?? 'draft') === 'published') {
+            return true;
+        }
+    }
+    return false;
+}
+
 function reserved_slugs() {
     return ['', 'admin', 'assets', 'data', 'includes', 'uploads', 'index', 'page', 'home', 'blog'];
 }
