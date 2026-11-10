@@ -82,7 +82,16 @@ if ($slug !== '') {
             'author'        => ['@type' => 'Organization', 'name' => resolve_shortcodes('{business}')],
         ];
         if (!empty($post['featured_image'])) {
-            $schemaArr['image'] = rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($post['featured_image'], '/');
+            // resolve_shortcodes() first: a stored featured_image can be a bare token
+            // ('{city_image}', generate.py's own fallback when a post has no dedicated
+            // photo) same as any other image-like field — includes/blocks.php's
+            // post_meta/blog_list cases get this for free via apply_shortcodes_to_block(),
+            // but this schema builder runs on the raw $post array before that, so it needs
+            // the same resolution explicitly or a token ships literally into the JSON-LD.
+            $imgPath = resolve_shortcodes($post['featured_image']);
+            if ($imgPath !== '') {
+                $schemaArr['image'] = rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($imgPath, '/');
+            }
         }
         $seo['schema'] = json_encode($schemaArr);
     }
@@ -158,10 +167,36 @@ $contentBlocks = [$listBlock];
 // Falls back to a line built from blog_heading (which DOES get a real per-niche default), so
 // the tag never goes out blank even when nobody has customized this field.
 $blogIntro = trim((string) ($data['blog_settings']['blog_intro'] ?? ''));
+// CollectionPage + an ItemList of whatever's actually on THIS page (same post/order/
+// pagination a visitor sees) — a projection of $cardPosts, never hand-authored, so it
+// can't drift from the real listing the way a static blob would. Unresolved {website}/
+// {business} tokens are fine here: site-template.php always resolve_shortcodes()s the
+// whole schema blob right before emitting it (see its own $schemaJson handling), same
+// as every other page's stored schema string.
+$blogItemList = [];
+foreach ($cardPosts as $bp) {
+    if (empty($bp['slug'])) continue;
+    $blogItemList[] = [
+        '@type' => 'ListItem',
+        'position' => count($blogItemList) + 1,
+        'url' => '{website}/blog/' . $bp['slug'],
+        'name' => $bp['title'] ?? '',
+    ];
+}
+$blogSchema = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'CollectionPage',
+    'name'     => ($data['blog_settings']['blog_heading'] ?? 'Blog') . ($activeTagLabel ? ' — ' . $activeTagLabel : ''),
+    'url'      => '{website}/blog/' . ($tag !== '' ? '?tag=' . urlencode($tag) : ''),
+];
+if ($blogItemList) {
+    $blogSchema['mainEntity'] = ['@type' => 'ItemList', 'itemListElement' => $blogItemList];
+}
 $seo = [
     'meta_description' => $blogIntro !== '' ? $blogIntro
         : trim(($data['blog_settings']['blog_heading'] ?? 'Blog') . ' from {business} — practical tips and local guidance.'),
     'canonical_url'    => '{website}/blog/',
+    'schema'           => json_encode($blogSchema),
 ];
 $pageTitle = ($data['blog_settings']['blog_heading'] ?? 'Blog') . ($activeTagLabel ? ' — ' . $activeTagLabel : '');
 $slug      = 'blog';

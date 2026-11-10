@@ -2561,8 +2561,20 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
     rng.shuffle(available)
     picks = available[:needed]
 
-    business = (site_data.get('site_vars') or {}).get('business') or '{business}'
-    city = (site_data.get('site_vars') or {}).get('city') or '{city}'
+    site_vars = site_data.get('site_vars') or {}
+    business = site_vars.get('business') or '{business}'
+    city = site_vars.get('city') or '{city}'
+    # Every domain already has a real, free, per-city photo by this point (sync_city_images()
+    # runs earlier in the same build) — reusing it as a blog post's featured_image costs
+    # nothing and beats shipping every post with none at all (confirmed live: all 3 of wren's
+    # posts had featured_image='' and so no 'image' in their BlogPosting schema, even though
+    # blog.php already builds that field correctly whenever one is present). Token, not a
+    # resolved path — apply_shortcodes_to_block() (includes/shortcodes.php) already has a
+    # named exception for a bare '{city_image}' value in an image-like field, so this resolves
+    # at render time the same way map_info's mi_info_photo already does; blog.php's own schema
+    # builder resolves it explicitly too (see the matching fix there).
+    featured_image = '{city_image}' if site_vars.get('city_image') else ''
+    featured_image_alt = '{city_image_alt}' if site_vars.get('city_image') else ''
     changed = False
 
     for topic in picks:
@@ -2621,8 +2633,8 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
             'author': '{business} Team',
             'tag': topic.get('tag', ''),
             'excerpt': ai.get('excerpt', ''),
-            'featured_image': '',
-            'featured_image_alt': '',
+            'featured_image': featured_image,
+            'featured_image_alt': featured_image_alt,
             'content_blocks': content_blocks,
             'seo': {
                 'primary_keyword': topic.get('focus_keyword', ''),
