@@ -48541,7 +48541,14 @@
     "market_blurb": "Dublin, Ohio is an affluent suburb of Columbus anchored by major corporate headquarters, including Cardinal Health, Wendy's, and OCLC, giving it a strong base in healthcare, technology, and energy. The city's economy benefits from a highly educated workforce and a mix of corporate campuses, professional services, and upscale residential growth.",
     "local_note": "Central Ohio's water supply, including the Columbus-area system serving Dublin, is generally considered hard to very hard due to regional limestone-influenced groundwater and surface sources. The Columbus metro area experiences regular thunderstorms, occasional severe weather and tornado warnings, and seasonal ice storms, all of which can contribute to power surges and appliance strain.",
     "neighborhoods": [
+      "Bridge Park",
+      "Bryson Cove",
+      "Dublin Manor",
+      "Dublin Village",
+      "Glenbriar",
+      "Hanna Hills",
       "Historic Dublin",
+      "Kiplinger Estates",
       "Muirfield Village",
       "Ballantrae",
       "Tartan Fields",
@@ -48585,7 +48592,8 @@
     "_research_declined": {
       "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "albany-or",
@@ -49998,7 +50006,10 @@
     "local_note": "West Michigan's municipal and well water, including in the Allendale area, is generally considered moderately hard to hard, contributing to mineral buildup in water heaters and dishwashers over time. The region experiences regular severe thunderstorms in spring and summer along with occasional lake-effect winter storms, both of which can cause power surges that stress refrigerators, HVAC systems, and other major appliances.",
     "neighborhoods": [
       "Grand Valley State University campus area",
-      "Lake Michigan Drive corridor"
+      "Lake Michigan Drive corridor",
+      "Downtown Allendale",
+      "68th Avenue corridor",
+      "M-45 corridor"
     ],
     "population": 26500,
     "nearby_towns": [
@@ -50111,7 +50122,8 @@
     "local_note": "Water in the Syracuse area, supplied via Weber Basin Water Conservancy District sources, is generally considered hard, which can accelerate scale buildup in water heaters, dishwashers, and washing machines. The region experiences seasonal windstorms off the Great Salt Lake and occasional severe thunderstorms, which can contribute to power surges and related appliance stress.",
     "neighborhoods": [
       "Bluff Ridge",
-      "Jensen Farms"
+      "Jensen Farms",
+      "Foxboro"
     ],
     "population": 33000,
     "nearby_towns": [
@@ -50145,8 +50157,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 2,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -52896,7 +52907,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -53027,7 +53038,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53162,7 +53173,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53281,7 +53292,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53411,7 +53422,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53525,7 +53536,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53603,7 +53614,10 @@
     ],
     "market_blurb": "Sterling Heights, Michigan is a major hub for automotive and defense manufacturing, anchored by the Stellantis Sterling Heights Assembly Plant and General Dynamics Land Systems. As one of Metro Detroit's largest suburbs, the city also supports a broad retail, education, and service-sector economy. Its strong industrial base has long attracted skilled trades and engineering jobs to the region.",
     "local_note": "Water supplied through the Great Lakes Water Authority system is generally considered moderately hard, and Southeast Michigan experiences regular seasonal thunderstorms, ice storms, and occasional power surges that can stress water heaters, dishwashers, and other major appliances over time.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Dodge Park",
+      "Delco"
+    ],
     "population": 134346,
     "nearby_towns": [
       {
@@ -53640,8 +53654,8 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2,
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -53719,7 +53733,11 @@
     ],
     "market_blurb": "Hicksville, NY functions as a major retail and transportation hub in Nassau County, anchored by the Broadway Mall and one of the busiest stations on the Long Island Rail Road. Its economy is driven by retail trade, healthcare services, and professional/business services, supplemented by light industrial and building-supply businesses along its commercial corridors. The town's dense mix of residential neighborhoods and commercial strip development supports a steady base of local service demand.",
     "local_note": "Long Island groundwater, including supplies serving Hicksville, is generally considered moderately hard to hard due to the underlying aquifer geology. The region experiences periodic nor'easters, remnants of tropical storms/hurricanes, and summer thunderstorms that can cause power surges and outages, both of which contribute to added wear on water heaters, washing machines, and other major appliances over time.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Downtown Hicksville",
+      "North Hicksville",
+      "South Hicksville"
+    ],
     "population": 47047,
     "nearby_towns": [
       {
@@ -53752,8 +53770,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -53876,7 +53893,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -53955,7 +53972,9 @@
     "market_blurb": "Warner Robins, Georgia's economy is anchored by Robins Air Force Base, one of the largest employers in the state, which drives extensive aerospace maintenance, logistics, and defense-contracting activity throughout the area. Beyond the base, healthcare, public education, and retail/logistics round out the city's major employment sectors, supporting a steadily growing population in middle Georgia.",
     "local_note": "Warner Robins draws on groundwater from the Floridan aquifer system typical of middle Georgia, which tends to run moderately hard, contributing to mineral scale buildup in water heaters, dishwashers, and ice makers over time. The region also sees regular severe thunderstorms, occasional tornadoes, and tropical-storm remnants moving up from the Gulf, producing frequent power surges that stress appliance electronics and compressors.",
     "neighborhoods": [
-      "Lake Joy"
+      "Lake Joy",
+      "Wellston",
+      "Russellville"
     ],
     "population": 80000,
     "nearby_towns": [
@@ -53989,7 +54008,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -54118,7 +54137,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -54197,10 +54216,17 @@
     "market_blurb": "Beaverton, Oregon sits at the heart of the 'Silicon Forest,' anchored by Nike's world headquarters and a cluster of technology and electronics firms like Tektronix and Synopsys. The city's economy also benefits from strong healthcare, education, and retail sectors serving the greater Portland metro area. Beaverton's mix of established homes and newer suburban development supports a steady demand for home services.",
     "local_note": "Water in the Beaverton area is generally soft, as much of the municipal supply originates from the Bull Run watershed and Trask/Tualatin River sources; however, the Pacific Northwest's wet winters bring frequent storms and occasional windstorm-driven power surges that can stress appliance electronics and motors over time.",
     "neighborhoods": [
+      "Beaver Acres",
+      "Central Beaverton",
+      "Denney Whitford/Raleigh West",
+      "Denny Whitford",
+      "Downtown Beaverton",
+      "Elmonica",
+      "Fanno",
+      "Five Oaks",
       "Cedar Hills",
       "Raleigh Hills",
       "West Slope",
-      "Five Oaks",
       "Sexton Mountain",
       "Oak Hills",
       "Greenway"
@@ -54241,9 +54267,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "norristown-pa",
@@ -54315,7 +54342,12 @@
     ],
     "market_blurb": "Norristown, PA, the seat of Montgomery County, anchors a local economy centered on county government, healthcare, and education, with the county courthouse complex and Einstein Medical Center Montgomery among the area's largest employment centers. The borough also serves as a regional transportation hub through SEPTA's Norristown Transportation Center, supporting retail and service businesses along its Main Street and DeKalb Street corridors.",
     "local_note": "Norristown's municipal water, drawn from the Schuylkill River watershed, is generally considered moderately hard, and the region experiences frequent summer thunderstorms along with occasional nor'easters and ice storms that can cause power surges — both factors contribute to added wear on water heaters, washing machines, and other appliances over time.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Downtown Norristown",
+      "West Norristown",
+      "East Norristown",
+      "Elmwood"
+    ],
     "population": 34324,
     "nearby_towns": [
       {
@@ -54352,8 +54384,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -54471,7 +54502,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -54599,7 +54630,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -54933,7 +54964,11 @@
     "local_note": "Wisconsin's groundwater, including in the Milwaukee metro area, is generally classified as hard to very hard due to limestone and dolomite aquifers. The region experiences regular seasonal thunderstorms, occasional severe summer storms with high winds and hail, and cold winters with ice/snow events, all of which can contribute to power surges and increased appliance wear.",
     "neighborhoods": [
       "Civic Center",
-      "Dixon"
+      "Dixon",
+      "The Corners of Brookfield",
+      "Brookfield Square area",
+      "Fox Run",
+      "Tall Pines"
     ],
     "population": 38000,
     "nearby_towns": [
@@ -54971,7 +55006,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55089,7 +55124,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55170,6 +55205,14 @@
     "market_blurb": "Tempe, Arizona's economy is anchored by Arizona State University, one of the largest public universities in the U.S., which drives employment in education, research, and a dense surrounding service sector. The city also hosts a strong base of financial services and technology employers, alongside manufacturing and logistics operations tied to the greater Phoenix metro area. Tourism and hospitality remain significant due to Tempe Town Lake, Mill Avenue District, and major sporting and entertainment events.",
     "local_note": "Tempe's municipal water supply, sourced from the Salt and Verde Rivers and the Colorado River via the Central Arizona Project, is considered hard to very hard, which accelerates scale buildup in water heaters, dishwashers, and ice makers. The region also experiences intense monsoon thunderstorms each summer with frequent lightning and power surges, contributing to above-average appliance electrical failures.",
     "neighborhoods": [
+      "Alta Mira",
+      "Camelot Luxury Homes",
+      "Campo Allegre Tract",
+      "Continental Tempe",
+      "Corona Del Sol Estates",
+      "Culdesac Tempe",
+      "Estate La Colina",
+      "Kyrene",
       "Downtown Tempe",
       "Maple-Ash",
       "Clark Park Historic District",
@@ -55208,9 +55251,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "westminster-co",
@@ -55337,7 +55381,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55462,7 +55506,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55539,7 +55583,9 @@
     "market_blurb": "Gardner, Kansas sits along the I-35 corridor in the Kansas City metro and has grown rapidly as a logistics and distribution hub, anchored by large warehouse operations and proximity to the Kansas City Intermodal/BNSF logistics park in neighboring Edgerton. The local economy also benefits from manufacturing, retail, and steady residential construction tied to its status as a fast-growing Johnson County suburb. Public sector employment through the city, county, and Gardner-Edgerton schools remains a stable part of the job base.",
     "local_note": "Gardner draws on the Kansas City metro area's municipal water supply, which is generally considered moderately hard to hard, contributing to scale buildup in water heaters, dishwashers, and washing machines over time. The region also experiences a fairly active severe weather season each spring with thunderstorms, hail, and occasional tornadoes, which can bring power surges that stress appliance electronics and motors.",
     "neighborhoods": [
-      "Downtown Gardner"
+      "Downtown Gardner",
+      "Cedar Niles",
+      "Shadow Glen"
     ],
     "population": 22000,
     "nearby_towns": [
@@ -55573,8 +55619,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -55695,7 +55740,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55812,7 +55857,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -55936,7 +55981,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -56048,7 +56093,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -56125,12 +56170,13 @@
     "market_blurb": "Pawtucket, Rhode Island, once a hub of the American textile and mill industry along the Blackstone River, has transitioned into a diversified economy anchored by healthcare, education, and corporate headquarters like toy giant Hasbro. The city's historic mill buildings now house creative businesses, artist studios, and small manufacturers, reflecting Pawtucket's ongoing redevelopment as part of the Providence metropolitan area. Retail, municipal services, and community health organizations also provide significant local employment.",
     "local_note": "Rhode Island's water supply is generally moderately hard, and Pawtucket's municipal system draws from regional surface reservoirs typical of southern New England. The region experiences regular nor'easters, winter ice storms, and occasional hurricane remnants, all of which contribute to power surges and increased wear on home appliances.",
     "neighborhoods": [
+      "Blackstone",
       "Darlington",
       "Fairlawn",
+      "Woodlawn",
       "Oak Hill",
       "Pleasant View",
       "Quality Hill",
-      "Woodlawn",
       "Downtown Pawtucket"
     ],
     "population": 75604,
@@ -56169,9 +56215,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "summerville-sc",
@@ -56291,7 +56338,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -56412,7 +56459,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -56535,7 +56582,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -56614,6 +56661,14 @@
     "market_blurb": "Howell, New Jersey is a large suburban township in Monmouth County whose economy blends agricultural roots—horse farms and produce operations—with retail corridors along Route 9 and Route 33. Healthcare services, construction, and education round out the local job base, while nearby Lakewood's warehouse and logistics boom has spurred some commercial growth in Howell as well. The town remains largely residential, drawing commuters to the greater Jersey Shore and Central Jersey job markets.",
     "local_note": "Howell's groundwater, drawn largely from the Monmouth County aquifer system, is generally considered moderately hard, which can contribute to scale buildup in water heaters and dishwashers over time. The area also sees regular exposure to severe thunderstorms, nor'easters, and occasional hurricane remnants, all of which bring power surges and outages that stress appliance electronics and motors.",
     "neighborhoods": [
+      "Allenwoods",
+      "Ardena Acres",
+      "Briarcrest",
+      "Brooktree Estates",
+      "Friendship Estates",
+      "Glen Arden",
+      "Hearthwood",
+      "Heritage Pointe",
       "Ramtown",
       "Adelphia",
       "Ardena",
@@ -56658,9 +56713,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "lakewood-wa",
@@ -56780,7 +56836,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -56906,7 +56962,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -57030,7 +57086,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -57275,7 +57331,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -57400,7 +57456,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
+      "water_hardness_gpg": 2,
       "neighborhoods": 1
     },
     "_researched": 1,
@@ -57481,7 +57537,8 @@
     "local_note": "Municipal water in the North Texas / DFW region is generally moderately hard, which accelerates scale buildup in water heaters, dishwashers, and ice makers over time. The area also experiences frequent severe spring and summer thunderstorms, hail, and occasional tornadoes, which contribute to power surges that can stress or damage appliance electronics and compressors.",
     "neighborhoods": [
       "Glade Parks",
-      "Village Creek"
+      "Village Creek",
+      "Midway Park"
     ],
     "population": 61000,
     "nearby_towns": [
@@ -57522,7 +57579,9 @@
       "water_hardness_gpg": 1
     },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "water_hardness_gpg": 9.5,
+    "water_hardness_source": "Tarrant Regional Water District 2022 Annual Water Quality Report"
   },
   {
     "id": "pasadena-ca",
@@ -57649,7 +57708,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -57772,7 +57831,9 @@
       "water_hardness_gpg": 1
     },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "water_hardness_gpg": 7.5,
+    "water_hardness_source": "Great Lakes Water Authority 2022 Annual Water Quality Report"
   },
   {
     "id": "long-beach-ny",
@@ -57889,7 +57950,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -57967,7 +58028,8 @@
     "local_note": "Municipal and well water in the Utah Valley region, including Spanish Fork, is generally considered hard due to mineral-rich groundwater sources, which accelerates scale buildup in water heaters, dishwashers, and washing machines. The area sees seasonal summer thunderstorms and occasional hail, and lightning-related power surges are an occasional but real contributor to appliance electrical failures.",
     "neighborhoods": [
       "Spanish Oaks",
-      "Palmyra"
+      "Palmyra",
+      "Spanish Fork Canyon"
     ],
     "population": 45900,
     "nearby_towns": [
@@ -58001,8 +58063,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -58129,7 +58190,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -58260,7 +58321,9 @@
       "water_hardness_gpg": 1
     },
     "_researched": 1,
-    "neighborhoods_source": "OpenStreetMap + verified"
+    "neighborhoods_source": "OpenStreetMap + verified",
+    "water_hardness_gpg": 14,
+    "water_hardness_source": "Zone 7 Water Agency Annual Water Quality (Consumer Confidence) Report"
   },
   {
     "id": "fair-lawn-nj",
@@ -58373,7 +58436,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -58503,7 +58566,9 @@
       "water_hardness_gpg": 1
     },
     "_researched": 1,
-    "neighborhoods_source": "OpenStreetMap + verified"
+    "neighborhoods_source": "OpenStreetMap + verified",
+    "water_hardness_gpg": 2.5,
+    "water_hardness_source": "EBMUD (East Bay Municipal Utility District) Annual Water Quality Report"
   },
   {
     "id": "beverly-ma",
@@ -58622,7 +58687,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -58702,7 +58767,9 @@
     "local_note": "Carmichael's municipal water, drawn largely from Sacramento-area groundwater and surface sources, is generally considered moderately hard, which can accelerate mineral buildup in water heaters, dishwashers, and washing machines over time. The region also experiences periodic Central Valley winter storms and occasional summer heat-driven grid stress, both of which can contribute to power surges that stress appliance electronics.",
     "neighborhoods": [
       "Mission Oaks",
-      "Del Dayo"
+      "Del Dayo",
+      "La Sierra",
+      "Carmichael Colony"
     ],
     "population": 61762,
     "nearby_towns": [
@@ -58736,7 +58803,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -58861,7 +58928,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -58984,7 +59051,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -59105,7 +59172,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -59230,7 +59297,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -59347,7 +59414,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -59426,8 +59493,12 @@
     "market_blurb": "West Haven, Connecticut's economy is anchored by healthcare and education, with the large VA Connecticut Healthcare System campus and the University of New Haven serving as major institutional employers. Retail, municipal government, and food service round out the local job base, while the city's Savin Rock shoreline area supports seasonal tourism and small business activity. As a dense, older coastal suburb of New Haven, West Haven has a mix of residential, commercial, and light industrial properties.",
     "local_note": "Water in the greater New Haven region, including West Haven, tends to be moderately hard, which over time contributes to scale buildup in water heaters, dishwashers, and washing machines. Coastal southern Connecticut experiences regular nor'easters, thunderstorms, and occasional hurricane remnants, and the accompanying power surges and outages are a recurring source of stress on refrigerators, HVAC systems, and other major appliances.",
     "neighborhoods": [
+      "Edgewood Park Historic District",
       "Allingtown",
-      "Savin Rock"
+      "Savin Rock",
+      "West Shore",
+      "Bradley Point",
+      "Oyster River"
     ],
     "population": 55584,
     "nearby_towns": [
@@ -59461,9 +59532,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "hesperia-ca",
@@ -59576,7 +59648,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -59655,7 +59727,10 @@
     "market_blurb": "Romeoville, Illinois has grown into a logistics and distribution hub thanks to its location along Interstate 55 and proximity to Chicago, hosting major distribution operations for companies like Ulta Beauty, Lowe's, and Michaels. Manufacturing and food processing, exemplified by Ferrara Candy Company, along with higher education at Lewis University, round out the local economy. The mix of warehousing and light industry gives Romeoville a steady blue-collar and logistics-driven job base.",
     "local_note": "Romeoville's municipal water is supplied largely from Lake Michigan via the DuPage Water Commission, which is generally considered moderately hard compared to well-sourced Midwest supplies. The region experiences frequent severe thunderstorms in spring and summer, including occasional derecho-level wind events, which can cause power surges that stress appliance electronics and motors.",
     "neighborhoods": [
-      "Lakewood Falls"
+      "Lakewood Falls",
+      "Tartan Fields",
+      "Fountaine Royale",
+      "Fieldstone Crossing"
     ],
     "population": 41711,
     "nearby_towns": [
@@ -59693,8 +59768,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -59815,7 +59889,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -59940,7 +60014,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -60059,7 +60133,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -60310,7 +60384,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -60505,7 +60579,8 @@
     "local_note": "Water supplied to Fort Lee and much of Bergen County is generally considered moderately hard, which can contribute to mineral buildup in dishwashers, washing machines, and water heaters over time. The region also sees regular severe thunderstorms, nor'easters, and occasional hurricane remnants (such as Sandy and Ida) that bring power surges and outages capable of damaging sensitive appliance electronics.",
     "neighborhoods": [
       "Koreatown",
-      "Coytesville"
+      "Coytesville",
+      "Linwood Park"
     ],
     "population": 39163,
     "nearby_towns": [
@@ -60543,8 +60618,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -60663,7 +60737,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
+      "water_hardness_gpg": 2,
       "neighborhoods": 1
     },
     "_researched": 1,
@@ -60785,7 +60859,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -60906,7 +60980,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61034,7 +61108,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61145,7 +61219,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -61272,7 +61346,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61395,7 +61469,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61474,7 +61548,9 @@
     "local_note": "Germantown's municipal water supply, drawn largely from groundwater wells, tends to be moderately to very hard, which accelerates scale buildup in water heaters, dishwashers, and washing machines. The region experiences seasonal severe thunderstorms and occasional high-wind events typical of southeastern Wisconsin, which can cause power surges that stress appliance electronics and motors.",
     "neighborhoods": [
       "Dheinsville",
-      "Rockfield"
+      "Rockfield",
+      "Kirchayn",
+      "Schwartzburg"
     ],
     "population": 20851,
     "nearby_towns": [
@@ -61512,8 +61588,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61634,7 +61709,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -61748,8 +61823,8 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2,
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -61828,7 +61903,9 @@
     "market_blurb": "Ronkonkoma's economy centers on its role as a transportation hub, home to Long Island MacArthur Airport and a major Long Island Rail Road terminus that anchors nearby retail, hospitality, and logistics activity. Surrounding business parks support warehousing and light industry, while local school districts and retail centers provide steady employment. The area's mix of commuters and suburban households sustains a strong base of residential services, including home repair and maintenance.",
     "local_note": "Long Island's groundwater supply, which serves Ronkonkoma through the Suffolk County Water Authority, is generally considered moderately hard, contributing to scale buildup in water heaters and dishwashers over time. The region is also exposed to nor'easters, tropical storms, and occasional hurricanes off the Atlantic coast, which can bring power surges and outages that stress refrigeration and electronic appliance components.",
     "neighborhoods": [
-      "Lake Ronkonkoma"
+      "Lake Ronkonkoma",
+      "Lakeland",
+      "Ronkonkoma Hub"
     ],
     "population": 20598,
     "nearby_towns": [
@@ -61866,8 +61943,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -61980,7 +62056,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -62099,7 +62175,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -62335,7 +62411,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -62456,7 +62532,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -62576,7 +62652,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -62699,7 +62775,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -62825,7 +62901,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -63067,7 +63143,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -63146,9 +63222,8 @@
     "market_blurb": "Pittsburg, California, sits along the Sacramento River in Contra Costa County and has a long industrial heritage rooted in steelmaking and chemical manufacturing, anchored by major facilities like USS-POSCO Industries. Today the local economy blends legacy manufacturing and energy production with growing logistics, retail, and education sectors tied to the wider East Bay. Its waterfront location and proximity to major highways continue to support industrial and distribution activity in Pittsburg.",
     "local_note": "Water in this part of Contra Costa County, drawn largely from the Sacramento-San Joaquin Delta, tends to be moderately hard, contributing to mineral buildup in water heaters and dishwashers over time. The region also experiences periodic winter storms and occasional strong winds off the Delta, which can cause power surges that stress refrigeration compressors and electronic appliance controls.",
     "neighborhoods": [
+      "Positano at San Marco",
       "Downtown Pittsburg",
-      "Stoneman Village",
-      "Highlands",
       "Pittsburg Marina area"
     ],
     "population": 76416,
@@ -63187,9 +63262,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "pickerington-oh",
@@ -63305,7 +63381,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -63418,11 +63494,12 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "water_hardness_gpg": 15,
+    "water_hardness_source": "Coachella Valley Water District 2022 Annual Water Quality (Consumer Confidence) Report"
   },
   {
     "id": "dracut-ma",
@@ -63533,7 +63610,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -63659,7 +63736,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -63779,9 +63856,10 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "randolph-nj",
@@ -63897,7 +63975,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -64012,10 +64090,11 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1,
-      "neighborhoods": 1
+      "water_hardness_gpg": 2,
+      "neighborhoods": 2
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "forney-tx",
@@ -64133,7 +64212,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -64212,7 +64291,8 @@
     "local_note": "Galt draws on Central Valley groundwater and surface sources typical of the region, which tend to run moderately to very hard, contributing to scale buildup in water heaters, dishwashers, and washing machines over time; the area also experiences periodic winter atmospheric river storms and summer heat-driven grid stress that can cause power surges affecting appliance electronics.",
     "neighborhoods": [
       "Downtown Galt",
-      "Liberty Ranch"
+      "Liberty Ranch",
+      "Chabolla Ranch"
     ],
     "population": 24844,
     "nearby_towns": [
@@ -64246,7 +64326,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -64326,7 +64406,10 @@
     "local_note": "Ruskin draws on Hillsborough County's municipal water supply, which is generally considered moderately hard due to regional limestone aquifer sources. The Tampa Bay area experiences frequent summer thunderstorms, lightning, and occasional hurricanes, all of which contribute to higher rates of power surges and storm-related appliance wear.",
     "neighborhoods": [
       "Shell Point",
-      "Bahia Beach"
+      "Bahia Beach",
+      "MiraBay",
+      "Symphony Isles",
+      "Hawks Point"
     ],
     "population": 23000,
     "nearby_towns": [
@@ -64364,7 +64447,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -64483,7 +64566,7 @@
       }
     ],
     "_research_declined": {
-      "water_hardness_gpg": 1
+      "water_hardness_gpg": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -64563,7 +64646,9 @@
     "local_note": "Princeton's municipal water, supplied via the North Texas Municipal Water District, is moderately hard, contributing to scale buildup in water heaters, dishwashers, and washing machines over time. The region also experiences frequent severe spring thunderstorms, hail, and occasional tornadoes, which can cause power surges that stress or damage appliance electronics and motors.",
     "neighborhoods": [
       "Lilyana",
-      "Whitewing Trails"
+      "Whitewing Trails",
+      "Southern Trails",
+      "Princeton Crossing"
     ],
     "population": 30000,
     "water_hardness_gpg": 8.1,
