@@ -61,7 +61,7 @@ $renderRow = function (array $s, string $section, ?int $idx) use ($tierOpts, $po
         // No slug on a template row, so no role chip — kwRenumber fills the number.
         $roleLab = $sl !== '' ? ($roleInfo['roles'][$sl]['label'] ?? '') : '';
     ?>
-        <div class="kw-item" style="border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;">
+        <div class="kw-item" style="border:1px solid #cbd5e1;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;">
             <div style="margin-bottom:8px;">
                 <div style="display:flex;gap:8px;align-items:flex-end;">
                     <span class="kw-num" style="<?= $numStyle ?>margin-bottom:4px;"><?= $idx === null ? '' : $idx + 1 ?></span>
@@ -190,7 +190,7 @@ $renderItems = function (array $rows, string $section) use ($renderRow) {
             truth for the Bulk Template Generator &mdash; nothing gets built that isn&rsquo;t listed here.
         </p>
 
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+        <div style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
             <div class="hint" style="font-weight:700;color:#1e3a5f;margin-bottom:6px;">What each field on a row does</div>
             <ul class="hint" style="margin:0;padding-left:18px;line-height:1.75;">
                 <li><strong>Keyword (primary)</strong> &mdash; the page&rsquo;s main target. The city and state are
@@ -308,7 +308,7 @@ $renderItems = function (array $rows, string $section) use ($renderRow) {
                     keeps the pages it was built with.
                 </p>
             </div>
-            <div id="pp-counts" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
+            <div id="pp-counts" style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
                 <label style="<?= $lbl ?>">Pages per site &mdash; a domain lands on ONE of these totals (picked per domain, not the same for every site)</label>
                 <div style="display:flex;gap:8px;align-items:center;">
                     <?php /* Three is the designed shape, but render more if more are on

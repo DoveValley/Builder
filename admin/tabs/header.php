@@ -35,7 +35,7 @@
                 </div>
                 <style>
                 .header-layout-picker { display:flex; gap:16px; flex-wrap:wrap; margin-top:8px; }
-                .layout-option { display:flex; flex-direction:column; gap:6px; padding:14px; border:2px solid #e2e8f0; border-radius:8px; cursor:pointer; min-width:200px; flex:1; transition:border-color .15s; }
+                .layout-option { display:flex; flex-direction:column; gap:6px; padding:14px; border:2px solid #cbd5e1; border-radius:8px; cursor:pointer; min-width:200px; flex:1; transition:border-color .15s; }
                 .layout-option:hover { border-color:#94a3b8; }
                 .layout-option-selected { border-color:var(--color-accent,#2563eb) !important; background:#f0f7ff; }
                 .layout-option input[type=radio] { display:none; }

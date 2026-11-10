@@ -47,9 +47,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 h1{font-size:1.35rem;color:#1e3a5f;margin:0 0 4px}
 .sub{color:#64748b;font-size:.9rem;margin:0 0 18px;max-width:940px;line-height:1.55}
 .warn{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #d97706;border-radius:8px;padding:12px 14px;margin-bottom:18px;max-width:940px;font-size:.86rem;line-height:1.55;color:#78350f}
-.note{background:#fff;border:1px solid #e2e8f0;border-left:3px solid #2563eb;border-radius:8px;padding:12px 14px;margin-bottom:20px;max-width:940px;font-size:.86rem;line-height:1.55;color:#334155}
+.note{background:#fff;border:1px solid #cbd5e1;border-left:3px solid #2563eb;border-radius:8px;padding:12px 14px;margin-bottom:20px;max-width:940px;font-size:.86rem;line-height:1.55;color:#334155}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px}
+.card{background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:14px}
 .card h3{margin:0 0 2px;font-size:1rem;color:#1e3a5f}
 .meta{color:#94a3b8;font-size:.76rem;margin-bottom:10px}
 .card svg{width:100%;height:auto;border-radius:8px;border:1px solid #eef2f7}

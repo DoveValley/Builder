@@ -83,7 +83,7 @@ main{flex:1;padding:28px 34px;max-width:1200px}
 h1{font-size:1.4rem;color:#1e3a5f;margin-bottom:4px}
 .sub{color:#64748b;margin-bottom:22px;font-size:.9rem}
 .lab{display:grid;grid-template-columns:340px 1fr;gap:26px;align-items:start}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px}
+.card{background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:18px 20px}
 .card h3{font-size:1rem;color:#1e3a5f;margin-bottom:14px}
 label{display:block;font-size:.78rem;font-weight:600;color:#475569;margin:12px 0 4px}
 label:first-of-type{margin-top:0}
@@ -148,7 +148,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                     <?php endforeach; ?>
                 </div>
                 <p class="note" style="margin-top:14px;">Below this, unchanged: <em>Limit</em>, <em>Only this domain</em>, <em>Force</em>, and the <strong>Generate sites</strong> button.</p>
-                <div style="margin-top:14px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+                <div style="margin-top:14px;padding:10px 12px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;">
                     <div style="font-weight:700;color:#1e3a5f;font-size:.82rem;">Not in this round</div>
                     <div class="note">No new page architectures · no change to the 26 landing pages · no approval workflow · no second renderer. Same pages, same H1s, same keywords, same titles and metas.</div>
                 </div>
@@ -159,7 +159,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 <h3 style="margin-top:0;">Variance pools <span style="font-weight:400;color:#94a3b8;font-size:.8rem;">— set once on the master</span></h3>
                 <p class="note" style="margin-top:0;">Which options are in rotation, exactly like Theme presets work today. Drop a folder in, it appears here — no code change.</p>
                 <?php foreach ($vmAxes as $key => $ax): ?>
-                    <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e2e8f0;">
+                    <div style="margin-top:14px;padding-top:12px;border-top:1px solid #cbd5e1;">
                         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                             <strong style="color:#1e3a5f;font-size:.9rem;"><?= $h($ax['label']) ?></strong>
                             <?php
@@ -191,7 +191,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 </tr></thead>
                 <tbody>
                 <?php foreach ($vmDomains as $dom): ?>
-                    <tr style="border-top:1px solid #e2e8f0;">
+                    <tr style="border-top:1px solid #cbd5e1;">
                         <td style="padding:6px;font-weight:600;"><?= $h($dom) ?></td>
                         <?php foreach ($vmAxes as $ax):
                             $opts = $ax['options'];
@@ -229,7 +229,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                         <div style="text-align:center;">
                             <a href="/sites/<?= $h($__master) ?>/<?= $h($__rel) ?>" target="_blank">
                                 <img src="/sites/<?= $h($__master) ?>/<?= $h($__rel) ?>" alt="variant <?= $__i ?>"
-                                     style="width:190px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0;display:block;background:#f8fafc;">
+                                     style="width:190px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #cbd5e1;display:block;background:#f8fafc;">
                             </a>
                             <div style="font-size:.72rem;color:#64748b;margin-top:3px;"><?= $__i === 0 ? 'original (v0)' : 'v' . $__i ?></div>
                         </div>
@@ -278,9 +278,9 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             <input type="file" id="cv-file" accept="<?= htmlspecialchars(convo_accept_attr(), ENT_QUOTES, 'UTF-8') ?>" style="display:none;">
         </div>
 
-        <div id="cv-result" style="display:none;max-width:720px;margin-top:16px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+        <div id="cv-result" style="display:none;max-width:720px;margin-top:16px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:16px;">
             <div style="display:flex;gap:16px;align-items:flex-start;">
-                <img id="cv-thumb" alt="" style="width:120px;height:120px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;flex-shrink:0;background:#f1f5f9;">
+                <img id="cv-thumb" alt="" style="width:120px;height:120px;object-fit:cover;border-radius:8px;border:1px solid #cbd5e1;flex-shrink:0;background:#f1f5f9;">
                 <div style="flex:1;min-width:0;">
                     <div id="cv-status" style="font-weight:700;color:#065f46;">✓ Uploaded — paste this path to Claude:</div>
                     <div style="display:flex;gap:8px;margin-top:8px;">
@@ -299,8 +299,8 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 $pext = strtolower(pathinfo($n, PATHINFO_EXTENSION));
                 $pisImg = in_array($pext, ['jpg','jpeg','png','webp','gif'], true); ?>
             <div style="width:150px;">
-                <a href="/uploads/convo/<?= $h($n) ?>" target="_blank"><?php if ($pisImg): ?><img src="/uploads/convo/<?= $h($n) ?>" alt="" style="width:150px;height:110px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;display:block;"><?php else: ?><span style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:110px;border-radius:8px;border:1px solid #e2e8f0;background:#f1f5f9;color:#475569;"><span style="font-size:1.6rem;">📄</span><span style="font-size:.7rem;font-weight:700;margin-top:4px;"><?= $h(strtoupper($pext)) ?></span></span><?php endif; ?></a>
-                <input type="text" readonly onclick="this.select()" value="<?= $h($p) ?>" style="width:150px;font-family:monospace;font-size:.62rem;margin-top:4px;padding:3px 5px;border:1px solid #e2e8f0;border-radius:4px;">
+                <a href="/uploads/convo/<?= $h($n) ?>" target="_blank"><?php if ($pisImg): ?><img src="/uploads/convo/<?= $h($n) ?>" alt="" style="width:150px;height:110px;object-fit:cover;border-radius:8px;border:1px solid #cbd5e1;display:block;"><?php else: ?><span style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:110px;border-radius:8px;border:1px solid #cbd5e1;background:#f1f5f9;color:#475569;"><span style="font-size:1.6rem;">📄</span><span style="font-size:.7rem;font-weight:700;margin-top:4px;"><?= $h(strtoupper($pext)) ?></span></span><?php endif; ?></a>
+                <input type="text" readonly onclick="this.select()" value="<?= $h($p) ?>" style="width:150px;font-family:monospace;font-size:.62rem;margin-top:4px;padding:3px 5px;border:1px solid #cbd5e1;border-radius:4px;">
             </div>
             <?php endforeach; ?>
         </div>
@@ -333,7 +333,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             $dHuman = $dSize < 1024 ? $dSize . ' B' : ($dSize < 1048576
                 ? round($dSize / 1024, 1) . ' KB' : round($dSize / 1048576, 1) . ' MB');
         ?>
-        <div style="max-width:820px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+        <div style="max-width:820px;margin-bottom:22px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:16px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
                 <span style="font-size:1.2rem;"><?= $dIsText ? '📄' : ($dIsImg ? '🖼' : '📦') ?></span>
                 <strong style="color:#1e3a5f;font-family:monospace;font-size:.88rem;"><?= $h($dn) ?></strong>
@@ -378,7 +378,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         if (!$kwFiles): ?>
         <p class="note">No keyword lists saved yet. Drop a <code>*-keywords.txt</code> into <code>uploads/</code> and it appears here.</p>
         <?php else: foreach ($kwFiles as $kf): $kn = basename($kf); $kbody = (string)file_get_contents($kf); ?>
-        <div style="max-width:720px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+        <div style="max-width:720px;margin-bottom:22px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:16px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
                 <strong style="color:#1e3a5f;font-family:monospace;font-size:.85rem;"><?= $h($kn) ?></strong>
                 <span class="note" style="margin-left:auto;"><?= substr_count($kbody, "\n") ?> lines</span>
@@ -439,7 +439,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         foreach ($bulkRounds as $i => $r):
             $lines = count(array_filter(explode("\n", $r['rows']), fn($l) => trim($l) !== ''));
         ?>
-        <div style="max-width:860px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+        <div style="max-width:860px;margin-bottom:22px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;padding:16px;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
                 <strong style="color:#1e3a5f;"><?= $r['title'] ?></strong>
                 <span class="note" style="margin-left:auto;"><?= $lines ?> row<?= $lines === 1 ? '' : 's' ?></span>

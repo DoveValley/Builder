@@ -25,7 +25,7 @@
             $varDate  = $varData['applied_at']  ?? '';
             $varCount = (int) ($varData['count'] ?? 0);
             ?>
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 16px;margin-bottom:16px;">
+            <div style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:12px 16px;margin-bottom:16px;">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                     <span style="font-size:.85rem;font-weight:600;color:#374151;">Site Variation Seed</span>
                     <span style="font-size:.78rem;color:#6b7280;">Makes every image unique per city deployment</span>

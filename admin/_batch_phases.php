@@ -130,7 +130,7 @@ $bphStyle = [
 ?>
 <style>
 .bph        { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin:0 0 22px; }
-.bph-item   { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:14px 12px; text-align:center; }
+.bph-item   { background:#fff; border:1px solid #cbd5e1; border-radius:10px; padding:14px 12px; text-align:center; }
 .bph-name   { font-size:.84rem; font-weight:700; color:#0f172a; line-height:1.3; }
 .bph-num    { color:#94a3b8; font-weight:800; margin-right:4px; }
 .bph-dot    { width:30px; height:30px; border-radius:50%; margin:10px auto 6px; display:flex;

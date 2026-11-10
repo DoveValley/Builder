@@ -889,7 +889,7 @@ function addLink(button) {
             html += '<h3 style="font-size:.95rem;">Proposed renames &amp; alt text (' + renameable.length + ')</h3>';
             html += '<p class="hint">Rows flagged <strong style="color:#b45309;">mismatch</strong> mean the photo doesn\'t actually show what the page is about — unchecked by default so a wrong photo never quietly gets a false keyword name or alt text. The hero/primary photo on a page is marked <strong>HERO</strong> — that\'s the one slot where tying alt text to the page\'s own keyword is good SEO, not spam. Review each before applying.</p>';
             html += '<table style="width:100%;border-collapse:collapse;font-size:.85rem;">';
-            html += '<thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">'
+            html += '<thead><tr style="text-align:left;border-bottom:2px solid #cbd5e1;">'
                 + '<th style="padding:6px 8px;width:26px;">Name</th>'
                 + '<th style="padding:6px 8px;">Current name</th>'
                 + '<th style="padding:6px 8px;">Proposed name</th>'

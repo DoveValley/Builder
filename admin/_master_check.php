@@ -45,7 +45,7 @@ window.mcRun = function () {
                      + '<td style="padding:4px 8px;color:#475569;">&ldquo;' + esc(x.excerpt) + '&rdquo;</td></tr>';
             }).join('');
             box.innerHTML = '<p style="margin:0 0 8px;color:#92400e;font-weight:600;">' + f.length + ' finding(s) — review each (some may be intentional):</p>'
-                + '<table style="width:100%;border-collapse:collapse;font-size:.86rem;"><thead><tr style="text-align:left;border-bottom:1px solid #e2e8f0;">'
+                + '<table style="width:100%;border-collapse:collapse;font-size:.86rem;"><thead><tr style="text-align:left;border-bottom:1px solid #cbd5e1;">'
                 + '<th style="padding:4px 8px;">Where</th><th style="padding:4px 8px;">Issue</th><th style="padding:4px 8px;">Context</th></tr></thead><tbody>'
                 + rows + '</tbody></table>';
         })

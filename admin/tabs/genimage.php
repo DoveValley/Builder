@@ -213,7 +213,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
                 <span class="hint">Both are % of the image, measured from the top-left corner &mdash; place text anywhere, not just a preset corner.</span>
             </div>
 
-            <h3 style="margin:18px 0 10px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:.95rem;color:#334155;">Background</h3>
+            <h3 style="margin:18px 0 10px;padding-top:14px;border-top:1px solid #cbd5e1;font-size:.95rem;color:#334155;">Background</h3>
             <div class="form-group">
                 <label for="gi-bgside">Edge</label>
                 <select id="gi-bgside" style="width:100%;">
@@ -236,7 +236,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
                 <input type="range" id="gi-bgopacity" min="0" max="100" value="<?= (int)$giLS('bg_opacity',100) ?>" style="width:100%;">
             </div>
 
-            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;">
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid #cbd5e1;">
                 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
                     <button type="button" id="gi-lockbtn" class="btn btn-primary">&#128274; Lock this style into the build</button>
                     <button type="button" id="gi-defaultbtn" class="btn btn-secondary">Default</button>
@@ -317,7 +317,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
             </div>
         </div>
     </div>
-    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;">
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #cbd5e1;">
         <button type="button" id="gi-varybtn" class="btn btn-primary">Save these ranges</button>
         <div id="gi-varymsg" class="hint" style="margin-top:8px;"></div>
         <div class="hint" style="margin-top:4px;">

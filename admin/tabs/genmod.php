@@ -72,7 +72,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
             fewer than asked.</span>
     </div>
 
-    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;">
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #cbd5e1;">
         <button type="button" id="gm-savebtn" class="btn btn-primary">&#128274; Save</button>
         <div id="gm-msg" class="hint" style="margin-top:8px;"></div>
     </div>

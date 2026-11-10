@@ -29,7 +29,7 @@ $archIsOv = fn(string $id) => isset($archOv[$id]) && is_array($archOv[$id]) && $
             $seed = $archShared[$id];
             $ov   = $archIsOv($id);
         ?>
-        <div class="card" id="arch-<?= h($id) ?>" style="border:1px solid #e2e8f0;margin-bottom:12px;">
+        <div class="card" id="arch-<?= h($id) ?>" style="border:1px solid #cbd5e1;margin-bottom:12px;">
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
                 <strong style="font-size:.95rem;"><?= h($seed['label'] ?? $id) ?></strong>
                 <code style="font-size:.72rem;"><?= h($id) ?></code>

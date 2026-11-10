@@ -54,7 +54,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 // Not CTM-specific despite the name — Buy Domains reuses the same shell for the same reason.
 function ms_ctm_card_start(string $prefix, string $heading): void {
     ?>
-    <div id="ms-<?= h($prefix) ?>-card" style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+    <div id="ms-<?= h($prefix) ?>-card" style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;"><?= h($heading) ?></strong>
         <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
     <?php
@@ -110,7 +110,7 @@ function ms_ctm_card_end(string $prefix): void {
 <div class="card" id="ms-rows-card">
     <h3 style="margin-top:0;">Target list — edit rows directly</h3>
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
-    <div class="hint" style="margin-top:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+    <div class="hint" style="margin-top:6px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;padding:10px 14px;">
         <strong style="color:#1e3a5f;">Order of operations, every batch — city/registrar/box spread and the Cloudflare fingerprint check happen from here, not from Batch Detailed:</strong>
         <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;">
             <li>Order the rows in your spreadsheet (geo spacing + state de-clustering), then upload the CSV above.</li>
@@ -267,7 +267,7 @@ function ms_ctm_card_end(string $prefix): void {
             <tbody><tr><td colspan="15" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
-    <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
+    <div style="margin-top:14px;border-top:1px solid #cbd5e1;padding-top:12px;">
         <button type="button" class="btn" id="ms-row-add-toggle" onclick="msRowAddToggle()">+ Add 1 Domain</button>
         <button type="button" class="btn" id="ms-row-addn-toggle" onclick="msRowAddNStart()" style="margin-left:6px;">+ Add X Domains</button>
         <div id="ms-row-add-form" style="display:none;margin-top:10px;">
@@ -293,7 +293,7 @@ function ms_ctm_card_end(string $prefix): void {
         </p>
         <div id="ms-addn-msg" class="hint"></div>
         <div id="ms-addn-list" style="max-height:360px;overflow-y:auto;margin:10px 0;"></div>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #e2e8f0;padding-top:12px;">
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #cbd5e1;padding-top:12px;">
             <span id="ms-addn-count" class="hint" style="font-weight:600;">0 selected</span>
             <button type="button" class="btn btn-primary" id="ms-addn-accept" onclick="msRowAddNAccept()">Accept</button>
             <button type="button" class="btn" onclick="document.getElementById('ms-addn-dialog').close()">Cancel</button>
@@ -460,7 +460,7 @@ function ms_ctm_card_end(string $prefix): void {
         step list below). This action exists only to preview the data, or top it up,
         before committing to a full run.
     -->
-    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;" id="ms-research-card">
+    <details style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;margin-bottom:16px;" id="ms-research-card">
         <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#128269; Research cities (local market data)</summary>
         <div style="padding:2px 16px 14px;">
             <p class="hint" style="margin:0 0 6px;"><strong>Three things this does, in order:</strong></p>
@@ -519,7 +519,7 @@ function ms_ctm_card_end(string $prefix): void {
     <?php endif; ?>
 
     <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
-    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
+    <div style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
         <strong style="font-size:.9rem;color:#1e3a5f;">What this run does</strong>
         <p class="hint" style="margin:4px 0 10px;">
             Untick a step to skip it for this run. Clone, identity and build are not listed
@@ -754,7 +754,7 @@ function ms_ctm_card_end(string $prefix): void {
                 // "the 3rd item down" which shifts the moment a row is added above it.
                 $msGrpN = $msSecN . '.' . ($msGrpIdx + 1);
                 [$msIcon, $msFg, $msBg, $msWord] = $msPill[$msT['status']]; ?>
-                <details style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;">
+                <details style="background:#fff;border:1px solid #cbd5e1;border-radius:7px;">
                     <summary style="cursor:pointer;padding:7px 11px;display:flex;align-items:center;gap:9px;font-size:.86rem;">
                         <?php if ($msT['key'] !== null): ?>
                             <!-- onclick stops the tick from also opening/closing the row -->
@@ -1100,7 +1100,7 @@ function ms_ctm_card_end(string $prefix): void {
                         </ul></div>
                 </div>
 
-                <p class="hint" style="margin:14px 0 0;padding-top:12px;border-top:1px solid #e2e8f0;">
+                <p class="hint" style="margin:14px 0 0;padding-top:12px;border-top:1px solid #cbd5e1;">
                     <strong>Why it matters:</strong> the variance work is insurance against being
                     <em>linked together</em>, not against being <em>filtered out</em>. Buy it cheaply.
                     "Will Google see these as different sites" is mostly decided by A, C and E &mdash;
@@ -1254,7 +1254,7 @@ function ms_ctm_card_end(string $prefix): void {
         code "5. Upload sites" uses. Every deploy overwrites this same slot on purpose —
         it's meant to be reused across totally different sites, not kept per-site.
     -->
-    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-top:24px;">
+    <details style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;margin-top:24px;">
         <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#9881;&#65039; Test server (FTP)</summary>
         <div style="padding:2px 16px 14px;">
             <p class="hint" style="margin:0 0 10px;">
@@ -2162,8 +2162,8 @@ function ms_ctm_card_end(string $prefix): void {
             }).join('');
             el.innerHTML = '<p class="hint">Resolved for <strong>' + esc(src) + '</strong>:</p>' +
                 '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.9rem;border-collapse:collapse;">' +
-                '<thead><tr><th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Page</th>' +
-                '<th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Title tag on a cloned site</th></tr></thead>' +
+                '<thead><tr><th style="text-align:left;padding:5px 10px;border-bottom:1px solid #cbd5e1;">Page</th>' +
+                '<th style="text-align:left;padding:5px 10px;border-bottom:1px solid #cbd5e1;">Title tag on a cloned site</th></tr></thead>' +
                 '<tbody>' + rows + '</tbody></table></div>';
         }).catch(function () {});
     }

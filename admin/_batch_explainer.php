@@ -14,7 +14,7 @@ if (!isset($masterId, $batchId)) return;
 ?>
 <style>
 .be-table    { width:100%; border-collapse:collapse; font-size:.88rem; }
-.be-table th { text-align:left; padding:7px 10px; border-bottom:1px solid #e2e8f0; font-size:.76rem; text-transform:uppercase; letter-spacing:.04em; color:#64748b; font-weight:700; }
+.be-table th { text-align:left; padding:7px 10px; border-bottom:1px solid #cbd5e1; font-size:.76rem; text-transform:uppercase; letter-spacing:.04em; color:#64748b; font-weight:700; }
 .be-table td { padding:11px 10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
 .be-step     { font-weight:700; color:#0f172a; white-space:nowrap; }
 .be-does     { color:#475569; font-size:.83rem; }

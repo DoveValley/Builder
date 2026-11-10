@@ -331,7 +331,7 @@
                 <h3 style="margin-bottom:8px;">Preview — <?= count($bulkReport) ?> template(s) will be created</h3>
                 <div style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
-                    <thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">
+                    <thead><tr style="text-align:left;border-bottom:2px solid #cbd5e1;">
                         <th style="padding:6px 8px;">Service</th><th style="padding:6px 8px;">New id</th>
                         <th style="padding:6px 8px;">Slug pattern</th><th style="padding:6px 8px;">Images (hero / intro / local)</th>
                         <th style="padding:6px 8px;">Checks</th>

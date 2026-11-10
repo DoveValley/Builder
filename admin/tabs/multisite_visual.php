@@ -176,7 +176,7 @@ function msvColorSync(i, key, fromColor, value){
 function msvCardHtml(i){
     var p = MSV[i];
     var isSingle = (MSV_SINGLE === i);
-    return '<div class="msv-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+    return '<div class="msv-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#cbd5e1')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<span style="position:absolute;top:-10px;left:12px;background:#2563eb;color:#fff;border-radius:999px;min-width:22px;height:22px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">'+(i+1)+'</span>'
       + '<div style="flex:0 0 250px;">'
       +   '<img class="msv-logo" alt="logo" style="width:100%;background:#fff;border:1px solid #eee;border-radius:6px;padding:8px;min-height:56px;">'

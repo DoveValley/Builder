@@ -94,7 +94,7 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
         <li><strong>Use for this site</strong> — applies one config to <em>this</em> site now (regenerates the logo + favicon).</li>
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked configs when generating clone sites (or a row's <code>logo_config</code> column overrides) — independently of which color preset each clone gets.</li>
     </ul>
-    <div style="border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:14px;background:#f8fafc;">
+    <div style="border:1px solid #cbd5e1;border-radius:8px;padding:12px 14px;margin-bottom:14px;background:#f8fafc;">
         <div style="font-weight:600;font-size:.9rem;margin-bottom:10px;">Line 1 / Line 2 — applies to every logo below. Tick which is active; all three stay saved either way.</div>
         <div id="ll-text-opt-3" style="margin-bottom:10px;"></div>
         <div id="ll-text-opt-1" style="margin-bottom:10px;"></div>
@@ -201,12 +201,12 @@ function llCardHtml(i){
     var p = LL[i];
     var icons = '<option value="">— none —</option>' + LL_ICONS.map(function(ic){ return '<option value="'+llEsc(ic)+'"'+(ic===p.icon?' selected':'')+'>'+llEsc(ic.replace(/\.svg$/,''))+'</option>'; }).join('');
     var isSingle = (LL_SINGLE === i);
-    return '<div class="ll-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+    return '<div class="ll-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#cbd5e1')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<span style="position:absolute;top:-10px;left:12px;background:#2563eb;color:#fff;border-radius:999px;min-width:22px;height:22px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">'+(i+1)+'</span>'
       + '<div style="flex:0 0 250px;">'
       +   '<img class="ll-logo" alt="logo" style="width:100%;background:#fff;border:1px solid #eee;border-radius:6px;padding:8px;min-height:56px;">'
       +   '<div class="hint" style="margin-top:8px;margin-bottom:3px;">Sample header</div>'
-      +   '<div style="border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;">'
+      +   '<div style="border:1px solid #cbd5e1;border-radius:6px;overflow:hidden;">'
       +     '<div style="background:'+llEsc(LL_TOPBG)+';padding:6px 8px;">'
       +       '<img class="ll-logo-mini" alt="logo" style="max-height:26px;max-width:100%;display:block;">'
       +     '</div>'
@@ -287,7 +287,7 @@ function llPayload(){
 function llTextOptionHtml(n){
     var o = LL_TEXT.options[n - 1];
     var active = LL_TEXT.active === n;
-    return '<div style="border:1px solid '+(active?'#2563eb':'#e2e8f0')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+    return '<div style="border:1px solid '+(active?'#2563eb':'#cbd5e1')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<label style="display:flex;align-items:center;gap:7px;font-weight:600;cursor:pointer;margin:0 0 8px;">'
       +   '<input type="radio" name="ll-text-active" value="'+n+'" class="ll-text-active-radio"'+(active?' checked':'')+'> Option '+n
       + '</label>'
@@ -309,7 +309,7 @@ function llTextOptionHtml(n){
 function llTextOption3Html(){
     var active = LL_TEXT.active === 3;
     var matchNow = llConditionMatches();
-    return '<div style="border:1px solid '+(active?'#2563eb':'#e2e8f0')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+    return '<div style="border:1px solid '+(active?'#2563eb':'#cbd5e1')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<label style="display:flex;align-items:center;gap:7px;font-weight:600;cursor:pointer;margin:0;">'
       +   '<input type="radio" name="ll-text-active" value="3" class="ll-text-active-radio"'+(active?' checked':'')+'> Option 3 — automatic</label>'
       + '<div class="hint" style="margin:4px 0 0 25px;">If the first word of the business name is the same as the city, use Option 1; if not, use Option 2.'

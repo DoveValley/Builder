@@ -262,7 +262,7 @@
                     $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23ffffff&dark=%231e293b&name=x'
                           . '&fill_pct=' . $st['fill_pct'] . '&bg_style=' . $st['bg_style']
                           . '&corner_pct=' . $st['corner_pct'] . '&trace_pct=' . $st['trace_pct']; ?>
-                    <div class="ic-card" data-icon="<?= h($ic) ?>" style="text-align:center;width:128px;border:1px solid #e2e8f0;border-radius:8px;padding:8px;">
+                    <div class="ic-card" data-icon="<?= h($ic) ?>" style="text-align:center;width:128px;border:1px solid #cbd5e1;border-radius:8px;padding:8px;">
                         <img class="ic-prev" src="<?= h($prev) ?>" alt="<?= h($ic) ?>" width="72" height="72" style="border:1px solid #e5e7eb;border-radius:8px;background:#fff;">
                         <div class="hint" style="font-size:.7rem;word-break:break-all;margin:4px 0 2px;"><?= h(preg_replace('/\.svg$/', '', $ic)) ?></div>
                         <label style="display:block;font-size:.68rem;text-align:left;margin-top:4px;">Fill %
@@ -629,7 +629,7 @@
                     </select>
                     <span class="hint">Applies to any heading that doesn't already set its own weight (plain text blocks, FAQ, etc). Blocks like Hero/Stats/Cards already set their own bold weight and are unaffected.</span>
                 </div>
-                <div class="form-group" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;">
+                <div class="form-group" style="background:#f8fafc;border:1px solid #cbd5e1;border-radius:6px;padding:10px 12px;">
                     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                         <button type="button" class="btn btn-secondary btn-small" onclick="gvSetTypographyPreset('Inter, sans-serif','Inter, sans-serif',2,1.75,1.17,1)">Home Serv Head &amp; Body Font</button>
                         <button type="button" class="btn btn-secondary btn-small" onclick="gvSetTypographyPreset('Open Sans, sans-serif','Noto Serif, serif',3.88,2.88,2.38,1.62)">Training Head &amp; Body Font</button>

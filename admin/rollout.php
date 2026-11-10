@@ -44,7 +44,7 @@ function ro_cc_checklist_list(array $rows, string $mode): void {
 <style>
 .ro-views a{padding:5px 12px;border:1px solid #cbd5e1;border-radius:6px;text-decoration:none;color:#334155;font-size:.85rem;margin-left:4px}
 .ro-views a.on{background:#1e3a8a;border-color:#1e3a8a;color:#fff}
-.ro-bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin:0 0 12px}
+.ro-bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:12px 14px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;margin:0 0 12px}
 .ro-chip{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:5px 13px;cursor:pointer;font-weight:600;font-size:.9rem}
 .ro-chip.on{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
 .ro-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
@@ -54,7 +54,7 @@ function ro_cc_checklist_list(array $rows, string $mode): void {
 .ro-cal div{min-width:58px;text-align:center;padding:5px 4px;border-radius:6px;background:#f1f5f9}
 .ro-cal div.has{background:#dbeafe;color:#1e3a8a;font-weight:600}
 table.ro{width:100%;border-collapse:collapse;font-size:.84rem}
-table.ro th{text-align:left;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;padding:6px 7px;position:sticky;top:0;background:#fff}
+table.ro th{text-align:left;font-weight:600;color:#475569;border-bottom:2px solid #cbd5e1;padding:6px 7px;position:sticky;top:0;background:#fff}
 table.ro th.ro-vert{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;height:90px;padding:6px 4px;text-align:left}
 table.ro td{border-bottom:1px solid #f1f5f9;padding:6px 7px;vertical-align:middle}
 table.ro tr:hover td{background:#f8fafc}
@@ -85,7 +85,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 /* Compact comparison table for the photo-options popup — small enough to fit the
    modal's 480px max-width with four columns, still legible at .75rem. */
 .ro-modal table.ro-compare{width:100%;border-collapse:collapse;font-size:.75rem;margin:4px 0}
-.ro-modal table.ro-compare th,.ro-modal table.ro-compare td{padding:5px 6px;border:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.ro-modal table.ro-compare th,.ro-modal table.ro-compare td{padding:5px 6px;border:1px solid #cbd5e1;text-align:left;vertical-align:top}
 .ro-modal table.ro-compare th{background:#f8fafc;font-weight:700}
 .ro-modal table.ro-compare td:first-child{font-weight:600;white-space:nowrap}
 /* The two times worth finding in this popup — when it was built, and when it was
@@ -125,7 +125,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     <pre id="ro-research-out" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
 
 
-    <details id="ro-cc-details" style="margin:0 0 14px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;">
+    <details id="ro-cc-details" style="margin:0 0 14px;border:1px solid #cbd5e1;border-radius:6px;background:#f8fafc;">
         <summary style="cursor:pointer;padding:8px 12px;font-weight:600;font-size:.92rem;list-style:revert;">Site Final Check</summary>
         <div style="padding:4px 12px 14px;">
             <div class="ro-bar" style="justify-content:space-between;flex-wrap:wrap;">
@@ -394,7 +394,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     const STATE_WORDS = { ok: 'done', fail: 'failed', running: 'running', todo: 'not yet', '': 'not checked' };
     // Shown on BOTH popups (whichever one is opened first) so the combination is never a
     // surprise — plain-English, not a repeat of the technical description above it.
-    const COMBO_NOTE = '<div class="ro-step" style="margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0;">'
+    const COMBO_NOTE = '<div class="ro-step" style="margin-top:10px;padding-top:10px;border-top:1px solid #cbd5e1;">'
         + '<strong>What each combination actually does:</strong><br><br>'
         + '&bull; <strong>Tick nothing extra:</strong> a normal, full rebuild — new text, new photos if needed, new pages. The usual thing.<br><br>'
         + '&bull; <strong>Force-regenerate photos, alone:</strong> same full rebuild as above, plus every photo gets replaced with a fresh one, even the ones that were already fine.<br><br>'

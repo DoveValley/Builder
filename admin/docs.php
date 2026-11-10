@@ -73,14 +73,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; f
 #main .page-intro { font-size: 1.05rem; color: #475569; margin-bottom: 40px; line-height: 1.6; }
 
 section { margin-bottom: 56px; scroll-margin-top: 32px; }
-section h2 { font-size: 1.4rem; font-weight: 700; color: #0f172a; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; }
+section h2 { font-size: 1.4rem; font-weight: 700; color: #0f172a; padding-bottom: 10px; border-bottom: 2px solid #cbd5e1; margin-bottom: 20px; }
 section h3 { font-size: 1.05rem; font-weight: 700; color: #1e3a5f; margin: 24px 0 8px; }
 section h4 { font-size: 0.95rem; font-weight: 700; color: #334155; margin: 18px 0 6px; }
 section p { margin-bottom: 12px; line-height: 1.65; color: #334155; }
 section ul, section ol { margin: 8px 0 12px 20px; line-height: 1.7; color: #334155; }
 section li { margin-bottom: 4px; }
 
-code { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 1px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85em; color: #0f172a; }
+code { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85em; color: #0f172a; }
 pre { background: #0f172a; color: #e2e8f0; padding: 16px 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 12px 0 16px; line-height: 1.6; }
 pre code { background: none; border: none; padding: 0; color: inherit; font-size: inherit; }
 
@@ -110,7 +110,7 @@ tr.bad td { background: #fef2f2; color: #7f1d1d; }
 .where.perrow { color: #475569; }
 .where.operational { color: #9ca3af; }
 
-.block-card-doc { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; scroll-margin-top: 32px; }
+.block-card-doc { background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; scroll-margin-top: 32px; }
 .block-card-doc h3 { margin: 0 0 6px; font-size: 1rem; color: #1e3a5f; }
 .block-card-doc .bc-meta { font-size: 0.8rem; color: #64748b; margin-bottom: 10px; }
 .block-card-doc .bc-meta code { font-size: 0.78rem; }
@@ -126,8 +126,8 @@ tr.bad td { background: #fef2f2; color: #7f1d1d; }
 .tag-utility { background: #4b5563; color: #fff; }
 
 table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 0.88rem; }
-th { background: #f1f5f9; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid #e2e8f0; }
-td { padding: 8px 12px; border: 1px solid #e2e8f0; vertical-align: top; }
+th { background: #f1f5f9; text-align: left; padding: 8px 12px; font-weight: 600; border: 1px solid #cbd5e1; }
+td { padding: 8px 12px; border: 1px solid #cbd5e1; vertical-align: top; }
 tr:nth-child(even) td { background: #f8fafc; }
 tr.ms-req td { background: #f5a3a3 !important; }
 tr.ms-rec td { background: #fff3cd !important; }
@@ -2152,7 +2152,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <p>The path from the textarea to the live page differs slightly by context:</p>
     <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:0.88rem;">
         <thead>
-            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+            <tr style="background:#f8fafc;border-bottom:2px solid #cbd5e1;">
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Context</th>
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Flow</th>
             </tr>
@@ -2324,7 +2324,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <h3>The three places schema lives</h3>
     <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
         <thead>
-            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+            <tr style="background:#f8fafc;border-bottom:2px solid #cbd5e1;">
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Area</th>
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Where in admin</th>
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">What goes here</th>
@@ -2373,7 +2373,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
     <p>The panel appears in four places, and the prompt it uses is <strong>specific to that area</strong> (different schema shapes) while being <strong>shared globally</strong> across all pages of that area on the site:</p>
     <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:0.88rem;">
         <thead>
-            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;">
+            <tr style="background:#f8fafc;border-bottom:2px solid #cbd5e1;">
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Area</th>
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">Where</th>
                 <th style="text-align:left;padding:8px 12px;font-weight:700;">What its prompt produces</th>
@@ -5304,7 +5304,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d + the <a href="#ms-visual-identity">visual-identity step</a> (4b logo, 4a favicon, 4d Theme Presets) (Phase 3); 2c class-vocabulary rotation and 2b schema-shape rotation (both later built as pure anti-fingerprint passes — see their own cards). <strong>Decided against (⏭️, 2026-07-04):</strong> 1g copy templates — pure fingerprint obfuscation Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance.</div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
     <div class="block-card-doc" id="spec-ai-copy">
         <h3>1a · Unique AI city copy (home + core) <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
@@ -5359,7 +5359,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p><strong>Build.</strong> Author 3–4 phrasings per templated block in the master (Pre-authoring); select per domain by stable hash (Per-row). Where the AI writes the block, pass a rotated prompt skeleton so structure varies. See <a href="#ms-variation">Deterministic variation</a>; shares the hash helper. <strong>Effort:</strong> ~1–2 days.</p>
     </div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 2 · Structural</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 2 · Structural</h3>
 
     <div class="block-card-doc" id="spec-layout-skeletons">
         <h3>2a · Block-order / layout variations <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
@@ -5389,7 +5389,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p><strong>Built.</strong> The 4c image pass renames every content image with the site city appended, the master city stripped, and (added 2026-11-01) a short per-domain hash appended last — <code>ms_city_image_path()</code> (<code>…-katy.webp</code> → <code>…-dallas-tx-f3a9c1.webp</code>), rewriting the block field (and HTML-embedded refs). The domain hash closes a real gap: without it, two domains sharing a city (and, for a pooled axis like the <a href="#ms-hero-bg-pool">hero background pool</a>, the same pool pick) produced byte-different but name-IDENTICAL files — a pattern a filename-only crawl could notice without opening either file. Deterministic, so rebuilds/incremental deploys stay stable. We kept the <em>directory</em> structure as-is (renaming folders adds risk for no extra signal); filename + byte differentiation is what removes the fingerprint. See <a href="#spec-image-assign">4c</a>.</p>
     </div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 3 · Identity &amp; SEO signals</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 3 · Identity &amp; SEO signals</h3>
 
     <div class="block-card-doc" id="spec-identity-rewrite">
         <h3>3a · Business / phone / email / domain rewritten <span class="pri must">Must</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
@@ -5447,7 +5447,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p><strong>Build (today).</strong> The render emits no generator tag; keep the template free of tool-identifying comments/markers.</p>
     </div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 4 · Visual</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 4 · Visual</h3>
 
     <div class="block-card-doc" id="spec-favicon">
         <h3>4a · Per-site favicon <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
@@ -5500,7 +5500,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p><strong>Built.</strong> Rather than a raw <code>crc32(domain)</code> color hash, this shipped as curated <strong><a href="#ms-visual-identity">Theme Presets</a></strong> — a per-master library (<code>sites/{master}/multisite/theme_presets.json</code>, up to 10) of named bundles (accent + highlight colors, brand/heading fonts, button radius, header/footer colors, bug icon). The visual-identity step picks one per site from the <code>theme_preset</code> column, or — when blank — by deterministic domain hash (<code>ms_variant</code>, salt <code>'theme'</code>), and merges it into <code>data['theme']</code> before <code>theme_css_vars()</code> renders. The pest master ships four (Classic / Bold / Fresh / Trust). Edited in the admin via the Visual Identity panel with live previews.</p>
     </div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 5 · Local &amp; off-site signals</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 5 · Local &amp; off-site signals</h3>
 
     <div class="block-card-doc" id="spec-gbp">
         <h3>5a · Google Business Profile per city <span class="pri must">Must</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
@@ -5530,7 +5530,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <p><strong>Build.</strong> Operational: local outreach / partnerships per site; explicitly avoid interlinking your own network. <strong>Effort:</strong> operational — ongoing.</p>
     </div>
 
-    <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 6 · Site Hosting &amp; Footprint</h3>
+    <h3 style="margin-top:26px;border-top:2px solid #cbd5e1;padding-top:14px;color:#0f172a;">Area 6 · Site Hosting &amp; Footprint</h3>
 
     <div class="block-card-doc" id="spec-domain-reg">
         <h3>6a · Domain registration diversity <span class="pri should">Should</span> <span class="where operational" style="float:none;margin-left:6px;">Operational</span></h3>
