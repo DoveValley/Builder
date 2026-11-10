@@ -503,6 +503,10 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
     // not need one never pays for it.
     $hostIdx = null; $zoneIdx = null; $builtIdx = null; $content = null;
 
+    // Results are WRITTEN after this loop, not inside it — see the batched write
+    // below for why. Each tuple is everything infra_pipeline_set() needs for one row.
+    $pending = [];
+
     foreach ($rows as $r) {
         $dom = $r['domain'];
         $rec = $r['rec'];
@@ -701,9 +705,35 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
         // looking at it. Counting checks made `attempts` climb every time a column was
         // swept, which destroys the one thing it is for — telling a flaky call apart
         // from a box that has failed the same way four times.
-        infra_pipeline_set($dom, $step, $state, $note, false);
+        $pending[] = [$dom, $state, $note];
         $out['checked']++;
         $out[$state === INFRA_STEP_OK ? 'ok' : ($state === INFRA_STEP_FAIL ? 'fail' : 'todo')]++;
+    }
+
+    // Written here, in one short transaction, not one per row inside the loop
+    // above. That loop can run real per-domain network checks ('live'/'zone') —
+    // holding the write lock open for however long 19+ of those take would
+    // make fleet.db contention WORSE, not better, for every other writer (the
+    // go-live cron, another concurrent sweep). Batching afterward means the
+    // lock is only held for the actual DB writes, typically a few ms total
+    // regardless of how slow the checking phase was. Found live 2026-11-10: a
+    // 19-domain build+upload's final pipeline refresh hit "database is locked"
+    // (PDOException, SQLSTATE[HY000] 5) even with infra_state_db()'s existing
+    // 5-second busy_timeout — 19 separate auto-committed writes in a tight
+    // loop is 19 separate chances to collide with any other writer active at
+    // the same moment; one transaction is one chance.
+    if ($pending) {
+        $db = infra_state_db();
+        $db->beginTransaction();
+        try {
+            foreach ($pending as [$pDom, $pState, $pNote]) {
+                infra_pipeline_set($pDom, $step, $pState, $pNote, false);
+            }
+            $db->commit();
+        } catch (Throwable $e) {
+            $db->rollBack();
+            throw $e;
+        }
     }
 
     infra_cache_force(false);
