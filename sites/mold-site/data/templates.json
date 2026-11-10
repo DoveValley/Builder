@@ -155,8 +155,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/black-mold-vs-other-mold",
+                        "text": "Black Mold vs. Other Household Mold: What's the Real Difference?"
+                    },
+                    {
+                        "url": "/blog/bathroom-mold-prevention-tips",
+                        "text": "Simple Habits That Keep Bathroom Mold Away"
+                    },
                     {
                         "url": "/mold-inspection-{city_slug}",
                         "text": "mold inspection"
@@ -201,6 +210,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -224,7 +234,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -256,10 +268,10 @@
             "primary_keyword": "Mold Removal",
             "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, mold smell removal, musty odor removal, mold mitigation, mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation, mold damage restoration, mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage",
             "meta_description_pool": [
-                "Mold Removal in {city_state}: connect quickly with independent local providers who address moisture issues before they spread further. Call {phone}.",
+                "Mold Removal in {city_state}: connect quickly with local providers who address moisture issues before they spread further. Call {phone}.",
                 "Looking for Mold Removal near {city_state}? We help connect you to local, independent providers ready to respond promptly. Call {phone} today.",
-                "Mold Removal help for {city_state} residents — get matched fast with local independent providers who handle moisture and mold concerns. Call {phone}.",
-                "{city_state} Mold Removal connections made easy: reach local independent providers quickly before mold affects more of your property. Call {phone}."
+                "Mold Removal help for {city_state} residents — get matched fast with local providers who handle moisture and mold concerns. Call {phone}.",
+                "{city_state} Mold Removal connections made easy: reach local providers quickly before mold affects more of your property. Call {phone}."
             ],
             "og_description_pool": [
                 "Mold Removal in {city_state}: connect quickly with an independent local provider by calling {phone} for a fast response near you.",
@@ -469,8 +481,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mold-insurance-coverage-basics",
+                        "text": "Is Mold Damage Covered by Homeowners Insurance?"
+                    },
+                    {
+                        "url": "/blog/mold-on-drywall-what-to-do",
+                        "text": "Found Mold on Drywall? Here's What to Do Next"
+                    },
                     {
                         "url": "/mold-removal-{city_slug}",
                         "text": "mold removal"
@@ -511,6 +532,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -534,7 +556,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -566,9 +590,9 @@
             "primary_keyword": "Mold Damage Restoration",
             "secondary_keywords": "mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage",
             "meta_description_pool": [
-                "Mold Damage Restoration in {city_state}: connect with independent local providers who address structural and surface damage from mold spread. Call {phone}.",
-                "Need Mold Damage Restoration near {city_state}? We link you to local independent providers handling structural and surface mold damage. Call {phone} today.",
-                "Mold Damage Restoration services for {city_state} homes: get matched with local independent providers who repair structural and surface damage. Call {phone}.",
+                "Mold Damage Restoration in {city_state}: connect with local providers who address structural and surface damage from mold spread. Call {phone}.",
+                "Need Mold Damage Restoration near {city_state}? We link you to local providers handling structural and surface mold damage. Call {phone} today.",
+                "Mold Damage Restoration services for {city_state} homes: get matched with local providers who repair structural and surface damage. Call {phone}.",
                 "Serving {city_state} with fast connections to independent Mold Damage Restoration providers addressing structural and surface damage. Call {phone} now."
             ],
             "og_description_pool": [
@@ -784,8 +808,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/signs-you-might-have-mold",
+                        "text": "Signs You Might Have a Hidden Mold Problem"
+                    },
+                    {
+                        "url": "/blog/mold-after-water-damage-timeline",
+                        "text": "How Fast Does Mold Grow After Water Damage?"
+                    },
                     {
                         "url": "/mold-testing-{city_slug}",
                         "text": "mold testing"
@@ -830,6 +863,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -853,7 +887,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1103,8 +1139,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/black-mold-vs-other-mold",
+                        "text": "Black Mold vs. Other Household Mold: What's the Real Difference?"
+                    },
                     {
                         "url": "/mold-removal-{city_slug}",
                         "text": "mold removal"
@@ -1149,6 +1190,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1172,7 +1214,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1204,10 +1248,10 @@
             "primary_keyword": "Black Mold Removal",
             "secondary_keywords": "black mold clean up, black mold mitigation, black mold remediation, toxic mold removal, black mold in shower, black mold removal near me",
             "meta_description_pool": [
-                "Black Mold Removal in {city_state}: connect with independent local providers who can assess damp areas and address growth concerns. Call {phone}.",
+                "Black Mold Removal in {city_state}: connect with local providers who can assess damp areas and address growth concerns. Call {phone}.",
                 "Need Black Mold Removal near {city_state}? We connect you to local providers experienced in handling damp, mold-affected spaces. Call {phone} today.",
-                "Black Mold Removal, {city_state}: get matched quickly with local independent providers who assess and address dark mold growth. Call {phone}.",
-                "Searching for Black Mold Removal in {city_state}? This service connects you to responsive local providers who evaluate and treat mold-prone areas. Call {phone}."
+                "Black Mold Removal, {city_state}: get matched quickly with local providers who assess and address dark mold growth. Call {phone}.",
+                "Searching for Black Mold Removal in {city_state}? This service connects you to local providers who evaluate and treat mold-prone areas. Call {phone}."
             ],
             "og_description_pool": [
                 "Black Mold Removal in {city_state}: call {phone} now to connect quickly with an independent local provider near you.",
@@ -1417,8 +1461,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mold-testing-what-to-expect",
+                        "text": "What Happens During a Mold Inspection?"
+                    },
+                    {
+                        "url": "/blog/musty-smell-no-visible-mold",
+                        "text": "Musty Smell But No Visible Mold? Here's What It Might Mean"
+                    },
                     {
                         "url": "/mold-inspection-{city_slug}",
                         "text": "mold inspection"
@@ -1463,6 +1516,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1486,7 +1540,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1519,7 +1575,7 @@
             "secondary_keywords": "mold testing services, mold spore testing, mold sampling, mold lab testing",
             "meta_description_pool": [
                 "Mold Testing in {city_state}: connect with local providers offering lab analysis to help identify mold types and concentration. Call {phone}.",
-                "Need Mold Testing near {city_state}? We connect you with independent local providers who use lab analysis to check mold type and levels. Call {phone}.",
+                "Need Mold Testing near {city_state}? We connect you with local providers who use lab analysis to check mold type and levels. Call {phone}.",
                 "Mold Testing services for {city_state} residents: get linked to local providers using lab analysis to identify mold types present. Call {phone} today.",
                 "Looking for Mold Testing in {city_state}? We help you find nearby independent providers offering lab-based mold type and concentration analysis. Call {phone}."
             ],
@@ -1736,6 +1792,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -1782,6 +1839,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1805,7 +1863,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1838,8 +1898,8 @@
             "secondary_keywords": "commercial mold removal, business mold remediation, office mold removal, commercial mold removal near me, apartment building mold remediation, restaurant mold removal, warehouse mold remediation, retail store mold remediation, school mold remediation, property manager mold remediation, landlord mold remediation",
             "meta_description_pool": [
                 "Commercial Mold Remediation in {city_state}: connect with local providers who help reduce facility disruption and liability from mold issues. Call {phone}.",
-                "Need Commercial Mold Remediation near {city_state}? We connect businesses with independent local providers to help address mold concerns quickly. Call {phone}.",
-                "{city_state} Commercial Mold Remediation: find local independent providers ready to help limit downtime and liability from facility mold. Call {phone}.",
+                "Need Commercial Mold Remediation near {city_state}? We connect businesses with local providers to help address mold concerns . Call {phone}.",
+                "{city_state} Commercial Mold Remediation: find local providers ready to help limit downtime and liability from facility mold. Call {phone}.",
                 "Facing mold at your facility? Commercial Mold Remediation connections in {city_state} link you to local providers who can help. Call {phone} today."
             ],
             "og_description_pool": [
@@ -2050,8 +2110,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mold-remediation-vs-removal",
+                        "text": "Mold Remediation vs. Mold Removal: What's the Difference?"
+                    },
                     {
                         "url": "/mold-removal-{city_slug}",
                         "text": "mold removal"
@@ -2092,6 +2157,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2115,7 +2181,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2148,9 +2216,9 @@
             "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation",
             "meta_description_pool": [
                 "Mold Mitigation in {city_state}: connect with local providers who address moisture issues that allow mold to spread. Call {phone} for a fast referral.",
-                "Need Mold Mitigation near {city_state}? We connect you to independent local providers who tackle the moisture behind mold growth. Call {phone}.",
-                "Mold Mitigation services for {city_state} homes: get matched quickly with local providers who manage moisture conditions linked to mold. Call {phone}.",
-                "Looking for Mold Mitigation in {city_state}? This network links you to independent local providers addressing mold-causing moisture. Call {phone} now."
+                "Need Mold Mitigation near {city_state}? We connect you to local providers who tackle the moisture behind mold growth. Call {phone}.",
+                "Mold Mitigation services for {city_state} homes: get matched with local providers who manage moisture conditions linked to mold. Call {phone}.",
+                "Looking for Mold Mitigation in {city_state}? This network links you to local providers addressing mold-causing moisture. Call {phone} now."
             ],
             "og_description_pool": [
                 "Need Mold Mitigation in {city_state}? Call {phone} now and we'll connect you with a local independent provider ready to respond quickly.",
@@ -2365,8 +2433,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/crawl-space-mold-causes",
+                        "text": "Why Crawl Spaces Are Prone to Mold Growth"
+                    },
                     {
                         "url": "/basement-mold-removal-{city_slug}",
                         "text": "basement mold removal"
@@ -2415,6 +2488,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2438,7 +2512,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2470,9 +2546,9 @@
             "primary_keyword": "Crawl Space Mold Removal",
             "secondary_keywords": "crawl space mold remediation, mold in crawl space, crawl space mold removal near me",
             "meta_description_pool": [
-                "Crawl Space Mold Removal in {city_state}: connect with independent local providers who address damp, humid conditions beneath homes. Call {phone}.",
-                "Need Crawl Space Mold Removal near {city_state}? We connect you with local independent providers who tackle crawl space humidity issues. Call {phone}.",
-                "Crawl Space Mold Removal, {city_state} — get matched fast with local independent providers who address moisture buildup under your home. Call {phone}.",
+                "Crawl Space Mold Removal in {city_state}: connect with local providers who address damp, humid conditions beneath homes. Call {phone}.",
+                "Need Crawl Space Mold Removal near {city_state}? We connect you with local providers who tackle crawl space humidity issues. Call {phone}.",
+                "Crawl Space Mold Removal, {city_state} — get matched fast with local providers who address moisture buildup under your home. Call {phone}.",
                 "Find Crawl Space Mold Removal help in {city_state} through our local referral network connecting you to independent providers. Call {phone} today."
             ],
             "og_description_pool": [
@@ -2688,8 +2764,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/attic-mold-warning-signs",
+                        "text": "Attic Mold: Warning Signs Homeowners Often Miss"
+                    },
                     {
                         "url": "/crawl-space-mold-removal-{city_slug}",
                         "text": "crawl space mold removal"
@@ -2738,6 +2819,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2761,7 +2843,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2794,7 +2878,7 @@
             "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me",
             "meta_description_pool": [
                 "Attic Mold Removal in {city_state}: connect with local providers who address growth linked to roof leaks and poor attic ventilation. Call {phone}.",
-                "Need Attic Mold Removal near {city_state}? We connect you with independent local providers who handle attic growth from leaks and damp conditions. Call {phone}.",
+                "Need Attic Mold Removal near {city_state}? We connect you with local providers who handle attic growth from leaks and damp conditions. Call {phone}.",
                 "Attic Mold Removal, {city_state} — get matched with local providers experienced in treating attics affected by roof leaks and excess moisture. Call {phone}.",
                 "Searching for Attic Mold Removal in {city_state}? Our network links you to local providers who tackle attic growth caused by leaks and poor airflow. Call {phone}."
             ],
@@ -3011,8 +3095,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/basement-dehumidifier-mold-prevention",
+                        "text": "Using a Dehumidifier to Keep Your Basement Mold-Free"
+                    },
                     {
                         "url": "/crawl-space-mold-removal-{city_slug}",
                         "text": "crawl space mold removal"
@@ -3061,6 +3150,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3084,7 +3174,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3116,10 +3208,10 @@
             "primary_keyword": "Basement Mold Removal",
             "secondary_keywords": "basement mold remediation, basement mold treatment, mold in basement, basement mold removal near me",
             "meta_description_pool": [
-                "Basement Mold Removal in {city_state}: get connected with local providers who address water seepage and condensation in below-grade spaces. Call {phone}.",
-                "Need Basement Mold Removal near {city_state}? We connect you with independent local providers who handle below-grade moisture and condensation issues. Call {phone}.",
+                "Basement Mold Removal in {city_state}: connect with local providers who address water seepage and condensation in below-grade spaces. Call {phone}.",
+                "Need Basement Mold Removal near {city_state}? We connect you with local providers who handle below-grade moisture and condensation issues. Call {phone}.",
                 "Basement Mold Removal, {city_state}: this referral service links homeowners to local providers tackling seepage and condensation in basements. Call {phone} now.",
-                "Searching for Basement Mold Removal in {city_state}? We quickly connect you with local, independent providers experienced with below-grade moisture issues. Call {phone}."
+                "Searching for Basement Mold Removal in {city_state}? We connect you with local, independent providers experienced with below-grade moisture issues. Call {phone}."
             ],
             "og_description_pool": [
                 "Basement Mold Removal in {city_state}: connect quickly with an independent local provider ready to assess your basement. Call {phone} for a fast, local response.",
@@ -3334,8 +3426,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/hvac-mold-risks",
+                        "text": "Can Mold Grow Inside Your HVAC System?"
+                    },
                     {
                         "url": "/attic-mold-removal-{city_slug}",
                         "text": "attic mold removal"
@@ -3384,6 +3481,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3407,7 +3505,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3440,7 +3540,7 @@
             "secondary_keywords": "ac mold removal, hvac mold removal, mold in air vents, air duct mold removal, ac mold removal near me",
             "meta_description_pool": [
                 "HVAC Mold Removal in {city_state}: connect with local providers who address contaminated coils and ducts that can spread spores. Call {phone}.",
-                "Need HVAC Mold Removal near {city_state}? We connect you with independent local providers who help limit spore circulation from HVAC systems. Call {phone} today.",
+                "Need HVAC Mold Removal near {city_state}? We connect you with local providers who help limit spore circulation from HVAC systems. Call {phone} today.",
                 "HVAC Mold Removal services for {city_state} homes: get matched fast with local providers handling mold-affected coils and ducts. Call {phone}.",
                 "Looking for HVAC Mold Removal in {city_state}? This local referral service links you to independent providers who tackle contaminated HVAC components. Call {phone}."
             ],
@@ -3652,8 +3752,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/humidity-levels-prevent-mold",
+                        "text": "The Ideal Humidity Level for Preventing Mold Growth"
+                    },
+                    {
+                        "url": "/blog/bathroom-mold-prevention-tips",
+                        "text": "Simple Habits That Keep Bathroom Mold Away"
+                    },
                     {
                         "url": "/mold-inspection-{city_slug}",
                         "text": "mold inspection"
@@ -3698,6 +3807,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3721,7 +3831,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3754,7 +3866,7 @@
             "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing",
             "meta_description_pool": [
                 "Mold Prevention in {city_state}: get connected with local providers who address leaks and humidity before mold takes hold. Call {phone}.",
-                "Looking into Mold Prevention near {city_state}? We connect you with independent local providers to help manage moisture and leaks. Call {phone}.",
+                "Looking into Mold Prevention near {city_state}? We connect you with local providers to help manage moisture and leaks. Call {phone}.",
                 "{city_state} Mold Prevention made easier: this network links you to local providers who tackle humidity and leaks early. Call {phone} today.",
                 "Mold Prevention starts with controlling moisture. Serving {city_state}, we connect you to local providers who address leaks promptly. Call {phone}."
             ],
@@ -3971,8 +4083,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mold-and-indoor-air-quality",
+                        "text": "How Mold Affects Your Home's Indoor Air Quality"
+                    },
+                    {
+                        "url": "/blog/hvac-mold-risks",
+                        "text": "Can Mold Grow Inside Your HVAC System?"
+                    },
                     {
                         "url": "/mold-testing-{city_slug}",
                         "text": "mold testing"
@@ -4021,6 +4142,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4044,7 +4166,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4078,7 +4202,7 @@
             "meta_description_pool": [
                 "Indoor Air Quality Testing in {city_state} connects you with local providers who check for airborne particles and contaminants. Call {phone} to get started.",
                 "Need Indoor Air Quality Testing near {city_state}? We'll connect you with local providers who assess your space for airborne contaminants. Call {phone}.",
-                "Indoor Air Quality Testing available in {city_state} through local independent providers who evaluate airborne particle levels. Reach us at {phone}.",
+                "Indoor Air Quality Testing available in {city_state} through local providers who evaluate airborne particle levels. Reach us at {phone}.",
                 "Looking for Indoor Air Quality Testing in {city_state}? Get connected to local providers who can assess contaminants in your space. Call {phone} now."
             ],
             "og_description_pool": [
@@ -4294,6 +4418,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -4344,6 +4469,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4367,7 +4493,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4400,9 +4528,9 @@
             "secondary_keywords": "bathroom mold remediation, shower mold removal, mold on bathroom ceiling, mold around bathtub, bathroom tile mold removal, get rid of bathroom mold",
             "meta_description_pool": [
                 "Bathroom Mold Removal in {city_state}: connect with local providers who handle growth around tile, grout, and fixtures from shower humidity. Call {phone}.",
-                "Need Bathroom Mold Removal near {city_state}? We connect you with independent local providers addressing bathroom tile and grout mold. Call {phone}.",
+                "Need Bathroom Mold Removal near {city_state}? We connect you with local providers addressing bathroom tile and grout mold. Call {phone}.",
                 "Bathroom Mold Removal, {city_state} area: get linked to local providers who address mold around tile, grout, and fixtures caused by bath humidity. {phone}.",
-                "Find Bathroom Mold Removal help in {city_state} fast—this service connects you with independent local providers for tile and grout mold issues. Call {phone}."
+                "Find Bathroom Mold Removal help in {city_state} fast—this service connects you with local providers for tile and grout mold issues. Call {phone}."
             ],
             "og_description_pool": [
                 "Bathroom Mold Removal in {city_state}: connect quickly with an independent local provider by calling {phone} for a fast response.",
@@ -4617,6 +4745,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -4667,6 +4796,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4690,7 +4820,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4723,9 +4855,9 @@
             "secondary_keywords": "mold on ceiling, ceiling mold remediation, mold on ceiling from a leak, ceiling mold treatment, bathroom ceiling mold",
             "meta_description_pool": [
                 "Ceiling Mold Removal in {city_state}: connect with local providers who address growth from roof leaks, condensation, or poor attic ventilation. Call {phone}.",
-                "Need Ceiling Mold Removal near {city_state}? We help connect you with independent local providers who handle ceiling growth from leaks or humidity. Call {phone}.",
+                "Need Ceiling Mold Removal near {city_state}? We help connect you with local providers who handle ceiling growth from leaks or humidity. Call {phone}.",
                 "Ceiling Mold Removal services for {city_state} homes: get matched with local providers addressing attic ventilation and moisture-related growth. Call {phone} today.",
-                "Looking for Ceiling Mold Removal in {city_state}? This service connects you to independent local providers who tackle roof-leak and condensation mold. Call {phone}."
+                "Looking for Ceiling Mold Removal in {city_state}? This service connects you to local providers who tackle roof-leak and condensation mold. Call {phone}."
             ],
             "og_description_pool": [
                 "Need Ceiling Mold Removal in {city_state}? Call {phone} and get connected fast with an independent local provider ready to help.",
@@ -4940,6 +5072,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -4990,6 +5123,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5013,7 +5147,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5045,10 +5181,10 @@
             "primary_keyword": "Drywall Mold Removal",
             "secondary_keywords": "mold behind drywall, mold in walls, wall mold removal, mold on drywall, drywall mold remediation, mold inside a wall cavity",
             "meta_description_pool": [
-                "Drywall Mold Removal in {city_state}: connect with independent local providers who address growth hidden behind walls and wallboard. Call {phone}.",
+                "Drywall Mold Removal in {city_state}: connect with local providers who address growth hidden behind walls and wallboard. Call {phone}.",
                 "Need Drywall Mold Removal near {city_state}? We connect you to local providers who handle moisture-driven growth trapped inside walls. Call {phone}.",
-                "Drywall Mold Removal, {city_state} — get matched fast with independent local providers for growth caused by hidden wall moisture. Call {phone}.",
-                "Searching for Drywall Mold Removal in {city_state}? This service connects you quickly to local providers who address hidden wallboard growth. Call {phone}."
+                "Drywall Mold Removal, {city_state} — get matched fast with local providers for growth caused by hidden wall moisture. Call {phone}.",
+                "Searching for Drywall Mold Removal in {city_state}? This service connects you to local providers who address hidden wallboard growth. Call {phone}."
             ],
             "og_description_pool": [
                 "Drywall Mold Removal in {city_state} starts with a quick connection — call {phone} to reach a local independent provider near you.",
@@ -5263,6 +5399,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -5313,6 +5450,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5336,7 +5474,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5368,8 +5508,8 @@
             "primary_keyword": "Air Duct Mold Removal",
             "secondary_keywords": "mold in air ducts, hvac mold removal, mold in air vents, air duct mold remediation, ac duct mold cleaning",
             "meta_description_pool": [
-                "Air Duct Mold Removal in {city_state}: get connected with local providers who address growth from trapped dust, moisture, and HVAC condensation. Call {phone}.",
-                "Need Air Duct Mold Removal near {city_state}? We connect you with independent local providers who handle growth caused by moisture and HVAC condensation. Call {phone}.",
+                "Air Duct Mold Removal in {city_state}: connect with local providers who address growth from trapped dust, moisture, and HVAC condensation. Call {phone}.",
+                "Need Air Duct Mold Removal near {city_state}? We connect you with local providers who handle growth caused by moisture and HVAC condensation. Call {phone}.",
                 "Air Duct Mold Removal services for {city_state} residents start here — we link you to local providers who tackle duct growth from trapped moisture and dust. Call {phone}.",
                 "Looking for Air Duct Mold Removal in {city_state}? Our network connects you fast to local providers who address HVAC condensation and moisture-related growth. Call {phone}."
             ],
@@ -5586,6 +5726,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -5636,6 +5777,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5659,7 +5801,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5691,8 +5835,8 @@
             "primary_keyword": "Kitchen Mold Removal",
             "secondary_keywords": "mold under the kitchen sink, kitchen mold remediation, mold behind the refrigerator, mold in kitchen cabinets, kitchen mold cleanup",
             "meta_description_pool": [
-                "Kitchen Mold Removal in {city_state}: get connected with local providers who handle growth from sink leaks, dishwasher spills, and appliance condensation. Call {phone}.",
-                "Need Kitchen Mold Removal near {city_state}? We connect you with independent local providers experienced in addressing kitchen leaks and condensation issues. Call {phone}.",
+                "Kitchen Mold Removal in {city_state}: connect with local providers who handle growth from sink leaks, dishwasher spills, and appliance condensation. Call {phone}.",
+                "Need Kitchen Mold Removal near {city_state}? We connect you with local providers experienced in addressing kitchen leaks and condensation issues. Call {phone}.",
                 "Kitchen Mold Removal services for {city_state} homes: connecting you with local providers who address mold from sink leaks and dishwasher spills. Call {phone} today.",
                 "Searching for Kitchen Mold Removal in {city_state}? This network links you to local providers who tackle mold caused by appliance condensation and leaks. Call {phone}."
             ],
@@ -5909,6 +6053,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -5959,6 +6104,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5982,7 +6128,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6015,7 +6163,7 @@
             "secondary_keywords": "mold under carpet, carpet mold remediation, mold in carpet padding, wet carpet mold, carpet mold treatment",
             "meta_description_pool": [
                 "Carpet Mold Removal in {city_state} connects you with local providers who address growth from spills, humidity, or past water damage. Call {phone}.",
-                "Need Carpet Mold Removal near {city_state}? We connect you with independent local providers who handle carpet growth from moisture or past water issues. Call {phone}.",
+                "Need Carpet Mold Removal near {city_state}? We connect you with local providers who handle carpet growth from moisture or past water issues. Call {phone}.",
                 "Carpet Mold Removal, {city_state}: get matched with local providers experienced in addressing padding growth caused by spills or lingering humidity. Call {phone}.",
                 "Searching for Carpet Mold Removal in {city_state}? This service connects you fast with local providers who tackle growth from water damage or humidity. Call {phone}."
             ],
@@ -6232,6 +6380,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -6282,6 +6431,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6305,7 +6455,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6337,10 +6489,10 @@
             "primary_keyword": "Garage Mold Removal",
             "secondary_keywords": "garage mold remediation, mold on garage walls, mold on the garage ceiling, garage mold cleanup",
             "meta_description_pool": [
-                "Garage Mold Removal in {city_state}: get connected with local providers who address humidity, poor airflow, and water intrusion issues. Call {phone}.",
-                "Need Garage Mold Removal near {city_state}? We connect you with independent local providers who handle damp, musty garage spaces. Call {phone} today.",
+                "Garage Mold Removal in {city_state}: connect with local providers who address humidity, poor airflow, and water intrusion issues. Call {phone}.",
+                "Need Garage Mold Removal near {city_state}? We connect you with local providers who handle damp, musty garage spaces. Call {phone} today.",
                 "Garage Mold Removal, {city_state} — fast, local connections to independent providers experienced with moisture and airflow problems. Call {phone} now.",
-                "Looking for Garage Mold Removal in {city_state}? This service links you to local independent providers who tackle humidity and water intrusion. Call {phone}."
+                "Looking for Garage Mold Removal in {city_state}? This service links you to local providers who tackle humidity and water intrusion. Call {phone}."
             ],
             "og_description_pool": [
                 "Garage Mold Removal in {city_state}: connect quickly with an independent local provider near you — call {phone} today.",
@@ -6555,6 +6707,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -6601,6 +6754,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6624,7 +6778,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6657,7 +6813,7 @@
             "secondary_keywords": "home inspection mold, mold testing for home inspection, real estate mold inspection, pre purchase mold inspection, mold inspection before buying a house",
             "meta_description_pool": [
                 "Real Estate Mold Inspection in {city_state}: connect with local providers who check homes for moisture concerns before a sale closes. Call {phone}.",
-                "Need a Real Estate Mold Inspection near {city_state}? We connect buyers and sellers with independent local providers who assess homes before closing. Call {phone}.",
+                "Need a Real Estate Mold Inspection near {city_state}? We connect buyers and sellers with local providers who assess homes before closing. Call {phone}.",
                 "Real Estate Mold Inspection services for {city_state} homes: get linked to local providers who evaluate moisture issues ahead of a sale. Call {phone} today.",
                 "Buying or selling in {city_state}? Find local providers offering Real Estate Mold Inspection to spot moisture concerns before the deal moves forward. Call {phone}."
             ],
@@ -6871,6 +7027,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -6918,6 +7075,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6941,7 +7099,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6973,8 +7133,8 @@
             "primary_keyword": "Mold Removal Cost",
             "secondary_keywords": "cost of mold removal, mold remediation cost, mold removal price, average mold removal cost, how much does mold removal cost, mold removal cost estimate",
             "meta_description_pool": [
-                "Mold Removal Cost in {city_state} depends on several factors — compare them here and get connected to a local provider for an on-site estimate. Call {phone}.",
-                "Curious about Mold Removal Cost in {city_state}? We connect you with independent local providers who can give an on-site estimate. Call {phone} to start.",
+                "Mold Removal Cost in {city_state} depends on several factors — compare them here and connect to a local provider for an on-site estimate. Call {phone}.",
+                "Curious about Mold Removal Cost in {city_state}? We connect you with local providers who can give an on-site estimate. Call {phone} to start.",
                 "Mold Removal Cost in {city_state} varies by project. Learn what affects pricing and get matched with a local provider for an estimate at {phone}.",
                 "Find out what shapes Mold Removal Cost in {city_state}, then connect with a nearby independent provider for an on-site quote. Reach us at {phone}."
             ],
@@ -7191,6 +7351,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -7241,6 +7402,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+                "cards_heading_pool": ["Verify Your {city_state} Mold Remediation Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7264,7 +7426,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7296,10 +7460,10 @@
             "primary_keyword": "Emergency Mold Removal",
             "secondary_keywords": "emergency mold remediation, same day mold removal, urgent mold removal, 24 hour mold removal, rapid mold response",
             "meta_description_pool": [
-                "Emergency Mold Removal in {city_state}: connect quickly with independent local providers who respond fast to active mold growth. Call {phone}.",
+                "Emergency Mold Removal in {city_state}: connect quickly with local providers who respond fast to active mold growth. Call {phone}.",
                 "Need Emergency Mold Removal near {city_state}? We connect you with local providers ready to respond the same day. Call {phone} today.",
                 "Emergency Mold Removal help for {city_state} residents — get matched fast with local independent providers. Call {phone}.",
-                "{city_state} Emergency Mold Removal connections made easy: reach local independent providers quickly before mold spreads further. Call {phone}."
+                "{city_state} Emergency Mold Removal connections made easy: reach local providers quickly before mold spreads further. Call {phone}."
             ],
             "og_description_pool": [
                 "Emergency Mold Removal in {city_state}: connect quickly with an independent local provider by calling {phone} for a fast response near you.",
