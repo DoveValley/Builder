@@ -149,8 +149,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/cockroach-attractants-in-kitchens",
+                        "text": "What Attracts Cockroaches to a Kitchen"
+                    },
+                    {
+                        "url": "/blog/pest-proofing-pantry-tips",
+                        "text": "Pest-Proofing Your Pantry: A Simple Checklist"
+                    },
                     {
                         "url": "/restaurant-pest-control-{city_slug}",
                         "text": "restaurant pest control"
@@ -182,6 +191,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -205,7 +215,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -237,10 +249,10 @@
             "primary_keyword": "Cockroach Exterminator",
             "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches, german cockroach removal",
             "meta_description_pool": [
-                "Cockroach Exterminator help in {city_state}: get connected fast to local pros who address roach infestations and reduce bacteria risks. Call {phone}.",
-                "Need a Cockroach Exterminator near {city_state}? We connect you quickly with independent local providers who handle roach problems. Call {phone} today.",
+                "Cockroach Exterminator help in {city_state}: connect fast to local pros who address roach infestations and reduce bacteria risks. Call {phone}.",
+                "Need a Cockroach Exterminator near {city_state}? We connect you with local providers who handle roach problems. Call {phone} today.",
                 "Cockroach Exterminator services linking {city_state} residents to local providers fast, since roaches carry bacteria indoors. Call {phone} now.",
-                "Searching for a Cockroach Exterminator in {city_state}? Our network connects you to responsive local providers who tackle infestations. Call {phone}."
+                "Searching for a Cockroach Exterminator in {city_state}? Our network connects you to local providers who tackle infestations. Call {phone}."
             ],
             "og_description_pool": [
                 "Cockroach Exterminator in {city_state}: get connected fast to an independent local provider offering roach treatment for homes and businesses.",
@@ -448,8 +460,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/ants-vs-termites-how-to-tell",
+                        "text": "Ants or Termites? How to Tell the Difference"
+                    },
+                    {
+                        "url": "/blog/carpenter-ants-vs-regular-ants",
+                        "text": "Carpenter Ants vs. Regular Ants: Why the Difference Matters"
+                    },
                     {
                         "url": "/fire-ant-control-{city_slug}",
                         "text": "fire ant control"
@@ -485,6 +506,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -508,7 +530,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -540,10 +564,10 @@
             "primary_keyword": "Ant Exterminator",
             "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants",
             "meta_description_pool": [
-                "Ant Exterminator help in {city_state}: get connected fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
-                "Need an ant exterminator near {city_state}? We connect you quickly with independent local providers ready to tackle invading ant colonies. Call {phone}.",
+                "Ant Exterminator help in {city_state}: connect fast to local providers who handle colonies before they invade your food storage. Call {phone}.",
+                "Need an ant exterminator near {city_state}? We connect you with local providers ready to tackle invading ant colonies. Call {phone}.",
                 "Ant Exterminator, {city_state}: colonies can number in the thousands — reach local providers fast through us by calling {phone}.",
-                "Searching for an ant exterminator in {city_state}? We link you to responsive local providers who address ant colonies before they spread. Call {phone}."
+                "Searching for an ant exterminator in {city_state}? We link you to local providers who address ant colonies before they spread. Call {phone}."
             ],
             "og_description_pool": [
                 "Ant Exterminator in {city_state}: {business} connects you with independent local providers for prompt ant treatment. Call {phone} to get started.",
@@ -755,6 +779,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -788,6 +813,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -811,7 +837,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -843,8 +871,8 @@
             "primary_keyword": "Fire Ant Control",
             "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment",
             "meta_description_pool": [
-                "Fire Ant Control in {city_state}: get connected with local providers who treat mounds and colonies to help protect people and pets. Call {phone}.",
-                "Need Fire Ant Control near {city_state}? We connect you with independent local providers who respond quickly to tackle mounds before stings happen. Call {phone}.",
+                "Fire Ant Control in {city_state}: connect with local providers who treat mounds and colonies to help protect people and pets. Call {phone}.",
+                "Need Fire Ant Control near {city_state}? We connect you with local providers who respond to tackle mounds before stings happen. Call {phone}.",
                 "Fire Ant Control, {city_state}: our network links you to local pros who address ant mounds and colonies around your property. Call {phone} today.",
                 "Looking for Fire Ant Control in {city_state}? We'll connect you fast with local providers who handle mounds and colonies to reduce sting risks. Call {phone}."
             ],
@@ -1053,8 +1081,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/carpenter-ants-vs-regular-ants",
+                        "text": "Carpenter Ants vs. Regular Ants: Why the Difference Matters"
+                    },
                     {
                         "url": "/termite-inspection-{city_slug}",
                         "text": "termite inspection"
@@ -1090,6 +1123,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1113,7 +1147,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1145,10 +1181,10 @@
             "primary_keyword": "Carpenter Ant Control",
             "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage",
             "meta_description_pool": [
-                "Carpenter Ant Control in {city_state}: get connected with local providers who help stop colonies from hollowing out wood and weakening frames. Call {phone}.",
-                "Need Carpenter Ant Control near {city_state}? We connect you fast with independent local providers who address wood-damaging colonies. Call {phone} today.",
+                "Carpenter Ant Control in {city_state}: connect with local providers who help stop colonies from hollowing out wood and weakening frames. Call {phone}.",
+                "Need Carpenter Ant Control near {city_state}? We connect you fast with local providers who address wood-damaging colonies. Call {phone} today.",
                 "Carpenter Ant Control, {city_state} — find a local provider through us to tackle colonies before they hollow out and weaken wood structures. Call {phone}.",
-                "Looking for Carpenter Ant Control in {city_state}? We link homeowners to responsive local providers who deal with wood-hollowing ant colonies. Call {phone}."
+                "Looking for Carpenter Ant Control in {city_state}? We link homeowners to local providers who deal with wood-hollowing ant colonies. Call {phone}."
             ],
             "og_description_pool": [
                 "Carpenter Ant Control in {city_state}: connect with an independent local provider ready to help homes and businesses tackle an infestation quickly.",
@@ -1355,8 +1391,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/bed-bugs-how-they-spread",
+                        "text": "How Bed Bugs Spread From One Home to Another"
+                    },
                     {
                         "url": "/residential-pest-control-{city_slug}",
                         "text": "residential pest control"
@@ -1384,6 +1425,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1407,7 +1449,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1440,9 +1484,9 @@
             "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs",
             "meta_description_pool": [
                 "Bed Bug Exterminator help in {city_state}: connect with local providers who understand these fast-multiplying, night-feeding pests. Call {phone} to get started.",
-                "Need a bed bug exterminator near {city_state}? We connect you with independent local providers ready to address infestations in bedding and furniture. Call {phone}.",
-                "Bed Bug Exterminator, {city_state}: find local providers who respond quickly to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
-                "Searching for a bed bug exterminator in {city_state}? We link you to responsive local providers familiar with these fast-multiplying pests. Call {phone} today."
+                "Need a bed bug exterminator near {city_state}? We connect you with local providers ready to address infestations in bedding and furniture. Call {phone}.",
+                "Bed Bug Exterminator, {city_state}: find local providers who respond to bugs that feed at night and spread through bedding and furniture. Call {phone}.",
+                "Searching for a bed bug exterminator in {city_state}? We link you to local providers familiar with these fast-multiplying pests. Call {phone} today."
             ],
             "og_description_pool": [
                 "Bed Bug Exterminator in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone} to get started.",
@@ -1654,8 +1698,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/signs-of-termite-infestation",
+                        "text": "Early Signs of a Termite Infestation"
+                    },
                     {
                         "url": "/termite-inspection-{city_slug}",
                         "text": "termite inspection"
@@ -1691,6 +1740,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1714,7 +1764,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1746,10 +1798,10 @@
             "primary_keyword": "Termite Treatment",
             "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond",
             "meta_description_pool": [
-                "Termite Treatment in {city_state}: get connected fast to local providers who respond to termite damage before it spreads. Call {phone} today.",
-                "Need Termite Treatment near {city_state}? We connect you with local, responsive providers who can help stop termites from damaging your home. Call {phone}.",
-                "Termite Treatment, {city_state}: quickly find local independent providers ready to address termite problems. Call {phone} to get connected now.",
-                "Searching for Termite Treatment in {city_state}? We link you to responsive local providers who tackle termite issues before costly damage occurs. Call {phone}."
+                "Termite Treatment in {city_state}: connect fast to local providers who respond to termite damage before it spreads. Call {phone} today.",
+                "Need Termite Treatment near {city_state}? We connect you with local, providers who can help stop termites from damaging your home. Call {phone}.",
+                "Termite Treatment, {city_state}: quickly find local providers ready to address termite problems. Call {phone} to get connected now.",
+                "Searching for Termite Treatment in {city_state}? We link you to local providers who tackle termite issues before costly damage occurs. Call {phone}."
             ],
             "og_description_pool": [
                 "Termite Treatment in {city_state} starts with a quick connection to an independent local provider serving homes and businesses in your area.",
@@ -1961,8 +2013,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mosquito-breeding-grounds-yard",
+                        "text": "Common Mosquito Breeding Grounds Hiding in Your Yard"
+                    },
                     {
                         "url": "/tick-control-{city_slug}",
                         "text": "tick control"
@@ -1994,6 +2051,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2017,7 +2075,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2049,7 +2109,7 @@
             "primary_keyword": "Mosquito Control",
             "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment",
             "meta_description_pool": [
-                "Mosquito Control in {city_state}: get connected with local providers who help reduce disease-carrying mosquitoes breeding in standing water. Call {phone}.",
+                "Mosquito Control in {city_state}: connect with local providers who help reduce disease-carrying mosquitoes breeding in standing water. Call {phone}.",
                 "Need Mosquito Control near {city_state}? We connect you with local providers who address mosquitoes breeding in standing water. Call {phone} today.",
                 "Mosquito Control serving {city_state} — find local providers ready to help cut down mosquito breeding in standing water. Call {phone} for a fast connection.",
                 "Looking for Mosquito Control in {city_state}? This service links you to local providers who tackle standing-water mosquito breeding. Call {phone} now."
@@ -2253,8 +2313,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/flea-infestation-without-pets",
+                        "text": "Can You Get a Flea Infestation Without Pets?"
+                    },
                     {
                         "url": "/tick-control-{city_slug}",
                         "text": "tick control"
@@ -2286,6 +2351,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2309,7 +2375,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2342,7 +2410,7 @@
             "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas",
             "meta_description_pool": [
                 "Flea Exterminator help in {city_state}: connect with local providers who treat fleas in carpets and pet bedding before infestations spread. Call {phone}.",
-                "Need a flea exterminator near {city_state}? We help you find independent local providers to address flea problems in carpets and bedding. Call {phone}.",
+                "Need a flea exterminator near {city_state}? We help you find local providers to address flea problems in carpets and bedding. Call {phone}.",
                 "Flea Exterminator, {city_state} — get matched with local providers experienced in tackling fleas in carpets and pet areas. Call {phone} today.",
                 "Searching for a flea exterminator in {city_state}? This network connects you to local providers who address flea issues in bedding and carpets. Call {phone}."
             ],
@@ -2556,8 +2624,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/tick-prevention-yard-tips",
+                        "text": "Simple Yard Habits That Reduce Tick Populations"
+                    },
                     {
                         "url": "/flea-exterminator-{city_slug}",
                         "text": "flea extermination"
@@ -2589,6 +2662,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2612,7 +2686,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2646,7 +2722,7 @@
             "meta_description_pool": [
                 "Tick Control in {city_state}: connect with local providers who help reduce tick activity around your property. Call {phone} to get started.",
                 "Need Tick Control near {city_state}? We connect you to local pros who address tick problems before they spread. Call {phone} today.",
-                "Tick Control, {city_state}: find local independent providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
+                "Tick Control, {city_state}: find local providers ready to help manage ticks on your property. Call {phone} for a fast connection.",
                 "Looking for Tick Control in {city_state}? This network links you with local providers who tackle tick issues around your home. Call {phone}."
             ],
             "og_description_pool": [
@@ -2854,8 +2930,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/rodent-proofing-your-home",
+                        "text": "How to Rodent-Proof Your Home This Fall"
+                    },
                     {
                         "url": "/mouse-exterminator-{city_slug}",
                         "text": "mouse exterminator"
@@ -2891,6 +2972,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2914,7 +2996,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2946,10 +3030,10 @@
             "primary_keyword": "Rat Exterminator",
             "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats, mouse exterminator, mouse control, mice control, mice exterminator, mouse removal, get rid of mice",
             "meta_description_pool": [
-                "Rat Exterminator help in {city_state}: get connected fast to local providers who deal with rats damaging wiring, walls, and food. Call {phone}.",
-                "Need a Rat Exterminator near {city_state}? We connect you with independent local providers who respond quickly to rat problems. Call {phone}.",
+                "Rat Exterminator help in {city_state}: connect fast to local providers who deal with rats damaging wiring, walls, and food. Call {phone}.",
+                "Need a Rat Exterminator near {city_state}? We connect you with local providers who respond quickly to rat problems. Call {phone}.",
                 "Rat Exterminator services in {city_state} start with a call to {phone} — we link you to local providers who handle rat issues in homes fast.",
-                "Searching for a Rat Exterminator in {city_state}? Connect quickly with local, independent providers who address rat damage. Call {phone} today."
+                "Searching for a Rat Exterminator in {city_state}? Connect with local, independent providers who address rat damage. Call {phone} today."
             ],
             "og_description_pool": [
                 "Rat Exterminator help in {city_state}: get connected with a local provider offering targeted rat treatment for homes and businesses near you.",
@@ -3156,8 +3240,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/rodent-proofing-your-home",
+                        "text": "How to Rodent-Proof Your Home This Fall"
+                    },
                     {
                         "url": "/rat-exterminator-{city_slug}",
                         "text": "rat exterminator"
@@ -3193,6 +3282,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3216,7 +3306,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3249,9 +3341,9 @@
             "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice, mice extermination",
             "meta_description_pool": [
                 "Mouse Exterminator services in {city_state} connect you with local providers who address mice entering homes for warmth. Call {phone} to get started.",
-                "Need a Mouse Exterminator near {city_state}? We help connect homeowners dealing with mice to responsive local providers in the area. Call {phone}.",
+                "Need a Mouse Exterminator near {city_state}? We help connect homeowners dealing with mice to local providers in the area. Call {phone}.",
                 "Mouse Exterminator help for {city_state} residents: get matched with local providers who handle mice seeking warmth indoors. Call {phone} now.",
-                "Looking for a Mouse Exterminator in {city_state}? We quickly connect you with independent local providers for mouse issues. Call {phone} today."
+                "Looking for a Mouse Exterminator in {city_state}? We quickly connect you with local providers for mouse issues. Call {phone} today."
             ],
             "og_description_pool": [
                 "Mouse Exterminator services in {city_state}: get connected fast with an independent local provider who treats mice issues at homes and businesses.",
@@ -3458,8 +3550,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/spider-infestation-or-normal",
+                        "text": "Is It a Spider Infestation, or Just a Few Spiders?"
+                    },
                     {
                         "url": "/scorpion-pest-control-{city_slug}",
                         "text": "scorpion pest control"
@@ -3491,6 +3588,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3514,7 +3612,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3548,8 +3648,8 @@
             "meta_description_pool": [
                 "Spider Control in {city_state}: connect with local providers who help clear webs and reduce bites from corners and dark spaces. Call {phone}.",
                 "Need Spider Control near {city_state}? We connect you fast to local providers who tackle webs and bite-prone spiders. Call {phone} today.",
-                "Spider Control, {city_state} area: get linked to independent local providers addressing webs and biting spiders in dark corners. Call {phone}.",
-                "Searching for Spider Control in {city_state}? We quickly connect homeowners to local providers who handle webs and spider activity. Call {phone}."
+                "Spider Control, {city_state} area: get linked to local providers addressing webs and biting spiders in dark corners. Call {phone}.",
+                "Searching for Spider Control in {city_state}? We connect homeowners to local providers who handle webs and spider activity. Call {phone}."
             ],
             "og_description_pool": [
                 "Spider Control in {city_state}: {business} connects you with local providers offering targeted treatment for spiders. Call {phone} to get started.",
@@ -3756,6 +3856,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -3789,6 +3890,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3812,7 +3914,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3844,10 +3948,10 @@
             "primary_keyword": "Scorpion Pest Control",
             "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions",
             "meta_description_pool": [
-                "Scorpion Pest Control in {city_state}: connect with local providers who respond quickly to help address scorpion activity around your home. Call {phone}.",
+                "Scorpion Pest Control in {city_state}: connect with local providers who respond to help address scorpion activity around your home. Call {phone}.",
                 "Need Scorpion Pest Control near {city_state}? We connect you with independent local pros who handle scorpion concerns before stings become a risk. Call {phone}.",
                 "Scorpion Pest Control serving {city_state} links you fast to nearby independent providers equipped to tackle scorpion problems at home. Call {phone} today.",
-                "Find Scorpion Pest Control help in {city_state} fast — we connect homeowners with local independent providers who address scorpion risks. Call {phone}."
+                "Find Scorpion Pest Control help in {city_state} fast — we connect homeowners with local providers who address scorpion risks. Call {phone}."
             ],
             "og_description_pool": [
                 "Scorpion Pest Control in {city_state}: {business} connects you with independent local providers offering targeted treatment. Call {phone}.",
@@ -4054,8 +4158,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/wasp-nest-safety-tips",
+                        "text": "What to Do (and Not Do) About a Wasp Nest"
+                    },
                     {
                         "url": "/yellow-jacket-control-{city_slug}",
                         "text": "yellow jacket control"
@@ -4091,6 +4200,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4114,7 +4224,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4146,10 +4258,10 @@
             "primary_keyword": "Wasp Exterminator",
             "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps",
             "meta_description_pool": [
-                "Wasp Exterminator help in {city_state}: get connected with local providers who handle aggressive nests before stings become a risk. Call {phone}.",
+                "Wasp Exterminator help in {city_state}: connect with local providers who handle aggressive nests before stings become a risk. Call {phone}.",
                 "Need a Wasp Exterminator near {city_state}? We connect you fast to independent local pros who deal with risky nests. Call {phone} now.",
                 "Wasp Exterminator services in {city_state} start with one call. We link you to local providers ready to address aggressive nests. Dial {phone}.",
-                "Searching for a Wasp Exterminator in {city_state}? We quickly connect you with local independent providers for aggressive nest issues. Call {phone}."
+                "Searching for a Wasp Exterminator in {city_state}? We quickly connect you with local providers for aggressive nest issues. Call {phone}."
             ],
             "og_description_pool": [
                 "Wasp Exterminator in {city_state}: connect quickly with an independent local provider offering wasp treatment for homes and businesses near you.",
@@ -4356,8 +4468,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/yellow-jackets-vs-bees",
+                        "text": "Yellow Jackets vs. Bees: Know the Difference Before You Act"
+                    },
                     {
                         "url": "/wasp-exterminator-{city_slug}",
                         "text": "wasp exterminator"
@@ -4389,6 +4506,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4412,7 +4530,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4446,7 +4566,7 @@
             "meta_description_pool": [
                 "Yellow Jacket Control in {city_state}: connect with local providers who address territorial nests before outdoor gatherings are at risk. Call {phone}.",
                 "Need Yellow Jacket Control near {city_state}? We connect you with local providers who handle territorial nests fast. Call {phone} today.",
-                "Yellow Jacket Control, {city_state}: get matched quickly with independent local providers who respond to territorial nest concerns. Call {phone}.",
+                "Yellow Jacket Control, {city_state}: get matched quickly with local providers who respond to territorial nest concerns. Call {phone}.",
                 "Find Yellow Jacket Control help in {city_state} fast—our network links you to local providers ready to tackle territorial nests. Call {phone}."
             ]
         },
@@ -4648,8 +4768,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/silverfish-what-they-mean",
+                        "text": "What Silverfish in Your Home Might Be Telling You"
+                    },
                     {
                         "url": "/centipede-control-{city_slug}",
                         "text": "centipede control"
@@ -4681,6 +4806,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4704,7 +4830,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4738,8 +4866,8 @@
             "meta_description_pool": [
                 "Silverfish Control in {city_state}: connect with local providers who address infestations damaging paper, fabrics, and stored goods. Call {phone} today.",
                 "Need Silverfish Control near {city_state}? We help you find local providers fast to tackle pests before they damage fabrics and paper goods. Call {phone}.",
-                "Silverfish Control for {city_state} homes: get matched with independent local providers who handle infestations in humid storage areas. Call {phone} now.",
-                "Searching for Silverfish Control in {city_state}? This service connects you to local providers ready to respond quickly. Call {phone} for help."
+                "Silverfish Control for {city_state} homes: get matched with local providers who handle infestations in humid storage areas. Call {phone} now.",
+                "Searching for Silverfish Control in {city_state}? This service connects you to local providers ready to respond . Call {phone} for help."
             ],
             "og_description_pool": [
                 "Silverfish Control in {city_state} starts here — connect quickly with a local independent provider serving homes and businesses nearby.",
@@ -4946,8 +5074,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/centipedes-in-house-meaning",
+                        "text": "Why You're Seeing Centipedes Indoors"
+                    },
                     {
                         "url": "/silverfish-control-{city_slug}",
                         "text": "silverfish control"
@@ -4979,6 +5112,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5002,7 +5136,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5034,9 +5170,9 @@
             "primary_keyword": "Centipede Control",
             "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes",
             "meta_description_pool": [
-                "Centipede Control in {city_state}: get connected with local providers who address these biting pests, often a sign of deeper infestation. Call {phone}.",
-                "Need Centipede Control near {city_state}? We connect you to independent local providers who handle these biting pests quickly. Call {phone} today.",
-                "{city_state} Centipede Control made simple — we link you to local independent providers who tackle these biting pests. Call {phone} to get started.",
+                "Centipede Control in {city_state}: connect with local providers who address these biting pests, often a sign of deeper infestation. Call {phone}.",
+                "Need Centipede Control near {city_state}? We connect you to local providers who handle these biting pests quickly. Call {phone} today.",
+                "{city_state} Centipede Control made simple — we link you to local providers who tackle these biting pests. Call {phone} to get started.",
                 "Centipede Control for {city_state} homes: find local, independent providers ready to address these biting pests fast. Call {phone} for a connection."
             ],
             "og_description_pool": [
@@ -5244,6 +5380,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -5277,6 +5414,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5300,7 +5438,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5334,7 +5474,7 @@
             "meta_description_pool": [
                 "Cricket Control in {city_state}: get connected to local providers who address indoor chirping and fabric damage. Call {phone} today.",
                 "Need Cricket Control near {city_state}? We connect you fast to independent local pros who handle chirping crickets and fabric damage. Call {phone}.",
-                "Cricket Control for {city_state} homes: quickly find local providers tackling indoor crickets and the fabric damage they cause. Dial {phone}.",
+                "Cricket Control for {city_state} homes: find local providers tackling indoor crickets and the fabric damage they cause. Dial {phone}.",
                 "Stop cricket chirping and fabric damage in {city_state} — our network links you to local Cricket Control providers. Call {phone} now."
             ],
             "og_description_pool": [
@@ -5547,8 +5687,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/stink-bug-season-explained",
+                        "text": "Why Stink Bugs Show Up in the Fall"
+                    },
                     {
                         "url": "/cricket-control-{city_slug}",
                         "text": "cricket control"
@@ -5576,6 +5721,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5599,7 +5745,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5631,10 +5779,10 @@
             "primary_keyword": "Stink Bug Control",
             "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs",
             "meta_description_pool": [
-                "Stink Bug Control in {city_state}: get connected fast with local providers who help manage odor-causing pests. Call {phone} to find help near you.",
-                "Need Stink Bug Control near {city_state}? We connect you with independent local providers who address these plant-damaging, odor-releasing pests. Call {phone}.",
-                "Stink Bug Control, {city_state}: this service links homeowners to local independent providers who tackle stink bug problems quickly. Call {phone} today.",
-                "Searching for Stink Bug Control in {city_state}? We help connect you to responsive local providers who deal with these odorous plant pests. Dial {phone}."
+                "Stink Bug Control in {city_state}: connect fast with local providers who help manage odor-causing pests. Call {phone} to find help near you.",
+                "Need Stink Bug Control near {city_state}? We connect you with local providers who address these plant-damaging, odor-releasing pests. Call {phone}.",
+                "Stink Bug Control, {city_state}: this service links homeowners to local providers who tackle stink bug problems . Call {phone} today.",
+                "Searching for Stink Bug Control in {city_state}? We help connect you to local providers who deal with these odorous plant pests. Dial {phone}."
             ]
         },
         "layout_enabled": true,
@@ -5835,8 +5983,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/wasp-nest-safety-tips",
+                        "text": "What to Do (and Not Do) About a Wasp Nest"
+                    },
                     {
                         "url": "/wasp-exterminator-{city_slug}",
                         "text": "wasp exterminator"
@@ -5872,6 +6025,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5895,7 +6049,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5927,9 +6083,9 @@
             "primary_keyword": "Wasp Nest Removal",
             "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator, wasp exterminator, wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps, hornet removal, hornet exterminator, hornet nest removal, hornet control, get rid of hornets, yellow jacket control, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets",
             "meta_description_pool": [
-                "Wasp Nest Removal in {city_state}: get connected with local providers who handle wasp, hornet, and yellow jacket nests. Call {phone} today.",
+                "Wasp Nest Removal in {city_state}: connect with local providers who handle wasp, hornet, and yellow jacket nests. Call {phone} today.",
                 "Need Wasp Nest Removal near {city_state}? We connect you fast with independent local pros for wasp, hornet, and yellow jacket nests. Call {phone}.",
-                "Wasp Nest Removal, {city_state} — quickly find local providers to address wasp, hornet, and yellow jacket nests before colonies grow. Call {phone}.",
+                "Wasp Nest Removal, {city_state} — find local providers to address wasp, hornet, and yellow jacket nests before colonies grow. Call {phone}.",
                 "Looking for Wasp Nest Removal in {city_state}? This service links you to local providers who tackle wasp, hornet, and yellow jacket nests. Call {phone}."
             ]
         },
@@ -6131,6 +6287,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -6164,6 +6321,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6187,7 +6345,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6423,8 +6583,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/yellow-jackets-vs-bees",
+                        "text": "Yellow Jackets vs. Bees: Know the Difference Before You Act"
+                    },
                     {
                         "url": "/wasp-nest-removal-{city_slug}",
                         "text": "wasp nest removal"
@@ -6456,6 +6621,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6479,7 +6645,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6512,9 +6680,9 @@
             "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control",
             "meta_description_pool": [
                 "Bee Removal in {city_state}: connect with local providers who handle colonies safely, balancing pollinator care with your household's safety. Call {phone}.",
-                "Need Bee Removal near {city_state}? We connect you to independent local providers experienced in humane colony handling. Call {phone} for a fast referral.",
+                "Need Bee Removal near {city_state}? We connect you to local providers experienced in humane colony handling. Call {phone} for a fast referral.",
                 "Bee Removal services for {city_state} homes: get matched with nearby providers who address colonies with care for people and pollinators alike. Call {phone}.",
-                "Searching for Bee Removal in {city_state}? We link you to responsive local providers who manage colonies with safety and pollinators in mind. Call {phone}."
+                "Searching for Bee Removal in {city_state}? We link you to local providers who manage colonies with safety and pollinators in mind. Call {phone}."
             ],
             "og_description_pool": [
                 "Bee Removal in {city_state}: connect quickly with an independent local provider who handles bee issues at homes and businesses nearby.",
@@ -6754,8 +6922,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/signs-of-termite-infestation",
+                        "text": "Early Signs of a Termite Infestation"
+                    },
+                    {
+                        "url": "/blog/ants-vs-termites-how-to-tell",
+                        "text": "Ants or Termites? How to Tell the Difference"
+                    },
                     {
                         "url": "/termite-treatment-{city_slug}",
                         "text": "termite treatment"
@@ -6787,6 +6964,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6810,7 +6988,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7080,8 +7260,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/diy-pest-control-when-to-call-pro",
+                        "text": "DIY Pest Control: When It Works and When to Call a Professional"
+                    },
+                    {
+                        "url": "/blog/sealing-entry-points-pests",
+                        "text": "How to Seal the Entry Points Pests Use to Get Inside"
+                    },
                     {
                         "url": "/termite-inspection-{city_slug}",
                         "text": "termite inspection"
@@ -7113,6 +7302,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7136,7 +7326,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7168,10 +7360,10 @@
             "primary_keyword": "Pest Inspection",
             "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost",
             "meta_description_pool": [
-                "Pest Inspection in {city_state}: get connected with local providers who check for entry points and conditions that attract infestations. Call {phone}.",
+                "Pest Inspection in {city_state}: connect with local providers who check for entry points and conditions that attract infestations. Call {phone}.",
                 "Need a Pest Inspection near {city_state}? We connect you fast with local providers who assess entry points and risk factors. Call {phone} today.",
                 "Pest Inspection services for {city_state} homes: find local, independent providers to spot entry points and infestation-prone conditions. Call {phone}.",
-                "Looking for a Pest Inspection in {city_state}? We'll connect you with responsive local providers to evaluate entry points and risks. Call {phone}."
+                "Looking for a Pest Inspection in {city_state}? We'll connect you with local providers to evaluate entry points and risks. Call {phone}."
             ],
             "og_description_pool": [
                 "Pest Inspection in {city_state}: {business} connects you with local providers for a thorough on-site inspection and written report of findings. Call {phone}.",
@@ -7410,8 +7602,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/termite-damage-vs-water-damage",
+                        "text": "Termite Damage or Water Damage? How to Tell"
+                    },
+                    {
+                        "url": "/blog/pest-inspection-home-buying",
+                        "text": "Why a Pest Inspection Matters When Buying a Home"
+                    },
                     {
                         "url": "/termite-inspection-{city_slug}",
                         "text": "termite inspection"
@@ -7443,6 +7644,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7466,7 +7668,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7498,9 +7702,9 @@
             "primary_keyword": "WDI Inspection",
             "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection",
             "meta_description_pool": [
-                "WDI Inspection services in {city_state}: get connected with local providers who document wood-destroying insect damage for real estate deals. Call {phone}.",
-                "Need a WDI Inspection near {city_state}? We connect you fast with independent local providers who handle wood-destroying insect documentation. Call {phone}.",
-                "{city_state} WDI Inspection help starts here—quickly reach local providers who assess and document wood-destroying insect damage. Call {phone} today.",
+                "WDI Inspection services in {city_state}: connect with local providers who document wood-destroying insect damage for real estate deals. Call {phone}.",
+                "Need a WDI Inspection near {city_state}? We connect you fast with local providers who handle wood-destroying insect documentation. Call {phone}.",
+                "{city_state} WDI Inspection help starts here—reach local providers who assess and document wood-destroying insect damage. Call {phone} today.",
                 "Looking for a WDI Inspection in {city_state}? This network links you to local providers who document wood-destroying insect damage for real estate needs. Call {phone}."
             ],
             "og_description_pool": [
@@ -7709,8 +7913,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/seasonal-pest-activity-guide",
+                        "text": "How Pest Activity Changes With the Seasons"
+                    },
+                    {
+                        "url": "/blog/diy-pest-control-when-to-call-pro",
+                        "text": "DIY Pest Control: When It Works and When to Call a Professional"
+                    },
                     {
                         "url": "/pest-control-plans-{city_slug}",
                         "text": "pest control plans"
@@ -7746,6 +7959,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7769,7 +7983,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7802,7 +8018,7 @@
             "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control",
             "meta_description_pool": [
                 "Residential Pest Control in {city_state}: connect with local providers who respond fast to keep household pests away. Call {phone} to get started.",
-                "Looking for Residential Pest Control near {city_state}? We'll connect you with responsive local providers ready to help. Call {phone} today.",
+                "Looking for Residential Pest Control near {city_state}? We'll connect you with local providers ready to help. Call {phone} today.",
                 "{city_state} homeowners can find Residential Pest Control help fast—we connect you to independent local providers. Call {phone} now.",
                 "Get matched with local Residential Pest Control providers serving {city_state}, ready to address pest issues quickly. Call {phone}."
             ],
@@ -8012,8 +8228,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/pest-control-and-food-safety",
+                        "text": "Why Pest Control Matters for Restaurants and Food Businesses"
+                    },
                     {
                         "url": "/restaurant-pest-control-{city_slug}",
                         "text": "restaurant pest control"
@@ -8049,6 +8270,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8072,7 +8294,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8105,9 +8329,9 @@
             "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control",
             "meta_description_pool": [
                 "Commercial Pest Control in {city_state}: connect with local providers ready to help protect your business from infestations. Call {phone} today.",
-                "Need Commercial Pest Control near {city_state}? We'll connect you to independent local providers who respond fast to protect your reputation. Call {phone}.",
+                "Need Commercial Pest Control near {city_state}? We'll connect you to local providers who respond fast to protect your reputation. Call {phone}.",
                 "Commercial Pest Control, {city_state}: find local providers through our network to address infestations before they become code violations. Call {phone}.",
-                "Businesses in {city_state} seeking Commercial Pest Control can connect with responsive local providers in our network. Call {phone} for help."
+                "Businesses in {city_state} seeking Commercial Pest Control can connect with local providers in our network. Call {phone} for help."
             ],
             "og_description_pool": [
                 "Commercial Pest Control in {city_state}: {business} connects you with local providers offering fast response and recurring service options. Call {phone}.",
@@ -8314,6 +8538,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -8351,6 +8576,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8374,7 +8600,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8406,9 +8634,9 @@
             "primary_keyword": "Emergency Pest Control",
             "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator",
             "meta_description_pool": [
-                "Emergency Pest Control in {city_state}: get connected fast to local providers ready to respond when infestations strike. Call {phone} today.",
+                "Emergency Pest Control in {city_state}: connect fast to local providers ready to respond when infestations strike. Call {phone} today.",
                 "Need Emergency Pest Control near {city_state}? We connect you quickly with independent local providers who respond fast. Call {phone}.",
-                "{city_state} Emergency Pest Control starts with a quick connection to responsive local providers in your area. Call {phone} to get started.",
+                "{city_state} Emergency Pest Control starts with a quick connection to local providers in your area. Call {phone} to get started.",
                 "Facing a sudden infestation in {city_state}? Our network links you to local Emergency Pest Control providers fast. Call {phone} now."
             ],
             "og_description_pool": [
@@ -8616,8 +8844,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/pest-control-and-food-safety",
+                        "text": "Why Pest Control Matters for Restaurants and Food Businesses"
+                    },
                     {
                         "url": "/commercial-pest-control-{city_slug}",
                         "text": "commercial pest control"
@@ -8649,6 +8882,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8672,7 +8906,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8704,10 +8940,10 @@
             "primary_keyword": "Restaurant Pest Control",
             "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control",
             "meta_description_pool": [
-                "Restaurant Pest Control in {city_state}: get connected fast to local providers who help food service businesses avoid infestations, closures, and fines. Call {phone}.",
-                "Need Restaurant Pest Control near {city_state}? We connect you quickly with independent local providers serving food businesses at risk of pest-related shutdowns. Call {phone}.",
+                "Restaurant Pest Control in {city_state}: connect fast to local providers who help food service businesses avoid infestations, closures, and fines. Call {phone}.",
+                "Need Restaurant Pest Control near {city_state}? We connect you with local providers serving food businesses at risk of pest-related shutdowns. Call {phone}.",
                 "Restaurant Pest Control, {city_state} — find local providers ready to help protect your food service business from infestation issues and fines. Call {phone} now.",
-                "Searching for Restaurant Pest Control in {city_state}? This connects you to independent local providers who assist restaurants in avoiding pest-related closures. Call {phone}."
+                "Searching for Restaurant Pest Control in {city_state}? This connects you to local providers who assist restaurants in avoiding pest-related closures. Call {phone}."
             ],
             "og_description_pool": [
                 "Restaurant Pest Control in {city_state}: {business} connects you with local providers for fast response and recurring service options. Call {phone}.",
@@ -8942,6 +9178,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -8975,6 +9212,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8998,7 +9236,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9030,9 +9270,9 @@
             "primary_keyword": "Pest Control Plans",
             "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans",
             "meta_description_pool": [
-                "Pest Control Plans in {city_state}: get connected to local providers offering ongoing service to help prevent infestations. Call {phone} today.",
+                "Pest Control Plans in {city_state}: connect to local providers offering ongoing service to help prevent infestations. Call {phone} today.",
                 "Looking for Pest Control Plans near {city_state}? We connect you with local providers who offer ongoing service instead of one-time fixes. Call {phone}.",
-                "{city_state} Pest Control Plans start with a call to {phone} — we'll connect you to independent local providers for ongoing prevention service.",
+                "{city_state} Pest Control Plans start with a call to {phone} — we'll connect you to local providers for ongoing prevention service.",
                 "Find Pest Control Plans serving {city_state} through our local referral network, linking you to providers offering ongoing care. Dial {phone} now."
             ],
             "og_description_pool": [
@@ -9267,6 +9507,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9296,6 +9537,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9319,7 +9561,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9351,10 +9595,10 @@
             "primary_keyword": "Bed Bug Inspection",
             "secondary_keywords": "bed bug check, bed bug detection, do i have bed bugs, bed bug inspection before buying furniture",
             "meta_description_pool": [
-                "Bed Bug Inspection in {city_state}: get connected with local providers who check common hiding spots before any treatment begins. Call {phone}.",
+                "Bed Bug Inspection in {city_state}: connect with local providers who check common hiding spots before any treatment begins. Call {phone}.",
                 "Need a Bed Bug Inspection near {city_state}? We connect you fast with local providers who identify what's actually in your home. Call {phone}.",
                 "Bed Bug Inspection services for {city_state} homes: find out what's really there before treatment, through local providers we connect you to. Call {phone}.",
-                "Looking for a Bed Bug Inspection in {city_state}? We link you to independent local providers who check the spots bed bugs hide. Call {phone} now."
+                "Looking for a Bed Bug Inspection in {city_state}? We link you to local providers who check the spots bed bugs hide. Call {phone} now."
             ],
             "og_description_pool": [
                 "Bed Bug Inspection in {city_state}: {business} connects you with local providers who check common hiding spots and give you a clear answer. Call {phone}.",
@@ -9587,6 +9831,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9616,6 +9861,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9639,7 +9885,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9672,7 +9920,7 @@
             "secondary_keywords": "pest control price, how much does pest control cost, pest control quote, average pest control cost",
             "meta_description_pool": [
                 "Pest Control Cost in {city_state} varies by pest type, severity, and service frequency — connect with local providers now. Call {phone}.",
-                "Wondering about Pest Control Cost in {city_state}? We connect you with independent local providers for one-time or ongoing service. Call {phone}.",
+                "Wondering about Pest Control Cost in {city_state}? We connect you with local providers for one-time or ongoing service. Call {phone}.",
                 "Pest Control Cost depends on pest type and severity. Get connected to local {city_state} providers fast — call {phone} today.",
                 "Get a sense of Pest Control Cost near {city_state}: pricing varies by pest and plan. We link you to local providers. Call {phone}."
             ],
@@ -9878,6 +10126,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9911,6 +10160,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9934,7 +10184,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9966,10 +10218,10 @@
             "primary_keyword": "Rodent Control",
             "secondary_keywords": "rodent exterminator, rat control, mouse control, rat exterminator, mouse exterminator, get rid of rodents, rodent removal, rodent infestation",
             "meta_description_pool": [
-                "Rodent Control in {city_state}: get connected fast to local providers who deal with rats and mice damaging wiring, walls, and food. Call {phone}.",
-                "Need Rodent Control near {city_state}? We connect you with independent local providers who respond quickly to rat and mouse problems. Call {phone}.",
+                "Rodent Control in {city_state}: connect fast to local providers who deal with rats and mice damaging wiring, walls, and food. Call {phone}.",
+                "Need Rodent Control near {city_state}? We connect you with local providers who respond quickly to rat and mouse problems. Call {phone}.",
                 "Rodent Control services in {city_state} start with a call to {phone} — we link you to local providers who handle rodent issues in homes fast.",
-                "Searching for Rodent Control in {city_state}? Connect quickly with local, independent providers who address rodent damage. Call {phone} today."
+                "Searching for Rodent Control in {city_state}? Connect with local, independent providers who address rodent damage. Call {phone} today."
             ],
             "og_description_pool": [
                 "Rodent Control help in {city_state}: get connected with a local provider offering targeted rat and mouse treatment for homes and businesses near you.",
@@ -10181,6 +10433,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10214,6 +10467,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10237,7 +10491,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10269,10 +10525,10 @@
             "primary_keyword": "Termite Fumigation",
             "secondary_keywords": "tent fumigation, whole-home termite fumigation, termite tenting, structural fumigation, termite tent treatment",
             "meta_description_pool": [
-                "Termite Fumigation in {city_state}: get connected fast to local providers who handle whole-home tenting for severe termite activity. Call {phone} today.",
-                "Need Termite Fumigation near {city_state}? We connect you with local, responsive providers who tent and treat the entire structure. Call {phone}.",
-                "Termite Fumigation, {city_state}: quickly find local independent providers ready to address severe termite infestations. Call {phone} to get connected now.",
-                "Searching for Termite Fumigation in {city_state}? We link you to responsive local providers who tent and treat homes before costly damage occurs. Call {phone}."
+                "Termite Fumigation in {city_state}: connect fast to local providers who handle whole-home tenting for severe termite activity. Call {phone} today.",
+                "Need Termite Fumigation near {city_state}? We connect you with local, providers who tent and treat the entire structure. Call {phone}.",
+                "Termite Fumigation, {city_state}: quickly find local providers ready to address severe termite infestations. Call {phone} to connect now.",
+                "Searching for Termite Fumigation in {city_state}? We link you to local providers who tent and treat homes before costly damage occurs. Call {phone}."
             ],
             "og_description_pool": [
                 "Termite Fumigation in {city_state} starts with a quick connection to an independent local provider serving homes and businesses in your area.",
@@ -10479,6 +10735,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10512,6 +10769,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10535,7 +10793,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10567,9 +10827,9 @@
             "primary_keyword": "Bed Bug Heat Treatment",
             "secondary_keywords": "bed bug thermal treatment, heat treatment for bed bugs, chemical-free bed bug treatment, whole room heat treatment, bed bug heat remediation",
             "meta_description_pool": [
-                "Bed Bug Heat Treatment in {city_state}: get connected fast to local providers who use chemical-free heat to eliminate infestations. Call {phone} today.",
-                "Need Bed Bug Heat Treatment near {city_state}? We connect you with local, responsive providers who treat every life stage in one visit. Call {phone}.",
-                "Bed Bug Heat Treatment, {city_state}: quickly find local independent providers ready to address bed bug problems. Call {phone} to get connected now.",
+                "Bed Bug Heat Treatment in {city_state}: connect fast to local providers who use chemical-free heat to eliminate infestations. Call {phone} today.",
+                "Need Bed Bug Heat Treatment near {city_state}? We connect you with local, providers who treat every life stage in one visit. Call {phone}.",
+                "Bed Bug Heat Treatment, {city_state}: quickly find local providers ready to address bed bug problems. Call {phone} to get connected now.",
                 "Searching for Bed Bug Heat Treatment in {city_state}? We link you to responsive local providers who clear infestations fast. Call {phone}."
             ],
             "og_description_pool": [
@@ -10782,6 +11042,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10815,6 +11076,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Pest Control Company",
+                "cards_heading_pool": ["Verify Your {city_state} Pest Control Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10838,7 +11100,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve in {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10870,9 +11134,9 @@
             "primary_keyword": "Flea and Tick Yard Treatment",
             "secondary_keywords": "flea and tick control, flea and tick lawn treatment, outdoor flea and tick treatment, yard pest control, flea and tick spray",
             "meta_description_pool": [
-                "Flea and Tick Yard Treatment in {city_state}: get connected fast to local providers who treat lawns before pets or people are affected. Call {phone} today.",
-                "Need Flea and Tick Yard Treatment near {city_state}? We connect you with local, responsive providers who treat outdoor breeding areas. Call {phone}.",
-                "Flea and Tick Yard Treatment, {city_state}: quickly find local independent providers ready to address yard infestations. Call {phone} to get connected now.",
+                "Flea and Tick Yard Treatment in {city_state}: connect fast to local providers who treat lawns before pets or people are affected. Call {phone} today.",
+                "Need Flea and Tick Yard Treatment near {city_state}? We connect you with local, providers who treat outdoor breeding areas. Call {phone}.",
+                "Flea and Tick Yard Treatment, {city_state}: quickly find local providers ready to address yard infestations. Call {phone} to connect now.",
                 "Searching for Flea and Tick Yard Treatment in {city_state}? We link you to responsive local providers who clear yards fast. Call {phone}."
             ],
             "og_description_pool": [
