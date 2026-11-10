@@ -110,33 +110,41 @@ function ms_pick_font(string $masterId, array $params): string {
 
 /**
  * Load this master's Logo Library (array, or []) — each entry already carries
- * the library's shared line1/2 text+color (merged in here), so every caller
- * downstream (ms_pick_logo_config(), ms_resolve_logo_lines(), the admin
- * panel's own re-read of this same function) sees one consistent shape
+ * the library's shared, ACTIVE line1/2 text+color (merged in here), so every
+ * caller downstream (ms_pick_logo_config(), ms_resolve_logo_lines(), the
+ * admin panel's own re-read of this same function) sees one consistent shape
  * without needing to know the text settings live separately from the icon.
  *
  * Line 1/2 text+color apply to the WHOLE library, not per logo (changed
  * 2026-11-10 — previously each of the up-to-10 entries duplicated these 6
  * fields, which drifted out of sync and needed hand-editing every entry to
  * change consistently, e.g. switching the whole library to a word1/rest
- * split). Old-format files (saved before this existed, no top-level 'text'
- * key) fall back to the historical per-logo defaults so nothing breaks
- * before a resave; the array-union below gives $shared's 6 keys priority
- * over anything stale still sitting on an individual entry.
+ * split), saved as TWO arrangements ("Option 1"/"Option 2", added same day)
+ * with one `active` flag picking which applies — only the active one is
+ * merged onto every entry here; the inactive one just sits on file until
+ * picked. Old-format files (saved before Option 1/2 existed, no top-level
+ * 'options' key under 'text') fall back to treating the old flat 'text'
+ * object as Option 1 so nothing breaks before a resave; the array-union below
+ * gives $shared's 6 keys priority over anything stale still sitting on an
+ * individual entry.
  */
 function ms_load_logo_configs(string $masterId): array {
     $file = BASE_DIR . '/sites/' . $masterId . '/multisite/logo_configs.json';
     $ld = @json_decode((string)@file_get_contents($file), true);
     $logos = is_array($ld['logos'] ?? null) ? array_values($ld['logos']) : [];
     if (!$logos) return [];
-    $text = is_array($ld['text'] ?? null) ? $ld['text'] : [];
+    $textDoc = is_array($ld['text'] ?? null) ? $ld['text'] : [];
+    $options = is_array($textDoc['options'] ?? null) ? array_values($textDoc['options']) : null;
+    if ($options === null) $options = [$textDoc, $textDoc]; // pre-Option-1/2 flat shape
+    $active = in_array((int)($textDoc['active'] ?? 1), [1, 2], true) ? (int)($textDoc['active'] ?? 1) : 1;
+    $chosen = is_array($options[$active - 1] ?? null) ? $options[$active - 1] : [];
     $shared = [
-        'line1_source' => (string)($text['line1_source'] ?? 'business'),
-        'line1_custom' => (string)($text['line1_custom'] ?? ''),
-        'line1_color'  => ($text['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
-        'line2_source' => (string)($text['line2_source'] ?? 'city'),
-        'line2_custom' => (string)($text['line2_custom'] ?? ''),
-        'line2_color'  => ($text['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+        'line1_source' => (string)($chosen['line1_source'] ?? 'business'),
+        'line1_custom' => (string)($chosen['line1_custom'] ?? ''),
+        'line1_color'  => ($chosen['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
+        'line2_source' => (string)($chosen['line2_source'] ?? 'city'),
+        'line2_custom' => (string)($chosen['line2_custom'] ?? ''),
+        'line2_color'  => ($chosen['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
     ];
     foreach ($logos as &$l) $l = $shared + $l;
     unset($l);

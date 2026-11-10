@@ -6,16 +6,18 @@
  * color theme are picked independently (see ms_pick_logo_config() /
  * ms_pick_theme_preset() in includes/multisite/visual.php).
  *
- * Line 1/2 text+color apply to the WHOLE library (one shared 'text' block),
- * not per logo (changed 2026-11-10) — see ms_load_logo_configs()'s own
- * docblock for why. Each posted logo entry carries only icon/name/rotation;
- * any line1/2 fields on an individual entry are ignored on purpose, not
- * merely unused, so an old client POSTing the pre-change shape can't
- * accidentally resurrect per-entry drift.
+ * Line 1/2 text+color apply to the WHOLE library, not per logo (changed
+ * 2026-11-10) — see ms_load_logo_configs()'s own docblock for why. Each
+ * posted logo entry carries only icon/name/rotation; any line1/2 fields on an
+ * individual entry are ignored on purpose, not merely unused, so an old
+ * client POSTing the pre-change shape can't accidentally resurrect per-entry
+ * drift. Saved as TWO arrangements ("Option 1"/"Option 2", same day) plus
+ * which one is active — both stay on file regardless of which is active.
  *
  * POST: csrf_token, logos = JSON [{name, icon, icon_bg, in_rotation}, …],
- *       text = JSON {line1_source, line1_custom, line1_color, line2_source,
- *       line2_custom, line2_color}, single_logo_id
+ *       text = JSON {active: 1|2, options: [{line1_source, line1_custom,
+ *       line1_color, line2_source, line2_custom, line2_color}, {…}]},
+ *       single_logo_id
  */
 require_once __DIR__ . '/../config.php';
 header('Content-Type: application/json');
@@ -52,18 +54,29 @@ foreach ($in as $l) {
 }
 if (!$logos) { echo json_encode(['ok' => false, 'error' => 'No valid logo configs.']); exit; }
 
-// Shared line1/2 text+color for the WHOLE library (one object, not per entry
-// — see ms_load_logo_configs()'s docblock). Same validation the per-entry
-// fields used to get, just run once.
+// Shared line1/2 text+color for the WHOLE library, as two saved options (not
+// per entry — see ms_load_logo_configs()'s docblock). Same validation the
+// per-entry fields used to get, just run once per option.
+function ll_save_normalize_option($o, array $validSources): array {
+    $o = is_array($o) ? $o : [];
+    return [
+        'line1_source' => in_array($o['line1_source'] ?? '', $validSources, true) ? $o['line1_source'] : 'business',
+        'line1_custom' => mb_substr(trim((string)($o['line1_custom'] ?? '')), 0, 60),
+        'line1_color'  => ($o['line1_color'] ?? '') === 'dark'   ? 'dark'   : 'accent',
+        'line2_source' => in_array($o['line2_source'] ?? '', $validSources, true) ? $o['line2_source'] : 'city',
+        'line2_custom' => mb_substr(trim((string)($o['line2_custom'] ?? '')), 0, 60),
+        'line2_color'  => ($o['line2_color'] ?? '') === 'accent' ? 'accent' : 'dark',
+    ];
+}
 $t = json_decode($_POST['text'] ?? '', true);
 if (!is_array($t)) $t = [];
+$tOptions = is_array($t['options'] ?? null) ? array_values($t['options']) : [];
 $text = [
-    'line1_source' => in_array($t['line1_source'] ?? '', $validSources, true) ? $t['line1_source'] : 'business',
-    'line1_custom' => mb_substr(trim((string)($t['line1_custom'] ?? '')), 0, 60),
-    'line1_color'  => ($t['line1_color'] ?? '') === 'dark'   ? 'dark'   : 'accent',
-    'line2_source' => in_array($t['line2_source'] ?? '', $validSources, true) ? $t['line2_source'] : 'city',
-    'line2_custom' => mb_substr(trim((string)($t['line2_custom'] ?? '')), 0, 60),
-    'line2_color'  => ($t['line2_color'] ?? '') === 'accent' ? 'accent' : 'dark',
+    'active'  => in_array((int)($t['active'] ?? 1), [1, 2], true) ? (int)($t['active'] ?? 1) : 1,
+    'options' => [
+        ll_save_normalize_option($tOptions[0] ?? [], $validSources),
+        ll_save_normalize_option($tOptions[1] ?? [], $validSources),
+    ],
 ];
 
 $file     = ACTIVE_SITE_DIR . '/multisite/logo_configs.json';
@@ -75,7 +88,7 @@ $singleId = isset($_POST['single_logo_id']) && ctype_digit((string)$_POST['singl
 if ($singleId > count($logos)) $singleId = 0;   // stale id (config removed) → clear
 
 $doc = [
-    '_about' => $existing['_about'] ?? 'Per-site Logo Library. Each config = icon only (text/name/rotation) — independent of the Visual Identity color presets. `text` = the ONE shared line1/2 source+color applied to every config in this library. `single_logo_id` = the config applied to THIS site; `in_rotation` per config = whether the multisite build rotates through it when generating clones.',
+    '_about' => $existing['_about'] ?? 'Per-site Logo Library. Each config = icon only (text/name/rotation) — independent of the Visual Identity color presets. `text` = two saved line1/2 source+color arrangements ("Option 1"/"Option 2") shared by every config in this library, plus `active` (1 or 2) picking which one applies. `single_logo_id` = the config applied to THIS site; `in_rotation` per config = whether the multisite build rotates through it when generating clones.',
     'single_logo_id' => $singleId,
     'text' => $text,
     'logos' => $logos,

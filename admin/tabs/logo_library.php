@@ -27,16 +27,33 @@ foreach (($llDoc['logos'] ?? []) as $l) {
         'in_rotation' => array_key_exists('in_rotation', $l) ? (bool)$l['in_rotation'] : true,
     ];
 }
-// Line 1/2 text+color apply to the WHOLE library, one shared block — not per
-// logo (changed 2026-11-10, see ms_load_logo_configs()'s docblock for why).
+// Line 1/2 text+color apply to the WHOLE library (changed 2026-11-10, see
+// ms_load_logo_configs()'s docblock) — as TWO saved arrangements ("Option 1"/
+// "Option 2", added same day), one tick picking which is currently applied.
+// Both stay saved regardless of which is active, so flipping the tick back
+// and forth never loses the other one's settings.
+function ll_normalize_text_option(array $o): array {
+    return [
+        'line1_source' => (string)($o['line1_source'] ?? 'business'),
+        'line1_custom' => (string)($o['line1_custom'] ?? ''),
+        'line1_color'  => ($o['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
+        'line2_source' => (string)($o['line2_source'] ?? 'city'),
+        'line2_custom' => (string)($o['line2_custom'] ?? ''),
+        'line2_color'  => ($o['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+    ];
+}
 $llTextRaw = is_array($llDoc['text'] ?? null) ? $llDoc['text'] : [];
+$llTextOptionsRaw = is_array($llTextRaw['options'] ?? null) ? array_values($llTextRaw['options']) : null;
+// Pre-Option-1/2 flat shape (saved before this existed) — treat it as Option
+// 1's starting values so nothing changes on first load after this ships;
+// Option 2 starts as a copy to edit from.
+if ($llTextOptionsRaw === null) $llTextOptionsRaw = [$llTextRaw, $llTextRaw];
 $llText = [
-    'line1_source' => (string)($llTextRaw['line1_source'] ?? 'business'),
-    'line1_custom' => (string)($llTextRaw['line1_custom'] ?? ''),
-    'line1_color'  => ($llTextRaw['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent',
-    'line2_source' => (string)($llTextRaw['line2_source'] ?? 'city'),
-    'line2_custom' => (string)($llTextRaw['line2_custom'] ?? ''),
-    'line2_color'  => ($llTextRaw['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark',
+    'active'  => in_array((int)($llTextRaw['active'] ?? 1), [1, 2], true) ? (int)($llTextRaw['active'] ?? 1) : 1,
+    'options' => [
+        ll_normalize_text_option($llTextOptionsRaw[0] ?? []),
+        ll_normalize_text_option($llTextOptionsRaw[1] ?? ($llTextOptionsRaw[0] ?? [])),
+    ],
 ];
 $llIcons = [];
 foreach (glob(ACTIVE_SITE_DIR . '/multisite/icons/*.svg') ?: [] as $f) $llIcons[] = basename($f);
@@ -78,17 +95,9 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked configs when generating clone sites (or a row's <code>logo_config</code> column overrides) — independently of which color preset each clone gets.</li>
     </ul>
     <div style="border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:14px;background:#f8fafc;">
-        <div style="font-weight:600;font-size:.9rem;margin-bottom:8px;">Line 1 / Line 2 — applies to every logo below</div>
-        <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;">
-            <div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 1</label><span id="ll-text-line1-select"></span></div>
-            <div style="flex:1;min-width:160px;"><input type="text" id="ll-text-line1-custom" placeholder="Custom text…" style="display:none;width:100%;"></div>
-            <div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label><span id="ll-text-line1-color"></span></div>
-        </div>
-        <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-top:8px;">
-            <div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 2</label><span id="ll-text-line2-select"></span></div>
-            <div style="flex:1;min-width:160px;"><input type="text" id="ll-text-line2-custom" placeholder="Custom text…" style="display:none;width:100%;"></div>
-            <div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label><span id="ll-text-line2-color"></span></div>
-        </div>
+        <div style="font-weight:600;font-size:.9rem;margin-bottom:10px;">Line 1 / Line 2 — applies to every logo below. Tick which option is active; both stay saved either way.</div>
+        <div id="ll-text-opt-1" style="margin-bottom:10px;"></div>
+        <div id="ll-text-opt-2"></div>
     </div>
     <?php if (!$llIcons): ?>
         <p class="hint" style="color:#b45309;">No brand icons yet — add SVGs in the <strong>Brand icons</strong> card above. Until then logos render as a wordmark only.</p>
@@ -110,7 +119,7 @@ $llCity     = trim((string)($siteVars['city']     ?? '')) ?: 'Lufkin';
 
 <script>
 var LL        = <?= json_encode($llLogos, JSON_UNESCAPED_SLASHES) ?>;
-var LL_TEXT   = <?= json_encode($llText, JSON_UNESCAPED_SLASHES) ?>;   // shared line1/2 text+color, applies to every logo below
+var LL_TEXT   = <?= json_encode($llText, JSON_UNESCAPED_SLASHES) ?>;   // {active:1|2, options:[{line1_source,...},{...}]} — the ACTIVE option applies to every logo below
 var LL_ICONS  = <?= json_encode($llIcons, JSON_UNESCAPED_SLASHES) ?>;
 var LL_TOPBG  = <?= json_encode($llTopBg) ?>;
 var LL_NAVBG  = <?= json_encode($llNavBg) ?>;
@@ -134,16 +143,18 @@ function llResolveSource(source, custom){
     if (source === 'business_rest')  return llBizRest();
     return LL_BIZ;
 }
+function llActiveText(){ return LL_TEXT.options[LL_TEXT.active - 1]; }
 function llPreviewSrc(i, type){
     var p = LL[i];
+    var t = llActiveText();
     return 'visual_preview.php?type=' + type
         + '&accent=' + encodeURIComponent(LL_ACCENT)
         + '&dark='   + encodeURIComponent(LL_DARK)
         + '&icon='   + encodeURIComponent(p.icon || '')
-        + '&line1='  + encodeURIComponent(llResolveSource(LL_TEXT.line1_source, LL_TEXT.line1_custom))
-        + '&line2='  + encodeURIComponent(llResolveSource(LL_TEXT.line2_source, LL_TEXT.line2_custom))
-        + '&line1_color=' + encodeURIComponent(LL_TEXT.line1_color || 'accent')
-        + '&line2_color=' + encodeURIComponent(LL_TEXT.line2_color || 'dark')
+        + '&line1='  + encodeURIComponent(llResolveSource(t.line1_source, t.line1_custom))
+        + '&line2='  + encodeURIComponent(llResolveSource(t.line2_source, t.line2_custom))
+        + '&line1_color=' + encodeURIComponent(t.line1_color || 'accent')
+        + '&line2_color=' + encodeURIComponent(t.line2_color || 'dark')
         + '&icon_bg='     + encodeURIComponent(p.icon_bg || 'dark')
         + '&_='      + llBust;
 }
@@ -255,29 +266,56 @@ function llPayload(){
     fd.append('single_logo_id', LL_SINGLE >= 0 ? (LL_SINGLE + 1) : 0);
     return fd;
 }
-// The shared Line 1/Line 2 block above the library — one control set, not one
-// per logo (see LL_TEXT's own comment). Rendered once; its two selects use the
-// same llSourceSelect()/llColorSelect() helpers every per-card field used to.
-function llRenderText(){
-    document.getElementById('ll-text-line1-select').innerHTML = llSourceSelect('text','line1',LL_TEXT.line1_source);
-    document.getElementById('ll-text-line2-select').innerHTML = llSourceSelect('text','line2',LL_TEXT.line2_source);
-    document.getElementById('ll-text-line1-color').innerHTML  = llColorSelect('text','line1',LL_TEXT.line1_color);
-    document.getElementById('ll-text-line2-color').innerHTML  = llColorSelect('text','line2',LL_TEXT.line2_color);
-    var c1 = document.getElementById('ll-text-line1-custom'), c2 = document.getElementById('ll-text-line2-custom');
-    c1.value = LL_TEXT.line1_custom; c1.style.display = LL_TEXT.line1_source === 'custom' ? '' : 'none';
-    c2.value = LL_TEXT.line2_custom; c2.style.display = LL_TEXT.line2_source === 'custom' ? '' : 'none';
-    document.querySelectorAll('#ll-text-line1-select select, #ll-text-line2-select select, #ll-text-line1-color select, #ll-text-line2-color select')
+// Two saved Line 1/Line 2 arrangements above the library ("Option 1"/"Option
+// 2") — a radio tick picks which is ACTIVE (applies to every logo below);
+// both stay saved either way, so flipping the tick back never loses the
+// other one's settings. llTextOptionHtml(n) is the same markup rendered
+// twice, parameterized by option number, rather than copy-pasted — reuses
+// the same llSourceSelect()/llColorSelect() helpers every per-card field
+// used to, with a 't1'/'t2' prefix on data-i so the two options' selects
+// never collide with each other or with #ll-list's own per-card fields.
+function llTextOptionHtml(n){
+    var o = LL_TEXT.options[n - 1];
+    var active = LL_TEXT.active === n;
+    return '<div style="border:1px solid '+(active?'#2563eb':'#e2e8f0')+';border-radius:6px;padding:10px 12px;'+(active?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
+      + '<label style="display:flex;align-items:center;gap:7px;font-weight:600;cursor:pointer;margin:0 0 8px;">'
+      +   '<input type="radio" name="ll-text-active" value="'+n+'" class="ll-text-active-radio"'+(active?' checked':'')+'> Option '+n
+      + '</label>'
+      + '<div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;">'
+      +   '<div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 1</label>'+llSourceSelect('t'+n,'line1',o.line1_source)+'</div>'
+      +   '<div style="flex:1;min-width:160px;"><input type="text" class="ll-tf" data-n="'+n+'" data-k="line1_custom" placeholder="Custom text…" value="'+llEsc(o.line1_custom)+'" style="width:100%;'+(o.line1_source!=='custom'?'display:none;':'')+'"></div>'
+      +   '<div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label>'+llColorSelect('t'+n,'line1',o.line1_color)+'</div>'
+      + '</div>'
+      + '<div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-top:8px;">'
+      +   '<div style="flex:1;min-width:160px;"><label style="margin-top:0;">Line 2</label>'+llSourceSelect('t'+n,'line2',o.line2_source)+'</div>'
+      +   '<div style="flex:1;min-width:160px;"><input type="text" class="ll-tf" data-n="'+n+'" data-k="line2_custom" placeholder="Custom text…" value="'+llEsc(o.line2_custom)+'" style="width:100%;'+(o.line2_source!=='custom'?'display:none;':'')+'"></div>'
+      +   '<div style="flex:0 0 100px;"><label style="margin-top:0;">Color</label>'+llColorSelect('t'+n,'line2',o.line2_color)+'</div>'
+      + '</div>'
+      + '</div>';
+}
+function llRenderTextOptions(){
+    document.getElementById('ll-text-opt-1').innerHTML = llTextOptionHtml(1);
+    document.getElementById('ll-text-opt-2').innerHTML = llTextOptionHtml(2);
+    document.querySelectorAll('#ll-text-opt-1 select, #ll-text-opt-2 select, #ll-text-opt-1 .ll-tf, #ll-text-opt-2 .ll-tf')
         .forEach(function(el){
-            el.addEventListener('change', function(){
-                LL_TEXT[el.getAttribute('data-k')] = el.value;
-                llRenderText();
+            var isSelect = el.tagName === 'SELECT';
+            var n = isSelect ? parseInt(el.getAttribute('data-i').slice(1), 10) : parseInt(el.getAttribute('data-n'), 10);
+            var k = el.getAttribute('data-k');
+            el.addEventListener(isSelect ? 'change' : 'input', function(){
+                LL_TEXT.options[n - 1][k] = el.value;
+                if (k === 'line1_source' || k === 'line2_source') llRenderTextOptions();
                 llAllPreviews();
-                llAutoSave();
             });
+            el.addEventListener('change', llAutoSave);
         });
-    c1.oninput = function(){ LL_TEXT.line1_custom = c1.value; llAllPreviews(); };
-    c2.oninput = function(){ LL_TEXT.line2_custom = c2.value; llAllPreviews(); };
-    c1.onchange = c2.onchange = llAutoSave;
+    document.querySelectorAll('.ll-text-active-radio').forEach(function(el){
+        el.addEventListener('change', function(){
+            LL_TEXT.active = parseInt(el.value, 10);
+            llRenderTextOptions();
+            llAllPreviews();
+            llAutoSave();
+        });
+    });
 }
 var llSaveTimer = null;
 function llAutoSave(){ clearTimeout(llSaveTimer); llSaveTimer = setTimeout(function(){ llSave(); }, 600); }
@@ -304,7 +342,7 @@ function llUse(i){
         document.getElementById('ll-apply-form').submit();
     });
 }
-llRenderText();
+llRenderTextOptions();
 llRender();
 </script>
 </div>
