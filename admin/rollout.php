@@ -137,9 +137,9 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     <p class="hint" id="ro-settings" style="margin:0 0 14px;">Loading&hellip;</p>
 
     <div class="ro-bar">
-        <label><input type="checkbox" id="ro-do-host" checked> Create host</label>
-        <label><input type="checkbox" id="ro-do-build" checked> Build</label>
-        <label><input type="checkbox" id="ro-do-upload" checked> Upload</label>
+        <label><input type="checkbox" id="ro-do-host" checked> Create host <a href="#" class="ro-info" data-static-info="create_host" title="Details">&#9432;</a></label>
+        <label><input type="checkbox" id="ro-do-build" checked> Build <a href="#" class="ro-info" data-static-info="do_build" title="Details">&#9432;</a></label>
+        <label><input type="checkbox" id="ro-do-upload" checked> Upload <a href="#" class="ro-info" data-static-info="do_upload" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-skip-ai-photos"> Skip AI photos this run <a href="#" class="ro-info" data-static-info="skip_ai_photos" title="Details">&#9432;</a></label>
         <label>Force photo quality:
@@ -386,6 +386,23 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         + '&bull; <strong>Both ticked together:</strong> updates the colors/logo AND gets fresh photos, but still skips the written content and pages — real OpenAI cost for the photos, no cost for the colors/logo part.'
         + '</div>';
     const STATIC_INFO = {
+        create_host: ['Create host',
+            '<div class="ro-step">For each ticked domain that doesn\'t have server space yet, creates its vhost and folder on whichever Hestia box this batch\'s server plan assigns it to, plus an FTP account scoped to just that folder &mdash; then writes those credentials back into this batch\'s own target list (<code>params.csv</code>) so Build and Upload have somewhere to put files.</div>'
+          + '<div class="ro-step"><strong>Safe to run on a domain that already has one</strong> &mdash; it\'s skipped automatically, no cost, no duplicate created. So it\'s safe to leave ticked on every run; it only ever does real work for a brand-new domain.</div>'
+          + '<div class="ro-step">Also restarts the web server on each affected box once, at the end of the whole run &mdash; not once per domain. A new vhost isn\'t actually served until that restart happens.</div>'
+          + '<div class="ro-step">Untick this only if you\'re certain every ticked domain already has host credentials &mdash; e.g. re-running Build or Upload alone for domains that went live weeks ago.</div>'],
+        do_build: ['Build',
+            '<div class="ro-step">Generates the real site for each ticked domain &mdash; AI-written text, AI photos, landing pages &mdash; using this batch\'s own <strong>saved</strong> Generate settings (whatever the Detailed page\'s checkboxes were last left at), unless one of the one-off overrides in this same row (Force-regenerate photos, Skip AI photos, Colors/fonts/logo/favicon only, Force photo quality) changes something for just this click.</div>'
+          + '<div class="ro-step"><strong>This is the step with real money attached</strong> &mdash; Anthropic cost for text, OpenAI cost for any photo it generates. Create host and Upload cost nothing by comparison.</div>'
+          + '<div class="ro-step">Writes only to this batch\'s own local <code>output/</code> folder. Nothing a ticked domain\'s real visitors can see changes until <strong>Upload</strong> (the next step) actually sends it.</div>'
+          + '<div class="ro-step">Refuses to run for any ticked domain whose city hasn\'t been researched yet &mdash; building without that research would succeed but quietly write generic, non-local copy instead of failing loudly. Run the <strong>Research selected</strong> bar above first for those domains.</div>'
+          + '<div class="ro-step">Untick this to skip its cost entirely &mdash; e.g. when only <strong>Upload</strong> needs to re-run (fixed an FTP password, nothing about the site itself changed) or only <strong>Create host</strong> does (a new domain not ready to spend on content yet).</div>'],
+        do_upload: ['Upload',
+            '<div class="ro-step">Sends each ticked domain\'s already-built files &mdash; from Build\'s local <code>output/</code> folder &mdash; to its real host over FTP. This is the step that actually changes what a visitor sees live.</div>'
+          + '<div class="ro-step"><strong>Incremental by default:</strong> only files that changed since the last upload are sent, tracked by a manifest kept outside the output folder &mdash; so re-running after a failed upload costs nothing extra and doesn\'t resend the whole site.</div>'
+          + '<div class="ro-step">Needs FTP credentials already on file for that domain, written by <strong>Create host</strong>. A domain with none is reported and skipped, not silently dropped.</div>'
+          + '<div class="ro-step">Normal uploads only add new files or overwrite changed ones &mdash; a file the current build no longer produces is simply left behind on the server. <strong>Wipe server files first</strong> (see its own &#9432;) is the one way to actually remove those.</div>'
+          + '<div class="ro-step">See the <strong>file dates</strong> &#9432; for what an upload does to a live domain\'s visible <code>Last-Modified</code> timestamp.</div>'],
         force_photos: ['Force-regenerate photos',
             '<div class="ro-step">Regenerates every AI photo slot on each ticked domain from the <strong>master\'s own approved photo</strong> — not from whatever is currently in that slot.</div>'
           + '<div class="ro-step">Normally a photo slot that already has any image is left alone, even if it\'s wrong — this is the one way to force past that and actually fix it.</div>'
