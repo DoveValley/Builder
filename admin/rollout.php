@@ -82,6 +82,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 .ro-modal .ro-step{padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:.85rem}
 .ro-modal .ro-step:last-child{border-bottom:none}
 .ro-modal .ro-step-note{color:#64748b;font-size:.8rem;margin-top:2px}
+/* Compact comparison table for the photo-options popup — small enough to fit the
+   modal's 480px max-width with four columns, still legible at .75rem. */
+.ro-modal table.ro-compare{width:100%;border-collapse:collapse;font-size:.75rem;margin:4px 0}
+.ro-modal table.ro-compare th,.ro-modal table.ro-compare td{padding:5px 6px;border:1px solid #e2e8f0;text-align:left;vertical-align:top}
+.ro-modal table.ro-compare th{background:#f8fafc;font-weight:700}
+.ro-modal table.ro-compare td:first-child{font-weight:600;white-space:nowrap}
 /* The two times worth finding in this popup — when it was built, and when it was
    actually released — lifted out of the grey note colour. */
 .ro-modal .ro-when{color:#166534;font-weight:600}
@@ -146,6 +152,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-do-upload" checked> Upload <a href="#" class="ro-info" data-static-info="do_upload" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-generate-photos" checked> Generate photos <a href="#" class="ro-info" data-static-info="generate_photos" title="Details">&#9432;</a></label>
         <span class="ro-bar-sep"></span>
+        <a href="#" class="ro-info" data-static-info="photo_options_compared" title="Compare these photo options" style="font-size:1.1rem;">&#9432;</a>
         <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-skip-ai-photos"> Skip AI photos this run <a href="#" class="ro-info" data-static-info="skip_ai_photos" title="Details">&#9432;</a></label>
         <label>Force photo quality:
@@ -418,6 +425,16 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Everything to its right &mdash; <strong>Force-regenerate photos, Skip AI photos this run, Force photo quality</strong> &mdash; only makes sense while this is ticked, so all three grey out and auto-untick the moment this is unticked.</div>'
           + '<div class="ro-step">Only affects the local Build step. <strong>Upload still runs normally</strong> and still sends whatever changed, so this never leaves a domain\'s live photos stale.</div>'
           + '<div class="ro-step">Only does anything while Build is also ticked.</div>'],
+        photo_options_compared: ['Generate photos vs. Force vs. Skip — compared',
+            '<div class="ro-step">These four checkboxes/states all touch the same thing &mdash; whether a domain\'s photo slots get a new AI photo &mdash; but they\'re not degrees of the same dial. Each one answers a different question: whether to touch photos AT ALL (Generate photos), whether to touch ones that are ALREADY FINE (Force-regenerate), or whether to spend money doing it (Skip AI photos).</div>'
+          + '<table class="ro-compare"><thead><tr><th>Setting</th><th>Empty photo slot</th><th>Slot that already has a photo</th><th>Real OpenAI cost</th></tr></thead><tbody>'
+          + '<tr><td>Default (nothing ticked)</td><td>Gets a new AI photo</td><td>Left alone, untouched</td><td>Only for the new photo(s) actually needed</td></tr>'
+          + '<tr><td>Generate photos OFF</td><td>Stays empty &mdash; nothing happens</td><td>Left alone, untouched</td><td>None &mdash; no photo work at all this run</td></tr>'
+          + '<tr><td>Skip AI photos ON</td><td>Gets the master\'s own placeholder photo (still run through the free per-domain uniqueness pass)</td><td>Left alone, untouched</td><td>None &mdash; no OpenAI call this run</td></tr>'
+          + '<tr><td>Force-regenerate ON</td><td>Gets a new AI photo</td><td><strong>Replaced</strong> with a fresh AI photo, even if it was already fine</td><td>Every slot, every ticked domain, every time</td></tr>'
+          + '</tbody></table>'
+          + '<div class="ro-step-note">Cost ordering, cheapest to priciest: <strong>Generate photos off</strong> (nothing happens) &lt; <strong>default</strong>/<strong>Skip AI photos</strong> (empty slots only, one of them free) &lt; <strong>Force-regenerate</strong> (every slot, every run).</div>'
+          + '<div class="ro-step">Force-regenerate and Skip AI photos are direct opposites and can\'t be ticked together. Generate photos is the on/off switch for the whole category &mdash; turning it off makes the other two meaningless, so they grey out automatically.</div>'],
         force_photos: ['Force-regenerate photos',
             '<div class="ro-step">Regenerates every AI photo slot on each ticked domain from the <strong>master\'s own approved photo</strong> — not from whatever is currently in that slot.</div>'
           + '<div class="ro-step">Normally a photo slot that already has any image is left alone, even if it\'s wrong — this is the one way to force past that and actually fix it.</div>'
