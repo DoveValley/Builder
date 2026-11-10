@@ -20,7 +20,11 @@
 
 /**
  * The full default map — every checkbox that exists in admin/_batch_panels.php's $msTree,
- * all defaulting to true (the original "everything on" behaviour before this file existed).
+ * defaulting to true (the original "everything on" behaviour before this file existed) except
+ * the hero image text stamp, which defaults to off — every batch across every niche that has
+ * ever saved its own options has independently turned it off, so a batch with no saved file
+ * (new/cloned, never opened in the panel) should start off too rather than silently baking
+ * keyword+city text onto hero photos.
  * Keep this in sync with $msTree by hand: adding a new checkbox there means adding its key
  * here too, or it will always read back as on (harmless — same as never having been saved)
  * but its state won't persist.
@@ -37,7 +41,7 @@ function ms_batch_options_defaults(): array {
             'visual.palette' => true, 'visual.font' => true, 'visual.jitter' => true,
             'structure.home' => true, 'structure.landing' => true,
             'structure.classvocab' => true, 'structure.schemashape' => true,
-            'images.stamp_home' => true, 'images.stamp_landing' => true,
+            'images.stamp_home' => false, 'images.stamp_landing' => false,
             'images.metadata' => true,
             'images.ai_photos_hero_home' => true, 'images.ai_photos_hero_landing' => true,
             'images.ai_photos_other_home' => true, 'images.ai_photos_other_landing' => true,
