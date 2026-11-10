@@ -683,6 +683,36 @@ if ($firstBlockHero) {
                     <?php if (!empty($footer['tagline'])): ?>
                         <p class="footer-col-tagline"><?= h(resolve_shortcodes($footer['tagline'])) ?></p>
                     <?php endif; ?>
+                    <?php
+                    // Real per-city neighborhood names (same {neighborhoods} source already
+                    // used by the contact column below and the map_info panel — see
+                    // includes/shortcodes.php's site_primary_neighborhoods(), gated by
+                    // research + a population threshold, never invented). That token resolves
+                    // to EVERY researched name for the city — measured up to 18, averaging ~9
+                    // across water-site's own cities.json — fine for the contact column's
+                    // longer "including X, Y, Z..." sentence, but unusable here verbatim; a
+                    // short trust blurb needs 1-2 names woven in, same "never a list" principle
+                    // already proven for the local_relevance AI block. Distinct phrasing from
+                    // the contact column's "Serving {city} including..." line, so the two don't
+                    // read as a copy-pasted repeat when both appear in the same footer. Resolves
+                    // to '' (shows nothing) for a held/un-researched city, same as every other
+                    // use of this token.
+                    $__footLogoHoodList = array_filter(array_map('trim', explode(',', resolve_shortcodes('{neighborhoods}'))));
+                    $__footLogoHoodList = array_slice($__footLogoHoodList, 0, 2);
+                    if ($__footLogoHoodList && strpos(implode('', $__footLogoHoodList), '{') === false):
+                        // Standard English list join (never just " and "-chained, which reads as
+                        // a stutter once "the surrounding community" is appended as the final
+                        // item) — "A and B" for two real names, "A, B, and C" once there's a
+                        // third item (the Oxford comma only applies at 3+, so 1-name cities
+                        // correctly skip it).
+                        $__footLogoItems = array_merge($__footLogoHoodList, ['the surrounding community']);
+                        $__footLogoLast = array_pop($__footLogoItems);
+                        $__footLogoHoods = count($__footLogoItems) > 1
+                            ? implode(', ', $__footLogoItems) . ', and ' . $__footLogoLast
+                            : implode(' and ', array_merge($__footLogoItems, [$__footLogoLast]));
+                    ?>
+                        <p class="footer-col-tagline footer-col-neighborhoods">Proud to serve <?= h($__footLogoHoods) ?>.</p>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
             <?php endforeach; ?>
