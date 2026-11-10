@@ -16,6 +16,51 @@ require_once __DIR__ . '/cache.php';
 const INFRA_SITE_TTL = 900;   // 15 minutes
 
 /**
+ * Resolve a hostname via a fixed external resolver (DNS-over-HTTPS, Cloudflare then
+ * Google) instead of this box's own system resolver. Exists because this box's own
+ * default resolver (its hosting provider's, ahead of 1.1.1.1/8.8.8.4 in
+ * resolv.conf) independently lagged the rest of the internet by hours on a domain
+ * whose nameservers had already switched everywhere else
+ * (brooklineapplianceservice.com, 2026-11-10) — infra_site_check() kept reaching the
+ * OLD host and reporting a site that was actually live as down. The question this
+ * check exists to answer is "would a real visitor reach the live site", and a local
+ * resolver's own cache is the wrong source of truth for that regardless of whether
+ * it is stale — asking the public internet directly is the more correct check, not
+ * just a workaround for this one incident.
+ *
+ * Best-effort: returns [] on any failure (network, timeout, malformed response)
+ * rather than throwing, so a failed lookup here just falls back to the system
+ * resolver — this is a safety net added on top of existing behavior, never a new
+ * way for a check to fail.
+ *
+ * @return string[] IPv4 addresses, or [] if the external lookup didn't work
+ */
+function infra_dns_resolve_external(string $domain): array
+{
+    foreach (['https://1.1.1.1/dns-query', 'https://8.8.8.8/resolve'] as $endpoint) {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL            => $endpoint . '?name=' . urlencode($domain) . '&type=A',
+            CURLOPT_HTTPHEADER     => ['Accept: application/dns-json'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 3,
+            CURLOPT_TIMEOUT        => 5,
+        ]);
+        $body = curl_exec($ch);
+        $ok = $body !== false && curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
+        curl_close($ch);
+        if (!$ok) continue;
+        $data = json_decode((string) $body, true);
+        $ips = [];
+        foreach ($data['Answer'] ?? [] as $rec) {
+            if (($rec['type'] ?? 0) === 1 && filter_var($rec['data'] ?? '', FILTER_VALIDATE_IP)) $ips[] = $rec['data'];
+        }
+        if ($ips) return $ips;
+    }
+    return [];
+}
+
+/**
  * Ask one website whether it is up. Read-only; makes up to three requests, stopping
  * as soon as it has an answer.
  *
@@ -28,11 +73,17 @@ function infra_site_check(string $domain): array
             'final' => '', 'ms' => 0, 'error' => '', 'at' => gmdate('c')];
     if ($domain === '') { $out['error'] = 'no domain'; return $out; }
 
+    // Resolved once per check, reused by every request below (HEAD/GET, cert
+    // verified/not, https/http) — see infra_dns_resolve_external()'s docblock for why
+    // this exists. Empty means the external lookup didn't work; curl just falls back
+    // to the system resolver exactly as before this existed.
+    $externalIps = infra_dns_resolve_external($domain);
+
     // A HEAD is enough and avoids pulling every page down. Some hosts refuse it, so a
     // 405/501 falls back to a GET rather than being reported as a broken site.
-    $ask = function (string $url, bool $verify, bool $head) {
+    $ask = function (string $url, bool $verify, bool $head) use ($domain, $externalIps) {
         $ch = curl_init();
-        curl_setopt_array($ch, [
+        $opts = [
             CURLOPT_URL            => $url,
             CURLOPT_NOBODY         => $head,
             CURLOPT_RETURNTRANSFER => true,
@@ -43,7 +94,12 @@ function infra_site_check(string $domain): array
             CURLOPT_CONNECTTIMEOUT => 8,
             CURLOPT_TIMEOUT        => 15,
             CURLOPT_USERAGENT      => 'SiteFactory-InfraCheck/1.0',
-        ]);
+        ];
+        if ($externalIps) {
+            $port = parse_url($url, PHP_URL_SCHEME) === 'https' ? 443 : 80;
+            $opts[CURLOPT_RESOLVE] = array_map(fn($ip) => $domain . ':' . $port . ':' . $ip, $externalIps);
+        }
+        curl_setopt_array($ch, $opts);
         curl_exec($ch);
         $r = [
             'code'  => (int) curl_getinfo($ch, CURLINFO_HTTP_CODE),
