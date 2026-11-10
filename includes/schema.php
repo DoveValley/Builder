@@ -325,3 +325,47 @@ function schema_apply_blogposting(string $schemaJson, array $blocks, array $seo 
 
     return json_encode($wrapper, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
+
+/**
+ * CollectionPage + ItemList schema JSON for the blog listing page — a projection of
+ * whatever posts are actually shown ($cardPosts: the same array both blog.php's live
+ * request path and static_build.php's pre-render build it from), never hand-authored.
+ *
+ * ONE shared function so blog.php and static_build.php can't independently drift —
+ * they already did once (static_build.php had its own separate blog_intro fallback,
+ * missed when blog.php's copy was fixed first; see its own comment) and a second,
+ * near-identical drift is exactly why this got pulled out instead of copy-pasted a
+ * second time: static_build.php is what every real (statically-built) domain
+ * actually uses, so a fix living only in blog.php's live-request path never reaches
+ * a single real site.
+ *
+ * @param array  $cardPosts  Each item: slug, title (same shape both callers already build).
+ * @param string $heading    blog_settings.blog_heading, already resolved.
+ * @param string $tag        Active tag filter, '' when unfiltered (static_build.php
+ *                           never generates a filtered variant, so always '' there).
+ * @param string $activeTagLabel Display label for $tag, '' when unfiltered.
+ * @return string JSON-encoded schema, unresolved {website}-style tokens intact —
+ *                resolve_shortcodes() runs on it later, same as every other page's schema.
+ */
+function blog_collectionpage_schema(array $cardPosts, string $heading, string $tag, string $activeTagLabel): string {
+    $itemList = [];
+    foreach ($cardPosts as $bp) {
+        if (empty($bp['slug'])) continue;
+        $itemList[] = [
+            '@type' => 'ListItem',
+            'position' => count($itemList) + 1,
+            'url' => '{website}/blog/' . $bp['slug'],
+            'name' => $bp['title'] ?? '',
+        ];
+    }
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type'    => 'CollectionPage',
+        'name'     => $heading . ($activeTagLabel ? ' — ' . $activeTagLabel : ''),
+        'url'      => '{website}/blog/' . ($tag !== '' ? '?tag=' . urlencode($tag) : ''),
+    ];
+    if ($itemList) {
+        $schema['mainEntity'] = ['@type' => 'ItemList', 'itemListElement' => $itemList];
+    }
+    return json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}

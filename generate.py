@@ -2648,6 +2648,14 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
                 'meta_description': ai.get('meta_description', ''),
                 'og_title': title,
                 'og_description': ai.get('meta_description', ''),
+                # Deliberately left blank, not defaulted to featured_image — site-template.php
+                # already has a fallback (its own "empty or broken og_image" block) that walks
+                # content_blocks for a post_meta's featured_image when og_image is empty/missing,
+                # so this resolves to the same real city photo at render time regardless. Verified
+                # directly: both "blank" and "defaulted here" produce an identical resolved
+                # og:image/schema image URL — setting it here too would just be a second place
+                # holding the same fact, no behavior change, so left to the one place that
+                # already owns this decision.
                 'og_image': '',
                 'schema': '',
                 'canonical_url': '',

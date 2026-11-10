@@ -167,36 +167,16 @@ $contentBlocks = [$listBlock];
 // Falls back to a line built from blog_heading (which DOES get a real per-niche default), so
 // the tag never goes out blank even when nobody has customized this field.
 $blogIntro = trim((string) ($data['blog_settings']['blog_intro'] ?? ''));
-// CollectionPage + an ItemList of whatever's actually on THIS page (same post/order/
-// pagination a visitor sees) — a projection of $cardPosts, never hand-authored, so it
-// can't drift from the real listing the way a static blob would. Unresolved {website}/
-// {business} tokens are fine here: site-template.php always resolve_shortcodes()s the
-// whole schema blob right before emitting it (see its own $schemaJson handling), same
-// as every other page's stored schema string.
-$blogItemList = [];
-foreach ($cardPosts as $bp) {
-    if (empty($bp['slug'])) continue;
-    $blogItemList[] = [
-        '@type' => 'ListItem',
-        'position' => count($blogItemList) + 1,
-        'url' => '{website}/blog/' . $bp['slug'],
-        'name' => $bp['title'] ?? '',
-    ];
-}
-$blogSchema = [
-    '@context' => 'https://schema.org',
-    '@type'    => 'CollectionPage',
-    'name'     => ($data['blog_settings']['blog_heading'] ?? 'Blog') . ($activeTagLabel ? ' — ' . $activeTagLabel : ''),
-    'url'      => '{website}/blog/' . ($tag !== '' ? '?tag=' . urlencode($tag) : ''),
-];
-if ($blogItemList) {
-    $blogSchema['mainEntity'] = ['@type' => 'ItemList', 'itemListElement' => $blogItemList];
-}
+// CollectionPage + ItemList schema — shared with static_build.php's own blog-listing
+// pre-render via blog_collectionpage_schema() (includes/schema.php). NOT duplicated
+// inline here: this exact duplication already drifted once before (static_build.php's
+// separate blog_intro fallback, missed when this file's copy was fixed first — see its
+// own comment), so the schema logic lives in exactly one place this time.
 $seo = [
     'meta_description' => $blogIntro !== '' ? $blogIntro
         : trim(($data['blog_settings']['blog_heading'] ?? 'Blog') . ' from {business} — practical tips and local guidance.'),
     'canonical_url'    => '{website}/blog/',
-    'schema'           => json_encode($blogSchema),
+    'schema'           => blog_collectionpage_schema($cardPosts, $data['blog_settings']['blog_heading'] ?? 'Blog', $tag, $activeTagLabel),
 ];
 $pageTitle = ($data['blog_settings']['blog_heading'] ?? 'Blog') . ($activeTagLabel ? ' — ' . $activeTagLabel : '');
 $slug      = 'blog';

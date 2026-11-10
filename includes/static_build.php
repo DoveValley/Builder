@@ -488,9 +488,14 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             // mattered for every real domain (all static builds) and was missed when blog.php's
             // copy was fixed first.
             $blogIntroStatic = trim((string) ($blogSettings['blog_intro'] ?? ''));
+            // Schema is the shared blog_collectionpage_schema() (includes/schema.php), not a
+            // separate copy — this exact spot already drifted once before on the blog_intro
+            // fallback above (blog.php's copy got fixed first, this one — the one every real
+            // statically-built domain actually uses — was missed). Not doing that twice.
             $seo             = ['meta_description' => $blogIntroStatic !== '' ? $blogIntroStatic
                 : trim(($blogSettings['blog_heading'] ?? 'Blog') . ' from {business} — practical tips and local guidance.'),
-                'canonical_url' => '{website}/blog/'];
+                'canonical_url' => '{website}/blog/',
+                'schema' => blog_collectionpage_schema($cardPosts, $blogSettings['blog_heading'] ?? 'Blog', '', '')];
             $pageTitle       = $blogSettings['blog_heading'] ?? 'Blog';
             $assetPathPrefix = '/';
             $homeUrl         = '/';
