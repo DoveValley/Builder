@@ -13,6 +13,23 @@ function appliance_brands(): array {
     ];
 }
 
+/** A brand slug's real display casing (schema.org `brand`, visible copy) — same
+ *  canonical spellings tools/fix_seo_claim_copy.php already uses for the same
+ *  reason (a proper noun lowercased by a slug-derived string is wrong on sight).
+ *  Falls back to ucfirst() for anything not in this list, rather than failing. */
+function appliance_brand_label(string $brandSlug): string {
+    static $labels = [
+        'ge-monogram' => 'GE Monogram', 'sub-zero' => 'Sub-Zero', 'kitchenaid' => 'KitchenAid',
+        'jennair' => 'JennAir', 'whirlpool' => 'Whirlpool', 'maytag' => 'Maytag',
+        'frigidaire' => 'Frigidaire', 'kenmore' => 'Kenmore', 'samsung' => 'Samsung',
+        'thermador' => 'Thermador', 'amana' => 'Amana', 'bosch' => 'Bosch',
+        'dacor' => 'Dacor', 'viking' => 'Viking', 'miele' => 'Miele',
+        'wolf' => 'Wolf', 'ge' => 'GE', 'lg' => 'LG',
+    ];
+    if ($brandSlug === '') return '';
+    return $labels[$brandSlug] ?? ucfirst($brandSlug);
+}
+
 /** Fold synonym appliance types onto one canonical key (so the "washing machine"
  *  hub and the "{brand} washer" leaves share an appliance_type and link up). */
 function appliance_type_canonical(string $t): string {

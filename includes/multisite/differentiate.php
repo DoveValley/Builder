@@ -201,6 +201,36 @@ function ms_hero_bg_pool_apply(array &$blocks, string $domain, array $pools, str
     unset($b);
 }
 
+/**
+ * Generic per-block text-variant pooling — any block field with a sibling
+ * "{field}_pool" array gets one variant picked per domain, same ms_pool_pick()
+ * mechanism as meta descriptions (ms_meta_variant_pool_apply above) and hero
+ * backgrounds (ms_hero_bg_pool_apply below). One generic pass instead of a bespoke
+ * rule per block type/field — the mechanism never changes, only which fields
+ * happen to have a pool authored for them, so adding a new pooled field anywhere
+ * (any niche, any block type) needs zero new code here, just a "{field}_pool"
+ * array next to it.
+ *
+ * Built for the 5 section headings repeating verbatim across ~116 of 124 pages on
+ * every domain sharing a template (confirmed live) — an easy cross-site pattern
+ * match for the exact reason meta descriptions already got this same treatment
+ * 2026-11-01. Not limited to headings: any text field works the same way.
+ */
+function ms_text_variant_pool_apply(array &$blocks, string $domain, string $salt): void {
+    foreach ($blocks as &$b) {
+        if (!is_array($b)) continue;
+        foreach (array_keys($b) as $k) {
+            if (!is_string($k) || str_ends_with($k, '_pool')) continue;
+            $poolKey = $k . '_pool';
+            if (!isset($b[$poolKey]) || !is_array($b[$poolKey]) || !$b[$poolKey]) continue;
+            if (!is_string($b[$k] ?? null)) continue;
+            $picked = ms_pool_pick($b[$poolKey], $domain, $salt . ':' . ($b['id'] ?? $b['type'] ?? '') . ':' . $k);
+            if ($picked !== null) $b[$k] = $picked;
+        }
+    }
+    unset($b);
+}
+
 /** GA4 gtag.js snippet for a measurement id. */
 function ms_ga4_snippet(string $id): string {
     $id = htmlspecialchars($id, ENT_QUOTES);
@@ -411,6 +441,11 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
         ms_hero_bg_pool_apply($data['content_blocks'], $domain, $heroBgPools, 'hero_bg_home');
     }
 
+    // ── 5f. Section-heading text-variant pooling — one pick per domain ──────
+    if (!empty($data['content_blocks'])) {
+        ms_text_variant_pool_apply($data['content_blocks'], $domain, 'text_variant_home');
+    }
+
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);
@@ -441,6 +476,57 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
                 ms_hero_bg_pool_apply($pg['content_blocks'], $domain, $heroBgPools, 'hero_bg_landing_' . basename($pf, '.json'));
                 $changed = true;
             }
+            if (!empty($pg['content_blocks'])) {
+                ms_text_variant_pool_apply($pg['content_blocks'], $domain, 'text_variant_landing_' . basename($pf, '.json'));
+                $changed = true;
+            }
+
+            // ── 5e. Service schema: areaServed state + brand — same enrichment
+            // LocalBusiness already gets at step 3b, extended to the per-page Service
+            // node. containedInPlace only ever ADDS to an areaServed that's missing it
+            // (never overwrites one a template already set); brand is only set when the
+            // appliance taxonomy (slug-derived, the single source of truth per
+            // includes/appliance_taxonomy.php's own docblock) can actually name one for
+            // THIS template — never guessed, never applied outside the appliance niche.
+            if (($params['SS'] ?? '') !== '' && !empty($pg['seo']['schema']) && is_string($pg['seo']['schema'])) {
+                $schema = json_decode($pg['seo']['schema'], true);
+                if (is_array($schema)) {
+                    $brandForFile = '';
+                    if (function_exists('appliance_derive_slug')) {
+                        $bareSlug = preg_replace('/^tpl_/', '', basename($pf, '.json'));
+                        $bareSlug = preg_replace('/_city_[a-z0-9_]+$/', '', $bareSlug);
+                        $bareSlug = str_replace('_', '-', $bareSlug);
+                        $derived  = appliance_derive_slug($bareSlug);
+                        if (in_array($derived['role'] ?? '', ['leaf', 'brand_hub'], true)) {
+                            $brandForFile = appliance_brand_label($derived['brand'] ?? '');
+                        }
+                    }
+                    $svcTouched = false;
+                    $enrichSvc = function (&$node) use (&$svcTouched, $params, $brandForFile) {
+                        if (!is_array($node) || ($node['@type'] ?? '') !== 'Service') return;
+                        if (isset($node['areaServed']) && is_array($node['areaServed'])
+                            && empty($node['areaServed']['containedInPlace'])) {
+                            $node['areaServed']['containedInPlace'] = ['@type' => 'AdministrativeArea', 'name' => $params['SS']];
+                            $svcTouched = true;
+                        }
+                        if ($brandForFile !== '' && empty($node['brand'])) {
+                            $node['brand'] = $brandForFile;
+                            $svcTouched = true;
+                        }
+                    };
+                    if (isset($schema['@graph']) && is_array($schema['@graph'])) {
+                        foreach ($schema['@graph'] as &$node) { $enrichSvc($node); }
+                        unset($node);
+                    } else {
+                        $enrichSvc($schema);
+                    }
+                    if ($svcTouched) {
+                        $pg['seo']['schema'] = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+                        $changed = true;
+                    }
+                }
+            }
+
             if (!$changed) continue;
             $t = $pf . '.tmp.' . getmypid();
             if (@file_put_contents($t, json_encode($pg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
