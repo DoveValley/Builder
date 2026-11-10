@@ -88,12 +88,19 @@ elseif ($bphWithHost === 0)          { $p5 = BPH_IDLE; $p5n = 'build only'; }
 elseif ($bphFailed > 0)              { $p5 = BPH_FAIL; $p5n = $bphFailed . ' failed'; }
 else                                 { $p5 = BPH_DONE; $p5n = $bphUploaded . ' uploaded'; }
 
-/* 6 — Go live. Real now: create_hosts.php tags each domain into the Infra console's
-   own registry under "master/batch", so infra_pipeline_rows() can find exactly this
-   batch's domains and report the same zone/golive/dns/live cells card 6 shows. A
-   domain only appears here once its host has been created at least once — before
-   that there is nothing tagged yet, which is IDLE, not a lie about zero being fine. */
-$bphGoLive    = infra_pipeline_rows($masterId . '/' . $batchId);
+/* 6 — Go live. infra_pipeline_rows() finds every domain TAGGED into this batch —
+   which happens at CLAIM time (admin/infra/lib/claim.php), well before Create
+   Host, Generate or Upload have touched anything — not at host-creation time, as
+   an earlier version of this comment claimed. Counting every tagged row here
+   would show this phase as already "in process" the moment domains are claimed,
+   while phases 2-5 still read idle. Scope to rows whose 'zone' step shows a REAL
+   outcome (ok/fail/running) — NOT blank and NOT 'todo': a freshly-tagged row with
+   nothing else done yet derives straight to 'todo' here (went and looked; not
+   done, and that's fine), which a blank-string check alone does not catch, since
+   'todo' is its own distinct state from infra_pipeline_derived(), not an absence
+   of one. Verified against a synthetic claimed-only row before relying on it. */
+$bphGoLive    = array_values(array_filter(infra_pipeline_rows($masterId . '/' . $batchId),
+    fn($r) => in_array($r['cells']['zone']['state'] ?? '', [INFRA_STEP_OK, INFRA_STEP_FAIL, INFRA_STEP_RUNNING], true)));
 $bphGLTotal   = count($bphGoLive);
 $bphGLLive    = 0; $bphGLFail = false;
 foreach ($bphGoLive as $r) {
