@@ -157,8 +157,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/what-to-do-first-24-hours-flood",
+                        "text": "What to Do in the First 24 Hours After a Flood"
+                    },
+                    {
+                        "url": "/blog/water-damage-vs-flood-damage-difference",
+                        "text": "Water Damage vs. Flood Damage: What's the Difference?"
+                    },
                     {
                         "url": "/storm-damage-restoration-{city_slug}",
                         "text": "storm damage restoration"
@@ -228,6 +237,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -251,7 +261,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -283,10 +295,10 @@
             "primary_keyword": "Flood Damage Restoration",
             "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services",
             "meta_description_pool": [
-                "Flood Damage Restoration in {city_state}: connect quickly with local providers who respond to floodwater contamination before it harms your structure. Call {phone}.",
-                "Need Flood Damage Restoration near {city_state}? We connect you fast to independent local providers ready to address floodwater contamination. Call {phone}.",
+                "Flood Damage Restoration in {city_state}: connect with local providers who respond to floodwater contamination before it harms your structure. Call {phone}.",
+                "Need Flood Damage Restoration near {city_state}? We connect you fast to local providers ready to address floodwater contamination. Call {phone}.",
                 "Flood Damage Restoration, {city_state} — floodwater can introduce contaminants that harm structures fast; get matched with local providers now. Call {phone}.",
-                "Get connected to Flood Damage Restoration providers serving {city_state}, responding quickly to floodwater contamination risks. Call {phone} today."
+                "Get connected to Flood Damage Restoration providers serving {city_state}, responding to floodwater contamination risks. Call {phone} today."
             ],
             "og_description_pool": [
                 "Flood Damage Restoration in {city_state}: connect anytime, day or night, with independent local providers ready to respond fast when water strikes.",
@@ -539,6 +551,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -613,6 +626,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -639,7 +653,9 @@
                 "type": "map_info",
                 "skin": "",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
@@ -672,10 +688,10 @@
             "robots_noindex": false,
             "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Storm Damage Restoration\",\n    \"name\": \"Storm Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 storm damage restoration in {city_state} \\u2014 weather damage, storm damage repair and storm damage cleanup.\"\n}",
             "meta_description_pool": [
-                "Storm Damage Restoration in {city_state}: get connected fast to local providers who repair wind and debris damage to roofs, walls, and interiors. Call {phone}.",
-                "Need Storm Damage Restoration near {city_state}? We connect you quickly with independent local providers handling roof, wall, and interior repairs. Call {phone}.",
+                "Storm Damage Restoration in {city_state}: connect fast to local providers who repair wind and debris damage to roofs, walls, and interiors. Call {phone}.",
+                "Need Storm Damage Restoration near {city_state}? We connect you with local providers handling roof, wall, and interior repairs. Call {phone}.",
                 "Storm Damage Restoration services for {city_state} homes: find local, independent providers ready to address wind and debris damage. Call {phone} now.",
-                "{city_state} Storm Damage Restoration made simple — we link you to responsive local providers who repair roofs, walls, and interiors. Call {phone} today."
+                "{city_state} Storm Damage Restoration made simple — we link you to local providers who repair roofs, walls, and interiors. Call {phone} today."
             ]
         },
         "base_role": "Restoration",
@@ -886,8 +902,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/categories-of-water-damage-explained",
+                        "text": "Clean, Gray, and Black Water: Understanding Water Damage Categories"
+                    },
+                    {
+                        "url": "/blog/water-damage-vs-flood-damage-difference",
+                        "text": "Water Damage vs. Flood Damage: What's the Difference?"
+                    },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
                         "text": "water damage inspection & assessment"
@@ -957,6 +982,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -980,7 +1006,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1012,10 +1040,10 @@
             "primary_keyword": "Water Damage Repair",
             "secondary_keywords": "repair water damage, home water damage repair, water damage repair services",
             "meta_description_pool": [
-                "Water Damage Repair in {city_state}: get connected fast to independent local providers who handle water intrusion and its aftermath. Call {phone}.",
+                "Water Damage Repair in {city_state}: get connected fast to local providers who handle water intrusion and its aftermath. Call {phone}.",
                 "Need Water Damage Repair near {city_state}? We connect you quickly with local independent providers ready to respond. Call {phone} today.",
-                "Water Damage Repair, {city_state} area: find local independent providers through our referral network to address water intrusion issues. Call {phone}.",
-                "{city_state} Water Damage Repair connections made easy — we link you to independent local providers who handle the damage. Call {phone} now."
+                "Water Damage Repair, {city_state} area: find local providers through our referral network to address water intrusion issues. Call {phone}.",
+                "{city_state} Water Damage Repair connections made easy — we link you to local providers who handle the damage. Call {phone} now."
             ]
         },
         "base_role": "Restoration",
@@ -1226,8 +1254,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/mold-risk-after-water-damage",
+                        "text": "How Quickly Can Mold Grow After Water Damage?"
+                    },
+                    {
+                        "url": "/blog/drying-out-a-flooded-home-timeline",
+                        "text": "How Long Does It Take to Dry Out a Flooded Home?"
+                    },
                     {
                         "url": "/emergency-water-removal-{city_slug}",
                         "text": "emergency water removal"
@@ -1297,6 +1334,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1320,7 +1358,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1352,9 +1392,9 @@
             "primary_keyword": "Water Mitigation",
             "secondary_keywords": "structural drying, dehumidification, water mitigation services, water damage mitigation, moisture mapping, water mitigation company",
             "meta_description_pool": [
-                "Water Mitigation help in {city_state}: get connected fast to local providers offering structural drying and dehumidification to limit damage costs. Call {phone}.",
-                "Need Water Mitigation in {city_state}? We connect you to local independent providers who handle prompt structural drying and dehumidification. Call {phone} now.",
-                "{city_state} Water Mitigation referrals: quickly connect with area providers specializing in structural drying and dehumidification to reduce damage scope. Call {phone}.",
+                "Water Mitigation help in {city_state}: connect fast to local providers offering structural drying and dehumidification to limit damage costs. Call {phone}.",
+                "Need Water Mitigation in {city_state}? We connect you to local providers who handle prompt structural drying and dehumidification. Call {phone} now.",
+                "{city_state} Water Mitigation referrals: connect with area providers specializing in structural drying and dehumidification to reduce damage scope. Call {phone}.",
                 "Water Mitigation services near {city_state} start with a call to {phone} — we link you to local providers offering fast structural drying and dehumidification."
             ]
         },
@@ -1566,8 +1606,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/what-to-do-first-24-hours-flood",
+                        "text": "What to Do in the First 24 Hours After a Flood"
+                    },
+                    {
+                        "url": "/blog/standing-water-safety-hazards",
+                        "text": "The Hidden Safety Hazards of Standing Water Indoors"
+                    },
                     {
                         "url": "/emergency-water-removal-{city_slug}",
                         "text": "emergency water removal"
@@ -1641,6 +1690,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -1664,7 +1714,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -1696,9 +1748,9 @@
             "primary_keyword": "Emergency Water Damage Restoration",
             "secondary_keywords": "24 hour emergency water damage, emergency water damage, water damage restoration near me, emergency water damage cleanup",
             "meta_description_pool": [
-                "Emergency Water Damage Restoration in {city_state}: get connected fast to local providers who respond quickly before damage spreads. Call {phone} now.",
-                "Need Emergency Water Damage Restoration near {city_state}? We connect you to responsive local providers ready to help fast. Call {phone} today.",
-                "{city_state} Emergency Water Damage Restoration: fast connections to independent local providers who understand quick response matters. Call {phone}.",
+                "Emergency Water Damage Restoration in {city_state}: connect fast to local providers who respond before damage spreads. Call {phone} now.",
+                "Need Emergency Water Damage Restoration near {city_state}? We connect you to local providers ready to help fast. Call {phone} today.",
+                "{city_state} Emergency Water Damage Restoration: fast connections to local providers who understand quick response matters. Call {phone}.",
                 "Facing water damage in {city_state}? Emergency Water Damage Restoration connections to local providers available now — call {phone} for a fast response."
             ],
             "og_description_pool": [
@@ -1916,8 +1968,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/sewage-backup-health-risks",
+                        "text": "Why a Sewage Backup Is More Than Just a Mess"
+                    },
                     {
                         "url": "/toilet-overflow-cleanup-{city_slug}",
                         "text": "toilet overflow cleanup"
@@ -1987,6 +2044,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2010,7 +2068,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2042,7 +2102,7 @@
             "primary_keyword": "Sewage Cleanup",
             "secondary_keywords": "sewage backup cleanup, sewage removal, black water cleanup, sewage damage cleanup",
             "meta_description_pool": [
-                "Sewage Cleanup in {city_state}: get connected fast to independent local providers who handle wastewater backups safely. Call {phone} today.",
+                "Sewage Cleanup in {city_state}: get connected fast to local providers who handle wastewater backups safely. Call {phone} today.",
                 "Need Sewage Cleanup near {city_state}? We connect you quickly with local independent providers ready to respond. Call {phone} now.",
                 "{city_state} Sewage Cleanup help is a call away — we link you to responsive local providers for wastewater issues. Dial {phone}.",
                 "Sewage Cleanup services for {city_state} residents: find local independent providers through our fast referral connection. Call {phone}."
@@ -2256,8 +2316,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/drying-out-a-flooded-home-timeline",
+                        "text": "How Long Does It Take to Dry Out a Flooded Home?"
+                    },
+                    {
+                        "url": "/blog/sump-pump-maintenance-tips",
+                        "text": "Sump Pump Maintenance: A Homeowner's Checklist"
+                    },
                     {
                         "url": "/emergency-water-removal-{city_slug}",
                         "text": "emergency water removal"
@@ -2331,6 +2400,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2354,7 +2424,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2386,10 +2458,10 @@
             "primary_keyword": "Flooded Basement Cleanup",
             "secondary_keywords": "flooded basement, flooded basement cleanup, basement flood cleanup, basement flooding, basement water removal, flooded basement water removal, basement water damage, wet basement cleanup",
             "meta_description_pool": [
-                "Flooded Basement Cleanup in {city_state}: get connected fast to local providers who handle standing water, foundation and mechanical system damage. Call {phone}.",
-                "Need Flooded Basement Cleanup near {city_state}? We connect you quickly with independent local providers ready to address standing water issues. Call {phone}.",
+                "Flooded Basement Cleanup in {city_state}: connect fast to local providers who handle standing water, foundation and mechanical system damage. Call {phone}.",
+                "Need Flooded Basement Cleanup near {city_state}? We connect you with local providers ready to address standing water issues. Call {phone}.",
                 "Flooded Basement Cleanup, {city_state} area: standing water can harm foundations, systems, and belongings — we link you to local providers. Call {phone} now.",
-                "{city_state} Flooded Basement Cleanup help: this service connects homeowners to independent local providers for standing water situations. Call {phone} today."
+                "{city_state} Flooded Basement Cleanup help: this service connects homeowners to local providers for standing water situations. Call {phone} today."
             ]
         },
         "base_role": "Restoration",
@@ -2600,6 +2672,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -2671,6 +2744,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -2694,7 +2768,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -2726,9 +2802,9 @@
             "primary_keyword": "Commercial Water Damage Restoration",
             "secondary_keywords": "commercial water damage, commercial flood cleanup, business water damage restoration, commercial water damage cleanup",
             "meta_description_pool": [
-                "Commercial Water Damage Restoration in {city_state}: get connected fast to local providers who help limit downtime and revenue loss. Call {phone}.",
-                "Need Commercial Water Damage Restoration near {city_state}? We connect businesses with local providers ready to respond quickly. Call {phone}.",
-                "Commercial Water Damage Restoration, {city_state} — find local independent providers fast and reduce operational disruption. Call {phone} now.",
+                "Commercial Water Damage Restoration in {city_state}: connect fast to local providers who help limit downtime and revenue loss. Call {phone}.",
+                "Need Commercial Water Damage Restoration near {city_state}? We connect businesses with local providers ready to respond . Call {phone}.",
+                "Commercial Water Damage Restoration, {city_state} — find local providers fast and reduce operational disruption. Call {phone} now.",
                 "Serving {city_state} with Commercial Water Damage Restoration connections, linking businesses to local providers who limit revenue loss. Call {phone}."
             ]
         },
@@ -2940,8 +3016,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/winter-pipe-freeze-prevention",
+                        "text": "How to Protect Your Pipes During a Winter Freeze"
+                    },
                     {
                         "url": "/emergency-water-removal-{city_slug}",
                         "text": "emergency water removal"
@@ -3016,6 +3097,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3039,7 +3121,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3291,6 +3375,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -3362,6 +3447,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3385,7 +3471,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3419,8 +3507,8 @@
             "meta_description_pool": [
                 "Ceiling Water Damage in {city_state}? Get connected fast to local providers who handle overhead leaks and saturated insulation. Call {phone} now.",
                 "Facing Ceiling Water Damage near {city_state}? We connect you with independent local pros ready to assess the leak and structural risk. Call {phone}.",
-                "{city_state} Ceiling Water Damage: find local, responsive providers through our network to address overhead leaks fast. Call {phone} to get started.",
-                "Ceiling Water Damage affecting your {city_state} home? Our network links you to local providers who respond quickly to overhead leaks. Call {phone}."
+                "{city_state} Ceiling Water Damage: find local, providers through our network to address overhead leaks fast. Call {phone} to get started.",
+                "Ceiling Water Damage affecting your {city_state} home? Our network links you to local providers who respond to overhead leaks. Call {phone}."
             ],
             "og_description_pool": [
                 "Ceiling Water Damage in {city_state}? Get connected 24/7 to responsive local providers ready to help, day or night.",
@@ -3637,8 +3725,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/hardwood-floors-water-damage-signs",
+                        "text": "How to Tell if Your Hardwood Floors Have Water Damage"
+                    },
                     {
                         "url": "/carpet-water-damage-restoration-{city_slug}",
                         "text": "carpet water damage restoration"
@@ -3708,6 +3801,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -3731,7 +3825,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -3763,7 +3859,7 @@
             "primary_keyword": "Hardwood Floor Water Damage",
             "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor",
             "meta_description_pool": [
-                "Hardwood Floor Water Damage in {city_state} can warp and weaken flooring fast — get connected to local providers who respond quickly. Call {phone}.",
+                "Hardwood Floor Water Damage in {city_state} can warp and weaken flooring fast — connect to local providers who respond . Call {phone}.",
                 "Need help with Hardwood Floor Water Damage in {city_state}? We connect you to responsive local providers ready to help. Call {phone} now.",
                 "Hardwood Floor Water Damage spreads quickly if ignored. {city_state} residents can connect with local providers fast — call {phone} today.",
                 "Hardwood Floor Water Damage affecting your home in {city_state}? Get matched with local, responsive providers fast. Call {phone} for help."
@@ -3977,6 +4073,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -4052,6 +4149,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4075,7 +4173,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4321,8 +4421,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/gutter-maintenance-prevent-water-damage",
+                        "text": "How Clogged Gutters Lead to Water Damage \u2014 and How to Prevent It"
+                    },
+                    {
+                        "url": "/blog/roof-leak-warning-signs",
+                        "text": "Roof Leak Warning Signs Every Homeowner Should Know"
+                    },
                     {
                         "url": "/attic-water-damage-repair-{city_slug}",
                         "text": "attic water damage repair"
@@ -4392,6 +4501,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4415,7 +4525,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -4661,6 +4773,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -4732,6 +4845,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -4755,7 +4869,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5007,8 +5123,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/water-damage-drywall-repair-or-replace",
+                        "text": "Water-Damaged Drywall: Repair or Replace?"
+                    },
                     {
                         "url": "/ceiling-water-damage-{city_slug}",
                         "text": "ceiling water damage"
@@ -5078,6 +5199,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5101,7 +5223,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5136,7 +5260,7 @@
                 "Drywall Water Damage Repair in {city_state}: connect with local providers who handle saturated, weakened board replacement. Call {phone} today.",
                 "Need Drywall Water Damage Repair near {city_state}? We connect you fast to independent local pros who address weakened, saturated drywall. Call {phone}.",
                 "Drywall Water Damage Repair, {city_state} — get linked to local providers experienced with saturated board that may require replacement. Call {phone}.",
-                "Searching for Drywall Water Damage Repair in {city_state}? This network connects you quickly to local providers for saturated, weakened drywall. Call {phone}."
+                "Searching for Drywall Water Damage Repair in {city_state}? This network connects you to local providers for saturated, weakened drywall. Call {phone}."
             ]
         },
         "base_role": "Restoration",
@@ -5347,8 +5471,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/sewage-backup-health-risks",
+                        "text": "Why a Sewage Backup Is More Than Just a Mess"
+                    },
                     {
                         "url": "/sewage-cleanup-{city_slug}",
                         "text": "sewage cleanup"
@@ -5418,6 +5547,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5441,7 +5571,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5473,8 +5605,8 @@
             "primary_keyword": "Toilet Overflow Cleanup",
             "secondary_keywords": "toilet overflow water damage, overflowing toilet cleanup, toilet flood cleanup",
             "meta_description_pool": [
-                "Toilet Overflow Cleanup in {city_state}: get connected fast to local providers who respond to contaminated water situations. Call {phone} now.",
-                "Need Toilet Overflow Cleanup near {city_state}? We connect you quickly with independent local providers ready to handle the mess. Call {phone}.",
+                "Toilet Overflow Cleanup in {city_state}: connect fast to local providers who respond to contaminated water situations. Call {phone} now.",
+                "Need Toilet Overflow Cleanup near {city_state}? We connect you quickly with local providers ready to handle the mess. Call {phone}.",
                 "Toilet Overflow Cleanup, {city_state} area: this service links you to local providers who address contaminated water on floors and materials. Call {phone}.",
                 "Facing a toilet overflow in {city_state}? Toilet Overflow Cleanup connections to responsive local providers are a call away at {phone}."
             ],
@@ -5693,8 +5825,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/preparing-home-hurricane-season",
+                        "text": "Preparing Your Home Before Hurricane Season"
+                    },
                     {
                         "url": "/storm-damage-restoration-{city_slug}",
                         "text": "storm damage restoration"
@@ -5760,6 +5897,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -5783,7 +5921,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -5815,10 +5955,10 @@
             "primary_keyword": "Emergency Board-Up",
             "secondary_keywords": "board up services, emergency board up services, window board up",
             "meta_description_pool": [
-                "Emergency Board-Up in {city_state}: get connected fast to local providers who secure storm-damaged openings against weather and intruders. Call {phone}.",
-                "Need Emergency Board-Up near {city_state}? We connect you with local providers ready to secure damaged doors and windows quickly. Call {phone}.",
+                "Emergency Board-Up in {city_state}: connect fast to local providers who secure storm-damaged openings against weather and intruders. Call {phone}.",
+                "Need Emergency Board-Up near {city_state}? We connect you with local providers ready to secure damaged doors and windows . Call {phone}.",
                 "Emergency Board-Up service connects {city_state} residents to local providers who respond fast to secure storm-damaged openings. Call {phone} now.",
-                "Fast Emergency Board-Up connections for {city_state} homes and businesses, linking you to local providers who secure openings quickly. Call {phone}."
+                "Fast Emergency Board-Up connections for {city_state} homes and businesses, linking you to local providers who secure openings . Call {phone}."
             ],
             "og_description_pool": [
                 "Emergency Board-Up in {city_state}, available 24/7 — connect quickly with independent local providers ready to respond to your property.",
@@ -6035,8 +6175,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/roof-leak-warning-signs",
+                        "text": "Roof Leak Warning Signs Every Homeowner Should Know"
+                    },
                     {
                         "url": "/emergency-board-up-{city_slug}",
                         "text": "emergency board-up"
@@ -6106,6 +6251,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6129,7 +6275,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6161,8 +6309,8 @@
             "primary_keyword": "Roof Tarping",
             "secondary_keywords": "emergency roof tarping, roof tarp service, temporary roof tarp",
             "meta_description_pool": [
-                "Roof Tarping in {city_state}: connect with local providers who can quickly cover exposed decking to help block rain and wind-driven moisture. Call {phone}.",
-                "Need Roof Tarping near {city_state}? We connect you to independent local providers ready to shield your roof from further rain intrusion. Call {phone}.",
+                "Roof Tarping in {city_state}: connect with local providers who can cover exposed decking to help block rain and wind-driven moisture. Call {phone}.",
+                "Need Roof Tarping near {city_state}? We connect you to local providers ready to shield your roof from further rain intrusion. Call {phone}.",
                 "{city_state} Roof Tarping connections: find local providers who respond fast to cover exposed decking and reduce storm moisture risk. Call {phone} now.",
                 "Roof Tarping services for {city_state} homes: get matched with local providers who help protect attics and upper floors from exposed decking. Call {phone}."
             ],
@@ -6376,8 +6524,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/preparing-home-hurricane-season",
+                        "text": "Preparing Your Home Before Hurricane Season"
+                    },
                     {
                         "url": "/storm-damage-restoration-{city_slug}",
                         "text": "storm damage restoration"
@@ -6443,6 +6596,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6466,7 +6620,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -6498,8 +6654,8 @@
             "primary_keyword": "Hurricane Damage Restoration",
             "secondary_keywords": "hurricane damage cleanup, hurricane damage repair",
             "meta_description_pool": [
-                "Hurricane Damage Restoration in {city_state}: get connected fast to independent local providers who handle flooding, structural damage, and storm debris. Call {phone}.",
-                "Need Hurricane Damage Restoration near {city_state}? We connect you quickly with local independent providers ready to respond to storm and flood damage. Call {phone}.",
+                "Hurricane Damage Restoration in {city_state}: connect fast to local providers who handle flooding, structural damage, and storm debris. Call {phone}.",
+                "Need Hurricane Damage Restoration near {city_state}? We connect you with local providers ready to respond to storm and flood damage. Call {phone}.",
                 "Hurricane Damage Restoration support for {city_state} residents — this network links you to local providers who address flooding, debris, and structural harm. Call {phone} now.",
                 "{city_state} Hurricane Damage Restoration: a fast, local connection to independent providers handling storm flooding, debris, and structural damage. Call {phone} today."
             ]
@@ -6712,8 +6868,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/water-heater-leak-what-to-check",
+                        "text": "Water Heater Leaking? Here's What to Check Before Calling for Help"
+                    },
                     {
                         "url": "/burst-pipe-cleanup-{city_slug}",
                         "text": "burst pipe cleanup"
@@ -6783,6 +6944,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -6806,7 +6968,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7052,8 +7216,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/appliance-leaks-common-culprits",
+                        "text": "The Household Appliances Most Likely to Cause a Water Leak"
+                    },
                     {
                         "url": "/water-heater-leak-{city_slug}",
                         "text": "water heater leak"
@@ -7123,6 +7292,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7146,7 +7316,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7178,9 +7350,9 @@
             "primary_keyword": "Appliance Leak & Overflow Cleanup",
             "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup",
             "meta_description_pool": [
-                "Appliance Leak & Overflow Cleanup in {city_state}: get connected fast with local providers who handle washing machine, dishwasher, and refrigerator leaks. Call {phone}.",
-                "Need Appliance Leak & Overflow Cleanup near {city_state}? We connect you to independent local providers for washer, dishwasher, and fridge leaks. Call {phone} now.",
-                "{city_state} Appliance Leak & Overflow Cleanup: a quick call links you with local independent providers who respond to washer, dishwasher, and fridge overflows. Dial {phone}.",
+                "Appliance Leak & Overflow Cleanup in {city_state}: connect fast with local providers who handle washing machine, dishwasher, and refrigerator leaks. Call {phone}.",
+                "Need Appliance Leak & Overflow Cleanup near {city_state}? We connect you to local providers for washer, dishwasher, and fridge leaks. Call {phone} now.",
+                "{city_state} Appliance Leak & Overflow Cleanup: a quick call links you with local providers who respond to washer, dishwasher, and fridge overflows. Dial {phone}.",
                 "Appliance Leak & Overflow Cleanup serving {city_state} connects homeowners with local providers for washing machine, dishwasher, and refrigerator water issues. Call {phone}."
             ],
             "og_description_pool": [
@@ -7398,6 +7570,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -7469,6 +7642,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7492,7 +7666,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7525,7 +7701,7 @@
             "secondary_keywords": "flooded bathroom, bathroom water damage, overflowing tub cleanup, shower overflow cleanup",
             "meta_description_pool": [
                 "Bathroom Water Damage in {city_state}: connect with local providers who respond to saturated subfloors and wall cavities. Call {phone}.",
-                "Need Bathroom Water Damage near {city_state}? We connect you with independent local providers who handle bathroom flooding fast. Call {phone}.",
+                "Need Bathroom Water Damage near {city_state}? We connect you with local providers who handle bathroom flooding fast. Call {phone}.",
                 "{city_state} Bathroom Water Damage: get matched with local providers addressing soaked subflooring and wall cavities. Call {phone} today.",
                 "Bathroom Water Damage help for {city_state} residents—we link you to responsive local providers tackling bathroom flooding. Call {phone}."
             ]
@@ -7738,8 +7914,17 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/signs-of-hidden-water-damage",
+                        "text": "7 Signs You Might Have Hidden Water Damage in Your Home"
+                    },
+                    {
+                        "url": "/blog/water-damage-insurance-claims-guide",
+                        "text": "How Water Damage Insurance Claims Typically Work"
+                    },
                     {
                         "url": "/water-damage-restoration-cost-{city_slug}",
                         "text": "water damage restoration cost"
@@ -7813,6 +7998,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -7836,7 +8022,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -7869,9 +8057,9 @@
             "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate",
             "meta_description_pool": [
                 "Water Damage Inspection & Assessment in {city_state}: connect with local providers who check for visible and hidden moisture to guide next steps. Call {phone}.",
-                "Need a Water Damage Inspection & Assessment near {city_state}? We connect you fast to independent local providers who assess visible and hidden moisture. Call {phone}.",
+                "Need a Water Damage Inspection & Assessment near {city_state}? We connect you fast to local providers who assess visible and hidden moisture. Call {phone}.",
                 "{city_state} Water Damage Inspection & Assessment: get linked to local providers who identify hidden and visible moisture before remediation begins. Call {phone}.",
-                "Looking for Water Damage Inspection & Assessment in {city_state}? We quickly connect you with local providers who evaluate moisture issues. Call {phone}."
+                "Looking for Water Damage Inspection & Assessment in {city_state}? We connect you with local providers who evaluate moisture issues. Call {phone}."
             ],
             "og_description_pool": [
                 "Water Damage Inspection & Assessment in {city_state}, available 24/7 — connect fast with independent local providers ready to evaluate the damage.",
@@ -8083,6 +8271,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -8154,6 +8343,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8177,7 +8367,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8209,8 +8401,8 @@
             "primary_keyword": "Water Damage Reconstruction",
             "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction",
             "meta_description_pool": [
-                "Water Damage Reconstruction in {city_state}: connect quickly with local providers who rebuild walls, floors, and systems after water removal. Call {phone}.",
-                "Need Water Damage Reconstruction near {city_state}? We help you find independent local providers for wall, floor, and system rebuilds. Call {phone} now.",
+                "Water Damage Reconstruction in {city_state}: connect with local providers who rebuild walls, floors, and systems after water removal. Call {phone}.",
+                "Need Water Damage Reconstruction near {city_state}? We help you find local providers for wall, floor, and system rebuilds. Call {phone} now.",
                 "{city_state} Water Damage Reconstruction connections made fast — local providers handle rebuilding of walls, floors, and systems after cleanup. Call {phone}.",
                 "Get matched for Water Damage Reconstruction in {city_state}: independent local pros rebuild damaged walls, floors, and systems. Call {phone} today."
             ],
@@ -8429,8 +8621,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/salvage-furniture-after-water-damage",
+                        "text": "Can You Salvage Furniture After Water Damage?"
+                    },
                     {
                         "url": "/water-damage-inspection-{city_slug}",
                         "text": "water damage inspection & assessment"
@@ -8500,6 +8697,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8523,7 +8721,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8556,7 +8756,7 @@
             "secondary_keywords": "pack out services, contents pack out",
             "meta_description_pool": [
                 "Contents Restoration & Pack-Out in {city_state}: connect with local providers who help recover belongings through specialized cleaning and stabilization. Call {phone}.",
-                "Need Contents Restoration & Pack-Out near {city_state}? We link you to independent local providers handling belonging recovery and stabilization. Dial {phone} now.",
+                "Need Contents Restoration & Pack-Out near {city_state}? We link you to local providers handling belonging recovery and stabilization. Dial {phone} now.",
                 "Find Contents Restoration & Pack-Out help fast in {city_state} — get matched with local providers skilled in cleaning and stabilizing personal belongings. Call {phone}.",
                 "{city_state} Contents Restoration & Pack-Out connections: local providers offer specialized cleaning and stabilization to help recover belongings. Reach us at {phone}."
             ],
@@ -8770,8 +8970,13 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
+                    {
+                        "url": "/blog/winter-pipe-freeze-prevention",
+                        "text": "How to Protect Your Pipes During a Winter Freeze"
+                    },
                     {
                         "url": "/storm-damage-restoration-{city_slug}",
                         "text": "storm damage restoration"
@@ -8841,6 +9046,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -8864,7 +9070,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -8898,7 +9106,7 @@
             "meta_description_pool": [
                 "Winter Storm Damage in {city_state}? Connect fast with local providers who handle burst pipes, ice dams, and snowmelt intrusion. Call {phone} now.",
                 "Facing Winter Storm Damage near {city_state}? We connect you to independent local pros ready to respond to frozen pipes and ice dam issues. Call {phone}.",
-                "{city_state} Winter Storm Damage help starts here — get matched with local, responsive providers for burst pipes and snow-related water intrusion. Call {phone}.",
+                "{city_state} Winter Storm Damage help starts here — get matched with local, providers for burst pipes and snow-related water intrusion. Call {phone}.",
                 "Winter Storm Damage from ice dams and burst pipes hits {city_state} hard. We'll connect you to local providers fast. Call {phone} today."
             ]
         },
@@ -9110,6 +9318,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9186,6 +9395,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9209,7 +9419,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9241,9 +9453,9 @@
             "primary_keyword": "Water Damage Insurance Claim",
             "secondary_keywords": "does insurance cover water damage, water damage insurance claim help, water damage claim denied, how to file a water damage claim, insurance claim assistance, homeowners insurance water damage, water damage insurance adjuster",
             "meta_description_pool": [
-                "Water Damage Insurance Claim help in {city_state}: get connected to local providers who assist with documenting damage. Call {phone} today.",
-                "Need a Water Damage Insurance Claim handled in {city_state}? We connect you with independent local providers who help document the damage. Call {phone}.",
-                "Water Damage Insurance Claim support for {city_state} residents — quickly connect with local providers to help document losses. Call {phone} now.",
+                "Water Damage Insurance Claim help in {city_state}: connect to local providers who assist with documenting damage. Call {phone} today.",
+                "Need a Water Damage Insurance Claim handled in {city_state}? We connect you with local providers who help document the damage. Call {phone}.",
+                "Water Damage Insurance Claim support for {city_state} residents — connect with local providers to help document losses. Call {phone} now.",
                 "In {city_state}, Water Damage Insurance Claim assistance is just a call away: we link you to local providers who help with damage documentation. Call {phone}."
             ]
         },
@@ -9455,6 +9667,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9523,6 +9736,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9546,7 +9760,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -9794,6 +10010,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -9862,6 +10079,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -9885,7 +10103,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10137,6 +10357,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10187,6 +10408,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10210,7 +10432,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10243,7 +10467,7 @@
             "secondary_keywords": "water in basement, basement flooding, basement leak repair, basement moisture, damp basement",
             "meta_description_pool": [
                 "Basement Water Damage Repair in {city_state}? Get connected fast to local providers who handle leaks and seepage before they worsen. Call {phone} now.",
-                "Facing Basement Water Damage Repair in {city_state}? We connect you quickly with independent local pros ready to respond. Call {phone} today.",
+                "Facing Basement Water Damage Repair in {city_state}? We connect you with independent local pros ready to respond. Call {phone} today.",
                 "Basement Water Damage Repair spreading in {city_state}? A fast local connection links you to nearby service providers. Call {phone} for help now.",
                 "Don't wait on Basement Water Damage Repair — {city_state} residents can connect with local providers fast. Call {phone} to get started."
             ]
@@ -10456,6 +10680,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10506,6 +10731,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10529,7 +10755,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10562,9 +10790,9 @@
             "secondary_keywords": "emergency water extraction, standing water removal, water removal, truck-mounted extraction, portable extraction",
             "meta_description_pool": [
                 "Water Extraction in {city_state}: get connected fast to local providers who remove standing water before it spreads. Call {phone}.",
-                "Need Water Extraction near {city_state}? We connect you quickly with independent local providers equipped for standing water removal. Call {phone} today.",
+                "Need Water Extraction near {city_state}? We connect you with local providers equipped for standing water removal. Call {phone} today.",
                 "Water Extraction, {city_state}: fast local connections to providers using truck-mounted and portable pumps. Call {phone} now.",
-                "Searching for Water Extraction in {city_state}? We link you to responsive local providers ready to remove standing water fast. Call {phone}."
+                "Searching for Water Extraction in {city_state}? We link you to local providers ready to remove standing water fast. Call {phone}."
             ]
         },
         "base_role": "Restoration",
@@ -10775,6 +11003,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -10825,6 +11054,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -10848,7 +11078,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -10881,7 +11113,7 @@
             "secondary_keywords": "foundation waterproofing, basement sealing, interior drainage system, exterior waterproofing, groundwater management",
             "meta_description_pool": [
                 "Basement Waterproofing in {city_state}: connect with local providers who seal foundations and manage groundwater before it causes damage. Call {phone}.",
-                "Need Basement Waterproofing near {city_state}? We connect you with independent local providers offering interior and exterior solutions. Call {phone} today.",
+                "Need Basement Waterproofing near {city_state}? We connect you with local providers offering interior and exterior solutions. Call {phone} today.",
                 "Basement Waterproofing, {city_state}: get matched fast with local providers who keep basements dry long-term. Call {phone}.",
                 "Looking for Basement Waterproofing in {city_state}? This network links you to local providers specializing in foundation sealing. Call {phone}."
             ]
@@ -11094,6 +11326,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -11140,6 +11373,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -11163,7 +11397,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -11409,6 +11645,7 @@
             {
                 "type": "related_links",
                 "rl_heading": "Related Services",
+                "rl_heading_pool": ["Related Services", "You Might Also Need", "More Ways We Can Help"],
                 "rl_max": 3,
                 "rl_items": [
                     {
@@ -11455,6 +11692,7 @@
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Water Damage Restoration Company",
+                "cards_heading_pool": ["Verify Your {city_state} Water Damage Restoration Company", "Confirm Who You're Hiring in {city_state}", "Before You Hire in {city_state}, Check This"],
                 "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
                 "cards_cols": 3,
                 "cards_centered": true,
@@ -11478,7 +11716,9 @@
             {
                 "type": "map_info",
                 "mi_map_heading": "Areas We Serve Near {city}, {state}",
+                "mi_map_heading_pool": ["Areas We Serve Near {city}, {state}", "Our {city}, {state} Service Area", "Where We Cover Near {city}, {state}"],
                 "mi_info_heading": "{city_state} Information",
+                "mi_info_heading_pool": ["{city_state} Information", "About {city_state}", "{city_state} at a Glance"],
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
@@ -11511,7 +11751,7 @@
             "secondary_keywords": "sump pump replacement, battery backup sump pump, basement flood prevention, sump pump repair, french drain installation",
             "meta_description_pool": [
                 "Sump Pump Installation in {city_state}: connect with local providers who install and replace systems that keep basements dry. Call {phone}.",
-                "Need Sump Pump Installation near {city_state}? We connect you with independent local providers, including battery backup options. Call {phone} today.",
+                "Need Sump Pump Installation near {city_state}? We connect you with local providers, including battery backup options. Call {phone} today.",
                 "Sump Pump Installation, {city_state}: get matched fast with local providers who prevent basement flooding. Call {phone}.",
                 "Looking for Sump Pump Installation in {city_state}? This network links you to local providers ready to help. Call {phone}."
             ]
