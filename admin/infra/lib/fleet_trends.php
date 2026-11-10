@@ -1,8 +1,8 @@
 <?php
 /**
  * Fleet trend reports — weekly rollup + a plain-English log + a dependency-free
- * inline SVG sparkline, shared by the four fleet-audit cards (calls/crawl/rank/
- * index).
+ * inline SVG sparkline, shared by the fleet-audit cards (calls/crawl/rank/index,
+ * plus fleet size — new sites gone live per week).
  *
  * DELIBERATELY SEPARATE from calls_audit.php / crawl_audit.php / rank_audit.php /
  * index_audit.php: this file only READS their existing tables via their own
@@ -103,14 +103,19 @@ function fleet_trend_prev_measured(array $series, int $i): ?array
  * $label(float $value, array $week): string formats one week's own number (e.g.
  * "47 calls (12 engaged)"); this function supplies the week-over-week delta
  * phrasing on top of it.
+ *
+ * $gapText overrides the default "no check ran" wording for an unmeasured week —
+ * accurate for a sweep-based metric (rank/index), but wrong for one with no
+ * "check" concept at all (e.g. fleet size, which is just "tracking didn't exist
+ * yet," nothing was skipped).
  */
-function fleet_trend_log_lines(array $series, callable $label): array
+function fleet_trend_log_lines(array $series, callable $label, string $gapText = 'No check ran this week — no data, not a real zero.'): array
 {
     $lines = [];
     for ($i = count($series) - 1; $i >= 0; $i--) {
         $wk = $series[$i];
         if (!$wk['measured']) {
-            $lines[] = ['week' => $wk['week'], 'text' => 'No check ran this week — no data, not a real zero.'];
+            $lines[] = ['week' => $wk['week'], 'text' => $gapText];
             continue;
         }
         $text = $label($wk['value'], $wk);
@@ -326,4 +331,69 @@ function fleet_trend_index(?array $scope, int $weeks = 8): array
     $indexed = fleet_trend_series($sumByWeek, $weeks, array_keys($measuredWeeks));
     $log = fleet_trend_log_lines($indexed, fn($v) => fleet_trend_num($v) . ' page' . ($v == 1 ? '' : 's') . ' indexed, fleet-wide');
     return ['indexed' => $indexed, 'log' => $log];
+}
+
+// ── Fleet size (new sites gone live) ───────────────────────────────────────
+
+/**
+ * Weekly count of domains that went live, by their real release moment
+ * (`domains.released_at` — the registrar's own nameserver-switch timestamp, not
+ * the day it was merely SCHEDULED for), plus the current total live count.
+ *
+ * `released_at` only exists from 2026-10-15 onward — blank on every domain
+ * released before that column was added, per state.php's own comment. A week
+ * before the earliest real released_at on file is "not tracked," not a true
+ * zero, same gap-honesty handling as rank/index's irregular sweeps above —
+ * reuses the exact same $measuredWeeks mechanism, not a new concept.
+ *
+ * $scope here is a domain=>true map same as every other function in this file,
+ * but note what it does NOT do: unlike fingerprint (deliberately whole-fleet,
+ * see _fleet_fingerprint.php), this respects the niche/batch scope filter on
+ * purpose — "12 new sites, 401 total" means something different per niche than
+ * it does fleet-wide, and that's the comparison this card exists to give
+ * alongside the scoped calls/crawl/rank/index cards below it.
+ *
+ * @return array{new_live:array, log:array, total_live:int}
+ */
+function fleet_trend_live_sites(?array $scope, int $weeks = 8): array
+{
+    $db = infra_state_db();
+    $sinceTs = fleet_trend_week_range($weeks)[0];
+    $st = $db->prepare("SELECT domain, released_at FROM domains WHERE released_at >= :since AND released_at != ''");
+    $st->execute([':since' => $sinceTs]);
+    $newByWeek = []; $measuredWeeks = [];
+    foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $r) {
+        if ($scope !== null && !isset($scope[$r['domain']])) continue;
+        $wk = fleet_trend_week_key(strtotime($r['released_at']));
+        $newByWeek[$wk] = ($newByWeek[$wk] ?? 0) + 1;
+    }
+    // Every week from the EARLIEST real released_at on file onward counts as
+    // "tracked," even one with zero go-lives that week — only weeks before
+    // tracking began are a true gap. Scoped to match $scope, so a niche whose
+    // own earliest release is more recent than the fleet's doesn't claim
+    // tracking back further than its own data actually goes.
+    $earliestSt = $db->query("SELECT MIN(released_at) FROM domains WHERE released_at != ''")->fetchColumn();
+    if ($scope !== null) {
+        $allSt = $db->query("SELECT domain, released_at FROM domains WHERE released_at != ''")->fetchAll(PDO::FETCH_ASSOC);
+        $scopedEarliest = null;
+        foreach ($allSt as $r) {
+            if (!isset($scope[$r['domain']])) continue;
+            if ($scopedEarliest === null || $r['released_at'] < $scopedEarliest) $scopedEarliest = $r['released_at'];
+        }
+        $earliestSt = $scopedEarliest;
+    }
+    if ($earliestSt) {
+        $earliestWeek = fleet_trend_week_key(strtotime($earliestSt));
+        foreach (fleet_trend_week_range($weeks) as $wk) {
+            if ($wk >= $earliestWeek) $measuredWeeks[$wk] = true;
+        }
+    }
+    $newLive = fleet_trend_series($newByWeek, $weeks, array_keys($measuredWeeks));
+    $gapText = 'Not tracked yet this far back' . ($earliestSt ? ' — go-live timestamps only start ' . substr($earliestSt, 0, 10) . '.' : '.');
+    $log = fleet_trend_log_lines($newLive, fn($v) => (int) $v . ' new site' . ($v == 1 ? '' : 's') . ' went live', $gapText);
+
+    $totalSt = $db->query("SELECT domain FROM domains WHERE status = 'live'")->fetchAll(PDO::FETCH_COLUMN);
+    $totalLive = $scope === null ? count($totalSt) : count(array_filter($totalSt, fn($d) => isset($scope[$d])));
+
+    return ['new_live' => $newLive, 'log' => $log, 'total_live' => $totalLive];
 }
