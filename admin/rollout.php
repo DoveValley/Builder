@@ -324,7 +324,6 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         if (r.steps.upload !== 'ok') return 'Not uploaded';
         return r.status || 'Not ready';
     }
-    const canTick = r => true;   // the core decides what each action may touch, and says why
     function niceDate(d) {                       // 'YYYY-MM-DD' → 'Thu 6 Nov', no timezone shifts
         if (!d) return '';
         const [y, m, dd] = d.split('-').map(Number), dt = new Date(Date.UTC(y, m - 1, dd));
@@ -350,8 +349,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const startOf = x => new Date(x.getFullYear(), x.getMonth(), x.getDate());
         const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
         const cls = daysAgo <= 0 ? 'ro-built-fresh' : (daysAgo >= 7 ? 'ro-built-stale' : '');
-        const label = (at.getMonth() + 1) + '/' + at.getDate();
-        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="' + esc(d.note || ('Built ' + at.toLocaleString())) + '">' + label + '</span>';
+        const dateLabel = (at.getMonth() + 1) + '/' + at.getDate();
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="' + esc(d.note || ('Built ' + at.toLocaleString())) + '">' + dateLabel + '</span>';
     }
     // Live column: same "show the date, not just a dot" idea as Built, but only a fresh
     // tier — unlike a build, a site that's been live for months isn't stale or in need of
@@ -364,8 +363,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const startOf = x => new Date(x.getFullYear(), x.getMonth(), x.getDate());
         const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
         const cls = daysAgo <= 0 ? 'ro-built-fresh' : '';
-        const label = (at.getMonth() + 1) + '/' + at.getDate();
-        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + label + '</span>';
+        const dateLabel = (at.getMonth() + 1) + '/' + at.getDate();
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + dateLabel + '</span>';
     }
     const popColor = p => p >= 50000 ? '#16a34a' : (p >= 35000 ? '#ca8a04' : '#dc2626');
     // 1st CF account on a box = white/default, 2nd = blue, 3rd = purple, 4th = green.
@@ -597,9 +596,9 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const f = TABS.find(t => t[0] === view)[2];
         const shown = rows.filter(f);
         $('ro-body').innerHTML = shown.length ? shown.map(r => {
-            const lab = label(r), tick = canTick(r);
+            const lab = label(r);
             return '<tr>'
-                + '<td>' + (tick ? '<input type="checkbox" data-d="' + esc(r.domain) + '"' + (sel.has(r.domain) ? ' checked' : '') + '>' : '') + '</td>'
+                + '<td><input type="checkbox" data-d="' + esc(r.domain) + '"' + (sel.has(r.domain) ? ' checked' : '') + '></td>'
                 + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>'
                 + (r.status === 'live'
                     ? '<a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener" title="Open the live site">' + esc(r.domain) + '</a>'
@@ -671,7 +670,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="15">' + esc(r.error) + '</td></tr>'; return; }
         rows = r.rows; settings = r.settings; window.RO_TODAY = r.today;
         if (!$('ro-start').value) { $('ro-start').value = r.today; $('ro-start').min = r.today; }
-        [...sel].forEach(d => { const x = rows.find(y => y.domain === d); if (!x || !canTick(x)) sel.delete(d); });
+        [...sel].forEach(d => { if (!rows.find(y => y.domain === d)) sel.delete(d); });
         renderSettings(); render();
     }
     async function post(data) {
@@ -734,7 +733,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         if (e.target.matches('#ro-body input[data-d]')) { e.target.checked ? sel.add(e.target.dataset.d) : sel.delete(e.target.dataset.d); $('ro-count').textContent = sel.size; }
         if (e.target.id === 'ro-all') {
             const f = TABS.find(t => t[0] === view)[2];
-            rows.filter(f).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
+            rows.filter(f).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
         if (e.target.id === 'ro-range-tick') {
@@ -745,7 +744,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             }
             // Row number (r.n), not the array index or current tab — stable across tabs,
             // same number printed next to each domain.
-            rows.filter(r => r.n >= start && r.n <= end).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
+            rows.filter(r => r.n >= start && r.n <= end).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
         if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload') syncForcePhotos();
@@ -792,7 +791,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         wp.disabled = !buildOn || !uploadOn || logoOn;
         iq.disabled = !buildOn;
         sa.disabled = !buildOn;
-        if (!buildOn) { fp.checked = false; lo.checked = false; iq.value = 'medium'; sa.checked = false; }
+        // Deliberately does NOT touch iq.value — disabling it already communicates
+        // "doesn't apply while Build is off," and forcing it to a different tier used
+        // to leave Medium silently selected (a real ~4-5x per-photo cost increase)
+        // the next time Build got re-checked, since nothing ever restored it.
+        if (!buildOn) { fp.checked = false; lo.checked = false; sa.checked = false; }
         if (!buildOn || !uploadOn || logoOn) wp.checked = false;
     }
     syncForcePhotos();
@@ -852,8 +855,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     };
     $('ro-cf-set').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
-        const slot = $('ro-cf-slot').value, label = $('ro-cf-slot').selectedOptions[0].textContent;
-        if (!confirm('Set the Cloudflare account to "' + label + '" for ' + sel.size + ' domain(s)?')) return;
+        const slot = $('ro-cf-slot').value, slotLabel = $('ro-cf-slot').selectedOptions[0].textContent;
+        if (!confirm('Set the Cloudflare account to "' + slotLabel + '" for ' + sel.size + ' domain(s)?')) return;
         const r = await post({ action: 'rollout_set_cf_slot', domains: JSON.stringify([...sel]), slot });
         if (r.error) return say(r.error);
         say('Set ' + r.set + (r.cleared ? ', cleared ' + r.cleared : '') + '.' + why(r.why), r.set + r.cleared > 0);
