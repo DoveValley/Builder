@@ -47,7 +47,18 @@ $fclColour = !$fclConfigured ? '#94a3b8' : ($fcl['engaged'] > 0 ? '#16a34a' : '#
                     <span class="fa-warn">&middot; 0 engaged &mdash; all rang <?= (int) $fcl['engaged_seconds'] ?>s or less</span>
                 <?php endif; ?>
                 <?php if ($fcl['rang']): ?>
-                    <span style="color:#64748b">&middot; <?= (int) $fcl['rang'] ?> rang, never connected</span>
+                    <span style="color:#64748b">
+                        &middot; <?= (int) $fcl['rang'] ?> rang, never connected
+                        <?php if (count($fcl['dial_status_rang']) > 1): ?>
+                            (<?php
+                                $fclParts = [];
+                                foreach ($fcl['dial_status_rang'] as $fclStatus => $fclCount) {
+                                    $fclParts[] = $fclCount . ' ' . h($fclStatus);
+                                }
+                                echo implode(' &middot; ', $fclParts);
+                            ?>)
+                        <?php endif; ?>
+                    </span>
                 <?php endif; ?>
             <?php endif; ?>
         </span>
@@ -56,6 +67,15 @@ $fclColour = !$fclConfigured ? '#94a3b8' : ($fcl['engaged'] > 0 ? '#16a34a' : '#
         </span>
         <button type="button" class="btn-sm-outline" id="fcl-run" onclick="fclRun()" <?= $fclConfigured ? '' : 'disabled' ?>>Sync now</button>
     </div>
+
+    <?php if ($fclConfigured && $fclHas && $fcl['calls'] > 0): ?>
+    <div style="margin-top:6px;font-size:.78rem;color:#64748b;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="fa-dim">Talk time:</span>
+        <?php foreach ($fcl['buckets'] as $fclBucket): ?>
+            <span class="<?= $fclBucket['is_engaged_bucket'] ? 'fa-good' : '' ?>"><?= (int) $fclBucket['count'] ?> &times; <?= h($fclBucket['label']) ?></span>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
 
     <?php if ($fclConfigured && $fclHas): ?>
     <details style="margin-top:8px" ontoggle="faLoadRows(this,'calls','fcl-rows')">
@@ -68,6 +88,46 @@ $fclColour = !$fclConfigured ? '#94a3b8' : ($fcl['engaged'] > 0 ? '#16a34a' : '#
                 <th>Last call</th>
             </tr></thead>
             <tbody id="fcl-rows"><tr><td colspan="4" style="color:#94a3b8;padding:8px">Loading&hellip;</td></tr></tbody>
+        </table>
+    </details>
+
+    <details style="margin-top:8px" ontoggle="fclCallsToggle(this)">
+        <summary class="fa-sum">All calls</summary>
+        <div style="margin:8px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.8rem">
+            <button type="button" class="btn-sm-outline" id="fcl-quick-money" onclick="fclQuickMoneyCalls()">Money calls only (<?= (int) $fcl['engaged_seconds'] ?>s+)</button>
+            <label style="display:flex;align-items:center;gap:4px">Min talk time
+                <input type="number" id="fcl-min-seconds" min="0" placeholder="any" style="width:64px;padding:3px 5px;border:1px solid #d1d5db;border-radius:5px">s
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">Status
+                <select id="fcl-dial-status" style="padding:3px 5px;border:1px solid #d1d5db;border-radius:5px">
+                    <option value="">any</option>
+                    <?php foreach (array_keys($fcl['dial_status']) as $fclDs): ?>
+                        <option value="<?= h($fclDs) ?>"><?= h($fclDs) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+                <input type="checkbox" id="fcl-repeat-only"> Repeat callers only
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">Site
+                <input type="text" id="fcl-domain-filter" placeholder="domain contains…" style="width:140px;padding:3px 5px;border:1px solid #d1d5db;border-radius:5px">
+            </label>
+            <label style="display:flex;align-items:center;gap:4px">Sort
+                <select id="fcl-sort" style="padding:3px 5px;border:1px solid #d1d5db;border-radius:5px">
+                    <option value="recent">Most recent</option>
+                    <option value="longest">Longest talk time</option>
+                </select>
+            </label>
+            <button type="button" class="btn-sm-outline" onclick="fclLoadCalls()">Apply</button>
+            <a href="#" onclick="fclClearCallFilters();return false;" style="font-size:.78rem;color:#2563eb;text-decoration:none">Clear</a>
+            <span id="fcl-calls-count" class="fa-dim"></span>
+        </div>
+        <table class="fa-t">
+            <thead><tr>
+                <th>Date</th><th>Site</th><th title="Actual conversation time">Talk time</th>
+                <th title="Ring-to-hangup">Duration</th><th>Status</th><th>Caller</th><th>Repeat</th>
+            </tr></thead>
+            <tbody id="fcl-call-rows"><tr><td colspan="7" style="color:#94a3b8;padding:8px">Open to load&hellip;</td></tr></tbody>
         </table>
     </details>
     <?php endif; ?>
@@ -176,5 +236,52 @@ function fclPoll() {
             location.reload();
         })
         .catch(function () { setTimeout(fclPoll, 5000); });
+}
+
+// Fleet-wide individual-call drill-down — separate from faLoadRows above (that one
+// is always one line per domain, fetched once per <details> open, no filters). This
+// one re-fetches every time a filter changes, so it opens lazily (not loaded until
+// first expand) but never caches past that.
+function fclCallsToggle(details) {
+    if (!details.open) return;
+    fclLoadCalls();
+}
+function fclQuickMoneyCalls() {
+    document.getElementById('fcl-min-seconds').value = <?= (int) $fcl['engaged_seconds'] ?>;
+    fclLoadCalls();
+}
+function fclClearCallFilters() {
+    document.getElementById('fcl-min-seconds').value = '';
+    document.getElementById('fcl-dial-status').value = '';
+    document.getElementById('fcl-repeat-only').checked = false;
+    document.getElementById('fcl-domain-filter').value = '';
+    document.getElementById('fcl-sort').value = 'recent';
+    fclLoadCalls();
+}
+function fclLoadCalls() {
+    var tbody = document.getElementById('fcl-call-rows');
+    var countEl = document.getElementById('fcl-calls-count');
+    tbody.innerHTML = '<tr><td colspan="7" style="color:#94a3b8;padding:8px">Loading…</td></tr>';
+    var params = new URLSearchParams({
+        action: 'call_rows', audit: 'calls',
+        min_seconds: document.getElementById('fcl-min-seconds').value,
+        dial_status: document.getElementById('fcl-dial-status').value,
+        repeat_only: document.getElementById('fcl-repeat-only').checked ? '1' : '',
+        domain: document.getElementById('fcl-domain-filter').value,
+        sort: document.getElementById('fcl-sort').value,
+    });
+    // Carries the shared scope filter (faniche/fabatch) along, same reasoning as
+    // faLoadRows — the drill-down should match the headline numbers above it.
+    var scopeQs = window.location.search.replace('?', '&');
+    fetch('fleet_audit_api.php?' + params.toString() + scopeQs)
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            if (d.error) { tbody.innerHTML = '<tr><td colspan="7" style="color:#dc2626">' + d.error + '</td></tr>'; countEl.textContent = ''; return; }
+            tbody.innerHTML = d.html || '<tr><td colspan="7" style="color:#94a3b8;padding:8px">No calls match these filters.</td></tr>';
+            countEl.textContent = d.shown + (d.truncated ? ' of ' + d.total + ' (truncated — narrow the filters to see the rest)' : ' call' + (d.shown === 1 ? '' : 's'));
+        })
+        .catch(function () {
+            tbody.innerHTML = '<tr><td colspan="7" style="color:#dc2626">Could not load — try Apply again.</td></tr>';
+        });
 }
 </script>

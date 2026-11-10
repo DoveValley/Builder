@@ -65,11 +65,13 @@ function infra_audit_settings_defaults(): array
         // one so adding a second account is a settings edit, not a code change.
         'ctm_account_ids'       => '151459',
         // A call under this many seconds of ACTUAL TALK TIME doesn't count as a real
-        // contact. Measured 2026-10-21: 14 of the last 15 calls on the one configured
-        // account were 0-3s talk time (rang briefly, never connected) — a bare call
-        // count would have reported noise as leads. 30s is a starting guess, not yet
-        // validated against real outcomes; revisit once there is enough volume to judge.
-        'calls_engaged_seconds' => 30,
+        // contact — the "money call" bar. Measured 2026-10-21: 14 of the last 15 calls
+        // on the one configured account were 0-3s talk time (rang briefly, never
+        // connected) — a bare call count would have reported noise as leads. Raised
+        // from the original 30s starting guess to 90s on 2026-11-10 (Scott: a short
+        // "hi, do you do X" exchange can clear 30s without being a real lead) — still a
+        // judgement call, not a validated figure; revisit as more volume comes in.
+        'calls_engaged_seconds' => 90,
         // How far back the FIRST sync for a newly-added account reaches. After that,
         // sync is incremental from its own cursor. The one account checked has call
         // history back to 2021 for OTHER businesses sharing it — see the warning in

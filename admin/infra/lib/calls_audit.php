@@ -206,7 +206,8 @@ function calls_audit_run(?callable $log = null): array
 }
 
 /**
- * Rolled up over the last $days — per domain and fleet-wide, split rang vs engaged.
+ * Rolled up over the last $days — per domain and fleet-wide, split rang vs engaged,
+ * plus a dial-status breakdown and a duration-bucket histogram over the same rows.
  *
  * ⚠ "Engaged" is a judgement call (calls_engaged_seconds), not a CTM-reported fact —
  * same honesty as rank/index's own thresholds: the card shows the bar in force.
@@ -216,17 +217,23 @@ function calls_audit_run(?callable $log = null): array
  */
 function calls_audit_latest(int $days = 30, ?array $scope = null): array
 {
-    $empty = ['days' => $days, 'calls' => 0, 'engaged' => 0, 'rang' => 0,
-              'engaged_seconds' => (int) infra_audit_setting('calls_engaged_seconds'), 'domains' => []];
-    $db = calls_audit_db();
     $engagedAt = (int) infra_audit_setting('calls_engaged_seconds');
+    $empty = ['days' => $days, 'calls' => 0, 'engaged' => 0, 'rang' => 0,
+              'engaged_seconds' => $engagedAt, 'domains' => [],
+              'dial_status' => [], 'dial_status_rang' => [], 'buckets' => []];
+    $db = calls_audit_db();
 
     // called_at is CTM's own freeform display string ("2026-10-21 04:42 PM +00:00"),
     // not an ISO sort key — filter on unix_time instead, which IS comparable.
     $sinceTs = time() - $days * 86400;
-    $st = $db->query('SELECT domain, talk_time, called_at, unix_time, caller_number
+    $st = $db->query('SELECT domain, talk_time, dial_status, called_at, unix_time, caller_number
                       FROM ctm_call WHERE direction = "inbound" ORDER BY unix_time DESC');
     $byDomain = [];
+    $dialStatus = [];      // every call in the window, regardless of engaged — used to
+                            // populate the drill-down's dial-status filter options
+    $dialStatusRang = [];   // non-engaged calls only — what actually explains the
+                            // "N rang, never connected" headline number
+    $windowRows = [];
     $out = $empty;
     foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $r) {
         if ((int) $r['unix_time'] < $sinceTs) continue;
@@ -238,10 +245,151 @@ function calls_audit_latest(int $days = 30, ?array $scope = null): array
         $byDomain[$d] ??= ['domain' => $d, 'calls' => 0, 'engaged' => 0, 'last_call_at' => $r['called_at']];
         $byDomain[$d]['calls']++;
         if ($engaged) $byDomain[$d]['engaged']++;
+        $status = trim((string) $r['dial_status']) !== '' ? $r['dial_status'] : '(unspecified)';
+        $dialStatus[$status] = ($dialStatus[$status] ?? 0) + 1;
+        if (!$engaged) $dialStatusRang[$status] = ($dialStatusRang[$status] ?? 0) + 1;
+        $windowRows[] = $r;
     }
     usort($byDomain, fn($a, $b) => $b['calls'] <=> $a['calls']);
+    arsort($dialStatus);
+    arsort($dialStatusRang);
     $out['domains'] = array_values($byDomain);
+    $out['dial_status'] = $dialStatus;
+    $out['dial_status_rang'] = $dialStatusRang;
+    $out['buckets'] = calls_audit_duration_buckets($windowRows, $engagedAt);
     return $out;
+}
+
+/**
+ * Talk-time histogram over a set of call rows (each needs a `talk_time` key), bucket
+ * edges derived from the REAL engaged threshold in force rather than a second,
+ * independently-maintained magic number — so the buckets and the engaged/rang split
+ * above can never silently disagree about where the line is. 30s is kept as a fixed
+ * floor (CTM's own "rang briefly, never connected" noise lives almost entirely under
+ * it) as long as the real threshold sits above it; if a threshold is ever set to 30s
+ * or below, the floor collapses into it rather than producing an empty bucket.
+ *
+ * @return array<int,array{label:string,lo:int,hi:?int,count:int,is_engaged_bucket:bool}>
+ */
+function calls_audit_duration_buckets(array $rows, int $engagedAt): array
+{
+    $bounds = array_values(array_unique([0, min(30, $engagedAt), $engagedAt]));
+    sort($bounds);
+    $ranges = [];
+    foreach ($bounds as $i => $lo) {
+        $hi = isset($bounds[$i + 1]) ? $bounds[$i + 1] - 1 : null;
+        $ranges[] = [
+            'label' => $hi === null ? ($lo . 's+') : ($lo . '-' . $hi . 's'),
+            'lo' => $lo, 'hi' => $hi, 'count' => 0,
+            'is_engaged_bucket' => $lo >= $engagedAt,
+        ];
+    }
+    foreach ($rows as $r) {
+        $t = (int) $r['talk_time'];
+        foreach ($ranges as &$rg) {
+            if ($t >= $rg['lo'] && ($rg['hi'] === null || $t <= $rg['hi'])) { $rg['count']++; break; }
+        }
+        unset($rg);
+    }
+    return $ranges;
+}
+
+/** Hard cap on individual call rows returned per request — a scope/filter combo that
+ *  still matches more than this is reported as truncated (see calls_audit_call_rows),
+ *  never silently cut with no sign anything was dropped. */
+const CALLS_AUDIT_CALL_ROWS_LIMIT = 300;
+
+/**
+ * Individual call rows (not pre-aggregated to one line per domain) for the fleet-wide
+ * drill-down — filterable by minimum talk time, dial status, domain substring, and
+ * "repeat callers only", sortable by recency or talk time.
+ *
+ * REPEAT NUMBERING LOOKS PAST THE WINDOW ON PURPOSE. `repeat_num` counts a caller's
+ * calls to this SAME domain across this account's ENTIRE stored history (currently up
+ * to calls_backfill_days back), not just the $days window being displayed — a number
+ * that called once 40 days ago and again yesterday is still that business's 2nd call
+ * from that person, and showing it as a false "1st" would hide the exact repeat-caller
+ * signal this exists to surface. Caller numbers that are blank (seen in some CTM
+ * records) are never counted as a repeat — there's no real identity to match on.
+ *
+ * Fine at today's volume (a few thousand rows over 180 days backfilled) to scan once
+ * per request; would need an indexed rolling count instead if the fleet's call volume
+ * grows an order of magnitude.
+ *
+ * @param array $filters days?:int, min_seconds?:int, dial_status?:string,
+ *   repeat_only?:bool, domain?:string, sort?:'recent'|'longest'
+ * @param ?array $scope domain(lower) => true, from infra_audit_scope() — null means
+ *   every synced domain.
+ * @return array{rows:array,total:int,truncated:bool}
+ */
+function calls_audit_call_rows(array $filters, ?array $scope = null): array
+{
+    $days        = max(1, (int) ($filters['days'] ?? 30));
+    $minSeconds  = ($filters['min_seconds'] ?? '') !== '' ? max(0, (int) $filters['min_seconds']) : null;
+    $dialStatus  = trim((string) ($filters['dial_status'] ?? ''));
+    $repeatOnly  = !empty($filters['repeat_only']);
+    $domainLike  = strtolower(trim((string) ($filters['domain'] ?? '')));
+    $sort        = (string) ($filters['sort'] ?? 'recent');
+    $engagedAt   = (int) infra_audit_setting('calls_engaged_seconds');
+    $sinceTs     = time() - $days * 86400;
+
+    $db = calls_audit_db();
+    $all = $db->query('SELECT call_id, domain, talk_time, duration, dial_status, caller_number,
+                               called_at, unix_time
+                        FROM ctm_call WHERE direction = "inbound" ORDER BY unix_time ASC')
+              ->fetchAll(PDO::FETCH_ASSOC);
+
+    $seenCount = [];   // "domain|caller" => running count, chronological
+    $windowed = [];
+    foreach ($all as $r) {
+        $caller = trim((string) $r['caller_number']);
+        if ($caller !== '') {
+            $key = $r['domain'] . '|' . $caller;
+            $seenCount[$key] = ($seenCount[$key] ?? 0) + 1;
+        }
+        if ((int) $r['unix_time'] < $sinceTs) continue;
+        if ($scope !== null && !isset($scope[$r['domain']])) continue;
+        $r['repeat_num'] = $caller !== '' ? $seenCount[$r['domain'] . '|' . $caller] : 1;
+        $r['engaged'] = (int) $r['talk_time'] >= $engagedAt;
+        $windowed[] = $r;
+    }
+
+    $filtered = array_values(array_filter($windowed, function ($r) use ($minSeconds, $dialStatus, $repeatOnly, $domainLike) {
+        if ($minSeconds !== null && (int) $r['talk_time'] < $minSeconds) return false;
+        if ($dialStatus !== '' && strtolower((string) $r['dial_status']) !== strtolower($dialStatus)) return false;
+        if ($repeatOnly && (int) $r['repeat_num'] < 2) return false;
+        if ($domainLike !== '' && stripos($r['domain'], $domainLike) === false) return false;
+        return true;
+    }));
+
+    usort($filtered, $sort === 'longest'
+        ? fn($a, $b) => $b['talk_time'] <=> $a['talk_time']
+        : fn($a, $b) => $b['unix_time'] <=> $a['unix_time']);
+
+    $total = count($filtered);
+    return [
+        'rows' => array_slice($filtered, 0, CALLS_AUDIT_CALL_ROWS_LIMIT),
+        'total' => $total,
+        'truncated' => $total > CALLS_AUDIT_CALL_ROWS_LIMIT,
+    ];
+}
+
+/** The individual-call drill-down table body. */
+function calls_audit_render_call_rows(array $rows, array $cityInfo = []): string
+{
+    ob_start(); ?>
+        <?php foreach ($rows as $r): ?>
+            <tr>
+                <td class="fa-dim"><?= h($r['called_at']) ?></td>
+                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a><?= ms_fleet_city_subline($r['domain'], $cityInfo) ?></td>
+                <td class="<?= $r['engaged'] ? 'fa-good' : '' ?>"><?= (int) $r['talk_time'] ?>s</td>
+                <td class="fa-dim"><?= (int) $r['duration'] ?>s</td>
+                <td><?= h($r['dial_status'] !== '' ? $r['dial_status'] : '(unspecified)') ?></td>
+                <td class="fa-dim"><?= h($r['caller_number']) ?></td>
+                <td><?= (int) $r['repeat_num'] > 1 ? '<span class="fa-warn">call #' . (int) $r['repeat_num'] . '</span>' : '' ?></td>
+            </tr>
+        <?php endforeach;
+    return ob_get_clean();
 }
 
 /** The per-domain table body, fetched on demand like every other audit's <details>. */

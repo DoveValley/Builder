@@ -131,6 +131,31 @@ switch ($action) {
         echo json_encode(['html' => $html]);
         break;
 
+    case 'call_rows':
+        // The individual-call drill-down, separate from 'rows' above (which is always
+        // one line per domain) — only meaningful for the calls audit, since no other
+        // audit has a per-event granularity below "per domain".
+        if ($which !== 'calls') { http_response_code(400); echo json_encode(['error' => 'call_rows only applies to the calls audit.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/infra/lib/calls_audit.php';
+        require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_fleet_domain_city_info/ms_fleet_city_subline
+        $scope = infra_audit_scope((string) ($_GET['faniche'] ?? ''), (string) ($_GET['fabatch'] ?? ''));
+        $result = calls_audit_call_rows([
+            'days'        => (int) ($_GET['days'] ?? 30),
+            'min_seconds' => (string) ($_GET['min_seconds'] ?? ''),
+            'dial_status' => (string) ($_GET['dial_status'] ?? ''),
+            'repeat_only' => !empty($_GET['repeat_only']),
+            'domain'      => (string) ($_GET['domain'] ?? ''),
+            'sort'        => (string) ($_GET['sort'] ?? 'recent'),
+        ], $scope);
+        echo json_encode([
+            'total' => $result['total'],
+            'shown' => count($result['rows']),
+            'truncated' => $result['truncated'],
+            'html' => calls_audit_render_call_rows($result['rows'], ms_fleet_domain_city_info()),
+        ]);
+        break;
+
     case 'status':
         $run = $runningId();
         $out = ['running' => $run !== null, 'run_id' => $run];
