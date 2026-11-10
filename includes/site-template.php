@@ -207,9 +207,22 @@ if (empty($seo['og_image']) || !uploaded_file_exists($seo['og_image'])) {
         <?php endif; ?>
     <?php endforeach; ?>
     <title><?= h($pageTitle) ?></title>
-    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url_v($favicon)); ?>
-    <link rel="icon" type="image/x-icon" href="<?= $faviconUrl ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= $faviconUrl ?>">
+    <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url_v($favicon));
+        // Uploaded favicons are only ever jpeg/png/gif/webp (save_uploaded_file()'s
+        // allowed types) — never a literal .ico — so the declared type must match the
+        // real file, not assume .ico. Browsers/Google mostly sniff real content and
+        // tolerate the mismatch, but it's wrong markup on every domain in the fleet
+        // regardless of whether it's ever the actual cause of a missing favicon.
+        $faviconMime = match (strtolower(pathinfo($favicon, PATHINFO_EXTENSION))) {
+            'jpg', 'jpeg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'webp' => 'image/webp',
+            'ico' => 'image/x-icon',
+            default => 'image/png',
+        };
+    ?>
+    <link rel="icon" type="<?= $faviconMime ?>" href="<?= $faviconUrl ?>">
+    <link rel="icon" type="<?= $faviconMime ?>" sizes="32x32" href="<?= $faviconUrl ?>">
     <link rel="apple-touch-icon" href="<?= $faviconUrl ?>">
     <?php endif; ?>
     <?php if (!empty($seo['meta_description'])): ?>
