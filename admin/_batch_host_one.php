@@ -2,15 +2,21 @@
 /**
  * "Create host — one domain" — a manual override of a single row's box.
  *
- * Card 2 (Pick deployment servers) only sets each box's quota; card 3A (Create host
- * — multiple domains) spreads the whole batch across those boxes round-robin, with no say over which
- * specific domain lands where. This card is for the one time that's wrong: a
- * specific domain needs a specific box. It calls the exact same engine Create host
- * (and the Infra console's own Host button) call — infra_provision_one(), via the
- * locked wrapper — for just the one domain named here, on the box you pick instead
- * of whatever the plan/round-robin would have assigned, then writes its FTP
- * credentials back into this row the same way Create host does, so every later
- * step (Generate, Upload, Go Live) sees it as already hosted.
+ * With Strict positional box mode OFF: card 2 (Pick deployment servers) only sets
+ * each box's quota; card 3A (Create host — multiple domains) spreads the whole
+ * batch across those boxes round-robin, with no say over which specific domain
+ * lands where. With it ON (the default for a new batch): card 3A just reads each
+ * row's own `box` column, set by the Target List card's Auto-fill button. Either
+ * way, this card is for the one time that's wrong: a specific domain needs a
+ * specific box regardless of what either path would have assigned. It calls the
+ * exact same engine Create host (and the Infra console's own Host button) call —
+ * infra_provision_one(), via the locked wrapper — for just the one domain named
+ * here, on the box you pick, then writes its FTP credentials back into this row
+ * the same way Create host does, so every later step (Generate, Upload, Go Live)
+ * sees it as already hosted. It ALSO writes the real box number back into this
+ * row's own `box` column (admin/multisite_api.php's create_host_one), so that
+ * column keeps agreeing with where the domain actually got provisioned — Check
+ * Distribution and the fingerprint checks both trust it as the source of truth.
  *
  * Expects: $csrfToken.
  */

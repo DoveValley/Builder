@@ -33,6 +33,13 @@ $msBuyRegistrarLabels = array_combine($msBuyRegistrars,
 // number inputs below; the value actually used for a run is whatever's in the box when
 // Generate sites is clicked.
 $msRotSettings = ms_rotation_settings(ms_batch_file_read($masterId, $batchId, 'section_rotation.json'));
+
+// Strict positional box/Cloudflare-account mode, persisted per BATCH
+// (box_assignment_save.php) — read by Create Host (multisite/create_hosts.php) to
+// decide whether it trusts each row's own `box` column or picks one itself. Defaults
+// ON for any batch that has never saved a choice (ms_box_assignment_defaults()).
+require_once __DIR__ . '/../includes/multisite/box_assignment.php';
+$msBoxSettings = ms_box_assignment_settings(ms_batch_file_read($masterId, $batchId, 'box_assignment.json'));
 // Every checkbox's persisted default (7 parent steps + every sub-switch), per BATCH
 // (batch_options_save.php) — same reasoning: two batches off the same master can genuinely
 // want different defaults (e.g. a "test" batch vs. the real one). Same "purely pre-fills the
@@ -102,6 +109,44 @@ function ms_ctm_card_end(string $prefix): void {
 <div class="card" id="ms-rows-card">
     <h3 style="margin-top:0;">Target list — edit rows directly</h3>
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
+    <div class="hint" style="margin-top:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;">
+        <strong style="color:#1e3a5f;">Order of operations, every batch — city/registrar/box spread and the Cloudflare fingerprint check happen from here, not from Batch Detailed:</strong>
+        <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;">
+            <li>Order the rows in your spreadsheet (geo spacing + state de-clustering), then upload the CSV above.</li>
+            <li>Check <strong>Strict positional box mode</strong> below is ON. Easy to miss — if it's off, everything the next two steps fill in is ignored later by Create Host, which goes back to picking boxes at random instead.</li>
+            <li>Press <strong>Auto-fill Box / CF Acct</strong>.</li>
+            <li>Press <strong>Auto-fill Registrar</strong>.</li>
+            <li>Press <strong>Check Distribution</strong>.</li>
+            <li>If step 5 found state hotspots: press <strong>Fix State Clustering</strong>, then run <strong>Check Distribution</strong> again to confirm clean.</li>
+            <li>Press <strong>Buy Domains</strong> — it checks registrar funding automatically right before firing and warns you in the confirm dialog if anything looks short.</li>
+        </ol>
+        <p style="margin:10px 0 0;">
+            <strong>Separate, not gated by the above:</strong> Get/Set/Release/Resync CTM Phone Numbers and Insert/verify area code, further down this card — these are about phone tracking numbers, not domains, and can be done anytime, before or after Buy Domains.
+        </p>
+        <p style="margin:8px 0 0;">Full written checklist: <a href="docs.php?doc=multisite#ms-box-distribution" target="_blank">Box/registrar distribution &amp; fingerprint check &rarr;</a></p>
+    </div>
+    <div class="hint" style="margin-top:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <button type="button" class="btn" id="ms-box-autofill-btn" onclick="msBoxAutofill()">Auto-fill Box / CF Acct (strict positional)</button>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Sets every row's Box to 1-20 repeating, in list order, and its CF Acct to the matching Cloudflare account for that round (0-3). Overwrites whatever was already in those two columns, including manual edits — confirmed before it runs.\n\nRows past position 80 get a Box but no CF Acct: only 4 Cloudflare accounts are bound to each box today, so there's no 5th slot to assign automatically. Use the Row 81+ CF Acct field to reuse one of the 4 for those rows instead of leaving them blank, or leave it blank and decide by hand later.\n\nStep 3 of the order of operations above — do this before Auto-fill Registrar, since registrar depends on Box already being set.">&#9432;</a>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+            Row 81+ CF Acct:
+            <input type="number" id="ms-box-overflow" min="0" max="3" placeholder="—" style="width:48px;padding:3px 5px;">
+        </label>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Only matters for rows past position 80 (only on a batch bigger than 80 rows). Leave blank to leave those rows' CF Acct blank — the normal 'first open account' pick still applies for them later, at zone-creation time.\n\nType 0-3 to instead reuse one specific Cloudflare account (the one labelled .0 through .3) for every row past position 80. That account then simply carries a bit more zone volume than its siblings on the same box — it does not put two boxes on one account, so it never breaks the one-account-per-box isolation.">&#9432;</a>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+            <input type="checkbox" id="ms-strict-box-mode"<?= $msBoxSettings['strict_mode'] ? ' checked' : '' ?> onchange="msSaveStrictBoxMode(this.checked)">
+            Strict positional box mode (Create Host uses each row's own <code>box</code> column instead of picking one itself)
+        </label>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="ON (the default for a new batch): Create Host reads Box straight from each row's own column — whatever Auto-fill Box / CF Acct wrote, or whatever you've hand-edited since.\n\nOFF: Create Host ignores the Box column entirely and goes back to its own randomized, registrar-balanced round-robin picker instead.\n\nStep 2 of the order of operations above — check this BEFORE pressing Auto-fill, since it decides whether that button's work actually gets used later.">&#9432;</a>
+        <button type="button" class="btn" id="ms-registrar-autofill-btn" onclick="msRegistrarAutofill()">Auto-fill Registrar (box-aware)</button>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Sets every row's Registrar from a formula over (box, round, this batch's own sequence number) — not random, not a manual rotation to track. The batch's sequence number is assigned automatically when the batch is created, so running this on any future batch just works, with nothing to remember or type.\n\nOverwrites any manual registrar edits already made. Needs Box / CF Acct filled in first (step 3) — rows with no box assigned are skipped and reported, not guessed at.\n\nBuilt to fix a real, confirmed problem: a simpler per-batch rotation offset still let every box see only 3 of the 6 registrars, identically, in every batch. This formula instead varies which ONE registrar a box misses, differently every batch.">&#9432;</a>
+        <button type="button" class="btn" id="ms-box-check-btn" onclick="msBoxDistributionCheck()">Check Distribution</button>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Read-only — changes nothing. Reports three things about this batch's current Box/CF Acct/Registrar/State columns:\n\n1. Box and CF Acct totals (should already be perfectly even if Auto-fill was used and nothing's been hand-edited since).\n\n2. Registrar and state CONCENTRATION — a box carrying notably more of one registrar or state than an even spread would predict.\n\n3. Registrar ABSENCE — a box with ZERO domains from a registrar this batch otherwise uses plenty of elsewhere. The sharper, more meaningful version of the concentration check, since the registrar pool is only 6 wide.\n\nRun this after Auto-fill (steps 3-4), and again after Fix State Clustering if you use it, before Buy Domains.">&#9432;</a>
+        <button type="button" class="btn" id="ms-fix-state-btn" onclick="msFixStateClustering()">Fix State Clustering</button>
+        <a href="#" class="hint" style="cursor:pointer;font-size:1.05rem;text-decoration:none;" onclick="bpShowInfo(this);return false;" data-info="Only does something if Check Distribution found a state hotspot. A state can't be reassigned the way registrar can — it's tied to the row's real city/business identity — so the only fix is swapping which row sits at which position.\n\nSwaps full row content (domain, business, city, state — everything about the row's identity) between an over-represented row and a safe donor elsewhere. Box, CF Acct and Registrar are deliberately left untouched: they belong to the POSITION, not the row, and the position isn't moving.\n\nRun Check Distribution again afterward to confirm. Only makes sense before domains are bought and before any CTM numbers or FTP credentials are assigned to these rows.">&#9432;</a>
+        <span id="ms-box-autofill-msg" class="hint"></span>
+    </div>
+    <div id="ms-box-check-out" style="display:none;margin-top:10px;"></div>
     <?php ms_ctm_card_start('ctm', 'Get CTM Phone Numbers'); ?>
         <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it in CTM → write the number into Phone.</span>
         <div class="hint" style="margin-top:6px;">
@@ -192,9 +237,11 @@ function ms_ctm_card_end(string $prefix): void {
             <thead><tr>
                 <th style="width:34px;">#</th>
                 <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)" style="width:20px;height:20px;cursor:pointer"></th>
-                <th style="width:90px;">Status</th><th>Domain</th><th style="width:100px;">Registrar</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th style="width:120px;">Routes to</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
+                <th style="width:90px;">Status</th><th>Domain</th><th style="width:100px;">Registrar</th>
+                <th style="width:50px;">Box</th><th style="width:60px;">CF Acct</th>
+                <th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th style="width:120px;">Routes to</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
             </tr></thead>
-            <tbody><tr><td colspan="13" class="hint">Loading…</td></tr></tbody>
+            <tbody><tr><td colspan="15" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
@@ -2173,7 +2220,7 @@ function ms_ctm_card_end(string $prefix): void {
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
         const keys = msRowOrder;
-        if (!keys.length) { tbody.innerHTML = '<tr><td colspan="13" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        if (!keys.length) { tbody.innerHTML = '<tr><td colspan="15" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
         tbody.innerHTML = keys.map((key, i) => msRenderRowPair(key, i + 1)).join('');
     }
 
@@ -2203,6 +2250,163 @@ function ms_ctm_card_end(string $prefix): void {
             .then(d => { if (d.error) { alert(d.error); return; } msLoadRows(); })
             .catch(() => alert('Reset failed — lost contact with the server.'));
     };
+
+    // Recomputes box/cf_account for EVERY row from its current position — strict
+    // positional math (includes/multisite/box_assignment.php), via multisite_api.php's
+    // box_autofill action. Overwrites any manual edits to those two columns, so this
+    // confirms before firing.
+    window.msBoxAutofill = function () {
+        const msgEl = document.getElementById('ms-box-autofill-msg');
+        const overflow = document.getElementById('ms-box-overflow').value.trim();
+        const overflowMsg = overflow === ''
+            ? 'blank, since only 4 accounts exist per box — decide those by hand later'
+            : 'account .' + overflow + ' (reused for all of them)';
+        if (!confirm('Recompute Box and CF Acct for EVERY row in this batch, based on its current position in the list?\n\nBox cycles 1-20 repeating; CF Acct is the matching Cloudflare account (0-3) for that round. Rows past position 80 will get ' + overflowMsg + '.\n\nThis overwrites any manual edits already made to those two columns.')) return;
+        msgEl.textContent = 'Working…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        if (overflow !== '') fd.append('overflow_cf_account', overflow);
+        fetch('multisite_api.php?action=box_autofill', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { msgEl.textContent = ''; alert(d.error); return; }
+                msgEl.textContent = 'Set ' + d.rows + ' row(s).';
+                msLoadRows();
+            })
+            .catch(() => { msgEl.textContent = ''; alert('Auto-fill failed — lost contact with the server.'); });
+    };
+
+    // Recomputes registrar for EVERY row from (box, round, this batch's own
+    // sequence number) — box-aware assignment (includes/multisite/
+    // registrar_schedule.php, multisite_api.php's registrar_autofill action).
+    // Needs Box/CF Acct already filled in first. No seed to type in — uses this
+    // batch's own already-assigned sequence number, so re-running this on any
+    // future batch reproduces the same good spread automatically.
+    window.msRegistrarAutofill = function () {
+        const msgEl = document.getElementById('ms-box-autofill-msg');
+        if (!confirm('Recompute Registrar for EVERY row in this batch, from its (box, round) position and this batch\'s own sequence number?\n\nThis overwrites any manual registrar edits already made. Run Auto-fill Box / CF Acct first if you haven\'t — rows with no box assigned are skipped.')) return;
+        msgEl.textContent = 'Working…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fetch('multisite_api.php?action=registrar_autofill', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { msgEl.textContent = ''; alert(d.error); return; }
+                msgEl.textContent = 'Set ' + d.rows + ' row(s)' + (d.skipped_no_box ? ', skipped ' + d.skipped_no_box + ' with no box' : '') + ' (seq ' + d.seq + ').';
+                msLoadRows();
+            })
+            .catch(() => { msgEl.textContent = ''; alert('Auto-fill failed — lost contact with the server.'); });
+    };
+
+    // Swaps full row content between a hotspot's over-represented rows and a
+    // safe donor elsewhere (multisite_api.php's box_fix_state_clustering,
+    // ms_suggest_state_swaps() in includes/multisite/distribution_check.php) —
+    // box/CF Acct/registrar are untouched, since those belong to the position,
+    // not the row's identity. Run Check Distribution first to see what exists;
+    // this runs its own fresh check internally either way.
+    window.msFixStateClustering = function () {
+        const msgEl = document.getElementById('ms-box-autofill-msg');
+        if (!confirm('Fix state clustering by swapping full row content (domain, business, city, state, etc.) between over-represented rows and a safe donor row elsewhere?\n\nBox, CF Acct and Registrar are NOT touched — they stay with the position. This only makes sense before domains are bought and before any CTM numbers/FTP credentials are assigned to these rows.')) return;
+        msgEl.textContent = 'Working…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fetch('multisite_api.php?action=box_fix_state_clustering', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { msgEl.textContent = ''; alert(d.error); return; }
+                if (d.swaps === 0 && d.before === 0) { msgEl.textContent = 'No state hotspots found — nothing to fix.'; return; }
+                if (d.unresolved) { msgEl.textContent = d.before + ' hotspot(s) found, but no safe donor row exists for any of them.'; return; }
+                msgEl.textContent = 'Made ' + d.swaps + ' swap(s) — hotspots ' + d.before + ' → ' + d.after + '.';
+                msLoadRows();
+            })
+            .catch(() => { msgEl.textContent = ''; alert('Fix failed — lost contact with the server.'); });
+    };
+
+    // Saves the per-batch "Strict positional box mode" toggle (box_assignment_save.php).
+    // Does not itself touch any row — Create Host reads this at the moment it runs.
+    window.msSaveStrictBoxMode = function (checked) {
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('strict_mode', checked ? '1' : '');
+        fetch('box_assignment_save.php', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => { if (d.error) alert(d.error); })
+            .catch(() => alert('Could not save — lost contact with the server.'));
+    };
+
+    // Read-only report: box/account totals (sanity) + registrar/state hotspots —
+    // a box carrying notably more of one registrar or state than an even spread
+    // would predict (multisite_api.php's box_distribution_check,
+    // includes/multisite/distribution_check.php). Meant to run right after
+    // Auto-fill and BEFORE Buy Domains, while row order can still be adjusted —
+    // once domains are bought, registrar can't change.
+    window.msBoxDistributionCheck = function () {
+        const out = document.getElementById('ms-box-check-out');
+        out.style.display = 'block';
+        out.innerHTML = '<span class="hint">Checking…</span>';
+        fetch('multisite_api.php?action=box_distribution_check')
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { out.innerHTML = '<span class="hint" style="color:#991b1b;">' + esc(d.error) + '</span>'; return; }
+                out.innerHTML = msRenderBoxDistributionReport(d);
+            })
+            .catch(() => { out.innerHTML = '<span class="hint" style="color:#991b1b;">Check failed — lost contact with the server.</span>'; });
+    };
+
+    function msRenderBoxDistributionReport(d) {
+        const boxCounts = Object.values(d.box_counts || {});
+        const boxesUsed = Object.keys(d.box_counts || {}).length;
+        const boxEven = boxCounts.length && boxCounts.every(c => c === boxCounts[0]);
+        const cfCounts = Object.values(d.cf_counts || {});
+        const cfEven = cfCounts.length && cfCounts.every(c => c === cfCounts[0]);
+
+        let html = '<div class="hint" style="margin-bottom:8px;">' +
+            '<strong>Box totals:</strong> ' + boxesUsed + ' box(es) used' +
+            (boxEven ? ', all equal (' + boxCounts[0] + ' each) &#10003;' : ' — UNEVEN, check for manual edits') +
+            ' &nbsp;&middot;&nbsp; <strong>CF Acct totals:</strong> ' + Object.keys(d.cf_counts || {}).length + ' combo(s) used' +
+            (cfEven ? ', all equal (' + cfCounts[0] + ' each) &#10003;' : ' — UNEVEN, check for manual edits') +
+            '</div>';
+
+        const hotspotTable = (title, hints, rows) => {
+            if (!rows.length) return '<div class="hint" style="margin-bottom:8px;color:#166534;"><strong>' + title + ':</strong> clean — no concentration above threshold.</div>';
+            let t = '<div style="margin-bottom:10px;"><strong style="font-size:13px;color:#92400e;">' + title + ' — ' + rows.length + ' hotspot(s)</strong>' +
+                '<div class="hint" style="margin:2px 0 6px;">' + hints + '</div>' +
+                '<table style="font-size:12.5px;border-collapse:collapse;"><thead><tr style="text-align:left;color:#6b7280;">' +
+                '<th style="padding:3px 10px 3px 0;">Box</th><th style="padding:3px 10px 3px 0;">Value</th>' +
+                '<th style="padding:3px 10px 3px 0;">Actual</th><th style="padding:3px 10px 3px 0;">Expected</th><th style="padding:3px 0;">Ratio</th></tr></thead><tbody>';
+            rows.forEach(h => {
+                t += '<tr style="border-top:1px solid #f3f4f6;">' +
+                    '<td style="padding:3px 10px 3px 0;">' + h.box + '</td>' +
+                    '<td style="padding:3px 10px 3px 0;">' + esc(h.value) + '</td>' +
+                    '<td style="padding:3px 10px 3px 0;">' + h.actual + '</td>' +
+                    '<td style="padding:3px 10px 3px 0;">' + h.expected + '</td>' +
+                    '<td style="padding:3px 0;font-weight:700;color:#92400e;">' + h.ratio + 'x</td></tr>';
+            });
+            t += '</tbody></table></div>';
+            return t;
+        };
+
+        html += hotspotTable('Registrar concentration', 'A box with one registrar at &ge;1.5&times; its even-spread share, on at least 3 domains.', d.registrar_hotspots || []);
+        html += hotspotTable('State concentration', 'A box with one state at &ge;1.5&times; its even-spread share, on at least 3 domains.', d.state_hotspots || []);
+
+        const missing = d.registrar_missing || [];
+        if (!missing.length) {
+            html += '<div class="hint" style="margin-bottom:8px;color:#166534;"><strong>Registrar absence:</strong> clean — every box sees every registrar this batch actually uses.</div>';
+        } else {
+            html += '<div style="margin-bottom:10px;"><strong style="font-size:13px;color:#991b1b;">Registrar absence — ' + missing.length + ' box/registrar pair(s) never occur together</strong>' +
+                '<div class="hint" style="margin:2px 0 6px;">A box with ZERO domains from a registrar this batch otherwise uses plenty of — the sharper version of the concentration check above (every box permanently missing half the registrar pool is the real pattern, not just "a bit uneven").</div>' +
+                '<table style="font-size:12.5px;border-collapse:collapse;"><thead><tr style="text-align:left;color:#6b7280;">' +
+                '<th style="padding:3px 10px 3px 0;">Box</th><th style="padding:3px 10px 3px 0;">Missing registrar</th><th style="padding:3px 0;">Batch total elsewhere</th></tr></thead><tbody>';
+            missing.forEach(m => {
+                html += '<tr style="border-top:1px solid #f3f4f6;">' +
+                    '<td style="padding:3px 10px 3px 0;">' + m.box + '</td>' +
+                    '<td style="padding:3px 10px 3px 0;">' + esc(m.value) + '</td>' +
+                    '<td style="padding:3px 0;">' + m.batch_total + '</td></tr>';
+            });
+            html += '</tbody></table></div>';
+        }
+        return html;
+    }
 
     // forward_to set + forward_rpn_id blank = staged, never pushed to CTM yet (no
     // tracking number existed when it was set) — distinct from actually applied, so
@@ -2257,6 +2461,14 @@ function ms_ctm_card_end(string $prefix): void {
                     '<option value=""' + (!f.registrar ? ' selected' : '') + '>—</option>' +
                     msBuyRegistrars.map(reg => '<option value="' + esc(reg) + '"' + (f.registrar === reg ? ' selected' : '') + '>' + esc(msBuyRegistrarLabels[reg] || reg) + '</option>').join('') +
                 '</select></td>' +
+                '<td><select class="ms-row-input" data-f="box" style="width:48px;">' +
+                    '<option value=""' + (!f.box ? ' selected' : '') + '>—</option>' +
+                    Array.from({length: 20}, (_, n) => n + 1).map(n => '<option value="' + n + '"' + (String(f.box) === String(n) ? ' selected' : '') + '>' + n + '</option>').join('') +
+                '</select></td>' +
+                '<td><select class="ms-row-input" data-f="cf_account" style="width:54px;">' +
+                    '<option value=""' + (f.cf_account === '' || f.cf_account === undefined ? ' selected' : '') + '>—</option>' +
+                    [0, 1, 2, 3].map(n => '<option value="' + n + '"' + (String(f.cf_account) === String(n) ? ' selected' : '') + '>.' + n + '</option>').join('') +
+                '</select></td>' +
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
@@ -2270,6 +2482,8 @@ function ms_ctm_card_end(string $prefix): void {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + domainCell + '</td>' +
                 '<td>' + esc(msBuyRegistrarLabels[f.registrar] || f.registrar || '') + '</td>' +
+                '<td>' + esc(f.box || '') + '</td>' +
+                '<td>' + (f.cf_account !== undefined && f.cf_account !== '' ? '.' + esc(f.cf_account) : '') + '</td>' +
                 '<td>' + esc(f.business || '') + '</td>' +
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
@@ -2287,7 +2501,7 @@ function ms_ctm_card_end(string $prefix): void {
                 '</td>';
         }
         return '<tr data-key="' + esc(key) + '" data-domain="' + esc(domain) + '">' + cells + '</tr>' +
-            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="13"><div class="ms-row-progress hint"></div></td></tr>';
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="15"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
     async function msLoadRows() {

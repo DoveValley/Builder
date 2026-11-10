@@ -20,6 +20,15 @@
         FTP login that can write to that folder and nothing else. The credentials come back and are
         stored on each row, so the run has what it needs to deploy.
     </p>
+    <?php if ($msBoxSettings['strict_mode']): ?>
+    <p class="hint" style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:10px 14px;color:#92400e;">
+        <strong>Strict positional box mode is ON for this batch</strong> — this button does NOT pick
+        boxes itself right now. Each row's box was already decided by <strong>Auto-fill Box / CF Acct</strong>
+        (Target List card) and is read straight from that row's own <code>box</code> column. Nothing
+        here is random, and there's no round-robin or quota to speak of — this button only provisions
+        the host on whichever box each row's column already names.
+    </p>
+    <?php else: ?>
     <p class="hint">
         <strong>This is the step that actually decides which domain goes on which box</strong> —
         the plan above only sets each box's target count (its quota); nothing is tied to a specific
@@ -33,6 +42,7 @@
         exactly where the real, current state left off, so the even, non-repeating spread survives
         being done in stages.
     </p>
+    <?php endif; ?>
     <p class="hint">
         Safe to press twice &mdash; rows that already have credentials are skipped. The web server
         is restarted <strong>once per box at the end</strong>: until it restarts it serves Hestia's
@@ -50,14 +60,23 @@
         is why it asks you to confirm, and why a domain fleet.db already confirms is
         <strong>LIVE</strong> is skipped even with Force checked, unless you name it in Only above.
     </p>
+    <?php if ($msBoxSettings['strict_mode']): ?>
     <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
-        <strong>Most common use:</strong> leave Only and Force alone and press
+        <strong>Most common use (Strict positional box mode ON):</strong> leave Only and Force alone
+        and press <strong>Create host areas</strong>. Box placement was already decided on the Target
+        List card — this just provisions each row's real host on the box its own <code>box</code>
+        column already names.
+    </p>
+    <?php else: ?>
+    <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
+        <strong>Most common use (Strict positional box mode OFF):</strong> leave Only and Force alone and press
         <strong>Create host areas</strong>. It works through your domains in their own list order
         &mdash; the first 20 each land on a different one of the 20 boxes, in a random order, then
         the next 20 domains get a fresh random pass through all 20 boxes again, and so on. It never
         puts a domain on a box and then puts the very next domain on that same box &mdash; that
         holds everywhere in the sequence, even across separate runs done in stages.
     </p>
+    <?php endif; ?>
 
     <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-primary" id="ms-hosts-btn" onclick="msCreateHosts()">Create host areas</button>

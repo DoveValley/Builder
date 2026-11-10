@@ -518,6 +518,13 @@ $bucketCrosstab = $bucketLatest ? infra_city_bucket_crosstab($bucketLatest['rows
       trusted) and the real purchase goes through the same path the Infra console's own single-domain
       Buy uses — real money, not a preview, confirmed before it fires.
     </li>
+    <li>
+      <strong>Once bought: box/registrar distribution and the fingerprint check.</strong> Claiming the
+      domains into a batch, spreading them across boxes, and verifying no Cloudflare account/box crosses
+      an island boundary is its own checklist, covered in full in
+      <a href="docs.php?doc=multisite#ms-box-distribution" target="_blank">Box/registrar distribution
+      &amp; fingerprint check</a>.
+    </li>
   </ol>
 </div>
 

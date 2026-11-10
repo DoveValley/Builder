@@ -40,6 +40,35 @@ function infra_hestia_server(string $id): ?array
 }
 
 /**
+ * The Nth box (1-indexed) in the registry's own stored order — the same order its
+ * label ("BOX 1", "BOX 2", ...) and the Cloudflare account labels ("CF #1.0", ...)
+ * already assume. Used by strict positional box assignment (includes/multisite/
+ * box_assignment.php) to turn a row's plain box number back into a real server.
+ */
+function infra_hestia_server_by_number(int $n): ?array
+{
+    if ($n < 1) return null;
+    $servers = infra_hestia_servers();
+    return $servers[$n - 1] ?? null;
+}
+
+/** The reverse of infra_hestia_server_by_number(): this server's plain box number
+ *  (1-20), or null if it isn't in the registry. Used to keep a row's `box` column
+ *  (strict positional assignment, includes/multisite/box_assignment.php) in sync
+ *  whenever a box is set some way OTHER than Auto-fill — e.g. a manual single-row
+ *  override — so that column stays the source of truth it claims to be rather than
+ *  silently drifting from where the domain actually got provisioned. */
+function infra_hestia_server_number(string $serverId): ?int
+{
+    $serverId = trim($serverId);
+    if ($serverId === '') return null;
+    foreach (infra_hestia_servers() as $i => $s) {
+        if ((string) ($s['id'] ?? '') === $serverId) return $i + 1;
+    }
+    return null;
+}
+
+/**
  * Has this box been set up yet? A machine can be bought, running and pingable
  * long before Hestia is on it, and the console has to be able to hold it in that
  * state — otherwise a new VPS cannot be written down until it is finished.

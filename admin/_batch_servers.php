@@ -18,11 +18,20 @@
 <!-- ===== DEPLOYMENT SERVERS ===== -->
 <div class="card" id="ms-servers-card">
     <h3 style="margin-top:0;">2. Pick deployment servers &mdash; multiple domains</h3>
+    <?php if ($msBoxSettings['strict_mode']): ?>
+    <p class="hint" style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:10px 14px;color:#92400e;">
+        <strong>Strict positional box mode is ON for this batch</strong> (Target List card, above) &mdash;
+        everything below this notice does not apply. Create Host reads each row's own <code>box</code>
+        column directly (set by Auto-fill Box / CF Acct), ignoring this plan entirely: a box left
+        unchecked here can still receive sites if a row's position maps to it, and <strong>Take</strong>
+        controls nothing. Turn Strict positional box mode off to have this plan actually decide placement.
+    </p>
+    <?php endif; ?>
     <p class="hint">
-        Which boxes this batch goes to and how many sites each takes. The checkbox in the
-        header selects or clears every usable box at once; the checkbox on each row includes
-        or excludes that one box &mdash; a box left unchecked gets nothing at all, no matter
-        what its numbers say.
+        Which boxes this batch goes to and how many sites each takes &mdash; <strong>only when Strict
+        positional box mode (Target List card) is OFF.</strong> The checkbox in the header selects or
+        clears every usable box at once; the checkbox on each row includes or excludes that one box
+        &mdash; a box left unchecked gets nothing at all, no matter what its numbers say.
     </p>
     <p class="hint">
         <strong>On it now</strong> is that box's real, global site count, read live from the
@@ -43,11 +52,12 @@
         one concentrates the blast radius.
     </p>
     <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
-        <strong>Most common use:</strong> check the header box to select every box, then press
-        <strong>Distribute round-robin</strong> and <strong>Save plan</strong>. That randomly
-        spreads this batch's domains across all 20 boxes, then randomly again across all 20,
+        <strong>Most common use (Strict positional box mode OFF):</strong> check the header box to
+        select every box, then press <strong>Distribute round-robin</strong> and <strong>Save plan</strong>.
+        That randomly spreads this batch's domains across all 20 boxes, then randomly again across all 20,
         and so on, until every domain has a box &mdash; an even split, but never the same
-        predictable order twice.
+        predictable order twice. With Strict positional box mode ON (the default for a new batch — see
+        the Target List card), this plan is skipped entirely in favor of each row's own <code>box</code> column.
     </p>
 
     <div id="ms-srv-body"><p class="hint">Reading the fleet&hellip;</p></div>

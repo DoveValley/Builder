@@ -408,6 +408,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#ms-roadmap">Build roadmap</a>
         <a href="#ms-variation">Deterministic variation</a>
         <a href="#ms-hosting">Cloudflare &amp; origin IP</a>
+        <a href="#ms-box-distribution">Box/registrar distribution &amp; fingerprint check</a>
 
         <a class="nav-group" href="#ms-admin">Running from the Admin</a>
         <a href="#ms-admin-multisite">The MultiSite tab</a>
@@ -5629,6 +5630,35 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ol>
 
     <div class="callout warn"><strong>Caveat — flipping to orange doesn't un-leak the past.</strong> If the origin IP was ever public — before Cloudflare was set up, or during initial DNS propagation — it may already be recorded in DNS-history databases (SecurityTrails, DNS history tools, etc.), and those keep the old record even after you fix the live one. When footprint really matters, check whether your VPS IP still shows up in DNS-history lookups tied to your domains; if it does, the durable fix is to <strong>move the origin to a fresh IP</strong> and keep that one proxied from day one so it's never exposed.</div>
+</section>
+
+<section id="ms-box-distribution">
+    <h2>Box / registrar distribution — no fingerprint, every batch</h2>
+    <p>Phases 2, 3 and 6 of the <a href="#ms-batch-lifecycle">batch lifecycle</a> (Pick servers → Create host → Go Live) are where a batch's domains actually get spread across the fleet's 20 Hestia boxes and 80 Cloudflare accounts. Done right, every batch comes out evenly distributed <em>and</em> isolated into islands — no box's domains cross-link to another box's through a shared Cloudflare account or a correlated registrar pattern. This is the infrastructure-level counterpart to <a href="#ms-variation">content-level anti-fingerprint</a> and <a href="#ms-hosting">hiding the origin IP</a> above — all three matter, independently.</p>
+
+    <h3>Why a box/account pairing can leak the whole network</h3>
+    <p>Every domain in one Cloudflare account shares <strong>one nameserver pair</strong>, tying it to that account's other domains. Every domain on one box shares an IP, tying it to whatever else is on that box. Handing the two out independently lets those links overlap and chain — domain A shares nameservers with B, B shares an IP with C — so discovering one site can unravel the fleet. The fix already in place: <strong>one Cloudflare account is bound to exactly one box</strong>, so both ties land on the same small island of ~20 domains instead of chaining outward. See <code>admin/infra/lib/cf_alloc.php</code> and <code>fingerprint_audit.php</code> for the implementation.</p>
+
+    <h3>Checklist, once per batch</h3>
+    <ol>
+        <li><strong>Pre-flight.</strong> Infrastructure → <strong>Cloudflare</strong> tab → "Where each box's zones go." Confirm <strong>every box shows ready, 0 unbound, 0 closed</strong> before touching this batch. A box with no open Cloudflare account bound to it gets silently skipped at Create host — fix the binding first, not after domains are already assigned.</li>
+        <li><strong>Registrar spread (before buying).</strong> Assign each row a registrar with the same fair-scheduling spread used for row order — never Cloudflare Registrar for new purchases (a CF-registered domain sits on whichever CF account bought it, which breaks the one-account-per-box isolation). A naive <code>row_position % registrar_count</code> can silently lock every box into half the registrar pool forever whenever box count and registrar count share a common factor.</li>
+        <li><strong>Pick deployment servers (phase 2).</strong> Check the header box to select all 20 boxes, press <code>Distribute round-robin</code>, then <code>Save plan</code>. This sets each box's <em>quota</em> — it does not yet decide which domain goes where.</li>
+        <li><strong>Create host areas (phase 3).</strong> This is the step that actually assigns a box to each domain, and it already does the hard part for you:
+            <ul>
+                <li>Round-by-round: every box gets exactly one domain before any box can repeat.</li>
+                <li><strong>Registrar-aware tiebreak</strong>: among equally-eligible boxes, prefers whichever already holds the fewest domains bought through that row's own registrar — so a run of same-registrar purchases doesn't cluster onto a handful of boxes just because they queued up together.</li>
+                <li>No box lands twice in a row, even across a round boundary.</li>
+            </ul>
+            Don't add a manual "box" column to the target list — there isn't one, and pre-assigning it by hand would fight this mechanism instead of helping it.
+        </li>
+        <li><strong>CF zones follow automatically (phase 6).</strong> <code>Create zone</code> always places a domain's zone in the first open Cloudflare account bound to its box. Because that pairing is 1:1, an even box spread gives you an even account spread for free — nothing to pick manually here.</li>
+        <li><strong>Verify, don't assume.</strong> The Cloudflare tab's offline check runs on every page load (reads stored state only, ~0.02s) and shows a red "zone/account/box disagreements" card the moment any domain's recorded zone, account or box stop agreeing with each other. Check it right after Create host finishes for this batch. Before the batch actually goes live, also run the live sweep — it asks Cloudflare directly instead of trusting the last stored answer, and is the authoritative check.</li>
+    </ol>
+
+    <div class="callout warn"><strong>Don't hand-plan a sequential box column (row 1 → box 1, row 2 → box 2 … 20, repeat).</strong> It throws away the registrar-aware tiebreak Create host already does, and risks correlating box position with whatever order registrar was assigned in. Let Create host decide; the two automatic layers (round-robin + registrar tiebreak) already produce a better spread than a fixed pattern would.</div>
+
+    <a class="back-top" href="#ms-box-distribution">&uarr; top</a>
 </section>
 
 <!-- ═══════════ ADMIN UI ═══════════ -->

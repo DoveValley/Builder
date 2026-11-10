@@ -203,64 +203,85 @@ function ch_registrar_of(string $domain): string
     return $r;
 }
 
-// Registrar tiebreak: among the boxes eligible for a given row, prefer whichever
-// already holds the FEWEST domains of that row's own registrar — so 20 domains
-// bought in one big namecheap run don't all pile onto the same handful of boxes
-// just because they happen to queue up together. Seeded from every row THIS BATCH
-// already has hosted (matching ftp_host to a box, same as $haveByServerId above),
-// not just what this run is about to place, so a staged run sees the real mix.
-$registrarCountByBox = [];   // server_id => [registrar => count]
-foreach ($rows as $r) {
-    $h = trim((string) ($r['ftp_host'] ?? ''));
-    if ($h === '') continue;
-    foreach ($fleet as $sid => $srv) {
-        if (($srv['host'] ?? '') === $h) {
-            $reg = ch_registrar_of(strtolower(trim((string) ($r['domain'] ?? ''))));
-            $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
-            break;
+// Strict positional box mode (includes/multisite/box_assignment.php), toggled per
+// batch (box_assignment.json, Target List's own checkbox) — off by default for any
+// batch that existed before this mode did, so nothing already running changes
+// behavior on its own. ON means box comes straight from each row's own `box`
+// column (set by the Target List's "Auto-fill" button, or edited by hand), the
+// same way registrar already works for Buy Domains — not recomputed here, not
+// randomized, no registrar tiebreak (a pre-planned registrar spread already
+// avoided the clustering that tiebreak exists to prevent — see box_assignment.php).
+require_once __DIR__ . '/../includes/multisite/box_assignment.php';
+$strictBox = ms_box_assignment_settings(ms_batch_file_read($masterId, $batchId, 'box_assignment.json'))['strict_mode'];
+
+$assignment = [];   // row index => server
+$unplaced   = [];
+if ($strictBox) {
+    echo "Strict positional box mode is ON for this batch — using each row's own 'box' column.\n";
+    foreach ($queue as $idx) {
+        $boxNum = (int) trim((string) ($rows[$idx]['box'] ?? ''));
+        $srv = $boxNum > 0 ? infra_hestia_server_by_number($boxNum) : null;
+        if (!$srv) { $unplaced[] = $idx; continue; }
+        $assignment[$idx] = $srv;
+    }
+} else {
+    // Registrar tiebreak: among the boxes eligible for a given row, prefer whichever
+    // already holds the FEWEST domains of that row's own registrar — so 20 domains
+    // bought in one big namecheap run don't all pile onto the same handful of boxes
+    // just because they happen to queue up together. Seeded from every row THIS BATCH
+    // already has hosted (matching ftp_host to a box, same as $haveByServerId above),
+    // not just what this run is about to place, so a staged run sees the real mix.
+    $registrarCountByBox = [];   // server_id => [registrar => count]
+    foreach ($rows as $r) {
+        $h = trim((string) ($r['ftp_host'] ?? ''));
+        if ($h === '') continue;
+        foreach ($fleet as $sid => $srv) {
+            if (($srv['host'] ?? '') === $h) {
+                $reg = ch_registrar_of(strtolower(trim((string) ($r['domain'] ?? ''))));
+                $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
+                break;
+            }
         }
     }
-}
 
-// Rows are handed out in THEIR OWN order (not shuffled) — this batch's row order is
-// the intended go-live sequence (see the target-list editor). Box choice per row is
-// what's randomized/balanced, one round at a time: a round hands every
-// still-needy box exactly one domain before any box can be picked a second time,
-// same guarantee as before — just decided per row now (greedy, registrar-first)
-// instead of pre-shuffled into a position-indexed slot list, because the registrar
-// tiebreak needs to know which domain is about to land before it can pick a box.
-$assignment    = [];   // row index => server
-$roundLeft     = [];   // server_id => still eligible THIS round (reset when empty)
-$unplaced      = [];
-foreach ($queue as $idx) {
-    if (!$need) { $unplaced[] = $idx; continue; }   // plan has no more room anywhere
+    // Rows are handed out in THEIR OWN order (not shuffled) — this batch's row order is
+    // the intended go-live sequence (see the target-list editor). Box choice per row is
+    // what's randomized/balanced, one round at a time: a round hands every
+    // still-needy box exactly one domain before any box can be picked a second time,
+    // same guarantee as before — just decided per row now (greedy, registrar-first)
+    // instead of pre-shuffled into a position-indexed slot list, because the registrar
+    // tiebreak needs to know which domain is about to land before it can pick a box.
+    $roundLeft = [];   // server_id => still eligible THIS round (reset when empty)
+    foreach ($queue as $idx) {
+        if (!$need) { $unplaced[] = $idx; continue; }   // plan has no more room anywhere
 
-    if (!$roundLeft) $roundLeft = $need;   // start a fresh round: every box still owed something
+        if (!$roundLeft) $roundLeft = $need;   // start a fresh round: every box still owed something
 
-    $candidates = array_keys($roundLeft);
-    // Same boundary guard as before: don't let the very first pick of a new round
-    // repeat the box the previous row (this run, or the real row right before it
-    // on a resumed run) just landed on — only matters when another choice exists.
-    if ($last !== null && count($candidates) > 1 && in_array($last, $candidates, true)) {
-        $withoutLast = array_values(array_diff($candidates, [$last]));
-        if ($withoutLast) $candidates = $withoutLast;
+        $candidates = array_keys($roundLeft);
+        // Same boundary guard as before: don't let the very first pick of a new round
+        // repeat the box the previous row (this run, or the real row right before it
+        // on a resumed run) just landed on — only matters when another choice exists.
+        if ($last !== null && count($candidates) > 1 && in_array($last, $candidates, true)) {
+            $withoutLast = array_values(array_diff($candidates, [$last]));
+            if ($withoutLast) $candidates = $withoutLast;
+        }
+
+        $domain = $todo[$idx];
+        $reg    = ch_registrar_of($domain);
+        $best = null; $bestCount = null;
+        foreach ($candidates as $sid) {
+            $c = $registrarCountByBox[$sid][$reg] ?? 0;
+            if ($bestCount === null || $c < $bestCount) { $best = [$sid]; $bestCount = $c; }
+            elseif ($c === $bestCount) { $best[] = $sid; }
+        }
+        $sid = $best[array_rand($best)];   // tie-break randomly among equally-good boxes
+
+        $assignment[$idx] = $fleet[$sid];
+        $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
+        unset($roundLeft[$sid]);
+        if (--$need[$sid] <= 0) unset($need[$sid]);
+        $last = $sid;
     }
-
-    $domain = $todo[$idx];
-    $reg    = ch_registrar_of($domain);
-    $best = null; $bestCount = null;
-    foreach ($candidates as $sid) {
-        $c = $registrarCountByBox[$sid][$reg] ?? 0;
-        if ($bestCount === null || $c < $bestCount) { $best = [$sid]; $bestCount = $c; }
-        elseif ($c === $bestCount) { $best[] = $sid; }
-    }
-    $sid = $best[array_rand($best)];   // tie-break randomly among equally-good boxes
-
-    $assignment[$idx] = $fleet[$sid];
-    $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
-    unset($roundLeft[$sid]);
-    if (--$need[$sid] <= 0) unset($need[$sid]);
-    $last = $sid;
 }
 
 foreach ($plan as $p) {
@@ -297,6 +318,27 @@ foreach ($assignment as $i => $srv) {
         $touched[$srv['id'] ?? ''] = $srv;
         $ok++;
         printf("  [%d/%d] ✓ %-34s %-8s ftp %s\n", $n, $total, $domain, $srv['label'] ?? '', $user);
+
+        // Strict mode's other half: pre-set the Cloudflare account too, the same way
+        // the Rollout screen's manual "set CF slot" override already does
+        // (infra_cf_account_at_slot(), admin/infra/lib/cf_alloc.php) — this is what
+        // actually makes box.cf_account mean something, since the later 'zone' step
+        // (infra/lib/pipeline.php) always uses a domain's already-recorded
+        // cf_account_id rather than re-picking. A blank cf_account (row position 81+,
+        // no 5th account per box yet) is left alone — the 'zone' step's normal
+        // "first open account" pick still applies for those.
+        if ($strictBox) {
+            $cfRound = trim((string) ($rows[$i]['cf_account'] ?? ''));
+            if ($cfRound !== '') {
+                require_once __DIR__ . '/../admin/infra/lib/cf_alloc.php';
+                $acct = infra_cf_account_at_slot((string) ($srv['id'] ?? ''), (int) $cfRound + 1);
+                if ($acct) {
+                    infra_state_upsert_domain(['domain' => $domain, 'cf_account_id' => (string) $acct['id']]);
+                } else {
+                    printf("      ! %s's box has no account in slot .%s — left for the normal first-open pick at zone time\n", $domain, $cfRound);
+                }
+            }
+        }
     } else {
         $fail++;
         $why = '';

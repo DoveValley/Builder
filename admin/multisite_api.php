@@ -38,7 +38,7 @@ const MS_ROW_EDITABLE_COLS = [
     'business', 'business_short', 'phone', 'area_code', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
     'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
     'years_in_business', 'mission_statement',
-    'landing_cities', 'theme_preset', 'web3forms_key', 'registrar',
+    'landing_cities', 'theme_preset', 'web3forms_key', 'registrar', 'box', 'cf_account',
 ];
 
 $batchId = ''; $batchDir = ''; $paramsPath = ''; $runsDir = '';
@@ -463,13 +463,20 @@ switch ($action) {
         $ok   = $res['ok'] && $user !== '' && $pass !== '';
 
         if ($ok) {
-            foreach (['ftp_host', 'ftp_user', 'ftp_pass', 'ftp_path'] as $c) {
+            foreach (['ftp_host', 'ftp_user', 'ftp_pass', 'ftp_path', 'box'] as $c) {
                 if (!in_array($c, $header, true)) $header[] = $c;
             }
             $rows[$idx]['ftp_host'] = (string) ($box['host'] ?? '');
             $rows[$idx]['ftp_user'] = $user;
             $rows[$idx]['ftp_pass'] = $pass;
             $rows[$idx]['ftp_path'] = '/home/' . $user;
+            // Keep `box` in sync with where the domain actually just got provisioned —
+            // this is a manual override of whatever Auto-fill Box / CF Acct wrote, and
+            // without this the stored column silently disagrees with the real host,
+            // which Check Distribution and anything else trusting that column (Create
+            // Host's own strict-mode read, the fingerprint checks) would never see.
+            $boxNum = infra_hestia_server_number((string) ($box['id'] ?? ''));
+            if ($boxNum !== null) $rows[$idx]['box'] = (string) $boxNum;
             ms_write_csv($paramsPath, $header, $rows);
             @chown($paramsPath, 'www-data'); @chgrp($paramsPath, 'www-data');
         }
@@ -1959,6 +1966,137 @@ switch ($action) {
         // for one that never got that far.
         if ($dom !== '') infra_unclaim_from_batch($dom);
         echo json_encode(['deleted' => true]);
+        break;
+
+    // Recompute `box` and `cf_account` for EVERY row in this batch from its current
+    // position in the target list — strict positional assignment (includes/multisite/
+    // box_assignment.php): box 1-20, then 1-20 again; cf_account is the 0-indexed
+    // Cloudflare account (".0"-".3") for that round, blank past round 3 (no 5th
+    // account exists per box yet — left for a human to decide, not guessed).
+    // Overwrites whatever was there before, including manual edits — confirmed
+    // client-side (see msBoxAutofill in _batch_panels.php) since this is meant to be
+    // the authoritative recompute, not a fill-blanks-only pass.
+    case 'box_autofill':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/../includes/multisite/box_assignment.php';
+        // Past round 3 (position 81+) there's no 5th account per box to assign — left
+        // blank by default. A human can instead name one of the 4 real accounts (0-3)
+        // here to reuse for every row past that point, rather than leaving them all
+        // blank; invalid/out-of-range input is treated the same as "not provided".
+        $overflow = null;
+        if (array_key_exists('overflow_cf_account', $_POST) && trim((string) $_POST['overflow_cf_account']) !== '') {
+            $ov = (int) $_POST['overflow_cf_account'];
+            if ($ov >= 0 && $ov <= 3) $overflow = $ov;
+        }
+        $parsed = ms_parse_csv($paramsPath);
+        if ($parsed['error'] || !$parsed['rows']) { echo json_encode(['error' => $parsed['error'] ?: 'Target list is empty.']); break; }
+        $byKey = [];
+        foreach ($parsed['rows'] as $i => $r) {
+            $pos = $i + 1;
+            $r['box'] = (string) ms_strict_box_number_for_position($pos);
+            $round = ms_strict_cf_account_for_position($pos, $overflow);
+            $r['cf_account'] = $round === null ? '' : (string) $round;
+            $dom = strtolower(trim((string) ($r['domain'] ?? '')));
+            $byKey[$dom !== '' ? $dom : '_line' . (int) ($r['_line'] ?? 0)] = $r;
+        }
+        ms_write_rows_by_key($batchDir, $paramsPath, $byKey);
+        echo json_encode(['ok' => true, 'rows' => count($byKey)]);
+        break;
+
+    // Read-only: box/account totals (sanity) plus registrar/state concentration
+    // hotspots on THIS batch's current target list — run after Auto-fill, before
+    // Buy Domains, while row order can still be adjusted. See
+    // includes/multisite/distribution_check.php for why this exists and what
+    // counts as a hotspot. Changes nothing; no CSRF needed, same as the other
+    // read-only *_status actions.
+    case 'box_distribution_check':
+        require_once __DIR__ . '/../includes/multisite/distribution_check.php';
+        $parsed = ms_parse_csv($paramsPath);
+        if ($parsed['error']) { echo json_encode(['error' => $parsed['error']]); break; }
+        echo json_encode(['ok' => true] + ms_box_distribution_report($parsed['rows']));
+        break;
+
+    // Recompute `registrar` for EVERY row from its (box, round, this batch's own
+    // sequence number) — box-aware assignment (includes/multisite/
+    // registrar_schedule.php), built after a per-batch rotation offset turned out
+    // to only halfway fix the box x account "island" purity problem (see that
+    // file's docblock for the full story). Requires `box`/`cf_account` to already
+    // be filled in (Auto-fill Box / CF Acct first) — registrar depends on box.
+    // No manual seed to pick: uses this batch's own `seq` (ms_batch_meta()),
+    // assigned automatically when the batch was created, so running this again
+    // on a future batch reproduces the same good spread with zero input.
+    // Overwrites any manual registrar edits — confirmed client-side.
+    case 'registrar_autofill':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/../includes/multisite/registrar_schedule.php';
+        require_once __DIR__ . '/infra/lib/registrar.php';
+        $meta = ms_batch_meta($masterId, $batchId);
+        $seq = (int) ($meta['seq'] ?? 0);
+        $registrars = infra_registrar_buyable_for_new_purchases();
+        if (!$registrars) { echo json_encode(['error' => 'No buy-wired registrar has saved credentials.']); break; }
+        $parsed = ms_parse_csv($paramsPath);
+        if ($parsed['error'] || !$parsed['rows']) { echo json_encode(['error' => $parsed['error'] ?: 'Target list is empty.']); break; }
+        $noBox = 0;
+        $byKey = [];
+        foreach ($parsed['rows'] as $i => $r) {
+            $pos = $i + 1;
+            if ((int) ($r['box'] ?? 0) < 1) { $noBox++; }
+            else { $r['registrar'] = ms_registrar_for_position($registrars, $pos, $seq); }
+            $dom = strtolower(trim((string) ($r['domain'] ?? '')));
+            $byKey[$dom !== '' ? $dom : '_line' . (int) ($r['_line'] ?? 0)] = $r;
+        }
+        ms_write_rows_by_key($batchDir, $paramsPath, $byKey);
+        echo json_encode(['ok' => true, 'rows' => count($byKey) - $noBox, 'skipped_no_box' => $noBox, 'seq' => $seq]);
+        break;
+
+    // Minimal-disruption fix for a state hotspot (box_distribution_check's
+    // state_hotspots): swaps each over-represented row's full content with a
+    // row from a different, safe box — see ms_suggest_state_swaps()
+    // (includes/multisite/distribution_check.php) for how a swap is chosen.
+    // box/cf_account/registrar are deliberately NOT swapped — they're derived
+    // from POSITION, which never moves, only which row's identity occupies it.
+    // Run this, then re-run Check Distribution to confirm; a hotspot with no
+    // safe donor row is left unresolved, not forced.
+    case 'box_fix_state_clustering':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/../includes/multisite/distribution_check.php';
+        $parsed = ms_parse_csv($paramsPath);
+        if ($parsed['error'] || !$parsed['rows']) { echo json_encode(['error' => $parsed['error'] ?: 'Target list is empty.']); break; }
+
+        $before = ms_box_distribution_report($parsed['rows']);
+        if (!$before['state_hotspots']) { echo json_encode(['ok' => true, 'swaps' => 0, 'before' => 0, 'after' => 0]); break; }
+
+        $suggestions = ms_suggest_state_swaps($parsed['rows'], $before['state_hotspots']);
+        if (!$suggestions) {
+            echo json_encode(['ok' => true, 'swaps' => 0, 'before' => count($before['state_hotspots']),
+                               'after' => count($before['state_hotspots']), 'unresolved' => true]);
+            break;
+        }
+
+        $rows = $parsed['rows'];
+        $preserve = ['box' => true, 'cf_account' => true, 'registrar' => true, '_line' => true];
+        foreach ($suggestions as $s) {
+            $i = $s['from_pos'] - 1; $j = $s['to_pos'] - 1;
+            $keys = array_unique(array_merge(array_keys($rows[$i]), array_keys($rows[$j])));
+            foreach ($keys as $k) {
+                if (isset($preserve[$k])) continue;
+                $tmp = $rows[$i][$k] ?? '';
+                $rows[$i][$k] = $rows[$j][$k] ?? '';
+                $rows[$j][$k] = $tmp;
+            }
+        }
+
+        $byKey = [];
+        foreach ($rows as $i => $r) {
+            $dom = strtolower(trim((string) ($r['domain'] ?? '')));
+            $byKey[$dom !== '' ? $dom : '_line' . (int) ($r['_line'] ?? 0)] = $r;
+        }
+        ms_write_rows_by_key($batchDir, $paramsPath, $byKey);
+
+        $after = ms_box_distribution_report($rows);
+        echo json_encode(['ok' => true, 'swaps' => count($suggestions),
+                           'before' => count($before['state_hotspots']), 'after' => count($after['state_hotspots']),
+                           'suggestions' => $suggestions]);
         break;
 
     // Bridges a master's own id to the niche slug fleet.db's domains.niche column
