@@ -338,6 +338,22 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
             box.innerHTML = '<p class="hint">Nothing to show yet — run Create host (card 3A/3B) first so a domain has something to tag.</p>';
             return;
         }
+        // Any per-row action (Create zone, Offline, etc. — not just a full reload)
+        // calls loadGoLive(), which rebuilds this WHOLE table via innerHTML — found
+        // live: typing a go-live date for domain B, then clicking "Create zone" on
+        // unrelated domain A, silently dropped the typed date along with focus,
+        // since nothing auto-saves it. Snapshot any date/time input that's been
+        // typed into but not yet saved (differs from what's actually on the row)
+        // before the rebuild, and restore it onto the matching new input after —
+        // scoped to the two fields that can go unsaved on this card.
+        const unsaved = {};
+        rows.forEach(r => {
+            const dEl = document.getElementById('gl-date-' + r.domain);
+            const tEl = document.getElementById('gl-time-' + r.domain);
+            const d = dEl && dEl.value !== (r.go_live_at || '') ? dEl.value : null;
+            const t = tEl && tEl.value !== (r.go_live_time || '') ? tEl.value : null;
+            if (d !== null || t !== null) unsaved[r.domain] = { d, t };
+        });
         const live = rows.filter(r => r.live.state === 'ok').length;
         document.getElementById('ms-golive-state').textContent = live + ' of ' + rows.length + ' live.';
         box.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
@@ -353,6 +369,15 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
             '<th style="text-align:left;">DNS</th>' +
             '<th style="text-align:left;">Live</th>' +
             '</tr></thead><tbody>' + rows.map(renderRow).join('') + '</tbody></table></div>';
+
+        // Restore whatever was snapshotted above onto the freshly-rebuilt inputs.
+        Object.keys(unsaved).forEach(domain => {
+            const u = unsaved[domain];
+            const dEl = document.getElementById('gl-date-' + domain);
+            const tEl = document.getElementById('gl-time-' + domain);
+            if (dEl && u.d !== null) dEl.value = u.d;
+            if (tEl && u.t !== null) tEl.value = u.t;
+        });
     }
 
     async function loadGoLive(showLoading) {
@@ -361,6 +386,15 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         if (!r || r.error) { document.getElementById('ms-golive-body').innerHTML = '<p class="hint" style="color:#991b1b;">' + esc((r && r.error) || 'Could not load.') + '</p>'; return; }
         render(r.rows || []);
     }
+
+    // Same hook pattern as _batch_upload.php's window.msRefreshUploadState — lets
+    // another card's job-completion handler refresh THIS card's data without a
+    // full page reload. Needed because this card's upload_ok gate (used to decide
+    // whether Go Live is clickable) is only ever fetched by this card's own
+    // loadGoLive(); finishing an Upload run used to leave it stale — a domain that
+    // just finished uploading still showed "needs Upload sites (card 5) first"
+    // until something else happened to touch this card.
+    window.msRefreshGoLiveState = function () { loadGoLive(false); };
 
     loadGoLive();
     // Resume any "▶ all" run already in progress for this batch — reloading the

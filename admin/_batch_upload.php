@@ -126,6 +126,12 @@
             else if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
             else { msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.'; msg.style.color = bad ? '#b91c1c' : '#166534'; }
             upState();
+            // Go Live's upload_ok gate is only ever refreshed by its own card —
+            // without this, a domain that just finished uploading still shows
+            // "needs Upload sites (card 5) first" there until something unrelated
+            // happens to touch that card. Same window-hook pattern this file's own
+            // window.msRefreshUploadState already uses for Generate sites.
+            if (typeof window.msRefreshGoLiveState === 'function') window.msRefreshGoLiveState();
         } catch (e) {
             if (++upMisses < 5) return;
             clearInterval(upTimer);
