@@ -238,6 +238,23 @@ function ms_ctm_card_end(string $prefix): void {
             </div>
         </div>
     <?php ms_ctm_card_end('buy'); ?>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px;">
+        <div class="hint">Select:
+            <a href="#" onclick="msCtmQuickSelect('nonumber');return false;">no phone number yet</a> &middot;
+            <a href="#" onclick="msCtmQuickSelect('noroute');return false;">has number, no routing</a> &middot;
+            <a href="#" onclick="msCtmQuickSelect('nodomain');return false;">no domain yet</a> &middot;
+            <a href="#" onclick="msCtmQuickSelect('live');return false;">live</a> &middot;
+            <a href="#" onclick="msCtmQuickSelect('notlive');return false;">not live</a> &middot;
+            <a href="#" onclick="msCtmQuickSelect('none');return false;">none</a>
+            &middot; rows
+            <input type="number" id="ms-ctm-range-start" min="1" placeholder="start" style="width:58px;padding:2px 4px">
+            &ndash;
+            <input type="number" id="ms-ctm-range-end" min="1" placeholder="end" style="width:58px;padding:2px 4px">
+            <input type="checkbox" id="ms-ctm-range-tick" onchange="msCtmRangeTick(this)" title="Tick to select rows numbered start&ndash;end (the # column); untick to deselect them" style="width:20px;height:20px;cursor:pointer;vertical-align:middle;">
+            &nbsp; <strong id="ms-ctm-selbar-count">0</strong> selected
+            <span id="ms-ctm-selbar-msg" class="hint" style="margin-left:8px;"></span>
+        </div>
+    </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
@@ -2571,8 +2588,81 @@ function ms_ctm_card_end(string $prefix): void {
     // Same checkbox selection drives all six bulk actions below.
     function msCtmUpdateCount() {
         const n = Object.keys(msCtmSelected).length;
-        ['ms-ctm-count', 'ms-route-count', 'ms-release-count', 'ms-resync-count', 'ms-areacode-count', 'ms-buy-count']
+        ['ms-ctm-count', 'ms-route-count', 'ms-release-count', 'ms-resync-count', 'ms-areacode-count', 'ms-buy-count', 'ms-ctm-selbar-count']
             .forEach(id => { const el = document.getElementById(id); if (el) el.textContent = n; });
+    }
+
+    // ── Quick-select bar above the Target List table. Mirrors Batch Simple's
+    // ready/scheduled/not-uploaded shortcuts, but this table drives several
+    // different bulk actions (Get Numbers, Set Routing, Release, Resync, Area Code
+    // Check, Buy Domains) instead of one, so the filters are the ones that matter
+    // for THIS table's own fields (phone/routing/live), not Simple's go-live steps.
+    // Additive like Simple's, not a replace — "none" is the only clearing action.
+    window.msCtmQuickSelect = function (kind) {
+        if (kind === 'none') { msCtmSelected = {}; msRenderRowsTable(); msCtmUpdateCount(); msCtmSelbarMsg(''); return; }
+        // Domain-less rows have no checkbox at all (disabled — see msRenderRowPair),
+        // so there is nothing to add to msCtmSelected for them. Flash + scroll
+        // instead of pretending they were "selected".
+        if (kind === 'nodomain') {
+            const keys = msRowOrder.filter(key => !(msRows[key] || {}).domain);
+            msCtmFlashRows(keys);
+            msCtmSelbarMsg(keys.length ? keys.length + (keys.length === 1 ? ' row needs' : ' rows need') + ' a domain — no checkbox until one is added (Edit)' : 'Every row already has a domain.');
+            return;
+        }
+        msRowOrder.forEach(key => {
+            const r = msRows[key] || {};
+            const f = r.fields || {};
+            const domain = r.domain || '';
+            if (!domain) return; // disabled checkbox, nothing to select
+            const isLive = r.status === 'live';
+            let match = false;
+            if (kind === 'nonumber') match = !f.phone && !isLive;
+            else if (kind === 'noroute') match = !!f.phone && !f.forward_to;
+            else if (kind === 'live') match = isLive;
+            else if (kind === 'notlive') match = !isLive;
+            if (match) msCtmSelected[domain] = true;
+        });
+        msRenderRowsTable();
+        msCtmUpdateCount();
+        msCtmSelbarMsg('');
+    };
+
+    window.msCtmRangeTick = function (cb) {
+        const start = parseInt(document.getElementById('ms-ctm-range-start').value, 10);
+        const end = parseInt(document.getElementById('ms-ctm-range-end').value, 10);
+        if (!start || !end || start > end) {
+            msCtmSelbarMsg('Enter a valid start and end row number first (the # column).');
+            cb.checked = false;
+            return;
+        }
+        msRowOrder.forEach((key, i) => {
+            const n = i + 1;
+            if (n < start || n > end) return;
+            const domain = (msRows[key] || {}).domain || '';
+            if (!domain) return; // disabled checkbox, nothing to toggle
+            if (cb.checked) msCtmSelected[domain] = true; else delete msCtmSelected[domain];
+        });
+        msRenderRowsTable();
+        msCtmUpdateCount();
+        msCtmSelbarMsg('');
+    };
+
+    function msCtmSelbarMsg(text) {
+        const el = document.getElementById('ms-ctm-selbar-msg');
+        if (el) el.textContent = text;
+    }
+
+    function msCtmFlashRows(keys) {
+        if (!keys.length) return;
+        const first = document.querySelector('#ms-rows-table tr[data-key="' + CSS.escape(keys[0]) + '"]');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        keys.forEach(key => {
+            const tr = document.querySelector('#ms-rows-table tr[data-key="' + CSS.escape(key) + '"]');
+            if (!tr) return;
+            tr.style.transition = 'background-color 0.3s';
+            tr.style.backgroundColor = '#fef3c7';
+            setTimeout(() => { tr.style.backgroundColor = ''; }, 2000);
+        });
     }
 
     // ── Shared launch+poll plumbing for all 4 CTM bulk actions below. Each one now
