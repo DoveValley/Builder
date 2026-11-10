@@ -47,13 +47,14 @@ $msBoxSettings = ms_box_assignment_settings(ms_batch_file_read($masterId, $batch
 // checked at click time matters for a run.
 $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batchId, 'batch_options.json'));
 
-// The 5 CTM bulk-action cards below (Get numbers / Set routing / Release / Resync / Area code)
-// share identical wrapper, "background job" badge, and output/results footer markup — only the
-// description and controls in between actually differ. Pulled the shared shell into these two
-// so each card writes just its own distinct body between start()/end().
+// The 6 bulk-action cards below (Get numbers / Set routing / Release / Resync / Area code /
+// Buy Domains) share identical wrapper, "background job" badge, and output/results footer
+// markup — only the description and controls in between actually differ. Pulled the shared
+// shell into these two so each card writes just its own distinct body between start()/end().
+// Not CTM-specific despite the name — Buy Domains reuses the same shell for the same reason.
 function ms_ctm_card_start(string $prefix, string $heading): void {
     ?>
-    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+    <div id="ms-<?= h($prefix) ?>-card" style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;"><?= h($heading) ?></strong>
         <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
     <?php
@@ -81,7 +82,7 @@ function ms_ctm_card_end(string $prefix): void {
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
     <h3 style="margin-top:0;">1. Upload target list (CSV)</h3>
-    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export &rarr; CSV</strong>. One row per site. Required columns: <code>domain, business, phone, email, city, state, SS</code>. Optional: <code>tel, address, zip, lat, lng, rating, review_count, analytics_id, logo, years_in_business, mission_statement, business_short</code> (a shorter brand form for page titles, e.g. "Bailey Restoration" — falls back to the full <code>business</code> name when left blank). Add FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>) to deploy &mdash; omit them and the row still builds.</p>
+    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export &rarr; CSV</strong>. One row per site. Required columns: <code>domain, business, phone, city, state, SS</code>. Optional: <code>email</code> (blank is a soft warning, not an error — it just shows up blank anywhere the site uses it), <code>tel, address, zip, lat, lng, rating, review_count, analytics_id, logo, years_in_business, mission_statement, business_short</code> (a shorter brand form for page titles, e.g. "Bailey Restoration" — falls back to the full <code>business</code> name when left blank). Add FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>) to deploy &mdash; omit them and the row still builds.</p>
 
     <p style="margin:0 0 8px;">
         <a class="btn" href="multisite_api.php?action=sample_csv">&#11015; Download sample CSV</a>
@@ -2563,21 +2564,11 @@ function ms_ctm_card_end(string $prefix): void {
         msCtmUpdateCount();
     };
 
+    // Same checkbox selection drives all six bulk actions below.
     function msCtmUpdateCount() {
         const n = Object.keys(msCtmSelected).length;
-        const el = document.getElementById('ms-ctm-count');
-        if (el) el.textContent = n;
-        // Same checkbox selection drives all four bulk actions below.
-        const el2 = document.getElementById('ms-route-count');
-        if (el2) el2.textContent = n;
-        const el3 = document.getElementById('ms-release-count');
-        if (el3) el3.textContent = n;
-        const el4 = document.getElementById('ms-resync-count');
-        if (el4) el4.textContent = n;
-        const el5 = document.getElementById('ms-areacode-count');
-        if (el5) el5.textContent = n;
-        const el6 = document.getElementById('ms-buy-count');
-        if (el6) el6.textContent = n;
+        ['ms-ctm-count', 'ms-route-count', 'ms-release-count', 'ms-resync-count', 'ms-areacode-count', 'ms-buy-count']
+            .forEach(id => { const el = document.getElementById(id); if (el) el.textContent = n; });
     }
 
     // ── Shared launch+poll plumbing for all 4 CTM bulk actions below. Each one now
@@ -2599,7 +2590,7 @@ function ms_ctm_card_end(string $prefix): void {
         ctm_set_routing:     { btn: 'ms-route-btn',   msg: 'ms-route-msg',   out: 'ms-route-out',   results: 'ms-route-results',   details: 'ms-route-details',   clearSelectionAfter: false },
         ctm_release_numbers: { btn: 'ms-release-btn', msg: 'ms-release-msg', out: 'ms-release-out', results: 'ms-release-results', details: 'ms-release-details', clearSelectionAfter: true },
         ctm_resync_numbers:  { btn: 'ms-resync-btn',  msg: 'ms-resync-msg',  out: 'ms-resync-out',  results: 'ms-resync-results',  details: 'ms-resync-details',  clearSelectionAfter: false },
-        buy_domains:         { btn: 'ms-buy-btn',     msg: 'ms-buy-msg',     out: 'ms-buy-out',     results: 'ms-buy-results',     details: 'ms-buy-details',     clearSelectionAfter: true, statusAction: 'domain_buy_bulk_status' },
+        buy_domains:         { btn: 'ms-buy-btn',     msg: 'ms-buy-msg',     out: 'ms-buy-out',     results: 'ms-buy-results',     details: 'ms-buy-details',     clearSelectionAfter: true, launchAction: 'domain_buy_bulk', statusAction: 'domain_buy_bulk_status' },
     };
 
     function msRenderCtmBulkResults(action, resEl, rows) {
@@ -2699,7 +2690,13 @@ function ms_ctm_card_end(string $prefix): void {
     // back as 'action' in the status response (see ctmb_launch's sidecar file and the
     // ctm_bulk_status case in multisite_api.php — the report alone can't answer this
     // while the job is still running, since it's only written at the very end).
-    function msResumeCtmBulk() {
+    // Asks the shared ctm_bulk_status endpoint which of the 4 shared-lock CTM
+    // actions a running job really belongs to, then watches it under the right
+    // card. Needed anywhere a run_id might belong to a DIFFERENT one of the 4
+    // than whichever action is in hand locally — true both on page load (nothing
+    // local to go on at all) and when a "busy" error hands back a real run_id
+    // that may not be the action just clicked, since all 4 share one lock.
+    function msResolveAndWatchCtmBulk() {
         fetch('multisite_api.php?action=ctm_bulk_status')
             .then(r => r.json())
             .then(d => {
@@ -2716,6 +2713,7 @@ function ms_ctm_card_end(string $prefix): void {
             })
             .catch(() => {});
     }
+    function msResumeCtmBulk() { msResolveAndWatchCtmBulk(); }
 
     // Same resume reasoning as msResumeCtmBulk above, for buy_domains' own
     // directory/lock (domainbuy_launch) — a separate job family, so it needs its
@@ -2760,15 +2758,37 @@ function ms_ctm_card_end(string $prefix): void {
         domains.forEach(d => fd.append('domains[]', d));
         Object.keys(extraFields).forEach(k => fd.append(k, extraFields[k]));
 
+        // launchAction covers the one case (buy_domains) whose real server-side
+        // action is named differently from this client-side key — found via a
+        // real stuck "Starting…" with no further feedback: the fetch below was
+        // silently hitting 'Unknown action' (400) because this used to always
+        // fetch '?action=' + action verbatim, and buy_domains's actual case is
+        // domain_buy_bulk (the underlying script's name). The error WAS being
+        // set on msgEl even then — just not on out, which is why the big output
+        // box looked frozen while a small, easy-to-miss message sat elsewhere.
         let d;
-        try { d = await (await fetch('multisite_api.php?action=' + action, { method: 'POST', body: fd })).json(); }
-        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        try { d = await (await fetch('multisite_api.php?action=' + (ids.launchAction || action), { method: 'POST', body: fd })).json(); }
+        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; out.textContent = 'Could not reach the server.'; return; }
         if (d.error) {
             msgEl.textContent = d.error;
+            out.textContent = d.error;   // never leave the output box stuck on "Starting…" when the message span is easy to miss
             // Carries the live run_id when this action is already running for this
             // batch — resume watching it instead of leaving the button disabled with
             // no feedback, same as the area-code button.
-            if (d.run_id) msCtmBulkWatch(action, d.run_id);
+            //
+            // ids.statusAction (buy_domains only) means an exclusive lock — this
+            // run_id can only ever be its own, so watching it directly under the
+            // action just clicked is correct. The 4 CTM actions share ONE lock
+            // instead: the run_id handed back here can belong to a DIFFERENT one
+            // of the 4 than whichever was just clicked — found live, where
+            // clicking Resync while Get Numbers was still running rendered Get
+            // Numbers' real report through Resync's renderer as a false "done."
+            // Resolve which one it really is via the status endpoint instead of
+            // trusting the local guess.
+            if (d.run_id) {
+                if (ids.statusAction) msCtmBulkWatch(action, d.run_id);
+                else msResolveAndWatchCtmBulk();
+            }
             else btn.disabled = false;
             return;
         }
