@@ -90,6 +90,25 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
     </ul>
     <?php endif; ?>
 
+    <?php if ($fcrHas):
+        // fleet_trends.php is a separate, read-only module (see its own docblock) —
+        // this card only calls into it and renders what comes back, same as it
+        // already does with crawl_audit.php above.
+        require_once __DIR__ . '/infra/lib/fleet_trends.php';
+        $fcrWeeks = $faWeeks ?? 8;
+        $fcrTrend = fleet_trend_crawl($faScope ?? null, $fcrWeeks);
+    ?>
+    <details open style="margin-top:8px">
+        <summary class="fa-sum">Trend (<?= (int) $fcrWeeks ?> weeks)</summary>
+        <div style="margin:8px 0 4px"><?= fleet_trend_svg($fcrTrend['hits'], ['color' => '#16a34a']) ?></div>
+        <div style="font:.78rem/1.6 ui-monospace,monospace;color:#475569;max-height:160px;overflow:auto">
+            <?php foreach ($fcrTrend['log'] as $fcrLogLine): ?>
+                <div><strong><?= h($fcrLogLine['week']) ?>:</strong> <?= h($fcrLogLine['text']) ?></div>
+            <?php endforeach; ?>
+        </div>
+    </details>
+    <?php endif; ?>
+
     <?php if ($fcrHas): ?>
     <details style="margin-top:8px" ontoggle="faLoadRows(this,'crawl','fcr-rows')">
         <summary class="fa-sum">Per domain (<?= count($fcr['rows']) ?>)</summary>

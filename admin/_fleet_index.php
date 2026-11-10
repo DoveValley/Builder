@@ -68,6 +68,25 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
     </div>
     <?php endif; ?>
 
+    <?php if ($fixHas):
+        // fleet_trends.php is a separate, read-only module (see its own docblock) —
+        // this card only calls into it and renders what comes back, same as it
+        // already does with index_audit.php above.
+        require_once __DIR__ . '/infra/lib/fleet_trends.php';
+        $fixWeeks = $faWeeks ?? 8;
+        $fixTrend = fleet_trend_index($faScope ?? null, $fixWeeks);
+    ?>
+    <details open style="margin-top:8px">
+        <summary class="fa-sum">Trend (<?= (int) $fixWeeks ?> weeks)</summary>
+        <div style="margin:8px 0 4px"><?= fleet_trend_svg($fixTrend['indexed'], ['color' => '#0891b2']) ?></div>
+        <div style="font:.78rem/1.6 ui-monospace,monospace;color:#475569;max-height:160px;overflow:auto">
+            <?php foreach ($fixTrend['log'] as $fixLogLine): ?>
+                <div><strong><?= h($fixLogLine['week']) ?>:</strong> <?= h($fixLogLine['text']) ?></div>
+            <?php endforeach; ?>
+        </div>
+    </details>
+    <?php endif; ?>
+
     <?php if ($fixHas): ?>
     <details style="margin-top:8px" ontoggle="faLoadRows(this,'index','fix-rows')">
         <summary class="fa-sum">Per domain (<?= count($fixLast['rows']) ?>)</summary>

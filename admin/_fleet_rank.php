@@ -104,6 +104,25 @@ $frkColour = !$frkHas ? '#94a3b8'
     </div>
     <?php endif; ?>
 
+    <?php if ($frkHas):
+        // fleet_trends.php is a separate, read-only module (see its own docblock) —
+        // this card only calls into it and renders what comes back, same as it
+        // already does with rank_audit.php above.
+        require_once __DIR__ . '/infra/lib/fleet_trends.php';
+        $frkWeeks = $faWeeks ?? 8;
+        $frkTrend = fleet_trend_rank($faScope ?? null, $frkWeeks);
+    ?>
+    <details open style="margin-top:8px">
+        <summary class="fa-sum">Trend (<?= (int) $frkWeeks ?> weeks) &mdash; lower is better</summary>
+        <div style="margin:8px 0 4px"><?= fleet_trend_svg($frkTrend['avg_position'], ['color' => '#7c3aed']) ?></div>
+        <div style="font:.78rem/1.6 ui-monospace,monospace;color:#475569;max-height:160px;overflow:auto">
+            <?php foreach ($frkTrend['log'] as $frkLogLine): ?>
+                <div><strong><?= h($frkLogLine['week']) ?>:</strong> <?= h($frkLogLine['text']) ?></div>
+            <?php endforeach; ?>
+        </div>
+    </details>
+    <?php endif; ?>
+
     <?php if ($frkHas): ?>
     <details style="margin-top:8px" ontoggle="faLoadRows(this,'rank','frk-rows')">
         <summary class="fa-sum">Per site (<?= count($frk['domains']) ?>)</summary>
