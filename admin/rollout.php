@@ -155,7 +155,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             <select id="ro-photo-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
                 <option value="normal" selected>1. Normal (fill only empty slots with AI photo)</option>
                 <option value="skip">2. Skip entirely this run (pass through Master's checked photo)</option>
-                <option value="skip_ai">3. Skip new AI, keep uniqueness pass</option>
+                <option value="skip_ai">3. Skip new AI (pass through Master's checked photo + add uniqueness)</option>
                 <option value="force">4. Force-regenerate all AI photos</option>
             </select>
             <a href="#" class="ro-info" data-static-info="photo_mode" title="What each choice does">&#9432;</a>
