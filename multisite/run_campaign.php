@@ -282,7 +282,15 @@ if (!$aiSkipped || !$imagesSkipped) {
 }
 
 // ── Snapshot master ONCE (shared by every row) ───────────────────────────────
-$snapshotDir = sys_get_temp_dir() . '/ms_campaign_snap_' . $masterId;
+// Scoped by batch, not just master — confirmed live 2026-11-11: two batches of the
+// SAME master (b3 and b4, both "appliance-site") running at the same time used to
+// collide on this exact path, since it carried no batch id. b4 re-snapshotting (and
+// later deleting, on its own run's cleanup) the shared directory out from under b3's
+// still-in-flight workers fatal'd 96 of b3's 100 rows mid-run ("Snapshot invalid").
+// A same-batch double-launch is already guarded elsewhere (ms_with_launch_lock()),
+// so batch-scoping is the exact fix for the collision actually observed, without
+// needing to also key by run id.
+$snapshotDir = sys_get_temp_dir() . '/ms_campaign_snap_' . $masterId . '_' . $batchId;
 echo "Snapshotting master…\n";
 try { snapshot_master($masterId, $snapshotDir); }
 catch (Throwable $e) { fwrite(STDERR, 'Snapshot failed: ' . $e->getMessage() . "\n"); exit(1); }

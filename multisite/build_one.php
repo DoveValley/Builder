@@ -142,7 +142,14 @@ if ($snapshotArg) {
     $snapshotDir = $snapshotArg;
     if (!is_dir($snapshotDir . '/data')) { progress_log("Snapshot invalid: {$snapshotDir}", 'fatal'); exit(1); }
 } else {
-    $snapshotDir = $tmp . '/ms_snapshot_' . $masterId;
+    // Scoped by domain, not just master — same collision class as run_campaign.php's
+    // shared batch snapshot (fixed same day, see its own comment): this is the
+    // standalone path (e.g. a single-row "Correct & Regenerate"), so two concurrent
+    // single-domain builds of the same master would otherwise step on each other's
+    // snapshot the same way two concurrent batches just did. $domainSlug is already
+    // unique per invocation, so it's the natural scope key here — no batch id exists
+    // on this path to use instead.
+    $snapshotDir = $tmp . '/ms_snapshot_' . $masterId . '_' . $domainSlug;
     progress_log('Snapshotting master…');
     try { snapshot_master($masterId, $snapshotDir); }
     catch (Throwable $e) { progress_log('Snapshot failed: ' . $e->getMessage(), 'fatal'); exit(1); }
