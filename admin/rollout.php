@@ -153,8 +153,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <span class="ro-bar-sep"></span>
         <label>Photos:
             <select id="ro-photo-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
-                <option value="normal" selected>Normal (fill empty slots only)</option>
-                <option value="skip">Skip entirely this run</option>
+                <option value="normal" selected>Normal (fill empty AI photo slots only)</option>
+                <option value="skip">Skip entirely this run (keep whatever is there)</option>
                 <option value="skip_ai">Skip new AI, keep uniqueness pass</option>
                 <option value="force">Force-regenerate all AI photos</option>
             </select>
@@ -426,7 +426,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">See the <strong>file dates</strong> &#9432; for what an upload does to a live domain\'s visible <code>Last-Modified</code> timestamp.</div>'],
         photo_mode: ['Photos — what each choice does',
             '<div class="ro-step"><strong>Simplified 2026-11-11.</strong> This used to be three separate checkboxes (Generate photos / Force-regenerate / Skip AI photos) plus a mutual-exclusion rule enforced in JavaScript — which let a user propose combinations that were already structurally impossible, and made it genuinely hard to tell which controls actually affected which others. It\'s one choice now, because it only ever was one choice: what happens to a domain\'s photo slots this run.</div>'
-          + '<table class="ro-compare"><thead><tr><th>Setting</th><th>Empty photo slot</th><th>Slot that already has a photo</th><th>Time</th><th>Cost</th></tr></thead><tbody>'
+          + '<div class="ro-step"><strong>Scope: AI photo slots only</strong> — a photo field that was never approved in Pic Drop (so it never got an entry in this master\'s <code>image_prompts.json</code>) is invisible to every one of these four settings, <strong>including Normal</strong>. "Empty slot" below means an AI-eligible slot with no photo generated yet, not any blank-looking photo field on the page — none of these choices fills, finds, or even knows about a non-AI field. The only way to put a photo in one of those is a manual Pic Drop upload.</div>'
+          + '<table class="ro-compare"><thead><tr><th>Setting</th><th>Empty AI photo slot</th><th>AI photo slot that already has a photo</th><th>Time</th><th>Cost</th></tr></thead><tbody>'
           + '<tr><td><strong>Normal</strong> (default)</td><td>Gets a new AI photo</td><td>Left alone, untouched</td><td>Only as long as the new photo(s) actually needed take to generate &mdash; no added time if every slot is already filled</td><td>Only for the new photo(s) actually needed</td></tr>'
           + '<tr><td><strong>Skip entirely this run</strong></td><td>Stays empty &mdash; nothing happens</td><td>Left alone, untouched</td><td><strong>Fastest</strong> &mdash; the whole Images step is skipped: no local processing, no network calls at all</td><td>None &mdash; no photo work at all this run</td></tr>'
           + '<tr><td><strong>Skip new AI, keep uniqueness pass</strong></td><td>Gets the master\'s own placeholder photo (still run through the free per-domain uniqueness pass)</td><td>Left alone, untouched</td><td>Fast &mdash; local-only processing (crop/tone jitter), no OpenAI request to wait on</td><td>None &mdash; no OpenAI call this run</td></tr>'
