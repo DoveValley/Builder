@@ -150,12 +150,17 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-do-host" checked> Create host <a href="#" class="ro-info" data-static-info="create_host" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-do-build" checked> Build <a href="#" class="ro-info" data-static-info="do_build" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-do-upload" checked> Upload <a href="#" class="ro-info" data-static-info="do_upload" title="Details">&#9432;</a></label>
-        <label><input type="checkbox" id="ro-generate-photos" checked> Generate photos <a href="#" class="ro-info" data-static-info="generate_photos" title="Details">&#9432;</a></label>
         <span class="ro-bar-sep"></span>
-        <a href="#" class="ro-info" data-static-info="photo_options_compared" title="Compare these photo options" style="font-size:1.1rem;">&#9432;</a>
-        <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
-        <label><input type="checkbox" id="ro-skip-ai-photos"> Skip AI photos this run <a href="#" class="ro-info" data-static-info="skip_ai_photos" title="Details">&#9432;</a></label>
-        <label>Force photo quality:
+        <label>Photos:
+            <select id="ro-photo-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
+                <option value="normal" selected>Normal (fill empty slots only)</option>
+                <option value="skip">Skip entirely this run</option>
+                <option value="skip_ai">Skip new AI, keep uniqueness pass</option>
+                <option value="force">Force-regenerate everything</option>
+            </select>
+            <a href="#" class="ro-info" data-static-info="photo_mode" title="What each choice does">&#9432;</a>
+        </label>
+        <label>Quality:
             <select id="ro-image-quality" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
                 <option value="medium">Medium (~$0.04&ndash;0.05/photo)</option>
                 <option value="low" selected>Low (current, ~$0.01/photo)</option>
@@ -171,7 +176,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>
         <a href="#" class="ro-info" data-static-info="run_selected" title="What this does">&#9432;</a>
         <a href="#" class="ro-info" data-static-info="file_dates" title="What this does to file dates">&#9432;</a>
-        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave the first three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Generate photos is on by default &mdash; untick it to skip the whole Images step (no AI photos, no cosmetic reprocessing) for a run that only needs new text/pages. Force-regenerate photos, Skip AI photos this run, and Force photo quality are all meaningless with Generate photos off, so they grey out the moment it's unticked. Colors, fonts, logo &amp; favicon only is meaningless without Build &mdash; see the &#9432; next to each for what ticking combinations together does. Skip AI photos this run is the opposite of Force-regenerate photos &mdash; the two can't be ticked together. Force photo quality applies to any photo generated during Build, forced or new &mdash; see its &#9432;. Wipe server files first needs a full Build AND Upload (not Colors/fonts/logo/favicon only) and is capped at 5 domains per run.</span>
+        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave the first three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). <strong>Photos</strong> is one single choice, not a pile of separate checkboxes (simplified 2026-11-11, see its &#9432;): Normal generates only what's missing, Skip entirely turns off the whole Images step, Skip new AI keeps the free uniqueness pass but makes no OpenAI call, Force-regenerate replaces every slot at real cost. Quality only matters when a photo is actually being generated (Normal or Force). Colors, fonts, logo &amp; favicon only is meaningless without Build, and collapses most of Photos down to just "Force-regenerate" or nothing &mdash; see its &#9432; for exactly which. Wipe server files first needs a full Build AND Upload (not Colors/fonts/logo/favicon only) and is capped at 5 domains per run.</span>
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
@@ -408,7 +413,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Also restarts the web server on each affected box once, at the end of the whole run &mdash; not once per domain. A new vhost isn\'t actually served until that restart happens.</div>'
           + '<div class="ro-step">Untick this only if you\'re certain every ticked domain already has host credentials &mdash; e.g. re-running Build or Upload alone for domains that went live weeks ago.</div>'],
         do_build: ['Build',
-            '<div class="ro-step">Generates the real site for each ticked domain &mdash; AI-written text, AI photos, landing pages &mdash; using this batch\'s own <strong>saved</strong> Generate settings (whatever the Detailed page\'s checkboxes were last left at), unless one of the one-off overrides in this same row (Force-regenerate photos, Skip AI photos this run, Colors/fonts/logo/favicon only, Force photo quality) changes something for just this click.</div>'
+            '<div class="ro-step">Generates the real site for each ticked domain &mdash; AI-written text, AI photos, landing pages &mdash; using this batch\'s own <strong>saved</strong> Generate settings (whatever the Detailed page\'s checkboxes were last left at), unless one of the one-off overrides in this same row (the <strong>Photos</strong> choice, Colors/fonts/logo/favicon only, Force photo quality) changes something for just this click.</div>'
           + '<div class="ro-step"><strong>This is the step with real money attached</strong> &mdash; Anthropic cost for text, OpenAI cost for any photo it generates. Create host and Upload cost nothing by comparison.</div>'
           + '<div class="ro-step">Writes only to this batch\'s own local <code>output/</code> folder. Nothing a ticked domain\'s real visitors can see changes until <strong>Upload</strong> (the next step) actually sends it.</div>'
           + '<div class="ro-step">Refuses to run for any ticked domain whose city hasn\'t been researched yet &mdash; building without that research would succeed but quietly write generic, non-local copy instead of failing loudly. Run the <strong>Research selected</strong> bar above first for those domains.</div>'
@@ -419,39 +424,23 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Needs FTP credentials already on file for that domain, written by <strong>Create host</strong>. A domain with none is reported and skipped, not silently dropped.</div>'
           + '<div class="ro-step">Normal uploads only add new files or overwrite changed ones &mdash; a file the current build no longer produces is simply left behind on the server. <strong>Wipe server files first</strong> (see its own &#9432;) is the one way to actually remove those.</div>'
           + '<div class="ro-step">See the <strong>file dates</strong> &#9432; for what an upload does to a live domain\'s visible <code>Last-Modified</code> timestamp.</div>'],
-        generate_photos: ['Generate photos',
-            '<div class="ro-step"><strong>On by default.</strong> Controls whether this run touches photos at all for each ticked domain &mdash; the whole Images step: any new AI photo a domain still needs, plus the mechanical pass every photo gets regardless (off-centre crop, tone jitter, re-compression, EXIF/GPS strip).</div>'
-          + '<div class="ro-step">Untick it for a run that only needs new text or pages and should skip photos entirely &mdash; cheaper and faster than a normal Build: no new AI photo, no mechanical crop/jitter pass. <strong>Existing photos are left exactly as they are</strong>, not reverted or blanked &mdash; a domain that already has its own approved AI photo gets that same photo restored into this build (fixed 2026-11-11; a free local file copy, no OpenAI call), and a domain that was never Force-regenerated simply keeps the shared template photo it already had.</div>'
-          + '<div class="ro-step">Everything to its right &mdash; <strong>Force-regenerate photos, Skip AI photos this run, Force photo quality</strong> &mdash; only makes sense while this is ticked, so all three grey out the moment this is unticked; the two checkboxes (Force-regenerate, Skip AI photos) also auto-untick, while Force photo quality just sits inert at whatever tier it was on &mdash; it keeps that value rather than resetting, so re-ticking Generate photos later doesn\'t silently land you back on a pricier tier.</div>'
-          + '<div class="ro-step">Only affects the local Build step. <strong>Upload still runs normally</strong> and still sends whatever changed, so this never leaves a domain\'s live photos stale.</div>'
-          + '<div class="ro-step">Only does anything while Build is also ticked.</div>'],
-        photo_options_compared: ['Generate photos vs. Force vs. Skip — compared',
-            '<div class="ro-step">These four checkboxes/states all touch the same thing &mdash; whether a domain\'s photo slots get a new AI photo &mdash; but they\'re not degrees of the same dial. Each one answers a different question: whether to touch photos AT ALL (Generate photos), whether to touch ones that are ALREADY FINE (Force-regenerate), or whether to spend money doing it (Skip AI photos).</div>'
+        photo_mode: ['Photos — what each choice does',
+            '<div class="ro-step"><strong>Simplified 2026-11-11.</strong> This used to be three separate checkboxes (Generate photos / Force-regenerate / Skip AI photos) plus a mutual-exclusion rule enforced in JavaScript — which let a user propose combinations that were already structurally impossible, and made it genuinely hard to tell which controls actually affected which others. It\'s one choice now, because it only ever was one choice: what happens to a domain\'s photo slots this run.</div>'
           + '<table class="ro-compare"><thead><tr><th>Setting</th><th>Empty photo slot</th><th>Slot that already has a photo</th><th>Time</th><th>Cost</th></tr></thead><tbody>'
-          + '<tr><td>Default (nothing ticked)</td><td>Gets a new AI photo</td><td>Left alone, untouched</td><td>Only as long as the new photo(s) actually needed take to generate &mdash; no added time if every slot is already filled</td><td>Only for the new photo(s) actually needed</td></tr>'
-          + '<tr><td>Generate photos OFF</td><td>Stays empty &mdash; nothing happens</td><td>Left alone, untouched</td><td><strong>Fastest</strong> &mdash; the whole Images step is skipped: no local processing, no network calls at all</td><td>None &mdash; no photo work at all this run</td></tr>'
-          + '<tr><td>Skip AI photos ON</td><td>Gets the master\'s own placeholder photo (still run through the free per-domain uniqueness pass)</td><td>Left alone, untouched</td><td>Fast &mdash; local-only processing (crop/tone jitter), no OpenAI request to wait on</td><td>None &mdash; no OpenAI call this run</td></tr>'
-          + '<tr><td>Force-regenerate ON</td><td>Gets a new AI photo</td><td><strong>Replaced</strong> with a fresh AI photo, even if it was already fine</td><td><strong>Slowest</strong> &mdash; every slot on every ticked domain calls OpenAI, up to 5 requests in flight at once per domain (<code>ms_image_ai_concurrency()</code>); scales with total slot count, not domain count</td><td>Every slot, every ticked domain, every time</td></tr>'
+          + '<tr><td><strong>Normal</strong> (default)</td><td>Gets a new AI photo</td><td>Left alone, untouched</td><td>Only as long as the new photo(s) actually needed take to generate &mdash; no added time if every slot is already filled</td><td>Only for the new photo(s) actually needed</td></tr>'
+          + '<tr><td><strong>Skip entirely this run</strong></td><td>Stays empty &mdash; nothing happens</td><td>Left alone, untouched</td><td><strong>Fastest</strong> &mdash; the whole Images step is skipped: no local processing, no network calls at all</td><td>None &mdash; no photo work at all this run</td></tr>'
+          + '<tr><td><strong>Skip new AI, keep uniqueness pass</strong></td><td>Gets the master\'s own placeholder photo (still run through the free per-domain uniqueness pass)</td><td>Left alone, untouched</td><td>Fast &mdash; local-only processing (crop/tone jitter), no OpenAI request to wait on</td><td>None &mdash; no OpenAI call this run</td></tr>'
+          + '<tr><td><strong>Force-regenerate everything</strong></td><td>Gets a new AI photo</td><td><strong>Replaced</strong> with a fresh AI photo, even if it was already fine</td><td><strong>Slowest</strong> &mdash; every slot on every ticked domain calls OpenAI, up to 5 requests in flight at once per domain (<code>ms_image_ai_concurrency()</code>); scales with total slot count, not domain count</td><td>Every slot, every ticked domain, every time</td></tr>'
           + '</tbody></table>'
-          + '<div class="ro-step-note">No clock-time numbers are quoted here (minutes vary with slot count, photo size, and OpenAI\'s own response time) &mdash; the Time column is a verified relative ordering from the actual code path each setting takes, not a benchmark. Cost ordering, cheapest to priciest: <strong>Generate photos off</strong> (nothing happens) &lt; <strong>default</strong>/<strong>Skip AI photos</strong> (empty slots only, one of them free) &lt; <strong>Force-regenerate</strong> (every slot, every run) &mdash; same ordering as Time.</div>'
-          + '<div class="ro-step">Force-regenerate and Skip AI photos are direct opposites and can\'t be ticked together. Generate photos is the on/off switch for the whole category &mdash; turning it off makes the other two meaningless, so they grey out automatically.</div>'
-          + '<div class="ro-step">"Left alone, untouched" (fixed 2026-11-11) means a domain\'s photo ends this run exactly as it looked going in &mdash; for a slot that already has its own approved AI photo, that\'s a real, free restore (a local file copy, no OpenAI call) back into this build, not literally doing nothing to the field. Before this date these three rows silently shipped the shared template\'s photo instead, undoing a domain\'s own earlier Force-regenerate. <strong>Colors, fonts, logo &amp; favicon only</strong> (not in this table &mdash; it\'s a separate checkbox, not one of these four) goes through the identical Images-step-skipped path, so it carries the same "Generate photos OFF" row above for photos specifically.</div>'],
-        force_photos: ['Force-regenerate photos',
-            '<div class="ro-step">Regenerates every AI photo slot on each ticked domain from the <strong>master\'s own approved photo</strong> — not from whatever is currently in that slot.</div>'
-          + '<div class="ro-step">Normally a photo slot that already has any image is left alone, even if it\'s wrong — this is the one way to force past that and actually fix it.</div>'
-          + '<div class="ro-step"><strong>Real OpenAI cost per photo slot, per domain.</strong> Only does anything while Build AND Generate photos are both ticked. Use it when a photo is actually wrong, not as a routine option.</div>'
-          + '<div class="ro-step">The opposite of <strong>Skip AI photos this run</strong> — the two can\'t be ticked together.</div>'
-          + COMBO_NOTE],
-        skip_ai_photos: ['Skip AI photos this run',
-            '<div class="ro-step">Turns off every AI photo category for this run only (hero/other, home/landing) — no OpenAI call for any photo slot, no cost, regardless of this batch\'s own saved Generate settings. A one-off override for this click, same spirit as Colors/fonts/logo/favicon only\'s one-off skip list — it does not change what the batch\'s normal runs do afterward.</div>'
-          + '<div class="ro-step">A slot that already had an AI photo from an earlier run keeps that photo (fixed 2026-11-11; a free local file restore, no OpenAI call) — this only stops NEW AI photos from being made, it does not remove or revert anything already in place. Before this date, ticking this actually had the opposite effect for an already-approved photo: with every category off, the restore never ran at all and the slot silently reverted to the shared template\'s photo — the same underlying bug as Generate photos off and Colors/fonts/logo/favicon only, just reached a third way.</div>'
-          + '<div class="ro-step">A slot with no AI photo yet (a brand-new domain\'s first build, or a slot never approved in Pic Drop) is <strong>not left blank.</strong> Every photo — AI-eligible or not — still goes through the mechanical pass that always runs during a normal Build: an off-centre crop, a small tone jitter, re-compression, and EXIF/GPS stripping, all seed-deterministic per domain. That pass is free (no API call) and exists specifically to stop two domains off the same master from shipping the exact same image file — so a domain built with this ticked still gets a real, already-unique photo, just the master\'s original scene rather than an OpenAI-edited variant of it.</div>'
-          + '<div class="ro-step">The opposite of <strong>Force-regenerate photos</strong> — the two can\'t be ticked together. <strong>Force photo quality</strong> has nothing to generate while this is ticked, so it\'s ignored.</div>'
-          + '<div class="ro-step">Only does anything while Build AND Generate photos are both ticked, and <strong>Colors, fonts, logo &amp; favicon only</strong> is NOT ticked — that mode already skips the whole Images step on its own, so this would add nothing. Greys out and auto-unticks the moment logo-only is ticked, same reasoning as every other no-op combination in this file.</div>'],
-        image_quality: ['Force photo quality',
-            '<div class="ro-step">Controls the quality tier OpenAI generates at for <strong>every</strong> AI photo made during this run &mdash; a brand-new photo for a new domain just as much as a Force-regenerate photos re-roll. It is not tied to that checkbox; it just lives next to it because that\'s the control most likely to generate a lot of photos at once.</div>'
+          + '<div class="ro-step-note">No clock-time numbers are quoted here (minutes vary with slot count, photo size, and OpenAI\'s own response time) &mdash; the Time column is a verified relative ordering from the actual code path each setting takes, not a benchmark. Cost ordering, cheapest to priciest: <strong>Skip entirely</strong> (nothing happens) &lt; <strong>Normal</strong>/<strong>Skip new AI</strong> (empty slots only, one of them free) &lt; <strong>Force-regenerate</strong> (every slot, every run) &mdash; same ordering as Time.</div>'
+          + '<div class="ro-step">"Left alone, untouched" (fixed 2026-11-11) means a domain\'s photo ends this run exactly as it looked going in &mdash; for a slot that already has its own approved AI photo, that\'s a real, free restore (a local file copy, no OpenAI call) back into this build, not literally doing nothing to the field. Before this date, three of these four states silently shipped the shared template\'s photo instead, undoing a domain\'s own earlier Force-regenerate — the same underlying bug, reached three different ways.</div>'
+          + '<div class="ro-step">A slot with no AI photo approved yet (a brand-new domain\'s first build, or a slot never approved in Pic Drop) is <strong>not left blank</strong> under <strong>Skip new AI</strong> — every photo still goes through the mechanical pass every normal Build applies (off-centre crop, tone jitter, re-compression, EXIF/GPS strip), seed-deterministic per domain, so two domains off the same master still never ship byte-identical images.</div>'
+          + '<div class="ro-step"><strong>Colors, fonts, logo &amp; favicon only</strong> (its own checkbox, below) already skips the whole Images step by itself — so <strong>Skip entirely</strong> and <strong>Skip new AI</strong> add nothing on top of it and grey out of this dropdown the moment it\'s ticked (auto-resetting to Normal if one was selected). <strong>Force-regenerate</strong> is the one exception: "logo-only + Force-regenerate" is a real, intentional combination — see logo-only\'s own &#9432; — so it stays fully selectable.</div>'
+          + '<div class="ro-step">Only does anything while <strong>Build</strong> is also ticked &mdash; greys out entirely (reset to Normal) otherwise. <strong>Quality</strong> (the control to its right) only matters for <strong>Normal</strong> or <strong>Force-regenerate</strong>, the two states that can actually generate a new photo.</div>'],
+        image_quality: ['Quality',
+            '<div class="ro-step">Controls the quality tier OpenAI generates at for <strong>every</strong> AI photo made during this run &mdash; a brand-new photo for a new domain just as much as a Force-regenerate re-roll. It is not tied to the <strong>Photos</strong> choice; it just lives next to it because that\'s the control most likely to generate a lot of photos at once.</div>'
           + '<div class="ro-step"><strong>Low</strong> is the default as of 2026-11-07 (~$0.01/photo) &mdash; a real, separate OpenAI price tier, not a resize, roughly 75&ndash;80% cheaper than <strong>Medium</strong> (~$0.04&ndash;0.05/photo, what every run used before this date). Low can show actual artifacts (muddier textures, warped small details), not just softer detail. Spot-check a few Low photos on a real page, phone and desktop, before trusting it at fleet scale &mdash; these photos carry real trust-signal weight for a service-area business.</div>'
-          + '<div class="ro-step">Applies only while Build AND Generate photos are both ticked, same as Force-regenerate photos. A domain whose photo slots are already filled won\'t get a new one at any quality unless Force-regenerate photos is also ticked — and no photo gets generated at any quality while <strong>Skip AI photos this run</strong> is ticked.</div>'
+          + '<div class="ro-step">Only relevant while <strong>Photos</strong> is set to <strong>Normal</strong> or <strong>Force-regenerate everything</strong> &mdash; those are the only two states that can actually generate a new photo. Greys out under <strong>Skip entirely</strong> or <strong>Skip new AI</strong>, same as Photos itself.</div>'
           + '<div class="ro-step"><strong>Real cost now shown per domain (added 2026-10-24):</strong> the run log prints <code>+ img $0.0XXX</code> next to each domain\'s line, a real OpenAI estimate for the photos actually generated — separate from the <code>$</code> figure before it, which is Anthropic\'s text-generation cost for that domain\'s AI content and has nothing to do with photos. Before this, there was no way to see whether a quality tier actually changed what you were billed.</div>'],
         logo_only: ['Colors, fonts, logo &amp; favicon only',
             '<div class="ro-step">Rebuilds <strong>only</strong> the visual identity for each ticked domain — color palette, font, palette jitter, logo, icon, and favicon — skips AI text, photos, page pool, and landing pages entirely.</div>'
@@ -468,8 +457,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             + 'Build + Upload without spending anything on AI text or photos.</div>'
           + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
           + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
-          + '<div class="ro-step"><strong>Existing photos are safe too (fixed 2026-11-11).</strong> This skips the whole Images step, same as Generate photos off above — a domain that already has its own approved AI photo gets that exact photo restored into this build for free; it no longer reverts to the shared template\'s photo the way it used to. Safe now to run at batch scale on domains that were previously Force-regenerated, not just one at a time.</div>'
-          + '<div class="ro-step">Ticking this greys out and auto-unticks <strong>Skip AI photos this run</strong> — it would be a no-op here, since this already skips Images by itself. <strong>Force-regenerate photos</strong> is deliberately left alone and stays tickable: "both together" is a real, intentional combination (next note) that regenerates every photo alongside the colors/logo, not a no-op this checkbox should silently cancel.</div>'
+          + '<div class="ro-step"><strong>Existing photos are safe too (fixed 2026-11-11).</strong> This skips the whole Images step, same as <strong>Photos: Skip entirely this run</strong> — a domain that already has its own approved AI photo gets that exact photo restored into this build for free; it no longer reverts to the shared template\'s photo the way it used to. Safe now to run at batch scale on domains that were previously Force-regenerated, not just one at a time.</div>'
+          + '<div class="ro-step">Ticking this greys out <strong>Skip entirely this run</strong> and <strong>Skip new AI</strong> inside the <strong>Photos</strong> dropdown (auto-resetting to Normal if one was selected) — both would be no-ops here, since this already skips Images by itself. <strong>Force-regenerate everything</strong> is deliberately left selectable: "both together" is a real, intentional combination (next note) that regenerates every photo alongside the colors/logo, not a no-op this checkbox should silently cancel.</div>'
           + COMBO_NOTE],
         wipe_files: ['Wipe server files first',
             '<div class="ro-step">Deletes <strong>every file already on the live server</strong> for each ticked domain, '
@@ -540,7 +529,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + 'automatically — the log box and progress bar re-attach to whatever is still running or already finished, '
           + 'nothing is lost by navigating away and back.</div>'
           + '<div class="ro-step">Unchecking a step skips it entirely for this run — e.g. untick Build to redo only '
-          + 'Upload after fixing an FTP password, with no new AI cost. See the &#9432; next to each checkbox above for '
+          + 'Upload after fixing an FTP password, with no new AI cost. See the &#9432; next to each control above for '
           + 'what it changes, and the &#9432; next to <strong>file dates</strong> for what an Upload does to a live '
           + 'domain\'s visible timestamps.</div>'],
     };
@@ -799,7 +788,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             rows.filter(r => r.n >= start && r.n <= end).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
-        if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload' || e.target.id === 'ro-generate-photos') syncForcePhotos();
+        if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload' || e.target.id === 'ro-photo-mode') syncForcePhotos();
         // Chips are quick picks for the common cases; this is the escape hatch for
         // "as many as I want" — any positive whole number, not capped at the chip row's
         // highest (10). Typing a value here un-highlights whichever chip was selected so
@@ -808,16 +797,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             const n = parseInt(e.target.value, 10);
             if (n > 0) { perDay = n; document.querySelectorAll('.ro-chip').forEach(c => c.classList.remove('on')); }
         }
-        // Force-regenerate and Skip-AI-photos are opposites — ticking one live un-ticks
-        // the other immediately, not just refused at submit time, so the checkboxes can
-        // never visibly disagree with what the run is actually about to do.
-        if (e.target.id === 'ro-force-photos' && e.target.checked) $('ro-skip-ai-photos').checked = false;
-        if (e.target.id === 'ro-skip-ai-photos' && e.target.checked) $('ro-force-photos').checked = false;
     });
-    // Force-regenerate photos and Colors, fonts, logo & favicon only are both meaningless without
-    // Build — greyed out and auto-unticked the moment Build is off, not just blocked at
-    // submit time, so it's never possible to leave either checked in a state where it
-    // would silently do nothing. Tickable together on purpose — see rollout_build's
+    // Colors, fonts, logo & favicon only is meaningless without Build — greyed out and
+    // auto-unticked the moment Build is off, not just blocked at submit time, so it's
+    // never possible to leave it checked in a state where it would silently do nothing.
+    // Tickable together with Photos: Force-regenerate on purpose — see rollout_build's
     // server-side handling of logo_only+force_photos for what that combination means.
     //
     // Wipe is different: it's not meaningless without a full Build + Upload, it's
@@ -829,43 +813,45 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // is off, or logo-only is on. Re-checked again server-side in rollout_build and again
     // in build_upload.php itself — a destructive flag refuses itself at every layer that
     // can reach it, never trusting the layer above.
+    //
+    // Photos (simplified 2026-11-11 from three separate checkboxes — Generate photos /
+    // Force-regenerate / Skip AI photos — plus a JS mutual-exclusion rule, into one
+    // single <select>) only matters while Build is ticked, same as everything else here.
+    // Two of its four values (Skip entirely, Skip new AI) are genuine no-ops the moment
+    // Colors/fonts/logo/favicon only is ticked, since that mode already skips the whole
+    // Images step by itself — those two <option>s grey out and the select auto-resets to
+    // Normal if one was selected. Force-regenerate is the one deliberate exception: "logo-
+    // only + Force-regenerate, together" is a real, intentional combination (COMBO_NOTE)
+    // that regenerates every photo alongside the colors/logo, so it stays fully selectable.
     function syncForcePhotos() {
         const buildOn  = $('ro-do-build').checked;
         const uploadOn = $('ro-do-upload').checked;
         const logoOn   = $('ro-logo-only').checked;
-        const gp = $('ro-generate-photos');
-        const genOn = gp.checked;
-        const fp = $('ro-force-photos');
         const lo = $('ro-logo-only');
         const wp = $('ro-wipe');
         const iq = $('ro-image-quality');
-        const sa = $('ro-skip-ai-photos');
-        // Generate photos is meaningless without Build, same as every other modifier here.
-        gp.disabled = !buildOn;
-        // Force-regenerate, Skip AI photos, and Force photo quality are all meaningless
-        // once Generate photos is off (there's no Images step left for them to affect)
-        // — greyed out and auto-unticked the moment it's unticked, not just refused at
-        // submit time, same reasoning as every other combination guard in this file.
-        fp.disabled = !buildOn || !genOn;
+        const pm = $('ro-photo-mode');
         lo.disabled = !buildOn;
         wp.disabled = !buildOn || !uploadOn || logoOn;
-        iq.disabled = !buildOn || !genOn;
-        // Skip AI photos is ALSO meaningless the moment Colors/fonts/logo/favicon only is
-        // ticked — logo-only's own skip list already excludes the whole Images step by
-        // default, so "also skip AI photos" has nothing left to add. Deliberately NOT the
-        // same for Force-regenerate or Generate photos themselves: "logo-only + Force-
-        // regenerate, together" is a real, intentional combo (see COMBO_NOTE below) that
-        // regenerates every photo alongside the colors/logo — graying either of THOSE out
-        // here would silently break that combo, not just remove a no-op.
-        sa.disabled = !buildOn || !genOn || logoOn;
-        // Deliberately does NOT touch iq.value — disabling it already communicates
-        // "doesn't apply right now," and forcing it to a different tier used to leave
-        // Medium silently selected (a real ~4-5x per-photo cost increase) the next time
-        // Build/Generate photos got re-checked, since nothing ever restored it.
-        if (!buildOn) { fp.checked = false; lo.checked = false; sa.checked = false; }
-        if (!genOn) fp.checked = false;
-        if (!genOn || logoOn) sa.checked = false;
+        pm.disabled = !buildOn;
+        // Grey out (and, if currently selected, reset away from) whichever Photos options
+        // are no-ops right now — resolved BEFORE reading pm.value for iq.disabled below, so
+        // that calculation always sees the value Photos will actually end this call with.
+        const skipOpt   = pm.querySelector('option[value="skip"]');
+        const skipAiOpt = pm.querySelector('option[value="skip_ai"]');
+        skipOpt.disabled = logoOn;
+        skipAiOpt.disabled = logoOn;
+        if (logoOn && (pm.value === 'skip' || pm.value === 'skip_ai')) pm.value = 'normal';
+        if (!buildOn) { lo.checked = false; pm.value = 'normal'; }
         if (!buildOn || !uploadOn || logoOn) wp.checked = false;
+        // Quality only matters for the two Photos states that can actually generate a new
+        // photo (Normal, Force-regenerate) — greyed out for the other two, same spirit as
+        // every other "doesn't apply right now" disable in this function. Deliberately does
+        // NOT touch iq.value — disabling it already communicates "doesn't apply right now,"
+        // and forcing it to a different tier used to leave Medium silently selected (a real
+        // ~4-5x per-photo cost increase) the next time it became relevant again, since
+        // nothing ever restored it.
+        iq.disabled = !buildOn || pm.value === 'skip' || pm.value === 'skip_ai';
     }
     syncForcePhotos();
     $('ro-sched').onclick = async () => {
@@ -982,10 +968,14 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         }
     });
     function stepsPicked() {
+        // photoMode is one of 'normal' | 'skip' | 'skip_ai' | 'force' — see the Photos
+        // ⓘ. Replaces the old generatePhotos/forcePhotos/skipAiPhotos trio (simplified
+        // 2026-11-11): a single <select> makes the four states mutually exclusive by
+        // construction instead of by a JS rule that had to be separately maintained and
+        // separately re-checked at submit time.
         return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked,
-                 generatePhotos: $('ro-generate-photos').checked,
-                 forcePhotos: $('ro-force-photos').checked, logoOnly: $('ro-logo-only').checked, wipe: $('ro-wipe').checked,
-                 imageQuality: $('ro-image-quality').value, skipAiPhotos: $('ro-skip-ai-photos').checked };
+                 photoMode: $('ro-photo-mode').value, logoOnly: $('ro-logo-only').checked, wipe: $('ro-wipe').checked,
+                 imageQuality: $('ro-image-quality').value };
     }
     function stepsLabel(p) {
         const names = [p.host && 'Create host', p.build && 'Build', p.upload && 'Upload'].filter(Boolean);
@@ -1036,43 +1026,39 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         // so it falls back to a count there instead.
         let msg = sel.size <= 8 ? what + ' now?\n\n' + [...sel].join('\n') : what + ' for ' + sel.size + ' domain(s) now?';
         if (picked.build && live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
-        if ((picked.forcePhotos || picked.logoOnly || picked.skipAiPhotos) && !picked.build) {
-            return say((picked.forcePhotos ? 'Force-regenerate photos' : picked.logoOnly ? 'Colors, fonts, logo & favicon only' : 'Skip AI photos this run') + ' does nothing unless Build is also ticked.');
+        if ((picked.photoMode !== 'normal' || picked.logoOnly) && !picked.build) {
+            const label = picked.photoMode === 'force' ? 'Force-regenerate everything'
+                        : picked.photoMode === 'skip' ? 'Photos: Skip entirely this run'
+                        : picked.photoMode === 'skip_ai' ? 'Photos: Skip new AI'
+                        : 'Colors, fonts, logo & favicon only';
+            return say(label + ' does nothing unless Build is also ticked.');
         }
-        if (picked.forcePhotos && picked.skipAiPhotos) {
-            // Shouldn't be reachable — ticking either one live un-ticks the other (see the
-            // change handler above) — refused again anyway, same "never trust the layer
-            // above" reasoning as every other contradictory-flag guard in this file.
-            return say('Force-regenerate photos and Skip AI photos this run are opposites — pick one.');
-        }
-        if (picked.forcePhotos && !picked.generatePhotos) {
-            // Shouldn't be reachable either — Force-regenerate photos is greyed out and
-            // auto-unticked the moment Generate photos is off (syncForcePhotos()) — same
-            // "never trust the layer above" reasoning as the check right above this one.
-            return say('Force-regenerate photos needs Generate photos ticked — there\'s no Images step left for it to affect otherwise.');
-        }
-        if (picked.build && !picked.generatePhotos && !picked.logoOnly) {
-            msg += '\n\nGENERATE PHOTOS is unticked — this run skips the whole Images step for ' + sel.size
+        // No "shouldn't be reachable, refused again anyway" checks needed here any more —
+        // Photos is one <select>, so an invalid combination (e.g. Force + Skip at once)
+        // simply isn't a state the control can be in, not something a JS rule has to
+        // separately prevent and this code has to separately re-check.
+        if (picked.build && picked.photoMode === 'skip' && !picked.logoOnly) {
+            msg += '\n\nPHOTOS is set to "Skip entirely this run" — this run skips the whole Images step for ' + sel.size
                  + ' domain(s): no AI photos (new or forced), and none of the usual cosmetic reprocessing '
                  + '(crop/jitter/metadata-strip). Existing photos are left exactly as they are. Text, pages, and '
                  + 'upload all run normally. Continue?';
         }
-        if (picked.forcePhotos && picked.logoOnly) {
-            msg += '\n\nFORCE-REGENERATE PHOTOS + COLORS, FONTS, LOGO & FAVICON ONLY are both ticked — this run skips AI text, '
+        if (picked.photoMode === 'force' && picked.logoOnly) {
+            msg += '\n\nPHOTOS: FORCE-REGENERATE EVERYTHING + COLORS, FONTS, LOGO & FAVICON ONLY are both set — this run skips AI text, '
                  + 'page pool, and landing pages for ' + sel.size + ' domain(s), but rebuilds the color palette, font, '
                  + 'jitter, logo, icon, favicon, AND regenerates every AI photo slot from the master\'s own photo. '
                  + 'Real OpenAI cost per photo slot. Continue?';
-        } else if (picked.forcePhotos) {
-            msg += '\n\nFORCE-REGENERATE PHOTOS is ticked — every AI photo slot on ' + sel.size
+        } else if (picked.photoMode === 'force') {
+            msg += '\n\nPHOTOS is set to "Force-regenerate everything" — every AI photo slot on ' + sel.size
                  + ' domain(s) will be regenerated from the master\'s own photo, real OpenAI cost per slot. Continue?';
         } else if (picked.logoOnly) {
             msg += '\n\nCOLORS, FONTS, LOGO & FAVICON ONLY is ticked — this run skips AI text, photos, page pool, and landing pages for '
                  + sel.size + ' domain(s), rebuilding just the color palette, font, jitter, logo, icon, and favicon from current settings. No cost (local only). Continue?';
         }
-        if (picked.build && picked.skipAiPhotos) {
-            msg += '\n\nSKIP AI PHOTOS THIS RUN is ticked — no OpenAI photo call for ' + sel.size + ' domain(s) this run, zero added cost. '
+        if (picked.build && picked.photoMode === 'skip_ai') {
+            msg += '\n\nPHOTOS is set to "Skip new AI" — no OpenAI photo call for ' + sel.size + ' domain(s) this run, zero added cost. '
                  + 'Any slot without an AI photo already keeps the master\'s own photo (still run through the usual free per-domain uniqueness pass, not a raw duplicate). Continue?';
-        } else if (picked.build && picked.imageQuality === 'low') {
+        } else if (picked.build && picked.imageQuality === 'low' && (picked.photoMode === 'normal' || picked.photoMode === 'force')) {
             msg += '\n\nPHOTO QUALITY is set to Low — any photo generated this run (forced re-rolls, or new ones) uses the cheaper, lower-fidelity tier. Spot-check a few before trusting it at scale. Continue?';
         }
         if (picked.wipe) {
@@ -1093,11 +1079,16 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         // so a second, unrelated "Run selected" click later can never silently wipe
         // whatever happens to be ticked in the grid at that point.
         $('ro-wipe').checked = false;
+        // Server-side (multisite_api.php, build_upload.php) still speaks the original
+        // three independent flags — untouched by this simplification, since they already
+        // had their own well-tested refusal/skip-list logic. Only the BROWSER'S
+        // representation changed, from three checkboxes to one <select>; this is where
+        // photoMode gets translated back into that unchanged wire format.
         const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]),
             do_host: picked.host ? '1' : '0', do_build: picked.build ? '1' : '0', do_upload: picked.upload ? '1' : '0',
-            skip_images: picked.generatePhotos ? '0' : '1',
-            force_photos: picked.forcePhotos ? '1' : '0', logo_only: picked.logoOnly ? '1' : '0', wipe: picked.wipe ? '1' : '0',
-            image_quality: picked.imageQuality, skip_ai_photos: picked.skipAiPhotos ? '1' : '0' });
+            skip_images: picked.photoMode === 'skip' ? '1' : '0',
+            force_photos: picked.photoMode === 'force' ? '1' : '0', logo_only: picked.logoOnly ? '1' : '0', wipe: picked.wipe ? '1' : '0',
+            image_quality: picked.imageQuality, skip_ai_photos: picked.photoMode === 'skip_ai' ? '1' : '0' });
         if (r.error) return say(r.error);
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
