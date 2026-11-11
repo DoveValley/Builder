@@ -156,7 +156,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 <option value="normal" selected>Normal (fill empty slots only)</option>
                 <option value="skip">Skip entirely this run</option>
                 <option value="skip_ai">Skip new AI, keep uniqueness pass</option>
-                <option value="force">Force-regenerate everything</option>
+                <option value="force">Force-regenerate all AI photos</option>
             </select>
             <a href="#" class="ro-info" data-static-info="photo_mode" title="What each choice does">&#9432;</a>
         </label>
@@ -430,7 +430,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<tr><td><strong>Normal</strong> (default)</td><td>Gets a new AI photo</td><td>Left alone, untouched</td><td>Only as long as the new photo(s) actually needed take to generate &mdash; no added time if every slot is already filled</td><td>Only for the new photo(s) actually needed</td></tr>'
           + '<tr><td><strong>Skip entirely this run</strong></td><td>Stays empty &mdash; nothing happens</td><td>Left alone, untouched</td><td><strong>Fastest</strong> &mdash; the whole Images step is skipped: no local processing, no network calls at all</td><td>None &mdash; no photo work at all this run</td></tr>'
           + '<tr><td><strong>Skip new AI, keep uniqueness pass</strong></td><td>Gets the master\'s own placeholder photo (still run through the free per-domain uniqueness pass)</td><td>Left alone, untouched</td><td>Fast &mdash; local-only processing (crop/tone jitter), no OpenAI request to wait on</td><td>None &mdash; no OpenAI call this run</td></tr>'
-          + '<tr><td><strong>Force-regenerate everything</strong></td><td>Gets a new AI photo</td><td><strong>Replaced</strong> with a fresh AI photo, even if it was already fine</td><td><strong>Slowest</strong> &mdash; every slot on every ticked domain calls OpenAI, up to 5 requests in flight at once per domain (<code>ms_image_ai_concurrency()</code>); scales with total slot count, not domain count</td><td>Every slot, every ticked domain, every time</td></tr>'
+          + '<tr><td><strong>Force-regenerate all AI photos</strong></td><td>Gets a new AI photo</td><td><strong>Replaced</strong> with a fresh AI photo, even if it was already fine</td><td><strong>Slowest</strong> &mdash; every slot on every ticked domain calls OpenAI, up to 5 requests in flight at once per domain (<code>ms_image_ai_concurrency()</code>); scales with total slot count, not domain count</td><td>Every slot, every ticked domain, every time</td></tr>'
           + '</tbody></table>'
           + '<div class="ro-step-note">No clock-time numbers are quoted here (minutes vary with slot count, photo size, and OpenAI\'s own response time) &mdash; the Time column is a verified relative ordering from the actual code path each setting takes, not a benchmark. Cost ordering, cheapest to priciest: <strong>Skip entirely</strong> (nothing happens) &lt; <strong>Normal</strong>/<strong>Skip new AI</strong> (empty slots only, one of them free) &lt; <strong>Force-regenerate</strong> (every slot, every run) &mdash; same ordering as Time.</div>'
           + '<div class="ro-step">"Left alone, untouched" (fixed 2026-11-11) means a domain\'s photo ends this run exactly as it looked going in &mdash; for a slot that already has its own approved AI photo, that\'s a real, free restore (a local file copy, no OpenAI call) back into this build, not literally doing nothing to the field. Before this date, three of these four states silently shipped the shared template\'s photo instead, undoing a domain\'s own earlier Force-regenerate — the same underlying bug, reached three different ways.</div>'
@@ -440,7 +440,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         image_quality: ['Quality',
             '<div class="ro-step">Controls the quality tier OpenAI generates at for <strong>every</strong> AI photo made during this run &mdash; a brand-new photo for a new domain just as much as a Force-regenerate re-roll. It is not tied to the <strong>Photos</strong> choice; it just lives next to it because that\'s the control most likely to generate a lot of photos at once.</div>'
           + '<div class="ro-step"><strong>Low</strong> is the default as of 2026-11-07 (~$0.01/photo) &mdash; a real, separate OpenAI price tier, not a resize, roughly 75&ndash;80% cheaper than <strong>Medium</strong> (~$0.04&ndash;0.05/photo, what every run used before this date). Low can show actual artifacts (muddier textures, warped small details), not just softer detail. Spot-check a few Low photos on a real page, phone and desktop, before trusting it at fleet scale &mdash; these photos carry real trust-signal weight for a service-area business.</div>'
-          + '<div class="ro-step">Only relevant while <strong>Photos</strong> is set to <strong>Normal</strong> or <strong>Force-regenerate everything</strong> &mdash; those are the only two states that can actually generate a new photo. Greys out under <strong>Skip entirely</strong> or <strong>Skip new AI</strong>, same as Photos itself.</div>'
+          + '<div class="ro-step">Only relevant while <strong>Photos</strong> is set to <strong>Normal</strong> or <strong>Force-regenerate all AI photos</strong> &mdash; those are the only two states that can actually generate a new photo. Greys out under <strong>Skip entirely</strong> or <strong>Skip new AI</strong>, same as Photos itself.</div>'
           + '<div class="ro-step"><strong>Real cost now shown per domain (added 2026-10-24):</strong> the run log prints <code>+ img $0.0XXX</code> next to each domain\'s line, a real OpenAI estimate for the photos actually generated — separate from the <code>$</code> figure before it, which is Anthropic\'s text-generation cost for that domain\'s AI content and has nothing to do with photos. Before this, there was no way to see whether a quality tier actually changed what you were billed.</div>'],
         logo_only: ['Colors, fonts, logo &amp; favicon only',
             '<div class="ro-step">Rebuilds <strong>only</strong> the visual identity for each ticked domain — color palette, font, palette jitter, logo, icon, and favicon — skips AI text, photos, page pool, and landing pages entirely.</div>'
@@ -458,7 +458,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
           + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
           + '<div class="ro-step"><strong>Existing photos are safe too (fixed 2026-11-11).</strong> This skips the whole Images step, same as <strong>Photos: Skip entirely this run</strong> — a domain that already has its own approved AI photo gets that exact photo restored into this build for free; it no longer reverts to the shared template\'s photo the way it used to. Safe now to run at batch scale on domains that were previously Force-regenerated, not just one at a time.</div>'
-          + '<div class="ro-step">Ticking this greys out <strong>Skip entirely this run</strong> and <strong>Skip new AI</strong> inside the <strong>Photos</strong> dropdown (auto-resetting to Normal if one was selected) — both would be no-ops here, since this already skips Images by itself. <strong>Force-regenerate everything</strong> is deliberately left selectable: "both together" is a real, intentional combination (next note) that regenerates every photo alongside the colors/logo, not a no-op this checkbox should silently cancel.</div>'
+          + '<div class="ro-step">Ticking this greys out <strong>Skip entirely this run</strong> and <strong>Skip new AI</strong> inside the <strong>Photos</strong> dropdown (auto-resetting to Normal if one was selected) — both would be no-ops here, since this already skips Images by itself. <strong>Force-regenerate all AI photos</strong> is deliberately left selectable: "both together" is a real, intentional combination (next note) that regenerates every photo alongside the colors/logo, not a no-op this checkbox should silently cancel.</div>'
           + COMBO_NOTE],
         wipe_files: ['Wipe server files first',
             '<div class="ro-step">Deletes <strong>every file already on the live server</strong> for each ticked domain, '
@@ -1027,7 +1027,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         let msg = sel.size <= 8 ? what + ' now?\n\n' + [...sel].join('\n') : what + ' for ' + sel.size + ' domain(s) now?';
         if (picked.build && live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
         if ((picked.photoMode !== 'normal' || picked.logoOnly) && !picked.build) {
-            const label = picked.photoMode === 'force' ? 'Force-regenerate everything'
+            const label = picked.photoMode === 'force' ? 'Force-regenerate all AI photos'
                         : picked.photoMode === 'skip' ? 'Photos: Skip entirely this run'
                         : picked.photoMode === 'skip_ai' ? 'Photos: Skip new AI'
                         : 'Colors, fonts, logo & favicon only';
@@ -1044,12 +1044,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                  + 'upload all run normally. Continue?';
         }
         if (picked.photoMode === 'force' && picked.logoOnly) {
-            msg += '\n\nPHOTOS: FORCE-REGENERATE EVERYTHING + COLORS, FONTS, LOGO & FAVICON ONLY are both set — this run skips AI text, '
+            msg += '\n\nPHOTOS: FORCE-REGENERATE ALL AI PHOTOS + COLORS, FONTS, LOGO & FAVICON ONLY are both set — this run skips AI text, '
                  + 'page pool, and landing pages for ' + sel.size + ' domain(s), but rebuilds the color palette, font, '
                  + 'jitter, logo, icon, favicon, AND regenerates every AI photo slot from the master\'s own photo. '
                  + 'Real OpenAI cost per photo slot. Continue?';
         } else if (picked.photoMode === 'force') {
-            msg += '\n\nPHOTOS is set to "Force-regenerate everything" — every AI photo slot on ' + sel.size
+            msg += '\n\nPHOTOS is set to "Force-regenerate all AI photos" — every AI photo slot on ' + sel.size
                  + ' domain(s) will be regenerated from the master\'s own photo, real OpenAI cost per slot. Continue?';
         } else if (picked.logoOnly) {
             msg += '\n\nCOLORS, FONTS, LOGO & FAVICON ONLY is ticked — this run skips AI text, photos, page pool, and landing pages for '
