@@ -479,11 +479,16 @@ function ms_generate_ai_images_for_domain(
         $parts = picdrop_parse_key($slotKey);
         if ($parts === null || !in_array($parts['scope'], ['home', 'global', 'landing'], true)) continue;
 
-        // Which of the four checkboxes governs this slot is decided BEFORE any
-        // resolve/cache work below — an unchecked box means this slot is untouched,
-        // not "resolve it and then discard the result".
-        $category = ms_image_ai_slot_category($parts, $blockType);
-        if (!$catFlags[$category]) continue;
+        // Which of the four checkboxes governs this slot decides only whether a MISSING
+        // photo may be newly generated (real OpenAI cost) below — not whether an already-
+        // cached one gets restored. Restoring a slot's own previously-approved photo is
+        // free (a local file copy, no API call), so it must not depend on this run's
+        // generation checkboxes: a run with every category off (Skip AI photos this run,
+        // or the whole Images step off) must still re-apply whatever this domain already
+        // had, or the fresh clone's master-placeholder value would silently go out in its
+        // place — see [[project_images_skip_reverts_to_master_placeholder]].
+        $category    = ms_image_ai_slot_category($parts, $blockType);
+        $canGenerate = $catFlags[$category];
 
         // A landing slot is matched by TEMPLATE ID against this domain's own already-
         // generated pages (module docblock) — never by the master's page filename,
@@ -623,6 +628,13 @@ function ms_generate_ai_images_for_domain(
             $out['cached']++;
             continue;
         }
+
+        // Nothing cached for this slot yet, and this run's checkboxes don't allow a
+        // NEW one to be generated for its category (real OpenAI cost) — a plain skip,
+        // same as before this slot's category flag stopped gating the free restore
+        // above. Still correctly "untouched": there was nothing of this domain's own
+        // to restore in the first place.
+        if (!$canGenerate) continue;
 
         // Force: reference the MASTER's own approved photo, not this domain's current
         // one. The edit API edits FROM its reference, so re-editing an already-wrong

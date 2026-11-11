@@ -451,6 +451,19 @@ if ($masterCitySlug === '' && !empty($masterVars['city'])) $masterCitySlug = slu
 if ($skipped('images')) {
     progress_log('Images: skipped — turned off for this run.', 'warn');
     $imgRes = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
+    // The whole step being off must not mean "whatever the fresh clone carried over
+    // survives untouched" — the clone always carries the MASTER's own placeholder
+    // photo (clone_to_working_dir() never reads a domain's own prior build), so
+    // without this call a domain that was previously Force-regenerated would
+    // silently ship the master's placeholder in place of its own already-approved
+    // photo the next time Images is skipped (e.g. "Colors, fonts, logo & favicon
+    // only", or "Generate photos" unticked). All four categories passed false: this
+    // restores any already-cached photo for free (a local file copy, no OpenAI
+    // call) and generates nothing new — see [[project_images_skip_reverts_to_master_placeholder]].
+    $restoreRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir, null, false, false, false, false);
+    if ($restoreRes['cached'] > 0) {
+        progress_log("Images: restored {$restoreRes['cached']} already-approved photo(s) from cache even though Images is skipped (no AI call).");
+    }
 } else {
     ms_step_begin('images');
     // Hero text stamp (keyword + "City, ST") — its own switches under Images, one per scope,
@@ -487,11 +500,10 @@ if ($skipped('images')) {
         progress_log("Images: {$metaRes['remaining']} image(s) STILL carry metadata after stripping — investigate before deploying.", 'warn');
     }
 
-    // AI photo per domain — four independent switches under Images, same reasoning as the
-    // metadata strip above: untick Images and all four stop too. Only runs for slots that have a
+    // AI photo per domain — four independent switches under Images deciding whether a
+    // MISSING slot may get a newly generated photo (real cost); an already-cached slot
+    // is restored regardless, see the call below. Only runs for slots that have a
     // locked prompt (approved in Pic Drop); a master with none configured costs nothing.
-    // Real cost otherwise — a live paid call per slot per domain, cached after the first.
-    $aiImgRes = ['generated' => 0, 'cached' => 0, 'failed' => 0];
     $genHeroHome    = !$skipped('images.ai_photos_hero_home');
     $genHeroLanding = !$skipped('images.ai_photos_hero_landing');
     $genOtherHome   = !$skipped('images.ai_photos_other_home');
@@ -502,26 +514,30 @@ if ($skipped('images')) {
     if (!$genOtherLanding) progress_log('Images: AI photo (other images, service pages) skipped — turned off for this run.', 'warn');
     if ($forcePhotos) progress_log('Images: AI photo — forced, every slot regenerated from the master\'s own photo.', 'warn');
     if ($imageQuality !== 'medium') progress_log("Images: AI photo quality — {$imageQuality} (default is medium).", 'warn');
-    if ($genHeroHome || $genHeroLanding || $genOtherHome || $genOtherLanding) {
-        $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
-            function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); },
-            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding, $forcePhotos, $imageQuality);
-        if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
-            progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
-                . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',
-                $aiImgRes['failed'] ? 'warn' : 'info');
-            // Real OpenAI spend, not the Anthropic text-generation "Est. cost" line above —
-            // a separate service at separate rates. Only printed when something was
-            // actually generated; a cache-hit-only run has nothing to bill and this line
-            // would just be noise. run_campaign.php's ms_parse_line() picks this up into
-            // its own 'image_cost' field, kept apart from 'cost' the whole way through.
-            if ($aiImgRes['generated'] > 0) {
-                progress_log(sprintf('Images: AI photo cost: $%.4f (%d generated at %s quality).',
-                    $aiImgRes['cost'], $aiImgRes['generated'], $imageQuality));
-            }
-            foreach ($aiImgRes['errors'] ?? [] as $aiImgErr) {
-                progress_log("Images: AI photo — $aiImgErr", 'warn');
-            }
+    // Always called now, even when all four categories above are off (e.g. "Skip AI
+    // photos this run") — restoring an already-cached photo is free and must not
+    // depend on whether this run is allowed to generate a NEW one. Cheap when
+    // there's nothing to do: the function's own first check returns immediately for
+    // a master with no approved prompts at all. See
+    // [[project_images_skip_reverts_to_master_placeholder]].
+    $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
+        function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); },
+        $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding, $forcePhotos, $imageQuality);
+    if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
+        progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
+            . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',
+            $aiImgRes['failed'] ? 'warn' : 'info');
+        // Real OpenAI spend, not the Anthropic text-generation "Est. cost" line above —
+        // a separate service at separate rates. Only printed when something was
+        // actually generated; a cache-hit-only run has nothing to bill and this line
+        // would just be noise. run_campaign.php's ms_parse_line() picks this up into
+        // its own 'image_cost' field, kept apart from 'cost' the whole way through.
+        if ($aiImgRes['generated'] > 0) {
+            progress_log(sprintf('Images: AI photo cost: $%.4f (%d generated at %s quality).',
+                $aiImgRes['cost'], $aiImgRes['generated'], $imageQuality));
+        }
+        foreach ($aiImgRes['errors'] ?? [] as $aiImgErr) {
+            progress_log("Images: AI photo — $aiImgErr", 'warn');
         }
     }
 }
