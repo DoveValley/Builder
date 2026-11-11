@@ -189,7 +189,31 @@ if (is_dir($workingDir . '/data/pages')) {
 } else {
     @mkdir($workingDir . '/data/pages', 0775, true);
 }
-file_put_contents($workingDir . '/data/page-index.json', "{}\n");
+// Only reset to an empty (but present) index when landing generation will actually
+// run below and repopulate it — generate_landing.php -> engine.php is the ONLY thing
+// that ever writes real entries into it, and that step is skipped entirely when
+// --skip=landing is set. Writing "{}\n" unconditionally used to mean a landing-
+// skipped run permanently carried an empty-but-EXISTING index through the rest of
+// this build: plugins/services_links/plugin.php treats a present-but-empty index as
+// "every page has been checked and none of these exist" and drops every single link,
+// not as "nothing is known" — confirmed live on a real appliance batch, 18/18 links
+// dropped on every domain in the run, real pages (still live from a prior full
+// build, untouched by this run's incremental Upload) just no longer linked to.
+// Deleting the file instead (never writing the empty placeholder) makes
+// file_exists(PAGE_INDEX_FILE) false, which is the plugin's OWN existing "no index
+// available, don't filter at all" branch — already designed for exactly this
+// "we don't know what pages exist right now" situation, just never reached before.
+// Trade-off, not a full fix: an unfiltered render can link to a page Page Pool
+// pruned out in an earlier run (a real 404) instead of silently dropping it — a
+// small, occasional risk, traded for not zeroing every service link fleet-wide
+// every time a quick run skips landing. A real per-domain persisted index (the
+// same pattern as the AI photo cache) would close that gap properly; parked as a
+// follow-up, not built here.
+if ($skipped('landing')) {
+    @unlink($workingDir . '/data/page-index.json');
+} else {
+    file_put_contents($workingDir . '/data/page-index.json', "{}\n");
+}
 
 // Capture the master's own identity (business/website/tel/phone/email) BEFORE
 // injection — it's the "from" side of the per-site schema/identity rewrite.
