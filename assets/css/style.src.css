@@ -1851,6 +1851,17 @@ body.has-fixed-header main {
 .mobile-nav-logo-composite { filter: brightness(0) invert(1); }
 .mobile-nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
 .mobile-nav-logo-line { color: #fff; font-weight: 800; font-size: 1.39rem; font-family: var(--font-heading, inherit); }
+/* First line (business name) stays white; every line after it (the descriptor —
+   "Appliance Repair", or water's 2-line "Water Damage"/"Restoration") goes dark. A
+   flat near-black, not a theme color: this bar's background rotates through 10
+   accent presets per niche (see theme_presets.json), from bright gold down to
+   saturated crimson, and reusing --color-heading was checked and rejected — it's
+   tuned for dark-text-on-light-page, not this strip, and drops to ~2:1 contrast
+   against several real in-rotation reds. Near-black holds >=3.3:1 (WCAG large-text
+   floor) against every real preset's darkest accent, measured across all 4 niches'
+   full rotation, 6-12:1 on most. :not(:first-child) needs no PHP/markup change and
+   covers water's 3-line case (2nd AND 3rd line) the same way as everyone else's 2. */
+.mobile-nav-logo-line:not(:first-child) { color: #1a1a1a; }
 .mobile-nav-logo .logo-text { color: #fff; }
 /* 3-line brand (e.g. water-site's "Bailey Water Damage Restoration") needs a
    smaller size than the usual 2-line case or it overruns the nav bar */
