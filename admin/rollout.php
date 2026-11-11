@@ -447,7 +447,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">A slot that already had an AI photo from an earlier run keeps that photo (fixed 2026-11-11; a free local file restore, no OpenAI call) — this only stops NEW AI photos from being made, it does not remove or revert anything already in place. Before this date, ticking this actually had the opposite effect for an already-approved photo: with every category off, the restore never ran at all and the slot silently reverted to the shared template\'s photo — the same underlying bug as Generate photos off and Colors/fonts/logo/favicon only, just reached a third way.</div>'
           + '<div class="ro-step">A slot with no AI photo yet (a brand-new domain\'s first build, or a slot never approved in Pic Drop) is <strong>not left blank.</strong> Every photo — AI-eligible or not — still goes through the mechanical pass that always runs during a normal Build: an off-centre crop, a small tone jitter, re-compression, and EXIF/GPS stripping, all seed-deterministic per domain. That pass is free (no API call) and exists specifically to stop two domains off the same master from shipping the exact same image file — so a domain built with this ticked still gets a real, already-unique photo, just the master\'s original scene rather than an OpenAI-edited variant of it.</div>'
           + '<div class="ro-step">The opposite of <strong>Force-regenerate photos</strong> — the two can\'t be ticked together. <strong>Force photo quality</strong> has nothing to generate while this is ticked, so it\'s ignored.</div>'
-          + '<div class="ro-step">Only does anything while Build AND Generate photos are both ticked.</div>'],
+          + '<div class="ro-step">Only does anything while Build AND Generate photos are both ticked, and <strong>Colors, fonts, logo &amp; favicon only</strong> is NOT ticked — that mode already skips the whole Images step on its own, so this would add nothing. Greys out and auto-unticks the moment logo-only is ticked, same reasoning as every other no-op combination in this file.</div>'],
         image_quality: ['Force photo quality',
             '<div class="ro-step">Controls the quality tier OpenAI generates at for <strong>every</strong> AI photo made during this run &mdash; a brand-new photo for a new domain just as much as a Force-regenerate photos re-roll. It is not tied to that checkbox; it just lives next to it because that\'s the control most likely to generate a lot of photos at once.</div>'
           + '<div class="ro-step"><strong>Low</strong> is the default as of 2026-11-07 (~$0.01/photo) &mdash; a real, separate OpenAI price tier, not a resize, roughly 75&ndash;80% cheaper than <strong>Medium</strong> (~$0.04&ndash;0.05/photo, what every run used before this date). Low can show actual artifacts (muddier textures, warped small details), not just softer detail. Spot-check a few Low photos on a real page, phone and desktop, before trusting it at fleet scale &mdash; these photos carry real trust-signal weight for a service-area business.</div>'
@@ -469,6 +469,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
           + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
           + '<div class="ro-step"><strong>Existing photos are safe too (fixed 2026-11-11).</strong> This skips the whole Images step, same as Generate photos off above — a domain that already has its own approved AI photo gets that exact photo restored into this build for free; it no longer reverts to the shared template\'s photo the way it used to. Safe now to run at batch scale on domains that were previously Force-regenerated, not just one at a time.</div>'
+          + '<div class="ro-step">Ticking this greys out and auto-unticks <strong>Skip AI photos this run</strong> — it would be a no-op here, since this already skips Images by itself. <strong>Force-regenerate photos</strong> is deliberately left alone and stays tickable: "both together" is a real, intentional combination (next note) that regenerates every photo alongside the colors/logo, not a no-op this checkbox should silently cancel.</div>'
           + COMBO_NOTE],
         wipe_files: ['Wipe server files first',
             '<div class="ro-step">Deletes <strong>every file already on the live server</strong> for each ticked domain, '
@@ -849,13 +850,21 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         lo.disabled = !buildOn;
         wp.disabled = !buildOn || !uploadOn || logoOn;
         iq.disabled = !buildOn || !genOn;
-        sa.disabled = !buildOn || !genOn;
+        // Skip AI photos is ALSO meaningless the moment Colors/fonts/logo/favicon only is
+        // ticked — logo-only's own skip list already excludes the whole Images step by
+        // default, so "also skip AI photos" has nothing left to add. Deliberately NOT the
+        // same for Force-regenerate or Generate photos themselves: "logo-only + Force-
+        // regenerate, together" is a real, intentional combo (see COMBO_NOTE below) that
+        // regenerates every photo alongside the colors/logo — graying either of THOSE out
+        // here would silently break that combo, not just remove a no-op.
+        sa.disabled = !buildOn || !genOn || logoOn;
         // Deliberately does NOT touch iq.value — disabling it already communicates
         // "doesn't apply right now," and forcing it to a different tier used to leave
         // Medium silently selected (a real ~4-5x per-photo cost increase) the next time
         // Build/Generate photos got re-checked, since nothing ever restored it.
         if (!buildOn) { fp.checked = false; lo.checked = false; sa.checked = false; }
-        if (!genOn) { fp.checked = false; sa.checked = false; }
+        if (!genOn) fp.checked = false;
+        if (!genOn || logoOn) sa.checked = false;
         if (!buildOn || !uploadOn || logoOn) wp.checked = false;
     }
     syncForcePhotos();
