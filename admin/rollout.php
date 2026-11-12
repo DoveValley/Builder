@@ -394,6 +394,16 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const dateLabel = (at.getMonth() + 1) + '/' + at.getDate();
         return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + dateLabel + '</span>';
     }
+    // Go live column: same two-line badge as Built — date on top, time (muted) underneath,
+    // reusing the same classes. No freshness tiers here: this date is in the future, not
+    // aging, so the fresh/stale coloring Built/Live use doesn't apply.
+    function goLiveCell(r) {
+        if (!r.go_live_at || r.status === 'live') return '<span class="muted">—</span>';
+        const dateLabel = niceDate(r.go_live_at);
+        const timeLabel = r.go_live_time ? niceTime(r.go_live_time) : '';
+        return '<span class="ro-built-date" title="Scheduled ' + esc(dateLabel) + (timeLabel ? ' at ' + esc(timeLabel) : '') + '">'
+            + esc(dateLabel) + (timeLabel ? '<span class="ro-built-time">' + esc(timeLabel) + '</span>' : '') + '</span>';
+    }
     const popColor = p => p >= 50000 ? '#16a34a' : (p >= 35000 ? '#ca8a04' : '#dc2626');
     // 1st CF account on a box = white/default, 2nd = blue, 3rd = purple, 4th = green.
     const CF_SLOT_COLOR = { 2: '#2563eb', 3: '#9333ea', 4: '#16a34a' };
@@ -665,7 +675,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<td>' + dot(r.steps.research) + '</td>'
                 + '<td>' + dot(r.steps.host) + '</td>'
                 + '<td>' + builtCell(r) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
-                + '<td>' + (r.go_live_at && r.status !== 'live' ? esc(niceDate(r.go_live_at)) + (r.go_live_time ? ' ' + esc(niceTime(r.go_live_time)) : '') : '<span class="muted">—</span>') + '</td>'
+                + '<td>' + goLiveCell(r) + '</td>'
                 + '<td>' + liveCell(r) + '</td>'
                 + '<td>' + (lab === 'Switching DNS'
                     ? '<a href="#" class="ro-confirm pill ' + esc(lab) + '" data-confirm="' + esc(r.domain) + '" title="Check now instead of waiting for the hourly cron">' + esc(lab) + '</a>'
