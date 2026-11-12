@@ -1070,6 +1070,20 @@ function ms_batch_golive_summary(string $masterId, string $batchId): array {
     return $out;
 }
 
+/**
+ * Is this batch's build_upload.php orchestrator (Create host → Build → Upload →
+ * pipeline-refresh) still alive right now? Its Build step runs run_campaign.php as a
+ * `--no-deploy` sub-process, which writes its OWN runs/*.json and marks itself 'done'
+ * the moment the build finishes — well before Upload (step 3) and the pipeline-refresh
+ * (step 4) are done. Checking runs/*.json alone can't see that; this checks the
+ * orchestrator's own buildupload/*.out + .pid directly, same liveness check the
+ * rollout_build_status endpoint uses.
+ */
+function ms_batch_buildupload_running(string $masterId, string $batchId): bool {
+    $run = ms_job_resolve_run(ms_batch_dir($masterId, $batchId) . '/buildupload', '');
+    return $run !== null && ms_job_running($run['path']);
+}
+
 /** One-line summary for a batch row on the home panel. */
 function ms_batch_status(string $masterId, string $batchId): array {
     $s = [
@@ -1078,11 +1092,18 @@ function ms_batch_status(string $masterId, string $batchId): array {
         'total' => 0, 'ok' => 0, 'failed' => 0, 'uploaded_domains' => 0,
         'cost' => 0.0, 'finished_at' => null,
     ];
+    $buRunning = ms_batch_buildupload_running($masterId, $batchId);
     $file = ms_latest_run_file(ms_batch_dir($masterId, $batchId) . '/runs');
-    if (!$file) return $s;
+    if (!$file) {
+        if ($buRunning) { $s['has_run'] = true; $s['state'] = 'running'; }
+        return $s;
+    }
     $d = ms_read_run($file);
-    if (!$d) return $s;
-    return array_merge($s, [
+    if (!$d) {
+        if ($buRunning) { $s['has_run'] = true; $s['state'] = 'running'; }
+        return $s;
+    }
+    $out = array_merge($s, [
         'has_run'     => true,
         'state'       => $d['state'] ?? '?',
         'run_id'      => $d['run_id'] ?? basename($file, '.json'),
@@ -1100,6 +1121,12 @@ function ms_batch_status(string $masterId, string $batchId): array {
         'cost'        => (float) ($d['totals']['cost_usd'] ?? 0),
         'finished_at' => $d['finished_at'] ?? $d['started_at'] ?? null,
     ]);
+    // The Build sub-run can report 'done' while its parent orchestrator is still
+    // actively on Upload/pipeline-refresh — see ms_batch_buildupload_running()'s
+    // doc comment. The card must reflect the batch as a whole, not just the step
+    // that happened to finish and write the newest runs/*.json file.
+    if ($buRunning) $out['state'] = 'running';
+    return $out;
 }
 
 // ── The batch you currently have open ─────────────────────────────────────────
