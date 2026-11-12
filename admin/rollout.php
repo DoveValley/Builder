@@ -62,9 +62,12 @@ table.ro input[type="checkbox"]{width:20px;height:20px;cursor:pointer}
 #ro-range-tick{width:20px;height:20px;cursor:pointer;vertical-align:middle}
 .dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e2e8f0}
 .dot.ok{background:#16a34a}.dot.running{background:#f59e0b}.dot.fail{background:#dc2626}.dot.todo{background:#cbd5e1}
-.ro-built-date{font-size:.8rem;color:#475569;white-space:nowrap;cursor:help}
+.ro-built-date{display:inline-block;font-size:.8rem;color:#475569;line-height:1.25;text-align:center;cursor:help}
+.ro-built-date .ro-built-time{display:block;font-size:.7rem;font-weight:400;color:#94a3b8}
 .ro-built-date.ro-built-fresh{color:#16a34a;font-weight:700}
+.ro-built-date.ro-built-fresh .ro-built-time{color:#16a34a;font-weight:400}
 .ro-built-date.ro-built-stale{color:#dc2626;font-weight:700}
+.ro-built-date.ro-built-stale .ro-built-time{color:#dc2626;font-weight:400}
 .pill{font-size:.75rem;padding:2px 8px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
 .pill.Live{background:#dcfce7;color:#166534}.pill.Scheduled{background:#dbeafe;color:#1e3a8a}.pill.Ready{background:#fef9c3;color:#854d0e}
 a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
@@ -371,7 +374,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
         const cls = daysAgo <= 0 ? 'ro-built-fresh' : (daysAgo >= 7 ? 'ro-built-stale' : '');
         const dateLabel = (at.getMonth() + 1) + '/' + at.getDate();
-        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="' + esc(d.note || ('Built ' + at.toLocaleString())) + '">' + dateLabel + '</span>';
+        let hh = at.getHours(), mm = at.getMinutes();
+        const ampm = hh >= 12 ? 'PM' : 'AM';
+        hh = hh % 12 || 12;
+        const timeLabel = hh + ':' + String(mm).padStart(2, '0') + ' ' + ampm;
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="' + esc(d.note || ('Built ' + at.toLocaleString())) + '">' + dateLabel + '<span class="ro-built-time">' + timeLabel + '</span></span>';
     }
     // Live column: same "show the date, not just a dot" idea as Built, but only a fresh
     // tier — unlike a build, a site that's been live for months isn't stale or in need of
