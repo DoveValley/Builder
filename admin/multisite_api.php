@@ -496,7 +496,10 @@ switch ($action) {
     case 'upload':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!ms_batch_built($masterId, $batchId)) { echo json_encode(['error' => 'Nothing generated yet — run Generate sites first.']); break; }
-        $uArgs = [$masterId, '--batch=' . $batchId];
+        // Each domain uploads to its own distinct remote host — pure network wait,
+        // not CPU, so concurrency here isn't bounded by this box's core count the
+        // way Generate's build step is. upload_sites.php clamps to 16 regardless.
+        $uArgs = [$masterId, '--batch=' . $batchId, '--jobs=8'];
         if (!empty($_POST['force'])) $uArgs[] = '--force';
         $ulim = max(0, (int) ($_POST['limit'] ?? 0)); if ($ulim > 0) $uArgs[] = '--limit=' . $ulim;
         $uOnly = trim((string) ($_POST['only'] ?? ''));

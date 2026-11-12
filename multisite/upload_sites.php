@@ -4,6 +4,12 @@
  *
  *   php multisite/upload_sites.php <master_id> --batch=bN [--jobs=N] [--limit=N] [--force] [--only=DOMAIN[,DOMAIN...]] [--wipe]
  *
+ * --jobs=N uploads N domains concurrently, each in its own upload_one.php subprocess
+ * (default 1 = sequential, today's long-standing behavior, unchanged unless asked
+ * for). Safe to raise well past the box's core count — each upload is one FTP/SFTP
+ * session to its own remote host, spent almost entirely waiting on the network, not
+ * the CPU. Clamped to 16 regardless of what's requested.
+ *
  * Generating and uploading used to be one act: build to a temp directory, push it, then
  * delete it. That made "build fifty and look at them before anything goes live"
  * impossible, and it meant a deploy failure cost the build as well as the upload.
@@ -33,31 +39,29 @@ require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/params.php';
 require __DIR__ . '/../includes/multisite/batch.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
+require __DIR__ . '/../includes/multisite/run_pool.php';   // ms_run_pool()/ms_parse_line() — shared with run_campaign.php
 require __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
 
-/* deploy_site() reports through the progress system, whose default sink is SSE — which
- * on a CLI script means "data: {...}" frames wrapping every file. This log is read by a
- * person and by the panel, so keep only the events worth a line and print them plainly.
- * Per-file "Uploaded: x.html" is noise at 17 files and unreadable at 4,000. */
-progress_set_sink(function (array $e): void {
-    $t = $e['type'] ?? '';
-    if ($t === 'progress') return;                       // counted in the summary instead
-    if ($t === 'log' && str_starts_with((string) ($e['msg'] ?? ''), 'Uploaded: ')) return;
-    $msg = trim((string) ($e['msg'] ?? ''));
-    if ($msg === '') return;
-    if ($t === 'fatal' || $t === 'error') { echo "      ! {$msg}\n"; return; }
-    if ($t === 'warn')                    { echo "      ~ {$msg}\n"; return; }
-});
+// Each domain's deploy_site() now runs in its own upload_one.php subprocess (see
+// below), reporting progress as JSON lines — ms_parse_line() (includes/multisite/
+// run_pool.php, shared with run_campaign.php) already surfaces warn/error/fatal
+// lines and suppresses the per-file "Uploaded: x.html" noise, same effect this
+// file used to get from its own progress_set_sink() override.
 
 $args     = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId  = ''; $only = ''; $limit = 0;
+$batchId  = ''; $only = ''; $limit = 0; $jobs = 1;
 $force    = in_array('--force', $args, true);
 $wipe     = in_array('--wipe', $args, true);
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch='))  $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))   $only    = strtolower(substr($a, 7));
     if (str_starts_with($a, '--limit='))  $limit   = max(0, (int) substr($a, 8));
+    // Clamped regardless of what's asked for — uploads are network-wait, not CPU
+    // work, so this isn't bounded by core count the way build's --jobs is, but an
+    // unbounded number would open that many simultaneous FTP/SFTP connections at
+    // once (own outbound bandwidth, and to the fleet's remote hosts).
+    if (str_starts_with($a, '--jobs='))    $jobs    = max(1, min(16, (int) substr($a, 7)));
 }
 // One or more comma-separated domains — same list shape run_campaign.php's --only
 // already accepts, so the batch page's "Only this domain" field means the same thing
@@ -115,14 +119,21 @@ echo str_repeat('-', 58) . "\n";
 $manifestDir = BASE_DIR . '/sites/' . $masterId . '/multisite/manifests';
 if (!is_dir($manifestDir)) @mkdir($manifestDir, 0775, true);
 
-$ok = 0; $fail = 0; $sent = 0;
-// Per-domain ground truth from deploy_site() itself — used below to override the
-// generic post-upload status refresh for any domain THIS run already knows failed,
-// rather than trusting a separate, shallower check to re-derive the same answer.
-$failedDomains = [];
+echo ($jobs > 1 ? "Uploading {$jobs} at a time…\n" : "Uploading sequentially…\n");
+
+// One temp row file + upload_one.php command per domain — same shape run_campaign.php
+// uses for build_one.php. Deleted once the whole pool finishes (see below).
+$jobList = []; $rowFiles = [];
 foreach ($ready as $t) {
     $r = $t['row'];
-    $ftp = [
+    $rowFile = sys_get_temp_dir() . '/ms_upload_row_' . ms_domain_slug($t['domain']) . '.json';
+    file_put_contents($rowFile, json_encode([
+        'domain'       => $t['domain'],
+        'master_id'    => $masterId,
+        'dir'          => $t['dir'],
+        'files'        => $t['files'],
+        'force'        => $force,
+        'wipe'         => $wipe,
         'ftp_protocol' => (($r['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp',
         'ftp_host'     => $r['ftp_host'] ?? '',
         'ftp_port'     => $r['ftp_port'] ?? '',
@@ -133,53 +144,47 @@ foreach ($ready as $t) {
         // never reads.
         'ftp_path'     => $r['ftp_path'] ?? '',
         'ftp_passive'  => $r['ftp_passive'] ?? true,
-    ];
-    // Must derive the same way as ms_batch_output_dir() (includes/multisite/batch.php)
-    // — see ms_domain_slug()'s own docblock for why a lossy fold here is a real
-    // cross-domain-deploy risk, not just a cosmetic mismatch.
-    $slug     = ms_domain_slug($t['domain']);
-    $manifest = $manifestDir . '/' . $slug . '.json';
-
-    if ($wipe) {
-        printf("  %-34s wiping remote files … ", $t['domain']);
-        $wiped = ms_wipe_remote($ftp);
-        // ms_wipe_remote() reports status 'done' even when some files/dirs failed to
-        // delete (permission error, mid-sweep disconnect) — it only distinguishes that
-        // in the 'failed' count and a lower log level, not in 'status'. Checking only
-        // for 'fatal' here meant a partial wipe still printed a checkmark and fell
-        // straight through to uploading fresh content on top of a remote that may
-        // still hold stale files — on a REAL client domain, not just the disposable
-        // test slot.
-        if (($wiped['status'] ?? '') === 'fatal' || (int)($wiped['failed'] ?? 0) > 0) {
-            $fail++;
-            printf("✗ %s\n", $wiped['msg'] ?? 'wipe failed');
-            continue;   // don't upload into a host we couldn't confirm is now empty
-        }
-        printf("✓ %s\n", $wiped['msg'] ?? 'wiped');
-        // The manifest recorded what was on the server before the wipe — now false,
-        // so leaving it would make deploy_site() skip re-sending files it thinks
-        // (wrongly) are already there.
-        @unlink($manifest);
-    }
-
-    printf("  %-34s %d file(s) … ", $t['domain'], $t['files']);
-    $dep = deploy_site($ftp, rtrim($t['dir'], '/') . '/', $manifest, $force);
-    $up  = (int) ($dep['uploaded'] ?? 0);
-    $bad = (int) ($dep['failed'] ?? 0);
-
-    if (($dep['status'] ?? '') === 'fatal' || $bad > 0) {
-        $fail++;
-        printf("✗ %s\n", $bad > 0 ? "{$bad} file(s) failed" : ($dep['msg'] ?? 'failed'));
-        $verifyMissing = $dep['verify_missing'] ?? [];
-        $failedDomains[$t['domain']] = $bad . ' file(s) failed to upload'
-            . ($verifyMissing ? ' — confirmed still missing on the server: '
-                . implode(', ', array_slice($verifyMissing, 0, 5))
-                . (count($verifyMissing) > 5 ? ', +' . (count($verifyMissing) - 5) . ' more' : '') : '.');
-    } else {
-        $ok++; $sent += $up;
-        printf("✓ %s\n", $up > 0 ? "{$up} uploaded" : 'already up to date');
-    }
+    ]));
+    $rowFiles[] = $rowFile;
+    $cmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/upload_one.php') . ' ' . escapeshellarg($rowFile);
+    $jobList[] = ['domain' => $t['domain'], 'cmd' => $cmd, 'attempts' => 0, 'files' => $t['files']];
 }
+
+// Reconstructs the exact "  domain   NNN file(s) … ✓/✗ …" line this file has always
+// printed per domain — admin/multisite_api.php's 'upload_status' case greps stdout
+// for this literal shape (no separate machine-readable channel exists for uploads),
+// so --jobs=1 (or any concurrency) must keep emitting it, one complete line per
+// finished domain, never interleaved with another domain's line.
+$ok = 0; $fail = 0; $sent = 0;
+// Per-domain ground truth from upload_one.php's own 'upload_result' event — used
+// below to override the generic post-upload status refresh for any domain THIS run
+// already knows failed, rather than trusting a separate, shallower check to re-derive
+// the same answer.
+$failedDomains = [];
+$onComplete = function (array $job, array $m, int $done, int $total, int $dur) use (&$ok, &$fail, &$sent, &$failedDomains) {
+    $files         = (int) ($m['files'] ?? $job['files'] ?? 0);
+    $uploaded      = (int) ($m['uploaded'] ?? 0);
+    $failedN       = (int) ($m['failed'] ?? ($m['status'] === 'failed' ? 1 : 0));
+    $verifyMissing = $m['verify_missing'] ?? [];
+
+    if ($m['status'] === 'ok' && $failedN === 0) {
+        $ok++; $sent += $uploaded;
+        return sprintf("  %-34s %d file(s) … ✓ %s\n", $job['domain'], $files, $uploaded > 0 ? "{$uploaded} uploaded" : 'already up to date');
+    }
+    $fail++;
+    $failedDomains[$job['domain']] = $failedN . ' file(s) failed to upload'
+        . ($verifyMissing ? ' — confirmed still missing on the server: '
+            . implode(', ', array_slice($verifyMissing, 0, 5))
+            . (count($verifyMissing) > 5 ? ', +' . (count($verifyMissing) - 5) . ' more' : '') : '.');
+    $msg = $failedN > 0 ? "{$failedN} file(s) failed" : ($m['last'] ?: 'failed');
+    return sprintf("  %-34s %d file(s) … ✗ %s\n", $job['domain'], $files, $msg);
+};
+
+// retries=0 — deploy_site() has no retry today (see its own comment on this), and
+// this refactor isn't the place to introduce one; a domain that fails once still
+// fails once, just now possibly alongside others instead of strictly in turn.
+ms_run_pool($jobList, $jobs, 0, false, null, $onComplete);
+foreach ($rowFiles as $rf) @unlink($rf);
 
 /* Tell the go-live pipeline what this run just confirmed, same reason create_hosts.php
  * does for assign/host: its "upload" cell only trusts a stored, checked answer, and a

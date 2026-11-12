@@ -204,7 +204,12 @@ if ($do['upload']) {
     if ($built) {
         echo "\n== 3/4 Upload " . count($built) . " domain(s)" . ($wipe ? ' [--wipe: existing remote files deleted first]' : '') . "\n";
         $upCmd = [$php, BASE_DIR . '/multisite/upload_sites.php', $masterId,
-            '--batch=' . $batchId, '--only=' . implode(',', $built)];
+            '--batch=' . $batchId, '--only=' . implode(',', $built),
+            // Each domain uploads to its own distinct remote host (see params.csv's
+            // per-row ftp_host) — pure network wait, not CPU, so this isn't bounded
+            // by this box's core count the way Build's --jobs=2 is. upload_sites.php
+            // clamps to 16 regardless of what's asked for here.
+            '--jobs=8'];
         if ($wipe) $upCmd[] = '--wipe';
         passthru(implode(' ', array_map('escapeshellarg', $upCmd)), $rcUp);
         $uploadOk = ($rcUp === 0);
