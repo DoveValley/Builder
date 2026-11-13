@@ -296,11 +296,10 @@ function infra_domain_buy(string $domain, array $opts = []): array
     $renew = 'unknown';
     if (stripos($buy['message'] ?? '', 'auto-renew ON') !== false)  $renew = 'yes';
     elseif (stripos($buy['message'] ?? '', 'auto-renew OFF') !== false) $renew = 'no';
-    infra_state_upsert_domain([
+    $write = [
         'domain'     => $domain,
         'owned'      => 'yes',
         'owned_at'   => $now,
-        'status'     => 'owned',
         'registrar'  => $registrar,   // where it actually lives, for the go-live NS switch
         'auto_renew' => $renew,
         // Column 4 becomes the date it was ACTUALLY bought, not the date it was
@@ -308,7 +307,18 @@ function infra_domain_buy(string $domain, array $opts = []): array
         // to edit it.
         'buy_at'     => infra_today(),
         'buy_error'  => '',
-    ]);
+    ];
+    // Don't regress status: this fleet's own batch pipeline builds/hosts/uploads a
+    // domain without needing ownership first, so a domain can already be 'staged'
+    // or further by the time its purchase actually completes here. Overwriting that
+    // with 'owned' dropped 45 fully built-and-uploaded appliance domains out of Go
+    // Live's staged/queued gate the moment they were bought — found 2026-11-13 when
+    // scheduling batch rows 81-100 skipped 18 of 20 as "already live, or past
+    // scheduling" when they were neither, just quietly un-schedulable.
+    if (!in_array($rec['status'] ?? '', INFRA_STATUSES_MANUAL, true)) {
+        $write['status'] = 'owned';
+    }
+    infra_state_upsert_domain($write);
     return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
     });
 }
@@ -325,16 +335,21 @@ function infra_domain_mark_owned(string $domain, string $registrar = ''): array
     if (!$rec) return ['ok' => false, 'message' => 'not tracked in fleet state'];
 
     $registrar = $registrar !== '' ? strtolower(trim($registrar)) : (string) ($rec['buy_registrar'] ?? '');
-    infra_state_upsert_domain([
+    $write = [
         'domain'       => $domain,
         'owned'        => 'yes',
         'owned_at'     => infra_now(),
-        'status'       => 'owned',
         'registrar'    => $registrar,
         'ready_to_buy' => '',
         'avail_note'   => 'marked owned by hand',
         'buy_error'    => '',
-    ]);
+    ];
+    // Same rule as infra_domain_buy(): don't regress a domain already staged/
+    // queued/further back down to 'owned'.
+    if (!in_array($rec['status'] ?? '', INFRA_STATUSES_MANUAL, true)) {
+        $write['status'] = 'owned';
+    }
+    infra_state_upsert_domain($write);
     return ['ok' => true, 'message' => "{$domain} marked owned"
         . ($registrar !== '' ? " at {$registrar}" : '') . ' — no purchase was made by the console'];
 }
