@@ -215,6 +215,42 @@ function ms_ftp_preflight(array $row, int $timeout = 15): array {
 }
 
 /**
+ * Hold an exclusive lock on this batch's params.csv for the rest of THIS request.
+ *
+ * Every per-row mutator in admin/multisite_api.php (row_save, row_correct, row_add,
+ * row_delete, box_autofill, registrar_autofill, box_fix_state_clustering) does the
+ * same unsafe thing: read the whole CSV into memory, mutate it, write the whole
+ * thing back — with nothing stopping a second request from reading the same
+ * original content in between and overwriting the first request's change when it
+ * writes. ms_store_params_csv()'s tmp-then-rename only guarantees a reader never
+ * sees a half-written file; it does nothing for two read-modify-write cycles
+ * racing each other. Found 2026-11-13 while reviewing the batch panels.
+ *
+ * Call this as the FIRST thing in a case block, before the first
+ * ms_rows_by_key()/ms_rows_by_domain() read — admin/multisite_api.php's switch is
+ * the last thing that runs per request (nothing executes after a case's own
+ * `break`), so there is no explicit unlock: PHP closes every open file handle
+ * when the request ends, which releases the flock the same as calling
+ * flock(LOCK_UN) would. A `static` handle keeps the lock from being released
+ * early by PHP's own garbage collector, which would otherwise reclaim the
+ * resource the moment this function returns and no variable outside it still
+ * referenced the handle.
+ *
+ * Deliberately a no-op (fails open, like ms_with_launch_lock()) rather than an
+ * error when the directory doesn't exist or the file can't be opened — a lock
+ * that can't be taken should not be the reason an otherwise-valid edit fails.
+ */
+function ms_params_lock(string $batchDir): void
+{
+    static $held = [];
+    if (isset($held[$batchDir]) || !is_dir($batchDir)) return;
+    $fh = @fopen($batchDir . '/params.lock', 'c');
+    if (!$fh) return;
+    flock($fh, LOCK_EX);
+    $held[$batchDir] = $fh;
+}
+
+/**
  * Persist an uploaded/validated CSV into a batch folder, and keep a rolling snapshot
  * of the last few uploads in params_versions/.
  *
@@ -532,4 +568,36 @@ function ms_write_rows_by_domain_live(string $paramsPath, array $byDomain): void
     } else {
         @unlink($tmp);
     }
+}
+
+/**
+ * Persist ONE domain's row via ms_write_rows_by_domain_live(), without clobbering
+ * any OTHER row a concurrent request may have changed in the meantime.
+ *
+ * ctm_bulk.php (the CTM phone-provisioning background job) reads the whole
+ * batch's rows ONCE, then runs for MINUTES across many domains, one real
+ * CTM mutation at a time. Calling ms_write_rows_by_domain_live() directly with
+ * that same original, aging snapshot after every domain would silently revert
+ * any edit a human made to a DIFFERENT row in the admin UI while the job was
+ * still running — found 2026-11-13 while reviewing the batch panels: a lock
+ * alone would not have fixed this, since the job's in-memory copy of every
+ * OTHER row would still be stale no matter how long it waited for one.
+ *
+ * Re-reads the current on-disk rows immediately before writing and replaces
+ * only $domain's row, keeping every other row exactly as it currently sits on
+ * disk. Locked only around this read-merge-write — NOT for the caller's whole
+ * loop — so a job iterating 50 domains over several minutes never blocks a
+ * human's row edit for longer than one quick re-read-and-write. A caller
+ * editing THIS SAME domain in that same narrow window is the one residual
+ * race this does not close; that window is now milliseconds, not minutes.
+ */
+function ms_write_row_live(string $batchDir, string $paramsPath, string $domain, array $row): void
+{
+    $domain = strtolower(trim($domain));
+    $fh = @fopen($batchDir . '/params.lock', 'c');
+    if ($fh) flock($fh, LOCK_EX);
+    $fresh = ms_rows_by_domain($paramsPath);
+    $fresh[$domain] = $row;
+    ms_write_rows_by_domain_live($paramsPath, $fresh);
+    if ($fh) { flock($fh, LOCK_UN); fclose($fh); }
 }

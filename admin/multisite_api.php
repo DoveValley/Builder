@@ -1790,6 +1790,7 @@ switch ($action) {
                 'domain'     => $dom,
                 'fields'     => $r,
                 'status'     => $rec['status'] ?? '',
+                'owned'      => ($rec['owned'] ?? '') === 'yes',
                 'pool'       => $dom !== '' ? ms_page_pool_status($masterId, $kwFile, $dom) : null,
             ];
         }
@@ -1814,6 +1815,7 @@ switch ($action) {
     // live site's data deserves.
     case 'row_save':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator below
         require_once __DIR__ . '/infra/lib/state.php';
         // Identified by key, not bare domain — a row with no domain yet (seeded
         // city-only, see ms_rows_by_key()) has no domain to identify it by. Still
@@ -1877,6 +1879,7 @@ switch ($action) {
     // to just this domain, via --only) after a successful save — see batch page JS.
     case 'row_correct':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         require_once __DIR__ . '/infra/lib/state.php';
         require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
@@ -1928,6 +1931,7 @@ switch ($action) {
     // Append ONE new domain — no CSV round-trip for a single addition.
     case 'row_add':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
         $byDomain = ms_rows_by_domain($paramsPath);
         if (isset($byDomain[$dom])) { echo json_encode(['error' => "{$dom} is already in this batch's target list."]); break; }
@@ -1944,6 +1948,7 @@ switch ($action) {
     // that's unclaim/teardown in the Infra console, on purpose (see #4 above).
     case 'row_delete':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         require_once __DIR__ . '/infra/lib/state.php';
         require_once __DIR__ . '/infra/lib/claim.php';
         // Identified by key, not bare domain — same reason as row_save: a city-only
@@ -1981,6 +1986,7 @@ switch ($action) {
     // the authoritative recompute, not a fill-blanks-only pass.
     case 'box_autofill':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         require_once __DIR__ . '/../includes/multisite/box_assignment.php';
         // Past round 3 (position 81+) there's no 5th account per box to assign — left
         // blank by default. A human can instead name one of the 4 real accounts (0-3)
@@ -2031,6 +2037,7 @@ switch ($action) {
     // Overwrites any manual registrar edits — confirmed client-side.
     case 'registrar_autofill':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         require_once __DIR__ . '/../includes/multisite/registrar_schedule.php';
         require_once __DIR__ . '/infra/lib/registrar.php';
         $meta = ms_batch_meta($masterId, $batchId);
@@ -2062,6 +2069,7 @@ switch ($action) {
     // safe donor row is left unresolved, not forced.
     case 'box_fix_state_clustering':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        ms_params_lock($batchDir);   // see ms_params_lock() — serializes against every other params.csv mutator in this file
         require_once __DIR__ . '/../includes/multisite/distribution_check.php';
         $parsed = ms_parse_csv($paramsPath);
         if ($parsed['error'] || !$parsed['rows']) { echo json_encode(['error' => $parsed['error'] ?: 'Target list is empty.']); break; }

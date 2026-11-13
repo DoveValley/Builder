@@ -19,11 +19,15 @@
  * to Apache's ~30s request timeout, since this now runs detached rather than
  * inside the HTTP request itself.
  *
- * Every per-domain operation already writes through ms_write_rows_by_domain_live()
- * after each row (unchanged from the original — see that function's own docblock
- * in includes/multisite/params.php), so a real CTM mutation is never lost even if
- * this process were killed mid-run; only the final versioned snapshot would be
- * skipped, exactly as before.
+ * Every per-domain operation already writes through ms_write_row_live() after each
+ * row, so a real CTM mutation is never lost even if this process were killed
+ * mid-run; only the final versioned snapshot would be skipped, exactly as before.
+ * ms_write_row_live() (not the plain ms_write_rows_by_domain_live() this used to
+ * call directly) re-reads the current on-disk rows before writing each one, since
+ * this script's own $byDomain snapshot is read ONCE up front and stays unchanged
+ * for every OTHER row for the full, possibly minutes-long run — writing it
+ * directly used to silently revert any edit a human made to a different row in
+ * the admin UI while this job was still going. Found 2026-11-13.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "ctm_bulk.php is CLI only\n"); exit(2); }
 
@@ -123,7 +127,7 @@ foreach ($domainsIn as $dom) {
         }
         $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $warning];
         ctmb_say("  {$dom} ({$city}, {$ss}): bought {$r['phone']} (area code {$r['area_code']})" . ($warning ? " — {$warning}" : '') . "\n");
-        ms_write_rows_by_domain_live($paramsPath, $byDomain);
+        ms_write_row_live($batchDir, $paramsPath, $dom, $byDomain[$dom]);
         continue;
     }
 
@@ -135,7 +139,7 @@ foreach ($domainsIn as $dom) {
             $byDomain[$dom]['forward_to'] = $destination;
             $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $destination, 'pending' => true];
             ctmb_say("  {$dom}: no tracking number yet — destination {$destination} staged, applies automatically once bought\n");
-            ms_write_rows_by_domain_live($paramsPath, $byDomain);
+            ms_write_row_live($batchDir, $paramsPath, $dom, $byDomain[$dom]);
             continue;
         }
         $oldId = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));
@@ -149,7 +153,7 @@ foreach ($domainsIn as $dom) {
         $byDomain[$dom]['forward_rpn_id'] = $r['receiving_id'];
         $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $r['destination']];
         ctmb_say("  {$dom}: now routes to {$r['destination']}\n");
-        ms_write_rows_by_domain_live($paramsPath, $byDomain);
+        ms_write_row_live($batchDir, $paramsPath, $dom, $byDomain[$dom]);
         continue;
     }
 
@@ -193,7 +197,7 @@ foreach ($domainsIn as $dom) {
         $byDomain[$dom]['forward_rpn_id'] = '';
         $results[] = ['domain' => $dom, 'ok' => true, 'released_phone' => $phone];
         ctmb_say("  {$dom}: released {$phone}\n");
-        ms_write_rows_by_domain_live($paramsPath, $byDomain);
+        ms_write_row_live($batchDir, $paramsPath, $dom, $byDomain[$dom]);
         continue;
     }
 
@@ -225,14 +229,18 @@ foreach ($domainsIn as $dom) {
         if ($r['routing'] === 'synced') $changes[] = 'routing re-applied';
         if ($r['routing'] === 'failed') $changes[] = 'routing FAILED';
         ctmb_say("  {$dom}: " . ($changes ? implode(', ', $changes) : 'already in sync') . "\n");
-        ms_write_rows_by_domain_live($paramsPath, $byDomain);
+        ms_write_row_live($batchDir, $paramsPath, $dom, $byDomain[$dom]);
         continue;
     }
 }
 
-// The one real versioned checkpoint for this whole action — same as every other
-// write path in this file, and unchanged from the original synchronous version.
-ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+// The one real versioned checkpoint for this whole action. Re-reads fresh rather
+// than reusing $byDomain (stale for every row this run didn't itself touch) —
+// every row this run DID touch already made it to disk via ms_write_row_live()
+// above, so a fresh read already has the full, correct, current state; this call
+// exists only to run that current state through ms_store_params_csv() for the
+// params_versions/ snapshot, not to write any new content of its own.
+ms_write_rows_by_domain($batchDir, $paramsPath, ms_rows_by_domain($paramsPath));
 
 $ok = count(array_filter($results, fn($r) => !empty($r['ok'])));
 ctmb_say("\n" . count($results) . " row(s) processed — {$ok} ok, " . (count($results) - $ok) . " failed/skipped.\n");
