@@ -61,6 +61,11 @@ function infra_fleet_view_rows(array $domains): array
             'batch'        => (string) ($rec['batch'] ?? ''),
             'box'          => $sid !== '' ? ($boxes[$sid] ?? $sid) : '',
             'cf_account'   => $aid !== '' ? ($accts[$aid] ?? $aid) : '',
+            // Registered at a registrar yet? Go Live can't switch nameservers on a
+            // domain nobody owns — the build/host/upload pipeline runs ahead of the
+            // actual purchase, so this can be false for a domain that otherwise looks
+            // fully ready.
+            'owned'        => ((string) ($rec['owned'] ?? '')) === 'yes',
             'steps'        => ['host' => $st('host'), 'built' => $st('built'), 'upload' => $st('upload'), 'zone' => $st('zone'),
                                'live' => $liveState],
             'detail'       => $detail,

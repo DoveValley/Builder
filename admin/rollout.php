@@ -305,11 +305,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             <th class="ro-vert" title="Files generated">Built</th>
             <th class="ro-vert" title="Files on the server">Uploaded</th>
             <th class="ro-vert" title="Cloudflare zone">Zone</th>
+            <th class="ro-vert" title="Registered at a registrar — Go Live can't switch nameservers on a domain nobody owns yet">Bought</th>
             <th>Go live</th>
             <th class="ro-vert" title="Answers on its own address with a valid certificate">Live</th>
             <th>Status</th>
         </tr></thead>
-        <tbody id="ro-body"><tr><td colspan="15" class="muted">Loading&hellip;</td></tr></tbody>
+        <tbody id="ro-body"><tr><td colspan="16" class="muted">Loading&hellip;</td></tr></tbody>
     </table>
     <p class="hint" style="margin-top:12px;">Dots: <span class="dot ok"></span> done &nbsp;<span class="dot running"></span> running &nbsp;<span class="dot fail"></span> failed &nbsp;<span class="dot todo"></span> checked, not yet &nbsp;<span class="dot"></span> not checked.
         Only uploaded domains can be scheduled. Releases happen automatically at the go-live time (US Central) on each date.</p>
@@ -392,7 +393,22 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const daysAgo = Math.round((startOf(new Date()) - startOf(at)) / 86400000);
         const cls = daysAgo <= 0 ? 'ro-built-fresh' : '';
         const dateLabel = (at.getMonth() + 1) + '/' + at.getDate();
-        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + dateLabel + '</span>';
+        let hh = at.getHours(), mm = at.getMinutes();
+        const ampm = hh >= 12 ? 'PM' : 'AM';
+        hh = hh % 12 || 12;
+        const timeLabel = hh + ':' + String(mm).padStart(2, '0') + ' ' + ampm;
+        return '<span class="ro-built-date' + (cls ? ' ' + cls : '') + '" title="Went live ' + esc(at.toLocaleString()) + '">' + dateLabel + '<span class="ro-built-time">' + timeLabel + '</span></span>';
+    }
+    // Bought column: has this domain actually been registered at a registrar yet?
+    // Build/host/upload run ahead of the real purchase, so a domain can look fully
+    // ready here and still be unowned — that's exactly the domain whose go-live will
+    // fail with "Nameservers: manual step" the moment its scheduled time arrives.
+    function boughtCell(r) {
+        if (r.owned) return dot('ok');
+        const urgent = r.status === 'awaiting-ns' || (r.status === 'queued' && r.go_live_at);
+        return '<span class="dot ' + (urgent ? 'fail' : '') + '" title="' + (urgent
+            ? 'Not registered yet — go-live is scheduled and will keep failing until this is bought'
+            : 'Not registered yet') + '"></span>';
     }
     // Go live column: same two-line badge as Built — date on top, time (muted) underneath,
     // reusing the same classes. No freshness tiers here: this date is in the future, not
@@ -675,12 +691,13 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<td>' + dot(r.steps.research) + '</td>'
                 + '<td>' + dot(r.steps.host) + '</td>'
                 + '<td>' + builtCell(r) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
+                + '<td>' + boughtCell(r) + '</td>'
                 + '<td>' + goLiveCell(r) + '</td>'
                 + '<td>' + liveCell(r) + '</td>'
                 + '<td>' + (lab === 'Switching DNS'
                     ? '<a href="#" class="ro-confirm pill ' + esc(lab) + '" data-confirm="' + esc(r.domain) + '" title="Check now instead of waiting for the hourly cron">' + esc(lab) + '</a>'
                     : '<span class="pill ' + esc(lab) + '">' + esc(lab) + '</span>') + '</td></tr>';
-        }).join('') : '<tr><td colspan="15" class="muted">Nothing here.</td></tr>';
+        }).join('') : '<tr><td colspan="16" class="muted">Nothing here.</td></tr>';
         $('ro-count').textContent = sel.size;
 
         // A failed file-date refresh is the easiest thing in this panel to never find
@@ -729,7 +746,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 
     async function load() {
         const r = await (await fetch(API + '?action=rollout_rows')).json();
-        if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="15">' + esc(r.error) + '</td></tr>'; return; }
+        if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="16">' + esc(r.error) + '</td></tr>'; return; }
         rows = r.rows; settings = r.settings; window.RO_TODAY = r.today;
         if (!$('ro-start').value) { $('ro-start').value = r.today; $('ro-start').min = r.today; }
         [...sel].forEach(d => { if (!rows.find(y => y.domain === d)) sel.delete(d); });
@@ -1118,11 +1135,21 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // batch, watched by run_id), but scoped server-side to the ticked domains' cities
     // rather than the whole batch. See the ⓘ next to the button for what it actually does.
     let researchTimer = null;
-    // Shared miss-tracker (assets/admin/ms-poll.js) — same no-catch-at-all gap as
-    // watchJob above, same fix.
+    // Whether the tracker below has already given up on THIS watch loop — checked
+    // right after a miss to decide whether to reschedule again.
+    let researchGaveUp = false;
+    // Shared miss-tracker (assets/admin/ms-poll.js). Unlike watchJob above (Create
+    // host/Build/Upload — re-enabling that button on a lost-contact guess risks a
+    // second job launched on top of one that may still be running server-side),
+    // Research is read-only/idempotent, so — matching _batch_panels.php's own
+    // msResearchTracker, which already does this for the identical feature in
+    // Batch Detailed — this one gives up and re-enables the controls at the
+    // threshold instead of leaving them stuck disabled until a page reload.
     const watchResearchTracker = msPollMissTracker(() => {
+        researchGaveUp = true;
+        setResearchDisabled(false);
         const stateEl = $('ro-research-state');
-        if (stateEl) { stateEl.style.color = '#991b1b'; stateEl.textContent = 'lost contact — still trying…'; }
+        if (stateEl) { stateEl.style.color = '#991b1b'; stateEl.textContent = 'Lost contact with the server — reload to check whether it finished.'; }
     });
     function setResearchDisabled(disabled) {
         $('ro-research-dry').disabled = disabled;
@@ -1130,9 +1157,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         $('ro-research-btn').disabled = disabled;
     }
     async function watchResearch(runId) {
+        researchGaveUp = false;
         let r;
         try { r = await (await fetch(API + '?action=research_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json(); }
-        catch (e) { watchResearchTracker.miss(); researchTimer = setTimeout(() => watchResearch(runId), 2500); return; }
+        catch (e) { watchResearchTracker.miss(); if (!researchGaveUp) researchTimer = setTimeout(() => watchResearch(runId), 2500); return; }
         watchResearchTracker.reset();
         if (r.none) return;
         const out = $('ro-research-out');
