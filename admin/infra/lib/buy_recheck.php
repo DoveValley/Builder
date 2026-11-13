@@ -69,16 +69,27 @@ function infra_buy_recheck_run(): array
         $ownedSet = array_fill_keys($owned, true);
         foreach ($domains as $domain) {
             if (!isset($ownedSet[$domain])) { $stillPending[] = $domain; continue; }
-            infra_state_upsert_domain([
+            $write = [
                 'domain'     => $domain,
                 'owned'      => 'yes',
                 'owned_at'   => infra_now(),
-                'status'     => 'owned',
                 'registrar'  => $registrar,
                 'buy_at'     => infra_today(),
                 'buy_error'  => '',
                 'avail_note' => '',
-            ]);
+            ];
+            // Same rule as infra_domain_buy()/infra_domain_mark_owned() (admin/infra/
+            // lib/acquire.php): don't regress a domain already staged/queued/further
+            // back down to 'owned'. This sweep exists for a purchase that was
+            // ACCEPTED but didn't confirm within infra_domain_buy()'s own short poll
+            // window — exactly the slow-async case most likely to land on a domain
+            // the batch pipeline already provisioned and scheduled while the buy was
+            // still pending at the registrar.
+            $cur = infra_state_get_domain($domain);
+            if (!in_array($cur['status'] ?? '', INFRA_STATUSES_MANUAL, true)) {
+                $write['status'] = 'owned';
+            }
+            infra_state_upsert_domain($write);
             $confirmed[] = $domain;
         }
     }
