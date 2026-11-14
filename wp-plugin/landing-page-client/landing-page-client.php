@@ -73,7 +73,12 @@ function lpc_render_settings_page() {
 	}
 	?>
 	<div class="wrap">
-		<h1>Landing Page Client</h1>
+		<h1>
+			Landing Page Client
+			<button type="button" id="lpc-info-toggle" aria-expanded="false" aria-controls="lpc-info-popup" title="About this plugin" style="background:none;border:none;border-radius:50%;width:24px;height:24px;line-height:24px;text-align:center;font-size:16px;color:#2271b1;cursor:pointer;vertical-align:middle;">&#9432;</button>
+		</h1>
+
+		<?php lpc_render_info_popup(); ?>
 
 		<form method="post" action="options.php">
 			<?php settings_fields( 'lpc_settings' ); ?>
@@ -108,5 +113,100 @@ function lpc_render_settings_page() {
 			<button type="submit" name="lpc_refresh_now" class="button">Refresh now</button>
 		</form>
 	</div>
+	<?php
+}
+
+/**
+ * Collapsible "how this was built" reference, toggled by the (i) icon next
+ * to the page heading. Kept in plain PHP/inline CSS/JS in this one file —
+ * not worth a separate asset pipeline for a single admin-only popup.
+ */
+function lpc_render_info_popup() {
+	?>
+	<div id="lpc-info-popup" style="display:none;max-width:760px;margin:12px 0;padding:16px 20px;background:#fff;border:1px solid #c3c4c7;border-left:4px solid #2271b1;box-shadow:0 1px 1px rgba(0,0,0,.04);">
+
+		<h2 style="margin-top:0;border-bottom:1px solid #dcdcde;padding-bottom:6px;">Summary</h2>
+		<p>This plugin shows location/service landing pages on this site without storing any of that
+		content here. It asks a central delivery server for the current page list and content on a
+		schedule, then renders it wrapped in this site's own theme. One setting (an API Key)
+		identifies which client's pages to show.</p>
+
+		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">Objective</h2>
+		<p>Give local-service businesses (starting with water/mold/fire/general restoration
+		companies) professional, SEO-structured landing pages for every city and service they
+		offer — without them needing to touch WordPress beyond pasting in one key — sold as an
+		ongoing monthly service. It reuses this project's already-proven site-factory engine (AI
+		content generation, schema.org structured data, the city/keyword research tooling) instead of
+		building a second, separate content pipeline from scratch.</p>
+
+		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">How to Use This</h2>
+		<ol>
+			<li><strong>Paste in the API Key</strong> above and click Save — that is the only setup
+			step. It is issued per client from the admin panel (not from this screen).</li>
+			<li><strong>Everything else configures itself.</strong> The locations path, refresh
+			interval, and support message are all pushed from the delivery server automatically on
+			each check-in — nothing else to set here, ever.</li>
+			<li><strong>Your pages are live immediately</strong> at
+			<code>yoursite.com<?php echo esc_html( get_option( 'lpc_base_path', '/locations' ) ); ?></code>
+			(the hub list) and one URL per location/service underneath it — no separate publish step
+			on this side.</li>
+			<li><strong>Check Status</strong> above: <em>Connected</em> means a recent check-in,
+			<em>Stale</em> means it's overdue and worth investigating, <em>Never Connected</em> means
+			the API key hasn't successfully reached the server yet.</li>
+			<li><strong>"Refresh now"</strong> forces an immediate check-in instead of waiting for the
+			next automatic one — useful right after pasting in a new key.</li>
+			<li>If a Support phone/message appears above, that's a message from the delivery side (for
+			example, a billing issue) — contact them using that information.</li>
+		</ol>
+
+		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">How It Was Built</h2>
+		<p><strong>Phase 0 — Infrastructure</strong></p>
+		<ul style="margin-top:0;">
+			<li>Persistent test WordPress site (this install) — real WP core on SQLite, served by its
+			own systemd service so it survives reboots/disconnects.</li>
+			<li>Delivery server — a thin, API-key-gated file-read backend; temporarily hosted on the
+			same box as the admin panel, built to move to a dedicated server later with no code
+			changes (just a copy of the files).</li>
+		</ul>
+		<p><strong>Phase 1 — This plugin</strong></p>
+		<ul style="margin-top:0;">
+			<li>One settings field (API Key) — every other setting is pushed from the delivery server
+			automatically, no redistribution needed when those change.</li>
+			<li>Fetches the page list ("manifest") and individual pages, caches them, and falls back to
+			the last good copy if the delivery server is ever slow or down — verified by shutting the
+			delivery server off entirely and confirming pages kept rendering.</li>
+			<li>Renders 6 fixed content types as plain HTML with zero styling of our own, so the page
+			always looks like <em>this</em> theme, never a foreign one.</li>
+			<li>Hard rule: our content never outputs an H1 — only this theme's own site title is H1.
+			Found by testing against a real theme, not assumed.</li>
+		</ul>
+
+		<p><strong>Where everything lives</strong></p>
+		<table style="width:100%;border-collapse:collapse;">
+			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>wp-plugin/landing-page-client/</code></td><td style="padding:4px 0;">This plugin's source code, in the site-factory repo.</td></tr>
+			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>/opt/landing-page-clients/test-wordpress/</code></td><td style="padding:4px 0;">This WordPress install.</td></tr>
+			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>/opt/landing-page-clients/delivery/</code></td><td style="padding:4px 0;">The delivery server this plugin talks to.</td></tr>
+		</table>
+
+		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">Current Status</h2>
+		<p><strong>Done:</strong> Phase 0 (test site + delivery server infrastructure) and Phase 1
+		(this plugin) — both built and verified against real, non-mock data.</p>
+		<p><strong>Not yet built:</strong> a real client-data backend on the delivery server (today it
+		serves one hand-authored test client), the AI content pipeline wiring, and the admin panel's
+		own client-management screens (wizard, workspace, reporting).</p>
+
+	</div>
+	<script>
+	(function () {
+		var btn = document.getElementById( 'lpc-info-toggle' );
+		var box = document.getElementById( 'lpc-info-popup' );
+		if ( ! btn || ! box ) { return; }
+		btn.addEventListener( 'click', function () {
+			var open = box.style.display !== 'none';
+			box.style.display = open ? 'none' : 'block';
+			btn.setAttribute( 'aria-expanded', open ? 'false' : 'true' );
+		} );
+	})();
+	</script>
 	<?php
 }
