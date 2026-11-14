@@ -150,7 +150,7 @@ function ms_launch_campaign(string $masterId, string $batchId, string $runsDir, 
     ms_prune_runs($runsDir);
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $out   = $runsDir . '/' . $runId . '.out';
-    $cmd = 'setsid ' . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
+    $cmd = ms_detach_prefix() . ' ' . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
          . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId)
          . ' --run-id=' . escapeshellarg($runId) . ' --no-preflight' . $flags
          . ' > ' . escapeshellarg($out) . ' 2>&1 &';

@@ -420,6 +420,37 @@ function ms_php_cli(): string
 }
 
 /**
+ * Shell prefix for launching a detached CLI job OUTSIDE apache2.service's cgroup.
+ *
+ * Plain `setsid` only detaches a process from its controlling terminal/session — it
+ * does NOT move it out of the parent service's cgroup. systemd's default
+ * KillMode=control-group means stopping apache2.service (a routine unattended-upgrades
+ * package restart counts, not just a crash or reboot) SIGKILLs every process still in
+ * that cgroup, including a `setsid`-detached child two levels deep. Confirmed directly
+ * via journalctl 2026-11-14: a nightly apt-daily-upgrade restart of apache2 killed a
+ * ~16-hour batch build mid-row at 98/100 domains.
+ *
+ * `systemd-run --user --scope` under www-data's own lingering user manager
+ * (`loginctl enable-linger www-data`, a one-time OS-level step — see server setup
+ * notes) puts the job in user-33.slice instead, fully independent of apache2.service,
+ * so an Apache restart — automatic or manual — can no longer reach it. Falls back to
+ * plain `setsid` when lingering isn't set up (e.g. a fresh dev box) so a missing
+ * one-time OS step degrades to the old behaviour instead of a broken launcher.
+ */
+function ms_detach_prefix(): string
+{
+    static $prefix = null;
+    if ($prefix !== null) return $prefix;
+
+    $uid = function_exists('posix_getuid') ? posix_getuid() : (int) trim((string) @shell_exec('id -u'));
+    $runtimeDir = '/run/user/' . $uid;
+    if ($uid > 0 && @filetype($runtimeDir . '/bus') === 'socket') {
+        return $prefix = 'XDG_RUNTIME_DIR=' . escapeshellarg($runtimeDir) . ' systemd-run --user --scope --quiet --collect --';
+    }
+    return $prefix = 'setsid';
+}
+
+/**
  * Where a generated site waits between being built and being uploaded.
  *
  *   sites/{master}/batches/{batch}/output/{domain-slug}/
@@ -706,7 +737,7 @@ function ms_launch_job_now(string $dir, string $sentinel, string $script, array 
     // literal "$?".
     $inner = $pidCmd . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
            . ' > ' . escapeshellarg($out) . ' 2>&1; echo "' . $sentinel . ' $?" >> ' . escapeshellarg($out);
-    exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
+    exec(ms_detach_prefix() . ' sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
     return ['started' => true, 'run_id' => $runId];
 }
 
