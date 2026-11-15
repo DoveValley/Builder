@@ -68,6 +68,41 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&msg=success:Billing+updated');
         exit;
 
+    /* ---- BRANDING ---- */
+    case 'branding':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $client['branding'] = [
+            'logo_url'      => trim($_POST['logo_url'] ?? ''),
+            'primary_color' => trim($_POST['primary_color'] ?? ''),
+            'accent_color'  => trim($_POST['accent_color'] ?? ''),
+            'font'          => trim($_POST['font'] ?? ''),
+        ];
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=branding&msg=success:Branding+updated');
+        exit;
+
+    /* ---- CONTENT PROFILE ---- */
+    case 'content_profile':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        // 'source' (Base profile) is deliberately NOT writable here — it's set
+        // once at creation from the industry category and shown read-only,
+        // per the design doc's explicit instruction.
+        $splitLines = fn($s) => array_values(array_filter(array_map('trim', explode("\n", str_replace("\r", '', $s ?? '')))));
+        $client['content_profile']['excluded_services'] = array_values((array) ($_POST['excluded_services'] ?? []));
+        $client['content_profile']['tone']               = trim($_POST['tone'] ?? 'professional');
+        $client['content_profile']['always_mention']      = $splitLines($_POST['always_mention'] ?? '');
+        $client['content_profile']['never_mention']       = $splitLines($_POST['never_mention'] ?? '');
+
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=content_profile&msg=success:Content+profile+updated');
+        exit;
+
     /* ---- SERVICES ---- */
     case 'services':
         $client_id = $_POST['client_id'] ?? '';

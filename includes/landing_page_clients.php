@@ -253,6 +253,35 @@ function lpc_set_client_api_key($client_id, $key) {
  * provided identity fields, and a freshly generated API key. Returns the
  * new client_id, or null if business_name is empty (nothing to slug from).
  */
+/**
+ * "Per-niche-or-client uniqueness" per the design doc: when a client's
+ * industry matches an existing niche, their content profile inherits from
+ * that niche's brief; otherwise it's a fresh "custom" profile. Matched by
+ * plain keyword against each niche's own niche_brief.json "niche" field,
+ * not a hardcoded industry_category string list, so it stays correct if a
+ * niche's own wording changes. Deliberately simple keyword matching, not a
+ * fuzzy/AI match — this sets Content Profile's read-only "Base profile"
+ * once at creation, so a wrong guess is a one-line manual fix, not a
+ * silent AI misclassification.
+ */
+function lpc_match_niche_source($industry_category) {
+    $category = strtolower(trim($industry_category));
+    if ($category === '') return 'custom';
+
+    $niches = [
+        'water-site'     => ['water', 'restoration', 'flood', 'storm'],
+        'mold-site'      => ['mold'],
+        'pest-template'  => ['pest'],
+        'appliance-site' => ['appliance'],
+    ];
+    foreach ($niches as $siteId => $keywords) {
+        foreach ($keywords as $kw) {
+            if (strpos($category, $kw) !== false) return 'niche:' . $siteId;
+        }
+    }
+    return 'custom';
+}
+
 function lpc_create_client($identity) {
     $name = trim($identity['business_name'] ?? '');
     if ($name === '') return null;
@@ -263,6 +292,7 @@ function lpc_create_client($identity) {
     $data['created_at'] = gmdate('c');
     $data['updated_at'] = $data['created_at'];
     $data['identity']   = array_merge($data['identity'], $identity);
+    $data['content_profile']['source'] = lpc_match_niche_source($identity['industry_category'] ?? '');
 
     if (!lpc_save_client($client_id, $data)) return null;
     lpc_set_client_api_key($client_id, lpc_generate_api_key());

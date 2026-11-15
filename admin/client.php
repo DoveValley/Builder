@@ -78,7 +78,7 @@ $apiKey = lpc_get_client_api_key($client_id);
 .lpc-form-row { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; margin-top:14px; }
 .lpc-form-row .form-group { margin:0; flex:1; min-width:140px; }
 .lpc-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
-.lpc-form-row input { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; }
+.lpc-form-row input, .lpc-form-row textarea { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; font-family:inherit; }
 </style>
 </head>
 <body class="admin-body">
@@ -282,6 +282,75 @@ $apiKey = lpc_get_client_api_key($client_id);
                 </form>
             <?php endif; endif; ?>
         <?php endforeach; ?>
+
+    <?php elseif ($tab === 'branding'): ?>
+
+        <p style="color:#6b7280;font-size:.85rem;">For your own admin organization only — production delivery inherits the client's real WordPress theme automatically, so none of this affects what visitors see.</p>
+        <form method="post" action="client_save.php" class="card">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="section" value="branding">
+            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            <div class="lpc-form-row">
+                <div class="form-group"><label>Logo URL</label><input type="text" name="logo_url" value="<?= h($client['branding']['logo_url']) ?>"></div>
+                <div class="form-group"><label>Font</label><input type="text" name="font" value="<?= h($client['branding']['font']) ?>"></div>
+            </div>
+            <div class="lpc-form-row">
+                <div class="form-group"><label>Primary Color</label><input type="color" name="primary_color" value="<?= h($client['branding']['primary_color'] ?: '#2563eb') ?>"></div>
+                <div class="form-group"><label>Accent Color</label><input type="color" name="accent_color" value="<?= h($client['branding']['accent_color'] ?: '#f5a623') ?>"></div>
+                <button type="submit" class="btn-open">Save Branding</button>
+            </div>
+        </form>
+
+    <?php elseif ($tab === 'content_profile'): ?>
+
+        <?php
+        $profileSource = $client['content_profile']['source'] ?: 'custom';
+        $baseProfileLabel = $profileSource === 'custom'
+            ? 'Custom (no matching niche)'
+            : 'Inherits from ' . str_replace('niche:', '', $profileSource);
+        ?>
+        <div class="card">
+            <strong style="font-size:.88rem;">Base Profile</strong>
+            <p style="margin:8px 0 0;color:#374151;"><?= h($baseProfileLabel) ?></p>
+            <p style="color:#6b7280;font-size:.8rem;margin:6px 0 0;">Set once, automatically, from the industry category entered during client creation. Not editable here.</p>
+        </div>
+
+        <form method="post" action="client_save.php" class="card" style="margin-top:14px;">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="section" value="content_profile">
+            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+
+            <strong style="font-size:.88rem;">Excluded Services</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Checked services are left out of this client's content — e.g. a referral-only exclusion for a service handled by a separate licensed entity.</p>
+            <?php if (empty($client['services'])): ?>
+                <p style="color:#6b7280;font-size:.85rem;">No services defined yet — add some on the Locations &amp; Services tab first.</p>
+            <?php else: foreach ($client['services'] as $s): ?>
+                <label style="display:block;font-size:.85rem;margin-bottom:6px;">
+                    <input type="checkbox" name="excluded_services[]" value="<?= h($s['service_id']) ?>" <?= in_array($s['service_id'], $client['content_profile']['excluded_services'], true) ? 'checked' : '' ?>>
+                    <?= h($s['label']) ?>
+                </label>
+            <?php endforeach; endif; ?>
+
+            <strong style="font-size:.88rem;display:block;margin-top:18px;">Tone</strong>
+            <select name="tone" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:.85rem;margin-top:6px;">
+                <?php foreach (['professional', 'friendly', 'casual', 'formal', 'authoritative'] as $t): ?>
+                    <option value="<?= h($t) ?>" <?= $client['content_profile']['tone'] === $t ? 'selected' : '' ?>><?= h(ucfirst($t)) ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <div class="lpc-form-row">
+                <div class="form-group">
+                    <label>Always Mention <span style="font-weight:400;color:#6b7280;">(one per line)</span></label>
+                    <textarea name="always_mention" style="min-height:80px;"><?= h(implode("\n", $client['content_profile']['always_mention'])) ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Never Mention <span style="font-weight:400;color:#6b7280;">(one per line)</span></label>
+                    <textarea name="never_mention" style="min-height:80px;"><?= h(implode("\n", $client['content_profile']['never_mention'])) ?></textarea>
+                </div>
+            </div>
+            <p style="color:#6b7280;font-size:.8rem;margin:10px 0;">These feed the AI content pipeline as generation guardrails every time a page is regenerated. (Phase 3 — the AI pipeline itself — isn't wired up yet, so nothing consumes these fields live yet; they're ready for when it is.)</p>
+            <button type="submit" class="btn-open">Save Content Profile</button>
+        </form>
 
     <?php elseif ($tab === 'delivery'): ?>
 
