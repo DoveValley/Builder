@@ -56,11 +56,18 @@ function lpc_handle_route() {
 	// get_header()) is what actually echoes <title>, so a filter added any
 	// later than this silently has no effect on the title tag.
 	if ( ! empty( $page['seo']['page_title'] ) ) {
+		// Priority PHP_INT_MAX, not the default 10 — confirmed live against a
+		// real client site running Yoast SEO: Yoast hooks pre_get_document_title
+		// at priority 15 specifically so it wins over anything registered at the
+		// default priority, which silently ate this title on the first real
+		// non-bare-theme test (the 3 themes this was originally verified
+		// against in Phase 1 all run with no SEO plugin active).
 		add_filter(
 			'pre_get_document_title',
 			function () use ( $page ) {
 				return $page['seo']['page_title'];
-			}
+			},
+			PHP_INT_MAX
 		);
 	}
 
