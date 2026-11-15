@@ -25,6 +25,14 @@ if (!$client || !lpc_valid_page_id($page_id)) {
 $page = lpc_load_page($client_id, $page_id) ?? lpc_default_page_data();
 $isNew = !lpc_load_page($client_id, $page_id);
 
+// Regenerate needs a real confirmed target city + service to build a prompt
+// from (lpc_generate_page_content() requires both) — a page_id that doesn't
+// match one isn't reachable through normal navigation, but could exist from
+// a hand-typed URL, so check rather than assume.
+[$_ctid, $_svcid] = array_pad(explode('__', $page_id, 2), 2, '');
+$canRegenerate = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $_ctid)
+    && lpc_find_by_id($client['services'] ?? [], 'service_id', $_svcid);
+
 $sectionByType = [];
 foreach ($page['sections'] as $s) { $sectionByType[$s['type']] = $s; }
 $hero         = $sectionByType['hero'] ?? ['headline' => '', 'subheading' => '', 'image' => '', 'cta_text' => '', 'phone' => ''];
@@ -168,7 +176,18 @@ if ($preview) {
     <div class="lpc-actions-bar">
         <a href="?client_id=<?= h($client_id) ?>&page_id=<?= h($page_id) ?>&preview=1" class="btn-sm-outline" target="_blank">Preview</a>
         <div style="display:flex;gap:8px;">
-            <button type="button" class="btn-sm-outline" disabled title="Requires Phase 3 (AI content pipeline) — not built yet">Regenerate</button>
+            <?php if ($canRegenerate): ?>
+            <form method="post" action="client_save.php" style="margin:0;" onsubmit="return confirm('Regenerate this whole page with AI? Real API cost, replaces all current section content (not related_links).');">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <input type="hidden" name="page_action" value="regenerate_ai">
+                <input type="hidden" name="page_id" value="<?= h($page_id) ?>">
+                <button type="submit" class="btn-sm-outline">&#128176; Regenerate</button>
+            </form>
+            <?php else: ?>
+            <button type="button" class="btn-sm-outline" disabled title="Not a confirmed target city/service — nothing to generate from">Regenerate</button>
+            <?php endif; ?>
             <?php if (!$isNew): ?>
             <form method="post" action="client_save.php" style="margin:0;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">

@@ -20,6 +20,13 @@
  * pattern already decided in the original design conversation.
  */
 
+// Unlike admin/infra/lib/cities.php (which every CALLER requires separately,
+// since most admin pages never need it), every single function in this file
+// needs anthropic.php unconditionally — so it's required here, once, rather
+// than repeating the exact "forgot the dependency" gap already hit twice
+// this session (cities.php/keywords.php) at a 3rd call site.
+require_once __DIR__ . '/anthropic.php';
+
 function lpc_ai_niche_brief($source) {
     if (strpos((string) $source, 'niche:') !== 0) return null;
     $niche_id = substr($source, 6);

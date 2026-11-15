@@ -332,6 +332,12 @@ switch ($section) {
             }
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=' . $msg);
             exit;
+        } elseif ($action === 'regenerate_ai') {
+            $pageId = trim($_POST['page_id'] ?? '');
+            $result = lpc_generate_page_content($client_id, $pageId);
+            $msg = $result['ok'] ? 'success:Regenerated' : ('error:' . urlencode($result['msg']));
+            header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
+            exit;
         }
 
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Page+updated');
