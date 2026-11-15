@@ -31,7 +31,19 @@ function lpc_service_locations_url() {
 	return home_url( trailingslashit( $base_path ) );
 }
 
-add_action( 'wp_footer', 'lpc_render_footer_link' );
+// NOT hooked to wp_footer. Real bug, found live on restore-2 (2026-11-15):
+// themes vary wildly in WHERE wp_footer() actually fires relative to their
+// own markup. Kadence here closes its #wrapper div and renders its own
+// "sticky Call Now bar" template part BEFORE calling wp_footer() — so a
+// wp_footer-hooked link landed dumped at the raw end of <body>, after the
+// theme's fixed-position sticky bar, outside the page wrapper entirely.
+// Dark-on-light styling isn't the issue (confirmed present in the raw HTML);
+// DOM placement is. This plugin already fully controls its own virtual page
+// template (get_header()/content/get_footer() in rewrite.php), so instead of
+// trusting a theme's wp_footer timing, rewrite.php calls this function
+// directly, right after our own content and before get_footer() — guaranteed
+// to land inside the theme's real wrapper, directly below the page content,
+// regardless of what any given theme does afterward.
 function lpc_render_footer_link() {
 	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;

@@ -274,6 +274,10 @@ function lpc_handle_route() {
 	}
 	echo '</div>';
 
+	// Called directly here, not via wp_footer — see the comment on
+	// lpc_render_footer_link() in footer_link.php for why.
+	lpc_render_footer_link();
+
 	get_footer();
 	exit;
 }
