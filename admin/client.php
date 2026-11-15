@@ -370,9 +370,10 @@ $apiKey = lpc_get_client_api_key($client_id);
         <p style="color:#6b7280;font-size:.85rem;">Onboarding a client takes 3 steps. Steps 4+ are ongoing controls, used occasionally.</p>
 
         <div class="card" style="margin-top:14px;">
-            <strong style="font-size:.88rem;">1. Give the client their API key</strong>
+            <strong style="font-size:.88rem;">1. Download the plugin and give the client their API key</strong>
+            <p style="margin:8px 0;"><a href="lpc_plugin_download.php" class="btn-open">&#11015; Download Plugin (.zip)</a></p>
             <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:8px 0;word-break:break-all;"><?= h($apiKey) ?></p>
-            <p style="color:#6b7280;font-size:.82rem;margin:0;">They paste this into their WordPress install under Settings &rarr; Landing Page Client. That is their only setup step, ever.</p>
+            <p style="color:#6b7280;font-size:.82rem;margin:0;">They (or you) install the zip under Plugins &rarr; Add New &rarr; Upload Plugin, activate it, then paste this key into Settings &rarr; Landing Page Client. That is their only setup step, ever — one universal plugin, nothing client-specific baked into the zip.</p>
         </div>
 
         <div class="card" style="margin-top:10px;">
