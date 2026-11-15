@@ -152,6 +152,15 @@ foreach (lpc_list_niche_profiles() as $id) {
         </div>
         <button type="button" class="btn-sm-outline" onclick="lpcAddNicheSvcRow()">+ Add Default Service</button>
 
+        <h4 style="margin-top:18px;margin-bottom:4px;">Trust Bar</h4>
+        <p style="color:#6b7280;font-size:.8rem;margin:0 0 8px;">
+            Short checkmark phrases shown in a bar right under the hero on every page (e.g. "24/7
+            Response Line"). One per line. Leave blank to use a generic fallback.
+        </p>
+        <div class="form-group">
+            <textarea name="trust_bar_items" style="min-height:90px;" placeholder="Fast Local Response&#10;24/7 Response Line&#10;Licensed &amp; Insured&#10;No-Cost To Connect"><?= h(implode("\n", $editing['trust_bar_items'] ?? [])) ?></textarea>
+        </div>
+
         <button type="submit" class="btn-open" style="margin-top:10px;display:block;"><?= $editing ? 'Save Changes' : 'Add Niche Profile' ?></button>
         <?php if ($editing): ?><a href="niche_profiles.php" class="btn-sm-outline" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
     </form>

@@ -76,11 +76,26 @@ function lpc_render_styles( $branding ) {
 			padding: 48px 24px;
 			border-radius: 12px;
 			margin: 0 0 32px;
-			text-align: center;
+			display: grid;
+			grid-template-columns: 1.1fr 1fr;
+			gap: 36px;
+			align-items: center;
+			text-align: left;
+		}
+		/* No image at all: one centered column reads better than an empty
+		   second grid cell sitting beside the text. */
+		.lpc-page .lpc-hero.lpc-hero-no-image { grid-template-columns: 1fr; text-align: center; }
+		.lpc-page .lpc-hero.lpc-hero-no-image .lpc-hero-sub { margin-left: auto; margin-right: auto; }
+		@media (max-width: 760px) {
+			.lpc-page .lpc-hero { grid-template-columns: 1fr; text-align: center; }
+			.lpc-page .lpc-hero-sub { margin-left: auto; margin-right: auto; }
 		}
 		.lpc-page .lpc-hero-headline { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
-		.lpc-page .lpc-hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 auto 20px; opacity: .85; }
-		.lpc-page .lpc-hero-image img { max-width: 100%; height: auto; border-radius: 10px; margin: 0 auto 20px; display: block; }
+		.lpc-page .lpc-hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 0 20px; opacity: .85; }
+		.lpc-page .lpc-hero-image img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0; }
+		.lpc-page .lpc-trust-bar { background: #111827; margin: 0 0 32px; padding: 14px 24px; border-radius: 10px; }
+		.lpc-page .lpc-trust-bar ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; }
+		.lpc-page .lpc-trust-bar li { color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap; }
 		.lpc-page .lpc-area-map img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; }
 		.lpc-page .lpc-btn {
 			display: inline-block; padding: 14px 28px; border-radius: 8px;

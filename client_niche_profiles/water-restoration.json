@@ -1,28 +1,52 @@
 {
-    "niche_id": "water-restoration",
-    "label": "Water & Storm Damage Restoration",
-    "match_keywords": [
-        "water",
-        "restoration",
-        "flood",
-        "storm"
-    ],
-    "business_descriptor": "a company providing water damage restoration, flood cleanup, and storm damage repair services",
-    "default_tone": "reassuring and professional, with clear urgency for active water and storm emergencies",
-    "guardrails": "Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not make mold health-hazard claims or offer mold remediation unless that is actually one of this business's own services. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.",
-    "content_slots": {
-        "feature_columns_local": "why water/storm damage response matters specifically in this city — older housing stock, storm patterns, flood-prone areas",
-        "local_relevance": "real local housing data provided (median home age, home value, housing units) — connect older homes to higher plumbing/roofing failure risk, and home value to the stakes of fast mitigation",
-        "seasonal_calendar": "seasonal storm/flood risk patterns through the year (spring storms, hurricane season if coastal, winter pipe freezes)",
-        "why_choose_us": "fast response time, certified techs, direct insurance documentation support",
-        "how_it_works": "the real restoration process: emergency call -> on-site assessment -> water extraction/drying -> repair and restoration"
+  "niche_id": "water-restoration",
+  "label": "Water & Storm Damage Restoration",
+  "match_keywords": [
+    "water",
+    "restoration",
+    "flood",
+    "storm"
+  ],
+  "business_descriptor": "a company providing water damage restoration, flood cleanup, and storm damage repair services",
+  "default_tone": "reassuring and professional, with clear urgency for active water and storm emergencies",
+  "guardrails": "Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not make mold health-hazard claims or offer mold remediation unless that is actually one of this business's own services. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.",
+  "content_slots": {
+    "feature_columns_local": "why water/storm damage response matters specifically in this city \u2014 older housing stock, storm patterns, flood-prone areas",
+    "local_relevance": "real local housing data provided (median home age, home value, housing units) \u2014 connect older homes to higher plumbing/roofing failure risk, and home value to the stakes of fast mitigation",
+    "seasonal_calendar": "seasonal storm/flood risk patterns through the year (spring storms, hurricane season if coastal, winter pipe freezes)",
+    "why_choose_us": "fast response time, certified techs, direct insurance documentation support",
+    "how_it_works": "the real restoration process: emergency call -> on-site assessment -> water extraction/drying -> repair and restoration"
+  },
+  "default_services": [
+    {
+      "label": "Water Damage Restoration",
+      "keyword_pattern": ""
     },
-    "default_services": [
-        {"label": "Water Damage Restoration", "keyword_pattern": ""},
-        {"label": "Flood Damage Cleanup", "keyword_pattern": ""},
-        {"label": "Storm Damage Repair", "keyword_pattern": ""},
-        {"label": "Fire Damage Restoration", "keyword_pattern": ""},
-        {"label": "Sewage Cleanup", "keyword_pattern": ""},
-        {"label": "Water Extraction", "keyword_pattern": "Emergency {service} in {city}, {state}"}
-    ]
+    {
+      "label": "Flood Damage Cleanup",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Storm Damage Repair",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Fire Damage Restoration",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Sewage Cleanup",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Water Extraction",
+      "keyword_pattern": "Emergency {service} in {city}, {state}"
+    }
+  ],
+  "trust_bar_items": [
+    "Fast Local Response",
+    "24/7 Emergency Line",
+    "Licensed & Insured",
+    "Free On-Site Estimates"
+  ]
 }

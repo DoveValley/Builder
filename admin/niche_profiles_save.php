@@ -53,6 +53,7 @@ if ($action === 'save') {
             'how_it_works'          => trim($_POST['slot_how_it_works'] ?? ''),
         ],
         'default_services' => $defaultServices,
+        'trust_bar_items' => array_values(array_filter(array_map('trim', explode("\n", $_POST['trust_bar_items'] ?? '')))),
     ]);
     header('Location: niche_profiles.php?msg=success:Niche+profile+saved');
     exit;

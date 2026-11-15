@@ -1,26 +1,53 @@
 {
-    "niche_id": "pest-control",
-    "label": "Pest Control",
-    "match_keywords": [
-        "pest"
-    ],
-    "business_descriptor": "a company providing pest control and extermination services",
-    "default_tone": "reassuring and professional, with appropriate urgency for active infestations",
-    "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products unless explicitly provided as fact.",
-    "content_slots": {
-        "feature_columns_local": "why pest pressure matters specifically in this city — local climate, common regional pests, home density",
-        "local_relevance": "real local housing data provided (median home age, housing units) — connect home age/construction to common entry points and pest vulnerability",
-        "seasonal_calendar": "seasonal pest activity patterns through the year (spring/summer surges, overwintering pests, ant/termite swarm seasons)",
-        "why_choose_us": "licensed technicians, pet/family-safe treatment options, follow-up visits",
-        "how_it_works": "the real process: inspection -> treatment plan -> application -> follow-up and prevention"
+  "niche_id": "pest-control",
+  "label": "Pest Control",
+  "match_keywords": [
+    "pest"
+  ],
+  "business_descriptor": "a company providing pest control and extermination services",
+  "default_tone": "reassuring and professional, with appropriate urgency for active infestations",
+  "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products unless explicitly provided as fact.",
+  "content_slots": {
+    "feature_columns_local": "why pest pressure matters specifically in this city \u2014 local climate, common regional pests, home density",
+    "local_relevance": "real local housing data provided (median home age, housing units) \u2014 connect home age/construction to common entry points and pest vulnerability",
+    "seasonal_calendar": "seasonal pest activity patterns through the year (spring/summer surges, overwintering pests, ant/termite swarm seasons)",
+    "why_choose_us": "licensed technicians, pet/family-safe treatment options, follow-up visits",
+    "how_it_works": "the real process: inspection -> treatment plan -> application -> follow-up and prevention"
+  },
+  "default_services": [
+    {
+      "label": "General Pest Control",
+      "keyword_pattern": ""
     },
-    "default_services": [
-        {"label": "General Pest Control", "keyword_pattern": ""},
-        {"label": "Termite Treatment", "keyword_pattern": ""},
-        {"label": "Termite Inspection", "keyword_pattern": ""},
-        {"label": "Bed Bug Treatment", "keyword_pattern": ""},
-        {"label": "Rodent Control", "keyword_pattern": ""},
-        {"label": "Mosquito Control", "keyword_pattern": ""},
-        {"label": "Ant Control", "keyword_pattern": ""}
-    ]
+    {
+      "label": "Termite Treatment",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Termite Inspection",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Bed Bug Treatment",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Rodent Control",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Mosquito Control",
+      "keyword_pattern": ""
+    },
+    {
+      "label": "Ant Control",
+      "keyword_pattern": ""
+    }
+  ],
+  "trust_bar_items": [
+    "Local Licensed Technicians",
+    "Same-Day Service Available",
+    "Pet & Family Safe Treatments",
+    "Free Estimates"
+  ]
 }

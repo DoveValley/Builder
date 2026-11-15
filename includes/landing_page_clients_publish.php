@@ -210,6 +210,12 @@ function lpc_preview_render($sections) {
                 if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['cta_text'] ?: $s['phone']) . '</a></p>';
                 $out .= '</section>';
                 break;
+            case 'trust_bar':
+                if (empty($s['items'])) break;
+                $out .= '<section><ul>';
+                foreach ($s['items'] as $item) $out .= '<li>&#10003; ' . h($item) . '</li>';
+                $out .= '</ul></section>';
+                break;
             case 'text':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p></section>';
                 break;
@@ -368,7 +374,12 @@ function lpc_publish_page($client_id, $page_id) {
     if (!$client || !$page) return false;
 
     $page['schema_jsonld'] = lpc_assemble_schema($client, $page_id, $page);
+    $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
     foreach ($page['sections'] as &$section) {
+        if (($section['type'] ?? '') === 'trust_bar') {
+            $items = $niche_brief['trust_bar_items'] ?? [];
+            $section['items'] = !empty($items) ? $items : lpc_default_trust_bar_items();
+        }
         if (($section['type'] ?? '') === 'related_links') {
             $section['links'] = lpc_compute_related_links($client, $page_id);
         }

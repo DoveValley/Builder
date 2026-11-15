@@ -543,6 +543,9 @@ switch ($section) {
             // the image itself only ever comes from lpc_resolve_area_map() at
             // publish time, never hand-typed.
             $existingMapImage = ''; $existingMapAlt = ''; $existingMapW = null; $existingMapH = null;
+            // trust_bar items — same "not touched here" rule; only ever comes
+            // from the niche profile at publish time.
+            $existingTrustBarItems = [];
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
@@ -558,10 +561,14 @@ switch ($section) {
                     $existingMapW     = $s['image_width'] ?? null;
                     $existingMapH     = $s['image_height'] ?? null;
                 }
+                if (($s['type'] ?? '') === 'trust_bar') { $existingTrustBarItems = $s['items'] ?? []; }
             }
 
             $page['sections'] = [
                 ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'image_alt' => trim($_POST['hero_image_alt'] ?? ''), 'image_width' => $existingImgW, 'image_height' => $existingImgH, 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
+                // trust_bar, like related_links/service_area/area_map below, is
+                // auto-computed at publish time from the niche profile.
+                ['type' => 'trust_bar', 'items' => $existingTrustBarItems],
                 ['type' => 'text', 'key' => 'city_intro', 'heading' => trim($_POST['city_intro_heading'] ?? ''), 'body' => trim($_POST['city_intro_body'] ?? '')],
                 ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
                 ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],

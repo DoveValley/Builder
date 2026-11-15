@@ -66,7 +66,23 @@ function lpc_default_niche_profile() {
         // Services list once, only if it's still empty — never silently
         // overwrites services someone already customized.
         'default_services'    => [],
+        // Short checkmark phrases shown in a trust bar right under the hero
+        // (e.g. "24/7 Response Line", "Licensed & Insured") — static per-niche
+        // text, never AI-generated or per-city. Blank uses
+        // lpc_default_trust_bar_items()'s generic fallback rather than
+        // showing nothing, since every niche benefits from SOME version of
+        // this even before anyone's filled it in.
+        'trust_bar_items'    => [],
     ];
+}
+
+function lpc_default_trust_bar_items() {
+    // 'No-Cost To Connect' (the reference page's own phrasing) is deliberately
+    // NOT used here — that's referral-network language (it literally runs a
+    // "we connect you with independent providers" business), while LPC
+    // clients do their own work directly, same guardrail already enforced
+    // elsewhere (see niche_profiles.php's Guardrails field).
+    return ['Fast Local Response', '24/7 Response Line', 'Licensed & Insured', 'Free Estimates'];
 }
 
 function lpc_load_niche_profile($niche_id) {

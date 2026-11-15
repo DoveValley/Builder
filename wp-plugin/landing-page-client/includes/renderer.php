@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 10 locked section types. Originally zero CSS/classes of our own
+ * Renders the 11 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -36,6 +36,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 			case 'hero':
 				$html .= lpc_render_hero( $section, $hero_level );
 				break;
+			case 'trust_bar':
+				$html .= lpc_render_trust_bar( $section );
+				break;
 			case 'text':
 				$html .= lpc_render_text( $section );
 				break;
@@ -66,13 +69,24 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 	return $html;
 }
 
+/** Side-by-side (text left, real photo right on desktop; stacks on mobile via
+ *  styles.php's media query) — matches the reference competitor page's hero
+ *  layout (2026-11-15), replacing the original centered/stacked version.
+ *  Falls back to a single centered column with no visual gap when there's no
+ *  image at all, rather than an empty column sitting next to the text. */
 function lpc_render_hero( $s, $level = 'h2' ) {
 	$level = in_array( $level, [ 'h1', 'h2' ], true ) ? $level : 'h2';
-	$out   = '<section class="lpc-hero">';
-	$out  .= '<' . $level . ' class="lpc-hero-headline">' . esc_html( $s['headline'] ?? '' ) . '</' . $level . '>';
+
+	$text  = '<' . $level . ' class="lpc-hero-headline">' . esc_html( $s['headline'] ?? '' ) . '</' . $level . '>';
 	if ( ! empty( $s['subheading'] ) ) {
-		$out .= '<p class="lpc-hero-sub">' . esc_html( $s['subheading'] ) . '</p>';
+		$text .= '<p class="lpc-hero-sub">' . esc_html( $s['subheading'] ) . '</p>';
 	}
+	if ( ! empty( $s['phone'] ) ) {
+		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
+		$text .= '<p><a class="lpc-btn lpc-btn-primary" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
+	}
+
+	$image = '';
 	if ( ! empty( $s['image'] ) ) {
 		// Explicit width/height — a real Lighthouse finding on the first live
 		// page audit (2026-11-15): without them, the browser can't reserve
@@ -82,13 +96,31 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 		if ( ! empty( $s['image_width'] ) && ! empty( $s['image_height'] ) ) {
 			$dims = ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"';
 		}
-		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+		$image = '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
 	}
-	if ( ! empty( $s['phone'] ) ) {
-		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
-		$out .= '<p><a class="lpc-btn lpc-btn-primary" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
-	}
+
+	$out  = '<section class="lpc-hero' . ( $image === '' ? ' lpc-hero-no-image' : '' ) . '">';
+	$out .= '<div class="lpc-hero-text">' . $text . '</div>';
+	$out .= $image;
 	$out .= '</section>';
+	return $out;
+}
+
+/** A dark checkmark bar right under the hero — static per-niche trust phrases
+ *  (e.g. "24/7 Response Line"), never per-page content. Nothing to render if
+ *  there are no items at all (shouldn't normally happen — publish-time
+ *  filling always falls back to a generic default — but a page that's never
+ *  been published since this section existed has an empty array, same "no
+ *  data means nothing renders" rule as every other auto-computed section). */
+function lpc_render_trust_bar( $s ) {
+	if ( empty( $s['items'] ) ) {
+		return '';
+	}
+	$out = '<div class="lpc-trust-bar"><ul>';
+	foreach ( (array) $s['items'] as $item ) {
+		$out .= '<li>&#10003; ' . esc_html( $item ) . '</li>';
+	}
+	$out .= '</ul></div>';
 	return $out;
 }
 
