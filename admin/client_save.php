@@ -539,6 +539,10 @@ switch ($section) {
             // between a manual Save and the next Publish, which is what
             // actually recomputes these.
             $existingServiceAreaIntro = ''; $existingServiceAreaState = ''; $existingOfficeCity = ''; $existingNearbyCities = [];
+            // area_map image — same "not touched here, carried forward" rule;
+            // the image itself only ever comes from lpc_resolve_area_map() at
+            // publish time, never hand-typed.
+            $existingMapImage = ''; $existingMapAlt = ''; $existingMapW = null; $existingMapH = null;
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
@@ -547,6 +551,12 @@ switch ($section) {
                     $existingServiceAreaState = $s['state'] ?? '';
                     $existingOfficeCity       = $s['office_city'] ?? '';
                     $existingNearbyCities     = $s['nearby_cities'] ?? [];
+                }
+                if (($s['type'] ?? '') === 'area_map') {
+                    $existingMapImage = $s['image'] ?? '';
+                    $existingMapAlt   = $s['image_alt'] ?? '';
+                    $existingMapW     = $s['image_width'] ?? null;
+                    $existingMapH     = $s['image_height'] ?? null;
                 }
             }
 
@@ -561,6 +571,10 @@ switch ($section) {
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
                 ['type' => 'cta', 'heading' => trim($_POST['cta_heading'] ?? ''), 'body' => trim($_POST['cta_body'] ?? ''), 'phone' => trim($_POST['cta_phone'] ?? ''), 'button_text' => trim($_POST['cta_button_text'] ?? '')],
+                // area_map, like related_links/service_area below, is auto-computed
+                // at publish time (lpc_resolve_area_map()) — heading resets to its
+                // fixed default, the image carries forward unchanged.
+                ['type' => 'area_map', 'heading' => 'Service Area Map', 'image' => $existingMapImage, 'image_alt' => $existingMapAlt, 'image_width' => $existingMapW, 'image_height' => $existingMapH],
                 // service_area, like related_links just below, is auto-computed
                 // at publish time (lpc_compute_service_area()) — never hand-authored.
                 ['type' => 'service_area', 'heading' => 'Our Service Area', 'intro' => $existingServiceAreaIntro, 'state' => $existingServiceAreaState, 'office_city' => $existingOfficeCity, 'nearby_cities' => $existingNearbyCities],

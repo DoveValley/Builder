@@ -249,6 +249,12 @@ function lpc_preview_render($sections) {
                 if (!empty($s['nearby_cities'])) $out .= '<li>Nearby Cities: ' . h(implode(', ', $s['nearby_cities'])) . '</li>';
                 $out .= '</ul></section>';
                 break;
+            case 'area_map':
+                if (empty($s['image'])) break;
+                $dims = (!empty($s['image_width']) && !empty($s['image_height'])) ? ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"' : '';
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '')
+                    . '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '"' . $dims . ' loading="lazy"></figure></section>';
+                break;
         }
     }
     return $out;
@@ -379,6 +385,22 @@ function lpc_publish_page($client_id, $page_id) {
             $section['intro'] = $cityState !== ''
                 ? "{$business} proudly serves {$cityState} and the surrounding area."
                 : '';
+        }
+        if (($section['type'] ?? '') === 'area_map') {
+            [$city_id, ] = array_pad(explode('__', $page_id, 2), 2, '');
+            $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+            $map = $target ? lpc_resolve_area_map($client_id, $city_id, $target['city'], $target['state'], $client['branding'] ?? []) : null;
+            // Never overwrites a manually-set image — same "only fill if blank"
+            // rule lpc_fill_service_image() already uses, in case an admin ever
+            // pastes a manual override here. A city with no real map data
+            // (unresolved coords, no nearby towns on record) simply keeps
+            // whatever it had before rather than clearing a working image.
+            if ($map && empty($section['image'])) {
+                $section['image']        = $map['url'];
+                $section['image_alt']    = $map['alt'];
+                $section['image_width']  = $map['width'];
+                $section['image_height'] = $map['height'];
+            }
         }
     }
     unset($section);

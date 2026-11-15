@@ -81,6 +81,7 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-hero-headline { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
 		.lpc-page .lpc-hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 auto 20px; opacity: .85; }
 		.lpc-page .lpc-hero-image img { max-width: 100%; height: auto; border-radius: 10px; margin: 0 auto 20px; display: block; }
+		.lpc-page .lpc-area-map img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; }
 		.lpc-page .lpc-btn {
 			display: inline-block; padding: 14px 28px; border-radius: 8px;
 			font-weight: 700; text-decoration: none; color: #fff; transition: opacity .15s;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 9 locked section types. Originally zero CSS/classes of our own
+ * Renders the 10 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -57,6 +57,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				break;
 			case 'service_area':
 				$html .= lpc_render_service_area( $section );
+				break;
+			case 'area_map':
+				$html .= lpc_render_area_map( $section );
 				break;
 		}
 	}
@@ -167,6 +170,26 @@ function lpc_render_cta( $s ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
 		$out .= '<p><a class="lpc-btn lpc-btn-accent" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
 	}
+	$out .= '</section>';
+	return $out;
+}
+
+/** A real map image (plugins/image-area-map's own engine, reused server-side
+ *  at publish time — see includes/landing_page_clients_area_images.php) —
+ *  nothing to render if there was no real data to draw the map from. */
+function lpc_render_area_map( $s ) {
+	if ( empty( $s['image'] ) ) {
+		return '';
+	}
+	$dims = '';
+	if ( ! empty( $s['image_width'] ) && ! empty( $s['image_height'] ) ) {
+		$dims = ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"';
+	}
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	$out .= '<figure class="lpc-area-map"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
 	$out .= '</section>';
 	return $out;
 }

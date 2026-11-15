@@ -122,13 +122,14 @@ function lpc_default_page_data() {
             'primary_keyword'   => '',
             'secondary_keywords'=> [],
         ],
-        // 12 sections, up from the original 6 — real per-city research (census
+        // 13 sections, up from the original 6 — real per-city research (census
         // data) plus niche-injected framing needs room to breathe, matching the
-        // depth the niche fleet's own landing pages carry. Still only 9 DELIVERY
-        // types (plugin contract): 'highlights' and 'steps' are two new plain
-        // <ul>/<ol> lists, and 'service_area' (below) is the third — every
-        // element used across all 9 types is exactly what WordPress's block
-        // editor already produces for an ordinary post, so it inherits any
+        // depth the niche fleet's own landing pages carry. Still only 10
+        // DELIVERY types (plugin contract): 'highlights' and 'steps' are two
+        // new plain <ul>/<ol> lists, 'service_area' and 'area_map' are two more
+        // auto-computed (never AI-authored) additions — every element used
+        // across all 10 types is exactly what WordPress's block editor already
+        // produces for an ordinary post (plus one <img>), so it inherits any
         // theme's own styling with zero custom CSS, same principle as the
         // original 6 (verified live against Twenty Twenty-Three/Four/Five and
         // Astra). Multiple 'text' sections need a 'key' to disambiguate which
@@ -146,6 +147,14 @@ function lpc_default_page_data() {
             ['type' => 'services_list',  'heading'  => '', 'items' => []],
             ['type' => 'faq',            'heading'  => '', 'items' => []],
             ['type' => 'cta',            'heading'  => '', 'body' => '', 'phone' => '', 'button_text' => ''],
+            // Auto-computed at publish time (lpc_resolve_area_map()) — a real
+            // map image, not hand-authored or AI-generated. Heading has a
+            // fixed default (reset on regenerate, same as related_links'
+            // below), the image itself is never editable by hand. Renders
+            // nothing if there isn't enough real data to draw from (no
+            // geocoded coords on record, or no real nearby towns within
+            // range) — see landing_page_clients_area_images.php.
+            ['type' => 'area_map', 'heading' => 'Service Area Map', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null],
             // Auto-computed at publish time (lpc_compute_service_area()), never
             // hand-authored or AI-generated — same "always recomputed fresh from
             // client.json, not just filled once" rule related_links already
