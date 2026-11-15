@@ -3,7 +3,7 @@
     "status": "published",
     "locked": false,
     "created_at": "2026-11-15T22:16:47+00:00",
-    "updated_at": "2026-11-15T22:21:09+00:00",
+    "updated_at": "2026-11-15T23:14:22+00:00",
     "published_at": "2026-11-15T22:21:09+00:00",
     "seo": {
         "page_title": "Fire damage restoration in Frisco, TX | First Call Restoration Pros",
@@ -215,19 +215,19 @@
         {
             "type": "area_map",
             "heading": "Service Area Map",
-            "image": "",
-            "image_alt": "",
-            "image_width": null,
-            "image_height": null
+            "image": "http://31.97.133.251:8098/api.php?action=image&client=restore-2&file=service-area-map-areamap_frisco-tx.webp&v=1794784461",
+            "image_alt": "Map of the Frisco, TX area, covering Hackberry 5.6 miles away, Prosper 6 miles away, Little Elm 6.2 miles away, The Colony 6.5 miles away, Savannah 6.9 miles away and Paloma Creek South 7.4 miles away.",
+            "image_width": 900,
+            "image_height": 874
         },
         {
             "type": "data_chart",
-            "heading": "",
-            "image": "",
-            "image_alt": "",
-            "image_width": null,
-            "image_height": null,
-            "table_html": ""
+            "heading": "Days with an inch or more of rain",
+            "image": "http://31.97.133.251:8098/api.php?action=image&client=restore-2&file=chart-heavy_rain_days-chart_frisco-tx.webp&v=1794784462",
+            "image_alt": "Chart of days per month with at least one inch of rainfall in Frisco, TX. Highest Oct at 1.7 days, lowest Jul at 0.4 days.",
+            "image_width": 900,
+            "image_height": 520,
+            "table_html": "<div class=\"chart-table-wrap\"><table class=\"chart-data-table\"><caption>Days with an inch or more of rain: Frisco, TX</caption><thead><tr><th scope=\"col\">Period</th><th scope=\"col\">Days with an inch or more of rain (days)</th></tr></thead><tbody><tr><th scope=\"row\">Jan</th><td class=\"chart-data-num\">0.7</td></tr><tr><th scope=\"row\">Feb</th><td class=\"chart-data-num\">0.9</td></tr><tr><th scope=\"row\">Mar</th><td class=\"chart-data-num\">0.9</td></tr><tr><th scope=\"row\">Apr</th><td class=\"chart-data-num\">1.1</td></tr><tr><th scope=\"row\">May</th><td class=\"chart-data-num\">1.6</td></tr><tr><th scope=\"row\">Jun</th><td class=\"chart-data-num\">1.3</td></tr><tr><th scope=\"row\">Jul</th><td class=\"chart-data-num\">0.4</td></tr><tr><th scope=\"row\">Aug</th><td class=\"chart-data-num\">0.6</td></tr><tr><th scope=\"row\">Sep</th><td class=\"chart-data-num\">1</td></tr><tr><th scope=\"row\">Oct</th><td class=\"chart-data-num\">1.7</td></tr><tr><th scope=\"row\">Nov</th><td class=\"chart-data-num\">1</td></tr><tr><th scope=\"row\">Dec</th><td class=\"chart-data-num\">0.8</td></tr></tbody></table></div><p class=\"chart-method\">Source: NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (6.2 mi from Frisco). Retrieved November 15, 2026.</p>"
         },
         {
             "type": "service_area",
@@ -242,14 +242,23 @@
                 },
                 {
                     "label": "McKinney, TX",
-                    "url": null
+                    "url": "/locations/mckinney-tx__fire-damage-restoration"
                 }
             ]
         },
         {
             "type": "related_links",
             "heading": "Related Services",
-            "links": []
+            "links": [
+                {
+                    "label": "Water damage restoration",
+                    "url": "/locations/frisco-tx__water-damage-restoration"
+                },
+                {
+                    "label": "Smoke damage cleaning",
+                    "url": "/locations/frisco-tx__smoke-damage-cleaning"
+                }
+            ]
         }
     ],
     "schema_jsonld": {
