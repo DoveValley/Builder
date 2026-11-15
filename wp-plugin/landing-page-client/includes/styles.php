@@ -101,6 +101,15 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-safety-icon svg { width: 100%; height: 100%; display: block; }
 		.lpc-page .lpc-safety-link { display: inline-block; margin-top: 8px; font-size: .85rem; font-weight: 700; color: var(--lpc-primary); text-decoration: none; }
 		.lpc-page .lpc-safety-link:hover { text-decoration: underline; }
+		.lpc-page .lpc-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+		.lpc-page .lpc-comparison-col { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 18px 20px; }
+		.lpc-page .lpc-comparison-col h3 { margin: 0 0 10px; font-size: 1.05rem; }
+		.lpc-page .lpc-comparison-col ul { list-style: none; margin: 0; padding: 0; }
+		.lpc-page .lpc-comparison-col li { margin: 0 0 8px; padding-left: 22px; position: relative; }
+		.lpc-page .lpc-comparison-a h3 { color: var(--lpc-primary); }
+		.lpc-page .lpc-comparison-a li:before { content: "\2713"; position: absolute; left: 0; color: var(--lpc-primary); font-weight: 700; }
+		.lpc-page .lpc-comparison-b h3 { color: var(--lpc-accent); }
+		.lpc-page .lpc-comparison-b li:before { content: "\2715"; position: absolute; left: 0; color: var(--lpc-accent); font-weight: 700; }
 		.lpc-page .lpc-area-map img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; }
 		.lpc-page .lpc-btn {
 			display: inline-block; padding: 14px 28px; border-radius: 8px;

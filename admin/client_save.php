@@ -517,6 +517,10 @@ switch ($section) {
             $services   = $buildItems($_POST['svc_title'] ?? [], $_POST['svc_text'] ?? []);
             $seasonal   = $buildItems($_POST['seasonal_title'] ?? [], $_POST['seasonal_text'] ?? []);
 
+            $buildLines = fn($raw) => array_values(array_filter(array_map('trim', explode("\n", $raw ?? ''))));
+            $comparisonItemsA = $buildLines($_POST['comparison_items_a'] ?? '');
+            $comparisonItemsB = $buildLines($_POST['comparison_items_b'] ?? '');
+
             $faqQs = $_POST['faq_q'] ?? [];
             $faqAs = $_POST['faq_a'] ?? [];
             $faqs  = [];
@@ -575,6 +579,7 @@ switch ($section) {
                 // auto-computed at publish time from the niche profile.
                 ['type' => 'trust_bar', 'items' => $existingTrustBarItems],
                 ['type' => 'text', 'key' => 'city_intro', 'heading' => trim($_POST['city_intro_heading'] ?? ''), 'body' => trim($_POST['city_intro_body'] ?? '')],
+                ['type' => 'comparison', 'key' => 'comparison', 'heading' => trim($_POST['comparison_heading'] ?? ''), 'intro' => trim($_POST['comparison_intro'] ?? ''), 'label_a' => trim($_POST['comparison_label_a'] ?? ''), 'items_a' => $comparisonItemsA, 'label_b' => trim($_POST['comparison_label_b'] ?? ''), 'items_b' => $comparisonItemsB],
                 ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
                 ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],
                 ['type' => 'steps', 'key' => 'how_it_works', 'heading' => trim($_POST['steps_heading'] ?? ''), 'items' => $steps],

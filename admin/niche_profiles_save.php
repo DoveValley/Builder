@@ -51,6 +51,7 @@ if ($action === 'save') {
             'seasonal_calendar'     => trim($_POST['slot_seasonal_calendar'] ?? ''),
             'why_choose_us'         => trim($_POST['slot_why_choose_us'] ?? ''),
             'how_it_works'          => trim($_POST['slot_how_it_works'] ?? ''),
+            'comparison'            => trim($_POST['slot_comparison'] ?? ''),
         ],
         'default_services' => $defaultServices,
         'trust_bar_items' => array_values(array_filter(array_map('trim', explode("\n", $_POST['trust_bar_items'] ?? '')))),

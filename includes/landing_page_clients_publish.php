@@ -235,6 +235,16 @@ function lpc_preview_render($sections) {
             case 'text':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p></section>';
                 break;
+            case 'comparison':
+                if (empty($s['items_a']) && empty($s['items_b'])) break;
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '');
+                if (!empty($s['intro'])) $out .= '<p>' . h($s['intro']) . '</p>';
+                $out .= '<div><strong>' . h($s['label_a'] ?? '') . '</strong><ul>';
+                foreach ($s['items_a'] ?? [] as $item) $out .= '<li>' . h($item) . '</li>';
+                $out .= '</ul></div><div><strong>' . h($s['label_b'] ?? '') . '</strong><ul>';
+                foreach ($s['items_b'] ?? [] as $item) $out .= '<li>' . h($item) . '</li>';
+                $out .= '</ul></div></section>';
+                break;
             case 'highlights':
             case 'services_list':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';

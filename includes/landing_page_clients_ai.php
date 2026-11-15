@@ -5,12 +5,12 @@
  * "one module per service" rule) directly, rather than shelling out to the
  * niche fleet's generate.py — that script's whole pipeline is built around
  * `content_blocks` (39 flexible block types), a completely different output
- * shape than this feature's 12 fixed section types. The REUSABLE part of the
+ * shape than this feature's 13 fixed section types. The REUSABLE part of the
  * niche fleet's approach is the pattern, not the code: a tone/guardrails
  * system prompt + a `{var}`-filled user prompt + "return JSON only" +
  * defensive markdown-fence stripping (anthropic_message() does not do this
  * automatically, unlike generate.py's call_claude()). That pattern is what's
- * mirrored here, adapted to this feature's own 7 AI-authored section types
+ * mirrored here, adapted to this feature's own 8 AI-authored section types
  * (related_links, service_area, area_map, trust_bar, and safety_toolkit stay
  * separately auto-computed, never AI-generated).
  *
@@ -173,6 +173,10 @@ function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKey
         . "  \"hero\": {\"headline\": \"...\", \"subheading\": \"...\", \"cta_text\": \"...\"},\n"
         . "  \"meta_description\": \"... (max 155 characters, leads with the primary keyword, reads as a real search-result snippet)\",\n"
         . "  \"city_intro\": {\"heading\": \"...\", \"body\": \"2-3 sentences — what kind of place {$city} is, grounded in the real data above, not generic filler\"},\n"
+        . "  \"comparison\": {\"heading\": \"...\", \"intro\": \"1 sentence lead-in (optional, can be empty string)\", "
+        . "\"label_a\": \"short label for column A (2-4 words)\", \"items_a\": [\"short phrase\", \"short phrase\", \"short phrase\"], "
+        . "\"label_b\": \"short label for column B (2-4 words)\", \"items_b\": [\"short phrase\", \"short phrase\", \"short phrase\"] "
+        . "(" . $slot('comparison') . " — 3-5 short, concrete phrases per column, not full sentences)},\n"
         . "  \"feature_columns_local\": {\"heading\": \"...\", \"items\": [{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}, "
         . "{\"title\": \"...\", \"text\": \"...\"}] (" . $slot('feature_columns_local') . ")},\n"
         . "  \"local_relevance\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('local_relevance') . ")\"},\n"
@@ -232,6 +236,14 @@ function lpc_apply_ai_sections(&$page, $aiData) {
             case 'faq':
                 $section['heading'] = $src['heading'] ?? $section['heading'];
                 if (!empty($src['items']) && is_array($src['items'])) $section['items'] = $src['items'];
+                break;
+            case 'comparison':
+                $section['heading'] = $src['heading'] ?? $section['heading'];
+                $section['intro']   = $src['intro']   ?? $section['intro'];
+                $section['label_a'] = $src['label_a'] ?? $section['label_a'];
+                $section['label_b'] = $src['label_b'] ?? $section['label_b'];
+                if (!empty($src['items_a']) && is_array($src['items_a'])) $section['items_a'] = $src['items_a'];
+                if (!empty($src['items_b']) && is_array($src['items_b'])) $section['items_b'] = $src['items_b'];
                 break;
             case 'cta':
                 $section['heading']     = $src['heading'] ?? $section['heading'];

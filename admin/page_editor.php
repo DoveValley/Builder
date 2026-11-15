@@ -41,6 +41,7 @@ $sectionByKey = [];
 foreach ($page['sections'] as $s) { $sectionByKey[$s['key'] ?? $s['type']] = $s; }
 $hero            = $sectionByKey['hero'] ?? ['headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'cta_text' => '', 'phone' => ''];
 $cityIntro       = $sectionByKey['city_intro'] ?? ['heading' => '', 'body' => ''];
+$comparison      = $sectionByKey['comparison'] ?? ['heading' => '', 'intro' => '', 'label_a' => '', 'items_a' => [], 'label_b' => '', 'items_b' => []];
 $featureLocal    = $sectionByKey['feature_columns_local'] ?? ['heading' => '', 'items' => []];
 $localRelevance  = $sectionByKey['local_relevance'] ?? ['heading' => '', 'body' => ''];
 $howItWorks      = $sectionByKey['how_it_works'] ?? ['heading' => '', 'items' => []];
@@ -208,6 +209,24 @@ if ($preview) {
             <h3>City Intro <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(real per-city research — population, housing data)</span></h3>
             <div class="lpc-field"><label>Heading</label><input type="text" name="city_intro_heading" value="<?= h($cityIntro['heading']) ?>"></div>
             <div class="lpc-field"><label>Body</label><textarea name="city_intro_body"><?= h($cityIntro['body']) ?></textarea></div>
+        </div>
+
+        <div class="lpc-section">
+            <h3>Comparison Block <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(two-column "this vs that" — one short phrase per line in each column)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="comparison_heading" value="<?= h($comparison['heading']) ?>"></div>
+            <div class="lpc-field"><label>Intro (optional)</label><input type="text" name="comparison_intro" value="<?= h($comparison['intro']) ?>"></div>
+            <div class="lpc-field-row" style="display:flex;gap:16px;">
+                <div class="lpc-field" style="flex:1;">
+                    <label>Column A Label</label><input type="text" name="comparison_label_a" value="<?= h($comparison['label_a']) ?>">
+                    <label style="margin-top:8px;display:block;">Column A Items</label>
+                    <textarea name="comparison_items_a" placeholder="One short phrase per line"><?= h(implode("\n", $comparison['items_a'])) ?></textarea>
+                </div>
+                <div class="lpc-field" style="flex:1;">
+                    <label>Column B Label</label><input type="text" name="comparison_label_b" value="<?= h($comparison['label_b']) ?>">
+                    <label style="margin-top:8px;display:block;">Column B Items</label>
+                    <textarea name="comparison_items_b" placeholder="One short phrase per line"><?= h(implode("\n", $comparison['items_b'])) ?></textarea>
+                </div>
+            </div>
         </div>
 
         <div class="lpc-section">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 12 locked section types. Originally zero CSS/classes of our own
+ * Renders the 13 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -38,6 +38,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				break;
 			case 'trust_bar':
 				$html .= lpc_render_trust_bar( $section );
+				break;
+			case 'comparison':
+				$html .= lpc_render_comparison( $section );
 				break;
 			case 'text':
 				$html .= lpc_render_text( $section );
@@ -124,6 +127,43 @@ function lpc_render_trust_bar( $s ) {
 		$out .= '<li>&#10003; ' . esc_html( $item ) . '</li>';
 	}
 	$out .= '</ul></div>';
+	return $out;
+}
+
+/** Two-column educational "this vs that" block (e.g. "what survives a flood
+ *  vs what doesn't") — what the two columns represent is niche-specific
+ *  (AI-authored, like the other text/list slots). Checkmark/cross bullet
+ *  styling comes from CSS alone (nth-of-type), not per-item markup, so the
+ *  AI's plain item strings never need their own icon field. */
+function lpc_render_comparison( $s ) {
+	if ( empty( $s['items_a'] ) && empty( $s['items_b'] ) ) {
+		return '';
+	}
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	if ( ! empty( $s['intro'] ) ) {
+		$out .= '<p>' . esc_html( $s['intro'] ) . '</p>';
+	}
+	$out .= '<div class="lpc-comparison">';
+	foreach ( [ 'a', 'b' ] as $col ) {
+		$label = $s[ 'label_' . $col ] ?? '';
+		$items = (array) ( $s[ 'items_' . $col ] ?? [] );
+		if ( empty( $items ) ) {
+			continue;
+		}
+		$out .= '<div class="lpc-comparison-col lpc-comparison-' . $col . '">';
+		if ( $label ) {
+			$out .= '<h3>' . esc_html( $label ) . '</h3>';
+		}
+		$out .= '<ul>';
+		foreach ( $items as $item ) {
+			$out .= '<li>' . esc_html( $item ) . '</li>';
+		}
+		$out .= '</ul></div>';
+	}
+	$out .= '</div></section>';
 	return $out;
 }
 

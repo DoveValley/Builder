@@ -109,7 +109,7 @@ foreach (lpc_list_niche_profiles() as $id) {
 
         <h4 style="margin-top:18px;margin-bottom:4px;">Content Slots</h4>
         <p style="color:#6b7280;font-size:.8rem;margin:0 0 8px;">
-            Every page has the same 5 flexible content slots, but what they're ABOUT is niche-specific —
+            Every page has the same 6 flexible content slots, but what they're ABOUT is niche-specific —
             a restoration niche's "local relevance" slot is climate/flood-risk; a legal niche's might be
             local court/regulatory relevance instead. Leave blank to use a generic fallback instruction.
         </p>
@@ -133,6 +133,10 @@ foreach (lpc_list_niche_profiles() as $id) {
         <div class="form-group" style="margin-top:8px;">
             <label>How It Works <span style="font-weight:400;color:#6b7280;">(the real step-by-step process a customer goes through)</span></label>
             <input type="text" name="slot_how_it_works" value="<?= h($slots['how_it_works']) ?>">
+        </div>
+        <div class="form-group" style="margin-top:8px;">
+            <label>Comparison Block <span style="font-weight:400;color:#6b7280;">(the two-column "this vs that" educational block — what the two columns represent, specific to this niche)</span></label>
+            <input type="text" name="slot_comparison" value="<?= h($slots['comparison']) ?>">
         </div>
 
         <h4 style="margin-top:18px;margin-bottom:4px;">Default Services</h4>

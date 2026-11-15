@@ -31,7 +31,7 @@ function lpc_niche_profile_file($niche_id) {
 }
 
 /**
- * What each of a page's 5 flexible AI text/list slots means FOR THIS NICHE —
+ * What each of a page's 6 flexible AI text/list slots means FOR THIS NICHE —
  * same slot shape every vertical uses (page structure stays universal), but
  * the topic/framing per slot is niche-specific: a restoration niche's
  * `local_relevance` is "climate/flood-risk"; a legal niche's version of the
@@ -46,6 +46,12 @@ function lpc_default_content_slots() {
         'seasonal_calendar'     => '', // when demand for this service peaks through the year, for this niche
         'why_choose_us'         => '', // local trust/credibility framing specific to this niche
         'how_it_works'          => '', // the real step-by-step process a customer goes through
+        // The educational two-column comparison block (e.g. water restoration's
+        // "what survives a flood vs what doesn't", appliance repair's "worth
+        // repairing vs worth replacing") — what the two columns represent is
+        // genuinely different per niche, unlike the other slots above which
+        // just differ in framing/emphasis.
+        'comparison'            => '',
     ];
 }
 

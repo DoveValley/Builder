@@ -122,21 +122,21 @@ function lpc_default_page_data() {
             'primary_keyword'   => '',
             'secondary_keywords'=> [],
         ],
-        // 15 sections, up from the original 6 — real per-city research (census
+        // 16 sections, up from the original 6 — real per-city research (census
         // data) plus niche-injected framing needs room to breathe, matching the
-        // depth the niche fleet's own landing pages carry. Still only 12
+        // depth the niche fleet's own landing pages carry. Still only 13
         // DELIVERY types (plugin contract): 'highlights' and 'steps' are two
-        // new plain <ul>/<ol> lists, 'service_area'/'area_map'/'trust_bar'/
-        // 'safety_toolkit' are four more auto-computed (never AI-authored)
-        // additions — every element used across all 12 types is exactly what
-        // WordPress's block editor already produces for an ordinary post
-        // (plus one <img>), so it inherits any theme's own styling with zero
-        // custom CSS, same principle as the original 6 (verified live against
-        // Twenty Twenty-Three/Four/Five and Astra). Multiple 'text' sections
-        // need a 'key' to disambiguate which AI-authored content fills which —
-        // the plugin's renderer only ever looks at 'type', never 'key'
-        // (that's purely an admin/AI bookkeeping concern, invisible to
-        // delivery).
+        // new plain <ul>/<ol> lists, 'comparison' is a new AI-authored two-
+        // column type, 'service_area'/'area_map'/'trust_bar'/'safety_toolkit'
+        // are four more auto-computed (never AI-authored) additions — every
+        // element used across all 13 types is exactly what WordPress's block
+        // editor already produces for an ordinary post (plus one <img>), so it
+        // inherits any theme's own styling with zero custom CSS, same
+        // principle as the original 6 (verified live against Twenty
+        // Twenty-Three/Four/Five and Astra). Multiple 'text' sections need a
+        // 'key' to disambiguate which AI-authored content fills which — the
+        // plugin's renderer only ever looks at 'type', never 'key' (that's
+        // purely an admin/AI bookkeeping concern, invisible to delivery).
         'sections' => [
             ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null, 'cta_text' => '', 'phone' => ''],
             // Static per-niche checkmark phrases (lpc_default_trust_bar_items()
@@ -145,6 +145,14 @@ function lpc_default_page_data() {
             // never AI-authored or per-city.
             ['type' => 'trust_bar', 'items' => []],
             ['type' => 'text',       'key' => 'city_intro',            'heading' => '', 'body' => ''],
+            // Educational two-column "this vs that" block (e.g. water
+            // restoration's "what survives a flood vs what doesn't",
+            // appliance repair's "worth repairing vs worth replacing") — what
+            // the two columns represent is niche-specific (content_slots.
+            // comparison), AI-authored like the other text/list slots, new
+            // section type since nothing existing models two parallel
+            // labeled lists.
+            ['type' => 'comparison', 'key' => 'comparison', 'heading' => '', 'intro' => '', 'label_a' => '', 'items_a' => [], 'label_b' => '', 'items_b' => []],
             ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => '', 'items' => []],
             ['type' => 'text',       'key' => 'local_relevance',       'heading' => '', 'body' => ''],
             ['type' => 'steps',      'key' => 'how_it_works',          'heading' => '', 'items' => []],
