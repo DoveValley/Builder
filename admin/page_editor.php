@@ -178,6 +178,8 @@ if ($preview) {
 
         <div class="lpc-section">
             <h3>SEO</h3>
+            <div class="lpc-field"><label>Primary Keyword <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(this page's one target keyword — stays central in Regenerate, leads the title tag)</span></label><input type="text" name="primary_keyword" value="<?= h($page['seo']['primary_keyword']) ?>"></div>
+            <div class="lpc-field"><label>Secondary Keywords <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(comma-separated, woven in lightly — never at the primary keyword's expense)</span></label><input type="text" name="secondary_keywords" value="<?= h(implode(', ', $page['seo']['secondary_keywords'] ?? [])) ?>"></div>
             <div class="lpc-field"><label>Page Title</label><input type="text" name="page_title" value="<?= h($page['seo']['page_title']) ?>"></div>
             <div class="lpc-field"><label>Meta Description</label><textarea name="meta_description"><?= h($page['seo']['meta_description']) ?></textarea></div>
             <div class="lpc-field"><label>OG Image URL</label><input type="text" name="og_image" value="<?= h($page['seo']['og_image']) ?>"></div>

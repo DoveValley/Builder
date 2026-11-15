@@ -347,11 +347,27 @@ switch ($section) {
             $page = lpc_load_page($client_id, $pageId) ?? lpc_default_page_data();
             $wasPublished = ($page['status'] ?? '') === 'published';
 
+            // Never silently blank (same rule as the AI-generation path) — a
+            // cleared field falls back to whatever default/existing value
+            // would otherwise apply, rather than storing an empty keyword.
+            $primaryKeyword = trim($_POST['primary_keyword'] ?? '');
+            if ($primaryKeyword === '') {
+                [$_ctid, $_svcid] = array_pad(explode('__', $pageId, 2), 2, '');
+                $_target  = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $_ctid);
+                $_service = lpc_find_by_id($client['services'] ?? [], 'service_id', $_svcid);
+                $primaryKeyword = ($_target && $_service)
+                    ? lpc_default_primary_keyword($_service['label'], $_target['city'], $_target['state'])
+                    : $page['seo']['primary_keyword'];
+            }
+            $secondaryKeywords = array_values(array_filter(array_map('trim', explode(',', $_POST['secondary_keywords'] ?? ''))));
+
             $page['page_id'] = $pageId;
             $page['seo'] = [
-                'page_title'       => trim($_POST['page_title'] ?? ''),
-                'meta_description' => trim($_POST['meta_description'] ?? ''),
-                'og_image'         => trim($_POST['og_image'] ?? ''),
+                'page_title'         => trim($_POST['page_title'] ?? ''),
+                'meta_description'   => trim($_POST['meta_description'] ?? ''),
+                'og_image'           => trim($_POST['og_image'] ?? ''),
+                'primary_keyword'    => $primaryKeyword,
+                'secondary_keywords' => $secondaryKeywords,
             ];
 
             $svcTitles = $_POST['svc_title'] ?? [];

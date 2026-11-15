@@ -99,6 +99,15 @@ function lpc_default_page_data() {
             'page_title'      => '',
             'meta_description'=> '',
             'og_image'        => '',
+            // Never silently blank — lpc_generate_page_content() and
+            // lpc_generate_drafts_for_target_city() both fill a default
+            // ("{service} in {city}, {state}") the first time a page is
+            // created if this is empty, same gotcha already hit for real on
+            // the niche fleet (an empty primary_keyword silently degrades
+            // every AI-generated section, see feedback_primary_keyword_drives
+            // _ai_prompt_quality in memory).
+            'primary_keyword'   => '',
+            'secondary_keywords'=> [],
         ],
         'sections' => [
             ['type' => 'hero',           'headline' => '', 'subheading' => '', 'image' => '', 'cta_text' => '', 'phone' => ''],

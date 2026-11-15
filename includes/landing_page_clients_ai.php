@@ -51,13 +51,33 @@ function lpc_ai_system_prompt($client, $niche_brief) {
         $parts[] = 'Never mention: ' . implode('; ', $client['content_profile']['never_mention']) . '.';
     }
     $parts[] = 'Never invent a phone number, street address, review count, or statistic — omit rather than fabricate.';
+    $parts[] = 'Every page targets one primary keyword, stated in the prompt below. Keep that keyword\'s subject '
+             . 'the clear, central focus of every section — secondary keywords get a light natural mention at most, '
+             . 'never at the expense of the primary keyword\'s focus, and never stuffed.';
     $parts[] = 'Output ONLY valid JSON matching the exact shape requested. No markdown code fences, no commentary before or after.';
 
     return implode("\n\n", $parts);
 }
 
-function lpc_ai_user_prompt($business, $city, $state, $serviceLabel) {
+/** Never silently blank (see lpc_default_client_data()'s seo.primary_keyword
+ *  comment) — the one default every page's primary_keyword falls back to the
+ *  first time it's generated, if nothing was set by hand first. */
+function lpc_default_primary_keyword($serviceLabel, $city, $state) {
+    return $serviceLabel . ' in ' . $city . ', ' . $state;
+}
+
+function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKeyword, $secondaryKeywords = []) {
+    $secondaryLine = '';
+    if (!empty($secondaryKeywords)) {
+        $secondaryLine = "Secondary phrases — weave in naturally ONLY where they truly fit, skip any that don't, "
+            . "never force them, never let them compete with the primary keyword for focus: "
+            . implode('; ', $secondaryKeywords) . ".\n\n";
+    }
+
     return "Write landing page copy for {$business}'s {$serviceLabel} service in {$city}, {$state}.\n\n"
+        . "Primary keyword: \"{$primaryKeyword}\" — this page exists to rank for it. This phrase's subject must "
+        . "read as the clear, dominant focus of every section below, stated naturally (not stuffed).\n\n"
+        . $secondaryLine
         . "Return this exact JSON shape, every field filled with specific copy that names {$city} where natural "
         . "(not generic boilerplate that could apply to any city):\n\n"
         . "{\n"
@@ -149,9 +169,20 @@ function lpc_generate_page_content($client_id, $page_id) {
     if (!$target || !$service) return ['ok' => false, 'msg' => 'This page is not a confirmed target city/service.'];
     $hub = lpc_find_by_id($client['hubs'] ?? [], 'hub_id', $target['served_by_hub'] ?? null);
 
+    // Computed before the AI call (not after) so the prompt itself targets
+    // whatever keyword this page actually has — a manually-set keyword from
+    // a prior edit is preserved, never overwritten by Regenerate.
+    $page = $existing ?? lpc_default_page_data();
+    if (empty($page['seo']['primary_keyword'])) {
+        $page['seo']['primary_keyword'] = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
+    }
+
     $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
     $system = lpc_ai_system_prompt($client, $niche_brief);
-    $user   = lpc_ai_user_prompt($client['identity']['business_name'], $target['city'], $target['state'], $service['label']);
+    $user   = lpc_ai_user_prompt(
+        $client['identity']['business_name'], $target['city'], $target['state'], $service['label'],
+        $page['seo']['primary_keyword'], $page['seo']['secondary_keywords'] ?? []
+    );
 
     $result = anthropic_message($user, ['model' => ANTHROPIC_SMART, 'max_tokens' => 3000, 'system' => $system, 'no_thinking' => true]);
     if (!$result['ok']) return ['ok' => false, 'msg' => $result['error']];
@@ -159,7 +190,6 @@ function lpc_generate_page_content($client_id, $page_id) {
     $json = json_decode(lpc_strip_json_fences($result['text']), true);
     if (!is_array($json)) return ['ok' => false, 'msg' => 'AI response was not valid JSON.'];
 
-    $page = $existing ?? lpc_default_page_data();
     $wasPublished = ($page['status'] ?? '') === 'published';
 
     lpc_apply_ai_sections($page, $json);
@@ -169,8 +199,10 @@ function lpc_generate_page_content($client_id, $page_id) {
     $page['created_at'] = $page['created_at'] ?: gmdate('c');
     $page['updated_at'] = gmdate('c');
     $page['status']     = $wasPublished ? 'needs_update' : 'draft';
+    // Primary keyword leads the title tag, per the standing SEO rule — not
+    // just "contains" it, first in word order.
     if (!$page['seo']['page_title']) {
-        $page['seo']['page_title'] = $service['label'] . ' in ' . $target['city'] . ', ' . $target['state'] . ' | ' . $client['identity']['business_name'];
+        $page['seo']['page_title'] = $page['seo']['primary_keyword'] . ' | ' . $client['identity']['business_name'];
     }
 
     lpc_save_page($client_id, $page_id, $page);
@@ -197,15 +229,16 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
     $excluded = $client['content_profile']['excluded_services'] ?? [];
 
     $prompts = [];
-    $servicesByPageId = [];
+    $keywordsByPageId = [];
     foreach ($target['services'] ?? [] as $serviceId) {
         if (in_array($serviceId, $excluded, true)) continue;
         $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $serviceId);
         if (!$service) continue;
         $pageId = $city_id . '__' . $serviceId;
         if (lpc_load_page($client_id, $pageId)) continue; // never clobber an already-authored page
-        $prompts[$pageId] = lpc_ai_user_prompt($client['identity']['business_name'], $target['city'], $target['state'], $service['label']);
-        $servicesByPageId[$pageId] = $service;
+        $keyword = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
+        $prompts[$pageId] = lpc_ai_user_prompt($client['identity']['business_name'], $target['city'], $target['state'], $service['label'], $keyword);
+        $keywordsByPageId[$pageId] = $keyword;
     }
     if (!$prompts) return ['ok' => true, 'msg' => '', 'generated' => 0, 'attempted' => 0];
 
@@ -220,7 +253,6 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         $json = json_decode(lpc_strip_json_fences($text), true);
         if (!is_array($json)) continue;
 
-        $service = $servicesByPageId[$pageId];
         $page = lpc_default_page_data();
         lpc_apply_ai_sections($page, $json);
         lpc_fill_real_phone($page, $hub);
@@ -228,7 +260,8 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         $page['created_at'] = gmdate('c');
         $page['updated_at'] = $page['created_at'];
         $page['status']     = 'draft';
-        $page['seo']['page_title'] = $service['label'] . ' in ' . $target['city'] . ', ' . $target['state'] . ' | ' . $client['identity']['business_name'];
+        $page['seo']['primary_keyword'] = $keywordsByPageId[$pageId];
+        $page['seo']['page_title'] = $keywordsByPageId[$pageId] . ' | ' . $client['identity']['business_name'];
         lpc_save_page($client_id, $pageId, $page);
         $generated++;
     }
