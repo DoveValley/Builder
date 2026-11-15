@@ -132,7 +132,7 @@ function lpc_compute_related_links($client, $page_id) {
  * rather than being hand-typed or AI-authored.
  */
 function lpc_compute_service_area($client, $page_id) {
-    [$city_id, ] = array_pad(explode('__', $page_id, 2), 2, '');
+    [$city_id, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
     $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
     if (!$target) return ['city' => '', 'state' => '', 'office_city' => '', 'nearby_cities' => []];
 
@@ -142,11 +142,27 @@ function lpc_compute_service_area($client, $page_id) {
     // ucwords() here only, so the raw field isn't silently rewritten on save.
     $officeCity = $hub ? trim(ucwords($hub['address']['city'] ?? '') . ', ' . ($hub['address']['state'] ?? ''), ', ') : '';
 
+    // Real links, 2026-11-15 — same-service, nearby-city (the "city cluster"
+    // pattern), same safety rule lpc_compute_related_links() already proves
+    // out: only ever link to a page that's actually published, never a
+    // guess. A nearby city without that service published yet still shows
+    // (label with no url) — service-area breadth is real information even
+    // before every combination has its own page; it just isn't a link yet.
+    $basePath = rtrim($client['delivery']['base_path'] ?? '/locations', '/');
     $nearby = [];
     foreach ($client['target_cities'] ?? [] as $tc) {
         if ($tc['city_id'] === $city_id) continue;
         if (($tc['served_by_hub'] ?? null) !== ($target['served_by_hub'] ?? null)) continue;
-        $nearby[] = trim(($tc['city'] ?? '') . ', ' . ($tc['state'] ?? ''), ', ');
+        $label = trim(($tc['city'] ?? '') . ', ' . ($tc['state'] ?? ''), ', ');
+        $url = null;
+        if ($service_id !== '' && in_array($service_id, $tc['services'] ?? [], true)) {
+            $siblingPageId = $tc['city_id'] . '__' . $service_id;
+            $siblingPage = lpc_load_page($client['client_id'], $siblingPageId);
+            if ($siblingPage && $siblingPage['status'] === 'published') {
+                $url = $basePath . '/' . $siblingPageId;
+            }
+        }
+        $nearby[] = ['label' => $label, 'url' => $url];
     }
 
     return [
@@ -264,7 +280,10 @@ function lpc_preview_render($sections) {
                 $out .= '<ul>';
                 if (!empty($s['state'])) $out .= '<li>State: ' . h($s['state']) . '</li>';
                 if (!empty($s['office_city'])) $out .= '<li>Office City: ' . h($s['office_city']) . '</li>';
-                if (!empty($s['nearby_cities'])) $out .= '<li>Nearby Cities: ' . h(implode(', ', $s['nearby_cities'])) . '</li>';
+                if (!empty($s['nearby_cities'])) {
+                    $parts = array_map(fn($nc) => $nc['url'] ? '<a href="' . h($nc['url']) . '">' . h($nc['label']) . '</a>' : h($nc['label']), $s['nearby_cities']);
+                    $out .= '<li>Nearby Cities: ' . implode(', ', $parts) . '</li>'; // phpcs:ignore -- each part already escaped above
+                }
                 $out .= '</ul></section>';
                 break;
             case 'area_map':

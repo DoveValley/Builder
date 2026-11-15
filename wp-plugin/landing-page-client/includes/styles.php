@@ -127,6 +127,7 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-fact-list div { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 14px 18px; min-width: 180px; }
 		.lpc-page .lpc-fact-list dt { font-size: .76rem; text-transform: uppercase; letter-spacing: .03em; opacity: .65; margin: 0 0 4px; }
 		.lpc-page .lpc-fact-list dd { margin: 0; font-weight: 600; }
+		.lpc-page .lpc-fact-list dd a { color: var(--lpc-primary); text-decoration: underline; }
 		.lpc-page .lpc-hub-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 		.lpc-page .lpc-hub-item a {
 			display: block; border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary);

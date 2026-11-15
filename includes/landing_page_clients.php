@@ -176,8 +176,10 @@ function lpc_default_page_data() {
             // Auto-computed at publish time (lpc_compute_service_area()), never
             // hand-authored or AI-generated — same "always recomputed fresh from
             // client.json, not just filled once" rule related_links already
-            // follows below. Plain facts only (state/office city/nearby cities,
-            // no links yet — deliberately parked, see project memory).
+            // follows below. State/office city are plain text; nearby_cities
+            // links to that same service's page in the nearby city when one
+            // is actually published (same safety rule related_links uses),
+            // falling back to plain text otherwise.
             ['type' => 'service_area',   'heading'  => 'Our Service Area', 'intro' => '', 'state' => '', 'office_city' => '', 'nearby_cities' => []],
             ['type' => 'related_links',  'heading'  => '', 'links' => []],
         ],

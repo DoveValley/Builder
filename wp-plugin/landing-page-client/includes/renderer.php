@@ -265,11 +265,12 @@ function lpc_render_area_map( $s ) {
 	return $out;
 }
 
-/** Plain facts — state, office city, nearby cities — never links (that's a
- *  deliberately parked follow-up, see rewrite.php's locked-section-types
- *  comment history). A definition-list reads as "facts," not a nav menu the
- *  way lpc-pill-list does, which matters here since none of this is
- *  clickable. */
+/** Plain facts — state, office city, nearby cities. Nearby cities now link to
+ *  the same service's page in that city when one is actually published
+ *  (added 2026-11-15, was deliberately plain text at first — see
+ *  lpc_compute_service_area() in the admin backend for the "never link to a
+ *  page that doesn't exist" safety rule) and fall back to plain text
+ *  otherwise, same "real info even before every page exists" reasoning. */
 function lpc_render_service_area( $s ) {
 	if ( empty( $s['state'] ) && empty( $s['office_city'] ) && empty( $s['nearby_cities'] ) ) {
 		return '';
@@ -289,7 +290,14 @@ function lpc_render_service_area( $s ) {
 		$out .= '<div><dt>Office City</dt><dd>' . esc_html( $s['office_city'] ) . '</dd></div>';
 	}
 	if ( ! empty( $s['nearby_cities'] ) ) {
-		$out .= '<div><dt>Nearby Cities</dt><dd>' . esc_html( implode( ', ', (array) $s['nearby_cities'] ) ) . '</dd></div>';
+		$parts = array_map(
+			function ( $nc ) {
+				$label = esc_html( $nc['label'] ?? '' );
+				return ! empty( $nc['url'] ) ? '<a href="' . esc_url( $nc['url'] ) . '">' . $label . '</a>' : $label;
+			},
+			(array) $s['nearby_cities']
+		);
+		$out .= '<div><dt>Nearby Cities</dt><dd>' . implode( ', ', $parts ) . '</dd></div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- each part already escaped above.
 	}
 	$out .= '</dl></section>';
 	return $out;
