@@ -417,6 +417,21 @@ switch ($section) {
             }
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
+        } elseif ($action === 'fetch_climate_data') {
+            // Per CITY, not per page — the underlying NOAA chart is the same
+            // for every service at a city (a client only has one niche, which
+            // is what picks the chart), and the result is shared-cached by
+            // city_id + chart id regardless of which page's editor triggered
+            // it. A per-page button (the original placement) would have shown
+            // a separate "Fetch" action on every service at the same city,
+            // each doing the identical fetch into the identical cache entry —
+            // real external cost/slowness with no benefit to repeating it.
+            $cityId = $_POST['city_id'] ?? '';
+            $nicheBrief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+            $result = lpc_fetch_climate_data($cityId, $nicheBrief['niche_id'] ?? '');
+            $msg = $result['ok'] ? 'success:' . urlencode($result['msg']) : 'error:' . urlencode($result['msg']);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
         } elseif ($action === 'toggle_service') {
             // Closes a real gap: today a service applies to every city or
             // none (client-wide exclude only) — there's never been a way to
@@ -672,19 +687,6 @@ switch ($section) {
                 $msg = 'success:Checked+' . $result['checked'] . '+page(s)';
             }
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=' . $msg);
-            exit;
-        } elseif ($action === 'fetch_climate_data') {
-            // Real NOAA network call, explicit opt-in — same "real external
-            // data, not automatic" reasoning as the wizard's own "Fetch
-            // Keyword Data" button. Shared cache keyed by city_id, so this
-            // only ever costs a real fetch once per city, not once per
-            // client/page.
-            $pageId = trim($_POST['page_id'] ?? '');
-            [$cityId, ] = array_pad(explode('__', $pageId, 2), 2, '');
-            $nicheBrief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
-            $result = lpc_fetch_climate_data($cityId, $nicheBrief['niche_id'] ?? '');
-            $msg = $result['ok'] ? 'success:' . urlencode($result['msg']) : 'error:' . urlencode($result['msg']);
-            header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
             exit;
         } elseif ($action === 'regenerate_ai') {
             $pageId = trim($_POST['page_id'] ?? '');

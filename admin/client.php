@@ -273,6 +273,15 @@ $apiKey = lpc_get_client_api_key($client_id);
             <p style="color:#6b7280;font-size:.88rem;">No target cities yet — add some from the suggestions below.</p>
         <?php else: ?>
             <?php
+            // Climate Data (data_chart section) is per CITY, not per page — the
+            // chart is the same for every service at a city (a client has one
+            // niche, which is what picks it), result shared-cached by
+            // city_id+chart id. Computed once here, not per-row, so the loop
+            // below just does an array lookup.
+            $clientNicheBrief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+            $clientChartDef   = lpc_chart_definition_for_niche($clientNicheBrief['niche_id'] ?? '');
+            $climateCache     = $clientChartDef ? lpc_climate_cache_load() : [];
+
             // System tier — pure aggregation over data already in target_cities[]/
             // pages on disk, same "totals bar" pattern as the top-level Client List
             // screen. One pass before the table so the bar can render above it.
@@ -327,6 +336,17 @@ $apiKey = lpc_get_client_api_key($client_id);
                             <input type="hidden" name="tc_action" value="check_demand">
                             <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
                             <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;" onclick="return confirm('Check real keyword demand for every service at this city? Real DataForSEO cost.');">&#128176; Check Demand</button>
+                        </form>
+                        <?php endif; ?>
+                        <?php if ($clientChartDef): $hasClimate = isset($climateCache[$tc['city_id'] . '__' . $clientChartDef['id']]); ?>
+                        <form method="post" action="client_save.php" style="margin:4px 0 0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="target_cities">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="tc_action" value="fetch_climate_data">
+                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                            <span class="lpc-badge <?= $hasClimate ? 'lpc-badge-connected' : 'lpc-badge-never' ?>" style="margin-right:4px;"><?= $hasClimate ? 'Climate &#10003;' : 'No Climate Data' ?></span>
+                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;">&#9729;&#65039; <?= $hasClimate ? 'Re-fetch' : 'Fetch' ?></button>
                         </form>
                         <?php endif; ?>
                     </td>

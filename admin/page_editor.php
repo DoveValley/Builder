@@ -166,16 +166,6 @@ if ($preview) {
             <?php else: ?>
             <button type="button" class="btn-sm-outline" disabled title="Not a confirmed target city/service — nothing to generate from">Regenerate</button>
             <?php endif; ?>
-            <?php if ($canRegenerate): ?>
-            <form method="post" action="client_save.php" style="margin:0;">
-                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                <input type="hidden" name="section" value="pages">
-                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                <input type="hidden" name="page_action" value="fetch_climate_data">
-                <input type="hidden" name="page_id" value="<?= h($page_id) ?>">
-                <button type="submit" class="btn-sm-outline" title="Real NOAA fetch — free, but a real network call; cached per city so this only ever costs once">&#9729;&#65039; Fetch Climate Data</button>
-            </form>
-            <?php endif; ?>
             <?php if (!$isNew): ?>
             <form method="post" action="client_save.php" style="margin:0;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
