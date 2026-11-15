@@ -312,6 +312,14 @@ function lpc_publish_page($client_id, $page_id) {
         }
     }
     unset($section);
+
+    // Re-resolved at publish time, not just at generation time, so a service's
+    // image can change later and reach already-drafted pages on their next
+    // publish without needing an AI Regenerate — only fills blanks, so a
+    // manual per-page image override is never overwritten.
+    [, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
+    $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $service_id);
+    if ($service) lpc_fill_service_image($page, $client_id, $service);
     $page['status']        = 'published';
     $page['published_at']  = $page['published_at'] ?: gmdate('c');
     $page['updated_at']    = gmdate('c');

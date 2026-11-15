@@ -240,6 +240,73 @@ switch ($section) {
             exit;
         }
 
+        if (($_POST['service_action'] ?? '') === 'upload_image') {
+            $serviceId = $_POST['service_id'] ?? '';
+            $file = $_FILES['service_image'] ?? null;
+            if (!$file || $file['error'] !== UPLOAD_ERR_OK) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:No+file+uploaded');
+                exit;
+            }
+            $filename = lpc_upload_service_image($client_id, $file['tmp_name'], $file['name']);
+            if ($filename === false) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Upload+failed+-+check+file+type%2Fsize');
+                exit;
+            }
+            foreach ($client['services'] as &$s) {
+                if ($s['service_id'] !== $serviceId) continue;
+                $s['image_real'] = $filename;
+                $s['image_active'] = 'real'; // a fresh upload becomes active immediately, same as Pic Drop's own "newest wins" default
+                break;
+            }
+            unset($s);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Image+uploaded');
+            exit;
+        }
+
+        if (($_POST['service_action'] ?? '') === 'generate_image') {
+            $serviceId = $_POST['service_id'] ?? '';
+            $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $serviceId);
+            if (!$service) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Service+not+found');
+                exit;
+            }
+            $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+            $result = lpc_generate_service_image($client_id, $service['label'], $niche_brief);
+            if (!$result['ok']) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:' . urlencode($result['msg']));
+                exit;
+            }
+            foreach ($client['services'] as &$s) {
+                if ($s['service_id'] !== $serviceId) continue;
+                $s['image_ai'] = $result['filename'];
+                $s['image_active'] = 'ai';
+                break;
+            }
+            unset($s);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:AI+image+generated');
+            exit;
+        }
+
+        if (($_POST['service_action'] ?? '') === 'set_active_image') {
+            $serviceId = $_POST['service_id'] ?? '';
+            $which = $_POST['which'] ?? '';
+            if (!in_array($which, ['real', 'ai'], true)) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Invalid+selection');
+                exit;
+            }
+            foreach ($client['services'] as &$s) {
+                if ($s['service_id'] !== $serviceId) continue;
+                $s['image_active'] = $which;
+                break;
+            }
+            unset($s);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Active+image+switched');
+            exit;
+        }
+
         $label = trim($_POST['service_label'] ?? '');
         if ($label === '') {
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Service+name+cannot+be+empty');

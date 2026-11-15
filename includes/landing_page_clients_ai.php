@@ -194,6 +194,7 @@ function lpc_generate_page_content($client_id, $page_id) {
 
     lpc_apply_ai_sections($page, $json);
     lpc_fill_real_phone($page, $hub);
+    lpc_fill_service_image($page, $client_id, $service);
 
     $page['page_id']    = $page_id;
     $page['created_at'] = $page['created_at'] ?: gmdate('c');
@@ -230,6 +231,7 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
 
     $prompts = [];
     $keywordsByPageId = [];
+    $servicesByPageId = [];
     foreach ($target['services'] ?? [] as $serviceId) {
         if (in_array($serviceId, $excluded, true)) continue;
         $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $serviceId);
@@ -239,6 +241,7 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         $keyword = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
         $prompts[$pageId] = lpc_ai_user_prompt($client['identity']['business_name'], $target['city'], $target['state'], $service['label'], $keyword);
         $keywordsByPageId[$pageId] = $keyword;
+        $servicesByPageId[$pageId] = $service;
     }
     if (!$prompts) return ['ok' => true, 'msg' => '', 'generated' => 0, 'attempted' => 0];
 
@@ -256,6 +259,7 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         $page = lpc_default_page_data();
         lpc_apply_ai_sections($page, $json);
         lpc_fill_real_phone($page, $hub);
+        lpc_fill_service_image($page, $client_id, $servicesByPageId[$pageId]);
         $page['page_id']    = $pageId;
         $page['created_at'] = gmdate('c');
         $page['updated_at'] = $page['created_at'];

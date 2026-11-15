@@ -24,6 +24,7 @@ require_once __DIR__ . '/landing_page_clients_reporting.php';
 require_once __DIR__ . '/landing_page_clients_niches.php';
 require_once __DIR__ . '/landing_page_clients_ai.php';
 require_once __DIR__ . '/landing_page_clients_detect.php';
+require_once __DIR__ . '/landing_page_clients_media.php';
 require_once __DIR__ . '/google_search_console.php';
 require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';

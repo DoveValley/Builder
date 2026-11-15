@@ -198,25 +198,69 @@ $apiKey = lpc_get_client_api_key($client_id);
     <?php elseif ($tab === 'locations'): ?>
 
         <h3 style="margin-top:28px;">Services</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-            <?php foreach ($client['services'] as $s): ?>
-                <span class="lpc-badge" style="background:#eef2ff;color:#3730a3;display:inline-flex;align-items:center;gap:6px;">
-                    <?= h($s['label']) ?>
-                    <form method="post" action="client_save.php" style="margin:0;display:inline;" onsubmit="return confirm('Remove this service? It disappears from the city matrix — any already-generated pages stay on disk and come back if you re-add the same service.');">
-                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                        <input type="hidden" name="section" value="services">
-                        <input type="hidden" name="service_action" value="remove">
-                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                        <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
-                        <button type="submit" style="background:none;border:none;color:#3730a3;cursor:pointer;font-weight:700;padding:0;line-height:1;" title="Remove service">&times;</button>
-                    </form>
-                </span>
-            <?php endforeach; ?>
-            <?php if (empty($client['services'])): ?>
-                <span style="color:#6b7280;font-size:.85rem;">No services yet.</span>
-            <?php endif; ?>
-        </div>
-        <form method="post" action="client_save.php" class="lpc-form-row" style="margin-top:0;">
+        <p style="color:#6b7280;font-size:.82rem;margin:0 0 10px;">
+            One image per service, shared by every city's page for it (a photo of "water damage cleanup"
+            looks the same regardless of which city it's on — unlike text, there's no real per-city
+            variation to capture). Falls back to a placeholder until a real or AI image is set.
+        </p>
+        <?php foreach ($client['services'] as $s):
+            $hasReal = !empty($s['image_real']);
+            $hasAi   = !empty($s['image_ai']);
+            $active  = $s['image_active'] ?? '';
+            $thumbUrl = lpc_resolve_service_image($client_id, $s);
+        ?>
+            <div class="lpc-row" style="align-items:flex-start;">
+                <img src="<?= h($thumbUrl) ?>" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;flex-shrink:0;">
+                <div style="flex:1;">
+                    <strong><?= h($s['label']) ?></strong>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px;">
+                        <form method="post" action="client_save.php" enctype="multipart/form-data" style="margin:0;display:flex;gap:6px;align-items:center;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="services">
+                            <input type="hidden" name="service_action" value="upload_image">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                            <input type="file" name="service_image" accept="image/*" style="font-size:.74rem;max-width:160px;">
+                            <button type="submit" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">Upload</button>
+                        </form>
+                        <form method="post" action="client_save.php" style="margin:0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="services">
+                            <input type="hidden" name="service_action" value="generate_image">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                            <button type="submit" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;" onclick="return confirm('Generate an AI photo for this service? Real OpenAI image cost.');">&#128176; Generate AI</button>
+                        </form>
+                        <?php if ($hasReal && $hasAi): ?>
+                        <form method="post" action="client_save.php" style="margin:0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="services">
+                            <input type="hidden" name="service_action" value="set_active_image">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                            <input type="hidden" name="which" value="<?= $active === 'real' ? 'ai' : 'real' ?>">
+                            <button type="submit" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">Switch to <?= $active === 'real' ? 'AI' : 'Real' ?> photo</button>
+                        </form>
+                        <?php endif; ?>
+                        <span style="color:#9ca3af;font-size:.72rem;">
+                            <?= $active === '' ? 'No image set — showing placeholder' : ('Active: ' . ($active === 'real' ? 'uploaded photo' : 'AI-generated')) ?>
+                        </span>
+                        <form method="post" action="client_save.php" style="margin:0;" onsubmit="return confirm('Remove this service? It disappears from the city matrix — any already-generated pages stay on disk and come back if you re-add the same service.');">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="services">
+                            <input type="hidden" name="service_action" value="remove">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                            <button type="submit" class="btn-sm-danger" style="font-size:.74rem;padding:3px 8px;margin-left:auto;">Remove Service</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if (empty($client['services'])): ?>
+            <p style="color:#6b7280;font-size:.85rem;">No services yet.</p>
+        <?php endif; ?>
+        <form method="post" action="client_save.php" class="lpc-form-row" style="margin-top:10px;">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="section" value="services">
             <input type="hidden" name="client_id" value="<?= h($client_id) ?>">

@@ -219,7 +219,19 @@ function upload_image_indexed($fieldName, $index, $prefix) {
     return save_uploaded_file($_FILES[$fieldName]['tmp_name'][$index], $prefix, $_FILES[$fieldName]['name'][$index] ?? '');
 }
 
-function save_uploaded_file($tmpPath, $prefix, $origName = '') {
+/**
+ * $uploadDir/$uploadUrl default to the active site's own constants (every
+ * existing caller's exact prior behavior, unchanged) — only a caller that
+ * explicitly needs a DIFFERENT destination (Landing Page Clients' per-client
+ * image dir, which isn't part of the site-selection/ACTIVE_SITE_DIR model at
+ * all) passes its own. Reuses this function's real validation/conversion
+ * logic (size cap, MIME sniffing, WebP conversion, SVG sanitization) rather
+ * than risking a second, drifting copy of security-relevant code.
+ */
+function save_uploaded_file($tmpPath, $prefix, $origName = '', $uploadDir = null, $uploadUrl = null) {
+    $uploadDir ??= UPLOAD_DIR;
+    $uploadUrl ??= UPLOAD_URL;
+
     // Raster types get converted → WebP. GIF and SVG are passed through unchanged.
     $raster    = ['image/jpeg', 'image/png', 'image/webp'];
     $passthru  = ['image/gif' => 'gif', 'image/svg+xml' => 'svg'];
@@ -232,7 +244,7 @@ function save_uploaded_file($tmpPath, $prefix, $origName = '') {
     finfo_close($finfo);
     if (!in_array($mime, $raster) && !isset($passthru[$mime])) return false;
 
-    if (!is_dir(UPLOAD_DIR)) mkdir(UPLOAD_DIR, 0775, true);
+    if (!is_dir($uploadDir)) mkdir($uploadDir, 0775, true);
 
     // Whatever the uploader's own file was named carries real local-SEO signal when
     // it's descriptive (e.g. "dallas-water-damage.jpg") — same reasoning the AI photo
@@ -248,7 +260,7 @@ function save_uploaded_file($tmpPath, $prefix, $origName = '') {
     // GIF — move as-is, no processing
     if ($mime === 'image/gif') {
         $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.gif';
-        return move_uploaded_file($tmpPath, UPLOAD_DIR . $filename) ? UPLOAD_URL . $filename : false;
+        return move_uploaded_file($tmpPath, $uploadDir . $filename) ? $uploadUrl . $filename : false;
     }
 
     // SVG — strip scripts/event handlers before saving (SVGs can carry embedded JS)
@@ -256,12 +268,12 @@ function save_uploaded_file($tmpPath, $prefix, $origName = '') {
         $svg = sanitize_svg(file_get_contents($tmpPath));
         if ($svg === false) return false;
         $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.svg';
-        return file_put_contents(UPLOAD_DIR . $filename, $svg) !== false ? UPLOAD_URL . $filename : false;
+        return file_put_contents($uploadDir . $filename, $svg) !== false ? $uploadUrl . $filename : false;
     }
 
     // Raster — resize to max 1800px wide and convert to WebP via GD
     $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.webp';
-    $dest     = UPLOAD_DIR . $filename;
+    $dest     = $uploadDir . $filename;
 
     if (extension_loaded('gd') && function_exists('imagewebp')) {
         $src = match($mime) {
@@ -285,14 +297,14 @@ function save_uploaded_file($tmpPath, $prefix, $origName = '') {
             }
             $ok = imagewebp($src, $dest, 82);
             imagedestroy($src);
-            if ($ok) return UPLOAD_URL . $filename;
+            if ($ok) return $uploadUrl . $filename;
         }
     }
 
     // GD fallback — move original file without processing
     $origExt  = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'][$mime];
     $fallback = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $origExt;
-    return move_uploaded_file($tmpPath, UPLOAD_DIR . $fallback) ? UPLOAD_URL . $fallback : false;
+    return move_uploaded_file($tmpPath, $uploadDir . $fallback) ? $uploadUrl . $fallback : false;
 }
 
 /**
