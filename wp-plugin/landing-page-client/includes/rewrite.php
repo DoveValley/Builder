@@ -140,6 +140,41 @@ function lpc_handle_route() {
 		}
 	}
 
+	// Canonical tag — a real gap found testing RankMath, then a real
+	// duplication bug found testing Yoast (2026-11-15). WP core's own
+	// rel_canonical() only fires for a real singular post/page object, and
+	// this route is neither, so by default nothing prints one. The three
+	// scenarios turned out to NOT behave the same, confirmed by direct test:
+	//   - No SEO plugin: nothing prints a canonical — safe to echo our own.
+	//   - RankMath: also prints nothing for this route (its canonical code
+	//     path never runs here) — safe to echo our own directly too.
+	//   - Yoast: DOES still run its own canonical logic here, same as it
+	//     does for meta description/og tags — but with no real post to
+	//     anchor to, it falls back to home_url() and prints THAT, which is
+	//     wrong for this page. A first unconditional-echo attempt produced
+	//     TWO canonical tags (Yoast's wrong one first, ours second) — a real
+	//     duplicate, and since crawlers generally take the first tag as
+	//     authoritative, Yoast's incorrect one would likely have won.
+	// Fix: hook Yoast's own wpseo_canonical filter (confirmed to actually
+	// fire on this route, unlike RankMath's filter) so Yoast itself prints
+	// the correct value with zero duplication; echo directly everywhere else.
+	if ( $slug !== '' ) {
+		$canonical_url = home_url( trim( get_option( 'lpc_base_path', '/locations' ), '/' ) . '/' . $slug . '/' );
+		if ( defined( 'WPSEO_VERSION' ) ) {
+			add_filter( 'wpseo_canonical', function () use ( $canonical_url ) {
+				return $canonical_url;
+			} );
+		} else {
+			add_action(
+				'wp_head',
+				function () use ( $canonical_url ) {
+					echo '<link rel="canonical" href="' . esc_url( $canonical_url ) . '">' . "\n";
+				},
+				PHP_INT_MAX
+			);
+		}
+	}
+
 	status_header( 200 );
 
 	// Buffer the theme's own header instead of echoing it directly — some
