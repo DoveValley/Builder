@@ -111,7 +111,11 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 		// lazy-loading the LCP element since it delays the browser's decision
 		// to fetch it. fetchpriority="high" gives the same signal the other
 		// direction. Real finding, pre-deployment review, 2026-11-15.
-		$image = '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' fetchpriority="high"></figure>';
+		// lpc_cache_image_locally() — the delivery server has no SSL of its
+		// own, and a browser-side mixed-content failure (not a broken
+		// image, a silently-never-loaded one) is a real confirmed bug
+		// found live, 2026-11-15. See that function's own doc for why.
+		$image = '<figure class="lpc-hero-image"><img src="' . esc_url( lpc_cache_image_locally( $s['image'] ) ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' fetchpriority="high"></figure>';
 	}
 
 	$out  = '<section class="lpc-hero' . ( $image === '' ? ' lpc-hero-no-image' : '' ) . '">';
@@ -309,7 +313,7 @@ function lpc_render_area_map( $s ) {
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
-	$out .= '<figure class="lpc-area-map"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+	$out .= '<figure class="lpc-area-map"><img src="' . esc_url( lpc_cache_image_locally( $s['image'] ) ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
 	$out .= '</section>';
 	return $out;
 }
@@ -333,7 +337,7 @@ function lpc_render_data_chart( $s ) {
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
-	$out .= '<figure class="lpc-data-chart"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+	$out .= '<figure class="lpc-data-chart"><img src="' . esc_url( lpc_cache_image_locally( $s['image'] ) ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
 	if ( ! empty( $s['table_html'] ) ) {
 		$out .= $s['table_html']; // phpcs:ignore WordPress.Security.EscapeOutput -- pre-escaped server-side, see function doc.
 	}

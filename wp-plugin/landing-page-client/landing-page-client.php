@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Landing Page Client
  * Description: Displays location/service landing pages delivered by the Landing Page Clients backend. One setting: paste in your API key.
- * Version: 0.4.19
+ * Version: 0.4.20
  * Author: Site Factory
  */
 
@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'LPC_DELIVERY_BASE', 'http://31.97.133.251:8098/api.php' );
 
 require_once __DIR__ . '/includes/remote.php';
+require_once __DIR__ . '/includes/image_cache.php';
 require_once __DIR__ . '/includes/renderer.php';
 require_once __DIR__ . '/includes/styles.php';
 require_once __DIR__ . '/includes/rewrite.php';
