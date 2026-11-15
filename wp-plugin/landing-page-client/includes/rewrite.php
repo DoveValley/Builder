@@ -26,6 +26,27 @@ function lpc_add_rewrite_rules() {
 	}
 }
 
+/**
+ * Without this, {base_path}/sitemap.xml exists but nothing tells a crawler
+ * it's there — an unlinked sitemap is nearly as invisible as no sitemap at
+ * all. robots_txt is WP core's standard filter for WordPress's own virtual
+ * robots.txt (the one it generates when no real robots.txt file exists on
+ * disk); other SEO plugins append their own Sitemap: lines to this same
+ * filter, so this is additive by convention, not a conflict the way
+ * duplicate meta tags were. The one real gap: a site with an actual
+ * physical robots.txt file on disk bypasses WP's virtual one — and this
+ * filter — entirely, with no way for us to detect that from here.
+ */
+add_filter( 'robots_txt', 'lpc_add_sitemap_to_robots', 10, 1 );
+function lpc_add_sitemap_to_robots( $output ) {
+	$base = trim( get_option( 'lpc_base_path', '/locations' ), '/' );
+	if ( $base === '' ) {
+		return $output;
+	}
+	$sitemap_url = home_url( '/' . $base . '/sitemap.xml' );
+	return rtrim( $output ) . "\n\nSitemap: " . $sitemap_url . "\n";
+}
+
 add_filter( 'query_vars', 'lpc_query_vars' );
 function lpc_query_vars( $vars ) {
 	$vars[] = 'lpc_route';
