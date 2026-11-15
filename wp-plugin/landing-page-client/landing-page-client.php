@@ -202,14 +202,35 @@ function lpc_render_info_popup() {
 			<li>A single-page editor for the 5 authored section types, a Preview toggle showing exactly
 			what this plugin will render, and a status badge that correctly flips to Needs Update if a
 			published page gets edited again before republishing.</li>
-			<li>Branding, Content Profile (tone/excluded services/always-never-mention — ready for
-			Phase 3 to consume, not consumed by anything yet), and Reporting (rank position via a real
-			paid SERP check, real Google Search Console clicks once a client grants access, click-to-call
-			form submissions deliberately left as "Not Tracked" — no contact-form section type exists).</li>
+			<li>Branding, Content Profile (tone/excluded services/always-never-mention — now actually
+			consumed by Phase 3, below), and Reporting (rank position via a real paid SERP check, real
+			Google Search Console clicks once a client grants access, click-to-call form submissions
+			deliberately left as "Not Tracked" — no contact-form section type exists).</li>
 			<li>The operational layer on this very screen's counterpart in the admin panel: Disable/
 			Re-enable (a real flag the delivery server enforces, not just a UI label — proven by
 			flipping it and watching this exact API key get a real 403), Regenerate Key, and
 			Email-to-Customer.</li>
+		</ul>
+		<p><strong>Phase 3 — Real AI-generated content</strong></p>
+		<ul style="margin-top:0;">
+			<li>A reusable Niche Profile library (its own admin screen) — label, matching keywords,
+			business descriptor, tone, and AI guardrails per industry. Adding a new industry as new
+			clients come in is a form, not code: Scott fills it in once, every future client in that
+			industry inherits it automatically by matching their own industry category text.</li>
+			<li>Seeded from the 4 niches this project already knows well (water/mold/pest/appliance) —
+			but deliberately NOT a copy-paste of the niche fleet's own guardrails, which assume a
+			referral-network business model ("never write 'our team' doing the repair"). A real Landing
+			Page Clients customer usually performs the work themselves, so only the genuinely
+			industry-general safety rules (don't guarantee drying times, don't promise insurance
+			approval, etc.) were kept.</li>
+			<li>Confirming a target city (kickoff wizard's final step, or the matrix's "Add a City")
+			immediately drafts real AI-written content for every service at that city — the same
+			one-click-for-a-whole-batch behavior the original design called for, gated behind an explicit
+			real-cost confirmation first.</li>
+			<li>The editor's Regenerate button is real now, not disabled — one page, one click, real cost,
+			same confirmation pattern.</li>
+			<li>Phone numbers are never AI-written — auto-filled from the hub's real, verified number
+			every time, confirmed live rather than assumed.</li>
 		</ul>
 
 		<p><strong>Where everything lives</strong></p>
@@ -221,14 +242,14 @@ function lpc_render_info_popup() {
 		</table>
 
 		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">Current Status</h2>
-		<p><strong>Done:</strong> Phases 0, 1, 2, and 4 — every screen in the original design now exists
-		and has been verified against real tooling (real geocoding, real DataForSEO SERP/keyword calls,
-		real Google Search Console, real WordPress check-ins like this one), not just written and
-		assumed correct.</p>
-		<p><strong>Not yet built — the one remaining piece of the whole design:</strong> Phase 3, wiring
-		the AI content pipeline to the Content Profile fields so confirming a target city/service
-		actually drafts real page content. Every page today is still hand-authored through the
-		single-page editor.</p>
+		<p><strong>Every phase of the original design is done</strong> — Phases 0 through 4, verified
+		against real tooling throughout: real geocoding, real DataForSEO SERP/keyword calls, real Google
+		Search Console, real WordPress check-ins like this one, and real AI-generated page content. A
+		brand-new client can now go from the kickoff wizard to real, live, AI-drafted pages with zero
+		hand-authoring required (though the single-page editor is still there for anyone who wants to
+		adjust the result by hand).</p>
+		<p style="color:#6b7280;">This section will be updated again the next time something meaningfully
+		changes — if you're reading stale info here, ask for it to be refreshed.</p>
 
 	</div>
 	<script>
