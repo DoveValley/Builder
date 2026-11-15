@@ -347,23 +347,28 @@ function lpc_ensure_delivery_key($client_id) {
 
 /**
  * Connected / Stale / Never Connected, same thresholding the plugin itself
- * uses (overdue past 2x the refresh interval). Reads the delivery server's
- * own check-in record directly — same-box file read today; becomes a small
- * sync step once the delivery server is a separate machine, not a redesign.
+ * uses (overdue past 2x the refresh interval). Fetched live from the
+ * delivery server's own check-in record over HTTP (action=status) — it's a
+ * genuinely separate machine (Box 1), so the local staging copy of the data
+ * dir is never updated by a real check-in and can't be read directly here.
+ * If the delivery server can't be reached at all, that's treated the same
+ * as Stale: a client whose plugin can't check in is down either way.
  */
 function lpc_plugin_status($client_id) {
     $client = lpc_load_client($client_id);
     if (!$client || !lpc_valid_client_id($client_id)) return 'Never Connected';
-    $statusFile = LPC_DELIVERY_DATA_DIR . 'clients/' . $client_id . '/_status.json';
 
-    if (!file_exists($statusFile)) {
-        return 'Never Connected';
-    }
+    $apiKey = lpc_get_client_api_key($client_id);
+    if ($apiKey === '') return 'Never Connected';
 
-    $status = json_decode(file_get_contents($statusFile), true) ?: [];
+    $url = LPC_DELIVERY_PUBLIC_BASE . '?action=status&key=' . urlencode($apiKey);
+    $context = stream_context_create(['http' => ['timeout' => 3, 'ignore_errors' => true]]);
+    $raw = @file_get_contents($url, false, $context);
+    $status = $raw !== false ? (json_decode($raw, true) ?: []) : [];
+
     $lastCheckin = (int) ($status['last_checkin'] ?? 0);
     if ($lastCheckin === 0) {
-        return 'Never Connected';
+        return $raw === false ? 'Stale' : 'Never Connected';
     }
 
     $intervalMinutes = (int) ($client['delivery']['refresh_interval_minutes'] ?? 360);

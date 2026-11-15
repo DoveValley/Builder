@@ -49,6 +49,11 @@ function lpc_default_client_data() {
             'active'                  => true,
             'last_checkin'            => 0,
             'last_emailed'            => '',
+            // Dedup for tools/lpc_check_alerts.php — reset to '' the moment a
+            // client is no longer Stale, so a FUTURE staleness episode alerts
+            // immediately rather than waiting out an old window from a
+            // previous, unrelated episode.
+            'last_stale_alert_at'     => '',
         ],
         'billing' => [
             'setup_fee_per_location'  => 0,

@@ -28,6 +28,13 @@ define('SITE_TITLE', 'Elk Pest Pros');
 // Email address where contact form submissions are delivered
 define('CONTACT_EMAIL', 'hello@yoursite.com');
 
+// Where Landing Page Clients' stale-plugin alert cron (tools/lpc_check_alerts.php)
+// sends its email — deliberately separate from CONTACT_EMAIL above (that's the
+// public contact-form recipient, a different audience/purpose). Empty on purpose
+// until a real ops address is set — the alert script checks for this and skips
+// sending rather than emailing a placeholder address.
+define('LPC_ALERT_EMAIL', '');
+
 // File paths
 define('BASE_DIR', __DIR__);
 
@@ -126,6 +133,12 @@ define('LPC_DELIVERY_REMOTE_HOST', '31.97.133.251');
 define('LPC_DELIVERY_REMOTE_USER', 'lpcdelivery');
 define('LPC_DELIVERY_REMOTE_PATH', '/opt/standalone-lpc-delivery/data/');
 define('LPC_DELIVERY_SYNC_KEY', BASE_DIR . '/.lpc_delivery_sync_key');
+
+// Public HTTP base for that same delivery server — the admin side calls this
+// (action=status) to read a client's REAL live check-in state, since the data
+// directory above is a local staging copy and is never the thing a client's
+// plugin actually checks in against once published.
+define('LPC_DELIVERY_PUBLIC_BASE', 'http://' . LPC_DELIVERY_REMOTE_HOST . ':8098/api.php');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all

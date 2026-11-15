@@ -28,11 +28,20 @@ if ($key === '' || !isset($keys[$key]) || empty($keys[$key]['active'])) {
 $clientId = $keys[$key]['client_id'];
 $clientDir = $dataDir . '/clients/' . $clientId;
 
+if ($action === 'status') {
+    // Admin-side introspection only — must NOT bump last_checkin itself,
+    // or every status check would look like a real plugin check-in and
+    // staleness could never actually be detected.
+    $statusPath = $clientDir . '/_status.json';
+    echo is_file($statusPath) ? file_get_contents($statusPath) : json_encode(['last_checkin' => 0]);
+    exit;
+}
+
 // Record that this client's key was actually used — the admin panel's
-// Plugin Status column (Connected/Stale/Never Connected) reads this file
-// back directly since the admin and delivery data both live on this box
-// today; moving the delivery server off-box later needs a small sync step
-// here, not a redesign of the admin side.
+// Plugin Status column (Connected/Stale/Never Connected) reads this back
+// via the 'status' action above, over HTTP, now that delivery genuinely
+// lives on a separate machine (Box 1) from the admin panel. Only the real
+// plugin actions (list/page) below reach this, not the status check above.
 @file_put_contents($clientDir . '/_status.json', json_encode(['last_checkin' => time()]), LOCK_EX);
 
 if ($action === 'list') {
