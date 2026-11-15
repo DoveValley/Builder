@@ -505,7 +505,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                     <textarea name="never_mention" style="min-height:80px;"><?= h(implode("\n", $client['content_profile']['never_mention'])) ?></textarea>
                 </div>
             </div>
-            <p style="color:#6b7280;font-size:.8rem;margin:10px 0;">These feed the AI content pipeline as generation guardrails every time a page is regenerated. (Phase 3 — the AI pipeline itself — isn't wired up yet, so nothing consumes these fields live yet; they're ready for when it is.)</p>
+            <p style="color:#6b7280;font-size:.8rem;margin:10px 0;">These feed the AI content pipeline as generation guardrails every time a page is regenerated.</p>
             <button type="submit" class="btn-open">Save Content Profile</button>
         </form>
 
@@ -516,7 +516,12 @@ $apiKey = lpc_get_client_api_key($client_id);
         <div class="card" style="margin-top:14px;">
             <strong style="font-size:.88rem;">1. Download the plugin and give the client their API key</strong>
             <p style="margin:8px 0;"><a href="lpc_plugin_download.php" class="btn-open">&#11015; Download Plugin (.zip)</a></p>
-            <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:8px 0;word-break:break-all;"><?= h($apiKey) ?></p>
+            <div style="display:flex;align-items:center;gap:10px;margin:8px 0;flex-wrap:wrap;">
+                <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:0;word-break:break-all;flex:1;min-width:200px;"><?= h($apiKey) ?></p>
+                <?php $statusDot = $status === 'Connected' ? '&#128994;' : ($status === 'Stale' ? '&#128993;' : '&#9898;'); ?>
+                <span class="lpc-badge lpc-badge-<?= $badgeClass ?>" title="Live check against the delivery server's real last check-in"><?= $statusDot ?> <?= h($status) ?></span>
+                <a href="?id=<?= h($client_id) ?>&tab=delivery" class="btn-sm-outline">&#128260; Check Connection</a>
+            </div>
             <p style="color:#6b7280;font-size:.82rem;margin:0;">They (or you) install the zip under Plugins &rarr; Add New &rarr; Upload Plugin, activate it, then paste this key into Settings &rarr; Landing Page Client. That is their only setup step, ever — one universal plugin, nothing client-specific baked into the zip.</p>
         </div>
 
