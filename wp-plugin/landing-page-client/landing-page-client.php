@@ -212,7 +212,20 @@ function lpc_render_info_popup() {
 			<li>The operational layer on this very screen's counterpart in the admin panel: Disable/
 			Re-enable (a real flag the delivery server enforces, not just a UI label — proven by
 			flipping it and watching this exact API key get a real 403), Regenerate Key, and
-			Email-to-Customer.</li>
+			Email-to-Customer. Multi-user access was considered and deliberately not built — every
+			client is single-operator (Scott) today, so it would be unused scaffolding.</li>
+			<li>Integrations tab: a Google Analytics measurement ID field and a Cloudflare account
+			field, both placeholders only — stored, shown in the admin panel, but genuinely wired into
+			nothing yet (confirmed by grepping the whole codebase). They exist so that turning on
+			GA/CDN later for a client is "fill in a field that's already there," not a new build.</li>
+			<li>A cron-based alert (<code>tools/lpc_check_alerts.php</code>, every 30 minutes) emails
+			when this plugin's check-in goes Stale — once per stale episode, not once per tick, and it
+			resets the moment a client recovers so a later, unrelated episode alerts immediately rather
+			than waiting out an old window. Building this surfaced and fixed a real bug: after the
+			delivery server moved to its own dedicated machine (Box 1), the admin panel's Plugin Status
+			badge (Connected/Stale/Never Connected) had been silently reading a frozen local copy of the
+			check-in record instead of the real one — fixed by adding a small status endpoint to the
+			delivery API that the admin side now calls live over HTTP.</li>
 		</ul>
 		<p><strong>Phase 3 — Real AI-generated content</strong></p>
 		<ul style="margin-top:0;">
