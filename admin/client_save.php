@@ -136,12 +136,78 @@ switch ($section) {
 
         $action = $_POST['page_action'] ?? '';
 
-        if ($action === 'generate_draft') {
+        if ($action === 'save_content') {
             $pageId = trim($_POST['page_id'] ?? '');
-            if ($pageId !== '' && !lpc_load_page($client_id, $pageId)) {
-                lpc_save_page($client_id, $pageId, lpc_default_page_data());
+            if (!lpc_valid_page_id($pageId)) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Invalid+page');
+                exit;
             }
+            $page = lpc_load_page($client_id, $pageId) ?? lpc_default_page_data();
+            $wasPublished = ($page['status'] ?? '') === 'published';
+
+            $page['page_id'] = $pageId;
+            $page['seo'] = [
+                'page_title'       => trim($_POST['page_title'] ?? ''),
+                'meta_description' => trim($_POST['meta_description'] ?? ''),
+                'og_image'         => trim($_POST['og_image'] ?? ''),
+            ];
+
+            $svcTitles = $_POST['svc_title'] ?? [];
+            $svcTexts  = $_POST['svc_text'] ?? [];
+            $services  = [];
+            foreach ($svcTitles as $i => $title) {
+                $title = trim($title);
+                if ($title === '') continue;
+                $services[] = ['title' => $title, 'text' => trim($svcTexts[$i] ?? '')];
+            }
+
+            $faqQs = $_POST['faq_q'] ?? [];
+            $faqAs = $_POST['faq_a'] ?? [];
+            $faqs  = [];
+            foreach ($faqQs as $i => $q) {
+                $q = trim($q);
+                if ($q === '') continue;
+                $faqs[] = ['q' => $q, 'a' => trim($faqAs[$i] ?? '')];
+            }
+
+            // related_links is deliberately not touched here — it's auto-computed
+            // at publish time (lpc_compute_related_links()), never hand-authored.
+            $existingLinks = [];
+            foreach ($page['sections'] as $s) {
+                if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; break; }
+            }
+
+            $page['sections'] = [
+                ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
+                ['type' => 'text', 'heading' => trim($_POST['text_heading'] ?? ''), 'body' => trim($_POST['text_body'] ?? '')],
+                ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
+                ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
+                ['type' => 'cta', 'heading' => trim($_POST['cta_heading'] ?? ''), 'body' => trim($_POST['cta_body'] ?? ''), 'phone' => trim($_POST['cta_phone'] ?? ''), 'button_text' => trim($_POST['cta_button_text'] ?? '')],
+                ['type' => 'related_links', 'heading' => 'Related Services', 'links' => $existingLinks],
+            ];
+
+            $page['created_at'] = $page['created_at'] ?: gmdate('c');
+            $page['updated_at'] = gmdate('c');
+            // Editing content that's already live means what's published no longer
+            // matches what's on disk — flip to Needs Update rather than silently
+            // leaving the matrix showing "Published" for stale content. A page
+            // that was only ever a draft stays a draft; nothing has gone live yet.
+            $page['status'] = $wasPublished ? 'needs_update' : 'draft';
+
+            lpc_save_page($client_id, $pageId, $page);
+            header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=success:Saved');
+            exit;
         } elseif ($action === 'publish') {
+            // Single page_id (singular) = the editor's own Publish button, stays in
+            // context by returning there. page_ids[] (plural) = the matrix's bulk
+            // publish, returns to the matrix. Same action, two callers, two sensible
+            // places to land afterward.
+            if (!empty($_POST['page_id'])) {
+                $pageId = trim($_POST['page_id']);
+                lpc_publish_page($client_id, $pageId);
+                header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=success:Published');
+                exit;
+            }
             $pageIds = $_POST['page_ids'] ?? [];
             if (!is_array($pageIds)) $pageIds = [$pageIds];
             foreach ($pageIds as $pageId) {

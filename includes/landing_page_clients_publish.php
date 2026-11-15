@@ -87,6 +87,41 @@ function lpc_assemble_schema($client, $page_id, $page) {
     return ['@context' => 'https://schema.org', '@graph' => $graph];
 }
 
+/**
+ * Sibling services at the same city, same convention as the design doc's
+ * related_links spec — "auto-computed server-side, not authored." Only
+ * links to siblings that are themselves published, so a related_links block
+ * never points at a page that would 404. Recomputed at every publish (see
+ * lpc_publish_page()), the same "resolved at generation, not render" pattern
+ * this project already uses elsewhere for schema — not computed live per
+ * visit, and not something the editor lets anyone hand-edit.
+ *
+ * The original design also mentioned a link back to the hub itself, but
+ * there's no hub-URL field anywhere in the client schema to link to (hubs
+ * have an address/phone, not a page we control) — sibling-service links
+ * only, for now.
+ */
+function lpc_compute_related_links($client, $page_id) {
+    [$city_id, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
+    $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+    if (!$target) return [];
+
+    $basePath = rtrim($client['delivery']['base_path'] ?? '/locations', '/');
+    $links = [];
+    foreach ($target['services'] ?? [] as $siblingServiceId) {
+        if ($siblingServiceId === $service_id) continue;
+        $siblingPageId = $city_id . '__' . $siblingServiceId;
+        $siblingPage = lpc_load_page($client['client_id'], $siblingPageId);
+        if (!$siblingPage || $siblingPage['status'] !== 'published') continue;
+        $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $siblingServiceId);
+        $links[] = [
+            'label' => $service['label'] ?? $siblingServiceId,
+            'url'   => $basePath . '/' . $siblingPageId,
+        ];
+    }
+    return $links;
+}
+
 function lpc_manifest_path($client_id) {
     return LPC_DELIVERY_DATA_DIR . 'clients/' . $client_id . '/manifest.json';
 }
@@ -152,6 +187,12 @@ function lpc_publish_page($client_id, $page_id) {
     if (!$client || !$page) return false;
 
     $page['schema_jsonld'] = lpc_assemble_schema($client, $page_id, $page);
+    foreach ($page['sections'] as &$section) {
+        if (($section['type'] ?? '') === 'related_links') {
+            $section['links'] = lpc_compute_related_links($client, $page_id);
+        }
+    }
+    unset($section);
     $page['status']        = 'published';
     $page['published_at']  = $page['published_at'] ?: gmdate('c');
     $page['updated_at']    = gmdate('c');

@@ -217,23 +217,20 @@ $apiKey = lpc_get_client_api_key($client_id);
                         $pageStatus = $page['status'] ?? null;
                     ?>
                         <td style="padding:8px 12px;">
+                            <?php $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId); ?>
                             <?php if ($pageStatus === null): ?>
-                                <form method="post" action="client_save.php" style="margin:0;display:inline;">
-                                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                                    <input type="hidden" name="section" value="pages">
-                                    <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                                    <input type="hidden" name="page_action" value="generate_draft">
-                                    <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
-                                    <button type="submit" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Generate Draft</button>
-                                </form>
+                                <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
                             <?php elseif ($pageStatus === 'draft'): ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-never">Draft</span>
+                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php elseif ($pageStatus === 'published'): ?>
                                 <span class="lpc-badge lpc-badge-connected">Published</span>
+                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php else: ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
+                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php endif; ?>
                         </td>
                     <?php endforeach; ?>
