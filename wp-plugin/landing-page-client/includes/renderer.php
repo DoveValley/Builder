@@ -366,8 +366,19 @@ function lpc_render_service_area( $s ) {
 		$out .= '<div><dt>Office City</dt><dd>' . esc_html( $s['office_city'] ) . '</dd></div>';
 	}
 	if ( ! empty( $s['nearby_cities'] ) ) {
+		// Backward-compat for pages published before 2026-11-15's real-linking
+		// change: nearby_cities used to be a plain array of strings
+		// ('Frisco, TX'), not {label,url} pairs. A real already-published
+		// page hit this live — $nc['label'] on a plain string silently
+		// evaluates to '' (PHP's ?? suppresses the illegal-string-offset
+		// warning entirely), rendering a blank "Nearby Cities" row instead of
+		// falling back to the plain city name. Self-heals without requiring
+		// every already-published page to be manually republished first.
 		$parts = array_map(
 			function ( $nc ) {
+				if ( ! is_array( $nc ) ) {
+					return esc_html( (string) $nc );
+				}
 				$label = esc_html( $nc['label'] ?? '' );
 				return ! empty( $nc['url'] ) ? '<a href="' . esc_url( $nc['url'] ) . '">' . $label . '</a>' : $label;
 			},
