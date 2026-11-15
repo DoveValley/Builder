@@ -65,6 +65,23 @@ function lpc_handle_route() {
 
 	$slug = get_query_var( 'lpc_slug' );
 
+	// All in One SEO (AIOSEO) — a third distinct behavior found testing it
+	// (2026-11-15): unlike Yoast (field-level duplication, fixed via its own
+	// per-field filters below) or RankMath (prints nothing extra at all on
+	// this route), AIOSEO prints a FULL set of its own tags here —
+	// canonical, meta description, og:title, og:description — all using
+	// the site's generic tagline as a fallback since there's no real post
+	// to derive page-specific values from, and exposes no clean per-field
+	// override filter for most of them. Rather than chase down a separate
+	// filter per field, aioseo_disable (checked by AIOSEO's own
+	// Meta\Included::isIncluded() gate before any of wp_head's meta/social/
+	// schema output runs) cleanly suppresses AIOSEO's output entirely for
+	// this route, letting our own plain wp_head echo below (the same path
+	// already used when no SEO plugin is active) take over uncontested.
+	if ( defined( 'AIOSEO_VERSION' ) ) {
+		add_filter( 'aioseo_disable', '__return_true' );
+	}
+
 	// Opportunistic refresh — a visit is as good a moment as any to check in,
 	// on top of whatever external scheduled refresh exists.
 	$manifest = lpc_get_manifest();
