@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/infra/lib/keywords.php'; // infra_kw_has_creds()/infra_kw_provider()/infra_kw_dfs_post() — the 'pages' section's check_rank action
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: clients.php'); exit; }
@@ -101,6 +102,17 @@ switch ($section) {
 
         lpc_save_client($client_id, $client);
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=content_profile&msg=success:Content+profile+updated');
+        exit;
+
+    /* ---- REPORTING ---- */
+    case 'reporting':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $client['reporting']['gsc_property'] = trim($_POST['gsc_property'] ?? '');
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=success:Reporting+settings+saved');
         exit;
 
     /* ---- SERVICES ---- */
@@ -248,6 +260,17 @@ switch ($section) {
             foreach ($pageIds as $pageId) {
                 lpc_publish_page($client_id, trim($pageId));
             }
+        } elseif ($action === 'check_rank') {
+            $result = lpc_refresh_rank_for_client($client_id);
+            if (!$result['ok']) {
+                $msg = 'error:' . urlencode($result['msg']);
+            } elseif ($result['msg']) {
+                $msg = 'warning:' . urlencode($result['msg']); // partial failure (e.g. rate-limited mid-batch)
+            } else {
+                $msg = 'success:Checked+' . $result['checked'] . '+page(s)';
+            }
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=' . $msg);
+            exit;
         }
 
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Page+updated');

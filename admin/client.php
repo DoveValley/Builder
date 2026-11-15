@@ -364,6 +364,86 @@ $apiKey = lpc_get_client_api_key($client_id);
             <p style="margin:8px 0 0;"><span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($status) ?></span></p>
         </div>
 
+    <?php elseif ($tab === 'reporting'): ?>
+
+        <div class="card">
+            <strong style="font-size:.88rem;">Search Console Connection</strong>
+            <p style="color:#6b7280;font-size:.82rem;margin:6px 0 10px;">
+                Have the client add this email as a <strong>Restricted</strong> (read-only) user on their
+                Search Console property, then paste the property URL below.
+            </p>
+            <?php if (!gsc_has_creds()): ?>
+                <p style="color:#b45309;font-size:.85rem;">No Search Console credentials configured on this server yet (<code>config/gsc_service_account.json</code> missing) — GSC Clicks will show "Not Connected" for every client until that's set up.</p>
+            <?php else: ?>
+                <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:8px 12px;margin:0 0 10px;"><?= h(gsc_service_account_email()) ?></p>
+            <?php endif; ?>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="reporting">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group"><label>Search Console Property</label><input type="text" name="gsc_property" placeholder="https://clientdomain.com/" value="<?= h($client['reporting']['gsc_property']) ?>"></div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="lpc-actions-bar">
+            <h3 style="margin:0;">Pages</h3>
+            <form method="post" action="client_save.php" style="margin:0;">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <input type="hidden" name="page_action" value="check_rank">
+                <button type="submit" class="btn-sm-outline" onclick="return confirm('This calls DataForSEO and spends real API cost, one call per published page. Continue?');">&#128176; Check Rankings (real cost)</button>
+            </form>
+        </div>
+
+        <?php
+        $gscProperty = $client['reporting']['gsc_property'];
+        $gscReady = gsc_has_creds() && $gscProperty !== '';
+        $domain = $client['identity']['domain'];
+        $basePath = rtrim($client['delivery']['base_path'] ?: '/locations', '/');
+        ?>
+        <table class="lpc-matrix" style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+            <tr style="text-align:left;font-size:.74rem;color:#6b7280;background:#f9fafb;">
+                <th style="padding:8px 12px;">City</th>
+                <th style="padding:8px 12px;">Service</th>
+                <th style="padding:8px 12px;">Rank Position</th>
+                <th style="padding:8px 12px;">GSC Clicks</th>
+                <th style="padding:8px 12px;">Form Submissions</th>
+            </tr>
+            <?php
+            $anyPublished = false;
+            foreach ($client['target_cities'] as $tc):
+                foreach ($tc['services'] as $sid):
+                    $pageId = $tc['city_id'] . '__' . $sid;
+                    $page = lpc_load_page($client_id, $pageId);
+                    if (!$page || $page['status'] !== 'published') continue;
+                    $anyPublished = true;
+                    $service = lpc_find_by_id($client['services'], 'service_id', $sid);
+            ?>
+            <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
+                <td style="padding:8px 12px;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></td>
+                <td style="padding:8px 12px;"><?= h($service['label'] ?? $sid) ?></td>
+                <td style="padding:8px 12px;"><?= $page['rank_position'] !== null ? '#' . (int) $page['rank_position'] : '—' ?></td>
+                <td style="padding:8px 12px;">
+                    <?php
+                    if (!$gscReady) {
+                        echo '<span style="color:#6b7280;">Not Connected</span>';
+                    } else {
+                        $pageUrl = 'https://' . $domain . $basePath . '/' . $pageId;
+                        $clicks = gsc_fetch_page_clicks($gscProperty, $pageUrl);
+                        echo $clicks === null ? '<span style="color:#6b7280;">Not Connected</span>' : h((string) $clicks);
+                    }
+                    ?>
+                </td>
+                <td style="padding:8px 12px;color:#6b7280;">Not Tracked</td>
+            </tr>
+            <?php endforeach; endforeach; ?>
+            <?php if (!$anyPublished): ?>
+            <tr><td colspan="5" style="padding:16px 12px;color:#6b7280;text-align:center;">No published pages yet.</td></tr>
+            <?php endif; ?>
+        </table>
+
     <?php else: ?>
 
         <div class="lpc-placeholder" style="margin-top:24px;">

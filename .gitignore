@@ -7,6 +7,9 @@
 # version control even though client.json itself is tracked source).
 clients/*/secrets/
 
+# Google Search Console service account key — real credential, never commit.
+config/gsc_service_account.json
+
 # FTP credentials — never commit. deploy.json lives at the SITE ROOT (the path
 # the code actually reads, ACTIVE_SITE_DIR/deploy.json); the data/ path below is
 # kept as a belt-and-suspenders guard for any legacy location.

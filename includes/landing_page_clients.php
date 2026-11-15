@@ -55,6 +55,14 @@ function lpc_default_client_data() {
             'monthly_fee_per_location'=> 0,
             'start_date'              => '',
         ],
+        'reporting' => [
+            // Search Console property URL (e.g. "https://mrrestore.com/" or
+            // "sc-domain:mrrestore.com") — the CLIENT grants access by adding
+            // our service account (gsc_service_account_email()) as a user on
+            // this property in their own GSC account; nothing happens on our
+            // end until they do. Empty = not connected, shown honestly as such.
+            'gsc_property' => '',
+        ],
     ];
 }
 
@@ -79,6 +87,12 @@ function lpc_default_page_data() {
             ['type' => 'related_links',  'heading'  => '', 'links' => []],
         ],
         'schema_jsonld' => null,
+        // Rank-check is a real paid DataForSEO call (same cost model as the
+        // wizard's keyword fetch) — cached here, refreshed only by an
+        // explicit "Check Rankings" click on the Reporting tab, never
+        // automatically on page load.
+        'rank_position'   => null,
+        'rank_checked_at' => null,
     ];
 }
 
