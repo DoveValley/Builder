@@ -180,20 +180,55 @@ function lpc_render_info_popup() {
 			<li>Hard rule: our content never outputs an H1 — only this theme's own site title is H1.
 			Found by testing against a real theme, not assumed.</li>
 		</ul>
+		<p><strong>Phase 2 — The real client/page data backend</strong></p>
+		<ul style="margin-top:0;">
+			<li>Every client gets a real <code>client.json</code> + one JSON file per page, read/written
+			by the admin panel — the hand-authored test client from Phase 1 was retired once this
+			existed to create one properly instead.</li>
+			<li>Schema.org (LocalBusiness + Service + areaServed + FAQPage) and <code>related_links</code>
+			(sibling services at the same city, only ever linking to a page that's actually published)
+			are both assembled automatically at publish time — never hand-authored, never AI-generated
+			either, pure templated code pulling from verified client fields.</li>
+		</ul>
+		<p><strong>Phase 4 — The admin panel</strong> (everything Scott actually clicks through)</p>
+		<ul style="margin-top:0;">
+			<li>A 5-step kickoff wizard: identity, branding, hub offices + services (each hub
+			geocoded for real), target cities (real population-ranked suggestions within a hub's
+			radius, an optional paid keyword-data lookup), then one Review &amp; Create step — nothing
+			touches disk before that last step, so quitting partway through never leaves a half-built
+			client behind.</li>
+			<li>The Locations &amp; Services matrix — target cities &times; services, per-cell status
+			(Not Created / Draft / Published / Needs Update), bulk publish.</li>
+			<li>A single-page editor for the 5 authored section types, a Preview toggle showing exactly
+			what this plugin will render, and a status badge that correctly flips to Needs Update if a
+			published page gets edited again before republishing.</li>
+			<li>Branding, Content Profile (tone/excluded services/always-never-mention — ready for
+			Phase 3 to consume, not consumed by anything yet), and Reporting (rank position via a real
+			paid SERP check, real Google Search Console clicks once a client grants access, click-to-call
+			form submissions deliberately left as "Not Tracked" — no contact-form section type exists).</li>
+			<li>The operational layer on this very screen's counterpart in the admin panel: Disable/
+			Re-enable (a real flag the delivery server enforces, not just a UI label — proven by
+			flipping it and watching this exact API key get a real 403), Regenerate Key, and
+			Email-to-Customer.</li>
+		</ul>
 
 		<p><strong>Where everything lives</strong></p>
 		<table style="width:100%;border-collapse:collapse;">
 			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>wp-plugin/landing-page-client/</code></td><td style="padding:4px 0;">This plugin's source code, in the site-factory repo.</td></tr>
+			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>admin/client*.php</code>, <code>includes/landing_page_clients*.php</code></td><td style="padding:4px 0;">The admin panel + its data/publish/reporting backend, in the same repo.</td></tr>
 			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>/opt/landing-page-clients/test-wordpress/</code></td><td style="padding:4px 0;">This WordPress install.</td></tr>
-			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>/opt/landing-page-clients/delivery/</code></td><td style="padding:4px 0;">The delivery server this plugin talks to.</td></tr>
+			<tr><td style="padding:4px 8px 4px 0;white-space:nowrap;"><code>/opt/landing-page-clients/delivery/</code></td><td style="padding:4px 0;">The delivery server this plugin talks to (source also in-repo, <code>delivery-server/</code>).</td></tr>
 		</table>
 
 		<h2 style="border-bottom:1px solid #dcdcde;padding-bottom:6px;">Current Status</h2>
-		<p><strong>Done:</strong> Phase 0 (test site + delivery server infrastructure) and Phase 1
-		(this plugin) — both built and verified against real, non-mock data.</p>
-		<p><strong>Not yet built:</strong> a real client-data backend on the delivery server (today it
-		serves one hand-authored test client), the AI content pipeline wiring, and the admin panel's
-		own client-management screens (wizard, workspace, reporting).</p>
+		<p><strong>Done:</strong> Phases 0, 1, 2, and 4 — every screen in the original design now exists
+		and has been verified against real tooling (real geocoding, real DataForSEO SERP/keyword calls,
+		real Google Search Console, real WordPress check-ins like this one), not just written and
+		assumed correct.</p>
+		<p><strong>Not yet built — the one remaining piece of the whole design:</strong> Phase 3, wiring
+		the AI content pipeline to the Content Profile fields so confirming a target city/service
+		actually drafts real page content. Every page today is still hand-authored through the
+		single-page editor.</p>
 
 	</div>
 	<script>
