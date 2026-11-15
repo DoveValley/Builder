@@ -112,14 +112,23 @@ function lpc_resolve_area_map($client_id, $city_id, $city_name, $state, $brandin
     $filename = basename(parse_url($result['path'], PHP_URL_PATH));
     $nested   = $dir . 'uploads/media/' . $filename;
     $flat     = $dir . $filename;
-    if (is_file($nested)) {
-        copy($nested, $flat);
-    }
-    if (!is_file($flat)) return null;
+    // Check the actual copy() result, not just "does a file exist afterward"
+    // — a failed copy() with a STALE $flat already present from an earlier
+    // publish would otherwise look like success and silently serve the old
+    // image under a URL that claims to be current.
+    $copied = is_file($nested) && copy($nested, $flat);
+    if (!$copied || !is_file($flat)) return null;
 
     $dims = @getimagesize($flat);
     return [
-        'url'    => lpc_service_image_url($client_id, $filename),
+        // filemtime($flat), not the ?v= city_map_render() put on $result['path']
+        // — that query string was dropped by parse_url(..., PHP_URL_PATH)
+        // above, and without re-adding one of our own, a brand-color change
+        // redraws the file in place (same filename) but delivers the exact
+        // same URL, so a CDN/browser that already cached the old image keeps
+        // serving it indefinitely. Same bug class as the real live-site
+        // caching incident this feature already hit once.
+        'url'    => lpc_service_image_url($client_id, $filename) . '&v=' . filemtime($flat),
         'alt'    => $result['alt'],
         'width'  => $dims[0] ?? null,
         'height' => $dims[1] ?? null,

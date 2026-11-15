@@ -199,13 +199,19 @@ function lpc_resolve_data_chart($client_id, $city_id, $city_name, $state, $niche
     $filename = basename(parse_url($result['path'], PHP_URL_PATH));
     $nested   = $dir . 'uploads/media/' . $filename;
     $flat     = $dir . $filename;
-    if (is_file($nested)) copy($nested, $flat);
-    if (!is_file($flat)) return null;
+    // Check the actual copy() result, not just "does a file exist afterward"
+    // — see area_images.php's identical fix for why.
+    $copied = is_file($nested) && copy($nested, $flat);
+    if (!$copied || !is_file($flat)) return null;
 
     $dims = @getimagesize($flat);
     return [
         'heading'    => city_chart_text((string) ($def['name'] ?? ''), $city, $def, $series),
-        'url'        => lpc_service_image_url($client_id, $filename),
+        // filemtime($flat), not city_chart_render()'s own ?v= (dropped by
+        // parse_url(..., PHP_URL_PATH) above) — re-added here so a theme-
+        // color change actually busts any CDN/browser cache of this URL,
+        // same fix as area_images.php's lpc_resolve_area_map().
+        'url'        => lpc_service_image_url($client_id, $filename) . '&v=' . filemtime($flat),
         'alt'        => $result['alt'],
         'width'      => $dims[0] ?? null,
         'height'     => $dims[1] ?? null,

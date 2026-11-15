@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/infra/lib/keywords.php'; // infra_kw_has_creds()/infra_kw_provider()/infra_kw_dfs_post() — the 'pages' section's check_rank action
+require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city() — the 'hubs' section's add action
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: clients.php'); exit; }
@@ -54,17 +55,31 @@ switch ($section) {
         $action = $_POST['hub_action'] ?? '';
 
         if ($action === 'add') {
+            // Same geocode + service_radius_miles the wizard's own hub-add
+            // step already sets (client_wizard.php) — missing here meant a
+            // hub added after onboarding could never get city suggestions
+            // (lpc_city_candidates() returns [] with no geo, and casts a
+            // missing radius to 0, filtering out every candidate even if it
+            // didn't).
+            $hubCity  = trim($_POST['city'] ?? '');
+            $hubState = trim($_POST['state'] ?? '');
+            $geo = ['lat' => null, 'lng' => null];
+            $g = ms_geocode_city($hubCity, $hubState, $hubState);
+            if (is_array($g) && isset($g['lat'], $g['lng'])) {
+                $geo = ['lat' => (float) $g['lat'], 'lng' => (float) $g['lng']];
+            }
             $client['hubs'][] = [
                 'hub_id'  => $client_id . '-hub-' . (count($client['hubs']) + 1),
                 'name'    => trim($_POST['name'] ?? ''),
                 'address' => [
                     'street' => trim($_POST['street'] ?? ''),
-                    'city'   => trim($_POST['city'] ?? ''),
-                    'state'  => trim($_POST['state'] ?? ''),
+                    'city'   => $hubCity,
+                    'state'  => $hubState,
                     'zip'    => trim($_POST['zip'] ?? ''),
                 ],
                 'phone' => trim($_POST['phone'] ?? ''),
-                'geo'   => ['lat' => null, 'lng' => null],
+                'service_radius_miles' => (int) ($_POST['service_radius_miles'] ?? 45),
+                'geo'   => $geo,
             ];
         } elseif ($action === 'delete') {
             $hub_id = $_POST['hub_id'] ?? '';
