@@ -36,13 +36,31 @@ function lpc_query_vars( $vars ) {
 
 add_action( 'template_redirect', 'lpc_handle_route' );
 function lpc_handle_route() {
+	if ( ! get_query_var( 'lpc_sitemap' ) && ! get_query_var( 'lpc_route' ) ) {
+		return;
+	}
+
+	// Real incident, 2026-11-15: this content is dynamic (changes whenever a
+	// page is regenerated/republished, or the API key changes), but nothing
+	// told the HOST's own full-page cache that — Kinsta (and most hosts with
+	// server-level/edge caching) treats an uncached-looking WP response like
+	// any ordinary static page and caches the whole rendered HTML, on top of
+	// this plugin's own WP-level transient cache. That left TWO independent
+	// caches that could each serve stale content, and clearing them in the
+	// wrong order (or only one of them) silently undid the fix. WP's own
+	// nocache_headers() + the widely-recognized DONOTCACHEPAGE constant tell
+	// virtually every host-level cache (Kinsta included, confirmed in their
+	// docs) to skip caching this route entirely — collapsing this back down
+	// to just the one cache we actually control (lpc_get_manifest()/
+	// lpc_get_page()'s own transients, refreshed by "Save & Refresh now").
+	if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+		define( 'DONOTCACHEPAGE', true );
+	}
+	nocache_headers();
+
 	if ( get_query_var( 'lpc_sitemap' ) ) {
 		lpc_output_sitemap();
 		exit;
-	}
-
-	if ( ! get_query_var( 'lpc_route' ) ) {
-		return;
 	}
 
 	$slug = get_query_var( 'lpc_slug' );
