@@ -24,13 +24,85 @@
 // since most admin pages never need it), every single function in this file
 // needs anthropic.php unconditionally — so it's required here, once, rather
 // than repeating the exact "forgot the dependency" gap already hit twice
-// this session (cities.php/keywords.php) at a 3rd call site.
+// this session (cities.php/keywords.php) at a 3rd call site. Same reasoning
+// now extends to the real per-city research data this file reads: cities.php
+// (population) and census.php (real housing/income data, 99.7% coverage
+// across all 43,901 cities, confirmed) — both niche-agnostic, keyed by the
+// exact same city_id slug LPC already uses, deliberately NOT the niche
+// fleet's own per-master cities.json research files (that would couple LPC
+// to files meant for a different business model and a much smaller, non-
+// overlapping set of cities — see lpc_get_city_research()).
 require_once __DIR__ . '/anthropic.php';
+require_once __DIR__ . '/../admin/infra/lib/keywords.php'; // cities.php's infra_cn_cols() needs infra_kw_types()
+require_once __DIR__ . '/../admin/infra/lib/cities.php';
+require_once __DIR__ . '/../admin/infra/lib/census.php';
 
 function lpc_ai_niche_brief($source) {
     if (strpos((string) $source, 'niche:') !== 0) return null;
     $niche_id = substr($source, 6);
     return lpc_load_niche_profile($niche_id); // same field names (business_descriptor, guardrails) as before
+}
+
+/**
+ * Real per-city research — the actual fix for "LPC's AI page generation does
+ * ZERO real per-city research." Population from the same `cities` table
+ * lpc_city_candidates() already uses; the rest from the Census ACS table
+ * (admin/infra/lib/census.php) — real median income, home age, home value,
+ * homeownership rate, housing stock size, covering 43,772 of 43,901 cities.
+ * Never invented: a field missing from either source is simply omitted from
+ * the prompt (lpc_ai_research_block() below), not guessed.
+ */
+function lpc_get_city_research($city_id) {
+    $db = infra_cities_init();
+    $st = $db->prepare('SELECT population FROM cities WHERE id = ?');
+    $st->execute([$city_id]);
+    $population = (int) ($st->fetchColumn() ?: 0);
+
+    $census = infra_census_lookup($city_id) ?? [];
+
+    return [
+        'population'          => $population ?: null,
+        'income_median'       => $census['income_median'] ?? null,
+        'homeownership_pct'   => $census['homeownership_pct'] ?? null,
+        'home_value_median'   => $census['home_value_median'] ?? null,
+        'year_built_median'   => $census['year_built_median'] ?? null,
+        'housing_units_total' => $census['housing_units_total'] ?? null,
+    ];
+}
+
+/** Formats lpc_get_city_research()'s data as an explicit fact block for the
+ *  prompt — every number here is real, so the model is told to use ONLY
+ *  these, never invent additional specific stats beyond them. */
+function lpc_ai_research_block($city, $state, $research) {
+    $lines = [];
+    if (!empty($research['population']))          $lines[] = '- Population: ' . number_format($research['population']);
+    if (!empty($research['year_built_median']))    $lines[] = '- Median home built: ' . $research['year_built_median'];
+    if (!empty($research['home_value_median']))    $lines[] = '- Median home value: $' . number_format($research['home_value_median']);
+    if (!empty($research['homeownership_pct']))    $lines[] = '- Homeownership rate: ' . $research['homeownership_pct'] . '%';
+    if (!empty($research['income_median']))        $lines[] = '- Median household income: $' . number_format($research['income_median']);
+    if (!empty($research['housing_units_total']))  $lines[] = '- Total housing units: ' . number_format($research['housing_units_total']);
+
+    if (!$lines) return "No verified data is available for {$city}, {$state} beyond its name — do not invent specific population, housing, or income figures for it.";
+
+    return "Real data about {$city}, {$state} (use these facts naturally where relevant — never invent "
+        . "additional specific numbers beyond what's listed here):\n" . implode("\n", $lines);
+}
+
+/** The instruction for one niche-specific content slot — the niche profile's
+ *  own guidance if set, else a generic-but-still-reasonable fallback so a
+ *  niche that hasn't filled in its content_slots yet doesn't read oddly. */
+function lpc_ai_content_slot_prompt($niche_brief, $slotKey) {
+    $slots = $niche_brief['content_slots'] ?? [];
+    if (!empty($slots[$slotKey])) return $slots[$slotKey];
+
+    $fallbacks = [
+        'feature_columns_local' => 'why/how this service matters specifically in this city',
+        'local_relevance'       => 'how the real local data provided connects to the need for this service',
+        'seasonal_calendar'     => 'when demand for this service tends to peak through the year',
+        'why_choose_us'         => 'why a local customer should trust this business specifically',
+        'how_it_works'          => 'the real step-by-step process a customer goes through',
+    ];
+    return $fallbacks[$slotKey] ?? '';
 }
 
 function lpc_ai_system_prompt($client, $niche_brief) {
@@ -66,7 +138,13 @@ function lpc_default_primary_keyword($serviceLabel, $city, $state) {
     return $serviceLabel . ' in ' . $city . ', ' . $state;
 }
 
-function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKeyword, $secondaryKeywords = []) {
+/**
+ * $niche_brief may be null (a "custom" content_profile source with no
+ * matching niche profile) — lpc_ai_content_slot_prompt() already handles
+ * that (falls back to its own generic instruction per slot), so this
+ * function doesn't need its own null guard for it.
+ */
+function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKeyword, $secondaryKeywords, $research, $niche_brief) {
     $secondaryLine = '';
     if (!empty($secondaryKeywords)) {
         $secondaryLine = "Secondary phrases — weave in naturally ONLY where they truly fit, skip any that don't, "
@@ -74,17 +152,29 @@ function lpc_ai_user_prompt($business, $city, $state, $serviceLabel, $primaryKey
             . implode('; ', $secondaryKeywords) . ".\n\n";
     }
 
+    $slot = fn($key) => lpc_ai_content_slot_prompt($niche_brief, $key);
+
     return "Write landing page copy for {$business}'s {$serviceLabel} service in {$city}, {$state}.\n\n"
         . "Primary keyword: \"{$primaryKeyword}\" — this page exists to rank for it. This phrase's subject must "
         . "read as the clear, dominant focus of every section below, stated naturally (not stuffed).\n\n"
         . $secondaryLine
+        . lpc_ai_research_block($city, $state, $research) . "\n\n"
         . "Return this exact JSON shape, every field filled with specific copy that names {$city} where natural "
-        . "(not generic boilerplate that could apply to any city):\n\n"
+        . "(not generic boilerplate that could apply to any city). Each section's guidance in parentheses below "
+        . "is about CONTENT, not formatting — never print the guidance text itself:\n\n"
         . "{\n"
         . "  \"hero\": {\"headline\": \"...\", \"subheading\": \"...\", \"cta_text\": \"...\"},\n"
-        . "  \"text\": {\"heading\": \"...\", \"body\": \"2-4 sentences\"},\n"
+        . "  \"meta_description\": \"... (max 155 characters, leads with the primary keyword, reads as a real search-result snippet)\",\n"
+        . "  \"city_intro\": {\"heading\": \"...\", \"body\": \"2-3 sentences — what kind of place {$city} is, grounded in the real data above, not generic filler\"},\n"
+        . "  \"feature_columns_local\": {\"heading\": \"...\", \"items\": [{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}, "
+        . "{\"title\": \"...\", \"text\": \"...\"}] (" . $slot('feature_columns_local') . ")},\n"
+        . "  \"local_relevance\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('local_relevance') . ")\"},\n"
+        . "  \"how_it_works\": {\"heading\": \"...\", \"items\": [{\"title\": \"Step 1 ...\", \"text\": \"...\"}, {\"title\": \"Step 2 ...\", \"text\": \"...\"}, "
+        . "{\"title\": \"Step 3 ...\", \"text\": \"...\"}] (" . $slot('how_it_works') . ")},\n"
+        . "  \"seasonal_calendar\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('seasonal_calendar') . ")\"},\n"
+        . "  \"why_choose_us\": {\"heading\": \"...\", \"body\": \"2-3 sentences (" . $slot('why_choose_us') . ")\"},\n"
         . "  \"services_list\": {\"heading\": \"...\", \"items\": [{\"title\": \"...\", \"text\": \"...\"}, "
-        . "{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}]},\n"
+        . "{\"title\": \"...\", \"text\": \"...\"}, {\"title\": \"...\", \"text\": \"...\"}] (what this specific service includes)},\n"
         . "  \"faq\": {\"heading\": \"...\", \"items\": [{\"q\": \"...\", \"a\": \"...\"}, {\"q\": \"...\", \"a\": \"...\"}, "
         . "{\"q\": \"...\", \"a\": \"...\"}]},\n"
         . "  \"cta\": {\"heading\": \"...\", \"body\": \"...\", \"button_text\": \"...\"}\n"
@@ -103,12 +193,19 @@ function lpc_strip_json_fences($text) {
 
 /** Merges AI-authored copy into a page's sections, preserving everything the
  *  AI doesn't own: phone numbers (set from real hub data, see callers below),
- *  images, and related_links (always separately auto-computed at publish). */
+ *  images, and related_links (always separately auto-computed at publish).
+ *  Matches by each section's 'key' when it has one (the 5 niche-injected
+ *  text/highlights/steps slots — several share the same 'type', so 'type'
+ *  alone can't disambiguate which AI content belongs to which), falling back
+ *  to 'type' for the singular sections (hero/services_list/faq/cta) that
+ *  don't need one. The plugin's renderer never reads 'key' — purely an
+ *  admin/AI bookkeeping concern. */
 function lpc_apply_ai_sections(&$page, $aiData) {
     foreach ($page['sections'] as &$section) {
         $type = $section['type'] ?? '';
-        if (!isset($aiData[$type]) || !is_array($aiData[$type])) continue;
-        $src = $aiData[$type];
+        $matchKey = $section['key'] ?? $type;
+        if (!isset($aiData[$matchKey]) || !is_array($aiData[$matchKey])) continue;
+        $src = $aiData[$matchKey];
         switch ($type) {
             case 'hero':
                 $section['headline']   = $src['headline'] ?? $section['headline'];
@@ -119,6 +216,8 @@ function lpc_apply_ai_sections(&$page, $aiData) {
                 $section['heading'] = $src['heading'] ?? $section['heading'];
                 $section['body']    = $src['body'] ?? $section['body'];
                 break;
+            case 'highlights':
+            case 'steps':
             case 'services_list':
             case 'faq':
                 $section['heading'] = $src['heading'] ?? $section['heading'];
@@ -132,6 +231,16 @@ function lpc_apply_ai_sections(&$page, $aiData) {
         }
     }
     unset($section);
+}
+
+/** meta_description isn't a section at all (it's a top-level seo field), so
+ *  it rides along in the same AI JSON response but gets applied separately.
+ *  Never overwrites with blank — same never-clobber-a-manual-value rule as
+ *  page_title/primary_keyword. */
+function lpc_apply_ai_meta(&$page, $aiData) {
+    if (!empty($aiData['meta_description']) && is_string($aiData['meta_description'])) {
+        $page['seo']['meta_description'] = $aiData['meta_description'];
+    }
 }
 
 /** Phone numbers are never AI-generated — filled from the real serving hub's
@@ -178,13 +287,14 @@ function lpc_generate_page_content($client_id, $page_id) {
     }
 
     $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+    $research    = lpc_get_city_research($city_id);
     $system = lpc_ai_system_prompt($client, $niche_brief);
     $user   = lpc_ai_user_prompt(
         $client['identity']['business_name'], $target['city'], $target['state'], $service['label'],
-        $page['seo']['primary_keyword'], $page['seo']['secondary_keywords'] ?? []
+        $page['seo']['primary_keyword'], $page['seo']['secondary_keywords'] ?? [], $research, $niche_brief
     );
 
-    $result = anthropic_message($user, ['model' => ANTHROPIC_SMART, 'max_tokens' => 3000, 'system' => $system, 'no_thinking' => true]);
+    $result = anthropic_message($user, ['model' => ANTHROPIC_SMART, 'max_tokens' => 6000, 'system' => $system, 'no_thinking' => true]);
     if (!$result['ok']) return ['ok' => false, 'msg' => $result['error']];
 
     $json = json_decode(lpc_strip_json_fences($result['text']), true);
@@ -192,9 +302,33 @@ function lpc_generate_page_content($client_id, $page_id) {
 
     $wasPublished = ($page['status'] ?? '') === 'published';
 
+    // Regenerate's own confirm dialog already says "replaces all current
+    // section content" — so reset to the CURRENT section schema every time,
+    // not whatever shape this page happened to be saved with. Without this,
+    // a page generated before a schema change (more sections, new types)
+    // could never adopt the new structure via Regenerate — it would just
+    // keep refilling its old, smaller section set forever. The one thing
+    // that isn't AI-owned and must survive the reset: a manually-set hero
+    // image/alt (images come from the per-service system, not the AI).
+    $oldHero = null;
+    foreach ($page['sections'] as $s) {
+        if (($s['type'] ?? '') === 'hero') { $oldHero = $s; break; }
+    }
+    $page['sections'] = lpc_default_page_data()['sections'];
+    if ($oldHero) {
+        foreach ($page['sections'] as &$s) {
+            if ($s['type'] !== 'hero') continue;
+            if (!empty($oldHero['image']))     $s['image']     = $oldHero['image'];
+            if (!empty($oldHero['image_alt'])) $s['image_alt'] = $oldHero['image_alt'];
+            break;
+        }
+        unset($s);
+    }
+
     lpc_apply_ai_sections($page, $json);
+    lpc_apply_ai_meta($page, $json);
     lpc_fill_real_phone($page, $hub);
-    lpc_fill_service_image($page, $client_id, $service);
+    lpc_fill_service_image($page, $client_id, $service, $page['seo']['primary_keyword']);
 
     $page['page_id']    = $page_id;
     $page['created_at'] = $page['created_at'] ?: gmdate('c');
@@ -226,6 +360,7 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
 
     $hub = lpc_find_by_id($client['hubs'] ?? [], 'hub_id', $target['served_by_hub'] ?? null);
     $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+    $research    = lpc_get_city_research($city_id);
     $system = lpc_ai_system_prompt($client, $niche_brief);
     $excluded = $client['content_profile']['excluded_services'] ?? [];
 
@@ -239,14 +374,17 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         $pageId = $city_id . '__' . $serviceId;
         if (lpc_load_page($client_id, $pageId)) continue; // never clobber an already-authored page
         $keyword = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
-        $prompts[$pageId] = lpc_ai_user_prompt($client['identity']['business_name'], $target['city'], $target['state'], $service['label'], $keyword);
+        $prompts[$pageId] = lpc_ai_user_prompt(
+            $client['identity']['business_name'], $target['city'], $target['state'], $service['label'],
+            $keyword, [], $research, $niche_brief
+        );
         $keywordsByPageId[$pageId] = $keyword;
         $servicesByPageId[$pageId] = $service;
     }
     if (!$prompts) return ['ok' => true, 'msg' => '', 'generated' => 0, 'attempted' => 0];
 
     $results = anthropic_message_many($prompts, [
-        'model' => ANTHROPIC_SMART, 'max_tokens' => 3000, 'system' => $system,
+        'model' => ANTHROPIC_SMART, 'max_tokens' => 6000, 'system' => $system,
         'no_thinking' => true, 'concurrency' => 4,
     ]);
 
@@ -258,8 +396,9 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
 
         $page = lpc_default_page_data();
         lpc_apply_ai_sections($page, $json);
+        lpc_apply_ai_meta($page, $json);
         lpc_fill_real_phone($page, $hub);
-        lpc_fill_service_image($page, $client_id, $servicesByPageId[$pageId]);
+        lpc_fill_service_image($page, $client_id, $servicesByPageId[$pageId], $keywordsByPageId[$pageId]);
         $page['page_id']    = $pageId;
         $page['created_at'] = gmdate('c');
         $page['updated_at'] = $page['created_at'];

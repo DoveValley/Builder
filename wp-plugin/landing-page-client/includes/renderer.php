@@ -40,7 +40,11 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				$html .= lpc_render_text( $section );
 				break;
 			case 'services_list':
+			case 'highlights':
 				$html .= lpc_render_services_list( $section );
+				break;
+			case 'steps':
+				$html .= lpc_render_steps( $section );
 				break;
 			case 'faq':
 				$html .= lpc_render_faq( $section );
@@ -64,7 +68,7 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 		$out .= '<p class="lpc-hero-sub">' . esc_html( $s['subheading'] ) . '</p>';
 	}
 	if ( ! empty( $s['image'] ) ) {
-		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="" loading="lazy"></figure>';
+		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '" loading="lazy"></figure>';
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
@@ -100,6 +104,27 @@ function lpc_render_services_list( $s ) {
 		$out .= '</li>';
 	}
 	$out .= '</ul></section>';
+	return $out;
+}
+
+/** Same card-grid visual as services_list/highlights, just an <ol> instead of
+ *  <ul> — this is a real sequence (the service process), not an unordered
+ *  set, so the semantic distinction is worth keeping even though the CSS
+ *  (display:grid) doesn't care which list element it's applied to. */
+function lpc_render_steps( $s ) {
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	$out .= '<ol class="lpc-card-grid">';
+	foreach ( (array) ( $s['items'] ?? [] ) as $item ) {
+		$out .= '<li class="lpc-card"><strong>' . esc_html( $item['title'] ?? '' ) . '</strong>';
+		if ( ! empty( $item['text'] ) ) {
+			$out .= '<span>' . esc_html( $item['text'] ) . '</span>';
+		}
+		$out .= '</li>';
+	}
+	$out .= '</ol></section>';
 	return $out;
 }
 

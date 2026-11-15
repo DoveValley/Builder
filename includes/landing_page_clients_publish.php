@@ -168,16 +168,23 @@ function lpc_preview_render($sections) {
             case 'hero':
                 $out .= '<section><h2>' . h($s['headline']) . '</h2>';
                 if ($s['subheading']) $out .= '<p>' . h($s['subheading']) . '</p>';
+                if (!empty($s['image'])) $out .= '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '" loading="lazy"></figure>';
                 if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['cta_text'] ?: $s['phone']) . '</a></p>';
                 $out .= '</section>';
                 break;
             case 'text':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p></section>';
                 break;
+            case 'highlights':
             case 'services_list':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';
                 foreach ($s['items'] as $item) $out .= '<li><strong>' . h($item['title']) . '</strong> — ' . h($item['text']) . '</li>';
                 $out .= '</ul></section>';
+                break;
+            case 'steps':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ol>';
+                foreach ($s['items'] as $item) $out .= '<li><strong>' . h($item['title']) . '</strong> — ' . h($item['text']) . '</li>';
+                $out .= '</ol></section>';
                 break;
             case 'faq':
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '');
@@ -319,7 +326,10 @@ function lpc_publish_page($client_id, $page_id) {
     // manual per-page image override is never overwritten.
     [, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
     $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $service_id);
-    if ($service) lpc_fill_service_image($page, $client_id, $service);
+    if ($service) {
+        $altText = $page['seo']['primary_keyword'] ?: $service['label'];
+        lpc_fill_service_image($page, $client_id, $service, $altText);
+    }
     $page['status']        = 'published';
     $page['published_at']  = $page['published_at'] ?: gmdate('c');
     $page['updated_at']    = gmdate('c');

@@ -6,5 +6,12 @@
     ],
     "business_descriptor": "a company providing mold inspection and remediation services",
     "default_tone": "reassuring and professional, emphasizing health, indoor air quality, and thorough removal without fear-mongering",
-    "guardrails": "Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific spore-count results. Avoid alarmist or exaggerated toxic-mold scare language."
+    "guardrails": "Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific spore-count results. Avoid alarmist or exaggerated toxic-mold scare language.",
+    "content_slots": {
+        "feature_columns_local": "why mold risk matters specifically in this city — humidity patterns, home age, common moisture sources",
+        "local_relevance": "real local housing data provided (median home age, housing units) — connect older homes/plumbing to higher moisture-intrusion and mold risk",
+        "seasonal_calendar": "seasonal humidity/moisture patterns through the year (humid summers, wet seasons, condensation-prone winters)",
+        "why_choose_us": "certified inspectors, careful containment during removal, clear before/after documentation",
+        "how_it_works": "the real process: inspection and testing -> containment -> remediation and removal -> clearance verification"
+    }
 }

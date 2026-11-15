@@ -493,14 +493,21 @@ switch ($section) {
                 'secondary_keywords' => $secondaryKeywords,
             ];
 
-            $svcTitles = $_POST['svc_title'] ?? [];
-            $svcTexts  = $_POST['svc_text'] ?? [];
-            $services  = [];
-            foreach ($svcTitles as $i => $title) {
-                $title = trim($title);
-                if ($title === '') continue;
-                $services[] = ['title' => $title, 'text' => trim($svcTexts[$i] ?? '')];
-            }
+            // Shared helper: build a repeatable {title,text} item list from two
+            // parallel POST arrays, dropping any row left blank.
+            $buildItems = function ($titles, $texts) {
+                $out = [];
+                foreach ((array) $titles as $i => $title) {
+                    $title = trim($title);
+                    if ($title === '') continue;
+                    $out[] = ['title' => $title, 'text' => trim($texts[$i] ?? '')];
+                }
+                return $out;
+            };
+
+            $highlights = $buildItems($_POST['highlights_title'] ?? [], $_POST['highlights_text'] ?? []);
+            $steps      = $buildItems($_POST['steps_title'] ?? [], $_POST['steps_text'] ?? []);
+            $services   = $buildItems($_POST['svc_title'] ?? [], $_POST['svc_text'] ?? []);
 
             $faqQs = $_POST['faq_q'] ?? [];
             $faqAs = $_POST['faq_a'] ?? [];
@@ -519,8 +526,13 @@ switch ($section) {
             }
 
             $page['sections'] = [
-                ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
-                ['type' => 'text', 'heading' => trim($_POST['text_heading'] ?? ''), 'body' => trim($_POST['text_body'] ?? '')],
+                ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'image_alt' => trim($_POST['hero_image_alt'] ?? ''), 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
+                ['type' => 'text', 'key' => 'city_intro', 'heading' => trim($_POST['city_intro_heading'] ?? ''), 'body' => trim($_POST['city_intro_body'] ?? '')],
+                ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
+                ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],
+                ['type' => 'steps', 'key' => 'how_it_works', 'heading' => trim($_POST['steps_heading'] ?? ''), 'items' => $steps],
+                ['type' => 'text', 'key' => 'seasonal_calendar', 'heading' => trim($_POST['seasonal_heading'] ?? ''), 'body' => trim($_POST['seasonal_body'] ?? '')],
+                ['type' => 'text', 'key' => 'why_choose_us', 'heading' => trim($_POST['why_choose_us_heading'] ?? ''), 'body' => trim($_POST['why_choose_us_body'] ?? '')],
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
                 ['type' => 'cta', 'heading' => trim($_POST['cta_heading'] ?? ''), 'body' => trim($_POST['cta_body'] ?? ''), 'phone' => trim($_POST['cta_phone'] ?? ''), 'button_text' => trim($_POST['cta_button_text'] ?? '')],

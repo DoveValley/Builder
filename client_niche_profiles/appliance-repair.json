@@ -6,5 +6,12 @@
     ],
     "business_descriptor": "a company providing home appliance repair services",
     "default_tone": "practical and reassuring — a dead appliance is urgent, but the repair itself is routine work",
-    "guardrails": "Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer unless explicitly given as fact. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee — describe it as often available, never certain. Do not name a brand as serviced unless explicitly confirmed. Never state how long a repair will take or how long a part will last."
+    "guardrails": "Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer unless explicitly given as fact. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee — describe it as often available, never certain. Do not name a brand as serviced unless explicitly confirmed. Never state how long a repair will take or how long a part will last.",
+    "content_slots": {
+        "feature_columns_local": "why fast appliance repair matters specifically in this city — household density, common appliance ages",
+        "local_relevance": "real local housing data provided (median home age, housing units) — connect home/housing age to aging appliances needing repair",
+        "seasonal_calendar": "seasonal appliance demand patterns through the year (summer AC/fridge strain, holiday oven/dishwasher use, winter washer/dryer load)",
+        "why_choose_us": "experienced technicians, honest diagnostics, arriving with common parts on hand",
+        "how_it_works": "the real process: call and describe the issue -> scheduled diagnostic visit -> repair, often same-visit when parts are on hand"
+    }
 }

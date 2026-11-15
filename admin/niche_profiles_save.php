@@ -36,6 +36,13 @@ if ($action === 'save') {
         'business_descriptor' => trim($_POST['business_descriptor'] ?? ''),
         'default_tone'        => trim($_POST['default_tone'] ?? 'professional'),
         'guardrails'          => trim($_POST['guardrails'] ?? ''),
+        'content_slots' => [
+            'feature_columns_local' => trim($_POST['slot_feature_columns_local'] ?? ''),
+            'local_relevance'       => trim($_POST['slot_local_relevance'] ?? ''),
+            'seasonal_calendar'     => trim($_POST['slot_seasonal_calendar'] ?? ''),
+            'why_choose_us'         => trim($_POST['slot_why_choose_us'] ?? ''),
+            'how_it_works'          => trim($_POST['slot_how_it_works'] ?? ''),
+        ],
     ]);
     header('Location: niche_profiles.php?msg=success:Niche+profile+saved');
     exit;

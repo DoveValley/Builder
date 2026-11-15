@@ -6,5 +6,12 @@
     ],
     "business_descriptor": "a company providing pest control and extermination services",
     "default_tone": "reassuring and professional, with appropriate urgency for active infestations",
-    "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products unless explicitly provided as fact."
+    "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products unless explicitly provided as fact.",
+    "content_slots": {
+        "feature_columns_local": "why pest pressure matters specifically in this city — local climate, common regional pests, home density",
+        "local_relevance": "real local housing data provided (median home age, housing units) — connect home age/construction to common entry points and pest vulnerability",
+        "seasonal_calendar": "seasonal pest activity patterns through the year (spring/summer surges, overwintering pests, ant/termite swarm seasons)",
+        "why_choose_us": "licensed technicians, pet/family-safe treatment options, follow-up visits",
+        "how_it_works": "the real process: inspection -> treatment plan -> application -> follow-up and prevention"
+    }
 }

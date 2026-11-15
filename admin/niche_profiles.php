@@ -106,6 +106,35 @@ foreach (lpc_list_niche_profiles() as $id) {
             <label>Guardrails <span style="font-weight:400;color:#6b7280;">(industry-specific accuracy/safety rules for the AI — never a referral-network framing, these clients do their own work)</span></label>
             <textarea name="guardrails" style="min-height:90px;"><?= h($editing['guardrails'] ?? '') ?></textarea>
         </div>
+
+        <h4 style="margin-top:18px;margin-bottom:4px;">Content Slots</h4>
+        <p style="color:#6b7280;font-size:.8rem;margin:0 0 8px;">
+            Every page has the same 4 flexible content slots, but what they're ABOUT is niche-specific —
+            a restoration niche's "local relevance" slot is climate/flood-risk; a legal niche's might be
+            local court/regulatory relevance instead. Leave blank to use a generic fallback instruction.
+        </p>
+        <?php $slots = array_merge(lpc_default_content_slots(), $editing['content_slots'] ?? []); ?>
+        <div class="form-group" style="margin-top:8px;">
+            <label>Feature Columns Local <span style="font-weight:400;color:#6b7280;">(why/how this service matters in this specific city)</span></label>
+            <input type="text" name="slot_feature_columns_local" value="<?= h($slots['feature_columns_local']) ?>">
+        </div>
+        <div class="form-group" style="margin-top:8px;">
+            <label>Local Relevance <span style="font-weight:400;color:#6b7280;">(what real local data this niche should reference, and how)</span></label>
+            <input type="text" name="slot_local_relevance" value="<?= h($slots['local_relevance']) ?>">
+        </div>
+        <div class="form-group" style="margin-top:8px;">
+            <label>Seasonal Calendar <span style="font-weight:400;color:#6b7280;">(when demand for this service peaks through the year)</span></label>
+            <input type="text" name="slot_seasonal_calendar" value="<?= h($slots['seasonal_calendar']) ?>">
+        </div>
+        <div class="form-group" style="margin-top:8px;">
+            <label>Why Choose Us <span style="font-weight:400;color:#6b7280;">(local trust/credibility framing specific to this niche)</span></label>
+            <input type="text" name="slot_why_choose_us" value="<?= h($slots['why_choose_us']) ?>">
+        </div>
+        <div class="form-group" style="margin-top:8px;">
+            <label>How It Works <span style="font-weight:400;color:#6b7280;">(the real step-by-step process a customer goes through)</span></label>
+            <input type="text" name="slot_how_it_works" value="<?= h($slots['how_it_works']) ?>">
+        </div>
+
         <button type="submit" class="btn-open" style="margin-top:10px;"><?= $editing ? 'Save Changes' : 'Add Niche Profile' ?></button>
         <?php if ($editing): ?><a href="niche_profiles.php" class="btn-sm-outline" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
     </form>

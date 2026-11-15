@@ -30,6 +30,25 @@ function lpc_niche_profile_file($niche_id) {
     return lpc_niche_profiles_dir() . $niche_id . '.json';
 }
 
+/**
+ * What each of a page's 4 flexible AI text/list slots means FOR THIS NICHE —
+ * same slot shape every vertical uses (page structure stays universal), but
+ * the topic/framing per slot is niche-specific: a restoration niche's
+ * `local_relevance` is "climate/flood-risk"; a legal niche's version of the
+ * same slot might be "local court/regulatory relevance" instead. Blank =
+ * the AI falls back to a generic, still-reasonable instruction for that slot
+ * (see lpc_ai_content_slot_prompt()) rather than failing or reading oddly.
+ */
+function lpc_default_content_slots() {
+    return [
+        'feature_columns_local' => '', // why/how this service matters in this specific city
+        'local_relevance'       => '', // real local data this niche should reference (climate, housing stock, etc.)
+        'seasonal_calendar'     => '', // when demand for this service peaks through the year, for this niche
+        'why_choose_us'         => '', // local trust/credibility framing specific to this niche
+        'how_it_works'          => '', // the real step-by-step process a customer goes through
+    ];
+}
+
 function lpc_default_niche_profile() {
     return [
         'niche_id'            => '',
@@ -38,6 +57,7 @@ function lpc_default_niche_profile() {
         'business_descriptor'  => '',
         'default_tone'         => 'professional',
         'guardrails'           => '',
+        'content_slots'        => lpc_default_content_slots(),
     ];
 }
 

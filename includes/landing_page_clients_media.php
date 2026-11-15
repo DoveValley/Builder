@@ -147,17 +147,21 @@ function lpc_resolve_service_image($client_id, $service) {
     return lpc_placeholder_image_url();
 }
 
-/** Fills hero.image/seo.og_image from the service's current image, but only
- *  if currently blank — a manually-set per-page override (typed directly
- *  into the editor) is never clobbered, same "never silently overwrite a
- *  manual customization" rule this feature already applies to page_title/
- *  primary_keyword. */
-function lpc_fill_service_image(&$page, $client_id, $service) {
+/** Fills hero.image/image_alt/seo.og_image from the service's current image,
+ *  but only if currently blank — a manually-set per-page override (typed
+ *  directly into the editor) is never clobbered, same "never silently
+ *  overwrite a manual customization" rule this feature already applies to
+ *  page_title/primary_keyword. Alt text is deterministic (built from the
+ *  page's own primary keyword), never AI-written — there's no way to
+ *  honestly describe a generic/placeholder photo's actual contents without
+ *  risking a mismatched claim, so it states what the page is about instead,
+ *  which is also exactly what image-SEO alt text should center on anyway. */
+function lpc_fill_service_image(&$page, $client_id, $service, $altText) {
     $url = lpc_resolve_service_image($client_id, $service);
     foreach ($page['sections'] as &$section) {
-        if (($section['type'] ?? '') === 'hero' && empty($section['image'])) {
-            $section['image'] = $url;
-        }
+        if (($section['type'] ?? '') !== 'hero') continue;
+        if (empty($section['image'])) $section['image'] = $url;
+        if (empty($section['image_alt'])) $section['image_alt'] = $altText;
     }
     unset($section);
     if (empty($page['seo']['og_image'])) {

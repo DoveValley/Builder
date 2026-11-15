@@ -109,9 +109,26 @@ function lpc_default_page_data() {
             'primary_keyword'   => '',
             'secondary_keywords'=> [],
         ],
+        // 11 sections, up from the original 6 — real per-city research (census
+        // data) plus niche-injected framing needs room to breathe, matching the
+        // depth the niche fleet's own landing pages carry. Still only 8 DELIVERY
+        // types (plugin contract): 'highlights' and 'steps' are the only two new
+        // ones, both plain <ul>/<ol> lists — every element used across all 8
+        // types is exactly what WordPress's block editor already produces for an
+        // ordinary post, so it inherits any theme's own styling with zero custom
+        // CSS, same principle as the original 6 (verified live against Twenty
+        // Twenty-Three/Four/Five and Astra). Multiple 'text' sections need a
+        // 'key' to disambiguate which AI-authored content fills which — the
+        // plugin's renderer only ever looks at 'type', never 'key' (that's purely
+        // an admin/AI bookkeeping concern, invisible to delivery).
         'sections' => [
-            ['type' => 'hero',           'headline' => '', 'subheading' => '', 'image' => '', 'cta_text' => '', 'phone' => ''],
-            ['type' => 'text',           'heading'  => '', 'body' => ''],
+            ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'cta_text' => '', 'phone' => ''],
+            ['type' => 'text',       'key' => 'city_intro',            'heading' => '', 'body' => ''],
+            ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => '', 'items' => []],
+            ['type' => 'text',       'key' => 'local_relevance',       'heading' => '', 'body' => ''],
+            ['type' => 'steps',      'key' => 'how_it_works',          'heading' => '', 'items' => []],
+            ['type' => 'text',       'key' => 'seasonal_calendar',     'heading' => '', 'body' => ''],
+            ['type' => 'text',       'key' => 'why_choose_us',         'heading' => '', 'body' => ''],
             ['type' => 'services_list',  'heading'  => '', 'items' => []],
             ['type' => 'faq',            'heading'  => '', 'items' => []],
             ['type' => 'cta',            'heading'  => '', 'body' => '', 'phone' => '', 'button_text' => ''],

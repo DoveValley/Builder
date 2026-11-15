@@ -33,14 +33,23 @@ $isNew = !lpc_load_page($client_id, $page_id);
 $canRegenerate = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $_ctid)
     && lpc_find_by_id($client['services'] ?? [], 'service_id', $_svcid);
 
-$sectionByType = [];
-foreach ($page['sections'] as $s) { $sectionByType[$s['type']] = $s; }
-$hero         = $sectionByType['hero'] ?? ['headline' => '', 'subheading' => '', 'image' => '', 'cta_text' => '', 'phone' => ''];
-$text         = $sectionByType['text'] ?? ['heading' => '', 'body' => ''];
-$servicesList = $sectionByType['services_list'] ?? ['heading' => '', 'items' => []];
-$faq          = $sectionByType['faq'] ?? ['heading' => '', 'items' => []];
-$cta          = $sectionByType['cta'] ?? ['heading' => '', 'body' => '', 'phone' => '', 'button_text' => ''];
-$relatedLinks = $sectionByType['related_links'] ?? ['heading' => '', 'links' => []];
+// Keyed by 'key' when a section has one (the 5 niche-injected slots share
+// 'type' with each other, so 'type' alone can't tell them apart), falling
+// back to 'type' for the singular sections — same matching rule
+// lpc_apply_ai_sections() uses.
+$sectionByKey = [];
+foreach ($page['sections'] as $s) { $sectionByKey[$s['key'] ?? $s['type']] = $s; }
+$hero            = $sectionByKey['hero'] ?? ['headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'cta_text' => '', 'phone' => ''];
+$cityIntro       = $sectionByKey['city_intro'] ?? ['heading' => '', 'body' => ''];
+$featureLocal    = $sectionByKey['feature_columns_local'] ?? ['heading' => '', 'items' => []];
+$localRelevance  = $sectionByKey['local_relevance'] ?? ['heading' => '', 'body' => ''];
+$howItWorks      = $sectionByKey['how_it_works'] ?? ['heading' => '', 'items' => []];
+$seasonal        = $sectionByKey['seasonal_calendar'] ?? ['heading' => '', 'body' => ''];
+$whyChooseUs     = $sectionByKey['why_choose_us'] ?? ['heading' => '', 'body' => ''];
+$servicesList = $sectionByKey['services_list'] ?? ['heading' => '', 'items' => []];
+$faq          = $sectionByKey['faq'] ?? ['heading' => '', 'items' => []];
+$cta          = $sectionByKey['cta'] ?? ['heading' => '', 'body' => '', 'phone' => '', 'button_text' => ''];
+$relatedLinks = $sectionByKey['related_links'] ?? ['heading' => '', 'links' => []];
 
 $alert = null;
 if (!empty($_GET['msg'])) {
@@ -190,14 +199,63 @@ if ($preview) {
             <div class="lpc-field"><label>Headline</label><input type="text" name="hero_headline" value="<?= h($hero['headline']) ?>"></div>
             <div class="lpc-field"><label>Subheading</label><input type="text" name="hero_subheading" value="<?= h($hero['subheading']) ?>"></div>
             <div class="lpc-field"><label>Image URL</label><input type="text" name="hero_image" value="<?= h($hero['image']) ?>"></div>
+            <div class="lpc-field"><label>Image Alt Text <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(image SEO — defaults to the primary keyword)</span></label><input type="text" name="hero_image_alt" value="<?= h($hero['image_alt'] ?? '') ?>"></div>
             <div class="lpc-field"><label>CTA Text</label><input type="text" name="hero_cta_text" value="<?= h($hero['cta_text']) ?>"></div>
             <div class="lpc-field"><label>Phone</label><input type="text" name="hero_phone" value="<?= h($hero['phone']) ?>"></div>
         </div>
 
         <div class="lpc-section">
-            <h3>Text</h3>
-            <div class="lpc-field"><label>Heading</label><input type="text" name="text_heading" value="<?= h($text['heading']) ?>"></div>
-            <div class="lpc-field"><label>Body</label><textarea name="text_body"><?= h($text['body']) ?></textarea></div>
+            <h3>City Intro <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(real per-city research — population, housing data)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="city_intro_heading" value="<?= h($cityIntro['heading']) ?>"></div>
+            <div class="lpc-field"><label>Body</label><textarea name="city_intro_body"><?= h($cityIntro['body']) ?></textarea></div>
+        </div>
+
+        <div class="lpc-section">
+            <h3>Local Highlights <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(why/how this service matters in this city)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="highlights_heading" value="<?= h($featureLocal['heading']) ?>"></div>
+            <div id="highlights-rows">
+                <?php foreach ($featureLocal['items'] as $item): ?>
+                <div class="lpc-repeat-row">
+                    <input type="text" name="highlights_title[]" placeholder="Title" value="<?= h($item['title']) ?>">
+                    <input type="text" name="highlights_text[]" placeholder="Text" value="<?= h($item['text']) ?>">
+                    <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <button type="button" class="btn-sm-outline" onclick="lpcAddRow('highlights-rows','highlights_title[]','Title','highlights_text[]','Text')">+ Add Item</button>
+        </div>
+
+        <div class="lpc-section">
+            <h3>Local Relevance <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(real local data — home age, value, housing stock)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="local_relevance_heading" value="<?= h($localRelevance['heading']) ?>"></div>
+            <div class="lpc-field"><label>Body</label><textarea name="local_relevance_body"><?= h($localRelevance['body']) ?></textarea></div>
+        </div>
+
+        <div class="lpc-section">
+            <h3>How It Works <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(the real step-by-step process)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="steps_heading" value="<?= h($howItWorks['heading']) ?>"></div>
+            <div id="steps-rows">
+                <?php foreach ($howItWorks['items'] as $item): ?>
+                <div class="lpc-repeat-row">
+                    <input type="text" name="steps_title[]" placeholder="Step title" value="<?= h($item['title']) ?>">
+                    <input type="text" name="steps_text[]" placeholder="Text" value="<?= h($item['text']) ?>">
+                    <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <button type="button" class="btn-sm-outline" onclick="lpcAddRow('steps-rows','steps_title[]','Step title','steps_text[]','Text')">+ Add Step</button>
+        </div>
+
+        <div class="lpc-section">
+            <h3>Seasonal Calendar <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(when demand for this service peaks)</span></h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="seasonal_heading" value="<?= h($seasonal['heading']) ?>"></div>
+            <div class="lpc-field"><label>Body</label><textarea name="seasonal_body"><?= h($seasonal['body']) ?></textarea></div>
+        </div>
+
+        <div class="lpc-section">
+            <h3>Why Choose Us</h3>
+            <div class="lpc-field"><label>Heading</label><input type="text" name="why_choose_us_heading" value="<?= h($whyChooseUs['heading']) ?>"></div>
+            <div class="lpc-field"><label>Body</label><textarea name="why_choose_us_body"><?= h($whyChooseUs['body']) ?></textarea></div>
         </div>
 
         <div class="lpc-section">
