@@ -60,6 +60,16 @@ function lpc_render_styles( $branding ) {
 			--lpc-primary: <?php echo $primary; ?>;
 			--lpc-accent: <?php echo $accent; ?>;
 			font-family: <?php echo $font_decl; ?>inherit;
+			/* Every background this stylesheet sets (hero/card/faq/cta tints,
+			   the plain page background) is a light pastel, regardless of the
+			   client's chosen brand color — primary_tint/accent_tint are always
+			   rendered at 8-10% opacity. A fixed dark neutral is therefore
+			   always correct here and far safer than inheriting the theme's own
+			   default text color, which is NOT guaranteed to be dark (a real,
+			   reported case, 2026-11-15: some theme/page contexts resolve their
+			   inherited default to a light/white color, which against these
+			   same-family light backgrounds reads as text "disappearing"). */
+			color: #1a1a2e;
 		}
 		.lpc-page .lpc-hero {
 			background: <?php echo $primary_tint; ?>;
