@@ -16,6 +16,35 @@ $section = $_POST['section'] ?? '';
 
 switch ($section) {
 
+    /* ---- IDENTITY ---- */
+    case 'identity':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $name = trim($_POST['business_name'] ?? '');
+        if ($name === '') {
+            header('Location: client.php?id=' . urlencode($client_id) . '&msg=error:Business+name+cannot+be+empty');
+            exit;
+        }
+        // Stored as a bare hostname, no scheme/trailing slash — the Reporting
+        // tab's GSC page-URL lookup does 'https://' . $domain . ... and breaks
+        // (double scheme) if this ever holds a full URL instead.
+        $domain = preg_replace('~^https?://~i', '', trim($_POST['domain'] ?? ''));
+        $domain = rtrim($domain, '/');
+
+        $client['identity'] = [
+            'business_name'     => $name,
+            'domain'            => $domain,
+            'industry_category' => trim($_POST['industry_category'] ?? ''),
+            'contact_name'      => trim($_POST['contact_name'] ?? ''),
+            'contact_email'     => trim($_POST['contact_email'] ?? ''),
+            'contact_phone'     => trim($_POST['contact_phone'] ?? ''),
+        ];
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&msg=success:Identity+saved+-+Regenerate+%2B+Publish+affected+pages+to+push+the+change+live');
+        exit;
+
     /* ---- HUBS (add / edit / delete) ---- */
     case 'hubs':
         $client_id = $_POST['client_id'] ?? '';

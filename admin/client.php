@@ -125,6 +125,25 @@ $apiKey = lpc_get_client_api_key($client_id);
 
     <?php if ($tab === 'overview'): ?>
 
+        <h3 style="margin-top:0;">Identity</h3>
+        <form method="post" action="client_save.php" class="card">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="section" value="identity">
+            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            <div class="lpc-form-row">
+                <div class="form-group"><label>Business Name *</label><input type="text" name="business_name" required value="<?= h($client['identity']['business_name']) ?>"></div>
+                <div class="form-group"><label>Domain</label><input type="text" name="domain" value="<?= h($client['identity']['domain']) ?>"></div>
+                <div class="form-group"><label>Industry Category</label><input type="text" name="industry_category" value="<?= h($client['identity']['industry_category']) ?>"></div>
+            </div>
+            <div class="lpc-form-row">
+                <div class="form-group"><label>Contact Name</label><input type="text" name="contact_name" value="<?= h($client['identity']['contact_name']) ?>"></div>
+                <div class="form-group"><label>Contact Email</label><input type="email" name="contact_email" value="<?= h($client['identity']['contact_email']) ?>"></div>
+                <div class="form-group"><label>Contact Phone</label><input type="text" name="contact_phone" value="<?= h($client['identity']['contact_phone']) ?>"></div>
+            </div>
+            <button type="submit" class="btn-open" style="margin-top:10px;">Save Identity</button>
+            <p style="color:#6b7280;font-size:.78rem;margin:10px 0 0;">Changing the business name here does not rewrite already-generated page content or an already-published manifest by itself — Regenerate affected pages and Publish again to push the correction live.</p>
+        </form>
+
         <h3 style="margin-top:28px;">Hub Offices</h3>
         <?php if (empty($client['hubs'])): ?>
             <p style="color:#6b7280;font-size:.88rem;">No hub offices yet — add the business's real office locations below.</p>
