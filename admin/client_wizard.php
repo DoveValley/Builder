@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_nav.php';
 require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — the 43,901-row cities table
 require_once __DIR__ . '/infra/lib/keywords.php';    // infra_kw_fetch() — optional, spends API quota, opt-in only
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city(), ms_haversine_miles()
@@ -346,6 +347,8 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
 </div>
 
 <div class="lpc-wrap">
+
+    <?php lpc_render_nav('new_client'); ?>
 
     <h1 style="font-size:1.3rem;">New Landing Page Client</h1>
 

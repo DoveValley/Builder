@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/lpc_nav.php';
 require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — shared with client_wizard.php's lpc_city_candidates()
 require_once __DIR__ . '/infra/lib/keywords.php';    // cities.php's infra_cn_cols() calls infra_kw_types() internally — not optional despite not using keyword fetch here
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_haversine_miles()
@@ -114,14 +115,7 @@ $apiKey = lpc_get_client_api_key($client_id);
         <div><strong>$<?= number_format($mrr, 0) ?>/mo</strong><span>MRR</span></div>
     </div>
 
-    <div class="tabs">
-        <a class="tab-link <?= $tab === 'overview' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=overview">Overview</a>
-        <a class="tab-link <?= $tab === 'locations' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=locations">Locations &amp; Services</a>
-        <a class="tab-link <?= $tab === 'branding' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=branding">Branding</a>
-        <a class="tab-link <?= $tab === 'content_profile' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=content_profile">Content Profile</a>
-        <a class="tab-link <?= $tab === 'delivery' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=delivery">Delivery</a>
-        <a class="tab-link <?= $tab === 'reporting' ? 'active' : '' ?>" href="?id=<?= h($client_id) ?>&tab=reporting">Reporting</a>
-    </div>
+    <?php lpc_render_nav('', $client_id, $client['identity']['business_name'], $tab); ?>
 
     <?php if ($tab === 'overview'): ?>
 
