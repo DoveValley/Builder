@@ -531,9 +531,20 @@ switch ($section) {
             // time someone saves content, which would silently undo the real
             // <img width/height> attributes a Lighthouse audit flagged as missing.
             $existingImgW = null; $existingImgH = null;
+            // service_area facts — same "not touched here" rule as related_links
+            // above; carried forward only so the editor doesn't look blank
+            // between a manual Save and the next Publish, which is what
+            // actually recomputes these.
+            $existingServiceAreaIntro = ''; $existingServiceAreaState = ''; $existingOfficeCity = ''; $existingNearbyCities = [];
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
+                if (($s['type'] ?? '') === 'service_area') {
+                    $existingServiceAreaIntro = $s['intro'] ?? '';
+                    $existingServiceAreaState = $s['state'] ?? '';
+                    $existingOfficeCity       = $s['office_city'] ?? '';
+                    $existingNearbyCities     = $s['nearby_cities'] ?? [];
+                }
             }
 
             $page['sections'] = [
@@ -547,6 +558,9 @@ switch ($section) {
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
                 ['type' => 'cta', 'heading' => trim($_POST['cta_heading'] ?? ''), 'body' => trim($_POST['cta_body'] ?? ''), 'phone' => trim($_POST['cta_phone'] ?? ''), 'button_text' => trim($_POST['cta_button_text'] ?? '')],
+                // service_area, like related_links just below, is auto-computed
+                // at publish time (lpc_compute_service_area()) — never hand-authored.
+                ['type' => 'service_area', 'heading' => 'Our Service Area', 'intro' => $existingServiceAreaIntro, 'state' => $existingServiceAreaState, 'office_city' => $existingOfficeCity, 'nearby_cities' => $existingNearbyCities],
                 ['type' => 'related_links', 'heading' => 'Related Services', 'links' => $existingLinks],
             ];
 

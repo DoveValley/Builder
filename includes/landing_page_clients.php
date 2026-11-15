@@ -109,18 +109,19 @@ function lpc_default_page_data() {
             'primary_keyword'   => '',
             'secondary_keywords'=> [],
         ],
-        // 11 sections, up from the original 6 — real per-city research (census
+        // 12 sections, up from the original 6 — real per-city research (census
         // data) plus niche-injected framing needs room to breathe, matching the
-        // depth the niche fleet's own landing pages carry. Still only 8 DELIVERY
-        // types (plugin contract): 'highlights' and 'steps' are the only two new
-        // ones, both plain <ul>/<ol> lists — every element used across all 8
-        // types is exactly what WordPress's block editor already produces for an
-        // ordinary post, so it inherits any theme's own styling with zero custom
-        // CSS, same principle as the original 6 (verified live against Twenty
-        // Twenty-Three/Four/Five and Astra). Multiple 'text' sections need a
-        // 'key' to disambiguate which AI-authored content fills which — the
-        // plugin's renderer only ever looks at 'type', never 'key' (that's purely
-        // an admin/AI bookkeeping concern, invisible to delivery).
+        // depth the niche fleet's own landing pages carry. Still only 9 DELIVERY
+        // types (plugin contract): 'highlights' and 'steps' are two new plain
+        // <ul>/<ol> lists, and 'service_area' (below) is the third — every
+        // element used across all 9 types is exactly what WordPress's block
+        // editor already produces for an ordinary post, so it inherits any
+        // theme's own styling with zero custom CSS, same principle as the
+        // original 6 (verified live against Twenty Twenty-Three/Four/Five and
+        // Astra). Multiple 'text' sections need a 'key' to disambiguate which
+        // AI-authored content fills which — the plugin's renderer only ever
+        // looks at 'type', never 'key' (that's purely an admin/AI bookkeeping
+        // concern, invisible to delivery).
         'sections' => [
             ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null, 'cta_text' => '', 'phone' => ''],
             ['type' => 'text',       'key' => 'city_intro',            'heading' => '', 'body' => ''],
@@ -132,6 +133,12 @@ function lpc_default_page_data() {
             ['type' => 'services_list',  'heading'  => '', 'items' => []],
             ['type' => 'faq',            'heading'  => '', 'items' => []],
             ['type' => 'cta',            'heading'  => '', 'body' => '', 'phone' => '', 'button_text' => ''],
+            // Auto-computed at publish time (lpc_compute_service_area()), never
+            // hand-authored or AI-generated — same "always recomputed fresh from
+            // client.json, not just filled once" rule related_links already
+            // follows below. Plain facts only (state/office city/nearby cities,
+            // no links yet — deliberately parked, see project memory).
+            ['type' => 'service_area',   'heading'  => 'Our Service Area', 'intro' => '', 'state' => '', 'office_city' => '', 'nearby_cities' => []],
             ['type' => 'related_links',  'heading'  => '', 'links' => []],
         ],
         'schema_jsonld' => null,

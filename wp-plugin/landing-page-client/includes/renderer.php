@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 8 locked section types. Originally zero CSS/classes of our own
+ * Renders the 9 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -54,6 +54,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				break;
 			case 'related_links':
 				$html .= lpc_render_related_links( $section );
+				break;
+			case 'service_area':
+				$html .= lpc_render_service_area( $section );
 				break;
 		}
 	}
@@ -165,6 +168,36 @@ function lpc_render_cta( $s ) {
 		$out .= '<p><a class="lpc-btn lpc-btn-accent" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
 	}
 	$out .= '</section>';
+	return $out;
+}
+
+/** Plain facts — state, office city, nearby cities — never links (that's a
+ *  deliberately parked follow-up, see rewrite.php's locked-section-types
+ *  comment history). A definition-list reads as "facts," not a nav menu the
+ *  way lpc-pill-list does, which matters here since none of this is
+ *  clickable. */
+function lpc_render_service_area( $s ) {
+	if ( empty( $s['state'] ) && empty( $s['office_city'] ) && empty( $s['nearby_cities'] ) ) {
+		return '';
+	}
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	if ( ! empty( $s['intro'] ) ) {
+		$out .= '<p>' . esc_html( $s['intro'] ) . '</p>';
+	}
+	$out .= '<dl class="lpc-fact-list">';
+	if ( ! empty( $s['state'] ) ) {
+		$out .= '<div><dt>State</dt><dd>' . esc_html( $s['state'] ) . '</dd></div>';
+	}
+	if ( ! empty( $s['office_city'] ) ) {
+		$out .= '<div><dt>Office City</dt><dd>' . esc_html( $s['office_city'] ) . '</dd></div>';
+	}
+	if ( ! empty( $s['nearby_cities'] ) ) {
+		$out .= '<div><dt>Nearby Cities</dt><dd>' . esc_html( implode( ', ', (array) $s['nearby_cities'] ) ) . '</dd></div>';
+	}
+	$out .= '</dl></section>';
 	return $out;
 }
 

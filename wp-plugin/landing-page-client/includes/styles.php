@@ -102,6 +102,10 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 		.lpc-page .lpc-pill { background: rgba(0,0,0,.05); border-radius: 999px; padding: 6px 14px; font-size: .85rem; text-decoration: none; }
 		.lpc-page .lpc-pill:hover { background: var(--lpc-primary); color: #fff; }
+		.lpc-page .lpc-fact-list { display: flex; flex-wrap: wrap; gap: 20px; margin: 0; padding: 0; }
+		.lpc-page .lpc-fact-list div { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 14px 18px; min-width: 180px; }
+		.lpc-page .lpc-fact-list dt { font-size: .76rem; text-transform: uppercase; letter-spacing: .03em; opacity: .65; margin: 0 0 4px; }
+		.lpc-page .lpc-fact-list dd { margin: 0; font-weight: 600; }
 		.lpc-page .lpc-hub-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 		.lpc-page .lpc-hub-item a {
 			display: block; border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary);

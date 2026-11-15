@@ -123,6 +123,41 @@ function lpc_compute_related_links($client, $page_id) {
 }
 
 /**
+ * Plain facts about this page's service area — state, which hub office
+ * serves it, and which other target cities share that same hub ("nearby
+ * cities"). Deliberately NOT links yet (parked per Scott, 2026-11-15 — come
+ * back to cross-page internal linking later); this is display-only text,
+ * same auto-computed-fresh-every-publish rule as lpc_compute_related_links()
+ * just above, pulling straight from client.json's hubs[]/target_cities[]
+ * rather than being hand-typed or AI-authored.
+ */
+function lpc_compute_service_area($client, $page_id) {
+    [$city_id, ] = array_pad(explode('__', $page_id, 2), 2, '');
+    $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+    if (!$target) return ['city' => '', 'state' => '', 'office_city' => '', 'nearby_cities' => []];
+
+    $hub = lpc_find_by_id($client['hubs'] ?? [], 'hub_id', $target['served_by_hub'] ?? null);
+    // Hub address city is hand-typed in the wizard with no case normalization
+    // enforced there (confirmed: real data has "southlake", not "Southlake") —
+    // ucwords() here only, so the raw field isn't silently rewritten on save.
+    $officeCity = $hub ? trim(ucwords($hub['address']['city'] ?? '') . ', ' . ($hub['address']['state'] ?? ''), ', ') : '';
+
+    $nearby = [];
+    foreach ($client['target_cities'] ?? [] as $tc) {
+        if ($tc['city_id'] === $city_id) continue;
+        if (($tc['served_by_hub'] ?? null) !== ($target['served_by_hub'] ?? null)) continue;
+        $nearby[] = trim(($tc['city'] ?? '') . ', ' . ($tc['state'] ?? ''), ', ');
+    }
+
+    return [
+        'city'           => $target['city'] ?? '',
+        'state'          => $target['state'] ?? '',
+        'office_city'    => $officeCity,
+        'nearby_cities'  => $nearby,
+    ];
+}
+
+/**
  * Preview Site mode's sibling list — same lookup as lpc_compute_related_links()
  * above, deliberately WITHOUT the "must be published" filter. Preview Site
  * mode exists to review the whole site as it will look once everything is
@@ -203,6 +238,15 @@ function lpc_preview_render($sections) {
                 if (empty($s['links'])) break;
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';
                 foreach ($s['links'] as $link) $out .= '<li><a href="' . h($link['url']) . '">' . h($link['label']) . '</a></li>';
+                $out .= '</ul></section>';
+                break;
+            case 'service_area':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '');
+                if (!empty($s['intro'])) $out .= '<p>' . h($s['intro']) . '</p>';
+                $out .= '<ul>';
+                if (!empty($s['state'])) $out .= '<li>State: ' . h($s['state']) . '</li>';
+                if (!empty($s['office_city'])) $out .= '<li>Office City: ' . h($s['office_city']) . '</li>';
+                if (!empty($s['nearby_cities'])) $out .= '<li>Nearby Cities: ' . h(implode(', ', $s['nearby_cities'])) . '</li>';
                 $out .= '</ul></section>';
                 break;
         }
@@ -319,6 +363,20 @@ function lpc_publish_page($client_id, $page_id) {
     foreach ($page['sections'] as &$section) {
         if (($section['type'] ?? '') === 'related_links') {
             $section['links'] = lpc_compute_related_links($client, $page_id);
+        }
+        if (($section['type'] ?? '') === 'service_area') {
+            $area = lpc_compute_service_area($client, $page_id);
+            $section['state']         = $area['state'];
+            $section['office_city']   = $area['office_city'];
+            $section['nearby_cities'] = $area['nearby_cities'];
+            // Recomputed fresh every publish, same as the facts above — a hub
+            // reassignment or a newly added nearby city should show up here on
+            // the next publish without needing a manual edit.
+            $business = $client['identity']['business_name'] ?: 'We';
+            $cityState = trim($area['city'] . ', ' . $area['state'], ', ');
+            $section['intro'] = $cityState !== ''
+                ? "{$business} proudly serves {$cityState} and the surrounding area."
+                : '';
         }
     }
     unset($section);
