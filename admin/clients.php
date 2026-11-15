@@ -106,7 +106,10 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 
     <div class="lpc-topbar">
         <h1>Landing Page Clients</h1>
-        <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
+        <div style="display:flex;gap:8px;">
+            <a href="niche_profiles.php" class="btn-sm-outline">Niche Profiles</a>
+            <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
+        </div>
     </div>
 
     <?php if (empty($rows)): ?>
