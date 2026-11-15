@@ -33,8 +33,10 @@ function lpc_service_locations_url() {
 
 // Still hooked to wp_footer for site-wide reach (the rest of the client's
 // real site — home, blog, service pages — has no other way to call this).
-// ALSO called directly from rewrite.php, right after our own content and
-// before get_footer(), specifically on our own virtual /locations/ pages.
+// ALSO called directly from rewrite.php, as the LAST thing inside .lpc-page
+// (before that div closes), specifically on our own virtual /locations/
+// pages — see rewrite.php's own comment for why it has to be inside that
+// div, not just after it.
 // Why both: themes vary wildly in WHERE wp_footer() actually fires relative
 // to their own markup — found live on restore-2 (2026-11-15), Kadence closes
 // its #wrapper div and renders its own "sticky Call Now bar" template part
