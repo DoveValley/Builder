@@ -21,6 +21,7 @@ define( 'LPC_DELIVERY_BASE', 'http://31.97.133.251:8098/api.php' );
 require_once __DIR__ . '/includes/remote.php';
 require_once __DIR__ . '/includes/renderer.php';
 require_once __DIR__ . '/includes/rewrite.php';
+require_once __DIR__ . '/includes/footer_link.php';
 
 register_activation_hook( __FILE__, 'lpc_activate' );
 function lpc_activate() {
