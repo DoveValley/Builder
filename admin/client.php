@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/infra/lib/cities.php';      // infra_cities_init() — shared with client_wizard.php's lpc_city_candidates()
+require_once __DIR__ . '/infra/lib/keywords.php';    // cities.php's infra_cn_cols() calls infra_kw_types() internally — not optional despite not using keyword fetch here
+require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_haversine_miles()
 
 if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
@@ -169,6 +172,119 @@ $apiKey = lpc_get_client_api_key($client_id);
             </div>
             <p style="color:#6b7280;font-size:.8rem;margin:10px 0 0;"><?= $locations ?> location<?= $locations === 1 ? '' : 's' ?> &times; $<?= number_format((float)$client['billing']['monthly_fee_per_location'], 2) ?>/mo = $<?= number_format($mrr, 2) ?>/mo</p>
         </form>
+
+    <?php elseif ($tab === 'locations'): ?>
+
+        <h3 style="margin-top:28px;">Services</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <?php foreach ($client['services'] as $s): ?>
+                <span class="lpc-badge" style="background:#eef2ff;color:#3730a3;"><?= h($s['label']) ?></span>
+            <?php endforeach; ?>
+            <?php if (empty($client['services'])): ?>
+                <span style="color:#6b7280;font-size:.85rem;">No services yet.</span>
+            <?php endif; ?>
+        </div>
+        <form method="post" action="client_save.php" class="lpc-form-row" style="margin-top:0;">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="section" value="services">
+            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            <div class="form-group"><label>New Service</label><input type="text" name="service_label" placeholder="e.g. Fire Damage Restoration"></div>
+            <button type="submit" class="btn-sm-outline">+ Add Service (applies to every existing city)</button>
+        </form>
+
+        <h3 style="margin-top:32px;">Target Cities &times; Services</h3>
+        <?php if (empty($client['target_cities'])): ?>
+            <p style="color:#6b7280;font-size:.88rem;">No target cities yet — add some from the suggestions below.</p>
+        <?php else: ?>
+            <form id="lpc-publish-form" method="post" action="client_save.php" style="margin-bottom:10px;">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="page_action" value="publish">
+            </form>
+            <table class="lpc-matrix" style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+                <tr style="text-align:left;font-size:.74rem;color:#6b7280;background:#f9fafb;">
+                    <th style="padding:8px 12px;">City</th>
+                    <?php foreach ($client['services'] as $s): ?><th style="padding:8px 12px;"><?= h($s['label']) ?></th><?php endforeach; ?>
+                    <th style="padding:8px 12px;"></th>
+                </tr>
+                <?php foreach ($client['target_cities'] as $tc): ?>
+                <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
+                    <td style="padding:8px 12px;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></td>
+                    <?php foreach ($client['services'] as $s):
+                        if (!in_array($s['service_id'], $tc['services'], true)) { echo '<td style="padding:8px 12px;color:#d1d5db;">—</td>'; continue; }
+                        $pageId = $tc['city_id'] . '__' . $s['service_id'];
+                        $page = lpc_load_page($client_id, $pageId);
+                        $pageStatus = $page['status'] ?? null;
+                    ?>
+                        <td style="padding:8px 12px;">
+                            <?php if ($pageStatus === null): ?>
+                                <form method="post" action="client_save.php" style="margin:0;display:inline;">
+                                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                                    <input type="hidden" name="section" value="pages">
+                                    <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                                    <input type="hidden" name="page_action" value="generate_draft">
+                                    <input type="hidden" name="page_id" value="<?= h($pageId) ?>">
+                                    <button type="submit" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Generate Draft</button>
+                                </form>
+                            <?php elseif ($pageStatus === 'draft'): ?>
+                                <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
+                                <span class="lpc-badge lpc-badge-never">Draft</span>
+                            <?php elseif ($pageStatus === 'published'): ?>
+                                <span class="lpc-badge lpc-badge-connected">Published</span>
+                            <?php else: ?>
+                                <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
+                                <span class="lpc-badge lpc-badge-stale">Needs Update</span>
+                            <?php endif; ?>
+                        </td>
+                    <?php endforeach; ?>
+                    <td style="padding:8px 12px;">
+                        <form method="post" action="client_save.php" style="margin:0;" onsubmit="return confirm('Remove this target city?');">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="target_cities">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="tc_action" value="remove">
+                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                            <button type="submit" class="btn-sm-danger" style="font-size:.74rem;padding:3px 8px;">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+            <button type="submit" form="lpc-publish-form" class="btn-open" style="margin-top:10px;">Publish Checked</button>
+        <?php endif; ?>
+
+        <?php foreach ($client['hubs'] as $hub): ?>
+            <h3 style="margin-top:32px;">Add a City near <?= h($hub['name']) ?> (<?= (int) $hub['service_radius_miles'] ?> mi)</h3>
+            <?php if ($hub['geo']['lat'] === null): ?>
+                <p style="color:#b45309;font-size:.85rem;">This hub wasn't geocoded, so there are no automatic suggestions.</p>
+            <?php else:
+                $candidates = lpc_city_candidates($hub, array_column($client['target_cities'], 'city_id'));
+                if (empty($candidates)): ?>
+                <p style="color:#6b7280;font-size:.85rem;">No candidate cities found within <?= (int) $hub['service_radius_miles'] ?> miles.</p>
+            <?php else: ?>
+                <form method="post" action="client_save.php">
+                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                    <input type="hidden" name="section" value="target_cities">
+                    <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                    <input type="hidden" name="tc_action" value="add_selected">
+                    <input type="hidden" name="hub_id" value="<?= h($hub['hub_id']) ?>">
+                    <table style="width:100%;border-collapse:collapse;margin-bottom:10px;">
+                        <tr style="text-align:left;font-size:.74rem;color:#6b7280;">
+                            <th></th><th>City</th><th>Pop.</th><th>Dist.</th>
+                        </tr>
+                        <?php foreach ($candidates as $c): ?>
+                        <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
+                            <td><input type="checkbox" name="selected[]" value="<?= h($c['city_id'] . '|' . $c['city'] . '|' . $c['state']) ?>"></td>
+                            <td><?= h($c['city']) ?>, <?= h($c['state']) ?></td>
+                            <td><?= number_format($c['population']) ?></td>
+                            <td><?= $c['distance'] ?> mi</td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                    <button type="submit" class="btn-open">Add Selected as Target Cities</button>
+                </form>
+            <?php endif; endif; ?>
+        <?php endforeach; ?>
 
     <?php elseif ($tab === 'delivery'): ?>
 

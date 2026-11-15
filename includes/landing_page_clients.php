@@ -269,3 +269,35 @@ function lpc_create_client($identity) {
 
     return $client_id;
 }
+
+/**
+ * Population-ranked candidate cities within a hub's service radius — free,
+ * always available (no DataForSEO credit spent). Shared by the kickoff
+ * wizard's Step 4 and the Locations & Services matrix's "Add a City" action,
+ * per the design doc's explicit instruction to reuse the same recommendation
+ * screen rather than build it twice. Callers must require_once
+ * admin/infra/lib/cities.php and includes/multisite/geocode.php first (not
+ * required here — this file is loaded on every admin page via functions.php,
+ * and those two aren't needed by most of them).
+ */
+function lpc_city_candidates($hub, $excludeCityIds, $limit = 25) {
+    if ($hub['geo']['lat'] === null) return [];
+    $db = infra_cities_init();
+    $rows = $db->query('SELECT city, state, ss, population, lat, lng FROM cities WHERE lat <> "" AND lng <> "" AND population > 0')->fetchAll(PDO::FETCH_ASSOC);
+    $candidates = [];
+    foreach ($rows as $r) {
+        $dist = ms_haversine_miles((float) $hub['geo']['lat'], (float) $hub['geo']['lng'], (float) $r['lat'], (float) $r['lng']);
+        if ($dist > (int) $hub['service_radius_miles']) continue;
+        $cityId = slugify($r['city'] . '-' . $r['ss']);
+        if (in_array($cityId, $excludeCityIds, true)) continue;
+        $candidates[] = [
+            'city_id'    => $cityId,
+            'city'       => $r['city'],
+            'state'      => $r['ss'] ?: $r['state'],
+            'population' => (int) $r['population'],
+            'distance'   => round($dist, 1),
+        ];
+    }
+    usort($candidates, fn($a, $b) => $b['population'] <=> $a['population']);
+    return array_slice($candidates, 0, $limit);
+}

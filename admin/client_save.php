@@ -68,6 +68,90 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&msg=success:Billing+updated');
         exit;
 
+    /* ---- SERVICES ---- */
+    case 'services':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $label = trim($_POST['service_label'] ?? '');
+        if ($label !== '') {
+            $serviceId = slugify($label);
+            $exists = false;
+            foreach ($client['services'] as $s) { if ($s['service_id'] === $serviceId) $exists = true; }
+            if (!$exists) {
+                $client['services'][] = ['service_id' => $serviceId, 'label' => $label];
+                // "Applied to all cities by default" per the design — a new service
+                // column should show up as a Not Created cell for every existing
+                // target city, not just future ones.
+                foreach ($client['target_cities'] as &$tc) {
+                    if (!in_array($serviceId, $tc['services'], true)) {
+                        $tc['services'][] = $serviceId;
+                    }
+                }
+                unset($tc);
+            }
+        }
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Service+added');
+        exit;
+
+    /* ---- TARGET CITIES (bulk add from the suggestion table / remove) ---- */
+    case 'target_cities':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $action = $_POST['tc_action'] ?? '';
+
+        if ($action === 'add_selected') {
+            $hubId = trim($_POST['hub_id'] ?? '');
+            foreach ((array) ($_POST['selected'] ?? []) as $packed) {
+                [$cityId, $city, $state] = array_pad(explode('|', $packed, 3), 3, '');
+                if ($cityId === '') continue;
+                $exists = false;
+                foreach ($client['target_cities'] as $tc) { if ($tc['city_id'] === $cityId) $exists = true; }
+                if (!$exists) {
+                    $client['target_cities'][] = [
+                        'city_id' => $cityId, 'city' => $city, 'state' => $state,
+                        'served_by_hub' => $hubId,
+                        'services' => array_column($client['services'], 'service_id'),
+                    ];
+                }
+            }
+        } elseif ($action === 'remove') {
+            $cityId = $_POST['city_id'] ?? '';
+            $client['target_cities'] = array_values(array_filter($client['target_cities'], fn($tc) => $tc['city_id'] !== $cityId));
+        }
+
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Target+cities+updated');
+        exit;
+
+    /* ---- PAGES (generate a blank draft / publish one or more) ---- */
+    case 'pages':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $action = $_POST['page_action'] ?? '';
+
+        if ($action === 'generate_draft') {
+            $pageId = trim($_POST['page_id'] ?? '');
+            if ($pageId !== '' && !lpc_load_page($client_id, $pageId)) {
+                lpc_save_page($client_id, $pageId, lpc_default_page_data());
+            }
+        } elseif ($action === 'publish') {
+            $pageIds = $_POST['page_ids'] ?? [];
+            if (!is_array($pageIds)) $pageIds = [$pageIds];
+            foreach ($pageIds as $pageId) {
+                lpc_publish_page($client_id, trim($pageId));
+            }
+        }
+
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Page+updated');
+        exit;
+
     default:
         header('Location: clients.php?msg=error:Unknown+section');
         exit;
