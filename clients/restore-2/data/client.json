@@ -1,0 +1,101 @@
+{
+    "client_id": "restore-2",
+    "created_at": "2026-11-15T05:02:37+00:00",
+    "updated_at": "2026-11-15T05:02:37+00:00",
+    "identity": {
+        "business_name": "restore 2",
+        "domain": "https://multirestoration1.kinsta.cloud/",
+        "industry_category": "water restoration",
+        "contact_name": "Scott Parr",
+        "contact_email": "scott.parr.s@gmail.com",
+        "contact_phone": "2146633693"
+    },
+    "branding": {
+        "logo_url": "https://multirestoration1.kinsta.cloud/wp-content/uploads/2026/04/white-logo-first-call-restoration-pros.png",
+        "primary_color": "#1420b2",
+        "accent_color": "#8c1442",
+        "font": "Inter"
+    },
+    "content_profile": {
+        "source": "niche:water-restoration",
+        "excluded_services": [],
+        "tone": "professional",
+        "always_mention": [],
+        "never_mention": []
+    },
+    "hubs": [
+        {
+            "hub_id": "scott-parr",
+            "name": "Scott Parr",
+            "address": {
+                "street": "1179 East Dove Rd",
+                "city": "southlake",
+                "state": "TX",
+                "zip": "76092"
+            },
+            "phone": "214-663-3693",
+            "service_radius_miles": 45,
+            "geo": {
+                "lat": 32.941236,
+                "lng": -97.134178
+            }
+        }
+    ],
+    "services": [
+        {
+            "service_id": "fire-damage-restoration",
+            "label": "Fire damage restoration"
+        }
+    ],
+    "target_cities": [
+        {
+            "city_id": "plano-tx",
+            "city": "Plano",
+            "state": "TX",
+            "served_by_hub": "scott-parr",
+            "services": [
+                "fire-damage-restoration"
+            ]
+        },
+        {
+            "city_id": "frisco-tx",
+            "city": "Frisco",
+            "state": "TX",
+            "served_by_hub": "scott-parr",
+            "services": [
+                "fire-damage-restoration"
+            ]
+        },
+        {
+            "city_id": "mckinney-tx",
+            "city": "McKinney",
+            "state": "TX",
+            "served_by_hub": "scott-parr",
+            "services": [
+                "fire-damage-restoration"
+            ]
+        }
+    ],
+    "delivery": {
+        "base_path": "/locations",
+        "refresh_interval_minutes": 360,
+        "support_phone": "",
+        "support_message": "",
+        "active": true,
+        "last_checkin": 0,
+        "last_emailed": "",
+        "last_stale_alert_at": ""
+    },
+    "billing": {
+        "setup_fee_per_location": 0,
+        "monthly_fee_per_location": 0,
+        "start_date": ""
+    },
+    "reporting": {
+        "gsc_property": ""
+    },
+    "integrations": {
+        "ga_measurement_id": "",
+        "cloudflare_account": ""
+    }
+}
