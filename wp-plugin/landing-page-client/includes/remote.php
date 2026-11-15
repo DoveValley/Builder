@@ -76,6 +76,25 @@ function lpc_get_manifest( $force = false ) {
 	return $manifest;
 }
 
+/**
+ * "Refresh now" forcing just the manifest (lpc_get_manifest(true)) only
+ * updates the hub listing — every individual page's own content stays on its
+ * own transient/permanent cache until that page's own TTL expires (up to
+ * refresh_interval_minutes, 6h by default), regardless of the manifest
+ * refresh. Confirmed live: regenerating+republishing a page on our side left
+ * its already-cached WordPress copy stuck on the old content. Clears every
+ * cached page the manifest currently lists, so "Refresh now" actually means
+ * "refresh everything" as the button claims.
+ */
+function lpc_purge_all_page_caches( $manifest ) {
+	foreach ( (array) ( $manifest['pages'] ?? [] ) as $p ) {
+		$slug = $p['slug'] ?? '';
+		if ( $slug === '' ) continue;
+		delete_transient( 'lpc_page_' . md5( $slug ) );
+		delete_option( 'lpc_page_cache_' . md5( $slug ) );
+	}
+}
+
 function lpc_get_page( $slug ) {
 	$transient_key   = 'lpc_page_' . md5( $slug );
 	$permanent_key   = 'lpc_page_cache_' . md5( $slug );

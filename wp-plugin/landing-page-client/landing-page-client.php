@@ -62,8 +62,9 @@ function lpc_render_settings_page() {
 	}
 
 	if ( isset( $_POST['lpc_refresh_now'] ) && check_admin_referer( 'lpc_refresh_now_action' ) ) {
-		lpc_get_manifest( true );
-		echo '<div class="notice notice-success"><p>Refreshed from the delivery server.</p></div>';
+		$manifest = lpc_get_manifest( true );
+		lpc_purge_all_page_caches( $manifest );
+		echo '<div class="notice notice-success"><p>Refreshed from the delivery server — every page will re-fetch fresh content on its next visit.</p></div>';
 	}
 
 	$api_key   = get_option( 'lpc_api_key', '' );
