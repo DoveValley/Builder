@@ -107,9 +107,47 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
     <div class="lpc-topbar">
         <h1>Landing Page Clients</h1>
         <div style="display:flex;gap:8px;">
+            <button class="btn-sm-outline" onclick="toggleLpcHowItWorks()">How This Works &#9432;</button>
             <a href="niche_profiles.php" class="btn-sm-outline">Niche Profiles</a>
             <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
         </div>
+    </div>
+
+    <div id="lpc-how-it-works-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
+        <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
+        <p style="font-size:.88rem;line-height:1.7;">
+            A multi-location landing-page service sold to external businesses (plumbers, restoration
+            companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
+            Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
+        </p>
+        <h4 style="margin-bottom:4px;">How it's built</h4>
+        <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+            <li>Content reuses this site factory's own engine — the same AI content pipeline, real per-city
+                Census research (income, home values, year built, etc.), and niche-specific content templates
+                the four live niche sites (water/mold/pest/appliance) already use.</li>
+            <li>Each client's pages are stored here (<code>clients/{id}/data/</code>), then published to a
+                separate delivery server their WordPress plugin fetches from — a thin, stateless proxy that
+                renders inside <strong>their own theme's header/footer</strong>, so it inherits their real
+                site's look with no custom CSS to fight against.</li>
+            <li>A niche profile (Niche Profiles button, above) defines content slots and a default service list
+                per industry vertical — a new client's wizard offers these as checkboxes, never auto-copied.</li>
+        </ul>
+        <h4 style="margin-bottom:4px;">How to use it</h4>
+        <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
+            <li><strong>+ New Client</strong> — the wizard: business identity, industry (matches a niche
+                profile), services offered, real hub office(s), target cities per hub.</li>
+            <li>Finishing the wizard immediately AI-generates a draft page for every city &times; service
+                combination (real cost per page) — nothing publishes yet.</li>
+            <li>In the client's workspace: set Content Profile (tone/excluded services) <em>before</em>
+                reviewing drafts, then use Locations &amp; Services to review/Edit/Regenerate each page,
+                assign a real or AI-generated photo per service, and Lock any page that's final.</li>
+            <li><strong>Publish</strong> the pages you're satisfied with, then go to the Delivery tab —
+                download the plugin zip and copy the API key to email the client (built-in compose form).</li>
+            <li>Once they paste the key into their WordPress plugin settings, the status badge on this list
+                flips to Connected.</li>
+        </ol>
+        <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
+            <code>docs/landing-page-clients-onboarding.md</code>.</p>
     </div>
 
     <?php if (empty($rows)): ?>
@@ -152,5 +190,11 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
     <?php endif; ?>
 
 </div>
+<script>
+function toggleLpcHowItWorks() {
+    const el = document.getElementById('lpc-how-it-works-card');
+    el.style.display = (el.style.display === 'none') ? '' : 'none';
+}
+</script>
 </body>
 </html>

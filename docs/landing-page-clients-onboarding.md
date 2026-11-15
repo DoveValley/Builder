@@ -24,7 +24,7 @@ Content Profile is deliberately **not** a wizard step (see step 9's note on why)
 
 9. Content Profile tab — set tone, excluded services, always/never-mention **now, before reviewing drafts** (there's no bulk regenerate — skipping this means re-touching every page one at a time later if something needs to change).
 10. Locations & Services tab — review every drafted page, Edit/Regenerate individual pages as needed, Lock any page that's final and shouldn't be touched by a future Regenerate.
-11. *(Once the image-sourcing backlog item ships: assign each page's hero/OG image here too — manual URL paste only today.)*
+11. Per service, assign a real photo (upload the client's own) or generate one with AI, right from this tab's thumbnail controls — falls back to a shared placeholder automatically if you skip this.
 12. Publish the pages you're satisfied with — checkbox + "Publish Checked" in the matrix, or one at a time from the page editor.
 
 ## 3. Hand off to the client (Delivery tab — already its own 3-step mini-flow)
