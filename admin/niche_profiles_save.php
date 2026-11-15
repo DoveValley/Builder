@@ -30,6 +30,15 @@ if ($action === 'save') {
 
     $keywords = array_values(array_filter(array_map('trim', explode(',', $_POST['match_keywords'] ?? ''))));
 
+    $dsLabels   = $_POST['ds_label'] ?? [];
+    $dsPatterns = $_POST['ds_pattern'] ?? [];
+    $defaultServices = [];
+    foreach ($dsLabels as $i => $label) {
+        $label = trim($label);
+        if ($label === '') continue;
+        $defaultServices[] = ['label' => $label, 'keyword_pattern' => trim($dsPatterns[$i] ?? '')];
+    }
+
     lpc_save_niche_profile($niche_id, [
         'label'               => $label,
         'match_keywords'      => $keywords,
@@ -43,6 +52,7 @@ if ($action === 'save') {
             'why_choose_us'         => trim($_POST['slot_why_choose_us'] ?? ''),
             'how_it_works'          => trim($_POST['slot_how_it_works'] ?? ''),
         ],
+        'default_services' => $defaultServices,
     ]);
     header('Location: niche_profiles.php?msg=success:Niche+profile+saved');
     exit;

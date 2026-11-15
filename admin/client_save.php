@@ -479,7 +479,7 @@ switch ($section) {
                 $_target  = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $_ctid);
                 $_service = lpc_find_by_id($client['services'] ?? [], 'service_id', $_svcid);
                 $primaryKeyword = ($_target && $_service)
-                    ? lpc_default_primary_keyword($_service['label'], $_target['city'], $_target['state'])
+                    ? lpc_default_primary_keyword($_service['label'], $_target['city'], $_target['state'], $_service['keyword_pattern'] ?? '')
                     : $page['seo']['primary_keyword'];
             }
             $secondaryKeywords = array_values(array_filter(array_map('trim', explode(',', $_POST['secondary_keywords'] ?? ''))));

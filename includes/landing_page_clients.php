@@ -315,7 +315,7 @@ function lpc_set_client_api_key($client_id, $key) {
  * provided identity fields, and a freshly generated API key. Returns the
  * new client_id, or null if business_name is empty (nothing to slug from).
  */
-function lpc_create_client($identity) {
+function lpc_create_client($identity, $niche_id = '') {
     $name = trim($identity['business_name'] ?? '');
     if ($name === '') return null;
 
@@ -325,12 +325,17 @@ function lpc_create_client($identity) {
     $data['created_at'] = gmdate('c');
     $data['updated_at'] = $data['created_at'];
     $data['identity']   = array_merge($data['identity'], $identity);
-    // "Per-niche-or-client uniqueness" per the design doc — matched against
-    // the admin-editable niche profile library (lpc_match_niche_profile()),
-    // not a hardcoded industry list, set once here and shown read-only on
-    // Content Profile going forward (a wrong guess is a one-line manual fix,
-    // not a silent AI misclassification, since this never auto-recomputes).
-    $data['content_profile']['source'] = lpc_match_niche_profile($identity['industry_category'] ?? '');
+    // "Per-niche-or-client uniqueness" per the design doc. $niche_id is the
+    // wizard's own explicit "Which niche?" selection (Scott's ask — niche
+    // picking should be a visible, deliberate question, not silently
+    // inferred); only falls back to auto-matching industry_category via
+    // lpc_match_niche_profile() if nothing was explicitly chosen. Set once
+    // here and shown read-only on Content Profile going forward (a wrong
+    // guess is a one-line manual fix, not a silent AI misclassification,
+    // since this never auto-recomputes).
+    $data['content_profile']['source'] = $niche_id !== ''
+        ? 'niche:' . $niche_id
+        : lpc_match_niche_profile($identity['industry_category'] ?? '');
 
     if (!lpc_save_client($client_id, $data)) return null;
     lpc_set_client_api_key($client_id, lpc_generate_api_key());

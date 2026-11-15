@@ -24,6 +24,7 @@ if (empty($_SESSION['lpc_wizard']) || isset($_GET['restart'])) {
     $_SESSION['lpc_wizard'] = [
         'identity' => ['business_name' => '', 'domain' => '', 'industry_category' => '', 'contact_name' => '', 'contact_email' => '', 'contact_phone' => ''],
         'branding' => ['logo_url' => '', 'primary_color' => '', 'accent_color' => '', 'font' => ''],
+        'niche_id' => '', // explicit "Which niche?" selection (step 1) — see lpc_create_client()
         'services' => [],
         'hubs'     => [],
         'target_cities' => [],
@@ -66,6 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'contact_email'     => trim($_POST['contact_email'] ?? ''),
                     'contact_phone'     => trim($_POST['contact_phone'] ?? ''),
                 ];
+                // Validated against the real list, not trusted blindly from
+                // POST — an empty/unrecognized value just means "no niche
+                // template," not an error (a client can still exist without
+                // one, same as today's auto-match falling back to "custom").
+                $submittedNiche = trim($_POST['niche_id'] ?? '');
+                $w['niche_id'] = in_array($submittedNiche, lpc_list_niche_profiles(), true) ? $submittedNiche : '';
                 header('Location: client_wizard.php?step=2');
                 exit;
             }
@@ -125,6 +132,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $label = trim($_POST['service_label'] ?? '');
             if ($label !== '') {
                 $w['services'][] = ['service_id' => slugify($label), 'label' => $label];
+            }
+            header('Location: client_wizard.php?step=3');
+            exit;
+        } elseif ($postedStep === 3 && $wizAction === 'add_niche_services') {
+            // Checkbox selection, never a blind wholesale copy — Scott's
+            // explicit ask: pick which of the niche's default services
+            // actually apply, plus the regular add-service form right below
+            // still works for anything client-specific beyond the niche list.
+            $niche = $w['niche_id'] !== '' ? lpc_load_niche_profile($w['niche_id']) : null;
+            $selected = (array) ($_POST['niche_svc'] ?? []);
+            if ($niche) {
+                $existingIds = array_column($w['services'], 'service_id');
+                foreach ($niche['default_services'] as $ds) {
+                    if (!in_array($ds['label'], $selected, true)) continue;
+                    $sid = slugify($ds['label']);
+                    if ($sid === '' || in_array($sid, $existingIds, true)) continue;
+                    $w['services'][] = ['service_id' => $sid, 'label' => $ds['label'], 'keyword_pattern' => $ds['keyword_pattern'] ?? ''];
+                    $existingIds[] = $sid;
+                }
             }
             header('Location: client_wizard.php?step=3');
             exit;
@@ -255,7 +281,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: client_wizard.php?step=5');
             exit;
         } elseif ($postedStep === 5 && $wizAction === 'create') {
-            $client_id = lpc_create_client($w['identity']);
+            $client_id = lpc_create_client($w['identity'], $w['niche_id']);
             if (!$client_id) {
                 $error = 'Could not create client — check the business name on step 1.';
             } else {
@@ -351,6 +377,24 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             <p style="color:#6b7280;font-size:.78rem;margin:-4px 0 0;">Fill these in by hand, or enter the domain and click Auto-detect to have us pull what we can from the live site first — either way, review before moving on.</p>
             <div class="lpc-form-row">
                 <div class="form-group"><label>Industry Category</label><input type="text" name="industry_category" placeholder="e.g. restoration" value="<?= h($w['identity']['industry_category']) ?>"></div>
+                <?php
+                $nicheOptions = [];
+                foreach (lpc_list_niche_profiles() as $nid) {
+                    $np = lpc_load_niche_profile($nid);
+                    if ($np) $nicheOptions[$nid] = $np['label'] ?: $nid;
+                }
+                $selectedNiche = $w['niche_id'] !== '' ? $w['niche_id'] : lpc_match_niche_profile($w['identity']['industry_category']);
+                if (strpos($selectedNiche, 'niche:') === 0) $selectedNiche = substr($selectedNiche, 6);
+                ?>
+                <div class="form-group">
+                    <label>Niche <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(pulls in that niche's content guardrails + a suggested service list in step 3)</span></label>
+                    <select name="niche_id">
+                        <option value="">— None / Custom —</option>
+                        <?php foreach ($nicheOptions as $nid => $label): ?>
+                            <option value="<?= h($nid) ?>" <?= $selectedNiche === $nid ? 'selected' : '' ?>><?= h($label) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class="form-group"><label>Contact Name</label><input type="text" name="contact_name" value="<?= h($w['identity']['contact_name']) ?>"></div>
             </div>
             <div class="lpc-form-row">
@@ -400,7 +444,29 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
                 </form>
             </div>
         <?php endforeach; ?>
-        <form method="post" class="lpc-form-row">
+
+        <?php
+        $wizNiche = $w['niche_id'] !== '' ? lpc_load_niche_profile($w['niche_id']) : null;
+        $existingLabels = array_column($w['services'], 'label');
+        $suggestable = $wizNiche ? array_filter($wizNiche['default_services'], fn($ds) => !in_array($ds['label'], $existingLabels, true)) : [];
+        ?>
+        <?php if ($suggestable): ?>
+        <form method="post" style="margin-top:14px;">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <input type="hidden" name="step" value="3">
+            <input type="hidden" name="wiz_action" value="add_niche_services">
+            <strong style="font-size:.88rem;">Suggested Services — <?= h($wizNiche['label']) ?></strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 8px;">Check the ones that apply — nothing is added automatically.</p>
+            <?php foreach ($suggestable as $ds): ?>
+                <label style="display:block;font-size:.85rem;font-weight:400;margin-bottom:4px;">
+                    <input type="checkbox" name="niche_svc[]" value="<?= h($ds['label']) ?>" checked> <?= h($ds['label']) ?>
+                </label>
+            <?php endforeach; ?>
+            <button type="submit" class="btn-sm-outline" style="margin-top:6px;">+ Add Selected</button>
+        </form>
+        <?php endif; ?>
+
+        <form method="post" class="lpc-form-row" style="margin-top:14px;">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="step" value="3">
             <input type="hidden" name="wiz_action" value="add_service">

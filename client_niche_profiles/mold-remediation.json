@@ -13,5 +13,12 @@
         "seasonal_calendar": "seasonal humidity/moisture patterns through the year (humid summers, wet seasons, condensation-prone winters)",
         "why_choose_us": "certified inspectors, careful containment during removal, clear before/after documentation",
         "how_it_works": "the real process: inspection and testing -> containment -> remediation and removal -> clearance verification"
-    }
+    },
+    "default_services": [
+        {"label": "Mold Inspection", "keyword_pattern": ""},
+        {"label": "Mold Remediation", "keyword_pattern": ""},
+        {"label": "Mold Testing", "keyword_pattern": ""},
+        {"label": "Crawl Space Mold Removal", "keyword_pattern": ""},
+        {"label": "Basement Mold Removal", "keyword_pattern": ""}
+    ]
 }

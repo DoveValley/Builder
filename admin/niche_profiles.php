@@ -135,10 +135,38 @@ foreach (lpc_list_niche_profiles() as $id) {
             <input type="text" name="slot_how_it_works" value="<?= h($slots['how_it_works']) ?>">
         </div>
 
-        <button type="submit" class="btn-open" style="margin-top:10px;"><?= $editing ? 'Save Changes' : 'Add Niche Profile' ?></button>
+        <h4 style="margin-top:18px;margin-bottom:4px;">Default Services</h4>
+        <p style="color:#6b7280;font-size:.8rem;margin:0 0 8px;">
+            A typical service list for this vertical — offered as a checkbox selection in a new
+            client's wizard (never auto-added), not forced. Keyword Pattern is optional; leave blank to
+            use the standard "{service} in {city}, {state}" default. Supports {service}/{city}/{state}.
+        </p>
+        <div id="niche-svc-rows">
+            <?php foreach ($editing['default_services'] ?? [] as $ds): ?>
+            <div class="lpc-repeat-row" style="display:flex;gap:8px;margin-bottom:6px;">
+                <input type="text" name="ds_label[]" placeholder="Service label" value="<?= h($ds['label']) ?>" style="flex:1;">
+                <input type="text" name="ds_pattern[]" placeholder="Keyword pattern (optional)" value="<?= h($ds['keyword_pattern'] ?? '') ?>" style="flex:1;">
+                <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <button type="button" class="btn-sm-outline" onclick="lpcAddNicheSvcRow()">+ Add Default Service</button>
+
+        <button type="submit" class="btn-open" style="margin-top:10px;display:block;"><?= $editing ? 'Save Changes' : 'Add Niche Profile' ?></button>
         <?php if ($editing): ?><a href="niche_profiles.php" class="btn-sm-outline" style="margin-top:10px;margin-left:8px;">Cancel</a><?php endif; ?>
     </form>
 
 </div>
+<script>
+function lpcAddNicheSvcRow() {
+    var row = document.createElement('div');
+    row.className = 'lpc-repeat-row';
+    row.style.cssText = 'display:flex;gap:8px;margin-bottom:6px;';
+    row.innerHTML = '<input type="text" name="ds_label[]" placeholder="Service label" style="flex:1;">'
+        + '<input type="text" name="ds_pattern[]" placeholder="Keyword pattern (optional)" style="flex:1;">'
+        + '<button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>';
+    document.getElementById('niche-svc-rows').appendChild(row);
+}
+</script>
 </body>
 </html>

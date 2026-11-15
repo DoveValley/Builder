@@ -13,5 +13,13 @@
         "seasonal_calendar": "seasonal appliance demand patterns through the year (summer AC/fridge strain, holiday oven/dishwasher use, winter washer/dryer load)",
         "why_choose_us": "experienced technicians, honest diagnostics, arriving with common parts on hand",
         "how_it_works": "the real process: call and describe the issue -> scheduled diagnostic visit -> repair, often same-visit when parts are on hand"
-    }
+    },
+    "default_services": [
+        {"label": "Refrigerator Repair", "keyword_pattern": ""},
+        {"label": "Washer Repair", "keyword_pattern": ""},
+        {"label": "Dryer Repair", "keyword_pattern": ""},
+        {"label": "Dishwasher Repair", "keyword_pattern": ""},
+        {"label": "Oven & Range Repair", "keyword_pattern": ""},
+        {"label": "Microwave Repair", "keyword_pattern": ""}
+    ]
 }

@@ -16,5 +16,13 @@
         "seasonal_calendar": "seasonal storm/flood risk patterns through the year (spring storms, hurricane season if coastal, winter pipe freezes)",
         "why_choose_us": "fast response time, certified techs, direct insurance documentation support",
         "how_it_works": "the real restoration process: emergency call -> on-site assessment -> water extraction/drying -> repair and restoration"
-    }
+    },
+    "default_services": [
+        {"label": "Water Damage Restoration", "keyword_pattern": ""},
+        {"label": "Flood Damage Cleanup", "keyword_pattern": ""},
+        {"label": "Storm Damage Repair", "keyword_pattern": ""},
+        {"label": "Fire Damage Restoration", "keyword_pattern": ""},
+        {"label": "Sewage Cleanup", "keyword_pattern": ""},
+        {"label": "Water Extraction", "keyword_pattern": "Emergency {service} in {city}, {state}"}
+    ]
 }

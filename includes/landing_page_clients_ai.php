@@ -133,8 +133,14 @@ function lpc_ai_system_prompt($client, $niche_brief) {
 
 /** Never silently blank (see lpc_default_client_data()'s seo.primary_keyword
  *  comment) — the one default every page's primary_keyword falls back to the
- *  first time it's generated, if nothing was set by hand first. */
-function lpc_default_primary_keyword($serviceLabel, $city, $state) {
+ *  first time it's generated, if nothing was set by hand first. $pattern is
+ *  a service's own optional keyword_pattern (from a niche's default_services,
+ *  see lpc_default_niche_profile()) — {service}/{city}/{state} placeholders,
+ *  blank means the standard "{service} in {city}, {state}" shape applies. */
+function lpc_default_primary_keyword($serviceLabel, $city, $state, $pattern = '') {
+    if (!empty($pattern)) {
+        return strtr($pattern, ['{service}' => $serviceLabel, '{city}' => $city, '{state}' => $state]);
+    }
     return $serviceLabel . ' in ' . $city . ', ' . $state;
 }
 
@@ -283,7 +289,7 @@ function lpc_generate_page_content($client_id, $page_id) {
     // a prior edit is preserved, never overwritten by Regenerate.
     $page = $existing ?? lpc_default_page_data();
     if (empty($page['seo']['primary_keyword'])) {
-        $page['seo']['primary_keyword'] = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
+        $page['seo']['primary_keyword'] = lpc_default_primary_keyword($service['label'], $target['city'], $target['state'], $service['keyword_pattern'] ?? '');
     }
 
     $niche_brief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
@@ -373,7 +379,7 @@ function lpc_generate_drafts_for_target_city($client_id, $city_id) {
         if (!$service) continue;
         $pageId = $city_id . '__' . $serviceId;
         if (lpc_load_page($client_id, $pageId)) continue; // never clobber an already-authored page
-        $keyword = lpc_default_primary_keyword($service['label'], $target['city'], $target['state']);
+        $keyword = lpc_default_primary_keyword($service['label'], $target['city'], $target['state'], $service['keyword_pattern'] ?? '');
         $prompts[$pageId] = lpc_ai_user_prompt(
             $client['identity']['business_name'], $target['city'], $target['state'], $service['label'],
             $keyword, [], $research, $niche_brief

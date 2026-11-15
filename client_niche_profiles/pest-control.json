@@ -13,5 +13,14 @@
         "seasonal_calendar": "seasonal pest activity patterns through the year (spring/summer surges, overwintering pests, ant/termite swarm seasons)",
         "why_choose_us": "licensed technicians, pet/family-safe treatment options, follow-up visits",
         "how_it_works": "the real process: inspection -> treatment plan -> application -> follow-up and prevention"
-    }
+    },
+    "default_services": [
+        {"label": "General Pest Control", "keyword_pattern": ""},
+        {"label": "Termite Treatment", "keyword_pattern": ""},
+        {"label": "Termite Inspection", "keyword_pattern": ""},
+        {"label": "Bed Bug Treatment", "keyword_pattern": ""},
+        {"label": "Rodent Control", "keyword_pattern": ""},
+        {"label": "Mosquito Control", "keyword_pattern": ""},
+        {"label": "Ant Control", "keyword_pattern": ""}
+    ]
 }

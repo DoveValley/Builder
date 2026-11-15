@@ -58,6 +58,14 @@ function lpc_default_niche_profile() {
         'default_tone'         => 'professional',
         'guardrails'           => '',
         'content_slots'        => lpc_default_content_slots(),
+        // The niche-level template a new client's wizard pulls from once a
+        // niche is picked: a typical service list for this vertical, each
+        // with an optional keyword pattern override ({service}/{city}/{state}
+        // placeholders — blank means lpc_default_primary_keyword()'s standard
+        // "{service} in {city}, {state}" applies). Seeds a new client's
+        // Services list once, only if it's still empty — never silently
+        // overwrites services someone already customized.
+        'default_services'    => [],
     ];
 }
 
