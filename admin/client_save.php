@@ -308,6 +308,62 @@ switch ($section) {
             lpc_save_client($client_id, $client);
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:City+updated');
             exit;
+        } elseif ($action === 'check_demand') {
+            // Real DataForSEO cost — the matrix's own button already shows a
+            // cost-warning confirm() before this ever posts. Session-cached
+            // only, same "transient, not written into client.json" choice the
+            // wizard's own city-level keyword fetch already made.
+            $cityId = $_POST['city_id'] ?? '';
+            $tc = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $cityId);
+            if (!$tc) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:City+not+found');
+                exit;
+            }
+            $result = lpc_service_keyword_check($client['services'] ?? [], $tc['city'], $tc['state']);
+            if ($result['ok']) {
+                $_SESSION['lpc_kw_city'][$client_id][$cityId] = $result['data'];
+                $msg = 'success:Demand+data+fetched';
+            } else {
+                $msg = 'error:' . urlencode($result['msg']);
+            }
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
+        } elseif ($action === 'toggle_service') {
+            // Closes a real gap: today a service applies to every city or
+            // none (client-wide exclude only) — there's never been a way to
+            // drop ONE service from ONE city. A page already on disk is left
+            // alone either way (soft toggle, same pattern as the client-wide
+            // remove-service action) — but a PUBLISHED page is refused here,
+            // since silently pulling a live page out of the matrix without a
+            // bigger unpublish decision is a different, bigger action than
+            // this toggle is meant to be.
+            $cityId    = $_POST['city_id'] ?? '';
+            $serviceId = $_POST['service_id'] ?? '';
+            $tc = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $cityId);
+            if (!$tc) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:City+not+found');
+                exit;
+            }
+            if (in_array($serviceId, $tc['services'], true)) {
+                $existingPage = lpc_load_page($client_id, $cityId . '__' . $serviceId);
+                if ($existingPage && ($existingPage['status'] ?? '') === 'published') {
+                    header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Unpublish+this+page+before+excluding+it+from+the+city');
+                    exit;
+                }
+            }
+            foreach ($client['target_cities'] as &$t) {
+                if ($t['city_id'] !== $cityId) continue;
+                if (in_array($serviceId, $t['services'], true)) {
+                    $t['services'] = array_values(array_filter($t['services'], fn($sid) => $sid !== $serviceId));
+                } else {
+                    $t['services'][] = $serviceId;
+                }
+                break;
+            }
+            unset($t);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Service+updated');
+            exit;
         }
 
         lpc_save_client($client_id, $client);

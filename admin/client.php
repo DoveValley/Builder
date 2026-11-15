@@ -260,7 +260,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                     <?php foreach ($client['services'] as $s): ?><th style="padding:8px 12px;"><?= h($s['label']) ?></th><?php endforeach; ?>
                     <th style="padding:8px 12px;"></th>
                 </tr>
-                <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); ?>
+                <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); $kwData = $_SESSION['lpc_kw_city'][$client_id][$tc['city_id']] ?? []; ?>
                 <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
                     <td style="padding:8px 12px;">
                         <?= h($tc['city']) ?>, <?= h($tc['state']) ?><br>
@@ -275,9 +275,38 @@ $apiKey = lpc_get_client_api_key($client_id);
                             <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
                             <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;"><?= $cityResearched ? 'Unmark' : 'Mark done' ?></button>
                         </form>
+                        <?php if (infra_kw_has_creds('dataforseo')): ?>
+                        <form method="post" action="client_save.php" style="margin:4px 0 0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="target_cities">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="tc_action" value="check_demand">
+                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;" onclick="return confirm('Check real keyword demand for every service at this city? Real DataForSEO cost.');">&#128176; Check Demand</button>
+                        </form>
+                        <?php endif; ?>
                     </td>
                     <?php foreach ($client['services'] as $s):
-                        if (!in_array($s['service_id'], $tc['services'], true)) { echo '<td style="padding:8px 12px;color:#d1d5db;">—</td>'; continue; }
+                        $included = in_array($s['service_id'], $tc['services'], true);
+                        $kw = $kwData[$s['service_id']] ?? null;
+                        $kwLine = $kw ? ('Vol ' . number_format((int) ($kw['volume'] ?? 0)) . ' &middot; KD ' . (int) ($kw['kd'] ?? 0) . ' &middot; $' . number_format((float) ($kw['cpc'] ?? 0), 2)) : null;
+                        if (!$included):
+                    ?>
+                        <td style="padding:8px 12px;color:#d1d5db;">
+                            —
+                            <form method="post" action="client_save.php" style="display:inline;margin:0;">
+                                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                                <input type="hidden" name="section" value="target_cities">
+                                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                                <input type="hidden" name="tc_action" value="toggle_service">
+                                <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                                <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                                <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;">+ Add</button>
+                            </form>
+                            <?php if ($kwLine): ?><div style="color:#9ca3af;font-size:.68rem;margin-top:2px;"><?= $kwLine ?></div><?php endif; ?>
+                        </td>
+                        <?php continue; endif; ?>
+                        <?php
                         $pageId = $tc['city_id'] . '__' . $s['service_id'];
                         $page = lpc_load_page($client_id, $pageId);
                         $pageStatus = $page['status'] ?? null;
@@ -286,6 +315,17 @@ $apiKey = lpc_get_client_api_key($client_id);
                             <?php $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId); ?>
                             <?php $pageLocked = !empty($page['locked']); ?>
                             <?php $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null; ?>
+                            <?php if ($pageStatus !== 'published'): ?>
+                            <form method="post" action="client_save.php" style="display:inline;margin:0 0 2px;">
+                                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                                <input type="hidden" name="section" value="target_cities">
+                                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                                <input type="hidden" name="tc_action" value="toggle_service">
+                                <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                                <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                                <button type="submit" class="btn-sm-outline" style="font-size:.68rem;padding:0 5px;" title="Exclude this service from this city — the page file stays on disk" onclick="return confirm('Exclude this service from this city? The page stays on disk (re-adding brings it right back) but it drops off the matrix.');">&times; Exclude</button>
+                            </form><br>
+                            <?php endif; ?>
                             <?php if ($pageStatus === null): ?>
                                 <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
                             <?php elseif ($pageStatus === 'draft'): ?>
@@ -304,6 +344,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                                 <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php endif; ?>
                             <?php if ($lastGen): ?><div style="color:#9ca3af;font-size:.7rem;margin-top:2px;"><?= h($lastGen) ?></div><?php endif; ?>
+                            <?php if ($kwLine): ?><div style="color:#9ca3af;font-size:.68rem;margin-top:2px;"><?= $kwLine ?></div><?php endif; ?>
                         </td>
                     <?php endforeach; ?>
                     <td style="padding:8px 12px;">

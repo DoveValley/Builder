@@ -354,6 +354,46 @@ function lpc_city_candidates($hub, $excludeCityIds, $limit = 25) {
 }
 
 /**
+ * Real per-service keyword demand for one city — one DataForSEO phrase per
+ * service ("{service} in {city}, {state}"), one batched infra_kw_fetch()
+ * call (same provider module the wizard's own city-level keyword check
+ * already uses, not a second keyword client). Returns
+ * [service_id => ['volume'=>, 'cpc'=>, 'kd'=>]], keyed back by service_id
+ * (not the raw phrase) so callers never re-derive the mapping themselves.
+ * Deliberately NOT persisted here — the caller session-caches it, same
+ * "transient, not written into client.json" choice the wizard's
+ * $_SESSION['lpc_wizard_kw'] already made for the identical city-level case.
+ * Callers must require_once admin/infra/lib/keywords.php first (same
+ * convention as lpc_city_candidates() above).
+ */
+function lpc_service_keyword_check($services, $city, $state) {
+    if (!infra_kw_has_creds('dataforseo')) return ['ok' => false, 'msg' => 'No DataForSEO credentials configured.', 'data' => []];
+    if (!$services) return ['ok' => true, 'msg' => '', 'data' => []];
+
+    $phraseBySvc = [];
+    foreach ($services as $s) {
+        // infra_kw_phrase() (not a hand-built string) — DataForSEO rejects a
+        // literal comma in the keyword text, and this helper already strips
+        // the kind of punctuation/county-suffix noise a raw city/state
+        // concatenation would otherwise carry straight into the API call.
+        $phraseBySvc[$s['service_id']] = infra_kw_phrase($s['label'] . ' in {city} {state}', ['city' => $city, 'state' => $state]);
+    }
+    $result = infra_kw_fetch('dataforseo', array_values($phraseBySvc));
+    if (!$result['ok']) return ['ok' => false, 'msg' => $result['msg'] ?? 'Keyword lookup failed.', 'data' => []];
+
+    $data = [];
+    foreach ($phraseBySvc as $svcId => $phrase) {
+        // infra_kw_dfs_fetch() keys its rows by strtolower($keyword) — a
+        // case-sensitive lookup against the original phrase always silently
+        // misses (found 2026-11-15; the wizard's own city-level fetch had
+        // the identical bug, fixed alongside this one).
+        $key = strtolower($phrase);
+        if (isset($result['rows'][$key])) $data[$svcId] = $result['rows'][$key];
+    }
+    return ['ok' => true, 'msg' => '', 'data' => $data];
+}
+
+/**
  * Sends the handoff/key email to a client. Reuses the niche fleet's own
  * contact_send.php header-injection-safe construction (CRLF-stripped
  * headers, plain PHP mail() — no new email system for this one feature)

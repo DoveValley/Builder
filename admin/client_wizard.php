@@ -224,14 +224,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $serviceLabel = $w['services'][0]['label'] ?? 'services';
                 $phraseByCityId = [];
                 foreach ($candidates as $c) {
-                    $phraseByCityId[$c['city_id']] = $serviceLabel . ' in ' . $c['city'] . ', ' . $c['state'];
+                    // infra_kw_phrase(), not a hand-built string — DataForSEO
+                    // rejects a literal comma in the keyword text (found
+                    // 2026-11-15 testing the per-service version of this same
+                    // call; this city-level call had the identical bug).
+                    $phraseByCityId[$c['city_id']] = infra_kw_phrase($serviceLabel . ' in {city} {state}', ['city' => $c['city'], 'state' => $c['state']]);
                 }
                 $result = infra_kw_fetch('dataforseo', array_values($phraseByCityId));
                 if ($result['ok']) {
                     $byPhrase = $result['rows'];
                     $kwData = [];
                     foreach ($phraseByCityId as $cid => $phrase) {
-                        if (isset($byPhrase[$phrase])) $kwData[$cid] = $byPhrase[$phrase];
+                        // infra_kw_dfs_fetch() keys rows by strtolower($keyword) —
+                        // a case-sensitive lookup always silently missed (found
+                        // 2026-11-15, see landing_page_clients.php's identical fix).
+                        $key = strtolower($phrase);
+                        if (isset($byPhrase[$key])) $kwData[$cid] = $byPhrase[$key];
                     }
                     $_SESSION['lpc_wizard_kw'][$hubId] = $kwData;
                 } else {
