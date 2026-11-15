@@ -63,6 +63,18 @@ function lpc_default_client_data() {
             // end until they do. Empty = not connected, shown honestly as such.
             'gsc_property' => '',
         ],
+        // Both fields below are deliberately inert — stored and editable from
+        // day one, but nothing reads or acts on them yet. Added ahead of time
+        // because it's unclear whether real Google Analytics/Search Console
+        // access will be granted, and there's no dedicated Cloudflare account
+        // for this solution yet (separate from the 20 niche-fleet CF
+        // accounts) — so there's nothing real to wire either one into today.
+        // Same "field exists from day one, options fill in later" pattern the
+        // original design already used for the delivery-server assignment.
+        'integrations' => [
+            'ga_measurement_id'  => '', // e.g. "G-XXXXXXXXXX" — not injected into any delivered page yet
+            'cloudflare_account' => '', // which CF account this client's CDN would use — no account exists yet
+        ],
     ];
 }
 

@@ -115,6 +115,18 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=success:Reporting+settings+saved');
         exit;
 
+    /* ---- INTEGRATIONS (analytics / CDN — stored, inert until a real account exists) ---- */
+    case 'integrations':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $client['integrations']['ga_measurement_id']  = trim($_POST['ga_measurement_id'] ?? '');
+        $client['integrations']['cloudflare_account']  = trim($_POST['cloudflare_account'] ?? '');
+        lpc_save_client($client_id, $client);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=success:Integrations+saved');
+        exit;
+
     /* ---- DELIVERY SETTINGS (support phone/message) ---- */
     case 'delivery_settings':
         $client_id = $_POST['client_id'] ?? '';

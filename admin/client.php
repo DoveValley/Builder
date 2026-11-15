@@ -440,6 +440,23 @@ Thanks!</textarea></div>
             </form>
         </div>
 
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">Integrations <span style="font-weight:400;color:#6b7280;">(set up when ready — not active yet)</span></strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                Nothing in either field below does anything yet — no Google Analytics tag is injected, no
+                Cloudflare zone is created. These are saved for when a real account exists to wire them
+                into, so there's nothing to re-enter later.
+            </p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="integrations">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group"><label>Google Analytics Measurement ID</label><input type="text" name="ga_measurement_id" placeholder="e.g. G-XXXXXXXXXX — leave blank until access is confirmed" value="<?= h($client['integrations']['ga_measurement_id']) ?>"></div>
+                <div class="form-group"><label>Cloudflare Account</label><input type="text" name="cloudflare_account" placeholder="no dedicated account set up yet" value="<?= h($client['integrations']['cloudflare_account']) ?>"></div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
     <?php elseif ($tab === 'reporting'): ?>
 
         <div class="card">
