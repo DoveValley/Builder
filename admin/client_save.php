@@ -212,6 +212,7 @@ switch ($section) {
 
         $action = $_POST['tc_action'] ?? '';
 
+        $newCityIds = [];
         if ($action === 'add_selected') {
             $hubId = trim($_POST['hub_id'] ?? '');
             foreach ((array) ($_POST['selected'] ?? []) as $packed) {
@@ -225,6 +226,7 @@ switch ($section) {
                         'served_by_hub' => $hubId,
                         'services' => array_column($client['services'], 'service_id'),
                     ];
+                    $newCityIds[] = $cityId;
                 }
             }
         } elseif ($action === 'remove') {
@@ -233,7 +235,23 @@ switch ($section) {
         }
 
         lpc_save_client($client_id, $client);
-        header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Target+cities+updated');
+
+        // "Confirming a target city auto-generates draft content for every
+        // service on it immediately" per the design doc — real AI cost per
+        // page, so the UI shows a cost-warning confirm before this ever
+        // fires (see client.php's "Add Selected" button), not a silent charge.
+        if ($newCityIds) {
+            set_time_limit(300); // several real API calls in one request — the default limit would cut this off partway through
+            $generated = 0;
+            foreach ($newCityIds as $cityId) {
+                $r = lpc_generate_drafts_for_target_city($client_id, $cityId);
+                $generated += $r['generated'];
+            }
+            $msg = 'success:Added+' . count($newCityIds) . '+cit(ies)%2C+' . $generated . '+draft(s)+generated';
+        } else {
+            $msg = 'success:Target+cities+updated';
+        }
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
         exit;
 
     /* ---- PAGES (generate a blank draft / publish one or more) ---- */

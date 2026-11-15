@@ -278,7 +278,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </tr>
                         <?php endforeach; ?>
                     </table>
-                    <button type="submit" class="btn-open">Add Selected as Target Cities</button>
+                    <button type="submit" class="btn-open" onclick="return confirm('Adding these cities auto-generates a real AI draft for every service at each one (real cost per page). Continue?');">Add Selected as Target Cities</button>
                 </form>
             <?php endif; endif; ?>
         <?php endforeach; ?>

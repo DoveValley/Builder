@@ -207,7 +207,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $client['target_cities'] = $w['target_cities'];
                 lpc_save_client($client_id, $client);
                 unset($_SESSION['lpc_wizard']);
-                header('Location: client.php?id=' . urlencode($client_id) . '&msg=success:Client+created');
+
+                // Real AI cost, one call per confirmed city/service — the
+                // Step 5 button's own confirm() already warned about this
+                // before the request was even sent.
+                set_time_limit(300);
+                $genResult = lpc_generate_drafts_for_client($client_id);
+
+                $msg = 'success:Client+created%2C+' . $genResult['generated'] . '+draft(s)+generated';
+                header('Location: client.php?id=' . urlencode($client_id) . '&msg=' . $msg);
                 exit;
             }
         }
@@ -489,13 +497,14 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             <p style="color:#6b7280;font-size:.85rem;"><?= h($w['identity']['domain']) ?: 'No domain' ?> &middot; <?= h($w['identity']['industry_category']) ?: 'No category' ?></p>
             <p style="font-size:.85rem;"><?= count($w['hubs']) ?> hub office(s) &middot; <?= count($w['services']) ?> service(s) &middot; <?= count($w['target_cities']) ?> target location(s)</p>
         </div>
+        <p style="color:#6b7280;font-size:.82rem;">Creating this client immediately generates a real AI draft for every confirmed city/service combination (real cost per page, may take a minute for many pages).</p>
         <form method="post">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="step" value="5">
             <input type="hidden" name="wiz_action" value="create">
             <div class="lpc-actions">
                 <a href="client_wizard.php?step=4" class="btn-sm-outline">&larr; Back</a>
-                <button type="submit" class="btn-open">Create Client</button>
+                <button type="submit" class="btn-open" onclick="return confirm('Create this client and generate real AI drafts for all confirmed target cities/services? This spends real API cost.');">Create Client</button>
             </div>
         </form>
 
