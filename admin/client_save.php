@@ -554,6 +554,13 @@ switch ($section) {
             // safety_toolkit items — same "not touched here" rule; only ever
             // comes from plugins/safety_toolkit's niche data at publish time.
             $existingSafetyToolkitItems = [];
+            // data_chart — same "not touched here" rule; only ever comes from
+            // lpc_resolve_data_chart() at publish time, which itself only
+            // ever reads whatever "Fetch Climate Data" already cached. A
+            // missing capture here would silently drop this section (and the
+            // real NOAA chart/table it carries) on the very next manual Save.
+            $existingChartHeading = ''; $existingChartImage = ''; $existingChartAlt = '';
+            $existingChartW = null; $existingChartH = null; $existingChartTableHtml = '';
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
@@ -571,6 +578,14 @@ switch ($section) {
                 }
                 if (($s['type'] ?? '') === 'trust_bar') { $existingTrustBarItems = $s['items'] ?? []; }
                 if (($s['type'] ?? '') === 'safety_toolkit') { $existingSafetyToolkitItems = $s['items'] ?? []; }
+                if (($s['type'] ?? '') === 'data_chart') {
+                    $existingChartHeading  = $s['heading'] ?? '';
+                    $existingChartImage    = $s['image'] ?? '';
+                    $existingChartAlt      = $s['image_alt'] ?? '';
+                    $existingChartW        = $s['image_width'] ?? null;
+                    $existingChartH        = $s['image_height'] ?? null;
+                    $existingChartTableHtml = $s['table_html'] ?? '';
+                }
             }
 
             $page['sections'] = [
@@ -595,6 +610,10 @@ switch ($section) {
                 // at publish time (lpc_resolve_area_map()) — heading resets to its
                 // fixed default, the image carries forward unchanged.
                 ['type' => 'area_map', 'heading' => 'Service Area Map', 'image' => $existingMapImage, 'image_alt' => $existingMapAlt, 'image_width' => $existingMapW, 'image_height' => $existingMapH],
+                // data_chart, like area_map above, is auto-computed at
+                // publish time (lpc_resolve_data_chart()) from whatever
+                // "Fetch Climate Data" already cached for this city.
+                ['type' => 'data_chart', 'heading' => $existingChartHeading, 'image' => $existingChartImage, 'image_alt' => $existingChartAlt, 'image_width' => $existingChartW, 'image_height' => $existingChartH, 'table_html' => $existingChartTableHtml],
                 // service_area, like related_links just below, is auto-computed
                 // at publish time (lpc_compute_service_area()) — never hand-authored.
                 ['type' => 'service_area', 'heading' => 'Our Service Area', 'intro' => $existingServiceAreaIntro, 'state' => $existingServiceAreaState, 'office_city' => $existingOfficeCity, 'nearby_cities' => $existingNearbyCities],
