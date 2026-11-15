@@ -301,58 +301,77 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <input type="hidden" name="section" value="pages">
                 <input type="hidden" name="page_action" value="publish">
             </form>
-            <table class="lpc-matrix" style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
-                <tr style="text-align:left;font-size:.74rem;color:#6b7280;background:#f9fafb;">
-                    <th style="padding:8px 12px;">City</th>
-                    <?php foreach ($client['services'] as $s): ?><th style="padding:8px 12px;"><?= h($s['label']) ?></th><?php endforeach; ?>
-                    <th style="padding:8px 12px;"></th>
-                </tr>
-                <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); $kwData = $_SESSION['lpc_kw_city'][$client_id][$tc['city_id']] ?? []; ?>
-                <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
-                    <td style="padding:8px 12px;">
-                        <?= h($tc['city']) ?>, <?= h($tc['state']) ?><br>
-                        <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>" style="margin-top:3px;">
-                            <?= $cityResearched ? 'Researched' : 'Not Researched' ?>
-                        </span>
-                        <form method="post" action="client_save.php" style="display:inline;margin:0;">
-                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                            <input type="hidden" name="section" value="target_cities">
-                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                            <input type="hidden" name="tc_action" value="toggle_research">
-                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;"><?= $cityResearched ? 'Unmark' : 'Mark done' ?></button>
-                        </form>
-                        <?php if (infra_kw_has_creds('dataforseo')): ?>
-                        <form method="post" action="client_save.php" style="margin:4px 0 0;">
-                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                            <input type="hidden" name="section" value="target_cities">
-                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                            <input type="hidden" name="tc_action" value="check_demand">
-                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;" onclick="return confirm('Check real keyword demand for every service at this city? Real DataForSEO cost.');">&#128176; Check Demand</button>
-                        </form>
-                        <?php endif; ?>
-                        <?php if ($clientChartDef): $hasClimate = isset($climateCache[$tc['city_id'] . '__' . $clientChartDef['id']]); ?>
-                        <form method="post" action="client_save.php" style="margin:4px 0 0;">
-                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                            <input type="hidden" name="section" value="target_cities">
-                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                            <input type="hidden" name="tc_action" value="fetch_climate_data">
-                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                            <span class="lpc-badge <?= $hasClimate ? 'lpc-badge-connected' : 'lpc-badge-never' ?>" style="margin-right:4px;"><?= $hasClimate ? 'Climate &#10003;' : 'No Climate Data' ?></span>
-                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;">&#9729;&#65039; <?= $hasClimate ? 'Re-fetch' : 'Fetch' ?></button>
-                        </form>
-                        <?php endif; ?>
-                    </td>
+            <?php
+            // City-grouped list, not a City x Service grid — a real grid
+            // grows WIDER with every new service (cramping status/locked/
+            // last-updated/keyword-data all into one narrow cell), which is
+            // the wrong direction for a table meant to be scanned. This grows
+            // TALLER instead (one row per service, nested under its city),
+            // same grouping principle as the public hub page's own State >
+            // Hub Area > City > Services redesign earlier this session.
+            ?>
+            <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); $kwData = $_SESSION['lpc_kw_city'][$client_id][$tc['city_id']] ?? []; $hasClimate = $clientChartDef ? isset($climateCache[$tc['city_id'] . '__' . $clientChartDef['id']]) : null; ?>
+            <div class="lpc-city-group" style="margin-bottom:16px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+                <div style="background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.92rem;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></strong>
+                    <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $cityResearched ? 'Researched' : 'Not Researched' ?></span>
+                    <form method="post" action="client_save.php" style="margin:0;display:inline;">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="section" value="target_cities">
+                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                        <input type="hidden" name="tc_action" value="toggle_research">
+                        <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                        <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;"><?= $cityResearched ? 'Unmark' : 'Mark done' ?></button>
+                    </form>
+                    <?php if (infra_kw_has_creds('dataforseo')): ?>
+                    <form method="post" action="client_save.php" style="margin:0;display:inline;">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="section" value="target_cities">
+                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                        <input type="hidden" name="tc_action" value="check_demand">
+                        <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                        <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;" onclick="return confirm('Check real keyword demand for every service at this city? Real DataForSEO cost.');">&#128176; Check Demand</button>
+                    </form>
+                    <?php endif; ?>
+                    <?php if ($clientChartDef): ?>
+                    <form method="post" action="client_save.php" style="margin:0;display:inline;">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="section" value="target_cities">
+                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                        <input type="hidden" name="tc_action" value="fetch_climate_data">
+                        <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                        <span class="lpc-badge <?= $hasClimate ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $hasClimate ? 'Climate &#10003;' : 'No Climate Data' ?></span>
+                        <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;">&#9729;&#65039; <?= $hasClimate ? 'Re-fetch' : 'Fetch' ?></button>
+                    </form>
+                    <?php endif; ?>
+                    <form method="post" action="client_save.php" style="margin:0 0 0 auto;" onsubmit="return confirm('Remove this target city?');">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="section" value="target_cities">
+                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                        <input type="hidden" name="tc_action" value="remove">
+                        <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                        <button type="submit" class="btn-sm-danger" style="font-size:.74rem;padding:3px 8px;">Remove City</button>
+                    </form>
+                </div>
+                <table style="width:100%;border-collapse:collapse;">
+                    <tr style="text-align:left;font-size:.72rem;color:#6b7280;">
+                        <th style="padding:6px 14px;">Service</th>
+                        <th style="padding:6px 14px;">Status</th>
+                        <th style="padding:6px 14px;">Last Updated</th>
+                        <th style="padding:6px 14px;">Keyword Data</th>
+                        <th style="padding:6px 14px;"></th>
+                    </tr>
                     <?php foreach ($client['services'] as $s):
                         $included = in_array($s['service_id'], $tc['services'], true);
                         $kw = $kwData[$s['service_id']] ?? null;
                         $kwLine = $kw ? ('Vol ' . number_format((int) ($kw['volume'] ?? 0)) . ' &middot; KD ' . (int) ($kw['kd'] ?? 0) . ' &middot; $' . number_format((float) ($kw['cpc'] ?? 0), 2)) : null;
-                        if (!$included):
                     ?>
-                        <td style="padding:8px 12px;color:#d1d5db;">
-                            —
-                            <form method="post" action="client_save.php" style="display:inline;margin:0;">
+                    <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
+                        <td style="padding:6px 14px;"><?= h($s['label']) ?></td>
+                        <?php if (!$included): ?>
+                        <td colspan="3" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
+                        <td style="padding:6px 14px;">
+                            <form method="post" action="client_save.php" style="margin:0;">
                                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                                 <input type="hidden" name="section" value="target_cities">
                                 <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
@@ -361,63 +380,55 @@ $apiKey = lpc_get_client_api_key($client_id);
                                 <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
                                 <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;">+ Add</button>
                             </form>
-                            <?php if ($kwLine): ?><div style="color:#9ca3af;font-size:.68rem;margin-top:2px;"><?= $kwLine ?></div><?php endif; ?>
                         </td>
                         <?php continue; endif; ?>
                         <?php
                         $pageId = $tc['city_id'] . '__' . $s['service_id'];
                         $page = lpc_load_page($client_id, $pageId);
                         $pageStatus = $page['status'] ?? null;
+                        $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId);
+                        $pageLocked = !empty($page['locked']);
+                        $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null;
                     ?>
-                        <td style="padding:8px 12px;">
-                            <?php $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId); ?>
-                            <?php $pageLocked = !empty($page['locked']); ?>
-                            <?php $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null; ?>
-                            <?php if ($pageStatus !== 'published'): ?>
-                            <form method="post" action="client_save.php" style="display:inline;margin:0 0 2px;">
-                                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                                <input type="hidden" name="section" value="target_cities">
-                                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                                <input type="hidden" name="tc_action" value="toggle_service">
-                                <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                                <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
-                                <button type="submit" class="btn-sm-outline" style="font-size:.68rem;padding:0 5px;" title="Exclude this service from this city — the page file stays on disk" onclick="return confirm('Exclude this service from this city? The page stays on disk (re-adding brings it right back) but it drops off the matrix.');">&times; Exclude</button>
-                            </form><br>
-                            <?php endif; ?>
+                        <td style="padding:6px 14px;">
                             <?php if ($pageStatus === null): ?>
-                                <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
+                                <span class="lpc-badge lpc-badge-never">Not Created</span>
                             <?php elseif ($pageStatus === 'draft'): ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-never">Draft</span>
-                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
-                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php elseif ($pageStatus === 'published'): ?>
                                 <span class="lpc-badge lpc-badge-connected">Published</span>
-                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
-                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php else: ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
-                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
-                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php endif; ?>
-                            <?php if ($lastGen): ?><div style="color:#9ca3af;font-size:.7rem;margin-top:2px;"><?= h($lastGen) ?></div><?php endif; ?>
-                            <?php if ($kwLine): ?><div style="color:#9ca3af;font-size:.68rem;margin-top:2px;"><?= $kwLine ?></div><?php endif; ?>
+                            <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
                         </td>
+                        <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $lastGen ? h($lastGen) : '&mdash;' ?></td>
+                        <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $kwLine ?: '&mdash;' ?></td>
+                        <td style="padding:6px 14px;white-space:nowrap;">
+                            <?php if ($pageStatus === null): ?>
+                                <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
+                            <?php else: ?>
+                                <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
+                                <?php if ($pageStatus !== 'published'): ?>
+                                <form method="post" action="client_save.php" style="display:inline;margin:0;">
+                                    <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                                    <input type="hidden" name="section" value="target_cities">
+                                    <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                                    <input type="hidden" name="tc_action" value="toggle_service">
+                                    <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                                    <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                                    <button type="submit" class="btn-sm-outline" style="font-size:.68rem;padding:0 5px;" title="Exclude this service from this city — the page file stays on disk" onclick="return confirm('Exclude this service from this city? The page stays on disk (re-adding brings it right back) but it drops off the matrix.');">&times; Exclude</button>
+                                </form>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
                     <?php endforeach; ?>
-                    <td style="padding:8px 12px;">
-                        <form method="post" action="client_save.php" style="margin:0;" onsubmit="return confirm('Remove this target city?');">
-                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-                            <input type="hidden" name="section" value="target_cities">
-                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                            <input type="hidden" name="tc_action" value="remove">
-                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                            <button type="submit" class="btn-sm-danger" style="font-size:.74rem;padding:3px 8px;">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
+                </table>
+            </div>
+            <?php endforeach; ?>
             <button type="submit" form="lpc-publish-form" class="btn-open" style="margin-top:10px;">Publish Checked</button>
         <?php endif; ?>
 
