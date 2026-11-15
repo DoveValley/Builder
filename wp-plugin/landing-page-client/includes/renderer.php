@@ -4,22 +4,31 @@
  * classes of our own, so the page inherits the client's real theme instead
  * of competing with it.
  *
- * Hard rule, found the hard way against a real theme (Twenty Twenty-Five
- * already renders its own site title as H1): our content never claims H1.
- * Everything here starts at H2; FAQ question items are H3.
+ * Heading level is NOT hardcoded, on purpose. Original assumption (found
+ * against Twenty Twenty-Five, confirmed against Twenty Twenty-Four/Twenty
+ * Twenty-Three too) was "the theme always renders its own site title as H1,
+ * so our content should never claim it" — true for all 3 default WP themes
+ * tested. Testing against Astra (a real, widely-used theme, 1M+ installs)
+ * broke that assumption: Astra only outputs an H1 for the site title on the
+ * front page, not on inner pages like these — so a client on Astra would
+ * get a page with ZERO H1 tags, a real SEO regression, not a hypothetical
+ * one. Fix: detect at render time (lpc_handle_route in rewrite.php) whether
+ * get_header() already emitted an H1; if not, the hero headline IS this
+ * page's H1. Every other heading stays fixed (H2 sections, H3 FAQ items)
+ * regardless, since hierarchy only needs to shift at the very top.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function lpc_render_sections( $sections ) {
+function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 	$html = '';
 	foreach ( (array) $sections as $section ) {
 		$type = $section['type'] ?? '';
 		switch ( $type ) {
 			case 'hero':
-				$html .= lpc_render_hero( $section );
+				$html .= lpc_render_hero( $section, $hero_level );
 				break;
 			case 'text':
 				$html .= lpc_render_text( $section );
@@ -41,9 +50,10 @@ function lpc_render_sections( $sections ) {
 	return $html;
 }
 
-function lpc_render_hero( $s ) {
-	$out  = '<section>';
-	$out .= '<h2>' . esc_html( $s['headline'] ?? '' ) . '</h2>';
+function lpc_render_hero( $s, $level = 'h2' ) {
+	$level = in_array( $level, [ 'h1', 'h2' ], true ) ? $level : 'h2';
+	$out   = '<section>';
+	$out  .= '<' . $level . '>' . esc_html( $s['headline'] ?? '' ) . '</' . $level . '>';
 	if ( ! empty( $s['subheading'] ) ) {
 		$out .= '<p>' . esc_html( $s['subheading'] ) . '</p>';
 	}

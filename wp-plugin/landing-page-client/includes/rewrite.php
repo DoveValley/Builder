@@ -65,27 +65,40 @@ function lpc_handle_route() {
 	}
 
 	status_header( 200 );
+
+	// Buffer the theme's own header instead of echoing it directly — some
+	// themes (confirmed: Astra) only emit an H1 for the site title on the
+	// front page, not here, which would leave this page with zero H1 tags.
+	// Detect that and promote our own top heading to H1 when it happens,
+	// rather than assuming every theme behaves like the 3 default WP themes
+	// this was originally tested against.
+	ob_start();
 	get_header();
+	$header_html = ob_get_clean();
+	echo $header_html; // phpcs:ignore WordPress.Security.EscapeOutput -- theme's own header output, not ours to escape.
+	$top_level = ( stripos( $header_html, '<h1' ) === false ) ? 'h1' : 'h2';
 
 	if ( $slug === '' ) {
-		lpc_render_hub_page( $manifest );
+		lpc_render_hub_page( $manifest, $top_level );
 	} else {
-		lpc_render_single_page( $page );
+		lpc_render_single_page( $page, $top_level );
 	}
 
 	get_footer();
 	exit;
 }
 
-function lpc_render_hub_page( $manifest ) {
+function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
+	$top_level = in_array( $top_level, [ 'h1', 'h2' ], true ) ? $top_level : 'h2';
+
 	if ( empty( $manifest['pages'] ) ) {
-		echo '<main><h2>' . esc_html( $manifest['business_name'] ?? '' ) . '</h2><p>No locations are published yet.</p></main>';
+		echo '<main><' . $top_level . '>' . esc_html( $manifest['business_name'] ?? '' ) . '</' . $top_level . '><p>No locations are published yet.</p></main>';
 		return;
 	}
 
 	$base = trim( get_option( 'lpc_base_path', '/locations' ), '/' );
 	echo '<main>';
-	echo '<h2>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</h2>';
+	echo '<' . $top_level . '>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</' . $top_level . '>';
 	echo '<ul>';
 	foreach ( $manifest['pages'] as $page ) {
 		$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
@@ -95,14 +108,14 @@ function lpc_render_hub_page( $manifest ) {
 	echo '</main>';
 }
 
-function lpc_render_single_page( $page ) {
+function lpc_render_single_page( $page, $top_level = 'h2' ) {
 	if ( empty( $page ) ) {
 		echo '<main><h2>Page not found</h2></main>';
 		return;
 	}
 
 	echo '<main>';
-	echo lpc_render_sections( $page['sections'] ?? [] ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
+	echo lpc_render_sections( $page['sections'] ?? [], $top_level ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
 	echo '</main>';
 	echo lpc_render_schema( $page['schema_jsonld'] ?? null ); // phpcs:ignore WordPress.Security.EscapeOutput -- JSON-LD, not HTML.
 }
