@@ -244,6 +244,19 @@ function lpc_valid_page_id($page_id) {
     return is_string($page_id) && preg_match('/^[a-z0-9][a-z0-9_-]{0,119}$/', $page_id) === 1;
 }
 
+// Reads the Version header straight out of the plugin source's own doc
+// comment, so the zip download and this helper's only caller can never drift
+// out of sync with each other the way two separately-maintained numbers
+// eventually would.
+function lpc_plugin_source_version() {
+    $file = BASE_DIR . '/wp-plugin/landing-page-client/landing-page-client.php';
+    $header = @file_get_contents($file, false, null, 0, 2000);
+    if ($header && preg_match('/Version:\s*([0-9.]+)/', $header, $m)) {
+        return $m[1];
+    }
+    return null;
+}
+
 function lpc_client_dir($client_id) {
     if (!lpc_valid_client_id($client_id)) return null;
     return CLIENTS_DIR . $client_id;

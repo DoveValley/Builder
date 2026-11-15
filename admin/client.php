@@ -535,7 +535,13 @@ $apiKey = lpc_get_client_api_key($client_id);
 
         <div class="card" style="margin-top:14px;">
             <strong style="font-size:.88rem;">1. Download the plugin and give the client their API key</strong>
-            <p style="margin:8px 0;"><a href="lpc_plugin_download.php" class="btn-open">&#11015; Download Plugin (.zip)</a></p>
+            <p style="margin:8px 0;">
+                <a href="lpc_plugin_download.php" class="btn-open">&#11015; Download Plugin (.zip)</a>
+                <?php $pluginVersion = lpc_plugin_source_version(); ?>
+                <?php if ($pluginVersion): ?>
+                    <span style="color:#6b7280;font-size:.8rem;margin-left:8px;">v<?= h($pluginVersion) ?></span>
+                <?php endif; ?>
+            </p>
             <div style="display:flex;align-items:center;gap:10px;margin:8px 0;flex-wrap:wrap;">
                 <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:0;word-break:break-all;flex:1;min-width:200px;"><?= h($apiKey) ?></p>
                 <?php $statusDot = $status === 'Connected' ? '&#128994;' : ($status === 'Stale' ? '&#128993;' : '&#9898;'); ?>

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Landing Page Client
  * Description: Displays location/service landing pages delivered by the Landing Page Clients backend. One setting: paste in your API key.
- * Version: 0.4.23
+ * Version: 0.4.24
  * Author: Site Factory
  */
 
@@ -99,6 +99,10 @@ function lpc_render_settings_page() {
 		<form method="post">
 			<?php wp_nonce_field( 'lpc_settings_action', 'lpc_settings_nonce' ); ?>
 			<table class="form-table">
+				<tr>
+					<th scope="row">Plugin Version</th>
+					<td><?php echo esc_html( get_file_data( __FILE__, [ 'Version' => 'Version' ] )['Version'] ); ?></td>
+				</tr>
 				<tr>
 					<th scope="row"><label for="lpc_api_key">API Key</label></th>
 					<td><input type="text" id="lpc_api_key" name="lpc_api_key" value="<?php echo esc_attr( $api_key ); ?>" class="regular-text"></td>
