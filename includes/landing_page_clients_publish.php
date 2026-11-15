@@ -302,6 +302,13 @@ function lpc_preview_render($sections) {
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '')
                     . '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '"' . $dims . ' loading="lazy"></figure></section>';
                 break;
+            case 'data_chart':
+                if (empty($s['image'])) break;
+                $dims = (!empty($s['image_width']) && !empty($s['image_height'])) ? ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"' : '';
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '')
+                    . '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '"' . $dims . ' loading="lazy"></figure>'
+                    . ($s['table_html'] ?? '') . '</section>'; // phpcs:ignore -- city_chart_table_html() already escapes every value itself
+                break;
         }
     }
     return $out;
@@ -466,6 +473,27 @@ function lpc_publish_page($client_id, $page_id) {
                 $section['image_alt']    = $map['alt'];
                 $section['image_width']  = $map['width'];
                 $section['image_height'] = $map['height'];
+            }
+        }
+        if (($section['type'] ?? '') === 'data_chart') {
+            [$city_id, ] = array_pad(explode('__', $page_id, 2), 2, '');
+            $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+            $chart = ($target && $niche_brief)
+                ? lpc_resolve_data_chart($client_id, $city_id, $target['city'], $target['state'], $niche_brief['niche_id'] ?? '', $client['branding'] ?? [])
+                : null;
+            // Read-only — never fetches. A city nobody has run "Fetch Climate
+            // Data" for yet simply renders nothing, same as area_map's own
+            // "no real data, no image" rule, not a blank/broken section.
+            if ($chart) {
+                $section['heading']      = $chart['heading'];
+                $section['image']        = $chart['url'];
+                $section['image_alt']    = $chart['alt'];
+                $section['image_width']  = $chart['width'];
+                $section['image_height'] = $chart['height'];
+                $section['table_html']   = $chart['table_html'];
+            } else {
+                $section['image'] = '';
+                $section['table_html'] = '';
             }
         }
     }

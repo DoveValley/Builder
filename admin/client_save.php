@@ -639,6 +639,19 @@ switch ($section) {
             }
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=' . $msg);
             exit;
+        } elseif ($action === 'fetch_climate_data') {
+            // Real NOAA network call, explicit opt-in — same "real external
+            // data, not automatic" reasoning as the wizard's own "Fetch
+            // Keyword Data" button. Shared cache keyed by city_id, so this
+            // only ever costs a real fetch once per city, not once per
+            // client/page.
+            $pageId = trim($_POST['page_id'] ?? '');
+            [$cityId, ] = array_pad(explode('__', $pageId, 2), 2, '');
+            $nicheBrief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+            $result = lpc_fetch_climate_data($cityId, $nicheBrief['niche_id'] ?? '');
+            $msg = $result['ok'] ? 'success:' . urlencode($result['msg']) : 'error:' . urlencode($result['msg']);
+            header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
+            exit;
         } elseif ($action === 'regenerate_ai') {
             $pageId = trim($_POST['page_id'] ?? '');
             $result = lpc_generate_page_content($client_id, $pageId);

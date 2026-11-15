@@ -27,6 +27,7 @@ require_once __DIR__ . '/landing_page_clients_detect.php';
 require_once __DIR__ . '/landing_page_clients_media.php';
 require_once __DIR__ . '/landing_page_clients_area_images.php';
 require_once __DIR__ . '/landing_page_clients_safety_toolkit.php';
+require_once __DIR__ . '/landing_page_clients_area_charts.php';
 require_once __DIR__ . '/google_search_console.php';
 require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';

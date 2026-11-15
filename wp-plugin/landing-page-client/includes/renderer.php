@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 13 locked section types. Originally zero CSS/classes of our own
+ * Renders the 14 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -69,6 +69,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				break;
 			case 'area_map':
 				$html .= lpc_render_area_map( $section );
+				break;
+			case 'data_chart':
+				$html .= lpc_render_data_chart( $section );
 				break;
 		}
 	}
@@ -301,6 +304,33 @@ function lpc_render_area_map( $s ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
 	$out .= '<figure class="lpc-area-map"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+	$out .= '</section>';
+	return $out;
+}
+
+/** Real climate chart (NOAA data), reused from plugins/image-data-chart's own
+ *  engine — see includes/landing_page_clients_area_charts.php in the admin
+ *  backend. table_html is pre-built HTML from that same trusted server-side
+ *  code (city_chart_table_html()), already escaping every value itself —
+ *  echoed directly here, not esc_html()'d, which would just show literal
+ *  markup instead of a real table. Nothing to render until an admin has
+ *  explicitly run "Fetch Climate Data" for this city at least once. */
+function lpc_render_data_chart( $s ) {
+	if ( empty( $s['image'] ) ) {
+		return '';
+	}
+	$dims = '';
+	if ( ! empty( $s['image_width'] ) && ! empty( $s['image_height'] ) ) {
+		$dims = ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"';
+	}
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	$out .= '<figure class="lpc-data-chart"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+	if ( ! empty( $s['table_html'] ) ) {
+		$out .= $s['table_html']; // phpcs:ignore WordPress.Security.EscapeOutput -- pre-escaped server-side, see function doc.
+	}
 	$out .= '</section>';
 	return $out;
 }

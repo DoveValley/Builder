@@ -111,6 +111,13 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-comparison-b h3 { color: var(--lpc-accent); }
 		.lpc-page .lpc-comparison-b li:before { content: "\2715"; position: absolute; left: 0; color: var(--lpc-accent); font-weight: 700; }
 		.lpc-page .lpc-area-map img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; }
+		.lpc-page .lpc-data-chart img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto 16px; }
+		.lpc-page .chart-table-wrap { overflow-x: auto; }
+		.lpc-page .chart-data-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+		.lpc-page .chart-data-table caption { text-align: left; font-weight: 700; margin-bottom: 8px; }
+		.lpc-page .chart-data-table th, .lpc-page .chart-data-table td { padding: 6px 10px; border-bottom: 1px solid rgba(0,0,0,.08); text-align: left; }
+		.lpc-page .chart-data-table .chart-data-num { text-align: right; }
+		.lpc-page .chart-method { font-size: .78rem; opacity: .65; margin: 10px 0 0; }
 		.lpc-page .lpc-btn {
 			display: inline-block; padding: 14px 28px; border-radius: 8px;
 			font-weight: 700; text-decoration: none; color: #fff; transition: opacity .15s;

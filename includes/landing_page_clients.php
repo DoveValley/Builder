@@ -124,19 +124,20 @@ function lpc_default_page_data() {
         ],
         // 16 sections, up from the original 6 — real per-city research (census
         // data) plus niche-injected framing needs room to breathe, matching the
-        // depth the niche fleet's own landing pages carry. Still only 13
+        // depth the niche fleet's own landing pages carry. Still only 14
         // DELIVERY types (plugin contract): 'highlights' and 'steps' are two
         // new plain <ul>/<ol> lists, 'comparison' is a new AI-authored two-
-        // column type, 'service_area'/'area_map'/'trust_bar'/'safety_toolkit'
-        // are four more auto-computed (never AI-authored) additions — every
-        // element used across all 13 types is exactly what WordPress's block
-        // editor already produces for an ordinary post (plus one <img>), so it
-        // inherits any theme's own styling with zero custom CSS, same
-        // principle as the original 6 (verified live against Twenty
-        // Twenty-Three/Four/Five and Astra). Multiple 'text' sections need a
-        // 'key' to disambiguate which AI-authored content fills which — the
-        // plugin's renderer only ever looks at 'type', never 'key' (that's
-        // purely an admin/AI bookkeeping concern, invisible to delivery).
+        // column type, 'service_area'/'area_map'/'trust_bar'/'safety_toolkit'/
+        // 'data_chart' are five more auto-computed (never AI-authored)
+        // additions — every element used across all 14 types is exactly what
+        // WordPress's block editor already produces for an ordinary post
+        // (plus one <img>), so it inherits any theme's own styling with zero
+        // custom CSS, same principle as the original 6 (verified live against
+        // Twenty Twenty-Three/Four/Five and Astra). Multiple 'text' sections
+        // need a 'key' to disambiguate which AI-authored content fills which —
+        // the plugin's renderer only ever looks at 'type', never 'key'
+        // (that's purely an admin/AI bookkeeping concern, invisible to
+        // delivery).
         'sections' => [
             ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null, 'cta_text' => '', 'phone' => ''],
             // Static per-niche checkmark phrases (lpc_default_trust_bar_items()
@@ -181,6 +182,15 @@ function lpc_default_page_data() {
             // geocoded coords on record, or no real nearby towns within
             // range) — see landing_page_clients_area_images.php.
             ['type' => 'area_map', 'heading' => 'Service Area Map', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null],
+            // Auto-computed at publish time (lpc_resolve_data_chart()), a real
+            // climate chart from NOAA data — but unlike area_map, fetching the
+            // underlying data is NOT automatic: it's an explicit admin "Fetch
+            // Climate Data" action (page_editor.php), same "real external
+            // data, not automatic" reasoning as the wizard's own "Fetch
+            // Keyword Data" button. Renders nothing until that's been done at
+            // least once for this city — see
+            // includes/landing_page_clients_area_charts.php.
+            ['type' => 'data_chart', 'heading' => '', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null, 'table_html' => ''],
             // Auto-computed at publish time (lpc_compute_service_area()), never
             // hand-authored or AI-generated — same "always recomputed fresh from
             // client.json, not just filled once" rule related_links already
