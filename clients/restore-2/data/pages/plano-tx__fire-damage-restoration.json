@@ -2,7 +2,7 @@
     "page_id": "plano-tx__fire-damage-restoration",
     "status": "published",
     "created_at": "2026-11-15T06:09:35+00:00",
-    "updated_at": "2026-11-15T20:16:47+00:00",
+    "updated_at": "2026-11-15T22:22:44+00:00",
     "published_at": "2026-11-15T06:10:19+00:00",
     "seo": {
         "page_title": "Fire Damage Restoration in Plano, TX | First Call Restoration Pros",
@@ -229,7 +229,7 @@
         {
             "type": "data_chart",
             "heading": "Days with an inch or more of rain",
-            "image": "http://31.97.133.251:8098/api.php?action=image&client=restore-2&file=chart-heavy_rain_days-chart_plano-tx.webp&v=1794773807",
+            "image": "http://31.97.133.251:8098/api.php?action=image&client=restore-2&file=chart-heavy_rain_days-chart_plano-tx.webp&v=1794781364",
             "image_alt": "Chart of days per month with at least one inch of rainfall in Plano, TX. Highest Oct at 1.9 days, lowest Jul at 0.7 days.",
             "image_width": 900,
             "image_height": 520,
@@ -244,18 +244,27 @@
             "nearby_cities": [
                 {
                     "label": "Frisco, TX",
-                    "url": null
+                    "url": "/locations/frisco-tx__fire-damage-restoration"
                 },
                 {
                     "label": "McKinney, TX",
-                    "url": null
+                    "url": "/locations/mckinney-tx__fire-damage-restoration"
                 }
             ]
         },
         {
             "type": "related_links",
             "heading": "Related Services",
-            "links": []
+            "links": [
+                {
+                    "label": "Water damage restoration",
+                    "url": "/locations/plano-tx__water-damage-restoration"
+                },
+                {
+                    "label": "Smoke damage cleaning",
+                    "url": "/locations/plano-tx__smoke-damage-cleaning"
+                }
+            ]
         }
     ],
     "schema_jsonld": {

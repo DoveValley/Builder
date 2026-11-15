@@ -39,6 +39,38 @@
                 "lat": 32.941236,
                 "lng": -97.134178
             }
+        },
+        {
+            "hub_id": "restore-2-hub-2",
+            "name": "Houston Office",
+            "address": {
+                "street": "",
+                "city": "Houston",
+                "state": "TX",
+                "zip": ""
+            },
+            "phone": "214-663-3693",
+            "service_radius_miles": 45,
+            "geo": {
+                "lat": 29.758938,
+                "lng": -95.367697
+            }
+        },
+        {
+            "hub_id": "restore-2-hub-3",
+            "name": "Austin Office",
+            "address": {
+                "street": "",
+                "city": "Austin",
+                "state": "TX",
+                "zip": ""
+            },
+            "phone": "214-663-3693",
+            "service_radius_miles": 45,
+            "geo": {
+                "lat": 30.264926,
+                "lng": -97.747409
+            }
         }
     ],
     "services": [
@@ -49,6 +81,14 @@
             "image_ai_w": 1024,
             "image_ai_h": 1024,
             "image_active": "ai"
+        },
+        {
+            "service_id": "water-damage-restoration",
+            "label": "Water damage restoration"
+        },
+        {
+            "service_id": "smoke-damage-cleaning",
+            "label": "Smoke damage cleaning"
         }
     ],
     "target_cities": [
@@ -58,7 +98,9 @@
             "state": "TX",
             "served_by_hub": "scott-parr",
             "services": [
-                "fire-damage-restoration"
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
             ]
         },
         {
@@ -67,7 +109,9 @@
             "state": "TX",
             "served_by_hub": "scott-parr",
             "services": [
-                "fire-damage-restoration"
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
             ]
         },
         {
@@ -76,7 +120,75 @@
             "state": "TX",
             "served_by_hub": "scott-parr",
             "services": [
-                "fire-damage-restoration"
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "houston-tx",
+            "city": "Houston",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-2",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "pasadena-tx",
+            "city": "Pasadena",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-2",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "pearland-tx",
+            "city": "Pearland",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-2",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "austin-tx",
+            "city": "Austin",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-3",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "round-rock-tx",
+            "city": "Round Rock",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-3",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
+            ]
+        },
+        {
+            "city_id": "new-braunfels-tx",
+            "city": "New Braunfels",
+            "state": "TX",
+            "served_by_hub": "restore-2-hub-3",
+            "services": [
+                "fire-damage-restoration",
+                "water-damage-restoration",
+                "smoke-damage-cleaning"
             ]
         }
     ],
