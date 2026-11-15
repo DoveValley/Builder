@@ -44,7 +44,11 @@
     "services": [
         {
             "service_id": "fire-damage-restoration",
-            "label": "Fire damage restoration"
+            "label": "Fire damage restoration",
+            "image_ai": "svc_ai_fire-damage-restoration_1794773736_2b1f5b.webp",
+            "image_ai_w": 1024,
+            "image_ai_h": 1024,
+            "image_active": "ai"
         }
     ],
     "target_cities": [
@@ -84,7 +88,9 @@
         "active": true,
         "last_checkin": 0,
         "last_emailed": "",
-        "last_stale_alert_at": ""
+        "last_stale_alert_at": "",
+        "nav_link_placement": "footer",
+        "nav_link_label": "View Our Service Locations"
     },
     "billing": {
         "setup_fee_per_location": 0,
