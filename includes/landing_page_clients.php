@@ -95,6 +95,19 @@ function lpc_valid_client_id($client_id) {
     return is_string($client_id) && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $client_id) === 1;
 }
 
+/**
+ * Same reasoning as lpc_valid_client_id() above, for the other half of every
+ * page path. page_id follows the {city_id}__{service_id} convention (see
+ * includes/landing_page_clients_publish.php), so underscores are allowed
+ * here unlike client_id's slug — the delivery API already validates its own
+ * incoming slug this way (api.php's preg_match), this closes the matching
+ * gap on the admin side before anything (the not-yet-built Locations &
+ * Services matrix / single-page editor) starts taking page_id from a request.
+ */
+function lpc_valid_page_id($page_id) {
+    return is_string($page_id) && preg_match('/^[a-z0-9][a-z0-9_-]{0,119}$/', $page_id) === 1;
+}
+
 function lpc_client_dir($client_id) {
     if (!lpc_valid_client_id($client_id)) return null;
     return CLIENTS_DIR . $client_id;
@@ -111,6 +124,7 @@ function lpc_client_secret_file($client_id) {
 }
 
 function lpc_page_file($client_id, $page_id) {
+    if (!lpc_valid_page_id($page_id)) return null;
     $dir = lpc_client_dir($client_id);
     return $dir === null ? null : $dir . '/data/pages/' . $page_id . '.json';
 }

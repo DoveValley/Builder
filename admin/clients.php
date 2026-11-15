@@ -87,13 +87,6 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 .lpc-empty       { text-align:center; padding:64px 24px; background:#fff; border:2px dashed #e5e7eb; border-radius:12px; }
 .lpc-empty h2    { font-size:1.3rem; margin:0 0 8px; color:#111; }
 .lpc-empty p     { color:#6b7280; margin:0 0 24px; }
-.lpc-new-card    { background:#f8fafc; border:2px dashed #cbd5e1; border-radius:10px; padding:22px; display:none; margin-bottom:24px; }
-.lpc-new-card.open { display:block; }
-.lpc-new-card h3 { margin:0 0 16px; font-size:1rem; font-weight:700; }
-.lpc-form-row    { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
-.lpc-form-row .form-group { margin:0; flex:1; min-width:180px; }
-.lpc-form-row label { font-size:.82rem; font-weight:600; color:#374151; display:block; margin-bottom:4px; }
-.lpc-form-row input { width:100%; padding:8px 10px; border:1px solid #d1d5db; border-radius:6px; font-size:.85rem; }
 </style>
 </head>
 <body class="admin-body">
@@ -113,34 +106,7 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
 
     <div class="lpc-topbar">
         <h1>Landing Page Clients</h1>
-        <button class="btn-open" onclick="document.getElementById('lpc-new-card').classList.toggle('open')">+ New Client</button>
-    </div>
-
-    <div id="lpc-new-card" class="lpc-new-card">
-        <h3>New Client</h3>
-        <form method="post" action="client_save.php">
-            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
-            <input type="hidden" name="section" value="create">
-            <div class="lpc-form-row">
-                <div class="form-group">
-                    <label>Business Name</label>
-                    <input type="text" name="business_name" required placeholder="e.g. Mr Restore">
-                </div>
-                <div class="form-group">
-                    <label>Domain</label>
-                    <input type="text" name="domain" required placeholder="e.g. mrrestore.com">
-                </div>
-                <div class="form-group">
-                    <label>Industry Category</label>
-                    <input type="text" name="industry_category" placeholder="e.g. restoration">
-                </div>
-                <div class="form-group">
-                    <label>Contact Email</label>
-                    <input type="email" name="contact_email" placeholder="ops@client.com">
-                </div>
-                <button type="submit" class="btn-open">Create</button>
-            </div>
-        </form>
+        <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
     </div>
 
     <?php if (empty($rows)): ?>

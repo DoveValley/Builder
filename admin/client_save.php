@@ -15,21 +15,6 @@ $section = $_POST['section'] ?? '';
 
 switch ($section) {
 
-    /* ---- CREATE ---- */
-    case 'create':
-        $client_id = lpc_create_client([
-            'business_name'     => trim($_POST['business_name'] ?? ''),
-            'domain'            => trim($_POST['domain'] ?? ''),
-            'industry_category' => trim($_POST['industry_category'] ?? ''),
-            'contact_email'     => trim($_POST['contact_email'] ?? ''),
-        ]);
-        if (!$client_id) {
-            header('Location: clients.php?msg=error:Business+name+is+required');
-            exit;
-        }
-        header('Location: client.php?id=' . urlencode($client_id) . '&msg=success:Client+created');
-        exit;
-
     /* ---- HUBS (add / edit / delete) ---- */
     case 'hubs':
         $client_id = $_POST['client_id'] ?? '';
