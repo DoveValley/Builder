@@ -56,6 +56,18 @@ function lpc_render_footer_link() {
 	if ( $rendered ) {
 		return;
 	}
+	// On the hub page itself, "View Our Service Locations" points right back
+	// at the page already being viewed — real gap found live (2026-11-15):
+	// pointless and confusing on that one page, even though it's exactly what
+	// every OTHER page on the site (single location pages + the rest of the
+	// client's real site, via the wp_footer hook below) needs. Setting
+	// $rendered here (not just returning) also suppresses the later
+	// wp_footer-hooked call for this same request, so it doesn't reappear
+	// when get_footer() fires wp_footer() a moment later.
+	if ( get_query_var( 'lpc_route' ) && get_query_var( 'lpc_slug' ) === '' ) {
+		$rendered = true;
+		return;
+	}
 	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;
 	}
