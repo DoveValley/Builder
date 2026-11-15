@@ -91,28 +91,53 @@ function lpc_handle_route() {
 
 	// Meta description + OG tags — these were stored in the page data from the
 	// start but never actually output anywhere, a real silent gap (found
-	// 2026-11-15). Printed directly in wp_head at a late priority so an SEO
-	// plugin's own (empty, since this isn't a real WP post) meta tags don't
-	// win — same reasoning as the title filter above, just via wp_head
-	// instead of a filter since there's no dedicated meta-description hook.
+	// 2026-11-15). First attempt just echoed them in wp_head at PHP_INT_MAX —
+	// reproduced locally against a real Yoast SEO install and found that's
+	// NOT enough: wp_head is an action, not a filter, so Yoast's own (generic,
+	// wrong-for-this-virtual-page) description/og:title tags still print too —
+	// both end up in the markup, duplicated, and since "first tag wins" is the
+	// de facto behavior crawlers use for duplicates, Yoast's generic text
+	// would likely be what actually gets indexed, not ours. Fixed properly:
+	// when Yoast is active, hook its own public filters to inject our values
+	// so YOAST ITSELF outputs the correct tag, zero duplication — the
+	// standard way a plugin is meant to integrate with Yoast, not race it.
+	// Falls back to the plain wp_head approach (already proven correct, see
+	// Phase 1 verification) when no SEO plugin is active to override instead.
 	if ( ! empty( $page['seo']['meta_description'] ) || ! empty( $page['seo']['og_image'] ) ) {
-		add_action(
-			'wp_head',
-			function () use ( $page ) {
-				if ( ! empty( $page['seo']['meta_description'] ) ) {
-					echo '<meta name="description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
-					echo '<meta property="og:description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
-				}
-				if ( ! empty( $page['seo']['page_title'] ) ) {
-					echo '<meta property="og:title" content="' . esc_attr( $page['seo']['page_title'] ) . '">' . "\n";
-				}
-				if ( ! empty( $page['seo']['og_image'] ) ) {
-					echo '<meta property="og:image" content="' . esc_url( $page['seo']['og_image'] ) . '">' . "\n";
-				}
-				echo '<meta property="og:type" content="website">' . "\n";
-			},
-			PHP_INT_MAX
-		);
+		if ( defined( 'WPSEO_VERSION' ) ) {
+			add_filter( 'wpseo_metadesc', function () use ( $page ) {
+				return $page['seo']['meta_description'] ?: '';
+			} );
+			add_filter( 'wpseo_opengraph_desc', function () use ( $page ) {
+				return $page['seo']['meta_description'] ?: '';
+			} );
+			add_filter( 'wpseo_opengraph_title', function () use ( $page ) {
+				return $page['seo']['page_title'] ?: '';
+			} );
+			if ( ! empty( $page['seo']['og_image'] ) ) {
+				add_action( 'wpseo_add_opengraph_images', function ( $image ) use ( $page ) {
+					$image->add_image( $page['seo']['og_image'] );
+				} );
+			}
+		} else {
+			add_action(
+				'wp_head',
+				function () use ( $page ) {
+					if ( ! empty( $page['seo']['meta_description'] ) ) {
+						echo '<meta name="description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
+						echo '<meta property="og:description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
+					}
+					if ( ! empty( $page['seo']['page_title'] ) ) {
+						echo '<meta property="og:title" content="' . esc_attr( $page['seo']['page_title'] ) . '">' . "\n";
+					}
+					if ( ! empty( $page['seo']['og_image'] ) ) {
+						echo '<meta property="og:image" content="' . esc_url( $page['seo']['og_image'] ) . '">' . "\n";
+					}
+					echo '<meta property="og:type" content="website">' . "\n";
+				},
+				PHP_INT_MAX
+			);
+		}
 	}
 
 	status_header( 200 );
