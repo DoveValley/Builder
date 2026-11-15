@@ -148,7 +148,13 @@ function lpc_default_page_data() {
             ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => '', 'items' => []],
             ['type' => 'text',       'key' => 'local_relevance',       'heading' => '', 'body' => ''],
             ['type' => 'steps',      'key' => 'how_it_works',          'heading' => '', 'items' => []],
-            ['type' => 'text',       'key' => 'seasonal_calendar',     'heading' => '', 'body' => ''],
+            // 4 season cards, not one paragraph — reuses the 'highlights' type
+            // (same card-grid as feature_columns_local), never a new delivery
+            // type of its own. lpc_apply_ai_sections()'s 'highlights'/'steps'/
+            // 'services_list'/'faq' case already handles any section matching
+            // by 'key', so changing this one key's shape needed no new code
+            // there, only a new AI prompt shape (see lpc_ai_user_prompt()).
+            ['type' => 'highlights', 'key' => 'seasonal_calendar',     'heading' => '', 'items' => []],
             ['type' => 'text',       'key' => 'why_choose_us',         'heading' => '', 'body' => ''],
             ['type' => 'services_list',  'heading'  => '', 'items' => []],
             ['type' => 'faq',            'heading'  => '', 'items' => []],

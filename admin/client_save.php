@@ -515,6 +515,7 @@ switch ($section) {
             $highlights = $buildItems($_POST['highlights_title'] ?? [], $_POST['highlights_text'] ?? []);
             $steps      = $buildItems($_POST['steps_title'] ?? [], $_POST['steps_text'] ?? []);
             $services   = $buildItems($_POST['svc_title'] ?? [], $_POST['svc_text'] ?? []);
+            $seasonal   = $buildItems($_POST['seasonal_title'] ?? [], $_POST['seasonal_text'] ?? []);
 
             $faqQs = $_POST['faq_q'] ?? [];
             $faqAs = $_POST['faq_a'] ?? [];
@@ -577,7 +578,7 @@ switch ($section) {
                 ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
                 ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],
                 ['type' => 'steps', 'key' => 'how_it_works', 'heading' => trim($_POST['steps_heading'] ?? ''), 'items' => $steps],
-                ['type' => 'text', 'key' => 'seasonal_calendar', 'heading' => trim($_POST['seasonal_heading'] ?? ''), 'body' => trim($_POST['seasonal_body'] ?? '')],
+                ['type' => 'highlights', 'key' => 'seasonal_calendar', 'heading' => trim($_POST['seasonal_heading'] ?? ''), 'items' => $seasonal],
                 ['type' => 'text', 'key' => 'why_choose_us', 'heading' => trim($_POST['why_choose_us_heading'] ?? ''), 'body' => trim($_POST['why_choose_us_body'] ?? '')],
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],

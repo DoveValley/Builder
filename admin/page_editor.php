@@ -44,7 +44,7 @@ $cityIntro       = $sectionByKey['city_intro'] ?? ['heading' => '', 'body' => ''
 $featureLocal    = $sectionByKey['feature_columns_local'] ?? ['heading' => '', 'items' => []];
 $localRelevance  = $sectionByKey['local_relevance'] ?? ['heading' => '', 'body' => ''];
 $howItWorks      = $sectionByKey['how_it_works'] ?? ['heading' => '', 'items' => []];
-$seasonal        = $sectionByKey['seasonal_calendar'] ?? ['heading' => '', 'body' => ''];
+$seasonal        = $sectionByKey['seasonal_calendar'] ?? ['heading' => '', 'items' => []];
 $whyChooseUs     = $sectionByKey['why_choose_us'] ?? ['heading' => '', 'body' => ''];
 $servicesList = $sectionByKey['services_list'] ?? ['heading' => '', 'items' => []];
 $faq          = $sectionByKey['faq'] ?? ['heading' => '', 'items' => []];
@@ -247,9 +247,18 @@ if ($preview) {
         </div>
 
         <div class="lpc-section">
-            <h3>Seasonal Calendar <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(when demand for this service peaks)</span></h3>
+            <h3>Seasonal Calendar <span style="font-weight:400;color:#6b7280;font-size:.78rem;">(4 season cards — when demand for this service peaks)</span></h3>
             <div class="lpc-field"><label>Heading</label><input type="text" name="seasonal_heading" value="<?= h($seasonal['heading']) ?>"></div>
-            <div class="lpc-field"><label>Body</label><textarea name="seasonal_body"><?= h($seasonal['body']) ?></textarea></div>
+            <div id="seasonal-rows">
+                <?php foreach ($seasonal['items'] as $item): ?>
+                <div class="lpc-repeat-row">
+                    <input type="text" name="seasonal_title[]" placeholder="Season" value="<?= h($item['title']) ?>">
+                    <input type="text" name="seasonal_text[]" placeholder="Text" value="<?= h($item['text']) ?>">
+                    <button type="button" class="btn-sm-danger" onclick="this.parentElement.remove()">&times;</button>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <button type="button" class="btn-sm-outline" onclick="lpcAddRow('seasonal-rows','seasonal_title[]','Season','seasonal_text[]','Text')">+ Add Season</button>
         </div>
 
         <div class="lpc-section">
