@@ -51,13 +51,17 @@ function lpc_service_image_url($client_id, $filename) {
 
 /**
  * Validates + converts + saves one uploaded file as a service's real photo.
- * Returns the filename (not a full URL — lpc_service_image_url() builds
- * that), or false on failure (bad type, too large).
+ * Returns ['filename'=>, 'width'=>, 'height'=>] (real pixel dimensions, read
+ * back off the saved file — same "record the real dimensions once, read
+ * them back later" pattern includes/media_lib.php's media_register() already
+ * uses elsewhere in this codebase), or false on failure (bad type, too large).
  */
 function lpc_upload_service_image($client_id, $tmpPath, $origName) {
     $dir = lpc_service_image_dir($client_id);
-    $result = save_uploaded_file($tmpPath, 'svc', $origName, $dir, '');
-    return $result !== false ? $result : false; // '' $uploadUrl → bare filename back
+    $filename = save_uploaded_file($tmpPath, 'svc', $origName, $dir, '');
+    if ($filename === false) return false;
+    $dims = @getimagesize($dir . $filename);
+    return ['filename' => $filename, 'width' => $dims[0] ?? null, 'height' => $dims[1] ?? null];
 }
 
 /**
@@ -84,7 +88,10 @@ function lpc_generate_service_image($client_id, $service_label, $niche_brief) {
     if (file_put_contents($dir . $filename, $result['bytes']) === false) {
         return ['ok' => false, 'msg' => 'Generated image could not be saved to disk.'];
     }
-    return ['ok' => true, 'msg' => '', 'filename' => $filename];
+    // Measured off the real saved file rather than trusting the requested
+    // size — a provider is free to return something slightly different.
+    $dims = @getimagesize($dir . $filename);
+    return ['ok' => true, 'msg' => '', 'filename' => $filename, 'width' => $dims[0] ?? 1024, 'height' => $dims[1] ?? 1024];
 }
 
 /**
@@ -134,17 +141,30 @@ function lpc_placeholder_image_url() {
     return lpc_service_image_url('_shared', basename($file));
 }
 
-/** The one URL to actually use for a service right now — active image if
- *  set, else the shared placeholder. Never returns empty. */
+/** The one image to actually use for a service right now — active image if
+ *  set, else the shared placeholder. Never returns empty. Returns
+ *  ['url'=>,'width'=>,'height'=>] so callers can emit real <img width/height>
+ *  attributes (a genuine Lighthouse/CLS finding on the first real live page,
+ *  2026-11-15) instead of leaving them unset. The no-GD placeholder fallback
+ *  is a literal 1x1 file (stretched via CSS regardless), so its declared
+ *  dimensions use the GD version's own intended 1024x683 design size rather
+ *  than measuring the tiny stand-in file. */
 function lpc_resolve_service_image($client_id, $service) {
-    $active = $service['image_active'] ?? '';
-    if ($active === 'real' && !empty($service['image_real'])) {
-        return lpc_service_image_url($client_id, $service['image_real']);
+    if (($service['image_active'] ?? '') === 'real' && !empty($service['image_real'])) {
+        return [
+            'url'    => lpc_service_image_url($client_id, $service['image_real']),
+            'width'  => $service['image_real_w'] ?? null,
+            'height' => $service['image_real_h'] ?? null,
+        ];
     }
-    if ($active === 'ai' && !empty($service['image_ai'])) {
-        return lpc_service_image_url($client_id, $service['image_ai']);
+    if (($service['image_active'] ?? '') === 'ai' && !empty($service['image_ai'])) {
+        return [
+            'url'    => lpc_service_image_url($client_id, $service['image_ai']),
+            'width'  => $service['image_ai_w'] ?? null,
+            'height' => $service['image_ai_h'] ?? null,
+        ];
     }
-    return lpc_placeholder_image_url();
+    return ['url' => lpc_placeholder_image_url(), 'width' => 1024, 'height' => 683];
 }
 
 /** Fills hero.image/image_alt/seo.og_image from the service's current image,
@@ -157,14 +177,24 @@ function lpc_resolve_service_image($client_id, $service) {
  *  risking a mismatched claim, so it states what the page is about instead,
  *  which is also exactly what image-SEO alt text should center on anyway. */
 function lpc_fill_service_image(&$page, $client_id, $service, $altText) {
-    $url = lpc_resolve_service_image($client_id, $service);
+    $image = lpc_resolve_service_image($client_id, $service);
     foreach ($page['sections'] as &$section) {
         if (($section['type'] ?? '') !== 'hero') continue;
-        if (empty($section['image'])) $section['image'] = $url;
+        if (empty($section['image'])) {
+            $section['image'] = $image['url'];
+        }
+        // Backfills width/height whenever the hero's current image IS this
+        // service's own resolved image (just set above, or already matching
+        // from before this field existed) — never overwrites dimensions for
+        // a different, manually-typed image URL it doesn't actually describe.
+        if ($section['image'] === $image['url'] && empty($section['image_width'])) {
+            $section['image_width']  = $image['width'];
+            $section['image_height'] = $image['height'];
+        }
         if (empty($section['image_alt'])) $section['image_alt'] = $altText;
     }
     unset($section);
     if (empty($page['seo']['og_image'])) {
-        $page['seo']['og_image'] = $url;
+        $page['seo']['og_image'] = $image['url'];
     }
 }

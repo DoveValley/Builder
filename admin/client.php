@@ -207,10 +207,10 @@ $apiKey = lpc_get_client_api_key($client_id);
             $hasReal = !empty($s['image_real']);
             $hasAi   = !empty($s['image_ai']);
             $active  = $s['image_active'] ?? '';
-            $thumbUrl = lpc_resolve_service_image($client_id, $s);
+            $thumb = lpc_resolve_service_image($client_id, $s);
         ?>
             <div class="lpc-row" style="align-items:flex-start;">
-                <img src="<?= h($thumbUrl) ?>" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;flex-shrink:0;">
+                <img src="<?= h($thumb['url']) ?>" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;flex-shrink:0;">
                 <div style="flex:1;">
                     <strong><?= h($s['label']) ?></strong>
                     <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px;">

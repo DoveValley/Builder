@@ -68,7 +68,15 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 		$out .= '<p class="lpc-hero-sub">' . esc_html( $s['subheading'] ) . '</p>';
 	}
 	if ( ! empty( $s['image'] ) ) {
-		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '" loading="lazy"></figure>';
+		// Explicit width/height — a real Lighthouse finding on the first live
+		// page audit (2026-11-15): without them, the browser can't reserve
+		// layout space before the image loads. Omitted entirely if either
+		// dimension is unknown rather than guessing/stretching.
+		$dims = '';
+		if ( ! empty( $s['image_width'] ) && ! empty( $s['image_height'] ) ) {
+			$dims = ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"';
+		}
+		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );

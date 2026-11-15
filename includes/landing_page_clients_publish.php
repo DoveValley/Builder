@@ -168,7 +168,10 @@ function lpc_preview_render($sections) {
             case 'hero':
                 $out .= '<section><h2>' . h($s['headline']) . '</h2>';
                 if ($s['subheading']) $out .= '<p>' . h($s['subheading']) . '</p>';
-                if (!empty($s['image'])) $out .= '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '" loading="lazy"></figure>';
+                if (!empty($s['image'])) {
+                    $dims = (!empty($s['image_width']) && !empty($s['image_height'])) ? ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"' : '';
+                    $out .= '<figure><img src="' . h($s['image']) . '" alt="' . h($s['image_alt'] ?? '') . '"' . $dims . ' loading="lazy"></figure>';
+                }
                 if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['cta_text'] ?: $s['phone']) . '</a></p>';
                 $out .= '</section>';
                 break;

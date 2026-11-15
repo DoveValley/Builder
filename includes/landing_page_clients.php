@@ -122,7 +122,7 @@ function lpc_default_page_data() {
         // plugin's renderer only ever looks at 'type', never 'key' (that's purely
         // an admin/AI bookkeeping concern, invisible to delivery).
         'sections' => [
-            ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'cta_text' => '', 'phone' => ''],
+            ['type' => 'hero', 'headline' => '', 'subheading' => '', 'image' => '', 'image_alt' => '', 'image_width' => null, 'image_height' => null, 'cta_text' => '', 'phone' => ''],
             ['type' => 'text',       'key' => 'city_intro',            'heading' => '', 'body' => ''],
             ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => '', 'items' => []],
             ['type' => 'text',       'key' => 'local_relevance',       'heading' => '', 'body' => ''],

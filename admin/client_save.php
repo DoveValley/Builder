@@ -247,14 +247,16 @@ switch ($section) {
                 header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:No+file+uploaded');
                 exit;
             }
-            $filename = lpc_upload_service_image($client_id, $file['tmp_name'], $file['name']);
-            if ($filename === false) {
+            $uploaded = lpc_upload_service_image($client_id, $file['tmp_name'], $file['name']);
+            if ($uploaded === false) {
                 header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Upload+failed+-+check+file+type%2Fsize');
                 exit;
             }
             foreach ($client['services'] as &$s) {
                 if ($s['service_id'] !== $serviceId) continue;
-                $s['image_real'] = $filename;
+                $s['image_real']   = $uploaded['filename'];
+                $s['image_real_w'] = $uploaded['width'];
+                $s['image_real_h'] = $uploaded['height'];
                 $s['image_active'] = 'real'; // a fresh upload becomes active immediately, same as Pic Drop's own "newest wins" default
                 break;
             }
@@ -279,7 +281,9 @@ switch ($section) {
             }
             foreach ($client['services'] as &$s) {
                 if ($s['service_id'] !== $serviceId) continue;
-                $s['image_ai'] = $result['filename'];
+                $s['image_ai']   = $result['filename'];
+                $s['image_ai_w'] = $result['width'];
+                $s['image_ai_h'] = $result['height'];
                 $s['image_active'] = 'ai';
                 break;
             }
@@ -521,12 +525,19 @@ switch ($section) {
             // related_links is deliberately not touched here — it's auto-computed
             // at publish time (lpc_compute_related_links()), never hand-authored.
             $existingLinks = [];
+            // image_width/image_height aren't editable fields on this form (they're
+            // a derived technical detail, not content) — carry forward whatever the
+            // image-assignment flow last measured rather than dropping them every
+            // time someone saves content, which would silently undo the real
+            // <img width/height> attributes a Lighthouse audit flagged as missing.
+            $existingImgW = null; $existingImgH = null;
             foreach ($page['sections'] as $s) {
-                if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; break; }
+                if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
+                if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
             }
 
             $page['sections'] = [
-                ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'image_alt' => trim($_POST['hero_image_alt'] ?? ''), 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
+                ['type' => 'hero', 'headline' => trim($_POST['hero_headline'] ?? ''), 'subheading' => trim($_POST['hero_subheading'] ?? ''), 'image' => trim($_POST['hero_image'] ?? ''), 'image_alt' => trim($_POST['hero_image_alt'] ?? ''), 'image_width' => $existingImgW, 'image_height' => $existingImgH, 'cta_text' => trim($_POST['hero_cta_text'] ?? ''), 'phone' => trim($_POST['hero_phone'] ?? '')],
                 ['type' => 'text', 'key' => 'city_intro', 'heading' => trim($_POST['city_intro_heading'] ?? ''), 'body' => trim($_POST['city_intro_body'] ?? '')],
                 ['type' => 'highlights', 'key' => 'feature_columns_local', 'heading' => trim($_POST['highlights_heading'] ?? ''), 'items' => $highlights],
                 ['type' => 'text', 'key' => 'local_relevance', 'heading' => trim($_POST['local_relevance_heading'] ?? ''), 'body' => trim($_POST['local_relevance_body'] ?? '')],
