@@ -115,6 +115,67 @@ switch ($section) {
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=reporting&msg=success:Reporting+settings+saved');
         exit;
 
+    /* ---- DELIVERY SETTINGS (support phone/message) ---- */
+    case 'delivery_settings':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $client['delivery']['support_phone']   = trim($_POST['support_phone'] ?? '');
+        $client['delivery']['support_message'] = trim($_POST['support_message'] ?? '');
+        lpc_save_client($client_id, $client);
+        // Takes effect on the client's next scheduled check-in either way, but
+        // rebuilding now means it's live immediately rather than waiting on an
+        // unrelated page publish to happen to refresh the manifest.
+        lpc_rebuild_manifest($client_id);
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=success:Support+info+saved');
+        exit;
+
+    /* ---- TOGGLE ACTIVE (disable / re-enable) ---- */
+    case 'toggle_active':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $client['delivery']['active'] = !$client['delivery']['active'];
+        lpc_save_client($client_id, $client);
+        // Both the key lookup (gates every request) and the manifest (carries
+        // the active flag's effect to the plugin's next check-in) need to
+        // reflect this immediately — not wait for the next unrelated publish.
+        lpc_ensure_delivery_key($client_id);
+        lpc_rebuild_manifest($client_id);
+        $msg = $client['delivery']['active'] ? 'success:Client+re-enabled' : 'success:Client+disabled';
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=' . $msg);
+        exit;
+
+    /* ---- REGENERATE API KEY ---- */
+    case 'regenerate_key':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        lpc_set_client_api_key($client_id, lpc_generate_api_key());
+        lpc_ensure_delivery_key($client_id); // drops the old key's entry, adds the new one
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=success:Key+regenerated');
+        exit;
+
+    /* ---- EMAIL TO CUSTOMER ---- */
+    case 'email_to_customer':
+        $client_id = $_POST['client_id'] ?? '';
+        $client = lpc_load_client($client_id);
+        if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
+
+        $ok = lpc_send_client_email(
+            $client_id,
+            trim($_POST['recipient'] ?? ''),
+            !empty($_POST['include_key']),
+            !empty($_POST['include_plugin_link']),
+            $_POST['message'] ?? ''
+        );
+        $msg = $ok ? 'success:Email+sent' : 'error:Could+not+send+email+-+check+the+recipient+address';
+        header('Location: client.php?id=' . urlencode($client_id) . '&tab=delivery&msg=' . $msg);
+        exit;
+
     /* ---- SERVICES ---- */
     case 'services':
         $client_id = $_POST['client_id'] ?? '';

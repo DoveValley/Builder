@@ -354,14 +354,87 @@ $apiKey = lpc_get_client_api_key($client_id);
 
     <?php elseif ($tab === 'delivery'): ?>
 
-        <div class="card" style="margin-top:20px;">
-            <strong style="font-size:.88rem;">API Key</strong>
-            <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:8px 0;word-break:break-all;"><?= h($apiKey) ?></p>
-            <p style="color:#6b7280;font-size:.82rem;margin:0;">Paste this into the client's WordPress install under Settings &rarr; Landing Page Client. That is the only setup step on their end.</p>
-        </div>
+        <p style="color:#6b7280;font-size:.85rem;">Onboarding a client takes 3 steps. Steps 4+ are ongoing controls, used occasionally.</p>
+
         <div class="card" style="margin-top:14px;">
-            <strong style="font-size:.88rem;">Plugin connection</strong>
+            <strong style="font-size:.88rem;">1. Give the client their API key</strong>
+            <p style="font-family:monospace;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin:8px 0;word-break:break-all;"><?= h($apiKey) ?></p>
+            <p style="color:#6b7280;font-size:.82rem;margin:0;">They paste this into their WordPress install under Settings &rarr; Landing Page Client. That is their only setup step, ever.</p>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">2. Email it to them</strong>
+            <form method="post" action="client_save.php">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="email_to_customer">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="lpc-form-row">
+                    <div class="form-group"><label>To</label><input type="email" name="recipient" value="<?= h($client['identity']['contact_email']) ?>"></div>
+                </div>
+                <div class="lpc-form-row">
+                    <label style="font-weight:400;"><input type="checkbox" name="include_key" value="1" checked> Include API key</label>
+                    <label style="font-weight:400;"><input type="checkbox" name="include_plugin_link" value="1" checked> Include plugin install instructions</label>
+                </div>
+                <div class="form-group" style="margin-top:10px;"><label>Message</label><textarea name="message" style="min-height:90px;">Hi,
+
+Here's what you need to get your location pages live on your site. Paste the key below into WordPress under Settings &rarr; Landing Page Client.
+
+Thanks!</textarea></div>
+                <button type="submit" class="btn-open" style="margin-top:10px;">Send Email</button>
+            </form>
+            <?php if ($client['delivery']['last_emailed']): ?>
+                <p style="color:#6b7280;font-size:.78rem;margin:10px 0 0;">Last emailed: <?= h($client['delivery']['last_emailed']) ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">3. Confirm they've connected</strong>
             <p style="margin:8px 0 0;"><span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($status) ?></span></p>
+            <p style="color:#6b7280;font-size:.78rem;margin:6px 0 0;">Connected = recently checked in. Stale = overdue, worth a look. Never Connected = key not pasted in yet.</p>
+        </div>
+
+        <h3 style="margin-top:32px;">Ongoing Controls</h3>
+
+        <div class="card">
+            <strong style="font-size:.88rem;">4. Support message shown in their WordPress settings</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">Reaches them automatically on their next check-in — no re-install, no redistribution.</p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="delivery_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group"><label>Support Phone</label><input type="text" name="support_phone" value="<?= h($client['delivery']['support_phone']) ?>"></div>
+                <div class="form-group"><label>Support Message</label><input type="text" name="support_message" value="<?= h($client['delivery']['support_message']) ?>"></div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">5. <?= $client['delivery']['active'] ? 'Disable this client' : 'Re-enable this client' ?></strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                <?= $client['delivery']['active']
+                    ? 'Rejects their check-ins immediately, regardless of key validity — nothing is deleted, pages/drafts/reporting history all stay intact. Use the Support Message above to explain why before disabling, e.g. a billing issue.'
+                    : 'Flips access back on instantly — nothing required from the client.' ?>
+            </p>
+            <?php if (!$client['delivery']['active']): ?>
+                <p><span class="lpc-badge" style="background:#f3e8ff;color:#6b21a8;">Disabled</span></p>
+            <?php endif; ?>
+            <form method="post" action="client_save.php" onsubmit="return confirm('<?= $client['delivery']['active'] ? 'Disable this client? Their pages will stop responding to their WordPress plugin immediately.' : 'Re-enable this client?' ?>');">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="toggle_active">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <button type="submit" class="<?= $client['delivery']['active'] ? 'btn-sm-danger' : 'btn-open' ?>"><?= $client['delivery']['active'] ? 'Disable Client' : 'Re-enable Client' ?></button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">6. Regenerate the API key</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">The old key stops working immediately. Their plugin shows Stale until you give them the new one (step 2) and they paste it in.</p>
+            <form method="post" action="client_save.php" onsubmit="return confirm('Regenerate the API key? The old one stops working immediately.');">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="regenerate_key">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <button type="submit" class="btn-sm-danger">Regenerate Key</button>
+            </form>
         </div>
 
     <?php elseif ($tab === 'reporting'): ?>

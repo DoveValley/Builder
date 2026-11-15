@@ -345,3 +345,49 @@ function lpc_city_candidates($hub, $excludeCityIds, $limit = 25) {
     usort($candidates, fn($a, $b) => $b['population'] <=> $a['population']);
     return array_slice($candidates, 0, $limit);
 }
+
+/**
+ * Sends the handoff/key email to a client. Reuses the niche fleet's own
+ * contact_send.php header-injection-safe construction (CRLF-stripped
+ * headers, plain PHP mail() — no new email system for this one feature)
+ * rather than building a second mail path. Not a literal call to
+ * contact_send.php itself — that file is a public, CSRF/honeypot/rate
+ * -limited POST handler for a totally different caller (a site visitor's
+ * contact form); this is an authenticated admin action with its own inputs.
+ *
+ * "Plugin install instructions" deliberately does NOT include a real
+ * download URL — there is no hosted public download for the plugin yet
+ * (see project_landing_page_clients_feature_design memory), so this says
+ * so honestly rather than link to something that doesn't exist.
+ */
+function lpc_send_client_email($client_id, $recipient, $includeKey, $includePluginInstructions, $message) {
+    if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) return false;
+
+    $client = lpc_load_client($client_id);
+    if (!$client) return false;
+
+    $body = trim($message) . "\n\n";
+    if ($includeKey) {
+        $body .= "Your API Key:\n" . lpc_get_client_api_key($client_id) . "\n\n";
+    }
+    if ($includePluginInstructions) {
+        $body .= "Plugin install instructions:\n"
+               . "1. Install the \"Landing Page Client\" plugin (contact us for the current file).\n"
+               . "2. Activate it.\n"
+               . "3. Go to Settings \xe2\x86\x92 Landing Page Client and paste in your API key above.\n\n";
+    }
+
+    $safeRecipient = str_replace(["\r", "\n"], '', $recipient);
+    $subject = 'Your Landing Page Clients setup info — ' . ($client['identity']['business_name'] ?: $client_id);
+    $headers = implode("\r\n", [
+        'From: noreply@' . preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'localhost'),
+        'Content-Type: text/plain; charset=UTF-8',
+        'X-Mailer: PHP/' . PHP_VERSION,
+    ]);
+
+    if (!mail($safeRecipient, $subject, $body, $headers)) return false;
+
+    $client['delivery']['last_emailed'] = gmdate('c');
+    lpc_save_client($client_id, $client);
+    return true;
+}
