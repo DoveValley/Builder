@@ -182,6 +182,12 @@ switch ($section) {
         $placement = $_POST['nav_link_placement'] ?? 'footer';
         $client['delivery']['nav_link_placement'] = in_array($placement, ['off', 'footer', 'nav'], true) ? $placement : 'footer';
         $client['delivery']['nav_link_label']     = trim($_POST['nav_link_label'] ?? '') ?: 'View Our Service Locations';
+        // Existed as a data field long before it had a UI control — every
+        // consumer (the manifest, the plugin's own transient TTL) already
+        // read whatever was here, so this just makes it an actual setting
+        // instead of something only editable by hand-editing client.json.
+        $refreshMinutes = (int) ($_POST['refresh_interval_minutes'] ?? 360);
+        $client['delivery']['refresh_interval_minutes'] = max(5, $refreshMinutes ?: 360);
         lpc_save_client($client_id, $client);
         // Takes effect on the client's next scheduled check-in either way, but
         // rebuilding now means it's live immediately rather than waiting on an

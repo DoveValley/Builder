@@ -620,8 +620,19 @@ Thanks!</textarea></div>
                     </select>
                 </div>
                 <div class="form-group"><label>Link Text</label><input type="text" name="nav_link_label" value="<?= h($client['delivery']['nav_link_label']) ?>"></div>
+                <div class="form-group">
+                    <label>Refresh Interval (minutes)</label>
+                    <input type="number" name="refresh_interval_minutes" min="5" step="1" style="width:100px;" value="<?= h($client['delivery']['refresh_interval_minutes'] ?? 360) ?>">
+                </div>
                 <button type="submit" class="btn-sm-outline">Save</button>
             </form>
+            <p style="color:#6b7280;font-size:.8rem;margin:8px 0 0;">
+                How long the plugin caches the manifest/pages before re-checking the delivery server —
+                360 (6 hours) by default. Lower means fresher content shows up sooner on its own; higher
+                means fewer check-ins hitting the delivery server. "Save &amp; Refresh now" in the
+                plugin's own WP Settings page always bypasses this immediately, regardless of the value
+                here.
+            </p>
         </div>
 
         <div class="card" style="margin-top:10px;">
