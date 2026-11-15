@@ -1,8 +1,14 @@
 <?php
 /**
- * Renders the 6 locked section types as bare semantic HTML with zero CSS/
- * classes of our own, so the page inherits the client's real theme instead
- * of competing with it.
+ * Renders the 6 locked section types. Originally zero CSS/classes of our own
+ * so the page inherited the client's real theme with no risk of clashing —
+ * that produced correct but visually bare pages (literally just <h1>/<p>/
+ * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
+ * `lpc-*` classes styled by styles.php, which pulls its colors from the
+ * client's own captured brand colors (manifest 'branding') rather than
+ * hardcoding a look — see styles.php for why that's the chosen middle ground
+ * over either bare HTML or guessing at the theme's own CSS variable names
+ * (which aren't consistent across theme builders).
  *
  * Heading level is NOT hardcoded, on purpose. Original assumption (found
  * against Twenty Twenty-Five, confirmed against Twenty Twenty-Four/Twenty
@@ -52,24 +58,24 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 
 function lpc_render_hero( $s, $level = 'h2' ) {
 	$level = in_array( $level, [ 'h1', 'h2' ], true ) ? $level : 'h2';
-	$out   = '<section>';
-	$out  .= '<' . $level . '>' . esc_html( $s['headline'] ?? '' ) . '</' . $level . '>';
+	$out   = '<section class="lpc-hero">';
+	$out  .= '<' . $level . ' class="lpc-hero-headline">' . esc_html( $s['headline'] ?? '' ) . '</' . $level . '>';
 	if ( ! empty( $s['subheading'] ) ) {
-		$out .= '<p>' . esc_html( $s['subheading'] ) . '</p>';
+		$out .= '<p class="lpc-hero-sub">' . esc_html( $s['subheading'] ) . '</p>';
 	}
 	if ( ! empty( $s['image'] ) ) {
-		$out .= '<figure><img src="' . esc_url( $s['image'] ) . '" alt="" loading="lazy"></figure>';
+		$out .= '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="" loading="lazy"></figure>';
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
-		$out .= '<p><a href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
+		$out .= '<p><a class="lpc-btn lpc-btn-primary" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
 	}
 	$out .= '</section>';
 	return $out;
 }
 
 function lpc_render_text( $s ) {
-	$out  = '<section>';
+	$out  = '<section class="lpc-section">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
@@ -81,15 +87,15 @@ function lpc_render_text( $s ) {
 }
 
 function lpc_render_services_list( $s ) {
-	$out  = '<section>';
+	$out  = '<section class="lpc-section">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
-	$out .= '<ul>';
+	$out .= '<ul class="lpc-card-grid">';
 	foreach ( (array) ( $s['items'] ?? [] ) as $item ) {
-		$out .= '<li><strong>' . esc_html( $item['title'] ?? '' ) . '</strong>';
+		$out .= '<li class="lpc-card"><strong>' . esc_html( $item['title'] ?? '' ) . '</strong>';
 		if ( ! empty( $item['text'] ) ) {
-			$out .= ' — ' . esc_html( $item['text'] );
+			$out .= '<span>' . esc_html( $item['text'] ) . '</span>';
 		}
 		$out .= '</li>';
 	}
@@ -98,20 +104,23 @@ function lpc_render_services_list( $s ) {
 }
 
 function lpc_render_faq( $s ) {
-	$out  = '<section>';
+	$out  = '<section class="lpc-section">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
+	$out .= '<div class="lpc-faq-list">';
 	foreach ( (array) ( $s['items'] ?? [] ) as $item ) {
+		$out .= '<div class="lpc-faq-item">';
 		$out .= '<h3>' . esc_html( $item['q'] ?? '' ) . '</h3>';
 		$out .= '<p>' . esc_html( $item['a'] ?? '' ) . '</p>';
+		$out .= '</div>';
 	}
-	$out .= '</section>';
+	$out .= '</div></section>';
 	return $out;
 }
 
 function lpc_render_cta( $s ) {
-	$out  = '<section>';
+	$out  = '<section class="lpc-section lpc-cta">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
@@ -120,7 +129,7 @@ function lpc_render_cta( $s ) {
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
-		$out .= '<p><a href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
+		$out .= '<p><a class="lpc-btn lpc-btn-accent" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
 	}
 	$out .= '</section>';
 	return $out;
@@ -131,13 +140,13 @@ function lpc_render_related_links( $s ) {
 	if ( empty( $links ) ) {
 		return '';
 	}
-	$out  = '<section>';
+	$out  = '<section class="lpc-section">';
 	if ( ! empty( $s['heading'] ) ) {
 		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
 	}
-	$out .= '<ul>';
+	$out .= '<ul class="lpc-pill-list">';
 	foreach ( $links as $link ) {
-		$out .= '<li><a href="' . esc_url( $link['url'] ?? '#' ) . '">' . esc_html( $link['label'] ?? '' ) . '</a></li>';
+		$out .= '<li><a class="lpc-pill" href="' . esc_url( $link['url'] ?? '#' ) . '">' . esc_html( $link['label'] ?? '' ) . '</a></li>';
 	}
 	$out .= '</ul></section>';
 	return $out;

@@ -85,11 +85,14 @@ function lpc_handle_route() {
 	echo $header_html; // phpcs:ignore WordPress.Security.EscapeOutput -- theme's own header output, not ours to escape.
 	$top_level = ( stripos( $header_html, '<h1' ) === false ) ? 'h1' : 'h2';
 
+	echo lpc_render_styles( $manifest['branding'] ?? [] ); // phpcs:ignore WordPress.Security.EscapeOutput -- styles.php escapes every value itself.
+	echo '<div class="lpc-page">';
 	if ( $slug === '' ) {
 		lpc_render_hub_page( $manifest, $top_level );
 	} else {
 		lpc_render_single_page( $page, $top_level );
 	}
+	echo '</div>';
 
 	get_footer();
 	exit;
@@ -106,10 +109,10 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	$base = trim( get_option( 'lpc_base_path', '/locations' ), '/' );
 	echo '<main>';
 	echo '<' . $top_level . '>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</' . $top_level . '>';
-	echo '<ul>';
+	echo '<ul class="lpc-hub-list">';
 	foreach ( $manifest['pages'] as $page ) {
 		$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
-		echo '<li><a href="' . esc_url( $url ) . '">' . esc_html( $page['title'] ?? $page['slug'] ) . '</a></li>';
+		echo '<li class="lpc-hub-item"><a href="' . esc_url( $url ) . '">' . esc_html( $page['title'] ?? $page['slug'] ) . '</a></li>';
 	}
 	echo '</ul>';
 	echo '</main>';

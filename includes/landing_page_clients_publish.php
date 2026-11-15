@@ -272,6 +272,15 @@ function lpc_rebuild_manifest($client_id) {
         'client_id'     => $client_id,
         'business_name' => $client['identity']['business_name'] ?? '',
         'updated_at'    => gmdate('c'),
+        // Lets the plugin style its own output (hero/cards/buttons) using the
+        // real client's brand colors instead of inventing a look of its own —
+        // this is the only consumer of these fields; the admin Branding tab
+        // itself is otherwise just internal labeling, per the original design.
+        'branding'      => [
+            'primary_color' => $client['branding']['primary_color'] ?? '',
+            'accent_color'  => $client['branding']['accent_color'] ?? '',
+            'font'          => $client['branding']['font'] ?? '',
+        ],
         'settings'      => [
             'base_path'                => $client['delivery']['base_path'] ?? '/locations',
             'refresh_interval_minutes' => $client['delivery']['refresh_interval_minutes'] ?? 360,
