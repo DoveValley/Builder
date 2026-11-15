@@ -36,6 +36,14 @@ if (!empty($_SESSION['lpc_wizard_err'])) {
     $error = $_SESSION['lpc_wizard_err'];
     unset($_SESSION['lpc_wizard_err']);
 }
+$notice = null;
+if (!empty($_SESSION['lpc_wizard_notice'])) {
+    $notice = $_SESSION['lpc_wizard_notice'];
+    unset($_SESSION['lpc_wizard_notice']);
+}
+// Set by auto-detect (step 1) for step 3's "Add a hub office" form to pre-fill from —
+// a suggestion to review, never written to the client record on its own.
+$detectedHub = $_SESSION['lpc_wizard_detected'] ?? null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['csrf_token'] ?? '';
@@ -61,6 +69,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: client_wizard.php?step=2');
                 exit;
             }
+        } elseif ($postedStep === 1 && $wizAction === 'auto_detect') {
+            $domain = trim($_POST['domain'] ?? '');
+            if ($domain === '') {
+                $error = 'Enter a domain first, then click Auto-detect.';
+            } else {
+                // Preserve whatever the operator already typed on this step —
+                // auto-detect only fills in what's still blank, never overwrites.
+                $w['identity']['domain'] = $domain;
+                foreach (['business_name', 'industry_category', 'contact_name', 'contact_email', 'contact_phone'] as $f) {
+                    if (trim($_POST[$f] ?? '') !== '') $w['identity'][$f] = trim($_POST[$f]);
+                }
+
+                $detected = lpc_detect_site_info($domain);
+                if (!$detected['ok']) {
+                    $error = 'Could not reach or read that site: ' . ($detected['error'] ?? 'unknown error') . ' — fill in the fields manually instead.';
+                } else {
+                    $found = [];
+                    if ($w['identity']['business_name'] === '' && $detected['business_name']) {
+                        $w['identity']['business_name'] = $detected['business_name'];
+                        $found[] = 'business name';
+                    }
+                    if ($w['identity']['contact_phone'] === '' && $detected['phone']) {
+                        $w['identity']['contact_phone'] = $detected['phone'];
+                        $found[] = 'phone';
+                    }
+                    foreach (['logo_url' => 'logo', 'primary_color' => 'primary color', 'accent_color' => 'accent color', 'font' => 'font'] as $bf => $label) {
+                        if (($w['branding'][$bf] ?? '') === '' && !empty($detected[$bf])) {
+                            $w['branding'][$bf] = $detected[$bf];
+                            $found[] = $label;
+                        }
+                    }
+                    if (!empty($detected['address']['city'])) {
+                        $_SESSION['lpc_wizard_detected'] = ['phone' => $detected['phone'], 'address' => $detected['address']];
+                        $found[] = 'hub city/address (pre-filled on step 3)';
+                    }
+                    $_SESSION['lpc_wizard_notice'] = $found
+                        ? 'Auto-detected from the site: ' . implode(', ', $found) . '. Double-check before continuing — detection is best-effort, not guaranteed.'
+                        : 'Connected to the site, but could not confidently detect anything useful — fill in the fields manually.';
+                }
+            }
+            if ($error) { $_SESSION['lpc_wizard_err'] = $error; }
+            header('Location: client_wizard.php?step=1');
+            exit;
         } elseif ($postedStep === 2 && $wizAction === 'next') {
             $w['branding'] = [
                 'logo_url'      => trim($_POST['logo_url'] ?? ''),
@@ -273,17 +324,23 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
     <?php if ($error): ?>
         <div class="alert alert-error"><?= h($error) ?></div>
     <?php endif; ?>
+    <?php if ($notice): ?>
+        <div class="alert alert-success"><?= h($notice) ?></div>
+    <?php endif; ?>
 
     <?php if ($step === 1): ?>
 
         <form method="post">
             <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
             <input type="hidden" name="step" value="1">
-            <input type="hidden" name="wiz_action" value="next">
             <div class="lpc-form-row">
                 <div class="form-group"><label>Business Name *</label><input type="text" name="business_name" required value="<?= h($w['identity']['business_name']) ?>"></div>
-                <div class="form-group"><label>Domain</label><input type="text" name="domain" placeholder="e.g. mrrestore.com" value="<?= h($w['identity']['domain']) ?>"></div>
+                <div class="form-group" style="display:flex; gap:8px; align-items:flex-end;">
+                    <div style="flex:1;"><label>Domain</label><input type="text" name="domain" placeholder="e.g. mrrestore.com" value="<?= h($w['identity']['domain']) ?>"></div>
+                    <button type="submit" name="wiz_action" value="auto_detect" formnovalidate class="btn-sm-outline" title="Fetch the live site and pre-fill what we can — business name, logo, colors, font, phone, hub city. Always double-check the results.">&#128269; Auto-detect</button>
+                </div>
             </div>
+            <p style="color:#6b7280;font-size:.78rem;margin:-4px 0 0;">Fill these in by hand, or enter the domain and click Auto-detect to have us pull what we can from the live site first — either way, review before moving on.</p>
             <div class="lpc-form-row">
                 <div class="form-group"><label>Industry Category</label><input type="text" name="industry_category" placeholder="e.g. restoration" value="<?= h($w['identity']['industry_category']) ?>"></div>
                 <div class="form-group"><label>Contact Name</label><input type="text" name="contact_name" value="<?= h($w['identity']['contact_name']) ?>"></div>
@@ -294,7 +351,7 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             </div>
             <div class="lpc-actions">
                 <span></span>
-                <button type="submit" class="btn-open">Next &rarr;</button>
+                <button type="submit" name="wiz_action" value="next" class="btn-open">Next &rarr;</button>
             </div>
         </form>
 
@@ -370,15 +427,18 @@ $stepLabels = [1 => 'Identity', 2 => 'Branding', 3 => 'Hub Cities & Services', 4
             <input type="hidden" name="step" value="3">
             <input type="hidden" name="wiz_action" value="add_hub">
             <strong style="font-size:.88rem;">Add a hub office</strong>
+            <?php if ($detectedHub): ?>
+                <p style="color:#166534;font-size:.78rem;">Pre-filled from the auto-detected site — double-check before adding.</p>
+            <?php endif; ?>
             <div class="lpc-form-row">
                 <div class="form-group"><label>Name *</label><input type="text" name="name" required></div>
-                <div class="form-group"><label>Street</label><input type="text" name="street"></div>
-                <div class="form-group"><label>City *</label><input type="text" name="city" required></div>
-                <div class="form-group"><label>State *</label><input type="text" name="state" required></div>
-                <div class="form-group"><label>Zip</label><input type="text" name="zip"></div>
+                <div class="form-group"><label>Street</label><input type="text" name="street" value="<?= h($detectedHub['address']['street'] ?? '') ?>"></div>
+                <div class="form-group"><label>City *</label><input type="text" name="city" required value="<?= h($detectedHub['address']['city'] ?? '') ?>"></div>
+                <div class="form-group"><label>State *</label><input type="text" name="state" required value="<?= h($detectedHub['address']['state'] ?? '') ?>"></div>
+                <div class="form-group"><label>Zip</label><input type="text" name="zip" value="<?= h($detectedHub['address']['zip'] ?? '') ?>"></div>
             </div>
             <div class="lpc-form-row">
-                <div class="form-group"><label>Phone</label><input type="text" name="phone"></div>
+                <div class="form-group"><label>Phone</label><input type="text" name="phone" value="<?= h($detectedHub['phone'] ?? '') ?>"></div>
                 <div class="form-group"><label>Service Radius (mi)</label><input type="number" name="service_radius_miles" value="45"></div>
                 <button type="submit" class="btn-open">Add Hub</button>
             </div>
