@@ -122,6 +122,84 @@ function lpc_compute_related_links($client, $page_id) {
     return $links;
 }
 
+/**
+ * Preview Site mode's sibling list — same lookup as lpc_compute_related_links()
+ * above, deliberately WITHOUT the "must be published" filter. Preview Site
+ * mode exists to review the whole site as it will look once everything is
+ * published, not just what's already live, so a draft sibling should still
+ * show up here (linking into the preview itself, not a real /locations/ URL
+ * that may not exist yet) with its status visible.
+ */
+function lpc_preview_sibling_links($client, $page_id, $previewBaseUrl) {
+    [$city_id, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
+    $target = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+    if (!$target) return [];
+
+    $links = [];
+    foreach ($target['services'] ?? [] as $siblingServiceId) {
+        if ($siblingServiceId === $service_id) continue;
+        $siblingPageId = $city_id . '__' . $siblingServiceId;
+        $siblingPage = lpc_load_page($client['client_id'], $siblingPageId);
+        $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $siblingServiceId);
+        $links[] = [
+            'label'  => $service['label'] ?? $siblingServiceId,
+            'url'    => $previewBaseUrl . '&page=' . rawurlencode($siblingPageId),
+            'status' => $siblingPage['status'] ?? 'not_created',
+        ];
+    }
+    return $links;
+}
+
+/**
+ * Mirrors wp-plugin/landing-page-client/includes/renderer.php's rules
+ * exactly (bare semantic HTML, no CSS classes, content starts at H2 — never
+ * H1, proven the hard way against a real theme) using plain htmlspecialchars
+ * instead of WordPress's esc_* functions, since this runs in the admin panel,
+ * not inside WordPress. If that file's rendering rules ever change, this
+ * needs the matching update — there is no way to literally share the code
+ * across a WP plugin and this non-WP admin panel. Shared by the single-page
+ * editor's own Preview toggle and the multi-page Preview Site mode, rather
+ * than each maintaining its own copy.
+ */
+function lpc_preview_render($sections) {
+    $out = '';
+    foreach ($sections as $s) {
+        switch ($s['type'] ?? '') {
+            case 'hero':
+                $out .= '<section><h2>' . h($s['headline']) . '</h2>';
+                if ($s['subheading']) $out .= '<p>' . h($s['subheading']) . '</p>';
+                if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['cta_text'] ?: $s['phone']) . '</a></p>';
+                $out .= '</section>';
+                break;
+            case 'text':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p></section>';
+                break;
+            case 'services_list':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';
+                foreach ($s['items'] as $item) $out .= '<li><strong>' . h($item['title']) . '</strong> — ' . h($item['text']) . '</li>';
+                $out .= '</ul></section>';
+                break;
+            case 'faq':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '');
+                foreach ($s['items'] as $item) $out .= '<h3>' . h($item['q']) . '</h3><p>' . h($item['a']) . '</p>';
+                $out .= '</section>';
+                break;
+            case 'cta':
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<p>' . h($s['body']) . '</p>';
+                if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['button_text'] ?: $s['phone']) . '</a></p>';
+                $out .= '</section>';
+                break;
+            case 'related_links':
+                if (empty($s['links'])) break;
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';
+                foreach ($s['links'] as $link) $out .= '<li><a href="' . h($link['url']) . '">' . h($link['label']) . '</a></li>';
+                $out .= '</ul></section>';
+                break;
+        }
+    }
+    return $out;
+}
+
 function lpc_manifest_path($client_id) {
     return LPC_DELIVERY_DATA_DIR . 'clients/' . $client_id . '/manifest.json';
 }

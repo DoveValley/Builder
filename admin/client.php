@@ -98,10 +98,13 @@ $apiKey = lpc_get_client_api_key($client_id);
 
     <div class="lpc-topbar">
         <h1><?= h($client['identity']['business_name']) ?></h1>
-        <?php
-        $badgeClass = $status === 'Connected' ? 'connected' : ($status === 'Stale' ? 'stale' : 'never');
-        ?>
-        <span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($status) ?></span>
+        <div style="display:flex;align-items:center;gap:10px;">
+            <a href="preview_site.php?client_id=<?= h($client_id) ?>" class="btn-sm-outline" target="_blank">&#128065; Preview Site</a>
+            <?php
+            $badgeClass = $status === 'Connected' ? 'connected' : ($status === 'Stale' ? 'stale' : 'never');
+            ?>
+            <span class="lpc-badge lpc-badge-<?= $badgeClass ?>"><?= h($status) ?></span>
+        </div>
     </div>
     <p class="lpc-sub"><?= h($client['identity']['domain']) ?: 'No domain set' ?></p>
 
