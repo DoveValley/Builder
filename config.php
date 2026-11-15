@@ -105,13 +105,27 @@ unset($_activeSiteId, $_msBase);
 // the project root regardless of which site/multisite context is active.
 define('CLIENTS_DIR', BASE_DIR . '/clients/');
 
-// Where the publish step currently writes finished client pages — the delivery
-// server's data directory, same box as the admin panel for now (see
-// project_landing_page_clients_feature_design memory). Local path on purpose:
-// once the delivery server is its own machine this becomes an FTP/SFTP push via
-// includes/multisite/deploy.php (the same module the niche fleet already uses),
-// not a second deploy mechanism.
+// Local STAGING copy of the delivery data — the publish step writes here
+// first (same as always), then lpc_sync_delivery_to_remote() rsyncs this
+// whole tree to the real, dedicated delivery server (Box 1 — see
+// project_landing_page_clients_feature_design memory, 2026-11-15). Kept as
+// a local staging dir rather than writing directly over the network so a
+// sync hiccup never loses the source-of-truth copy.
 define('LPC_DELIVERY_DATA_DIR', '/opt/landing-page-clients/delivery/data/');
+
+// The dedicated delivery server (Box 1, 31.97.133.251) — a standalone
+// component on a shared Hestia box, deliberately isolated: its own
+// unprivileged system user (lpcdelivery, no sudo, confined to its own
+// directory), its own directory (/opt/standalone-lpc-delivery/), its own
+// systemd service, its own firewall rule. NOT a Hestia-managed domain, NOT
+// reachable through anything else on that box. Synced to via a SEPARATE,
+// narrowly-scoped SSH key (.lpc_delivery_sync_key, gitignored) that only
+// authenticates as lpcdelivery — never the root fleet-wide key, so a
+// compromise here can't reach anything else on the fleet.
+define('LPC_DELIVERY_REMOTE_HOST', '31.97.133.251');
+define('LPC_DELIVERY_REMOTE_USER', 'lpcdelivery');
+define('LPC_DELIVERY_REMOTE_PATH', '/opt/standalone-lpc-delivery/data/');
+define('LPC_DELIVERY_SYNC_KEY', BASE_DIR . '/.lpc_delivery_sync_key');
 
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all

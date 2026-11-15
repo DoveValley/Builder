@@ -10,6 +10,11 @@ clients/*/secrets/
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
+# Dedicated SSH key: www-data (this box) -> lpcdelivery (Box 1), scoped to
+# syncing the delivery data tree only. Real credential, never commit.
+.lpc_delivery_sync_key
+.lpc_delivery_sync_key.pub
+
 # FTP credentials — never commit. deploy.json lives at the SITE ROOT (the path
 # the code actually reads, ACTIVE_SITE_DIR/deploy.json); the data/ path below is
 # kept as a belt-and-suspenders guard for any legacy location.

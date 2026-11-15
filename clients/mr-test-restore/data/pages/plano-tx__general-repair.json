@@ -1,9 +1,9 @@
 {
     "page_id": "plano-tx__general-repair",
-    "status": "draft",
+    "status": "published",
     "created_at": "2026-11-15T01:20:51+00:00",
-    "updated_at": "2026-11-15T01:20:51+00:00",
-    "published_at": null,
+    "updated_at": "2026-11-15T01:53:39+00:00",
+    "published_at": "2026-11-15T01:53:39+00:00",
     "seo": {
         "page_title": "General Repair in Plano, TX | Mr Test Restore",
         "meta_description": "",
@@ -76,7 +76,74 @@
             "links": []
         }
     ],
-    "schema_jsonld": null,
+    "schema_jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://mrtestrestore.example.invalid/#business-dallas",
+                "name": "Mr Test Restore",
+                "telephone": "(555) 010-0100",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "100 Main St",
+                    "addressLocality": "Dallas",
+                    "addressRegion": "TX",
+                    "postalCode": "75201"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 32.7767,
+                    "longitude": -96.797
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "General Repair",
+                "areaServed": "Plano, TX",
+                "provider": {
+                    "@id": "https://mrtestrestore.example.invalid/#business-dallas"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How quickly can your team respond in Plano?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "We prioritize prompt response for active water and storm damage situations in Plano and the surrounding area. Contact us as soon as damage occurs so we can assess your situation."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Will all the damage be fully repaired?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Every property and situation is different. Our team evaluates the extent of the damage on-site and discusses realistic repair options with you before work begins."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can you help with my insurance claim?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "We can document the damage and provide information that may support your claim, but we do not guarantee insurance approval or coverage decisions, which are made by your insurance provider."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "There's standing water in my home — what should I do before you arrive?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Avoid entering areas with standing water, especially near electrical outlets or appliances, and do not attempt to handle sewage-contaminated water yourself. Shut off power to affected areas only if you can do so safely from a dry location, and contact us right away for assistance."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
     "rank_position": null,
     "rank_checked_at": null
 }

@@ -11,10 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Delivery server base URL — same for every client site, hardcoded here
-// rather than a per-client setting. Temporary address while the delivery
-// server lives on the admin-panel box; bumping this (and the plugin
-// version) is the only change needed when it moves to a dedicated server.
-define( 'LPC_DELIVERY_BASE', 'http://187.127.254.206:8098/api.php' );
+// rather than a per-client setting. Now the real, dedicated delivery server
+// (Box 1, a standalone component isolated from both the Hestia fleet it
+// happens to share a physical machine with and this admin panel — see
+// project_landing_page_clients_feature_design memory, 2026-11-15) — no
+// longer the admin-panel box this constant originally pointed at.
+define( 'LPC_DELIVERY_BASE', 'http://31.97.133.251:8098/api.php' );
 
 require_once __DIR__ . '/includes/remote.php';
 require_once __DIR__ . '/includes/renderer.php';
@@ -164,9 +166,10 @@ function lpc_render_info_popup() {
 		<ul style="margin-top:0;">
 			<li>Persistent test WordPress site (this install) — real WP core on SQLite, served by its
 			own systemd service so it survives reboots/disconnects.</li>
-			<li>Delivery server — a thin, API-key-gated file-read backend; temporarily hosted on the
-			same box as the admin panel, built to move to a dedicated server later with no code
-			changes (just a copy of the files).</li>
+			<li>Delivery server — a thin, API-key-gated file-read backend. Originally co-located on the
+			admin-panel box; now a real dedicated server (its own unprivileged system user, its own
+			directory, its own firewall rule — isolated from everything else on the shared machine it
+			happens to run on) that the admin panel pushes to automatically on every publish.</li>
 		</ul>
 		<p><strong>Phase 1 — This plugin</strong></p>
 		<ul style="margin-top:0;">

@@ -209,6 +209,38 @@ function lpc_delivery_page_path($client_id, $page_id) {
 }
 
 /**
+ * Pushes the entire local staging tree (LPC_DELIVERY_DATA_DIR) to the real
+ * dedicated delivery server (Box 1) via rsync-over-SSH, using the
+ * narrowly-scoped sync key (see config.php's LPC_DELIVERY_SYNC_KEY comment
+ * for why this is a separate key from the root fleet-wide one). Whole-tree
+ * sync rather than tracking individual changed files — the data is a
+ * handful of small JSON files per client, so this is cheap, and it's
+ * self-healing (any drift between staging and remote corrects itself on
+ * the next call) rather than needing careful per-file change tracking.
+ *
+ * Host-key checking is disabled deliberately for this one call: www-data's
+ * home directory isn't writable (so ssh/rsync can't persist known_hosts
+ * there anyway), and this is a single, fixed, already-verified destination
+ * — not a general-purpose SSH client connecting to arbitrary hosts.
+ */
+function lpc_sync_delivery_to_remote() {
+    $cmd = sprintf(
+        'rsync -az -e %s %s %s@%s:%s 2>&1',
+        escapeshellarg('ssh -i ' . LPC_DELIVERY_SYNC_KEY . ' -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=10'),
+        escapeshellarg(LPC_DELIVERY_DATA_DIR),
+        escapeshellarg(LPC_DELIVERY_REMOTE_USER),
+        escapeshellarg(LPC_DELIVERY_REMOTE_HOST),
+        escapeshellarg(LPC_DELIVERY_REMOTE_PATH)
+    );
+    exec($cmd, $output, $exitCode);
+    if ($exitCode !== 0) {
+        error_log('landing-page-clients: delivery sync to remote failed (exit ' . $exitCode . '): ' . implode(' | ', $output));
+        return false;
+    }
+    return true;
+}
+
+/**
  * Rebuilds clients/{id}/manifest.json on the delivery server from every
  * published page — the list the plugin's hub nav reads. Deliberately
  * excludes draft/needs_update pages so nothing half-finished appears on a
@@ -249,15 +281,15 @@ function lpc_rebuild_manifest($client_id) {
         'pages' => $pages,
     ];
 
-    return lpc_atomic_write_json(lpc_manifest_path($client_id), $manifest);
+    if (!lpc_atomic_write_json(lpc_manifest_path($client_id), $manifest)) return false;
+    return lpc_sync_delivery_to_remote();
 }
 
 /**
  * Publishing one page: assemble its schema, write it to this client's data
- * file (git-tracked source of truth), copy it out to the delivery server
- * (today: a local file write; once the delivery server is remote, this is
- * the one call site that changes to an includes/multisite/deploy.php push),
- * then rebuild the manifest so the hub nav picks it up.
+ * file (git-tracked source of truth), stage it into the local delivery
+ * mirror, then rebuild the manifest — which also rsyncs the whole staging
+ * tree out to the real dedicated delivery server (Box 1, see config.php).
  */
 function lpc_publish_page($client_id, $page_id) {
     $client = lpc_load_client($client_id);
@@ -309,7 +341,8 @@ function lpc_ensure_delivery_key($client_id) {
         'active'    => !empty($client['delivery']['active']),
     ];
 
-    return lpc_atomic_write_json($keysFile, $keys);
+    if (!lpc_atomic_write_json($keysFile, $keys)) return false;
+    return lpc_sync_delivery_to_remote();
 }
 
 /**
