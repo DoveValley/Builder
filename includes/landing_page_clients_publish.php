@@ -192,3 +192,29 @@ function lpc_ensure_delivery_key($client_id) {
 
     return lpc_atomic_write_json($keysFile, $keys);
 }
+
+/**
+ * Connected / Stale / Never Connected, same thresholding the plugin itself
+ * uses (overdue past 2x the refresh interval). Reads the delivery server's
+ * own check-in record directly — same-box file read today; becomes a small
+ * sync step once the delivery server is a separate machine, not a redesign.
+ */
+function lpc_plugin_status($client_id) {
+    $client = lpc_load_client($client_id);
+    $statusFile = LPC_DELIVERY_DATA_DIR . 'clients/' . $client_id . '/_status.json';
+
+    if (!file_exists($statusFile)) {
+        return 'Never Connected';
+    }
+
+    $status = json_decode(file_get_contents($statusFile), true) ?: [];
+    $lastCheckin = (int) ($status['last_checkin'] ?? 0);
+    if ($lastCheckin === 0) {
+        return 'Never Connected';
+    }
+
+    $intervalMinutes = (int) ($client['delivery']['refresh_interval_minutes'] ?? 360);
+    $ageMinutes = (time() - $lastCheckin) / 60;
+
+    return $ageMinutes <= ($intervalMinutes * 2) ? 'Connected' : 'Stale';
+}
