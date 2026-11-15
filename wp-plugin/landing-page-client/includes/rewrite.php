@@ -108,10 +108,30 @@ function lpc_handle_route() {
 	$manifest = lpc_get_manifest();
 	$page     = $slug !== '' ? lpc_get_page( $slug ) : null;
 
+	// The hub page ($slug === '') used to fall straight through every block
+	// below with nothing to show — real gap found pre-deployment review,
+	// 2026-11-15: it got no custom title, no meta description, no canonical
+	// at all, worse on a Yoast-active site, which (per the canonical finding
+	// further down) prints its own wrong home_url() canonical whenever we
+	// don't override it — meaning the hub page, likely the most internally-
+	// linked page this plugin creates, could tell Google its content lives
+	// at the site root instead. $seo unifies both cases so every block below
+	// only has to read one shape, hub or single page alike.
+	if ( $slug === '' ) {
+		$business = $manifest['business_name'] ?? '';
+		$seo = [
+			'page_title'        => $business !== '' ? $business . ' — Locations' : '',
+			'meta_description'  => $business !== '' ? 'Explore ' . $business . '\'s service locations.' : '',
+			'og_image'          => '',
+		];
+	} else {
+		$seo = $page['seo'] ?? [];
+	}
+
 	// Must register BEFORE get_header() — wp_head() (called from inside
 	// get_header()) is what actually echoes <title>, so a filter added any
 	// later than this silently has no effect on the title tag.
-	if ( ! empty( $page['seo']['page_title'] ) ) {
+	if ( ! empty( $seo['page_title'] ) ) {
 		// Priority PHP_INT_MAX, not the default 10 — confirmed live against a
 		// real client site running Yoast SEO: Yoast hooks pre_get_document_title
 		// at priority 15 specifically so it wins over anything registered at the
@@ -120,8 +140,8 @@ function lpc_handle_route() {
 		// against in Phase 1 all run with no SEO plugin active).
 		add_filter(
 			'pre_get_document_title',
-			function () use ( $page ) {
-				return $page['seo']['page_title'];
+			function () use ( $seo ) {
+				return $seo['page_title'];
 			},
 			PHP_INT_MAX
 		);
@@ -141,35 +161,35 @@ function lpc_handle_route() {
 	// standard way a plugin is meant to integrate with Yoast, not race it.
 	// Falls back to the plain wp_head approach (already proven correct, see
 	// Phase 1 verification) when no SEO plugin is active to override instead.
-	if ( ! empty( $page['seo']['meta_description'] ) || ! empty( $page['seo']['og_image'] ) ) {
+	if ( ! empty( $seo['meta_description'] ) || ! empty( $seo['og_image'] ) ) {
 		if ( defined( 'WPSEO_VERSION' ) ) {
-			add_filter( 'wpseo_metadesc', function () use ( $page ) {
-				return $page['seo']['meta_description'] ?: '';
+			add_filter( 'wpseo_metadesc', function () use ( $seo ) {
+				return $seo['meta_description'] ?: '';
 			} );
-			add_filter( 'wpseo_opengraph_desc', function () use ( $page ) {
-				return $page['seo']['meta_description'] ?: '';
+			add_filter( 'wpseo_opengraph_desc', function () use ( $seo ) {
+				return $seo['meta_description'] ?: '';
 			} );
-			add_filter( 'wpseo_opengraph_title', function () use ( $page ) {
-				return $page['seo']['page_title'] ?: '';
+			add_filter( 'wpseo_opengraph_title', function () use ( $seo ) {
+				return $seo['page_title'] ?: '';
 			} );
-			if ( ! empty( $page['seo']['og_image'] ) ) {
-				add_action( 'wpseo_add_opengraph_images', function ( $image ) use ( $page ) {
-					$image->add_image( $page['seo']['og_image'] );
+			if ( ! empty( $seo['og_image'] ) ) {
+				add_action( 'wpseo_add_opengraph_images', function ( $image ) use ( $seo ) {
+					$image->add_image( $seo['og_image'] );
 				} );
 			}
 		} else {
 			add_action(
 				'wp_head',
-				function () use ( $page ) {
-					if ( ! empty( $page['seo']['meta_description'] ) ) {
-						echo '<meta name="description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
-						echo '<meta property="og:description" content="' . esc_attr( $page['seo']['meta_description'] ) . '">' . "\n";
+				function () use ( $seo ) {
+					if ( ! empty( $seo['meta_description'] ) ) {
+						echo '<meta name="description" content="' . esc_attr( $seo['meta_description'] ) . '">' . "\n";
+						echo '<meta property="og:description" content="' . esc_attr( $seo['meta_description'] ) . '">' . "\n";
 					}
-					if ( ! empty( $page['seo']['page_title'] ) ) {
-						echo '<meta property="og:title" content="' . esc_attr( $page['seo']['page_title'] ) . '">' . "\n";
+					if ( ! empty( $seo['page_title'] ) ) {
+						echo '<meta property="og:title" content="' . esc_attr( $seo['page_title'] ) . '">' . "\n";
 					}
-					if ( ! empty( $page['seo']['og_image'] ) ) {
-						echo '<meta property="og:image" content="' . esc_url( $page['seo']['og_image'] ) . '">' . "\n";
+					if ( ! empty( $seo['og_image'] ) ) {
+						echo '<meta property="og:image" content="' . esc_url( $seo['og_image'] ) . '">' . "\n";
 					}
 					echo '<meta property="og:type" content="website">' . "\n";
 				},
@@ -196,8 +216,14 @@ function lpc_handle_route() {
 	// Fix: hook Yoast's own wpseo_canonical filter (confirmed to actually
 	// fire on this route, unlike RankMath's filter) so Yoast itself prints
 	// the correct value with zero duplication; echo directly everywhere else.
-	if ( $slug !== '' ) {
-		$canonical_url = home_url( trim( get_option( 'lpc_base_path', '/locations' ), '/' ) . '/' . $slug . '/' );
+	// Now also covers the hub page ($slug === ''): it used to be skipped
+	// entirely here, which on a Yoast-active site left Yoast's own wrong
+	// home_url() canonical (see comment block above) as the only one
+	// printed on what's likely the most internally-linked page this
+	// plugin creates. Skipped only for a genuine 404 ($slug set but no
+	// page found) — nothing to canonicalize a non-existent URL to.
+	if ( $slug === '' || ! empty( $page ) ) {
+		$canonical_url = home_url( trim( get_option( 'lpc_base_path', '/locations' ), '/' ) . ( $slug !== '' ? '/' . $slug : '' ) . '/' );
 		if ( defined( 'WPSEO_VERSION' ) ) {
 			add_filter( 'wpseo_canonical', function () use ( $canonical_url ) {
 				return $canonical_url;
@@ -213,7 +239,19 @@ function lpc_handle_route() {
 		}
 	}
 
-	status_header( 200 );
+	// A stale/unpublished/mistyped slug must 404, not 200 — without this, a
+	// removed or never-existed /locations/{slug}/ stayed indexable as a
+	// 200 "Page not found" page (real finding, pre-deployment review,
+	// 2026-11-15): Google's own soft-404 detection flags exactly this
+	// pattern, and it reads as thin near-duplicate content across every
+	// such URL on the same site.
+	if ( $slug !== '' && empty( $page ) ) {
+		global $wp_query;
+		$wp_query->set_404();
+		status_header( 404 );
+	} else {
+		status_header( 200 );
+	}
 
 	// Buffer the theme's own header instead of echoing it directly — some
 	// themes (confirmed: Astra) only emit an H1 for the site title on the

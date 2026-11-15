@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         } elseif ($postedStep === 2 && $wizAction === 'next') {
             $w['branding'] = [
-                'logo_url'      => trim($_POST['logo_url'] ?? ''),
+                'logo_url'      => sanitize_url(trim($_POST['logo_url'] ?? '')),
                 'primary_color' => trim($_POST['primary_color'] ?? ''),
                 'accent_color'  => trim($_POST['accent_color'] ?? ''),
                 'font'          => trim($_POST['font'] ?? ''),

@@ -199,7 +199,14 @@ function lpc_default_page_data() {
             // is actually published (same safety rule related_links uses),
             // falling back to plain text otherwise.
             ['type' => 'service_area',   'heading'  => 'Our Service Area', 'intro' => '', 'state' => '', 'office_city' => '', 'nearby_cities' => []],
-            ['type' => 'related_links',  'heading'  => '', 'links' => []],
+            // Fixed default heading, not blank — a freshly-generated or
+            // regenerated page (reset straight from this schema, never
+            // touched by a manual Save) shipped this section as a bare,
+            // unlabeled list with no heading at all. client_save.php's own
+            // content-save handler already sets 'Related Services' here;
+            // this just makes that the real default instead of relying on
+            // every page having been manually saved at least once first.
+            ['type' => 'related_links',  'heading'  => 'Related Services', 'links' => []],
         ],
         'schema_jsonld' => null,
         // Rank-check is a real paid DataForSEO call (same cost model as the

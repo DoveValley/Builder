@@ -105,7 +105,13 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 		if ( ! empty( $s['image_width'] ) && ! empty( $s['image_height'] ) ) {
 			$dims = ' width="' . (int) $s['image_width'] . '" height="' . (int) $s['image_height'] . '"';
 		}
-		$image = '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' loading="lazy"></figure>';
+		// NOT lazy-loaded, unlike every other image this plugin renders — the
+		// hero is section #1 on every page (lpc_default_page_data()), almost
+		// always the LCP candidate, and Google explicitly advises against
+		// lazy-loading the LCP element since it delays the browser's decision
+		// to fetch it. fetchpriority="high" gives the same signal the other
+		// direction. Real finding, pre-deployment review, 2026-11-15.
+		$image = '<figure class="lpc-hero-image"><img src="' . esc_url( $s['image'] ) . '" alt="' . esc_attr( $s['image_alt'] ?? '' ) . '"' . $dims . ' fetchpriority="high"></figure>';
 	}
 
 	$out  = '<section class="lpc-hero' . ( $image === '' ? ' lpc-hero-no-image' : '' ) . '">';

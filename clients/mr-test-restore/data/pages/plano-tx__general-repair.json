@@ -2,7 +2,7 @@
     "page_id": "plano-tx__general-repair",
     "status": "published",
     "created_at": "2026-11-15T01:20:51+00:00",
-    "updated_at": "2026-11-15T19:35:30+00:00",
+    "updated_at": "2026-11-15T19:49:45+00:00",
     "published_at": "2026-11-15T01:53:39+00:00",
     "seo": {
         "page_title": "General Repair in Plano, TX | Mr Test Restore",
@@ -220,7 +220,7 @@
         {
             "type": "data_chart",
             "heading": "Days with an inch or more of rain",
-            "image": "http://31.97.133.251:8098/api.php?action=image&client=mr-test-restore&file=chart-heavy_rain_days-chart_plano-tx.webp",
+            "image": "http://31.97.133.251:8098/api.php?action=image&client=mr-test-restore&file=chart-heavy_rain_days-chart_plano-tx.webp&v=1794772185",
             "image_alt": "Chart of days per month with at least one inch of rainfall in Plano, TX. Highest Oct at 1.9 days, lowest Jul at 0.7 days.",
             "image_width": 900,
             "image_height": 520,
@@ -268,6 +268,7 @@
             },
             {
                 "@type": "Service",
+                "url": "https://mrtestrestore.example.invalid/locations/plano-tx__general-repair",
                 "name": "General Repair",
                 "areaServed": "Plano, TX",
                 "provider": {

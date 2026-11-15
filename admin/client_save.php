@@ -120,7 +120,7 @@ switch ($section) {
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['branding'] = [
-            'logo_url'      => trim($_POST['logo_url'] ?? ''),
+            'logo_url'      => sanitize_url(trim($_POST['logo_url'] ?? '')),
             'primary_color' => trim($_POST['primary_color'] ?? ''),
             'accent_color'  => trim($_POST['accent_color'] ?? ''),
             'font'          => trim($_POST['font'] ?? ''),

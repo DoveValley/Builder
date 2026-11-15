@@ -59,12 +59,26 @@ function lpc_assemble_schema($client, $page_id, $page) {
         $graph[] = $business;
     }
 
-    $graph[] = [
+    $basePath = rtrim($client['delivery']['base_path'] ?? '/locations', '/');
+    $serviceNode = [
         '@type'      => 'Service',
+        // Missing on this node before — real pre-deployment review finding:
+        // a Service entity with no url of its own is a gap, not just untidy,
+        // for structured data describing content that actually lives at a
+        // real URL.
+        'url'        => 'https://' . $domain . $basePath . '/' . $page_id,
         'name'       => $service['label'] ?? $service_id,
         'areaServed' => trim(($target['city'] ?? '') . ', ' . ($target['state'] ?? ''), ', '),
-        'provider'   => $hub ? ['@id' => $businessId] : null,
     ];
+    // Omit the key entirely when there's no hub, rather than a literal
+    // "provider":null — same real finding as above, independently flagged
+    // twice in pre-deployment review; every other optional field in this
+    // function already follows the omit-don't-null convention (the LocalBusiness
+    // entity itself, geo) except this one had been missed.
+    if ($hub) {
+        $serviceNode['provider'] = ['@id' => $businessId];
+    }
+    $graph[] = $serviceNode;
 
     // FAQPage — mechanically derived, never hand-authored, so it can never
     // drift out of sync with the page's actual FAQ section.

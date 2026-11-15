@@ -72,7 +72,13 @@ function lpc_get_manifest( $force = false ) {
 
 	$minutes = (int) ( $manifest['settings']['refresh_interval_minutes'] ?? 360 );
 	set_transient( $transient_key, $manifest, max( 1, $minutes ) * MINUTE_IN_SECONDS );
-	update_option( 'lpc_manifest_permanent_cache', $manifest );
+	// autoload=false (3rd arg) — without it this defaults to autoloading on
+	// WP versions that don't size-detect it, meaning the full manifest JSON
+	// gets pulled into memory via wp_load_alloptions() on EVERY page load of
+	// the client's entire site, not just /locations/* routes. Same real gap
+	// in the per-page cache just below, which is worse: one of these options
+	// per published slug, unbounded as a client's city×service count grows.
+	update_option( 'lpc_manifest_permanent_cache', $manifest, false );
 	lpc_apply_remote_settings( $manifest );
 
 	return $manifest;
@@ -119,7 +125,7 @@ function lpc_get_page( $slug ) {
 
 	$minutes = (int) get_option( 'lpc_refresh_interval_minutes', 360 );
 	set_transient( $transient_key, $page, max( 1, $minutes ) * MINUTE_IN_SECONDS );
-	update_option( $permanent_key, $page );
+	update_option( $permanent_key, $page, false ); // autoload=false — see lpc_get_manifest()'s identical fix just above
 
 	return $page;
 }
