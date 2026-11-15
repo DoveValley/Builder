@@ -201,6 +201,7 @@ function lpc_ensure_delivery_key($client_id) {
  */
 function lpc_plugin_status($client_id) {
     $client = lpc_load_client($client_id);
+    if (!$client || !lpc_valid_client_id($client_id)) return 'Never Connected';
     $statusFile = LPC_DELIVERY_DATA_DIR . 'clients/' . $client_id . '/_status.json';
 
     if (!file_exists($statusFile)) {

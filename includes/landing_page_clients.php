@@ -82,20 +82,37 @@ function lpc_default_page_data() {
     ];
 }
 
+/**
+ * client_id reaches here straight from $_GET/$_POST in admin/client.php and
+ * admin/client_save.php with no prior validation — without this check,
+ * "../../../etc" would walk the resulting path straight out of CLIENTS_DIR,
+ * the same class of bug config.php's own ACTIVE_SITE_ID handling already
+ * guards against with an identical slug regex. Centralized here (every
+ * client path-building function funnels through this) rather than at each
+ * call site, so a future caller can't reintroduce the gap by forgetting it.
+ */
+function lpc_valid_client_id($client_id) {
+    return is_string($client_id) && preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $client_id) === 1;
+}
+
 function lpc_client_dir($client_id) {
+    if (!lpc_valid_client_id($client_id)) return null;
     return CLIENTS_DIR . $client_id;
 }
 
 function lpc_client_file($client_id) {
-    return lpc_client_dir($client_id) . '/data/client.json';
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/data/client.json';
 }
 
 function lpc_client_secret_file($client_id) {
-    return lpc_client_dir($client_id) . '/secrets/api_key.txt';
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/secrets/api_key.txt';
 }
 
 function lpc_page_file($client_id, $page_id) {
-    return lpc_client_dir($client_id) . '/data/pages/' . $page_id . '.json';
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/data/pages/' . $page_id . '.json';
 }
 
 function lpc_deep_merge_defaults($defaults, $data) {
@@ -114,7 +131,7 @@ function lpc_deep_merge_defaults($defaults, $data) {
 
 function lpc_load_client($client_id) {
     $file = lpc_client_file($client_id);
-    if (!file_exists($file)) return null;
+    if ($file === null || !file_exists($file)) return null;
     $json = file_get_contents($file);
     $data = json_decode($json, true);
     if (!is_array($data)) {
@@ -141,26 +158,32 @@ function lpc_atomic_write_json($file, $data) {
 }
 
 function lpc_save_client($client_id, $data) {
+    $file = lpc_client_file($client_id);
+    if ($file === null) return false;
     $data['client_id']  = $client_id;
     $data['updated_at'] = $data['updated_at'] ?? gmdate('c');
-    return lpc_atomic_write_json(lpc_client_file($client_id), $data);
+    return lpc_atomic_write_json($file, $data);
 }
 
 function lpc_load_page($client_id, $page_id) {
     $file = lpc_page_file($client_id, $page_id);
-    if (!file_exists($file)) return null;
+    if ($file === null || !file_exists($file)) return null;
     $data = json_decode(file_get_contents($file), true);
     if (!is_array($data)) return null;
     return lpc_deep_merge_defaults(lpc_default_page_data(), $data);
 }
 
 function lpc_save_page($client_id, $page_id, $data) {
+    $file = lpc_page_file($client_id, $page_id);
+    if ($file === null) return false;
     $data['page_id'] = $page_id;
-    return lpc_atomic_write_json(lpc_page_file($client_id, $page_id), $data);
+    return lpc_atomic_write_json($file, $data);
 }
 
 function lpc_list_pages($client_id) {
-    $dir = lpc_client_dir($client_id) . '/data/pages';
+    $dir = lpc_client_dir($client_id);
+    if ($dir === null) return [];
+    $dir .= '/data/pages';
     if (!is_dir($dir)) return [];
     $ids = [];
     foreach (glob($dir . '/*.json') as $f) {
@@ -184,9 +207,10 @@ function lpc_list_clients() {
 
 function lpc_unique_client_id($name) {
     $base = slugify($name) ?: 'client';
+    if (!lpc_valid_client_id($base)) $base = 'client';
     $id = $base;
     $i = 2;
-    while (is_dir(lpc_client_dir($id))) {
+    while (is_dir(lpc_client_dir($id) ?? '')) {
         $id = $base . '-' . $i;
         $i++;
     }
@@ -199,13 +223,15 @@ function lpc_generate_api_key() {
 
 function lpc_get_client_api_key($client_id) {
     $file = lpc_client_secret_file($client_id);
-    return file_exists($file) ? trim(file_get_contents($file)) : '';
+    return ($file !== null && file_exists($file)) ? trim(file_get_contents($file)) : '';
 }
 
 function lpc_set_client_api_key($client_id, $key) {
-    $dir = dirname(lpc_client_secret_file($client_id));
+    $file = lpc_client_secret_file($client_id);
+    if ($file === null) return false;
+    $dir = dirname($file);
     if (!is_dir($dir)) mkdir($dir, 0700, true);
-    return file_put_contents(lpc_client_secret_file($client_id), $key, LOCK_EX) !== false;
+    return file_put_contents($file, $key, LOCK_EX) !== false;
 }
 
 /**
