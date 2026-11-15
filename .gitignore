@@ -2,6 +2,11 @@
 .DS_Store
 *.tmp
 
+# Landing Page Clients — API keys live outside client.json on purpose (same
+# reasoning as deploy.json below: a plaintext secret has no business in
+# version control even though client.json itself is tracked source).
+clients/*/secrets/
+
 # FTP credentials — never commit. deploy.json lives at the SITE ROOT (the path
 # the code actually reads, ACTIVE_SITE_DIR/deploy.json); the data/ path below is
 # kept as a belt-and-suspenders guard for any legacy location.

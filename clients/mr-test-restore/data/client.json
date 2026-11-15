@@ -1,0 +1,74 @@
+{
+    "client_id": "mr-test-restore",
+    "created_at": "2026-11-15T00:01:58+00:00",
+    "updated_at": "2026-11-15T00:01:58+00:00",
+    "identity": {
+        "business_name": "Mr Test Restore",
+        "domain": "mrtestrestore.example.invalid",
+        "industry_category": "restoration",
+        "contact_name": "",
+        "contact_email": "ops@mrtestrestore.example.invalid",
+        "contact_phone": ""
+    },
+    "branding": {
+        "logo_url": "",
+        "primary_color": "",
+        "accent_color": "",
+        "font": ""
+    },
+    "content_profile": {
+        "source": "",
+        "excluded_services": [],
+        "tone": "professional",
+        "always_mention": [],
+        "never_mention": []
+    },
+    "hubs": [
+        {
+            "hub_id": "dallas",
+            "name": "Dallas Office",
+            "address": {
+                "street": "100 Main St",
+                "city": "Dallas",
+                "state": "TX",
+                "zip": "75201"
+            },
+            "phone": "(555) 010-0100",
+            "geo": {
+                "lat": 32.7767,
+                "lng": -96.797
+            }
+        }
+    ],
+    "services": [
+        {
+            "service_id": "general-repair",
+            "label": "General Repair"
+        }
+    ],
+    "target_cities": [
+        {
+            "city_id": "testville-tx",
+            "city": "Testville",
+            "state": "TX",
+            "served_by_hub": "dallas",
+            "services": [
+                "general-repair"
+            ]
+        }
+    ],
+    "delivery": {
+        "base_path": "/locations",
+        "refresh_interval_minutes": 360,
+        "support_phone": "",
+        "support_message": "",
+        "active": true,
+        "last_checkin": 0,
+        "last_emailed": ""
+    },
+    "billing": {
+        "setup_fee_per_location": 0,
+        "monthly_fee_per_location": 0,
+        "start_date": ""
+    }
+}

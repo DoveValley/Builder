@@ -18,6 +18,8 @@ require_once __DIR__ . '/layout_variations.php';
 require_once __DIR__ . '/editor.php';
 require_once __DIR__ . '/models.php';
 require_once __DIR__ . '/schema.php';
+require_once __DIR__ . '/landing_page_clients.php';
+require_once __DIR__ . '/landing_page_clients_publish.php';
 require_once __DIR__ . '/seo-editor.php';
 require_once __DIR__ . '/scripts.php';
 require_once __DIR__ . '/hooks.php';

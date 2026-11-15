@@ -1,0 +1,231 @@
+<?php
+/**
+ * Landing Page Clients — data layer (Phase 2).
+ *
+ * Same shape as includes/data.php on purpose: default_*() skeletons, a
+ * deep-merging load, an atomic tmp-file-then-rename save. One deliberate
+ * deviation from the original design doc's client.json schema: the API key
+ * is NOT stored inside client.json. client.json is meant to be git-tracked
+ * source (same as sites/{id}/data/site.json), and a plaintext secret has no
+ * business sitting in version control — same reasoning this codebase
+ * already applies to deploy.json (FTP creds) living outside site.json. The
+ * key lives in clients/{id}/secrets/api_key.txt instead, gitignored.
+ */
+
+function lpc_default_client_data() {
+    return [
+        'client_id'   => '',
+        'created_at'  => '',
+        'updated_at'  => '',
+        'identity' => [
+            'business_name'    => '',
+            'domain'           => '',
+            'industry_category'=> '',
+            'contact_name'     => '',
+            'contact_email'    => '',
+            'contact_phone'    => '',
+        ],
+        'branding' => [
+            'logo_url'      => '',
+            'primary_color' => '',
+            'accent_color'  => '',
+            'font'          => '',
+        ],
+        'content_profile' => [
+            'source'            => '',
+            'excluded_services' => [],
+            'tone'              => 'professional',
+            'always_mention'    => [],
+            'never_mention'     => [],
+        ],
+        'hubs'            => [],
+        'services'        => [],
+        'target_cities'   => [],
+        'delivery' => [
+            'base_path'               => '/locations',
+            'refresh_interval_minutes'=> 360,
+            'support_phone'           => '',
+            'support_message'         => '',
+            'active'                  => true,
+            'last_checkin'            => 0,
+            'last_emailed'            => '',
+        ],
+        'billing' => [
+            'setup_fee_per_location'  => 0,
+            'monthly_fee_per_location'=> 0,
+            'start_date'              => '',
+        ],
+    ];
+}
+
+function lpc_default_page_data() {
+    return [
+        'page_id'      => '',
+        'status'       => 'draft', // draft | published | needs_update
+        'created_at'   => '',
+        'updated_at'   => '',
+        'published_at' => null,
+        'seo' => [
+            'page_title'      => '',
+            'meta_description'=> '',
+            'og_image'        => '',
+        ],
+        'sections' => [
+            ['type' => 'hero',           'headline' => '', 'subheading' => '', 'image' => '', 'cta_text' => '', 'phone' => ''],
+            ['type' => 'text',           'heading'  => '', 'body' => ''],
+            ['type' => 'services_list',  'heading'  => '', 'items' => []],
+            ['type' => 'faq',            'heading'  => '', 'items' => []],
+            ['type' => 'cta',            'heading'  => '', 'body' => '', 'phone' => '', 'button_text' => ''],
+            ['type' => 'related_links',  'heading'  => '', 'links' => []],
+        ],
+        'schema_jsonld' => null,
+    ];
+}
+
+function lpc_client_dir($client_id) {
+    return CLIENTS_DIR . $client_id;
+}
+
+function lpc_client_file($client_id) {
+    return lpc_client_dir($client_id) . '/data/client.json';
+}
+
+function lpc_client_secret_file($client_id) {
+    return lpc_client_dir($client_id) . '/secrets/api_key.txt';
+}
+
+function lpc_page_file($client_id, $page_id) {
+    return lpc_client_dir($client_id) . '/data/pages/' . $page_id . '.json';
+}
+
+function lpc_deep_merge_defaults($defaults, $data) {
+    foreach ($defaults as $key => $value) {
+        if (!array_key_exists($key, $data)) {
+            $data[$key] = $value;
+        } elseif (is_array($value) && is_array($data[$key]) && !isset($value[0])) {
+            // Associative sub-array (not a list) — merge key by key, same rule
+            // load_data() uses, so a list value (e.g. hubs[], sections[]) is
+            // never silently merged field-by-field against a skeleton item.
+            $data[$key] = lpc_deep_merge_defaults($value, $data[$key]);
+        }
+    }
+    return $data;
+}
+
+function lpc_load_client($client_id) {
+    $file = lpc_client_file($client_id);
+    if (!file_exists($file)) return null;
+    $json = file_get_contents($file);
+    $data = json_decode($json, true);
+    if (!is_array($data)) {
+        error_log('landing-page-clients: ' . $file . ' failed to decode as JSON (' . json_last_error_msg() . ')');
+        return null;
+    }
+    return lpc_deep_merge_defaults(lpc_default_client_data(), $data);
+}
+
+function lpc_atomic_write_json($file, $data) {
+    $dir = dirname($file);
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $tmp = $file . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json, LOCK_EX) === false) {
+        error_log('landing-page-clients: failed to write ' . $tmp);
+        return false;
+    }
+    if (!rename($tmp, $file)) {
+        error_log('landing-page-clients: failed to rename ' . $tmp . ' to ' . $file);
+        return false;
+    }
+    return true;
+}
+
+function lpc_save_client($client_id, $data) {
+    $data['client_id']  = $client_id;
+    $data['updated_at'] = $data['updated_at'] ?? gmdate('c');
+    return lpc_atomic_write_json(lpc_client_file($client_id), $data);
+}
+
+function lpc_load_page($client_id, $page_id) {
+    $file = lpc_page_file($client_id, $page_id);
+    if (!file_exists($file)) return null;
+    $data = json_decode(file_get_contents($file), true);
+    if (!is_array($data)) return null;
+    return lpc_deep_merge_defaults(lpc_default_page_data(), $data);
+}
+
+function lpc_save_page($client_id, $page_id, $data) {
+    $data['page_id'] = $page_id;
+    return lpc_atomic_write_json(lpc_page_file($client_id, $page_id), $data);
+}
+
+function lpc_list_pages($client_id) {
+    $dir = lpc_client_dir($client_id) . '/data/pages';
+    if (!is_dir($dir)) return [];
+    $ids = [];
+    foreach (glob($dir . '/*.json') as $f) {
+        $ids[] = basename($f, '.json');
+    }
+    sort($ids);
+    return $ids;
+}
+
+function lpc_list_clients() {
+    if (!is_dir(CLIENTS_DIR)) return [];
+    $ids = [];
+    foreach (glob(CLIENTS_DIR . '*', GLOB_ONLYDIR) as $dir) {
+        if (file_exists($dir . '/data/client.json')) {
+            $ids[] = basename($dir);
+        }
+    }
+    sort($ids);
+    return $ids;
+}
+
+function lpc_unique_client_id($name) {
+    $base = slugify($name) ?: 'client';
+    $id = $base;
+    $i = 2;
+    while (is_dir(lpc_client_dir($id))) {
+        $id = $base . '-' . $i;
+        $i++;
+    }
+    return $id;
+}
+
+function lpc_generate_api_key() {
+    return bin2hex(random_bytes(20));
+}
+
+function lpc_get_client_api_key($client_id) {
+    $file = lpc_client_secret_file($client_id);
+    return file_exists($file) ? trim(file_get_contents($file)) : '';
+}
+
+function lpc_set_client_api_key($client_id, $key) {
+    $dir = dirname(lpc_client_secret_file($client_id));
+    if (!is_dir($dir)) mkdir($dir, 0700, true);
+    return file_put_contents(lpc_client_secret_file($client_id), $key, LOCK_EX) !== false;
+}
+
+/**
+ * Creates a new client: unique id, default client.json merged with the
+ * provided identity fields, and a freshly generated API key. Returns the
+ * new client_id, or null if business_name is empty (nothing to slug from).
+ */
+function lpc_create_client($identity) {
+    $name = trim($identity['business_name'] ?? '');
+    if ($name === '') return null;
+
+    $client_id = lpc_unique_client_id($name);
+    $data = lpc_default_client_data();
+    $data['client_id']  = $client_id;
+    $data['created_at'] = gmdate('c');
+    $data['updated_at'] = $data['created_at'];
+    $data['identity']   = array_merge($data['identity'], $identity);
+
+    if (!lpc_save_client($client_id, $data)) return null;
+    lpc_set_client_api_key($client_id, lpc_generate_api_key());
+
+    return $client_id;
+}

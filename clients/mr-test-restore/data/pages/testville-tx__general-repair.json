@@ -1,0 +1,103 @@
+{
+    "page_id": "testville-tx__general-repair",
+    "status": "published",
+    "created_at": "",
+    "updated_at": "2026-11-15T00:01:58+00:00",
+    "published_at": "2026-11-15T00:01:58+00:00",
+    "seo": {
+        "page_title": "General Repair in Testville, TX | Mr Test Restore",
+        "meta_description": "Fast, reliable general repair in Testville, TX.",
+        "og_image": ""
+    },
+    "sections": [
+        {
+            "type": "hero",
+            "headline": "General Repair Services in Testville, TX",
+            "subheading": "Fast response, licensed technicians.",
+            "image": "",
+            "cta_text": "Get a Free Quote",
+            "phone": "(555) 010-0100"
+        },
+        {
+            "type": "text",
+            "heading": "Local Experts Serving Testville",
+            "body": "Mr Test Restore has served Testville for over a decade."
+        },
+        {
+            "type": "services_list",
+            "heading": "What We Repair",
+            "items": [
+                {
+                    "title": "Structural Repair",
+                    "text": "Framing and drywall fixes."
+                }
+            ]
+        },
+        {
+            "type": "faq",
+            "heading": "FAQ",
+            "items": [
+                {
+                    "q": "How fast can you respond?",
+                    "a": "Most calls are answered within the hour."
+                }
+            ]
+        },
+        {
+            "type": "cta",
+            "heading": "Ready to Get Started?",
+            "body": "Call now for a free estimate.",
+            "phone": "(555) 010-0100",
+            "button_text": "Call Now"
+        },
+        {
+            "type": "related_links",
+            "heading": "",
+            "links": []
+        }
+    ],
+    "schema_jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://mrtestrestore.example.invalid/#business-dallas",
+                "name": "Mr Test Restore",
+                "telephone": "(555) 010-0100",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "100 Main St",
+                    "addressLocality": "Dallas",
+                    "addressRegion": "TX",
+                    "postalCode": "75201"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 32.7767,
+                    "longitude": -96.797
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "General Repair",
+                "areaServed": "Testville, TX",
+                "provider": {
+                    "@id": "https://mrtestrestore.example.invalid/#business-dallas"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How fast can you respond?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Most calls are answered within the hour."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

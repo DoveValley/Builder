@@ -100,6 +100,19 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
 }
 unset($_activeSiteId, $_msBase);
 
+// Landing Page Clients feature data — deliberately NOT site-scoped like DATA_FILE
+// above (it's a standalone feature, not one of the niche-fleet sites), always at
+// the project root regardless of which site/multisite context is active.
+define('CLIENTS_DIR', BASE_DIR . '/clients/');
+
+// Where the publish step currently writes finished client pages — the delivery
+// server's data directory, same box as the admin panel for now (see
+// project_landing_page_clients_feature_design memory). Local path on purpose:
+// once the delivery server is its own machine this becomes an FTP/SFTP push via
+// includes/multisite/deploy.php (the same module the niche fleet already uses),
+// not a second deploy mechanism.
+define('LPC_DELIVERY_DATA_DIR', '/opt/landing-page-clients/delivery/data/');
+
 // The legacy SHARED starter library. Page starters used to be global — one file
 // for every site on the box, so editing a starter for one site changed it for all
 // of them. They are per-site now (STARTERS_FILE, defined per branch above, next to
