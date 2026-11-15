@@ -75,7 +75,16 @@ function lpc_render_styles( $branding ) {
 			background: <?php echo $primary_tint; ?>;
 			padding: 48px 24px;
 			border-radius: 12px;
-			margin: 0 0 32px;
+			/* Real bug, found live (2026-11-15): every other block on this page
+			   (.lpc-section below) is capped at 760px and centered — .lpc-hero
+			   was the one block with no max-width, so it stretched to the
+			   theme's full (much wider) content column. Splitting that extra
+			   width 1.1fr/1fr pushed the text flush left and blew the image up
+			   far larger than anything else on the page, reading as "too big,
+			   off to the side" — not a sizing bug in the image itself, a width
+			   mismatch against the rest of the page's own established column. */
+			max-width: 760px;
+			margin: 0 auto 32px;
 			display: grid;
 			grid-template-columns: 1.1fr 1fr;
 			gap: 36px;
@@ -109,7 +118,7 @@ function lpc_render_styles( $branding ) {
 		   sizing at all. */
 		.lpc-page .lpc-hero-image { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 4 / 3; }
 		.lpc-page .lpc-hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-		.lpc-page .lpc-trust-bar { background: #111827; margin: 0 0 32px; padding: 14px 24px; border-radius: 10px; }
+		.lpc-page .lpc-trust-bar { background: #111827; max-width: 760px; margin: 0 auto 32px; padding: 14px 24px; border-radius: 10px; }
 		.lpc-page .lpc-trust-bar ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; }
 		.lpc-page .lpc-trust-bar li { color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap; }
 		.lpc-page .lpc-safety-card { text-align: center; }
