@@ -92,7 +92,23 @@ function lpc_render_styles( $branding ) {
 		}
 		.lpc-page .lpc-hero-headline { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
 		.lpc-page .lpc-hero-sub { font-size: 1.1rem; max-width: 640px; margin: 0 0 20px; opacity: .85; }
-		.lpc-page .lpc-hero-image img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0; }
+		/* Real design problem, found live (2026-11-15): AI-generated service
+		   photos are square (1024x1024), which at hero-column width renders
+		   as a tall square towering over the much shorter text column,
+		   unbalancing the whole hero. First attempt put aspect-ratio +
+		   object-fit directly on the <img> — the site factory's own
+		   style.src.css (.hs-image, the proven hero_split block this plugin's
+		   hero is modeled on) documents that EXACT pattern already causing
+		   two real layout-shift bugs this way, one found on
+		   baileyrestoration.com itself: the img's own box depends on a ratio
+		   the real file doesn't always match at some point in the load
+		   sequence. Fixed the same way that file was: the ratio lives on the
+		   WRAPPER (.lpc-hero-image, the <figure>), which reserves an
+		   already-fixed-size box; the <img> is absolutely positioned to fill
+		   it, so its own intrinsic/attribute dimensions never participate in
+		   sizing at all. */
+		.lpc-page .lpc-hero-image { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 4 / 3; }
+		.lpc-page .lpc-hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 		.lpc-page .lpc-trust-bar { background: #111827; margin: 0 0 32px; padding: 14px 24px; border-radius: 10px; }
 		.lpc-page .lpc-trust-bar ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; }
 		.lpc-page .lpc-trust-bar li { color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap; }
