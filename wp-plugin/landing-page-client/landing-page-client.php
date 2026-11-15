@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Landing Page Client
  * Description: Displays location/service landing pages delivered by the Landing Page Clients backend. One setting: paste in your API key.
- * Version: 0.4.0
+ * Version: 0.4.1
  * Author: Site Factory
  */
 
@@ -52,20 +52,28 @@ function lpc_add_settings_page() {
 	);
 }
 
-add_action( 'admin_init', 'lpc_register_settings' );
-function lpc_register_settings() {
-	register_setting( 'lpc_settings', 'lpc_api_key', [ 'sanitize_callback' => 'sanitize_text_field' ] );
-}
-
 function lpc_render_settings_page() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
 
-	if ( isset( $_POST['lpc_refresh_now'] ) && check_admin_referer( 'lpc_refresh_now_action' ) ) {
-		$manifest = lpc_get_manifest( true );
-		lpc_purge_all_page_caches( $manifest );
-		echo '<div class="notice notice-success"><p>Refreshed from the delivery server — every page will re-fetch fresh content on its next visit.</p></div>';
+	// One form, one nonce — both buttons below submit the SAME form, so
+	// either one always saves whatever's currently in the API Key field
+	// first. Previously this was two separate <form> elements (Save API Key
+	// posting to options.php, Refresh Now posting to itself); a real
+	// confirmed incident: pasting a new key in and clicking Refresh Now
+	// without first clicking Save API Key silently left the OLD key in
+	// effect, since a browser never submits one form's fields from a
+	// different form's submit button. Merged so that trap can't happen again.
+	if ( isset( $_POST['lpc_settings_nonce'] ) && check_admin_referer( 'lpc_settings_action', 'lpc_settings_nonce' ) ) {
+		update_option( 'lpc_api_key', sanitize_text_field( $_POST['lpc_api_key'] ?? '' ) );
+		if ( isset( $_POST['lpc_refresh_now'] ) ) {
+			$manifest = lpc_get_manifest( true );
+			lpc_purge_all_page_caches( $manifest );
+			echo '<div class="notice notice-success"><p>Saved the API key and refreshed from the delivery server — every page will re-fetch fresh content on its next visit.</p></div>';
+		} else {
+			echo '<div class="notice notice-success"><p>API key saved.</p></div>';
+		}
 	}
 
 	$api_key   = get_option( 'lpc_api_key', '' );
@@ -85,8 +93,8 @@ function lpc_render_settings_page() {
 
 		<?php lpc_render_info_popup(); ?>
 
-		<form method="post" action="options.php">
-			<?php settings_fields( 'lpc_settings' ); ?>
+		<form method="post">
+			<?php wp_nonce_field( 'lpc_settings_action', 'lpc_settings_nonce' ); ?>
 			<table class="form-table">
 				<tr>
 					<th scope="row"><label for="lpc_api_key">API Key</label></th>
@@ -110,12 +118,9 @@ function lpc_render_settings_page() {
 				</tr>
 				<?php endif; ?>
 			</table>
-			<?php submit_button( 'Save API Key' ); ?>
-		</form>
-
-		<form method="post">
-			<?php wp_nonce_field( 'lpc_refresh_now_action' ); ?>
-			<button type="submit" name="lpc_refresh_now" class="button">Refresh now</button>
+			<?php submit_button( 'Save API Key', 'primary', 'lpc_save_key', false ); ?>
+			<button type="submit" name="lpc_refresh_now" class="button" style="margin-left:8px;">Save &amp; Refresh now</button>
+			<p style="color:#666;font-size:.85rem;margin-top:6px;">"Save &amp; Refresh now" always saves whatever's in the API Key field above first, then forces an immediate re-fetch — use it any time you've just pasted in a new key.</p>
 		</form>
 	</div>
 	<?php
