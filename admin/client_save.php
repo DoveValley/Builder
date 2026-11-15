@@ -546,6 +546,9 @@ switch ($section) {
             // trust_bar items — same "not touched here" rule; only ever comes
             // from the niche profile at publish time.
             $existingTrustBarItems = [];
+            // safety_toolkit items — same "not touched here" rule; only ever
+            // comes from plugins/safety_toolkit's niche data at publish time.
+            $existingSafetyToolkitItems = [];
             foreach ($page['sections'] as $s) {
                 if (($s['type'] ?? '') === 'related_links') { $existingLinks = $s['links'] ?? []; }
                 if (($s['type'] ?? '') === 'hero') { $existingImgW = $s['image_width'] ?? null; $existingImgH = $s['image_height'] ?? null; }
@@ -562,6 +565,7 @@ switch ($section) {
                     $existingMapH     = $s['image_height'] ?? null;
                 }
                 if (($s['type'] ?? '') === 'trust_bar') { $existingTrustBarItems = $s['items'] ?? []; }
+                if (($s['type'] ?? '') === 'safety_toolkit') { $existingSafetyToolkitItems = $s['items'] ?? []; }
             }
 
             $page['sections'] = [
@@ -577,6 +581,9 @@ switch ($section) {
                 ['type' => 'text', 'key' => 'why_choose_us', 'heading' => trim($_POST['why_choose_us_heading'] ?? ''), 'body' => trim($_POST['why_choose_us_body'] ?? '')],
                 ['type' => 'services_list', 'heading' => trim($_POST['services_heading'] ?? ''), 'items' => $services],
                 ['type' => 'faq', 'heading' => trim($_POST['faq_heading'] ?? ''), 'items' => $faqs],
+                // safety_toolkit, like trust_bar above, is auto-computed at
+                // publish time from plugins/safety_toolkit's niche data.
+                ['type' => 'safety_toolkit', 'heading' => 'Verify Your Provider', 'intro' => 'Before you choose a provider, these independent organizations can help you confirm licensing, industry standards, and track record.', 'items' => $existingSafetyToolkitItems],
                 ['type' => 'cta', 'heading' => trim($_POST['cta_heading'] ?? ''), 'body' => trim($_POST['cta_body'] ?? ''), 'phone' => trim($_POST['cta_phone'] ?? ''), 'button_text' => trim($_POST['cta_button_text'] ?? '')],
                 // area_map, like related_links/service_area below, is auto-computed
                 // at publish time (lpc_resolve_area_map()) — heading resets to its

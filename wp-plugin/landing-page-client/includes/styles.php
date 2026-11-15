@@ -96,6 +96,11 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-trust-bar { background: #111827; margin: 0 0 32px; padding: 14px 24px; border-radius: 10px; }
 		.lpc-page .lpc-trust-bar ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; }
 		.lpc-page .lpc-trust-bar li { color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap; }
+		.lpc-page .lpc-safety-card { text-align: center; }
+		.lpc-page .lpc-safety-icon { width: 44px; height: 44px; margin: 0 auto 10px; padding: 10px; border-radius: 10px; background: var(--lpc-primary); color: #fff; box-sizing: border-box; }
+		.lpc-page .lpc-safety-icon svg { width: 100%; height: 100%; display: block; }
+		.lpc-page .lpc-safety-link { display: inline-block; margin-top: 8px; font-size: .85rem; font-weight: 700; color: var(--lpc-primary); text-decoration: none; }
+		.lpc-page .lpc-safety-link:hover { text-decoration: underline; }
 		.lpc-page .lpc-area-map img { max-width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto; }
 		.lpc-page .lpc-btn {
 			display: inline-block; padding: 14px 28px; border-radius: 8px;

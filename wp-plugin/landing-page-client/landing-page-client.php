@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Landing Page Client
  * Description: Displays location/service landing pages delivered by the Landing Page Clients backend. One setting: paste in your API key.
- * Version: 0.4.12
+ * Version: 0.4.13
  * Author: Site Factory
  */
 

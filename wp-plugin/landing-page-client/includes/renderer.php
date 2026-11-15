@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 11 locked section types. Originally zero CSS/classes of our own
+ * Renders the 12 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of
@@ -51,6 +51,9 @@ function lpc_render_sections( $sections, $hero_level = 'h2' ) {
 				break;
 			case 'faq':
 				$html .= lpc_render_faq( $section );
+				break;
+			case 'safety_toolkit':
+				$html .= lpc_render_safety_toolkit( $section );
 				break;
 			case 'cta':
 				$html .= lpc_render_cta( $section );
@@ -187,6 +190,42 @@ function lpc_render_faq( $s ) {
 		$out .= '</div>';
 	}
 	$out .= '</div></section>';
+	return $out;
+}
+
+/** "Verify your provider" trust cards — real national organizations (NADCA/
+ *  BBB/RIA-style), reused from plugins/safety_toolkit's own per-niche data.
+ *  Icons are raw inline SVG, already sanitized server-side at publish time
+ *  (sanitize_svg(), this codebase's standard rule for stored SVG markup) —
+ *  echoed directly here, not esc_html()'d, which would just show literal
+ *  angle-bracket text instead of rendering the icon. */
+function lpc_render_safety_toolkit( $s ) {
+	if ( empty( $s['items'] ) ) {
+		return '';
+	}
+	$out  = '<section class="lpc-section">';
+	if ( ! empty( $s['heading'] ) ) {
+		$out .= '<h2>' . esc_html( $s['heading'] ) . '</h2>';
+	}
+	if ( ! empty( $s['intro'] ) ) {
+		$out .= '<p>' . esc_html( $s['intro'] ) . '</p>';
+	}
+	$out .= '<ul class="lpc-card-grid">';
+	foreach ( (array) $s['items'] as $item ) {
+		$out .= '<li class="lpc-card lpc-safety-card">';
+		if ( ! empty( $item['icon'] ) ) {
+			$out .= '<div class="lpc-safety-icon">' . $item['icon'] . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- sanitized server-side before delivery, see function doc.
+		}
+		$out .= '<strong>' . esc_html( $item['heading'] ?? '' ) . '</strong>';
+		if ( ! empty( $item['text'] ) ) {
+			$out .= '<span>' . esc_html( $item['text'] ) . '</span>';
+		}
+		if ( ! empty( $item['link'] ) ) {
+			$out .= '<a class="lpc-safety-link" href="' . esc_url( $item['link'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $item['btn_text'] ?? 'Learn More' ) . '</a>';
+		}
+		$out .= '</li>';
+	}
+	$out .= '</ul></section>';
 	return $out;
 }
 

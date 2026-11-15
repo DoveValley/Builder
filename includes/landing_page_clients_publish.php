@@ -240,6 +240,18 @@ function lpc_preview_render($sections) {
                 if ($s['phone']) $out .= '<p><a href="tel:">' . h($s['button_text'] ?: $s['phone']) . '</a></p>';
                 $out .= '</section>';
                 break;
+            case 'safety_toolkit':
+                if (empty($s['items'])) break;
+                $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '');
+                if (!empty($s['intro'])) $out .= '<p>' . h($s['intro']) . '</p>';
+                $out .= '<ul>';
+                foreach ($s['items'] as $item) {
+                    $out .= '<li><strong>' . h($item['heading'] ?? '') . '</strong> — ' . h($item['text'] ?? '')
+                        . ($item['link'] ? ' <a href="' . h($item['link']) . '">' . h($item['btn_text'] ?: 'Learn More') . '</a>' : '')
+                        . '</li>';
+                }
+                $out .= '</ul></section>';
+                break;
             case 'related_links':
                 if (empty($s['links'])) break;
                 $out .= '<section>' . ($s['heading'] ? '<h2>' . h($s['heading']) . '</h2>' : '') . '<ul>';
@@ -379,6 +391,20 @@ function lpc_publish_page($client_id, $page_id) {
         if (($section['type'] ?? '') === 'trust_bar') {
             $items = $niche_brief['trust_bar_items'] ?? [];
             $section['items'] = !empty($items) ? $items : lpc_default_trust_bar_items();
+        }
+        if (($section['type'] ?? '') === 'safety_toolkit') {
+            $items = lpc_safety_toolkit_items($niche_brief['niche_id'] ?? '', $client_id);
+            // Icons are raw inline SVG markup — sanitized here (sanitize_svg(),
+            // includes/helpers.php) before they ever reach the delivered page
+            // JSON, same rule this codebase already applies to every other
+            // SVG it stores. The WP plugin side has no equivalent sanitizer of
+            // its own (it's a separate WordPress codebase), so this is the one
+            // point in the pipeline that can do it.
+            foreach ($items as &$item) {
+                if (!empty($item['icon'])) $item['icon'] = sanitize_svg($item['icon']);
+            }
+            unset($item);
+            $section['items'] = $items;
         }
         if (($section['type'] ?? '') === 'related_links') {
             $section['links'] = lpc_compute_related_links($client, $page_id);
