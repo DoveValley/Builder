@@ -386,13 +386,21 @@ function lpc_rebuild_manifest($client_id) {
         [$city_id, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
         $target  = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
         $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $service_id);
+        $hub     = lpc_find_by_id($client['hubs'] ?? [], 'hub_id', $target['served_by_hub'] ?? null);
 
         $pages[] = [
-            'slug'    => $page_id,
-            'title'   => $page['seo']['page_title'] ?? $page_id,
-            'city'    => $target['city'] ?? '',
-            'state'   => $target['state'] ?? '',
-            'service' => $service['label'] ?? $service_id,
+            'slug'      => $page_id,
+            'title'     => $page['seo']['page_title'] ?? $page_id,
+            'city'      => $target['city'] ?? '',
+            'state'     => $target['state'] ?? '',
+            'service'   => $service['label'] ?? $service_id,
+            // Lets the hub page group State > Hub Area > City > Services
+            // instead of one flat, unlabeled grid — hub_city/hub_state come
+            // from the serving hub's own address, not the client-facing
+            // hub "name" field (which is often a contact person's name, e.g.
+            // "Scott Parr", not a location — unsuitable as a group label).
+            'hub_city'  => $hub['address']['city'] ?? '',
+            'hub_state' => $hub['address']['state'] ?? '',
         ];
     }
 

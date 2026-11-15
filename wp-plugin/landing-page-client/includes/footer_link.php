@@ -39,19 +39,16 @@ function lpc_service_locations_url() {
 	return home_url( trailingslashit( $base_path ) );
 }
 
-// One rendering path, every page, via wp_footer — including this plugin's
-// own /locations/ pages, which already call get_header()/get_footer() same
-// as any other page, so wp_footer() fires there too with no special wiring
-// needed. Fixed positioning means DOM placement never matters, on any theme.
+// One rendering path, every page, unconditionally, via wp_footer —
+// including this plugin's own /locations/ pages (which already call
+// get_header()/get_footer() same as any other page, so wp_footer() fires
+// there too with no special wiring needed) and the hub page itself. Scott's
+// call (2026-11-15): simpler to just always show it than to special-case the
+// one page it points at — fixed positioning means DOM placement never
+// matters, on any theme, and one unconditional rule is simpler than one
+// unconditional rule plus an exception.
 add_action( 'wp_footer', 'lpc_render_footer_badge' );
 function lpc_render_footer_badge() {
-	// On the hub page itself, "View Our Service Locations" points right back
-	// at the page already being viewed — real gap found live (2026-11-15):
-	// pointless and confusing on that one page, even though it's exactly what
-	// every single location page (and the rest of the site) needs.
-	if ( get_query_var( 'lpc_route' ) && get_query_var( 'lpc_slug' ) === '' ) {
-		return;
-	}
 	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;
 	}

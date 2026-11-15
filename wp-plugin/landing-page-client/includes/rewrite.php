@@ -300,12 +300,54 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	// stretched-full-width card and a wall of empty space below it, reading
 	// as broken rather than just "early."
 	echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following service area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
-	echo '<ul class="lpc-hub-list">';
+
+	// State > Hub Area > City > Services, not one flat grid of every
+	// city/service combination — real gap found live (2026-11-15): with 9
+	// cities × 3 services (27 pages), a flat list reads as an undifferentiated
+	// wall of links with no sense of which cities are near which, even though
+	// the underlying data already has that structure (every page knows its
+	// hub). Groups preserve manifest order (states/hubs/cities appear in the
+	// order their first page was published, not re-sorted) rather than adding
+	// an alphabetical-sort opinion nothing asked for.
+	$byState = [];
 	foreach ( $manifest['pages'] as $page ) {
-		$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
-		echo '<li class="lpc-hub-item"><a href="' . esc_url( $url ) . '">' . esc_html( $page['title'] ?? $page['slug'] ) . '</a></li>';
+		$state = $page['state'] ?? '';
+		// ucwords() — a hub's address.city is free-typed at onboarding (real
+		// case found live, 2026-11-15: "southlake" stored lowercase, sitting
+		// next to "Austin"/"Houston" from the verified city database), unlike
+		// target_cities' city names, which always come from that same
+		// database already correctly cased.
+		$hub_city_label = ucwords( (string) ( $page['hub_city'] ?? '' ) );
+		$hub   = $hub_city_label !== '' ? $hub_city_label . ', ' . ( $page['hub_state'] ?? '' ) : '';
+		$city  = $page['city'] ?? '';
+		$byState[ $state ]['label'] = $state;
+		$byState[ $state ]['hubs'][ $hub ]['label']            = $hub;
+		$byState[ $state ]['hubs'][ $hub ]['cities'][ $city ][] = $page;
 	}
-	echo '</ul>';
+
+	foreach ( $byState as $state ) {
+		if ( count( $byState ) > 1 && $state['label'] !== '' ) {
+			echo '<h2 class="lpc-hub-state">' . esc_html( $state['label'] ) . '</h2>';
+		}
+		foreach ( $state['hubs'] as $hub ) {
+			if ( count( $state['hubs'] ) > 1 && $hub['label'] !== '' ) {
+				echo '<h3 class="lpc-hub-area">' . esc_html( $hub['label'] ) . ' Area</h3>';
+			}
+			echo '<div class="lpc-hub-city-grid">';
+			foreach ( $hub['cities'] as $cityName => $cityPages ) {
+				echo '<div class="lpc-hub-city-card">';
+				echo '<h4 class="lpc-hub-city-name">' . esc_html( $cityName ) . '</h4>';
+				echo '<ul class="lpc-hub-service-list">';
+				foreach ( $cityPages as $page ) {
+					$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );
+					echo '<li><a href="' . esc_url( $url ) . '">' . esc_html( $page['service'] ?? $page['title'] ?? $page['slug'] ) . '</a></li>';
+				}
+				echo '</ul>';
+				echo '</div>';
+			}
+			echo '</div>';
+		}
+	}
 	echo '</main>';
 }
 

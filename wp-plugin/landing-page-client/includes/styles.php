@@ -175,24 +175,38 @@ function lpc_render_styles( $branding ) {
 		   stripe — real look found live on restore-2 (2026-11-15) with only
 		   one city published. Cards stay a sane card width regardless of count;
 		   leftover grid space becomes trailing gap, not card width. */
-		.lpc-page .lpc-hub-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 340px)); gap: 16px; }
-		.lpc-page .lpc-hub-item a {
-			display: block; border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary);
-			border-radius: 10px; padding: 18px 20px; text-decoration: none; font-weight: 600;
-			/* Explicit color — missing here was a real confirmed bug, found on
-			   restore-2's real live hub page (2026-11-15): <a> tags don't
-			   simply inherit color from an ancestor like .lpc-page the way
-			   other elements do — any explicit rule, even the browser's own
-			   default/theme's own global link color, overrides inheritance
-			   regardless of specificity, since inherited values are always
-			   lowest-priority in the cascade. Every other <a> this plugin
-			   renders already sets its own color explicitly (lpc-btn,
-			   lpc-safety-link, lpc-fact-list dd a) — this was the one rule
-			   that didn't, and it rendered invisible against this theme's
-			   own link-color default. */
+		/* State > Hub Area > City > Services grouping (2026-11-15) — replaces
+		   a flat grid of every city/service combination, which read as an
+		   undifferentiated wall of links once a client had enough cities
+		   that the underlying hub structure stopped being obvious from a
+		   flat list alone. Same border-left-bar heading style .lpc-section
+		   h2 already uses elsewhere on these pages, scaled down a step per
+		   level, so the hub page reads as consistent with the rest of the
+		   site rather than a one-off layout. */
+		.lpc-page .lpc-hub-state { font-size: 1.5rem; margin: 28px 0 16px; border-left: 4px solid var(--lpc-primary); padding-left: 12px; }
+		.lpc-page .lpc-hub-state:first-of-type { margin-top: 0; }
+		.lpc-page .lpc-hub-area { font-size: 1.15rem; margin: 20px 0 12px; border-left: 3px solid var(--lpc-accent); padding-left: 10px; opacity: .85; }
+		/* auto-fill + a capped max (not auto-fit + 1fr) so a single city
+		   doesn't stretch its one card edge-to-edge into a bare full-width
+		   stripe — same real look found live on restore-2 (2026-11-15) that
+		   drove the identical fix on .lpc-hero/.lpc-trust-bar. */
+		.lpc-page .lpc-hub-city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 280px)); gap: 16px; margin: 0 0 8px; }
+		.lpc-page .lpc-hub-city-card { border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary); border-radius: 10px; padding: 16px 18px; }
+		.lpc-page .lpc-hub-city-name { font-size: 1rem; margin: 0 0 10px; }
+		.lpc-page .lpc-hub-service-list { list-style: none; margin: 0; padding: 0; }
+		.lpc-page .lpc-hub-service-list li { margin: 0 0 6px; }
+		.lpc-page .lpc-hub-service-list li:last-child { margin-bottom: 0; }
+		.lpc-page .lpc-hub-service-list a {
+			text-decoration: none; font-weight: 600;
+			/* Explicit color, not inherited — <a> tags don't simply inherit
+			   from an ancestor like .lpc-page the way other elements do; a
+			   real confirmed bug on restore-2's live hub page (2026-11-15)
+			   was exactly this rule missing it on the old flat-list markup
+			   this replaces. Every <a> this plugin renders sets its own
+			   color explicitly for that reason. */
 			color: var(--lpc-primary);
 		}
-		.lpc-page .lpc-hub-item a:hover { box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+		.lpc-page .lpc-hub-service-list a:hover { text-decoration: underline; }
 	</style>
 	<?php
 	return ob_get_clean();
