@@ -181,7 +181,17 @@ $apiKey = lpc_get_client_api_key($client_id);
         <h3 style="margin-top:28px;">Services</h3>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
             <?php foreach ($client['services'] as $s): ?>
-                <span class="lpc-badge" style="background:#eef2ff;color:#3730a3;"><?= h($s['label']) ?></span>
+                <span class="lpc-badge" style="background:#eef2ff;color:#3730a3;display:inline-flex;align-items:center;gap:6px;">
+                    <?= h($s['label']) ?>
+                    <form method="post" action="client_save.php" style="margin:0;display:inline;" onsubmit="return confirm('Remove this service? It disappears from the city matrix — any already-generated pages stay on disk and come back if you re-add the same service.');">
+                        <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                        <input type="hidden" name="section" value="services">
+                        <input type="hidden" name="service_action" value="remove">
+                        <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                        <input type="hidden" name="service_id" value="<?= h($s['service_id']) ?>">
+                        <button type="submit" style="background:none;border:none;color:#3730a3;cursor:pointer;font-weight:700;padding:0;line-height:1;" title="Remove service">&times;</button>
+                    </form>
+                </span>
             <?php endforeach; ?>
             <?php if (empty($client['services'])): ?>
                 <span style="color:#6b7280;font-size:.85rem;">No services yet.</span>

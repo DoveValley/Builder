@@ -194,24 +194,45 @@ switch ($section) {
         $client = lpc_load_client($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
+        if (($_POST['service_action'] ?? 'add') === 'remove') {
+            $serviceId = $_POST['service_id'] ?? '';
+            $client['services'] = array_values(array_filter($client['services'], fn($s) => $s['service_id'] !== $serviceId));
+            // Pulled from every city's service list too, so the matrix column
+            // actually disappears instead of leaving a dangling reference. Any
+            // page already generated for this service is left on disk, not
+            // deleted — re-adding the same service (same slug) brings it right
+            // back into the matrix, same low-risk pattern as a disabled client.
+            foreach ($client['target_cities'] as &$tc) {
+                $tc['services'] = array_values(array_filter($tc['services'], fn($sid) => $sid !== $serviceId));
+            }
+            unset($tc);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Service+removed');
+            exit;
+        }
+
         $label = trim($_POST['service_label'] ?? '');
-        if ($label !== '') {
-            $serviceId = slugify($label);
-            $exists = false;
-            foreach ($client['services'] as $s) { if ($s['service_id'] === $serviceId) $exists = true; }
-            if (!$exists) {
-                $client['services'][] = ['service_id' => $serviceId, 'label' => $label];
-                // "Applied to all cities by default" per the design — a new service
-                // column should show up as a Not Created cell for every existing
-                // target city, not just future ones.
-                foreach ($client['target_cities'] as &$tc) {
-                    if (!in_array($serviceId, $tc['services'], true)) {
-                        $tc['services'][] = $serviceId;
-                    }
-                }
-                unset($tc);
+        if ($label === '') {
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Service+name+cannot+be+empty');
+            exit;
+        }
+        $serviceId = slugify($label);
+        $exists = false;
+        foreach ($client['services'] as $s) { if ($s['service_id'] === $serviceId) $exists = true; }
+        if ($exists) {
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:That+service+already+exists');
+            exit;
+        }
+        $client['services'][] = ['service_id' => $serviceId, 'label' => $label];
+        // "Applied to all cities by default" per the design — a new service
+        // column should show up as a Not Created cell for every existing
+        // target city, not just future ones.
+        foreach ($client['target_cities'] as &$tc) {
+            if (!in_array($serviceId, $tc['services'], true)) {
+                $tc['services'][] = $serviceId;
             }
         }
+        unset($tc);
         lpc_save_client($client_id, $client);
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:Service+added');
         exit;
