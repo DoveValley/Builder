@@ -38,6 +38,8 @@ function lpc_apply_remote_settings( $manifest ) {
 	update_option( 'lpc_refresh_interval_minutes', (int) ( $settings['refresh_interval_minutes'] ?? 360 ) );
 	update_option( 'lpc_support_phone', $settings['support_phone'] ?? '' );
 	update_option( 'lpc_support_message', $settings['support_message'] ?? '' );
+	update_option( 'lpc_nav_link_placement', $settings['nav_link_placement'] ?? 'footer' );
+	update_option( 'lpc_nav_link_label', $settings['nav_link_label'] ?? 'View Our Service Locations' );
 	update_option( 'lpc_last_checkin', time() );
 
 	if ( $old_base_path !== get_option( 'lpc_base_path' ) ) {

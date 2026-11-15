@@ -340,6 +340,8 @@ function lpc_rebuild_manifest($client_id) {
             'refresh_interval_minutes' => $client['delivery']['refresh_interval_minutes'] ?? 360,
             'support_phone'            => $client['delivery']['support_phone'] ?? '',
             'support_message'          => $client['delivery']['support_message'] ?? '',
+            'nav_link_placement'       => $client['delivery']['nav_link_placement'] ?? 'footer',
+            'nav_link_label'           => $client['delivery']['nav_link_label'] ?? 'View Our Service Locations',
         ],
         'pages' => $pages,
     ];

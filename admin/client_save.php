@@ -164,6 +164,9 @@ switch ($section) {
 
         $client['delivery']['support_phone']   = trim($_POST['support_phone'] ?? '');
         $client['delivery']['support_message'] = trim($_POST['support_message'] ?? '');
+        $placement = $_POST['nav_link_placement'] ?? 'footer';
+        $client['delivery']['nav_link_placement'] = in_array($placement, ['off', 'footer', 'nav'], true) ? $placement : 'footer';
+        $client['delivery']['nav_link_label']     = trim($_POST['nav_link_label'] ?? '') ?: 'View Our Service Locations';
         lpc_save_client($client_id, $client);
         // Takes effect on the client's next scheduled check-in either way, but
         // rebuilding now means it's live immediately rather than waiting on an

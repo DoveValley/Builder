@@ -46,6 +46,19 @@ function lpc_default_client_data() {
             'refresh_interval_minutes'=> 360,
             'support_phone'           => '',
             'support_message'         => '',
+            // Without this, the hub page exists (reachable by URL) but is
+            // literally undiscoverable from the client's own site — not a
+            // real WP page/post, so it can never show up in search, related
+            // posts, or any menu on its own. 'footer' (default) is safest:
+            // a plain wp_footer() link works on nearly every theme,
+            // including block-based ones, with zero risk of rewriting a
+            // menu the client already curated by hand. 'nav' auto-injects
+            // into the theme's primary nav menu instead — looks more native
+            // when it works, but only works on classic (non-block) themes
+            // with a menu actually assigned to that location. 'off' disables
+            // this entirely.
+            'nav_link_placement'     => 'footer', // 'off' | 'footer' | 'nav'
+            'nav_link_label'         => 'View Our Service Locations',
             'active'                  => true,
             'last_checkin'            => 0,
             'last_emailed'            => '',

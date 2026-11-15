@@ -572,6 +572,31 @@ Thanks!</textarea></div>
         </div>
 
         <div class="card" style="margin-top:10px;">
+            <strong style="font-size:.88rem;">Link to the Locations page on their site</strong>
+            <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
+                Without this, their location pages exist but are undiscoverable from the rest of their
+                site. "Footer" (default) works on nearly every theme, including block-based ones. "Nav
+                menu" looks more native but only works on classic (non-block) themes with a menu already
+                assigned to the primary location — verify it actually shows up after switching.
+            </p>
+            <form method="post" action="client_save.php" class="lpc-form-row">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="delivery_settings">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                <div class="form-group">
+                    <label>Placement</label>
+                    <select name="nav_link_placement">
+                        <?php foreach (['footer' => 'Footer link', 'nav' => 'Nav menu (primary)', 'off' => 'Off'] as $val => $lbl): ?>
+                        <option value="<?= h($val) ?>" <?= $client['delivery']['nav_link_placement'] === $val ? 'selected' : '' ?>><?= h($lbl) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group"><label>Link Text</label><input type="text" name="nav_link_label" value="<?= h($client['delivery']['nav_link_label']) ?>"></div>
+                <button type="submit" class="btn-sm-outline">Save</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
             <strong style="font-size:.88rem;">5. <?= $client['delivery']['active'] ? 'Disable this client' : 'Re-enable this client' ?></strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
                 <?= $client['delivery']['active']

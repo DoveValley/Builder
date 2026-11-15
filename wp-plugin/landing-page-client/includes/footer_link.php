@@ -4,26 +4,72 @@
  * undiscoverable from the client's own site — it's not a real WP page/post,
  * so it can never show up in search, related posts, or any menu on its own.
  *
- * Deliberately a footer link, not an auto-inserted main-nav item: earlier
- * draft of this fix edited the theme's own primary menu directly, which
- * would mean silently rewriting navigation a real client already curated by
- * hand on their live site. A plain link in wp_footer() shows up on every
- * page of the site with zero risk of touching their actual menu data, and
- * removing it later is just unhooking this function — nothing stored to
- * clean up.
+ * Placement is admin-controlled (synced from the manifest, see remote.php),
+ * not hardcoded — 'footer' (default), 'nav', or 'off':
+ *   - 'footer': a plain wp_footer() link. Works on nearly every theme,
+ *     including block-based/FSE ones, since wp_footer() is core WP plumbing
+ *     every theme calls, completely independent of how the theme builds its
+ *     navigation. Zero risk of touching a menu the client curated by hand.
+ *   - 'nav': injects into the theme's primary nav menu via
+ *     wp_nav_menu_objects, so it's styled exactly like the theme's other
+ *     menu items. Only works on classic (non-block-based) themes that have
+ *     an actual menu assigned to the 'primary' location — a block-based/FSE
+ *     theme's Navigation block never fires this filter at all, so this mode
+ *     can silently do nothing on some themes. Not fail-proof; 'footer' is
+ *     the safer default for exactly this reason.
+ *   - 'off': this plugin adds no link anywhere; the client (or whoever
+ *     manages their site) handles discovery themselves, e.g. a manual
+ *     Appearance > Menus custom link.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function lpc_service_locations_url() {
+	$base_path = get_option( 'lpc_base_path', '/locations' );
+	return home_url( trailingslashit( $base_path ) );
+}
+
 add_action( 'wp_footer', 'lpc_render_footer_link' );
 function lpc_render_footer_link() {
-	$api_key = get_option( 'lpc_api_key', '' );
-	if ( $api_key === '' ) {
+	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;
 	}
-	$base_path = get_option( 'lpc_base_path', '/locations' );
-	$url       = home_url( trailingslashit( $base_path ) );
-	echo '<p style="text-align:center;padding:1em 0;"><a href="' . esc_url( $url ) . '">View Our Service Locations</a></p>';
+	$label = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
+	echo '<p style="text-align:center;padding:1em 0;"><a href="' . esc_url( lpc_service_locations_url() ) . '">' . esc_html( $label ) . '</a></p>';
+}
+
+add_filter( 'wp_nav_menu_objects', 'lpc_inject_nav_menu_link', 10, 2 );
+function lpc_inject_nav_menu_link( $items, $args ) {
+	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'nav' ) {
+		return $items;
+	}
+	// Only the theme's registered 'primary' location, not every menu on the
+	// site — avoids duplicating into a secondary/social/mobile menu the
+	// theme may render from a separate wp_nav_menu() call with no location
+	// set at all (those pass theme_location === '' here, not 'primary').
+	if ( ( $args->theme_location ?? '' ) !== 'primary' ) {
+		return $items;
+	}
+
+	$item              = new stdClass();
+	$item->ID          = 0;
+	$item->db_id       = 0;
+	$item->title       = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
+	$item->url         = lpc_service_locations_url();
+	$item->menu_item_parent = 0;
+	$item->object      = 'custom';
+	$item->object_id    = 0;
+	$item->type        = 'custom';
+	$item->type_label  = 'Custom Link';
+	$item->target      = '';
+	$item->attr_title  = '';
+	$item->description = '';
+	$item->classes     = [ 'lpc-nav-link' ];
+	$item->xfn         = '';
+	$item->current     = false;
+
+	$items[] = $item;
+	return $items;
 }
