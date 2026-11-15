@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the 6 locked section types. Originally zero CSS/classes of our own
+ * Renders the 8 locked section types. Originally zero CSS/classes of our own
  * so the page inherited the client's real theme with no risk of clashing —
  * that produced correct but visually bare pages (literally just <h1>/<p>/
  * <ul><li>, no card layout, no styled buttons). Now emits a fixed set of

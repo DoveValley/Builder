@@ -5,12 +5,12 @@
  * "one module per service" rule) directly, rather than shelling out to the
  * niche fleet's generate.py — that script's whole pipeline is built around
  * `content_blocks` (39 flexible block types), a completely different output
- * shape than this feature's 6 fixed section types. The REUSABLE part of the
+ * shape than this feature's 8 fixed section types. The REUSABLE part of the
  * niche fleet's approach is the pattern, not the code: a tone/guardrails
  * system prompt + a `{var}`-filled user prompt + "return JSON only" +
  * defensive markdown-fence stripping (anthropic_message() does not do this
  * automatically, unlike generate.py's call_claude()). That pattern is what's
- * mirrored here, adapted to this feature's own 5 AI-authored section types
+ * mirrored here, adapted to this feature's own 7 AI-authored section types
  * (related_links stays separately auto-computed, never AI-generated).
  *
  * Content Profile inheritance: when content_profile.source is "niche:X", the

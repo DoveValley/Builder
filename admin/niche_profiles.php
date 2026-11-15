@@ -109,7 +109,7 @@ foreach (lpc_list_niche_profiles() as $id) {
 
         <h4 style="margin-top:18px;margin-bottom:4px;">Content Slots</h4>
         <p style="color:#6b7280;font-size:.8rem;margin:0 0 8px;">
-            Every page has the same 4 flexible content slots, but what they're ABOUT is niche-specific —
+            Every page has the same 5 flexible content slots, but what they're ABOUT is niche-specific —
             a restoration niche's "local relevance" slot is climate/flood-risk; a legal niche's might be
             local court/regulatory relevance instead. Leave blank to use a generic fallback instruction.
         </p>

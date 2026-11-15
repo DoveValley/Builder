@@ -31,7 +31,7 @@ function lpc_niche_profile_file($niche_id) {
 }
 
 /**
- * What each of a page's 4 flexible AI text/list slots means FOR THIS NICHE —
+ * What each of a page's 5 flexible AI text/list slots means FOR THIS NICHE —
  * same slot shape every vertical uses (page structure stays universal), but
  * the topic/framing per slot is niche-specific: a restoration niche's
  * `local_relevance` is "climate/flood-risk"; a legal niche's version of the
