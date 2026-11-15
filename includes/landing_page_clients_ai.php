@@ -135,6 +135,14 @@ function lpc_generate_page_content($client_id, $page_id) {
     $client = lpc_load_client($client_id);
     if (!$client) return ['ok' => false, 'msg' => 'Client not found'];
 
+    // Checked before anything else — a locked page must never be overwritten,
+    // and checking first (rather than after the AI call) also avoids spending
+    // real API cost on a result that would just get discarded.
+    $existing = lpc_load_page($client_id, $page_id);
+    if ($existing && !empty($existing['locked'])) {
+        return ['ok' => false, 'msg' => 'This page is locked. Unlock it before regenerating.'];
+    }
+
     [$city_id, $service_id] = array_pad(explode('__', $page_id, 2), 2, '');
     $target  = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
     $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $service_id);
@@ -151,7 +159,7 @@ function lpc_generate_page_content($client_id, $page_id) {
     $json = json_decode(lpc_strip_json_fences($result['text']), true);
     if (!is_array($json)) return ['ok' => false, 'msg' => 'AI response was not valid JSON.'];
 
-    $page = lpc_load_page($client_id, $page_id) ?? lpc_default_page_data();
+    $page = $existing ?? lpc_default_page_data();
     $wasPublished = ($page['status'] ?? '') === 'published';
 
     lpc_apply_ai_sections($page, $json);

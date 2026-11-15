@@ -14,6 +14,7 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
 | A multisite master's Color Presets, or `ms_apply_theme_preset()` | `docs/color-presets.md` |
 | Pic Drop (per-domain/per-template image management), or `includes/picdrop.php` | `docs/pic-drop-image-management.md` |
+| Onboarding a new Landing Page Clients customer, start to live handoff | `docs/landing-page-clients-onboarding.md` |
 
 ## Running locally
 

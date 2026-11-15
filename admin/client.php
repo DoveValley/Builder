@@ -228,6 +228,27 @@ $apiKey = lpc_get_client_api_key($client_id);
         <?php if (empty($client['target_cities'])): ?>
             <p style="color:#6b7280;font-size:.88rem;">No target cities yet — add some from the suggestions below.</p>
         <?php else: ?>
+            <?php
+            // System tier — pure aggregation over data already in target_cities[]/
+            // pages on disk, same "totals bar" pattern as the top-level Client List
+            // screen. One pass before the table so the bar can render above it.
+            $tPages = 0; $tPublished = 0; $tLocked = 0; $tResearched = 0;
+            foreach ($client['target_cities'] as $tc) {
+                if (!empty($tc['research_done'])) $tResearched++;
+                foreach ($tc['services'] as $sid) {
+                    $pg = lpc_load_page($client_id, $tc['city_id'] . '__' . $sid);
+                    if (!$pg) continue;
+                    $tPages++;
+                    if (($pg['status'] ?? '') === 'published') $tPublished++;
+                    if (!empty($pg['locked'])) $tLocked++;
+                }
+            }
+            ?>
+            <p style="color:#6b7280;font-size:.82rem;margin:0 0 10px;">
+                <?= count($client['target_cities']) ?> cities &middot; <?= $tPages ?> pages &middot;
+                <?= $tPublished ?> published &middot; <?= $tLocked ?> locked &middot;
+                <?= $tResearched ?>/<?= count($client['target_cities']) ?> cities researched
+            </p>
             <form id="lpc-publish-form" method="post" action="client_save.php" style="margin-bottom:10px;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="pages">
@@ -239,9 +260,22 @@ $apiKey = lpc_get_client_api_key($client_id);
                     <?php foreach ($client['services'] as $s): ?><th style="padding:8px 12px;"><?= h($s['label']) ?></th><?php endforeach; ?>
                     <th style="padding:8px 12px;"></th>
                 </tr>
-                <?php foreach ($client['target_cities'] as $tc): ?>
+                <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); ?>
                 <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
-                    <td style="padding:8px 12px;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></td>
+                    <td style="padding:8px 12px;">
+                        <?= h($tc['city']) ?>, <?= h($tc['state']) ?><br>
+                        <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>" style="margin-top:3px;">
+                            <?= $cityResearched ? 'Researched' : 'Not Researched' ?>
+                        </span>
+                        <form method="post" action="client_save.php" style="display:inline;margin:0;">
+                            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                            <input type="hidden" name="section" value="target_cities">
+                            <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+                            <input type="hidden" name="tc_action" value="toggle_research">
+                            <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
+                            <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;"><?= $cityResearched ? 'Unmark' : 'Mark done' ?></button>
+                        </form>
+                    </td>
                     <?php foreach ($client['services'] as $s):
                         if (!in_array($s['service_id'], $tc['services'], true)) { echo '<td style="padding:8px 12px;color:#d1d5db;">—</td>'; continue; }
                         $pageId = $tc['city_id'] . '__' . $s['service_id'];
@@ -250,20 +284,26 @@ $apiKey = lpc_get_client_api_key($client_id);
                     ?>
                         <td style="padding:8px 12px;">
                             <?php $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId); ?>
+                            <?php $pageLocked = !empty($page['locked']); ?>
+                            <?php $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null; ?>
                             <?php if ($pageStatus === null): ?>
                                 <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
                             <?php elseif ($pageStatus === 'draft'): ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-never">Draft</span>
+                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
                                 <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php elseif ($pageStatus === 'published'): ?>
                                 <span class="lpc-badge lpc-badge-connected">Published</span>
+                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
                                 <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php else: ?>
                                 <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
+                                <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
                                 <a href="<?= h($editUrl) ?>" style="font-size:.76rem;">Edit</a>
                             <?php endif; ?>
+                            <?php if ($lastGen): ?><div style="color:#9ca3af;font-size:.7rem;margin-top:2px;"><?= h($lastGen) ?></div><?php endif; ?>
                         </td>
                     <?php endforeach; ?>
                     <td style="padding:8px 12px;">

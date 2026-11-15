@@ -87,6 +87,11 @@ function lpc_default_page_data() {
     return [
         'page_id'      => '',
         'status'       => 'draft', // draft | published | needs_update
+        // Manual toggle only — never set automatically by editing or saving
+        // content. While true, lpc_generate_page_content() (the editor's
+        // Regenerate button) refuses to overwrite this page; everything else
+        // (Save, Publish) is unaffected.
+        'locked'       => false,
         'created_at'   => '',
         'updated_at'   => '',
         'published_at' => null,

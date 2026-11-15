@@ -294,6 +294,20 @@ switch ($section) {
         } elseif ($action === 'remove') {
             $cityId = $_POST['city_id'] ?? '';
             $client['target_cities'] = array_values(array_filter($client['target_cities'], fn($tc) => $tc['city_id'] !== $cityId));
+        } elseif ($action === 'toggle_research') {
+            // Manual tracking only, same shape as a page's Locked toggle — no
+            // automated research pipeline writes this yet (Phase 3, not built).
+            $cityId = $_POST['city_id'] ?? '';
+            foreach ($client['target_cities'] as &$tc) {
+                if ($tc['city_id'] !== $cityId) continue;
+                $tc['research_done'] = empty($tc['research_done']);
+                $tc['researched_at'] = $tc['research_done'] ? gmdate('c') : null;
+                break;
+            }
+            unset($tc);
+            lpc_save_client($client_id, $client);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:City+updated');
+            exit;
         }
 
         lpc_save_client($client_id, $client);
@@ -416,6 +430,19 @@ switch ($section) {
             $pageId = trim($_POST['page_id'] ?? '');
             $result = lpc_generate_page_content($client_id, $pageId);
             $msg = $result['ok'] ? 'success:Regenerated' : ('error:' . urlencode($result['msg']));
+            header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
+            exit;
+        } elseif ($action === 'toggle_lock') {
+            $pageId = trim($_POST['page_id'] ?? '');
+            $page = lpc_valid_page_id($pageId) ? lpc_load_page($client_id, $pageId) : null;
+            if (!$page) {
+                header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=error:Page+not+found');
+                exit;
+            }
+            $page['locked'] = empty($page['locked']);
+            $page['updated_at'] = gmdate('c');
+            lpc_save_page($client_id, $pageId, $page);
+            $msg = $page['locked'] ? 'success:Page+locked' : 'success:Page+unlocked';
             header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
             exit;
         }
