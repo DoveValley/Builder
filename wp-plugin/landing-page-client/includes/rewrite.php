@@ -272,20 +272,12 @@ function lpc_handle_route() {
 	} else {
 		lpc_render_single_page( $page, $top_level );
 	}
-	// Called directly here (not via wp_footer — see the comment on
-	// lpc_render_footer_link() in footer_link.php for why), and BEFORE
-	// .lpc-page's closing </div>, not after it. Real bug, found live
-	// (2026-11-15): themes commonly wrap their main content area in a flex
-	// or grid container (confirmed: Astra's .ast-container). Echoing the
-	// link as a sibling AFTER .lpc-page closed made it a second flex/grid
-	// item next to the page content instead of a line below it — it
-	// rendered as a full-height vertical strip down the right side of the
-	// page, not a footer bar, which is why it never looked like "a footer
-	// link" no matter how many times this got checked. Keeping it INSIDE
-	// .lpc-page (which has no flex/grid of its own) keeps it in normal
-	// block flow regardless of what the surrounding theme container does.
-	lpc_render_footer_link();
 	echo '</div>';
+	// No direct call here for the service-locations link — see
+	// lpc_render_footer_badge() in footer_link.php. It's a fixed-position
+	// badge hooked to wp_footer the same as every other page on the site;
+	// this page already calls get_header()/get_footer() below like any
+	// other, so no special wiring is needed to reach it from here too.
 
 	get_footer();
 	exit;

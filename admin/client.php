@@ -601,9 +601,11 @@ Thanks!</textarea></div>
             <strong style="font-size:.88rem;">Link to the Locations page on their site</strong>
             <p style="color:#6b7280;font-size:.8rem;margin:4px 0 10px;">
                 Without this, their location pages exist but are undiscoverable from the rest of their
-                site. "Footer" (default) works on nearly every theme, including block-based ones. "Nav
-                menu" looks more native but only works on classic (non-block) themes with a menu already
-                assigned to the primary location — verify it actually shows up after switching.
+                site. "Floating badge" (default) is a small fixed bottom-right pill that shows up on
+                every page regardless of theme — works everywhere. "Nav menu" looks more native but only
+                works on classic (non-block) themes with a menu already assigned to the primary
+                location — verify it actually shows up after switching. "Off" if the client would rather
+                add their own link by hand.
             </p>
             <form method="post" action="client_save.php" class="lpc-form-row">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
@@ -612,7 +614,7 @@ Thanks!</textarea></div>
                 <div class="form-group">
                     <label>Placement</label>
                     <select name="nav_link_placement">
-                        <?php foreach (['footer' => 'Footer link', 'nav' => 'Nav menu (primary)', 'off' => 'Off'] as $val => $lbl): ?>
+                        <?php foreach (['footer' => 'Floating badge', 'nav' => 'Nav menu (primary)', 'off' => 'Off'] as $val => $lbl): ?>
                         <option value="<?= h($val) ?>" <?= $client['delivery']['nav_link_placement'] === $val ? 'selected' : '' ?>><?= h($lbl) ?></option>
                         <?php endforeach; ?>
                     </select>
