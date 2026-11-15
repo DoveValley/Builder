@@ -37,7 +37,18 @@ function lpc_render_footer_link() {
 		return;
 	}
 	$label = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
-	echo '<p style="text-align:center;padding:1em 0;"><a href="' . esc_url( lpc_service_locations_url() ) . '">' . esc_html( $label ) . '</a></p>';
+	// Fully self-contained inline styling, not just plain text — real bug
+	// found on restore-2's live site (2026-11-15): this renders via
+	// wp_footer(), completely outside .lpc-page's scoped <style> block, so
+	// it has zero explicit color of its own and was invisible, inheriting
+	// whatever the surrounding theme context happened to resolve to at that
+	// exact point in the DOM (here: right after a <script> tag, before a
+	// hidden mobile-nav drawer — not inside any obviously-styled footer
+	// wrapper). A fixed, guaranteed-contrasting background+color pair, same
+	// "always control both colors together, never just one" lesson already
+	// applied inside .lpc-page, fixes it regardless of theme context.
+	echo '<p style="text-align:center;margin:0;padding:1em 0;background:#1a1a2e;">'
+		. '<a href="' . esc_url( lpc_service_locations_url() ) . '" style="color:#fff;text-decoration:underline;font-weight:600;">' . esc_html( $label ) . '</a></p>';
 }
 
 add_filter( 'wp_nav_menu_objects', 'lpc_inject_nav_menu_link', 10, 2 );

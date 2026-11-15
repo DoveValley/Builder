@@ -137,7 +137,7 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-faq-item p { margin: 0; opacity: .85; }
 		.lpc-page .lpc-cta { background: <?php echo $primary_tint; ?>; border-radius: 12px; padding: 36px 24px; text-align: center; }
 		.lpc-page .lpc-pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
-		.lpc-page .lpc-pill { background: rgba(0,0,0,.05); border-radius: 999px; padding: 6px 14px; font-size: .85rem; text-decoration: none; }
+		.lpc-page .lpc-pill { background: rgba(0,0,0,.05); border-radius: 999px; padding: 6px 14px; font-size: .85rem; text-decoration: none; color: #1a1a2e; } /* same missing-explicit-color bug as lpc-hub-item a, found in the same audit */
 		.lpc-page .lpc-pill:hover { background: var(--lpc-primary); color: #fff; }
 		.lpc-page .lpc-fact-list { display: flex; flex-wrap: wrap; gap: 20px; margin: 0; padding: 0; }
 		.lpc-page .lpc-fact-list div { background: rgba(0,0,0,.015); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 14px 18px; min-width: 180px; }
@@ -148,6 +148,18 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-hub-item a {
 			display: block; border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary);
 			border-radius: 10px; padding: 18px 20px; text-decoration: none; font-weight: 600;
+			/* Explicit color — missing here was a real confirmed bug, found on
+			   restore-2's real live hub page (2026-11-15): <a> tags don't
+			   simply inherit color from an ancestor like .lpc-page the way
+			   other elements do — any explicit rule, even the browser's own
+			   default/theme's own global link color, overrides inheritance
+			   regardless of specificity, since inherited values are always
+			   lowest-priority in the cascade. Every other <a> this plugin
+			   renders already sets its own color explicitly (lpc-btn,
+			   lpc-safety-link, lpc-fact-list dd a) — this was the one rule
+			   that didn't, and it rendered invisible against this theme's
+			   own link-color default. */
+			color: var(--lpc-primary);
 		}
 		.lpc-page .lpc-hub-item a:hover { box-shadow: 0 2px 10px rgba(0,0,0,.08); }
 	</style>
