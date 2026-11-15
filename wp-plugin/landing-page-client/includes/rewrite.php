@@ -293,6 +293,12 @@ function lpc_render_hub_page( $manifest, $top_level = 'h2' ) {
 	$base = trim( get_option( 'lpc_base_path', '/locations' ), '/' );
 	echo '<main>';
 	echo '<' . $top_level . '>' . esc_html( $manifest['business_name'] ?? 'Locations' ) . '</' . $top_level . '>';
+	// Without this the page is just a heading and a bare list — fine with a
+	// full roster of cities, but a real, confirmed-bad look with only 1-2
+	// published pages (restore-2's exact situation, 2026-11-15): a single
+	// stretched-full-width card and a wall of empty space below it, reading
+	// as broken rather than just "early."
+	echo '<p class="lpc-hub-intro">' . esc_html( $manifest['business_name'] ?? 'We' ) . ' proudly serves the following service area' . ( count( $manifest['pages'] ) === 1 ? '' : 's' ) . ':</p>';
 	echo '<ul class="lpc-hub-list">';
 	foreach ( $manifest['pages'] as $page ) {
 		$url = home_url( '/' . $base . '/' . rawurlencode( $page['slug'] ) );

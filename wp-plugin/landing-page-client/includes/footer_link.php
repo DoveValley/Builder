@@ -31,23 +31,33 @@ function lpc_service_locations_url() {
 	return home_url( trailingslashit( $base_path ) );
 }
 
-// NOT hooked to wp_footer. Real bug, found live on restore-2 (2026-11-15):
-// themes vary wildly in WHERE wp_footer() actually fires relative to their
-// own markup. Kadence here closes its #wrapper div and renders its own
-// "sticky Call Now bar" template part BEFORE calling wp_footer() — so a
-// wp_footer-hooked link landed dumped at the raw end of <body>, after the
-// theme's fixed-position sticky bar, outside the page wrapper entirely.
-// Dark-on-light styling isn't the issue (confirmed present in the raw HTML);
-// DOM placement is. This plugin already fully controls its own virtual page
-// template (get_header()/content/get_footer() in rewrite.php), so instead of
-// trusting a theme's wp_footer timing, rewrite.php calls this function
-// directly, right after our own content and before get_footer() — guaranteed
-// to land inside the theme's real wrapper, directly below the page content,
-// regardless of what any given theme does afterward.
+// Still hooked to wp_footer for site-wide reach (the rest of the client's
+// real site — home, blog, service pages — has no other way to call this).
+// ALSO called directly from rewrite.php, right after our own content and
+// before get_footer(), specifically on our own virtual /locations/ pages.
+// Why both: themes vary wildly in WHERE wp_footer() actually fires relative
+// to their own markup — found live on restore-2 (2026-11-15), Kadence closes
+// its #wrapper div and renders its own "sticky Call Now bar" template part
+// BEFORE calling wp_footer(), so the wp_footer-hooked link landed dumped at
+// the raw end of <body>, after the theme's fixed-position sticky bar,
+// outside the page wrapper. Dark-on-light styling isn't the issue (confirmed
+// present in the raw HTML); DOM placement is. This plugin fully controls its
+// own virtual page template, so on ITS OWN pages it renders the link
+// directly instead of trusting a theme's wp_footer timing — guaranteed to
+// land inside the theme's real wrapper. Elsewhere on the client's site, the
+// wp_footer hook is still the only way to reach it. $rendered guards against
+// printing it twice on our own pages, since get_footer() still fires the
+// theme's own wp_footer() call right after our direct call.
+add_action( 'wp_footer', 'lpc_render_footer_link' );
 function lpc_render_footer_link() {
+	static $rendered = false;
+	if ( $rendered ) {
+		return;
+	}
 	if ( get_option( 'lpc_api_key', '' ) === '' || get_option( 'lpc_nav_link_placement', 'footer' ) !== 'footer' ) {
 		return;
 	}
+	$rendered = true;
 	$label = get_option( 'lpc_nav_link_label', 'View Our Service Locations' );
 	// Fully self-contained inline styling, not just plain text — real bug
 	// found on restore-2's live site (2026-11-15): this renders via

@@ -160,7 +160,13 @@ function lpc_render_styles( $branding ) {
 		.lpc-page .lpc-fact-list dt { font-size: .76rem; text-transform: uppercase; letter-spacing: .03em; opacity: .65; margin: 0 0 4px; }
 		.lpc-page .lpc-fact-list dd { margin: 0; font-weight: 600; }
 		.lpc-page .lpc-fact-list dd a { color: var(--lpc-primary); text-decoration: underline; }
-		.lpc-page .lpc-hub-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+		.lpc-page .lpc-hub-intro { margin: 0 0 20px; opacity: .85; }
+		/* auto-fill + a capped max (not auto-fit + 1fr) so a single published
+		   page doesn't stretch its one card edge-to-edge into a bare full-width
+		   stripe — real look found live on restore-2 (2026-11-15) with only
+		   one city published. Cards stay a sane card width regardless of count;
+		   leftover grid space becomes trailing gap, not card width. */
+		.lpc-page .lpc-hub-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 340px)); gap: 16px; }
 		.lpc-page .lpc-hub-item a {
 			display: block; border: 1px solid rgba(0,0,0,.1); border-left: 4px solid var(--lpc-primary);
 			border-radius: 10px; padding: 18px 20px; text-decoration: none; font-weight: 600;
