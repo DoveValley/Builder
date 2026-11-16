@@ -762,6 +762,36 @@ switch ($section) {
             $msg = 'success:' . $found . '+cit(ies)+researched' . ($empty ? ',+' . $empty . '+with+no+data+found+(see+below)' : '');
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
+        } elseif ($action === 'bulk_live_check') {
+            // "Check Live Selected" — the one check that actually fetches the
+            // real published page and compares it, instead of only verifying
+            // our own data (see lpc_check_live_page()'s own doc comment for
+            // the real incident this closes). Genuinely per-PAGE, unlike
+            // Research/Climate, so no city-collapsing here.
+            set_time_limit(300); // up to one real HTTP fetch per selected page
+            $pageIds = $_POST['page_ids'] ?? [];
+            if (!is_array($pageIds)) $pageIds = [$pageIds];
+            $current = 0; $stale = 0; $failed = 0; $details = [];
+            foreach ($pageIds as $pageId) {
+                $pageId = trim($pageId);
+                $r = lpc_check_live_page($client_id, $pageId);
+                if (!$r['ok']) {
+                    $failed++;
+                    $details[$pageId] = ['status' => 'warned', 'warnings' => [$r['msg']]];
+                } elseif ($r['stale']) {
+                    $stale++;
+                    $details[$pageId] = ['status' => 'warned', 'warnings' => $r['issues']];
+                } else {
+                    $current++;
+                    $details[$pageId] = ['status' => 'ok', 'warnings' => []];
+                }
+            }
+            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Live-checked', 'details' => $details];
+            $msg = 'success:' . $current . '+page(s)+confirmed+current+live';
+            if ($stale)  $msg .= ',+' . $stale . '+stale+on+the+live+site+(see+below)';
+            if ($failed) $msg .= ',+' . $failed . '+could+not+be+checked';
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
         } elseif ($action === 'check_rank') {
             $result = lpc_refresh_rank_for_client($client_id);
             if (!$result['ok']) {

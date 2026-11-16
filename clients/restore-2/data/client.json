@@ -243,5 +243,52 @@
     "integrations": {
         "ga_measurement_id": "",
         "cloudflare_account": ""
+    },
+    "live_check": {
+        "plano-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:13+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "houston-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:13+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "austin-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:14+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "frisco-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:14+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "mckinney-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:14+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "round-rock-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:51:14+00:00",
+            "stale": false,
+            "issues": []
+        }
     }
 }

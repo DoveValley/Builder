@@ -544,6 +544,77 @@ function lpc_publish_page($client_id, $page_id) {
 }
 
 /**
+ * Fetches the REAL live page and checks what it's actually serving against
+ * what our own data says it should be — closing a real blind spot found
+ * live (2026-11-16): the admin dashboard's own completeness check
+ * (lpc_page_completeness_warnings()) only ever looks at data on OUR side,
+ * so it reported 27/27 pages perfect while several were still visibly
+ * serving a stale placeholder photo on the real site — the client's own
+ * WordPress plugin caches each page independently (up to its refresh
+ * interval), so different pages can be at different points in that cache
+ * lifecycle at any given moment. "Looks good on the dashboard" and "correct
+ * on the live site" are two different claims; this is the one check that
+ * actually verifies the second one instead of assuming it follows from the
+ * first.
+ *
+ * Compares by filename hash, not full URL — the WP plugin's own image cache
+ * (lpc_cache_image_locally(), wp-plugin/landing-page-client/includes/
+ * image_cache.php) names each cached file 'lpc-' + md5(remote URL), so the
+ * live HTML's own <img> src already encodes exactly which remote image the
+ * site last fetched, without needing to download and diff the actual bytes.
+ *
+ * Result is cached onto the client record (not the page content file, which
+ * stays purely canonical/synced content, and not session-only like the
+ * keyword-check cache, since this needs to stay visible across reloads the
+ * way Research/Climate Data's own cached results already do).
+ */
+function lpc_check_live_page($client_id, $page_id) {
+    $client = lpc_load_client($client_id);
+    if (!$client) return ['ok' => false, 'msg' => 'Client not found'];
+
+    $domain = trim($client['identity']['domain'] ?? '');
+    if ($domain === '') return ['ok' => false, 'msg' => 'No domain set for this client'];
+
+    $page = lpc_load_page($client_id, $page_id);
+    if (!$page) return ['ok' => false, 'msg' => 'Page not found'];
+    if (($page['status'] ?? '') !== 'published') return ['ok' => false, 'msg' => 'Page is not published'];
+
+    $basePath = trim($client['delivery']['base_path'] ?? '/locations', '/');
+    $url = 'https://' . $domain . '/' . $basePath . '/' . rawurlencode($page_id) . '/';
+
+    $context = stream_context_create(['http' => ['timeout' => 12, 'ignore_errors' => true]]);
+    $html = @file_get_contents($url, false, $context);
+    if ($html === false || $html === '') {
+        return ['ok' => false, 'msg' => 'Could not reach the live page', 'stale' => null];
+    }
+
+    $staleTypes = [];
+    $figureClass = ['hero' => 'lpc-hero-image', 'area_map' => 'lpc-area-map', 'data_chart' => 'lpc-data-chart'];
+    foreach ($page['sections'] as $section) {
+        $type = $section['type'] ?? '';
+        if (!isset($figureClass[$type])) continue;
+        $expectedUrl = $section['image'] ?? '';
+        if ($expectedUrl === '') continue; // already flagged by lpc_page_completeness_warnings()
+        $expectedHash = 'lpc-' . md5($expectedUrl);
+
+        if (!preg_match('/class="' . preg_quote($figureClass[$type], '/') . '"[^>]*>.*?<img[^>]*src="([^"]*)"/s', $html, $m)) {
+            $staleTypes[] = ucfirst(str_replace('_', ' ', $type)) . ' not found on the live page';
+            continue;
+        }
+        if (strpos($m[1], $expectedHash) === false) {
+            $staleTypes[] = ucfirst(str_replace('_', ' ', $type)) . ' is stale on the live site (still serving an older cached image)';
+        }
+    }
+
+    $result = ['ok' => true, 'checked_at' => gmdate('c'), 'stale' => !empty($staleTypes), 'issues' => $staleTypes];
+
+    $client['live_check'][$page_id] = $result;
+    lpc_save_client($client_id, $client);
+
+    return $result;
+}
+
+/**
  * Keeps the delivery server's API-key lookup in sync with this client's
  * actual key/active flag. Temporary hand-authored _keys.json lookup (Phase
  * 1 scaffolding) — every publish call refreshes this client's one entry

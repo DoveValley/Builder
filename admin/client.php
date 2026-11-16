@@ -356,6 +356,12 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <input type="hidden" name="page_action" value="bulk_research">
                 <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             </form>
+            <form id="lpc-livecheck-form" method="post" action="client_save.php" style="display:none;">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="page_action" value="bulk_live_check">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            </form>
             <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
                 <label style="font-size:.82rem;display:flex;align-items:center;gap:5px;font-weight:600;">
                     <input type="checkbox" onclick="lpcToggleAll(this)"> Select All
@@ -370,6 +376,8 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refetch_climate" form="lpc-generate-form"> Re-fetch climate data <span style="color:#9ca3af;">($)</span></label>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_regenerate_text" form="lpc-generate-form"> Regenerate text content <span style="color:#9ca3af;">($)</span></label>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_skip_locked" form="lpc-generate-form" checked> Skip locked pages</label>
+                <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
+                <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-livecheck-form');" title="Fetches each selected page's REAL live URL and checks what it's actually serving — the one check that looks past our own data">Check Live Selected</button>
             </div>
             <script>
             // One shared checkbox per row feeds whichever action's button is
@@ -464,6 +472,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                         <th style="padding:6px 14px;">Locked</th>
                         <th style="padding:6px 14px;">Last Updated</th>
                         <th style="padding:6px 14px;">Keyword Data</th>
+                        <th style="padding:6px 14px;" title="What the page's REAL live URL is actually serving right now, not just our own data">Live</th>
                         <th style="padding:6px 14px;"></th>
                     </tr>
                     <?php foreach ($client['services'] as $s):
@@ -480,7 +489,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </td>
                         <td style="padding:6px 14px;"><?= h($s['label']) ?></td>
                         <?php if (!$included): ?>
-                        <td colspan="4" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
+                        <td colspan="5" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
                         <td style="padding:6px 14px;">
                             <form method="post" action="client_save.php" style="margin:0;">
                                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
@@ -526,6 +535,20 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </td>
                         <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $lastGen ? h($lastGen) : '&mdash;' ?></td>
                         <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $kwLine ?: '&mdash;' ?></td>
+                        <td style="padding:6px 14px;font-size:.78rem;">
+                            <?php
+                            $liveCheck = $client['live_check'][$pageId] ?? null;
+                            $liveAgo = $liveCheck ? date('M j g:ia', strtotime($liveCheck['checked_at'])) : null;
+                            ?>
+                            <?php if (!$liveCheck): ?>
+                                <span style="color:#d1d5db;">Not checked</span>
+                            <?php elseif ($liveCheck['stale']): ?>
+                                <span class="lpc-badge lpc-badge-stale" title="<?= h(implode('; ', $liveCheck['issues'])) ?>">&#9888; Stale</span>
+                            <?php else: ?>
+                                <span class="lpc-badge lpc-badge-connected">&#10003; Current</span>
+                            <?php endif; ?>
+                            <?php if ($liveAgo): ?><div style="color:#9ca3af;font-size:.72rem;margin-top:2px;"><?= h($liveAgo) ?></div><?php endif; ?>
+                        </td>
                         <td style="padding:6px 14px;white-space:nowrap;">
                             <?php if ($pageStatus === null): ?>
                                 <a href="<?= h($editUrl) ?>" class="btn-sm-outline" style="font-size:.74rem;padding:3px 8px;">+ Create &amp; Edit</a>
