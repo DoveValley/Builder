@@ -1035,6 +1035,20 @@ function ms_batch_cumulative_stats(string $masterId, string $batchId): array {
     $files = glob($dir . '/*.json');
     if (!$files) return $out;
     sort($files); // timestamp-prefixed filenames sort chronologically
+
+    // A domain built once then later dropped from params.csv (e.g. swapped out after an
+    // unpurchasable-domain correction) must not keep counting as "built" forever — its last
+    // run result stays in the log, but it's no longer one of this batch's targets.
+    $currentDomains = null;
+    $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (is_file($csv)) {
+        $currentDomains = [];
+        foreach ((ms_parse_csv($csv)['rows'] ?? []) as $t) {
+            $d = strtolower(trim((string) ($t['domain'] ?? '')));
+            if ($d !== '') $currentDomains[$d] = true;
+        }
+    }
+
     $latestStatus = [];
     foreach ($files as $f) {
         $d = ms_read_run($f);
@@ -1042,8 +1056,9 @@ function ms_batch_cumulative_stats(string $masterId, string $batchId): array {
         $out['runs_count']++;
         $out['spent_total'] += (float) ($d['totals']['cost_usd'] ?? 0);
         foreach (($d['results'] ?? []) as $r) {
-            $dom = (string) ($r['domain'] ?? '');
+            $dom = strtolower(trim((string) ($r['domain'] ?? '')));
             if ($dom === '') continue;
+            if ($currentDomains !== null && !isset($currentDomains[$dom])) continue;
             $latestStatus[$dom] = (string) ($r['status'] ?? '');
         }
     }
@@ -1073,7 +1088,7 @@ function ms_batch_golive_summary(string $masterId, string $batchId): array {
     require_once __DIR__ . '/../../admin/infra/lib/fleet_view.php';
     require_once __DIR__ . '/../../admin/infra/lib/state.php';
 
-    $out = ['live_total' => 0, 'live_today' => 0, 'ready' => 0, 'scheduled_today' => 0, 'scheduled_next2' => 0];
+    $out = ['live_total' => 0, 'live_today' => 0, 'ready' => 0, 'scheduled_today' => 0, 'scheduled_next2' => 0, 'scheduled_total' => 0];
     $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
     if (!is_file($csv)) return $out;
     $targets = ms_parse_csv($csv)['rows'] ?? [];
@@ -1094,8 +1109,11 @@ function ms_batch_golive_summary(string $masterId, string $batchId): array {
             if ($r['released_at'] !== '' && substr($r['released_at'], 0, 10) === $today) $out['live_today']++;
         }
         $scheduled = $r['go_live_at'] !== '' && $r['status'] !== 'live';
-        if ($scheduled && $r['go_live_at'] === $today) $out['scheduled_today']++;
-        elseif ($scheduled && in_array($r['go_live_at'], [$tomorrow, $dayAfter], true)) $out['scheduled_next2']++;
+        if ($scheduled) {
+            $out['scheduled_total']++;
+            if ($r['go_live_at'] === $today) $out['scheduled_today']++;
+            elseif (in_array($r['go_live_at'], [$tomorrow, $dayAfter], true)) $out['scheduled_next2']++;
+        }
         if (!empty($r['ready']) && !$scheduled) $out['ready']++;
     }
     return $out;

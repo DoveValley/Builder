@@ -75,7 +75,7 @@ $siteNames = array_column($sites, 'name', 'id');
 // same math twice.
 $batchStats = [];
 $fleetTotals = ['targets' => 0, 'built' => 0, 'live' => 0, 'failed' => 0, 'spent' => 0.0,
-                'live_today' => 0, 'scheduled_today' => 0, 'ready' => 0];
+                'live_today' => 0, 'scheduled_today' => 0, 'ready' => 0, 'scheduled_total' => 0];
 foreach ($batches as $b) {
     $key = $b['master_id'] . '/' . $b['id'];
     $st  = ms_batch_status($b['master_id'], $b['id']);
@@ -90,6 +90,7 @@ foreach ($batches as $b) {
     $fleetTotals['live_today']      += (int) $gl['live_today'];
     $fleetTotals['scheduled_today'] += (int) $gl['scheduled_today'];
     $fleetTotals['ready']           += (int) $gl['ready'];
+    $fleetTotals['scheduled_total'] += (int) $gl['scheduled_total'];
 }
 
 // How many batches each site owns — deleting a site takes its batches with it, so the
@@ -368,6 +369,8 @@ function fmt_date(string $iso): string {
             <div class="batch-nums">
                 <span title="Target domains across every batch"><b><?= (int) $fleetTotals['targets'] ?></b> targets</span>
                 <span title="Domains currently built, across every batch's whole run history"><b><?= (int) $fleetTotals['built'] ?></b> built</span>
+                <span title="Domains built and ready to go live, not yet scheduled"><b><?= (int) $fleetTotals['ready'] ?></b> ready</span>
+                <span title="Domains scheduled to go live on a future date"><b><?= (int) $fleetTotals['scheduled_total'] ?></b> scheduled</span>
                 <span title="Domains currently live" style="color:#166534;"><b style="color:#166534;"><?= (int) $fleetTotals['live'] ?></b> live</span>
                 <?php if ($fleetTotals['failed']): ?><span title="Domains whose most recent attempt failed"><b style="color:#991b1b;"><?= (int) $fleetTotals['failed'] ?></b> failed</span><?php endif; ?>
                 <?php if ($fleetTotals['spent'] > 0): ?><span title="Total AI/build cost across every batch, ever"><b>$<?= number_format((float) $fleetTotals['spent'], 2) ?></b> spent</span><?php endif; ?>
@@ -399,6 +402,8 @@ function fmt_date(string $iso): string {
                 <span title="Target domains in this batch's list"><b><?= (int) $st['targets'] ?></b> targets</span>
                 <?php if ($st['has_run']): ?>
                 <span title="Domains currently built, across this batch's whole run history (not just the last run)"><b><?= (int) $cum['built_total'] ?></b> built</span>
+                <span title="Domains built and ready to go live, not yet scheduled"><b><?= (int) $gl['ready'] ?></b> ready</span>
+                <span title="Domains scheduled to go live on a future date"><b><?= (int) $gl['scheduled_total'] ?></b> scheduled</span>
                 <span title="Domains currently live" style="color:#166534;"><b style="color:#166534;"><?= (int) $gl['live_total'] ?></b> live</span>
                 <?php if ($cum['failed_total']): ?><span title="Domains whose most recent attempt failed"><b style="color:#991b1b;"><?= (int) $cum['failed_total'] ?></b> failed</span><?php endif; ?>
                 <?php if ($cum['spent_total'] > 0): ?><span title="Total AI/build cost across all <?= (int) $cum['runs_count'] ?> run(s) of this batch, ever"><b>$<?= number_format((float) $cum['spent_total'], 2) ?></b> spent</span><?php endif; ?>
