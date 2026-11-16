@@ -350,12 +350,20 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <input type="hidden" name="page_action" value="bulk_generate">
                 <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             </form>
+            <form id="lpc-research-form" method="post" action="client_save.php" style="display:none;">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="page_action" value="bulk_research">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
+            </form>
             <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
                 <label style="font-size:.82rem;display:flex;align-items:center;gap:5px;font-weight:600;">
                     <input type="checkbox" onclick="lpcToggleAll(this)"> Select All
                 </label>
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-publish-form');">Publish Selected</button>
+                <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
+                <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-research-form');" title="Real Census/population lookup — free, runs once per unique city among the pages checked">Research Selected</button>
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-generate-form', 'Generate/refresh the selected pages? Checked options below with real external cost (AI text, climate data) will actually spend it.');">Generate / Refresh Selected</button>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refresh_hero" form="lpc-generate-form" checked> Refresh hero image</label>
@@ -409,14 +417,14 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <div style="background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                     <input type="checkbox" class="lpc-city-select-all" title="Select every page in this city" onclick="lpcToggleCity(this, '<?= h($tc['city_id']) ?>')">
                     <strong style="font-size:.92rem;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></strong>
-                    <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $cityResearched ? 'Researched' : 'Not Researched' ?></span>
+                    <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $cityResearched ? 'Researched &#10003;' : 'Not Researched' ?></span>
                     <form method="post" action="client_save.php" style="margin:0;display:inline;">
                         <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                         <input type="hidden" name="section" value="target_cities">
                         <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
-                        <input type="hidden" name="tc_action" value="toggle_research">
+                        <input type="hidden" name="tc_action" value="run_research">
                         <input type="hidden" name="city_id" value="<?= h($tc['city_id']) ?>">
-                        <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;"><?= $cityResearched ? 'Unmark' : 'Mark done' ?></button>
+                        <button type="submit" class="btn-sm-outline" style="font-size:.7rem;padding:1px 6px;" title="Real Census/population lookup — free, no external cost"><?= $cityResearched ? 'Re-research' : 'Research' ?></button>
                     </form>
                     <?php if (infra_kw_has_creds('dataforseo')): ?>
                     <form method="post" action="client_save.php" style="margin:0;display:inline;">

@@ -89,6 +89,44 @@ function lpc_ai_research_block($city, $state, $research) {
         . "additional specific numbers beyond what's listed here):\n" . implode("\n", $lines);
 }
 
+/**
+ * Runs the real research lookup for one city and records what it actually
+ * found — replaces the old "Researched" checkbox, which was a bare manual
+ * flag completely disconnected from lpc_get_city_research() (the real
+ * lookup already runs automatically, silently, every time a page's text is
+ * drafted — nobody "ran" it, and the checkbox never reflected whether it
+ * found anything). Same shape as lpc_fetch_climate_data(): a real action,
+ * a real cached result, a badge that reflects what's actually on file.
+ *
+ * research_done is TRUE only when the lookup actually found real data —
+ * a city with genuinely no Census coverage stays "Not Researched" even
+ * after running this, which is the correct, honest signal (that city's AI
+ * content really is working with less real data than most).
+ */
+function lpc_run_city_research($client_id, $city_id) {
+    $client = lpc_load_client($client_id);
+    if (!$client) return ['ok' => false, 'msg' => 'Client not found', 'found' => false];
+    $tc = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $city_id);
+    if (!$tc) return ['ok' => false, 'msg' => 'City not found', 'found' => false];
+
+    $research = lpc_get_city_research($city_id);
+    $found = !empty($research['population']) || !empty($research['income_median'])
+        || !empty($research['home_value_median']) || !empty($research['year_built_median'])
+        || !empty($research['housing_units_total']);
+
+    foreach ($client['target_cities'] as &$t) {
+        if ($t['city_id'] !== $city_id) continue;
+        $t['research_done']  = $found;
+        $t['researched_at']  = gmdate('c');
+        $t['research_data']  = $research;
+        break;
+    }
+    unset($t);
+    lpc_save_client($client_id, $client);
+
+    return ['ok' => true, 'msg' => $found ? '' : 'No real Census/population data found for this city', 'found' => $found];
+}
+
 /** The instruction for one niche-specific content slot — the niche profile's
  *  own guidance if set, else a generic-but-still-reasonable fallback so a
  *  niche that hasn't filled in its content_slots yet doesn't read oddly. */

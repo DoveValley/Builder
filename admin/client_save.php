@@ -389,19 +389,17 @@ switch ($section) {
         } elseif ($action === 'remove') {
             $cityId = $_POST['city_id'] ?? '';
             $client['target_cities'] = array_values(array_filter($client['target_cities'], fn($tc) => $tc['city_id'] !== $cityId));
-        } elseif ($action === 'toggle_research') {
-            // Manual tracking only, same shape as a page's Locked toggle — no
-            // automated research pipeline writes this yet (Phase 3, not built).
+        } elseif ($action === 'run_research') {
+            // Real lookup, not a manual flag — see lpc_run_city_research()'s
+            // own doc comment for why this replaced the old toggle_research
+            // action. Free (local DB reads, no external API), so no cost
+            // confirm() needed the way Check Demand/Climate Data have.
             $cityId = $_POST['city_id'] ?? '';
-            foreach ($client['target_cities'] as &$tc) {
-                if ($tc['city_id'] !== $cityId) continue;
-                $tc['research_done'] = empty($tc['research_done']);
-                $tc['researched_at'] = $tc['research_done'] ? gmdate('c') : null;
-                break;
-            }
-            unset($tc);
-            lpc_save_client($client_id, $client);
-            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=success:City+updated');
+            $r = lpc_run_city_research($client_id, $cityId);
+            $msg = $r['ok']
+                ? ($r['found'] ? 'success:Research+complete' : 'warning:' . urlencode($r['msg']))
+                : 'error:' . urlencode($r['msg']);
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
         } elseif ($action === 'check_demand') {
             // Real DataForSEO cost — the matrix's own button already shows a
@@ -731,6 +729,37 @@ switch ($section) {
             $msg = 'success:' . $ok . '+page(s)+generated';
             if ($warned)  $msg .= ',+' . $warned . '+with+warnings+(see+below)';
             if ($skipped) $msg .= ',+' . $skipped . '+skipped+(locked)';
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
+        } elseif ($action === 'bulk_research') {
+            // "Research Selected" button — research is a per-CITY concept
+            // (one city either has real Census data on file or it doesn't,
+            // regardless of which service page you were looking at), but the
+            // matrix's checkboxes are per PAGE — collapse to unique cities
+            // first so checking all 3 services under one city doesn't run
+            // the same free lookup three times.
+            $pageIds = $_POST['page_ids'] ?? [];
+            if (!is_array($pageIds)) $pageIds = [$pageIds];
+            $cityIds = [];
+            foreach ($pageIds as $pageId) {
+                [$cid] = explode('__', trim($pageId), 2);
+                if ($cid !== '') $cityIds[$cid] = true;
+            }
+            $found = 0; $empty = 0; $details = [];
+            foreach (array_keys($cityIds) as $cityId) {
+                $tc = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $cityId);
+                $label = $tc ? ($tc['city'] . ', ' . $tc['state']) : $cityId;
+                $r = lpc_run_city_research($client_id, $cityId);
+                if ($r['found']) {
+                    $found++;
+                    $details[$label] = ['status' => 'ok', 'warnings' => []];
+                } else {
+                    $empty++;
+                    $details[$label] = ['status' => 'warned', 'warnings' => [$r['msg'] ?: 'No data found']];
+                }
+            }
+            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Researched', 'details' => $details];
+            $msg = 'success:' . $found . '+cit(ies)+researched' . ($empty ? ',+' . $empty . '+with+no+data+found+(see+below)' : '');
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
         } elseif ($action === 'check_rank') {
