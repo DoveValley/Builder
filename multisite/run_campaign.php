@@ -35,13 +35,13 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "run_campaign.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
-require __DIR__ . '/../includes/multisite/batch.php';
-require __DIR__ . '/../includes/multisite/clone.php';
-require __DIR__ . '/../includes/multisite/run_pool.php';   // ms_run_pool()/ms_parse_line() — shared with upload_sites.php
-require __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/clone.php';
+require_once __DIR__ . '/../includes/multisite/run_pool.php';   // ms_run_pool()/ms_parse_line() — shared with upload_sites.php
+require_once __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
 
 // ── Args ──────────────────────────────────────────────────────────────────────
 $args      = array_slice($argv, 1);

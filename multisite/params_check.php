@@ -13,11 +13,11 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "params_check.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
 
-require __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
 
 $args = array_slice($argv, 1);
 $preflight = in_array('--preflight', $args, true);

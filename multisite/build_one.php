@@ -24,18 +24,18 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "build_one.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/clone.php';
-require __DIR__ . '/../includes/multisite/inject.php';
-require __DIR__ . '/../includes/multisite/deploy.php';
-require __DIR__ . '/../includes/multisite/ai_cache.php';
-require __DIR__ . '/../includes/multisite/differentiate.php';
-require __DIR__ . '/../includes/multisite/page_pool.php';
-require __DIR__ . '/../includes/multisite/visual.php';
-require __DIR__ . '/../includes/multisite/landing.php';
-require __DIR__ . '/../includes/multisite/slug_redirects.php';
-require __DIR__ . '/../includes/multisite/geocode.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/clone.php';
+require_once __DIR__ . '/../includes/multisite/inject.php';
+require_once __DIR__ . '/../includes/multisite/deploy.php';
+require_once __DIR__ . '/../includes/multisite/ai_cache.php';
+require_once __DIR__ . '/../includes/multisite/differentiate.php';
+require_once __DIR__ . '/../includes/multisite/page_pool.php';
+require_once __DIR__ . '/../includes/multisite/visual.php';
+require_once __DIR__ . '/../includes/multisite/landing.php';
+require_once __DIR__ . '/../includes/multisite/slug_redirects.php';
+require_once __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 require_once __DIR__ . '/../includes/multisite/image_ai.php';
 require_once __DIR__ . '/../includes/multisite/seo_gate.php';

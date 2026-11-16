@@ -21,11 +21,11 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "research_cities.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
 
-require __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
 
 $args       = array_slice($argv, 1);
 $dry        = in_array('--dry-run', $args, true);

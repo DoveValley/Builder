@@ -10,10 +10,10 @@
  * Incremental save, paced (Nominatim = 1 req/sec), idempotent.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(2); }
-require __DIR__ . '/../../config.php';
-require __DIR__ . '/../../includes/functions.php';
-require __DIR__ . '/../../includes/multisite/geocode.php';   // the Nominatim client
-require __DIR__ . '/findtreatment.php';                      // the SAMHSA locator client
+require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/multisite/geocode.php';   // the Nominatim client
+require_once __DIR__ . '/findtreatment.php';                      // the SAMHSA locator client
 if (ACTIVE_SITE_ID !== 'recovery-site') { fwrite(STDERR, "Set MULTISITE_SITE_BASE.\n"); exit(2); }
 
 $refresh = in_array('--refresh', $argv, true);

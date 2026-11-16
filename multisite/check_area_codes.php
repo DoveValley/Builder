@@ -27,12 +27,12 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "check_area_codes.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
-require __DIR__ . '/../includes/multisite/batch.php';
-require __DIR__ . '/../includes/calltrackingmetrics.php';
-require __DIR__ . '/../admin/infra/lib/state.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+require_once __DIR__ . '/../admin/infra/lib/state.php';
 
 $args     = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');

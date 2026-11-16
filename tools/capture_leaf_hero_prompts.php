@@ -24,10 +24,10 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/picdrop.php';
-require __DIR__ . '/../includes/multisite/image_ai.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/picdrop.php';
+require_once __DIR__ . '/../includes/multisite/image_ai.php';
 
 $masterId = null; $servicePhrase = null; $dryRun = false; $force = false;
 foreach (array_slice($argv, 1) as $a) {

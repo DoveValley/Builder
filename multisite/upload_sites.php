@@ -34,13 +34,13 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "upload_sites.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
-require __DIR__ . '/../includes/multisite/batch.php';
-require __DIR__ . '/../includes/multisite/deploy.php';
-require __DIR__ . '/../includes/multisite/run_pool.php';   // ms_run_pool()/ms_parse_line() — shared with run_campaign.php
-require __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/deploy.php';
+require_once __DIR__ . '/../includes/multisite/run_pool.php';   // ms_run_pool()/ms_parse_line() — shared with run_campaign.php
+require_once __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
 
 // Each domain's deploy_site() now runs in its own upload_one.php subprocess (see
 // below), reporting progress as JSON lines — ms_parse_line() (includes/multisite/

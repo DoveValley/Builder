@@ -31,12 +31,12 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "ctm_bulk.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
-require __DIR__ . '/../includes/multisite/batch.php';
-require __DIR__ . '/../includes/calltrackingmetrics.php';
-require __DIR__ . '/../admin/infra/lib/state.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+require_once __DIR__ . '/../admin/infra/lib/state.php';
 
 // Same stdout-buffering fix as check_area_codes.php — without an explicit flush,
 // PHP holds output until the whole script exits when stdout isn't a tty (exactly

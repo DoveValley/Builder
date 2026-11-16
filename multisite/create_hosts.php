@@ -26,11 +26,11 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "create_hosts.php is CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/multisite/params.php';
-require __DIR__ . '/../includes/multisite/batch.php';
-require __DIR__ . '/../admin/infra/lib/provision.php';   // the Hestia + fleet-state module
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/multisite/params.php';
+require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../admin/infra/lib/provision.php';   // the Hestia + fleet-state module
 
 $args     = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
@@ -73,7 +73,7 @@ foreach ($rows as $r) {
 // Pick-deployment-servers plan is never consulted, so requiring one to exist first
 // was blocking Create Host entirely for anyone using strict mode and nothing else —
 // exactly the setup the Target List card's own "Order of operations" recommends.
-require __DIR__ . '/../includes/multisite/box_assignment.php';
+require_once __DIR__ . '/../includes/multisite/box_assignment.php';
 $strictBox = ms_box_assignment_settings(ms_batch_file_read($masterId, $batchId, 'box_assignment.json'))['strict_mode'];
 
 /* The plan: which boxes, how many each. Only required when strict mode is OFF —

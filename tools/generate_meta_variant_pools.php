@@ -23,9 +23,9 @@
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(2); }
 
-require __DIR__ . '/../config.php';
-require __DIR__ . '/../includes/functions.php';
-require __DIR__ . '/../includes/anthropic.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/anthropic.php';
 
 $masterId = null; $count = 4; $pagesArg = 'home,landing'; $limit = null; $dryRun = false; $force = false;
 foreach (array_slice($argv, 1) as $a) {
