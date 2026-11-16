@@ -342,11 +342,13 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="pages">
                 <input type="hidden" name="page_action" value="publish">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             </form>
             <form id="lpc-generate-form" method="post" action="client_save.php" style="display:none;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="pages">
                 <input type="hidden" name="page_action" value="bulk_generate">
+                <input type="hidden" name="client_id" value="<?= h($client_id) ?>">
             </form>
             <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
                 <label style="font-size:.82rem;display:flex;align-items:center;gap:5px;font-weight:600;">
