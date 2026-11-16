@@ -203,8 +203,21 @@ function infra_domain_buy(string $domain, array $opts = []): array
     $domain = strtolower(trim($domain));
     return infra_pipeline_lock($domain, 'buy', function () use ($domain, $opts) {
     $rec    = infra_state_get_domain($domain);
-    $fail   = function (string $m, bool $record = false) use ($domain) {
-        if ($record) infra_state_upsert_domain(['domain' => $domain, 'status' => 'buy-failed', 'buy_error' => $m]);
+    // Same rule as the success path below (and buy_recheck.php's pending-confirm
+    // sweep): never regress a domain already staged/queued/further back down to
+    // 'buy-failed'. The batch pipeline builds/hosts/uploads ahead of the actual
+    // purchase, so a failed buy attempt (insufficient funds, say) can land on a
+    // domain that is already fully built and uploaded — stomping it to
+    // 'buy-failed' here dropped it out of Go Live's staged/queued gate exactly
+    // the way an unguarded 'owned' write did on 2026-11-13 (see the success path's
+    // own comment), except the next successful retry then wrote 'owned' instead of
+    // restoring 'staged', since 'buy-failed' isn't in INFRA_STATUSES_MANUAL either.
+    $fail   = function (string $m, bool $record = false) use ($domain, $rec) {
+        if ($record) {
+            $write = ['domain' => $domain, 'buy_error' => $m];
+            if (!in_array($rec['status'] ?? '', INFRA_STATUSES_MANUAL, true)) $write['status'] = 'buy-failed';
+            infra_state_upsert_domain($write);
+        }
         return ['ok' => false, 'message' => $m];
     };
 
