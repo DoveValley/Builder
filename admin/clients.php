@@ -126,12 +126,15 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         <h4 style="margin-bottom:4px;">How it's built</h4>
         <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
             <li>Content reuses this site factory's own engine — the same AI content pipeline, real per-city
-                Census research (income, home values, year built, etc.), and niche-specific content templates
-                the four live niche sites (water/mold/pest/appliance) already use.</li>
+                Census research (population, income, home values, year built, etc.), a real NOAA climate data
+                chart per city, and niche-specific content templates the four live niche sites
+                (water/mold/pest/appliance) already use.</li>
             <li>Each client's pages are stored here (<code>clients/{id}/data/</code>), then published to a
                 separate delivery server their WordPress plugin fetches from — a thin, stateless proxy that
                 renders inside <strong>their own theme's header/footer</strong>, so it inherits their real
-                site's look with no custom CSS to fight against.</li>
+                site's look with no custom CSS to fight against. A small floating badge the plugin injects
+                site-wide links back to a public "Service Locations" hub page, grouped State &gt; Hub Area
+                &gt; City &gt; Services, with real nearby-city cross-linking between pages.</li>
             <li>A niche profile (Niche Profiles button, above) defines content slots and a default service list
                 per industry vertical — a new client's wizard offers these as checkboxes, never auto-copied.</li>
         </ul>
@@ -142,10 +145,27 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
             <li>Finishing the wizard immediately AI-generates a draft page for every city &times; service
                 combination (real cost per page) — nothing publishes yet.</li>
             <li>In the client's workspace: set Content Profile (tone/excluded services) <em>before</em>
-                reviewing drafts, then use Locations &amp; Services to review/Edit/Regenerate each page,
-                assign a real or AI-generated photo per service, and Lock any page that's final.</li>
-            <li><strong>Publish</strong> the pages you're satisfied with, then go to the Delivery tab —
-                download the plugin zip and copy the API key to email the client (built-in compose form).</li>
+                reviewing drafts, then use <strong>Locations &amp; Services</strong> — a city-grouped matrix
+                with a checkbox per page and four selection-based actions:
+                <ul style="margin:4px 0 0;padding-left:18px;">
+                    <li><strong>Research Selected</strong> — real Census population lookup, free, runs once
+                        per unique city among the pages checked.</li>
+                    <li><strong>Generate / Refresh Selected</strong> — redraws each checked page one at a time
+                        with live progress, with its own checkboxes for what to actually spend on: refresh
+                        hero image, re-fetch climate data ($), regenerate text content ($), and skip locked
+                        pages.</li>
+                    <li><strong>Publish Selected</strong> — makes the checked drafts live.</li>
+                    <li><strong>Check Live Selected</strong> — fetches each page's real public URL and
+                        compares what it's actually serving against what the data says it should be (hero
+                        image, area map, climate chart) — the one check that catches a host's CDN still
+                        serving a stale cached copy.</li>
+                </ul>
+            </li>
+            <li>The Status column is honest, not decorative — a page can say Published and still carry a
+                &#9888; warning if something expected (hero image, climate data, etc.) is actually missing.
+                Lock any page that's final to block it from being touched by Regenerate.</li>
+            <li>Once pages are published, go to the Delivery tab — download the plugin zip and copy the API
+                key to email the client (built-in compose form).</li>
             <li>Once they paste the key into their WordPress plugin settings, the status badge on this list
                 flips to Connected.</li>
         </ol>

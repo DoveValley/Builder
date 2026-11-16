@@ -100,6 +100,8 @@ $apiKey = lpc_get_client_api_key($client_id);
     <div class="lpc-topbar">
         <h1><?= h($client['identity']['business_name']) ?></h1>
         <div style="display:flex;align-items:center;gap:10px;">
+            <a href="sites.php" class="btn-sm-outline">&larr; Dashboard</a>
+            <button class="btn-sm-outline" onclick="toggleLpcHowItWorks()">How This Works &#9432;</button>
             <a href="preview_site.php?client_id=<?= h($client_id) ?>" class="btn-sm-outline" target="_blank">&#128065; Preview Site</a>
             <?php
             $badgeClass = $status === 'Connected' ? 'connected' : ($status === 'Stale' ? 'stale' : 'never');
@@ -108,6 +110,64 @@ $apiKey = lpc_get_client_api_key($client_id);
         </div>
     </div>
     <p class="lpc-sub"><?= h($client['identity']['domain']) ?: 'No domain set' ?></p>
+
+    <div id="lpc-how-it-works-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
+        <h3 style="margin-top:0;color:#1e3a5f;">What this is, how it's built, how to use it</h3>
+        <p style="font-size:.88rem;line-height:1.7;">
+            A multi-location landing-page service sold to external businesses (plumbers, restoration
+            companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
+            Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
+        </p>
+        <h4 style="margin-bottom:4px;">How it's built</h4>
+        <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+            <li>Content reuses this site factory's own engine — the same AI content pipeline, real per-city
+                Census research (population, income, home values, year built, etc.), a real NOAA climate data
+                chart per city, and niche-specific content templates the four live niche sites
+                (water/mold/pest/appliance) already use.</li>
+            <li>This client's pages are stored here (<code>clients/<?= h($client_id) ?>/data/</code>), then
+                published to a separate delivery server their WordPress plugin fetches from — a thin,
+                stateless proxy that renders inside <strong>their own theme's header/footer</strong>, so it
+                inherits their real site's look with no custom CSS to fight against. A small floating badge
+                the plugin injects site-wide links back to a public "Service Locations" hub page, grouped
+                State &gt; Hub Area &gt; City &gt; Services, with real nearby-city cross-linking between
+                pages.</li>
+        </ul>
+        <h4 style="margin-bottom:4px;">How to use it</h4>
+        <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
+            <li>Set Content Profile (tone/excluded services) <em>before</em> reviewing drafts, then use
+                <strong>Locations &amp; Services</strong> — a city-grouped matrix with a checkbox per page
+                and four selection-based actions:
+                <ul style="margin:4px 0 0;padding-left:18px;">
+                    <li><strong>Research Selected</strong> — real Census population lookup, free, runs once
+                        per unique city among the pages checked.</li>
+                    <li><strong>Generate / Refresh Selected</strong> — redraws each checked page one at a time
+                        with live progress, with its own checkboxes for what to actually spend on: refresh
+                        hero image, re-fetch climate data ($), regenerate text content ($), and skip locked
+                        pages.</li>
+                    <li><strong>Publish Selected</strong> — makes the checked drafts live.</li>
+                    <li><strong>Check Live Selected</strong> — fetches each page's real public URL and
+                        compares what it's actually serving against what the data says it should be (hero
+                        image, area map, climate chart) — the one check that catches a host's CDN still
+                        serving a stale cached copy.</li>
+                </ul>
+            </li>
+            <li>The Status column is honest, not decorative — a page can say Published and still carry a
+                &#9888; warning if something expected (hero image, climate data, etc.) is actually missing.
+                Lock any page that's final to block it from being touched by Regenerate.</li>
+            <li>Once pages are published, go to the Delivery tab — download the plugin zip and copy the API
+                key to email the client (built-in compose form).</li>
+            <li>Once they paste the key into their WordPress plugin settings, the status badge above flips
+                to Connected.</li>
+        </ol>
+        <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
+            <code>docs/landing-page-clients-onboarding.md</code>.</p>
+    </div>
+    <script>
+    function toggleLpcHowItWorks() {
+        const el = document.getElementById('lpc-how-it-works-card');
+        el.style.display = (el.style.display === 'none') ? '' : 'none';
+    }
+    </script>
 
     <div class="lpc-stats">
         <div><strong><?= $pagesLive ?> / <?= $pagesTotal ?></strong><span>Pages Live</span></div>
@@ -293,11 +353,17 @@ $apiKey = lpc_get_client_api_key($client_id);
             <button type="submit" class="btn-sm-outline">+ Add Service (applies to every existing city)</button>
         </form>
 
-        <h3 style="margin-top:32px;">Target Cities &times; Services</h3>
+        <h3 style="margin-top:32px;display:flex;align-items:center;gap:10px;">
+            Target Cities &times; Services
+            <?php $lpcDomain = trim($client['identity']['domain'] ?? ''); if ($lpcDomain !== ''): ?>
+            <a href="https://<?= h($lpcDomain) ?>/" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:400;color:#6b7280;">&#8599; <?= h($lpcDomain) ?></a>
+            <?php endif; ?>
+        </h3>
         <?php if (empty($client['target_cities'])): ?>
             <p style="color:#6b7280;font-size:.88rem;">No target cities yet — add some from the suggestions below.</p>
         <?php else: ?>
             <?php
+            $lpcBasePath = trim($client['delivery']['base_path'] ?? '', '/') ?: 'locations';
             // Climate Data (data_chart section) is per CITY, not per page — the
             // chart is the same for every service at a city (a client has one
             // niche, which is what picks it), result shared-cached by
@@ -538,14 +604,25 @@ $apiKey = lpc_get_client_api_key($client_id);
                         $kw = $kwData[$s['service_id']] ?? null;
                         $kwLine = $kw ? ('Vol ' . number_format((int) ($kw['volume'] ?? 0)) . ' &middot; KD ' . (int) ($kw['kd'] ?? 0) . ' &middot; $' . number_format((float) ($kw['cpc'] ?? 0), 2)) : null;
                     ?>
-                    <?php $pageId = $tc['city_id'] . '__' . $s['service_id']; ?>
+                    <?php
+                    $pageId = $tc['city_id'] . '__' . $s['service_id'];
+                    $page = $included ? lpc_load_page($client_id, $pageId) : null;
+                    $pageStatus = $page['status'] ?? null;
+                    $liveUrl = 'https://' . $lpcDomain . '/' . $lpcBasePath . '/' . rawurlencode($pageId) . '/';
+                    ?>
                     <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
                         <td style="padding:6px 14px;">
                             <?php if ($included): ?>
                             <input type="checkbox" class="lpc-row-check" data-city="<?= h($tc['city_id']) ?>" value="<?= h($pageId) ?>">
                             <?php endif; ?>
                         </td>
-                        <td style="padding:6px 14px;"><?= h($s['label']) ?></td>
+                        <td style="padding:6px 14px;">
+                            <?php if ($pageStatus === 'published' && $lpcDomain !== ''): ?>
+                            <a href="<?= h($liveUrl) ?>" target="_blank" rel="noopener" title="Open the live page"><?= h($s['label']) ?></a>
+                            <?php else: ?>
+                            <?= h($s['label']) ?>
+                            <?php endif; ?>
+                        </td>
                         <?php if (!$included): ?>
                         <td colspan="5" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
                         <td style="padding:6px 14px;">
@@ -561,8 +638,6 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </td>
                         <?php continue; endif; ?>
                         <?php
-                        $page = lpc_load_page($client_id, $pageId);
-                        $pageStatus = $page['status'] ?? null;
                         $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId);
                         $pageLocked = !empty($page['locked']);
                         $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null;

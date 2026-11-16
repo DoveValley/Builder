@@ -125,7 +125,11 @@ function lpc_detect_fetch(string $url, int $timeout = 12): ?string {
         CURLOPT_TIMEOUT        => $timeout,
         CURLOPT_SSL_VERIFYPEER => true,
         CURLOPT_SSL_VERIFYHOST => 2,
-        CURLOPT_USERAGENT      => 'SiteFactory-LandingPageClients/1.0 (branding auto-detect)',
+        // Must look like a real browser, not a self-identifying bot UA: some hosts
+        // (confirmed on Kinsta/Cloudflare, see lpc_check_live_page()) serve bot-looking
+        // User-Agents a stale cached snapshot regardless of origin cache headers, which
+        // would pull wrong branding data into the wizard.
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
         CURLOPT_HTTPHEADER     => ['Accept: text/html,application/json'],
     ]);
     $body = curl_exec($ch);
