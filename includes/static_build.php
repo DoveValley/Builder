@@ -22,10 +22,15 @@ if (!function_exists('gen_write')) {
         $dir = dirname($filePath);
         if (!is_dir($dir)) mkdir($dir, 0755, true);
         // Rewrite multi-site upload URLs to flat /uploads/ so the static output
-        // doesn't expose the internal sites/{id}/ path structure.
-        if (UPLOAD_URL !== 'uploads/') {
-            $html = str_replace('/' . UPLOAD_URL, '/uploads/', $html);
-        }
+        // doesn't expose the internal sites/{id}/ path structure. Matched by pattern,
+        // not against this request's own UPLOAD_URL — a photo field can have
+        // sites/{id}/uploads/... baked into it from being saved during an admin-session
+        // request (UPLOAD_URL = sites/{id}/uploads/), while THIS build runs in worker mode
+        // with UPLOAD_URL = uploads/ (e.g. MULTISITE_SITE_BASE pointed straight at the real
+        // site dir instead of a clone) — in that case the two never matched, so the baked-in
+        // path reached production unrewritten (found live on granitepmacademy.com, all
+        // images 404ing at /sites/granitepmacademy/uploads/... instead of /uploads/...).
+        $html = preg_replace('#/sites/[a-z0-9][a-z0-9-]*/uploads/#', '/uploads/', $html);
         // Normalize internal links to the trailing-slash form the static host serves
         // (…/about/index.html). Without this every internal href hits a DirectorySlash
         // 301 (/about → /about/). HTML only — sitemap.xml/robots.txt/.htaccess are also
