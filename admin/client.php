@@ -499,6 +499,13 @@ $apiKey = lpc_get_client_api_key($client_id);
                         $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId);
                         $pageLocked = !empty($page['locked']);
                         $lastGen = $pageStatus !== null && !empty($page['updated_at']) ? date('M j', strtotime($page['updated_at'])) : null;
+                        // Read-only, free — just looks at what's already on
+                        // disk (same check Generate/Refresh's own verify step
+                        // runs), so a status badge can't quietly lie anymore:
+                        // a page can say "Published" and still be missing its
+                        // hero/area map/chart, which is the exact gap that
+                        // kept costing a manual investigation every time.
+                        $completenessWarnings = $page ? lpc_page_completeness_warnings($page) : [];
                     ?>
                         <td style="padding:6px 14px;">
                             <?php if ($pageStatus === null): ?>
@@ -509,6 +516,9 @@ $apiKey = lpc_get_client_api_key($client_id);
                                 <span class="lpc-badge lpc-badge-connected">Published</span>
                             <?php else: ?>
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
+                            <?php endif; ?>
+                            <?php if ($completenessWarnings): ?>
+                                <span class="lpc-badge lpc-badge-stale" title="<?= h(implode('; ', $completenessWarnings)) ?>">&#9888; <?= count($completenessWarnings) ?></span>
                             <?php endif; ?>
                         </td>
                         <td style="padding:6px 14px;">

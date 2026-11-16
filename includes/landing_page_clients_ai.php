@@ -492,6 +492,30 @@ function lpc_generate_drafts_for_client($client_id) {
 }
 
 /**
+ * Read-only, zero-cost: just looks at what a page already has on disk and
+ * reports what's missing, same checks lpc_generate_and_verify_page() runs
+ * as its own final step — one shared function so the two can never quietly
+ * check different things. Built so the matrix can show every page's real
+ * completeness (not just its Draft/Published workflow status) on every
+ * load, for free — no generation, no API calls, no writes.
+ */
+function lpc_page_completeness_warnings($page) {
+    if (!$page) return [];
+    $warnings = [];
+    $placeholder = lpc_placeholder_image_url();
+    foreach ($page['sections'] ?? [] as $section) {
+        $type = $section['type'] ?? '';
+        if (!in_array($type, ['hero', 'area_map', 'data_chart'], true)) continue;
+        if (empty($section['image'])) {
+            $warnings[] = ucfirst(str_replace('_', ' ', $type)) . ' image is missing';
+        } elseif ($type === 'hero' && $section['image'] === $placeholder) {
+            $warnings[] = 'Hero image is still the shared placeholder — generate a real photo for this service';
+        }
+    }
+    return $warnings;
+}
+
+/**
  * One page, one call, every piece checked — built after a real incident
  * (2026-11-15, restore-2): a page's content comes from four independent
  * systems (AI text, service photo, climate chart, area map) that never
@@ -592,18 +616,11 @@ function lpc_generate_and_verify_page($client_id, $page_id, $opts = []) {
     }
 
     // 5. Verify — the step this whole function exists for. Never assume the
-    // above worked; check what's actually on the page afterward.
+    // above worked; check what's actually on the page afterward. Shared with
+    // the matrix's own read-only display check (lpc_page_completeness_warnings)
+    // so the two can never drift into checking different things.
     $page = lpc_load_page($client_id, $page_id);
-    $placeholder = lpc_placeholder_image_url();
-    foreach ($page['sections'] ?? [] as $section) {
-        $type = $section['type'] ?? '';
-        if (!in_array($type, ['hero', 'area_map', 'data_chart'], true)) continue;
-        if (empty($section['image'])) {
-            $warnings[] = ucfirst(str_replace('_', ' ', $type)) . ' image is missing';
-        } elseif ($type === 'hero' && $section['image'] === $placeholder) {
-            $warnings[] = 'Hero image is still the shared placeholder — generate a real photo for this service';
-        }
-    }
+    $warnings = array_merge($warnings, lpc_page_completeness_warnings($page));
 
     return ['ok' => true, 'skipped' => false, 'warnings' => $warnings];
 }
