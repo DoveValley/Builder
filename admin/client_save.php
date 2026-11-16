@@ -683,6 +683,31 @@ switch ($section) {
             foreach ($pageIds as $pageId) {
                 lpc_publish_page($client_id, trim($pageId));
             }
+        } elseif ($action === 'bulk_generate') {
+            // One call per selected page into lpc_generate_and_verify_page()
+            // — the matrix's "Generate / Refresh Selected" button. Real AI
+            // cost when opt_regenerate_text is checked, so the button's own
+            // confirm() already warns before this ever posts.
+            set_time_limit(300); // several real API calls in one request, same reason lpc_generate_drafts_for_target_city()'s own caller sets this
+            $pageIds = $_POST['page_ids'] ?? [];
+            if (!is_array($pageIds)) $pageIds = [$pageIds];
+            $opts = [
+                'refresh_hero'    => isset($_POST['opt_refresh_hero']),
+                'refetch_climate' => isset($_POST['opt_refetch_climate']),
+                'regenerate_text' => isset($_POST['opt_regenerate_text']),
+                'skip_locked'     => isset($_POST['opt_skip_locked']),
+            ];
+            $ok = 0; $skipped = 0; $warned = 0;
+            foreach ($pageIds as $pageId) {
+                $r = lpc_generate_and_verify_page($client_id, trim($pageId), $opts);
+                if ($r['skipped']) { $skipped++; continue; }
+                if (!$r['ok'] || $r['warnings']) { $warned++; } else { $ok++; }
+            }
+            $msg = 'success:' . $ok . '+page(s)+generated';
+            if ($warned)  $msg .= ',+' . $warned . '+with+warnings+(check+each+page)';
+            if ($skipped) $msg .= ',+' . $skipped . '+skipped+(locked)';
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
         } elseif ($action === 'check_rank') {
             $result = lpc_refresh_rank_for_client($client_id);
             if (!$result['ok']) {

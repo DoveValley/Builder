@@ -296,11 +296,64 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <?= $tPublished ?> published &middot; <?= $tLocked ?> locked &middot;
                 <?= $tResearched ?>/<?= count($client['target_cities']) ?> cities researched
             </p>
-            <form id="lpc-publish-form" method="post" action="client_save.php" style="margin-bottom:10px;">
+            <?php
+            // Both forms are empty shells — checked rows are injected as
+            // hidden inputs into whichever one's button gets clicked
+            // (lpcRunSelected() below), since one checkbox can't natively
+            // belong to two <form>s. Same "shared tick marks, multiple
+            // purpose-specific action buttons" pattern as Batch Simple/
+            // Detailed's own checkbox-selection UI (admin/rollout.php,
+            // admin/_batch_panels.php) — mirrored here rather than invented
+            // fresh, deliberately NOT their JS-state/quick-select machinery
+            // (overkill at this scale; a plain checkbox per row is enough).
+            ?>
+            <form id="lpc-publish-form" method="post" action="client_save.php" style="display:none;">
                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
                 <input type="hidden" name="section" value="pages">
                 <input type="hidden" name="page_action" value="publish">
             </form>
+            <form id="lpc-generate-form" method="post" action="client_save.php" style="display:none;">
+                <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+                <input type="hidden" name="section" value="pages">
+                <input type="hidden" name="page_action" value="bulk_generate">
+            </form>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-publish-form');">Publish Selected</button>
+                <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
+                <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-generate-form', 'Generate/refresh the selected pages? Checked options below with real external cost (AI text, climate data) will actually spend it.');">Generate / Refresh Selected</button>
+                <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refresh_hero" form="lpc-generate-form" checked> Refresh hero image</label>
+                <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refetch_climate" form="lpc-generate-form"> Re-fetch climate data <span style="color:#9ca3af;">($)</span></label>
+                <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_regenerate_text" form="lpc-generate-form"> Regenerate text content <span style="color:#9ca3af;">($)</span></label>
+                <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_skip_locked" form="lpc-generate-form" checked> Skip locked pages</label>
+            </div>
+            <script>
+            // One shared checkbox per row feeds whichever action's button is
+            // clicked — a checkbox can only natively belong to one <form>, so
+            // checked row values are injected as hidden inputs into the
+            // target form right before it submits, then removed if a
+            // different action runs next (no stale page_ids[] left over from
+            // a previous click sitting in the other form).
+            function lpcRunSelected(formId, confirmMsg) {
+                if (confirmMsg && !confirm(confirmMsg)) return false;
+                var form = document.getElementById(formId);
+                form.querySelectorAll('input[data-lpc-injected]').forEach(function (el) { el.remove(); });
+                var checked = document.querySelectorAll('.lpc-row-check:checked');
+                if (!checked.length) { alert('Select at least one page first.'); return false; }
+                checked.forEach(function (cb) {
+                    var hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = 'page_ids[]';
+                    hidden.value = cb.value;
+                    hidden.setAttribute('data-lpc-injected', '1');
+                    form.appendChild(hidden);
+                });
+                form.submit();
+                return false;
+            }
+            function lpcToggleCity(master, cityId) {
+                document.querySelectorAll('.lpc-row-check[data-city="' + cityId + '"]').forEach(function (cb) { cb.checked = master.checked; });
+            }
+            </script>
             <?php
             // City-grouped list, not a City x Service grid — a real grid
             // grows WIDER with every new service (cramping status/locked/
@@ -313,6 +366,7 @@ $apiKey = lpc_get_client_api_key($client_id);
             <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); $kwData = $_SESSION['lpc_kw_city'][$client_id][$tc['city_id']] ?? []; $hasClimate = $clientChartDef ? isset($climateCache[$tc['city_id'] . '__' . $clientChartDef['id']]) : null; ?>
             <div class="lpc-city-group" style="margin-bottom:16px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
                 <div style="background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <input type="checkbox" title="Select every page in this city" onclick="lpcToggleCity(this, '<?= h($tc['city_id']) ?>')">
                     <strong style="font-size:.92rem;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></strong>
                     <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $cityResearched ? 'Researched' : 'Not Researched' ?></span>
                     <form method="post" action="client_save.php" style="margin:0;display:inline;">
@@ -355,6 +409,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                 </div>
                 <table style="width:100%;border-collapse:collapse;">
                     <tr style="text-align:left;font-size:.72rem;color:#6b7280;">
+                        <th style="padding:6px 14px;width:26px;"></th>
                         <th style="padding:6px 14px;">Service</th>
                         <th style="padding:6px 14px;">Status</th>
                         <th style="padding:6px 14px;">Last Updated</th>
@@ -366,7 +421,13 @@ $apiKey = lpc_get_client_api_key($client_id);
                         $kw = $kwData[$s['service_id']] ?? null;
                         $kwLine = $kw ? ('Vol ' . number_format((int) ($kw['volume'] ?? 0)) . ' &middot; KD ' . (int) ($kw['kd'] ?? 0) . ' &middot; $' . number_format((float) ($kw['cpc'] ?? 0), 2)) : null;
                     ?>
+                    <?php $pageId = $tc['city_id'] . '__' . $s['service_id']; ?>
                     <tr style="border-top:1px solid #f1f5f9;font-size:.85rem;">
+                        <td style="padding:6px 14px;">
+                            <?php if ($included): ?>
+                            <input type="checkbox" class="lpc-row-check" data-city="<?= h($tc['city_id']) ?>" value="<?= h($pageId) ?>">
+                            <?php endif; ?>
+                        </td>
                         <td style="padding:6px 14px;"><?= h($s['label']) ?></td>
                         <?php if (!$included): ?>
                         <td colspan="3" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
@@ -383,7 +444,6 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </td>
                         <?php continue; endif; ?>
                         <?php
-                        $pageId = $tc['city_id'] . '__' . $s['service_id'];
                         $page = lpc_load_page($client_id, $pageId);
                         $pageStatus = $page['status'] ?? null;
                         $editUrl = 'page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId);
@@ -394,12 +454,10 @@ $apiKey = lpc_get_client_api_key($client_id);
                             <?php if ($pageStatus === null): ?>
                                 <span class="lpc-badge lpc-badge-never">Not Created</span>
                             <?php elseif ($pageStatus === 'draft'): ?>
-                                <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-never">Draft</span>
                             <?php elseif ($pageStatus === 'published'): ?>
                                 <span class="lpc-badge lpc-badge-connected">Published</span>
                             <?php else: ?>
-                                <input type="checkbox" form="lpc-publish-form" name="page_ids[]" value="<?= h($pageId) ?>">
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
                             <?php endif; ?>
                             <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
@@ -429,7 +487,6 @@ $apiKey = lpc_get_client_api_key($client_id);
                 </table>
             </div>
             <?php endforeach; ?>
-            <button type="submit" form="lpc-publish-form" class="btn-open" style="margin-top:10px;">Publish Checked</button>
         <?php endif; ?>
 
         <?php foreach ($client['hubs'] as $hub): ?>

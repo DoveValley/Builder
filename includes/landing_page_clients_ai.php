@@ -452,3 +452,120 @@ function lpc_generate_drafts_for_client($client_id) {
     }
     return ['ok' => true, 'msg' => '', 'generated' => $generated, 'attempted' => $attempted];
 }
+
+/**
+ * One page, one call, every piece checked — built after a real incident
+ * (2026-11-15, restore-2): a page's content comes from four independent
+ * systems (AI text, service photo, climate chart, area map) that never
+ * checked each other. Each had its own silent failure mode — a hero image
+ * baked in once at draft time and never refreshed when the service's real
+ * photo arrived later, area maps/charts failing quietly on a permissions
+ * bug — and "Published" looked identical whether a page was actually
+ * complete or quietly broken. This is the single entry point the admin
+ * panel's bulk "Generate / Refresh Selected" button calls per selected page;
+ * $opts controls which pieces actually run, and the return value always
+ * reports what's still wrong afterward instead of assuming success.
+ *
+ * Deliberately does NOT touch area_map/data_chart generation directly —
+ * lpc_publish_page() (called unconditionally at the end) already resolves
+ * both automatically on every publish; there is no separate "regenerate
+ * the map" step because there is nothing to opt into; it always runs.
+ *
+ * @param array $opts  refresh_hero (bool, default true) — re-pull the
+ *                        service's CURRENT real photo, not just fill if empty.
+ *                      refetch_climate (bool, default false) — real NOAA
+ *                        lookup; off by default since the existing cache is
+ *                        usually still correct (climate normals don't change).
+ *                      regenerate_text (bool, default false) — real AI cost;
+ *                        off by default, this is a refresh tool, not a
+ *                        rewrite-everything button.
+ *                      skip_locked (bool, default true) — a locked page is
+ *                        left untouched and reported as skipped, not warned.
+ * @return array {ok, skipped, warnings: string[]}
+ */
+function lpc_generate_and_verify_page($client_id, $page_id, $opts = []) {
+    $opts = array_merge([
+        'refresh_hero'    => true,
+        'refetch_climate' => false,
+        'regenerate_text' => false,
+        'skip_locked'     => true,
+    ], $opts);
+
+    $client = lpc_load_client($client_id);
+    if (!$client || !lpc_valid_page_id($page_id)) {
+        return ['ok' => false, 'skipped' => false, 'warnings' => ['Client or page not found']];
+    }
+
+    [$cityId, $serviceId] = array_pad(explode('__', $page_id, 2), 2, '');
+    $target  = lpc_find_by_id($client['target_cities'] ?? [], 'city_id', $cityId);
+    $service = lpc_find_by_id($client['services'] ?? [], 'service_id', $serviceId);
+    if (!$target || !$service) {
+        return ['ok' => false, 'skipped' => false, 'warnings' => ['Not a confirmed target city/service']];
+    }
+
+    $page = lpc_load_page($client_id, $page_id);
+    if ($opts['skip_locked'] && $page && !empty($page['locked'])) {
+        return ['ok' => true, 'skipped' => true, 'warnings' => []];
+    }
+
+    $warnings = [];
+
+    // 1. Text content. A page that doesn't exist yet always needs its first
+    // draft regardless of the regenerate_text flag — lpc_generate_drafts_for_
+    // target_city() already skips any page_id that already has a file, so
+    // calling it here is safe even though it loops the whole city.
+    if (!$page) {
+        $r = lpc_generate_drafts_for_target_city($client_id, $cityId);
+        if ($r['generated'] < 1 && $r['attempted'] > 0) $warnings[] = 'Failed to generate text content';
+        $page = lpc_load_page($client_id, $page_id);
+        if (!$page) return ['ok' => false, 'skipped' => false, 'warnings' => ['Could not create page']];
+    } elseif ($opts['regenerate_text']) {
+        $r = lpc_generate_page_content($client_id, $page_id);
+        if (!$r['ok']) $warnings[] = 'Failed to regenerate text: ' . $r['msg'];
+        $page = lpc_load_page($client_id, $page_id);
+    }
+
+    // 2. Hero image — re-pulled from the service's CURRENT active image
+    // every time, not "only if empty" (that default is correct for first
+    // draft generation, which is what left 18 real pages stuck on a
+    // placeholder forever once the real photo showed up after the fact).
+    if ($opts['refresh_hero']) {
+        $real = lpc_resolve_service_image($client_id, $service);
+        foreach ($page['sections'] as &$section) {
+            if (($section['type'] ?? '') !== 'hero') continue;
+            $section['image']        = $real['url'];
+            $section['image_width']  = $real['width'];
+            $section['image_height'] = $real['height'];
+        }
+        unset($section);
+        lpc_save_page($client_id, $page_id, $page);
+    }
+
+    // 3. Climate data — real external NOAA lookup, off by default (see doc).
+    if ($opts['refetch_climate']) {
+        $nicheBrief = lpc_ai_niche_brief($client['content_profile']['source'] ?? '');
+        $r = lpc_fetch_climate_data($cityId, $nicheBrief['niche_id'] ?? '', true);
+        if (!$r['ok']) $warnings[] = 'Climate data fetch failed: ' . $r['msg'];
+    }
+
+    // 4. Publish — recomputes schema/area_map/data_chart unconditionally.
+    if (!lpc_publish_page($client_id, $page_id)) {
+        $warnings[] = 'Publish failed';
+    }
+
+    // 5. Verify — the step this whole function exists for. Never assume the
+    // above worked; check what's actually on the page afterward.
+    $page = lpc_load_page($client_id, $page_id);
+    $placeholder = lpc_placeholder_image_url();
+    foreach ($page['sections'] ?? [] as $section) {
+        $type = $section['type'] ?? '';
+        if (!in_array($type, ['hero', 'area_map', 'data_chart'], true)) continue;
+        if (empty($section['image'])) {
+            $warnings[] = ucfirst(str_replace('_', ' ', $type)) . ' image is missing';
+        } elseif ($type === 'hero' && $section['image'] === $placeholder) {
+            $warnings[] = 'Hero image is still the shared placeholder — generate a real photo for this service';
+        }
+    }
+
+    return ['ok' => true, 'skipped' => false, 'warnings' => $warnings];
+}
