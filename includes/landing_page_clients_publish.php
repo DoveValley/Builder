@@ -599,7 +599,17 @@ function lpc_check_live_page($client_id, $page_id) {
     curl_setopt_array($ch, [
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT        => 12,
-        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; LPC-LiveCheck/1.0)',
+        // A real browser User-Agent, not a self-identifying one — found
+        // live (2026-11-16): a custom UA that announces itself as an
+        // automated checker ("LPC-LiveCheck/1.0") got served a cached
+        // response (cf-cache-status: HIT, up to 24h old) by Kinsta's own
+        // infrastructure, while a plain browser-style UA to the SAME edge
+        // node at the SAME moment got DYNAMIC/MISS every time. This isn't
+        // our own no-cache headers failing — it's Kinsta/Cloudflare
+        // reasonably caching anything that doesn't look like a real visitor
+        // (bot/crawler traffic), which a "Check Live" tool needs to NOT look
+        // like, since its entire point is seeing what a real visitor sees.
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
         CURLOPT_SSL_VERIFYPEER => true,
     ]);
     $html = curl_exec($ch);
