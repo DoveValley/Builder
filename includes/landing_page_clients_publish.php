@@ -582,8 +582,28 @@ function lpc_check_live_page($client_id, $page_id) {
     $basePath = trim($client['delivery']['base_path'] ?? '/locations', '/');
     $url = 'https://' . $domain . '/' . $basePath . '/' . rawurlencode($page_id) . '/';
 
-    $context = stream_context_create(['http' => ['timeout' => 12, 'ignore_errors' => true]]);
-    $html = @file_get_contents($url, false, $context);
+    // PHP's curl extension, not file_get_contents() — gives explicit control
+    // over timeout/UA/SSL rather than relying on stream-context defaults.
+    // NOTE (2026-11-16): a real investigation here initially suspected
+    // file_get_contents() itself was getting a different (stale) response
+    // than curl — it wasn't. Running shell curl and PHP curl in the same
+    // second showed the real cause: multirestoration1.kinsta.cloud resolves
+    // to MULTIPLE distinct Cloudflare edge IPs, and they can have different
+    // cache states at any given moment — a fresh connection can land on
+    // either one essentially at random. A "stale" result here can mean
+    // "this specific edge node hasn't picked up the purge yet," which
+    // normally clears on its own as Cloudflare's purge finishes propagating
+    // — not necessarily a real, permanent problem. Re-running the check a
+    // few minutes later is a legitimate way to confirm which one it is.
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 12,
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; LPC-LiveCheck/1.0)',
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+    $html = curl_exec($ch);
+    curl_close($ch);
     if ($html === false || $html === '') {
         return ['ok' => false, 'msg' => 'Could not reach the live page', 'stale' => null];
     }
