@@ -693,43 +693,27 @@ switch ($section) {
             $msg = 'success:' . $ok . '+page(s)+published' . ($failed ? ',+' . $failed . '+failed' : '');
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
-        } elseif ($action === 'bulk_generate') {
-            // One call per selected page into lpc_generate_and_verify_page()
-            // — the matrix's "Generate / Refresh Selected" button. Real AI
-            // cost when opt_regenerate_text is checked, so the button's own
-            // confirm() already warns before this ever posts.
-            set_time_limit(300); // several real API calls in one request, same reason lpc_generate_drafts_for_target_city()'s own caller sets this
-            $pageIds = $_POST['page_ids'] ?? [];
-            if (!is_array($pageIds)) $pageIds = [$pageIds];
+        } elseif ($action === 'generate_one') {
+            // AJAX, ONE page per call — replaces the old bulk_generate (one
+            // big blocking multi-page POST). Real incident, 2026-11-16: with
+            // real AI text regen + a real climate re-fetch checked across 8+
+            // pages, that one request ran for several minutes with the
+            // browser showing nothing at all until it finished — easily
+            // long enough to hit a server/proxy timeout before completing,
+            // which is indistinguishable from "the button does nothing."
+            // The matrix's own JS now loops this one page at a time
+            // (lpcGenerateSequential() in client.php), showing live progress
+            // after each response instead of going silent for minutes.
+            header('Content-Type: application/json');
+            $pageId = trim($_POST['page_id'] ?? '');
             $opts = [
                 'refresh_hero'    => isset($_POST['opt_refresh_hero']),
                 'refetch_climate' => isset($_POST['opt_refetch_climate']),
                 'regenerate_text' => isset($_POST['opt_regenerate_text']),
                 'skip_locked'     => isset($_POST['opt_skip_locked']),
             ];
-            $ok = 0; $skipped = 0; $warned = 0; $details = [];
-            foreach ($pageIds as $pageId) {
-                $pageId = trim($pageId);
-                $r = lpc_generate_and_verify_page($client_id, $pageId, $opts);
-                if ($r['skipped']) {
-                    $skipped++;
-                    $details[$pageId] = ['status' => 'skipped', 'warnings' => []];
-                } elseif (!$r['ok'] || $r['warnings']) {
-                    $warned++;
-                    $details[$pageId] = ['status' => 'warned', 'warnings' => $r['warnings'] ?: ['Failed']];
-                } else {
-                    $ok++;
-                    $details[$pageId] = ['status' => 'ok', 'warnings' => []];
-                }
-            }
-            // Per-page detail (not just counts) — shown once at the top of
-            // the matrix, same "verify and report what's actually wrong"
-            // principle lpc_generate_and_verify_page() itself was built for.
-            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Generated/refreshed', 'details' => $details];
-            $msg = 'success:' . $ok . '+page(s)+generated';
-            if ($warned)  $msg .= ',+' . $warned . '+with+warnings+(see+below)';
-            if ($skipped) $msg .= ',+' . $skipped . '+skipped+(locked)';
-            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            $r = lpc_generate_and_verify_page($client_id, $pageId, $opts);
+            echo json_encode(['page_id' => $pageId, 'result' => $r]);
             exit;
         } elseif ($action === 'bulk_research') {
             // "Research Selected" button — research is a per-CITY concept

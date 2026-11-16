@@ -371,7 +371,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-research-form');" title="Real Census/population lookup — free, runs once per unique city among the pages checked">Research Selected</button>
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
-                <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-generate-form', 'Generate/refresh the selected pages? Checked options below with real external cost (AI text, climate data) will actually spend it.');">Generate / Refresh Selected</button>
+                <button type="button" class="btn-open" onclick="return lpcGenerateSequential();">Generate / Refresh Selected</button>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refresh_hero" form="lpc-generate-form" checked> Refresh hero image</label>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_refetch_climate" form="lpc-generate-form"> Re-fetch climate data <span style="color:#9ca3af;">($)</span></label>
                 <label style="font-size:.78rem;display:flex;align-items:center;gap:4px;"><input type="checkbox" name="opt_regenerate_text" form="lpc-generate-form"> Regenerate text content <span style="color:#9ca3af;">($)</span></label>
@@ -379,6 +379,64 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-livecheck-form');" title="Fetches each selected page's REAL live URL and checks what it's actually serving — the one check that looks past our own data">Check Live Selected</button>
             </div>
+            <div id="lpc-generate-progress" style="display:none;background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.82rem;"></div>
+            <script>
+            // Generate/Refresh runs ONE page per request instead of one big
+            // blocking multi-page POST — real incident, 2026-11-16: with real
+            // AI text regen + a real climate re-fetch checked across 8+
+            // pages, the old single blocking request ran for several minutes
+            // with the browser showing nothing at all, long enough to risk a
+            // server/proxy timeout before it ever finished — indistinguishable
+            // from "the button does nothing." This shows live progress after
+            // every single page instead of going silent until the whole
+            // batch completes.
+            async function lpcGenerateSequential() {
+                var checked = document.querySelectorAll('.lpc-row-check:checked');
+                if (!checked.length) { alert('Select at least one page first.'); return false; }
+                if (!confirm('Generate/refresh the selected pages? Checked options below with real external cost (AI text, climate data) will actually spend it.')) return false;
+
+                var pageIds = Array.prototype.map.call(checked, function (cb) { return cb.value; });
+                var form = document.getElementById('lpc-generate-form');
+                var csrf = form.querySelector('[name="csrf_token"]').value;
+                var clientId = form.querySelector('[name="client_id"]').value;
+                var optFields = ['opt_refresh_hero', 'opt_refetch_climate', 'opt_regenerate_text', 'opt_skip_locked'];
+
+                var progress = document.getElementById('lpc-generate-progress');
+                progress.style.display = 'block';
+                var results = [];
+                var renderLog = function () {
+                    var html = '<ul style="margin:6px 0 0;padding-left:18px;">';
+                    results.forEach(function (r) {
+                        var label = r.result.skipped ? 'Skipped (locked)'
+                            : (r.result.warnings && r.result.warnings.length ? 'Warning: ' + r.result.warnings.join('; ') : 'OK');
+                        html += '<li><code>' + r.page_id + '</code> — ' + label + '</li>';
+                    });
+                    return html + '</ul>';
+                };
+
+                for (var i = 0; i < pageIds.length; i++) {
+                    progress.innerHTML = '<strong>Processing ' + (i + 1) + ' of ' + pageIds.length + ':</strong> <code>' + pageIds[i] + '</code>&hellip;' + renderLog();
+                    var body = new URLSearchParams();
+                    body.set('csrf_token', csrf);
+                    body.set('section', 'pages');
+                    body.set('page_action', 'generate_one');
+                    body.set('client_id', clientId);
+                    body.set('page_id', pageIds[i]);
+                    optFields.forEach(function (name) {
+                        if (form.querySelector('[name="' + name + '"]').checked) body.set(name, '1');
+                    });
+                    try {
+                        var resp = await fetch('client_save.php', { method: 'POST', body: body });
+                        results.push(await resp.json());
+                    } catch (e) {
+                        results.push({ page_id: pageIds[i], result: { ok: false, skipped: false, warnings: ['Request failed: ' + e.message] } });
+                    }
+                }
+                progress.innerHTML = '<strong>Done — ' + pageIds.length + ' page(s) processed.</strong>' + renderLog()
+                    + '<a href="javascript:location.reload()" class="btn-sm-outline" style="margin-top:6px;display:inline-block;">Reload to see updated status</a>';
+                return false;
+            }
+            </script>
             <script>
             // One shared checkbox per row feeds whichever action's button is
             // clicked — a checkbox can only natively belong to one <form>, so

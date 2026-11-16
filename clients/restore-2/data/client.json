@@ -130,7 +130,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T00:58:38+00:00",
+            "research_data": {
+                "population": 210238,
+                "income_median": 146158,
+                "homeownership_pct": 66.5,
+                "home_value_median": 595400,
+                "year_built_median": 2009,
+                "housing_units_total": 77787
+            }
         },
         {
             "city_id": "mckinney-tx",
@@ -141,7 +151,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:00:39+00:00",
+            "research_data": {
+                "population": 202314,
+                "income_median": 120273,
+                "homeownership_pct": 63.3,
+                "home_value_median": 439500,
+                "year_built_median": 2006,
+                "housing_units_total": 74436
+            }
         },
         {
             "city_id": "houston-tx",
@@ -152,7 +172,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:00:43+00:00",
+            "research_data": {
+                "population": 2300419,
+                "income_median": 62894,
+                "homeownership_pct": 42,
+                "home_value_median": 253400,
+                "year_built_median": 1981,
+                "housing_units_total": 1023112
+            }
         },
         {
             "city_id": "pasadena-tx",
@@ -163,7 +193,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:00:53+00:00",
+            "research_data": {
+                "population": 149345,
+                "income_median": 64270,
+                "homeownership_pct": 54.2,
+                "home_value_median": 193600,
+                "year_built_median": 1976,
+                "housing_units_total": 54416
+            }
         },
         {
             "city_id": "pearland-tx",
@@ -174,7 +214,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:00:49+00:00",
+            "research_data": {
+                "population": 125983,
+                "income_median": 112470,
+                "homeownership_pct": 76.6,
+                "home_value_median": 330900,
+                "year_built_median": 2003,
+                "housing_units_total": 46105
+            }
         },
         {
             "city_id": "austin-tx",
@@ -206,7 +256,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:01:06+00:00",
+            "research_data": {
+                "population": 124288,
+                "income_median": 97187,
+                "homeownership_pct": 56.2,
+                "home_value_median": 383700,
+                "year_built_median": 2001,
+                "housing_units_total": 49133
+            }
         },
         {
             "city_id": "new-braunfels-tx",
@@ -217,7 +277,17 @@
                 "fire-damage-restoration",
                 "water-damage-restoration",
                 "smoke-damage-cleaning"
-            ]
+            ],
+            "research_done": true,
+            "researched_at": "2026-11-16T01:01:00+00:00",
+            "research_data": {
+                "population": 98700,
+                "income_median": 88257,
+                "homeownership_pct": 65.2,
+                "home_value_median": 315100,
+                "year_built_median": 2005,
+                "housing_units_total": 41814
+            }
         }
     ],
     "delivery": {
@@ -247,7 +317,7 @@
     "live_check": {
         "plano-tx__water-damage-restoration": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:13+00:00",
+            "checked_at": "2026-11-16T00:52:45+00:00",
             "stale": true,
             "issues": [
                 "Hero is stale on the live site (still serving an older cached image)",
@@ -256,7 +326,7 @@
         },
         "houston-tx__water-damage-restoration": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:13+00:00",
+            "checked_at": "2026-11-16T00:52:46+00:00",
             "stale": true,
             "issues": [
                 "Hero is stale on the live site (still serving an older cached image)",
@@ -265,7 +335,7 @@
         },
         "austin-tx__smoke-damage-cleaning": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:14+00:00",
+            "checked_at": "2026-11-16T00:52:48+00:00",
             "stale": true,
             "issues": [
                 "Hero is stale on the live site (still serving an older cached image)",
@@ -274,19 +344,164 @@
         },
         "frisco-tx__water-damage-restoration": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:14+00:00",
+            "checked_at": "2026-11-16T00:52:45+00:00",
             "stale": false,
             "issues": []
         },
         "mckinney-tx__water-damage-restoration": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:14+00:00",
+            "checked_at": "2026-11-16T00:52:46+00:00",
             "stale": false,
             "issues": []
         },
         "round-rock-tx__smoke-damage-cleaning": {
             "ok": true,
-            "checked_at": "2026-11-16T00:51:14+00:00",
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "plano-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:45+00:00",
+            "stale": true,
+            "issues": [
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "plano-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:45+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "frisco-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:45+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "frisco-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:45+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "mckinney-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:46+00:00",
+            "stale": true,
+            "issues": [
+                "Area map not found on the live page",
+                "Data chart not found on the live page"
+            ]
+        },
+        "mckinney-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:46+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "houston-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:46+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "houston-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:46+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "pasadena-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "pasadena-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "pasadena-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "pearland-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "pearland-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "pearland-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:47+00:00",
+            "stale": true,
+            "issues": [
+                "Hero is stale on the live site (still serving an older cached image)",
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "austin-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": true,
+            "issues": [
+                "Area map not found on the live page",
+                "Data chart not found on the live page"
+            ]
+        },
+        "austin-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "round-rock-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": true,
+            "issues": [
+                "Data chart is stale on the live site (still serving an older cached image)"
+            ]
+        },
+        "round-rock-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "new-braunfels-tx__fire-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:48+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "new-braunfels-tx__water-damage-restoration": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:49+00:00",
+            "stale": false,
+            "issues": []
+        },
+        "new-braunfels-tx__smoke-damage-cleaning": {
+            "ok": true,
+            "checked_at": "2026-11-16T00:52:49+00:00",
             "stale": false,
             "issues": []
         }
