@@ -191,6 +191,37 @@ $apiKey = lpc_get_client_api_key($client_id);
 
     <?php elseif ($tab === 'locations'): ?>
 
+        <?php
+        // One-time flash panel — per-page detail from the last bulk Publish
+        // or Generate/Refresh run, not just the top banner's bare counts.
+        // Unset immediately after reading so it shows exactly once, right
+        // after the action that produced it, not on every later visit.
+        $bulkResult = $_SESSION['lpc_bulk_result'][$client_id] ?? null;
+        unset($_SESSION['lpc_bulk_result'][$client_id]);
+        ?>
+        <?php if ($bulkResult): ?>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;margin:0 0 20px;">
+            <strong style="font-size:.86rem;"><?= h($bulkResult['action']) ?> — per-page result</strong>
+            <table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:.82rem;">
+                <?php foreach ($bulkResult['details'] as $pid => $d): ?>
+                <tr style="border-top:1px solid #f1f5f9;">
+                    <td style="padding:4px 8px;white-space:nowrap;"><?= h($pid) ?></td>
+                    <td style="padding:4px 8px;">
+                        <?php if ($d['status'] === 'ok'): ?>
+                            <span class="lpc-badge lpc-badge-connected">OK</span>
+                        <?php elseif ($d['status'] === 'skipped'): ?>
+                            <span class="lpc-badge lpc-badge-never">Skipped (locked)</span>
+                        <?php else: ?>
+                            <span class="lpc-badge lpc-badge-stale">Warning</span>
+                        <?php endif; ?>
+                    </td>
+                    <td style="padding:4px 8px;color:#6b7280;"><?= h(implode('; ', $d['warnings'])) ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+        <?php endif; ?>
+
         <h3 style="margin-top:28px;">Services</h3>
         <p style="color:#6b7280;font-size:.82rem;margin:0 0 10px;">
             One image per service, shared by every city's page for it (a photo of "water damage cleanup"
@@ -318,6 +349,10 @@ $apiKey = lpc_get_client_api_key($client_id);
                 <input type="hidden" name="page_action" value="bulk_generate">
             </form>
             <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                <label style="font-size:.82rem;display:flex;align-items:center;gap:5px;font-weight:600;">
+                    <input type="checkbox" onclick="lpcToggleAll(this)"> Select All
+                </label>
+                <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-publish-form');">Publish Selected</button>
                 <div style="width:1px;align-self:stretch;background:#e5e7eb;"></div>
                 <button type="button" class="btn-open" onclick="return lpcRunSelected('lpc-generate-form', 'Generate/refresh the selected pages? Checked options below with real external cost (AI text, climate data) will actually spend it.');">Generate / Refresh Selected</button>
@@ -353,6 +388,10 @@ $apiKey = lpc_get_client_api_key($client_id);
             function lpcToggleCity(master, cityId) {
                 document.querySelectorAll('.lpc-row-check[data-city="' + cityId + '"]').forEach(function (cb) { cb.checked = master.checked; });
             }
+            function lpcToggleAll(master) {
+                document.querySelectorAll('.lpc-row-check').forEach(function (cb) { cb.checked = master.checked; });
+                document.querySelectorAll('.lpc-city-select-all').forEach(function (cb) { cb.checked = master.checked; });
+            }
             </script>
             <?php
             // City-grouped list, not a City x Service grid — a real grid
@@ -366,7 +405,7 @@ $apiKey = lpc_get_client_api_key($client_id);
             <?php foreach ($client['target_cities'] as $tc): $cityResearched = !empty($tc['research_done']); $kwData = $_SESSION['lpc_kw_city'][$client_id][$tc['city_id']] ?? []; $hasClimate = $clientChartDef ? isset($climateCache[$tc['city_id'] . '__' . $clientChartDef['id']]) : null; ?>
             <div class="lpc-city-group" style="margin-bottom:16px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
                 <div style="background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-                    <input type="checkbox" title="Select every page in this city" onclick="lpcToggleCity(this, '<?= h($tc['city_id']) ?>')">
+                    <input type="checkbox" class="lpc-city-select-all" title="Select every page in this city" onclick="lpcToggleCity(this, '<?= h($tc['city_id']) ?>')">
                     <strong style="font-size:.92rem;"><?= h($tc['city']) ?>, <?= h($tc['state']) ?></strong>
                     <span class="lpc-badge <?= $cityResearched ? 'lpc-badge-connected' : 'lpc-badge-never' ?>"><?= $cityResearched ? 'Researched' : 'Not Researched' ?></span>
                     <form method="post" action="client_save.php" style="margin:0;display:inline;">
@@ -412,6 +451,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                         <th style="padding:6px 14px;width:26px;"></th>
                         <th style="padding:6px 14px;">Service</th>
                         <th style="padding:6px 14px;">Status</th>
+                        <th style="padding:6px 14px;">Locked</th>
                         <th style="padding:6px 14px;">Last Updated</th>
                         <th style="padding:6px 14px;">Keyword Data</th>
                         <th style="padding:6px 14px;"></th>
@@ -430,7 +470,7 @@ $apiKey = lpc_get_client_api_key($client_id);
                         </td>
                         <td style="padding:6px 14px;"><?= h($s['label']) ?></td>
                         <?php if (!$included): ?>
-                        <td colspan="3" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
+                        <td colspan="4" style="padding:6px 14px;color:#d1d5db;">Not included<?php if ($kwLine): ?> &middot; <span style="color:#9ca3af;"><?= $kwLine ?></span><?php endif; ?></td>
                         <td style="padding:6px 14px;">
                             <form method="post" action="client_save.php" style="margin:0;">
                                 <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
@@ -460,7 +500,9 @@ $apiKey = lpc_get_client_api_key($client_id);
                             <?php else: ?>
                                 <span class="lpc-badge lpc-badge-stale">Needs Update</span>
                             <?php endif; ?>
-                            <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274;</span><?php endif; ?>
+                        </td>
+                        <td style="padding:6px 14px;">
+                            <?php if ($pageLocked): ?><span title="Locked — Regenerate is blocked">&#128274; Locked</span><?php else: ?><span style="color:#d1d5db;">&mdash;</span><?php endif; ?>
                         </td>
                         <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $lastGen ? h($lastGen) : '&mdash;' ?></td>
                         <td style="padding:6px 14px;color:#9ca3af;font-size:.8rem;"><?= $kwLine ?: '&mdash;' ?></td>

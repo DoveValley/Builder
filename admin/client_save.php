@@ -680,9 +680,21 @@ switch ($section) {
             }
             $pageIds = $_POST['page_ids'] ?? [];
             if (!is_array($pageIds)) $pageIds = [$pageIds];
+            $ok = 0; $failed = 0; $details = [];
             foreach ($pageIds as $pageId) {
-                lpc_publish_page($client_id, trim($pageId));
+                $pageId = trim($pageId);
+                $r = lpc_publish_page($client_id, $pageId);
+                if ($r) { $ok++; $details[$pageId] = ['status' => 'ok', 'warnings' => []]; }
+                else    { $failed++; $details[$pageId] = ['status' => 'warned', 'warnings' => ['Publish failed']]; }
             }
+            // Real gap found live (2026-11-16): this branch never set its own
+            // $msg/exit, so it fell through to the generic "Page updated"
+            // redirect at the bottom of this case — true regardless of how
+            // many pages were actually published, or whether any failed.
+            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Published', 'details' => $details];
+            $msg = 'success:' . $ok . '+page(s)+published' . ($failed ? ',+' . $failed . '+failed' : '');
+            header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
+            exit;
         } elseif ($action === 'bulk_generate') {
             // One call per selected page into lpc_generate_and_verify_page()
             // — the matrix's "Generate / Refresh Selected" button. Real AI
@@ -697,14 +709,27 @@ switch ($section) {
                 'regenerate_text' => isset($_POST['opt_regenerate_text']),
                 'skip_locked'     => isset($_POST['opt_skip_locked']),
             ];
-            $ok = 0; $skipped = 0; $warned = 0;
+            $ok = 0; $skipped = 0; $warned = 0; $details = [];
             foreach ($pageIds as $pageId) {
-                $r = lpc_generate_and_verify_page($client_id, trim($pageId), $opts);
-                if ($r['skipped']) { $skipped++; continue; }
-                if (!$r['ok'] || $r['warnings']) { $warned++; } else { $ok++; }
+                $pageId = trim($pageId);
+                $r = lpc_generate_and_verify_page($client_id, $pageId, $opts);
+                if ($r['skipped']) {
+                    $skipped++;
+                    $details[$pageId] = ['status' => 'skipped', 'warnings' => []];
+                } elseif (!$r['ok'] || $r['warnings']) {
+                    $warned++;
+                    $details[$pageId] = ['status' => 'warned', 'warnings' => $r['warnings'] ?: ['Failed']];
+                } else {
+                    $ok++;
+                    $details[$pageId] = ['status' => 'ok', 'warnings' => []];
+                }
             }
+            // Per-page detail (not just counts) — shown once at the top of
+            // the matrix, same "verify and report what's actually wrong"
+            // principle lpc_generate_and_verify_page() itself was built for.
+            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Generated/refreshed', 'details' => $details];
             $msg = 'success:' . $ok . '+page(s)+generated';
-            if ($warned)  $msg .= ',+' . $warned . '+with+warnings+(check+each+page)';
+            if ($warned)  $msg .= ',+' . $warned . '+with+warnings+(see+below)';
             if ($skipped) $msg .= ',+' . $skipped . '+skipped+(locked)';
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
