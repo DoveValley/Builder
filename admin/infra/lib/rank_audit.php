@@ -35,6 +35,7 @@ require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/http.php';
 require_once __DIR__ . '/keywords.php';
+require_once __DIR__ . '/serp.php';
 require_once __DIR__ . '/audit_settings.php';
 
 /** Which keyword tiers are worth paying for: the homepage term and the money pages. */
@@ -237,16 +238,22 @@ function rank_audit_run(string $only = '', int $concurrency = 4, ?callable $log 
                 $type = (string) ($it['type'] ?? '');
                 if ($type === 'local_pack') {
                     $packShown = 1;
-                    if ($pack === 0 && stripos((string) ($it['domain'] ?? ''), $t['domain']) !== false) {
+                    if ($pack === 0 && stripos(infra_serp_organic_domain($it), $t['domain']) !== false) {
                         $pack = ($it['rank_group'] ?? 0) ?: 1;
                     }
                     continue;
                 }
                 if ($type !== 'organic') continue;
                 $n++;
-                if ($pos === 0 && stripos((string) ($it['domain'] ?? ''), $t['domain']) !== false) {
+                $itemDomain = infra_serp_organic_domain($it);
+                if ($pos === 0 && stripos($itemDomain, $t['domain']) !== false) {
                     $pos = $n;
-                    $url = (string) ($it['url'] ?? '');
+                    // The real url is behind the google.com redirect when wrapped;
+                    // breadcrumb is the closest honest substitute, same spirit as the
+                    // existing "often not the intended page" caveat on this field.
+                    $url = strcasecmp((string) ($it['domain'] ?? ''), 'google.com') === 0
+                        ? (string) ($it['breadcrumb'] ?? '')
+                        : (string) ($it['url'] ?? '');
                 }
             }
             $found[$i] = ['position' => $pos, 'url' => $url, 'local_pack' => $packShown ? $pack : -1,

@@ -465,7 +465,7 @@ function infra_research_classify_serp_result(array $result, string $niche): arra
     $domains = [];
     foreach ($items as $it) {
         if ((string) ($it['type'] ?? '') !== 'organic') continue;
-        $domain = (string) ($it['domain'] ?? '');
+        $domain = infra_serp_organic_domain($it);
         if (count($domains) < 10) $domains[] = $domain;
         switch (infra_research_classify($domain, $niche)) {
             case 'DIRECTORY': $open++; break;

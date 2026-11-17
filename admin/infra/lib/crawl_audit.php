@@ -297,8 +297,16 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
     // which URL — crawl_url is the only place that knows, since it is the one table
     // keyed by URL. A domain whose every 404'd URL is cosmetic should never rank or
     // count as a real problem; see CRAWL_COSMETIC_404_PATHS for why.
-    $realBadUrl = [];   // domain => true, at least one non-cosmetic 404
-    $st404 = $db->query("SELECT domain, url FROM crawl_url WHERE last_code = 404");
+    // Scoped to the same $since window as crawl_daily's s404 count — without this,
+    // one URL Googlebot hasn't re-checked in weeks keeps a domain flagged as a
+    // CURRENT real error forever, which is exactly the "not actionable today"
+    // mistake this module's own headline exists to avoid. Confirmed empirically
+    // 2026-11-17: 3 of 7 flagged domains had every non-cosmetic 404 outside this
+    // window (weeks-old, nothing linked from the live site anymore) — stale
+    // Googlebot re-checks of a dead index entry, not a current defect.
+    $realBadUrl = [];   // domain => true, at least one non-cosmetic 404 seen within $days
+    $st404 = $db->prepare("SELECT domain, url FROM crawl_url WHERE last_code = 404 AND last_seen >= ?");
+    $st404->execute([$since]);
     foreach ($st404->fetchAll(PDO::FETCH_ASSOC) as $r) {
         if (!crawl_url_is_cosmetic_404($r['url'])) $realBadUrl[$r['domain']] = true;
     }

@@ -35,6 +35,21 @@ require_once __DIR__ . '/keywords.php';
  * folded into "local" or "national" — and arguably it's a HARDER slot than a
  * real directory: this module's own docstring says "a well-built page can
  * outrank" a directory, which is never true against a Google-owned SERP feature.
+ *
+ * ── THIS WENT FROM "SOME" TO "EVERY" RESULT, SILENTLY ────────────────────────────
+ * Confirmed live 2026-11-17: domain=google.com is no longer 6-7 of 10 — it's
+ * 100% of organic items, on every keyword tested. Google is now wrapping EVERY
+ * organic link behind a click-tracking redirect (url="https://google.com/goto?
+ * url=..."), not just its own Maps/Business-Profile cards. Treating every one of
+ * those as "google.com, therefore a directory slot" is no longer "overstating
+ * how hard the market is" — it's reporting every market as 100% Google-owned,
+ * which broke two different downstream consumers that both trusted domain=
+ * google.com literally: the fleet rank sweep (every site read as not-ranking,
+ * see rank_audit.php) and this file's own open_slots scoring (every city read
+ * as wide open). infra_serp_organic_domain() below resolves the real target
+ * from `breadcrumb` when one is present — a genuine Google-owned card has no
+ * breadcrumb to resolve, so it still correctly falls through to 'google.com'
+ * and stays classified here.
  */
 function infra_serp_directories(): array
 {
@@ -57,6 +72,28 @@ function infra_serp_is_directory(string $domain): bool
         if ($d === $dir || substr($d, -strlen('.' . $dir)) === '.' . $dir) return true;
     }
     return false;
+}
+
+/**
+ * The real target of one SERP item — undoing the google.com click-tracking
+ * wrapper described above. Every caller that needs "which domain is this
+ * result" (rank matching, directory classification, "top" domain) should go
+ * through this instead of reading `domain` directly, or it will silently match
+ * nothing/everything the next time Google changes how it wraps a link.
+ *
+ * `breadcrumb` is a display string ("https://real-site.com › path › path"), not
+ * a URL — this takes the host up to the first '/' or whitespace, which is where
+ * the path segments begin. Items with no breadcrumb (a genuine Google-owned
+ * card, or a non-web result like a YouTube "3 views · 2 weeks ago" line) fall
+ * through to the raw `domain` field unchanged.
+ */
+function infra_serp_organic_domain(array $it): string
+{
+    $d = (string) ($it['domain'] ?? '');
+    if ($d !== '' && strcasecmp($d, 'google.com') !== 0) return $d;
+    $bc = (string) ($it['breadcrumb'] ?? '');
+    if (preg_match('~^https?://([^/\s]+)~i', $bc, $m)) return $m[1];
+    return $d;
 }
 
 /**
@@ -94,8 +131,9 @@ function infra_serp_fetch(array $c, string $keyword): array
             // at the foot of the page cost nothing.
             if ($first === null) $ads++;
         } elseif ($type === 'organic') {
-            if ($first === null) { $first = $abs; $top = (string) ($it['domain'] ?? ''); }
-            if (infra_serp_is_directory((string) ($it['domain'] ?? ''))) $dirs++;
+            $dom = infra_serp_organic_domain($it);
+            if ($first === null) { $first = $abs; $top = $dom; }
+            if (infra_serp_is_directory($dom)) $dirs++;
         }
     }
     return ['ok' => true, 'msg' => '', 'data' => [
