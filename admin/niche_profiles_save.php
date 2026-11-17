@@ -3,6 +3,11 @@ require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+// Same Scott-only gate as niche_profiles.php — keep both in sync.
+if (lpc_current_actor_role() !== 'super_admin') {
+    header('Location: clients.php?msg=error:Niche+profiles+are+managed+by+the+platform+only');
+    exit;
+}
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: niche_profiles.php'); exit; }
 
 $token = $_POST['csrf_token'] ?? '';

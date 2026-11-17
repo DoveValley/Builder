@@ -169,6 +169,33 @@ if ($_oaiKey === '') $_oaiKey = getenv('OPENAI_API_KEY') ?: '';
 define('OPENAI_API_KEY', $_oaiKey);
 unset($_oaiKey, $_oaiKeyFile);
 
+// Stripe secret key (agency billing — subscriptions, spend caps, the dual-
+// lockout mechanism). Same file-then-env priority as the keys above. Test-mode
+// key (sk_test_...) during development — never paste a real key into chat;
+// set it via the .stripe_secret_key file directly on this box instead.
+$_stripeKeyFile = __DIR__ . '/.stripe_secret_key';
+$_stripeKey = file_exists($_stripeKeyFile) ? trim(file_get_contents($_stripeKeyFile)) : '';
+if ($_stripeKey === '') $_stripeKey = getenv('STRIPE_SECRET_KEY') ?: '';
+define('STRIPE_SECRET_KEY', $_stripeKey);
+unset($_stripeKey, $_stripeKeyFile);
+
+// Publishable key is not a secret (ships in browser JS by design) but gets
+// the same file-then-env treatment for consistency with where it's set.
+$_stripePubKeyFile = __DIR__ . '/.stripe_publishable_key';
+$_stripePubKey = file_exists($_stripePubKeyFile) ? trim(file_get_contents($_stripePubKeyFile)) : '';
+if ($_stripePubKey === '') $_stripePubKey = getenv('STRIPE_PUBLISHABLE_KEY') ?: '';
+define('STRIPE_PUBLISHABLE_KEY', $_stripePubKey);
+unset($_stripePubKey, $_stripePubKeyFile);
+
+// Webhook signing secret (whsec_...) — verifies an incoming request actually
+// came from Stripe before trusting it (admin/stripe_webhook.php). Same
+// file-then-env priority as the keys above.
+$_stripeWhSecFile = __DIR__ . '/.stripe_webhook_secret';
+$_stripeWhSec = file_exists($_stripeWhSecFile) ? trim(file_get_contents($_stripeWhSecFile)) : '';
+if ($_stripeWhSec === '') $_stripeWhSec = getenv('STRIPE_WEBHOOK_SECRET') ?: '';
+define('STRIPE_WEBHOOK_SECRET', $_stripeWhSec);
+unset($_stripeWhSec, $_stripeWhSecFile);
+
 // CallTrackingMetrics agency API credentials (includes/calltrackingmetrics.php).
 // Same file-then-env priority as the keys above. Agency-level (Parent Settings),
 // not a single-account key, so it can act across every CTM sub-account by id.

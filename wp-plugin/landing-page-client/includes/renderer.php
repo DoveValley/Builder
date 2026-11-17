@@ -92,7 +92,7 @@ function lpc_render_hero( $s, $level = 'h2' ) {
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
-		$text .= '<p><a class="lpc-btn lpc-btn-primary" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
+		$text .= '<p><a class="lpc-btn lpc-btn-primary" data-lpc-track="tel" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['cta_text'] ?? $s['phone'] ) . '</a></p>';
 	}
 
 	$image = '';
@@ -292,7 +292,7 @@ function lpc_render_cta( $s ) {
 	}
 	if ( ! empty( $s['phone'] ) ) {
 		$tel = preg_replace( '/[^0-9+]/', '', $s['phone'] );
-		$out .= '<p><a class="lpc-btn lpc-btn-accent" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
+		$out .= '<p><a class="lpc-btn lpc-btn-accent" data-lpc-track="tel" href="tel:' . esc_attr( $tel ) . '">' . esc_html( $s['button_text'] ?? $s['phone'] ) . '</a></p>';
 	}
 	$out .= '</section>';
 	return $out;

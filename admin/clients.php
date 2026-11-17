@@ -7,6 +7,15 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+// An End Client gets read-only reporting only (client_portal.php) — real
+// gap found live: scoping which CLIENT they can touch is not the same as
+// restricting which PAGES they can reach; this full editing admin list was
+// reachable (and so was every other full-admin page) by anyone logged in
+// at all, regardless of role, until this check existed.
+if (lpc_current_actor_role() === 'end_client') {
+    header('Location: client_portal.php');
+    exit;
+}
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -24,37 +33,56 @@ if (!empty($_GET['msg'])) {
 }
 
 $rows = [];
-$totals = ['clients' => 0, 'pages_live' => 0, 'mrr' => 0.0];
+$totals = ['clients' => 0, 'pages_live' => 0, 'mrr' => 0.0, 'pending_review' => 0, 'tried_to_contact' => 0];
 
-foreach (lpc_list_clients() as $client_id) {
+foreach (lpc_list_clients_for_current_actor() as $client_id) {
     $client = lpc_load_client($client_id);
     if (!$client) continue;
 
     $pagesLive = 0;
     $pagesTotal = 0;
+    // Pipeline stage, derived from signals that already exist on each page
+    // (status + approval_stage) rather than any new stored state — same
+    // "rollup, don't invent" approach the component map called for.
+    $pagesPendingReview = 0;
+    $pagesRejected      = 0;
     foreach (lpc_list_pages($client_id) as $page_id) {
         $page = lpc_load_page($client_id, $page_id);
         if (!$page) continue;
         $pagesTotal++;
         if ($page['status'] === 'published') $pagesLive++;
+        if (in_array($page['approval_stage'], ['pending_platform_review', 'pending_agency_review'], true)) $pagesPendingReview++;
+        if ($page['approval_stage'] === 'rejected') $pagesRejected++;
     }
 
     $locations = count($client['target_cities'] ?? []);
     $mrr = $locations * (float) ($client['billing']['monthly_fee_per_location'] ?? 0);
 
+    // One remote fetch per client (same 3s-timeout-fail-open call the
+    // Reporting tab already uses) — fine at today's real scale (a handful
+    // of clients); if this ever grows into the hundreds, this loop is the
+    // first thing that should move to a cached/batched rollup instead of
+    // one request per client per page load.
+    $triedToContact = array_sum(array_map('array_sum', lpc_fetch_click_summary($client_id)));
+
     $rows[] = [
-        'id'         => $client_id,
-        'name'       => $client['identity']['business_name'] ?: $client_id,
-        'domain'     => $client['identity']['domain'],
-        'pages_live' => $pagesLive,
-        'pages_total'=> $pagesTotal,
-        'status'     => lpc_plugin_status($client_id),
-        'mrr'        => $mrr,
+        'id'               => $client_id,
+        'name'             => $client['identity']['business_name'] ?: $client_id,
+        'domain'           => $client['identity']['domain'],
+        'pages_live'       => $pagesLive,
+        'pages_total'      => $pagesTotal,
+        'pending_review'   => $pagesPendingReview,
+        'rejected'         => $pagesRejected,
+        'status'           => lpc_plugin_status($client_id),
+        'mrr'              => $mrr,
+        'tried_to_contact' => $triedToContact,
     ];
 
     $totals['clients']++;
     $totals['pages_live'] += $pagesLive;
     $totals['mrr'] += $mrr;
+    $totals['pending_review'] += $pagesPendingReview;
+    $totals['tried_to_contact'] += $triedToContact;
 }
 
 usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
@@ -111,7 +139,15 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         <h1>Landing Page Clients</h1>
         <div style="display:flex;gap:8px;">
             <button class="btn-sm-outline" onclick="toggleLpcHowItWorks()">How This Works &#9432;</button>
+            <?php
+            $_approvalStage = lpc_current_actor_role() === 'super_admin' ? 'pending_platform_review' : 'pending_agency_review';
+            $_pendingCount  = count(lpc_list_pages_by_approval_stage($_approvalStage, lpc_list_clients_for_current_actor()));
+            ?>
+            <a href="approvals.php" class="btn-sm-outline">Approvals<?= $_pendingCount ? ' (' . (int) $_pendingCount . ')' : '' ?></a>
+            <?php if (lpc_current_actor_role() === 'super_admin'): ?>
+            <a href="agencies.php" class="btn-sm-outline">Agencies</a>
             <a href="niche_profiles.php" class="btn-sm-outline">Niche Profiles</a>
+            <?php endif; ?>
             <a href="client_wizard.php?restart=1" class="btn-open">+ New Client</a>
         </div>
     </div>
@@ -183,6 +219,10 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
         <div class="lpc-totals">
             <div><strong><?= (int) $totals['clients'] ?></strong><span>Active Clients</span></div>
             <div><strong><?= (int) $totals['pages_live'] ?></strong><span>Pages Live</span></div>
+            <?php if ($totals['pending_review'] > 0): ?>
+            <div><strong style="color:#92400e;"><?= (int) $totals['pending_review'] ?></strong><span>Awaiting Review</span></div>
+            <?php endif; ?>
+            <div><strong><?= (int) $totals['tried_to_contact'] ?></strong><span title="Tap-to-call/CTA clicks across every page, last 30 days — an intent signal, not confirmed calls or leads.">Tried to Contact (30d)</span></div>
             <div><strong>$<?= number_format($totals['mrr'], 0) ?>/mo</strong><span>Total MRR</span></div>
         </div>
 
@@ -190,7 +230,8 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
             <tr>
                 <th>Client</th>
                 <th>Domain</th>
-                <th>Pages Live</th>
+                <th>Pipeline</th>
+                <th title="Tap-to-call/CTA clicks, last 30 days — an intent signal, not confirmed calls or leads.">Tried to Contact</th>
                 <th>Plugin Status</th>
                 <th>MRR</th>
             </tr>
@@ -198,7 +239,16 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
             <tr>
                 <td><a class="lpc-name" href="client.php?id=<?= h($r['id']) ?>"><?= h($r['name']) ?></a></td>
                 <td><?= h($r['domain']) ?: '—' ?></td>
-                <td><?= (int) $r['pages_live'] ?> / <?= (int) $r['pages_total'] ?></td>
+                <td>
+                    <?= (int) $r['pages_live'] ?> / <?= (int) $r['pages_total'] ?> live
+                    <?php if ($r['pending_review'] > 0): ?>
+                        <br><span style="color:#92400e;font-size:.76rem;"><?= (int) $r['pending_review'] ?> awaiting review</span>
+                    <?php endif; ?>
+                    <?php if ($r['rejected'] > 0): ?>
+                        <br><span style="color:#991b1b;font-size:.76rem;"><?= (int) $r['rejected'] ?> rejected</span>
+                    <?php endif; ?>
+                </td>
+                <td><?= $r['tried_to_contact'] > 0 ? (int) $r['tried_to_contact'] : '—' ?></td>
                 <td>
                     <?php
                     $badgeClass = $r['status'] === 'Connected' ? 'connected' : ($r['status'] === 'Stale' ? 'stale' : 'never');

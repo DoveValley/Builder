@@ -8,7 +8,7 @@ if (empty($_SESSION['admin_logged_in'])) {
 }
 
 $client_id = $_GET['client_id'] ?? '';
-$client = lpc_load_client($client_id);
+$client = lpc_load_client_for_current_actor($client_id);
 if (!$client) {
     header('Location: clients.php?msg=error:Client+not+found');
     exit;

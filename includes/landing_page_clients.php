@@ -15,8 +15,23 @@
 function lpc_default_client_data() {
     return [
         'client_id'   => '',
+        // Every client belongs to exactly one agency — defaults to
+        // 'scotts-agency' (see includes/landing_page_clients_agencies.php)
+        // so every client created before agencies existed keeps working
+        // unchanged via this same deep-merge-defaults mechanism, and Scott
+        // selling direct runs through his own agency row rather than a
+        // separate direct-sale path.
+        'agency_id'   => 'scotts-agency',
         'created_at'  => '',
         'updated_at'  => '',
+        // End Client's own login (read-only reporting access, nothing else
+        // — see admin/client_portal.php). Username only, same reasoning as
+        // the agency record: not a secret, the password hash lives outside
+        // this tracked JSON in clients/{id}/secrets/, same split the API
+        // key already uses (lpc_client_secret_file()).
+        'login' => [
+            'username' => '',
+        ],
         'identity' => [
             'business_name'    => '',
             'domain'           => '',
@@ -100,6 +115,15 @@ function lpc_default_page_data() {
     return [
         'page_id'      => '',
         'status'       => 'draft', // draft | published | needs_update
+        // Two-stage review gate for a real third-party agency's clients —
+        // see lpc_requires_approval_gate() in landing_page_clients_
+        // approvals.php. 'none' is every existing page today and every page
+        // belonging to Scott's own direct-sale clients forever — the gate
+        // never applies there, so this field is inert for all of today's
+        // real data. none | pending_platform_review | pending_agency_review
+        // | approved | rejected
+        'approval_stage' => 'none',
+        'approval_note'  => '', // set on reject, shown to whoever submitted it
         // Manual toggle only — never set automatically by editing or saving
         // content. While true, lpc_generate_page_content() (the editor's
         // Regenerate button) refuses to overwrite this page; everything else
@@ -270,6 +294,37 @@ function lpc_client_file($client_id) {
 function lpc_client_secret_file($client_id) {
     $dir = lpc_client_dir($client_id);
     return $dir === null ? null : $dir . '/secrets/api_key.txt';
+}
+
+// Same gitignored secrets/ directory the API key already uses — a sibling
+// file, not a new tree, since clients (unlike agencies) already have a
+// per-entity directory to put it in.
+function lpc_client_password_file($client_id) {
+    $dir = lpc_client_dir($client_id);
+    return $dir === null ? null : $dir . '/secrets/password_hash.txt';
+}
+
+function lpc_set_client_password($client_id, $plainPassword) {
+    $file = lpc_client_password_file($client_id);
+    if ($file === null) return false;
+    $dir = dirname($file);
+    if (!is_dir($dir)) mkdir($dir, 0700, true);
+    return file_put_contents($file, password_hash($plainPassword, PASSWORD_DEFAULT), LOCK_EX) !== false;
+}
+
+function lpc_verify_client_password($client_id, $plainPassword) {
+    $file = lpc_client_password_file($client_id);
+    if ($file === null || !file_exists($file)) return false;
+    return password_verify($plainPassword, trim(file_get_contents($file)));
+}
+
+function lpc_find_client_by_username($username) {
+    if ($username === '') return null;
+    foreach (lpc_list_clients() as $client_id) {
+        $client = lpc_load_client($client_id);
+        if ($client && ($client['login']['username'] ?? '') === $username) return $client;
+    }
+    return null;
 }
 
 function lpc_page_file($client_id, $page_id) {

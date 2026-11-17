@@ -611,7 +611,9 @@ function lpc_generate_and_verify_page($client_id, $page_id, $opts = []) {
     }
 
     // 4. Publish — recomputes schema/area_map/data_chart unconditionally.
-    if (!lpc_publish_page($client_id, $page_id)) {
+    // Gated for a real third-party agency's clients (submits for review
+    // instead of going live) — see landing_page_clients_approvals.php.
+    if (!lpc_publish_page_gated($client_id, $page_id)) {
         $warnings[] = 'Publish failed';
     }
 

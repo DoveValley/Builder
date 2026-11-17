@@ -5,6 +5,10 @@ require_once __DIR__ . '/infra/lib/keywords.php'; // infra_kw_has_creds()/infra_
 require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_geocode_city() — the 'hubs' section's add action
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
+// Every section/action here edits or publishes something — an End Client
+// gets read-only reporting only, never a write path, regardless of which
+// client their session is scoped to.
+if (lpc_current_actor_role() === 'end_client') { header('Location: client_portal.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: clients.php'); exit; }
 
 $token = $_POST['csrf_token'] ?? '';
@@ -20,7 +24,7 @@ switch ($section) {
     /* ---- IDENTITY ---- */
     case 'identity':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $name = trim($_POST['business_name'] ?? '');
@@ -49,7 +53,7 @@ switch ($section) {
     /* ---- HUBS (add / edit / delete) ---- */
     case 'hubs':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $action = $_POST['hub_action'] ?? '';
@@ -101,7 +105,7 @@ switch ($section) {
     /* ---- BILLING ---- */
     case 'billing':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['billing'] = [
@@ -116,7 +120,7 @@ switch ($section) {
     /* ---- BRANDING ---- */
     case 'branding':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['branding'] = [
@@ -126,13 +130,19 @@ switch ($section) {
             'font'          => trim($_POST['font'] ?? ''),
         ];
         lpc_save_client($client_id, $client);
+        // Same reasoning as delivery_settings/toggle_active below: the plugin reads
+        // colors/font/logo from the manifest, not from any per-page data, so without
+        // this a branding change sits in client.json doing nothing until some
+        // unrelated page happens to get republished — found live, no badge/error ever
+        // surfaced this, just a silent no-op.
+        lpc_rebuild_manifest($client_id);
         header('Location: client.php?id=' . urlencode($client_id) . '&tab=branding&msg=success:Branding+updated');
         exit;
 
     /* ---- CONTENT PROFILE ---- */
     case 'content_profile':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         // 'source' (Base profile) is deliberately NOT writable here — it's set
@@ -151,7 +161,7 @@ switch ($section) {
     /* ---- REPORTING ---- */
     case 'reporting':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['reporting']['gsc_property'] = trim($_POST['gsc_property'] ?? '');
@@ -162,7 +172,7 @@ switch ($section) {
     /* ---- INTEGRATIONS (analytics / CDN — stored, inert until a real account exists) ---- */
     case 'integrations':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['integrations']['ga_measurement_id']  = trim($_POST['ga_measurement_id'] ?? '');
@@ -174,7 +184,7 @@ switch ($section) {
     /* ---- DELIVERY SETTINGS (support phone/message) ---- */
     case 'delivery_settings':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['delivery']['support_phone']   = trim($_POST['support_phone'] ?? '');
@@ -199,7 +209,7 @@ switch ($section) {
     /* ---- TOGGLE ACTIVE (disable / re-enable) ---- */
     case 'toggle_active':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $client['delivery']['active'] = !$client['delivery']['active'];
@@ -216,7 +226,7 @@ switch ($section) {
     /* ---- REGENERATE API KEY ---- */
     case 'regenerate_key':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         lpc_set_client_api_key($client_id, lpc_generate_api_key());
@@ -227,7 +237,7 @@ switch ($section) {
     /* ---- EMAIL TO CUSTOMER ---- */
     case 'email_to_customer':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $ok = lpc_send_client_email(
@@ -244,7 +254,7 @@ switch ($section) {
     /* ---- SERVICES ---- */
     case 'services':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         if (($_POST['service_action'] ?? 'add') === 'remove') {
@@ -364,7 +374,7 @@ switch ($section) {
     /* ---- TARGET CITIES (bulk add from the suggestion table / remove) ---- */
     case 'target_cities':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $action = $_POST['tc_action'] ?? '';
@@ -497,7 +507,7 @@ switch ($section) {
     /* ---- PAGES (generate a blank draft / publish one or more) ---- */
     case 'pages':
         $client_id = $_POST['client_id'] ?? '';
-        $client = lpc_load_client($client_id);
+        $client = lpc_load_client_for_current_actor($client_id);
         if (!$client) { header('Location: clients.php?msg=error:Client+not+found'); exit; }
 
         $action = $_POST['page_action'] ?? '';
@@ -670,10 +680,12 @@ switch ($section) {
             // context by returning there. page_ids[] (plural) = the matrix's bulk
             // publish, returns to the matrix. Same action, two callers, two sensible
             // places to land afterward.
+            $gated = lpc_requires_approval_gate($client_id);
             if (!empty($_POST['page_id'])) {
                 $pageId = trim($_POST['page_id']);
-                lpc_publish_page($client_id, $pageId);
-                header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=success:Published');
+                lpc_publish_page_gated($client_id, $pageId);
+                $msg = $gated ? 'success:Submitted+for+review' : 'success:Published';
+                header('Location: page_editor.php?client_id=' . urlencode($client_id) . '&page_id=' . urlencode($pageId) . '&msg=' . $msg);
                 exit;
             }
             $pageIds = $_POST['page_ids'] ?? [];
@@ -681,7 +693,7 @@ switch ($section) {
             $ok = 0; $failed = 0; $details = [];
             foreach ($pageIds as $pageId) {
                 $pageId = trim($pageId);
-                $r = lpc_publish_page($client_id, $pageId);
+                $r = lpc_publish_page_gated($client_id, $pageId);
                 if ($r) { $ok++; $details[$pageId] = ['status' => 'ok', 'warnings' => []]; }
                 else    { $failed++; $details[$pageId] = ['status' => 'warned', 'warnings' => ['Publish failed']]; }
             }
@@ -689,8 +701,9 @@ switch ($section) {
             // $msg/exit, so it fell through to the generic "Page updated"
             // redirect at the bottom of this case — true regardless of how
             // many pages were actually published, or whether any failed.
-            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => 'Published', 'details' => $details];
-            $msg = 'success:' . $ok . '+page(s)+published' . ($failed ? ',+' . $failed . '+failed' : '');
+            $actionLabel = $gated ? 'Submitted for review' : 'Published';
+            $_SESSION['lpc_bulk_result'][$client_id] = ['action' => $actionLabel, 'details' => $details];
+            $msg = 'success:' . $ok . '+page(s)+' . ($gated ? 'submitted+for+review' : 'published') . ($failed ? ',+' . $failed . '+failed' : '');
             header('Location: client.php?id=' . urlencode($client_id) . '&tab=locations&msg=' . $msg);
             exit;
         } elseif ($action === 'generate_one') {

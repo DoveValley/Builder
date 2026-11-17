@@ -10,6 +10,12 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+// Onboarding is an Agency Admin/Super Admin action — an End Client never
+// creates a client record (themselves or anyone else's).
+if (lpc_current_actor_role() === 'end_client') {
+    header('Location: client_portal.php');
+    exit;
+}
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -287,6 +293,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Could not create client — check the business name on step 1.';
             } else {
                 $client = lpc_load_client($client_id);
+                // Freshly created this same request — nothing to check ownership
+                // against yet, so load it unscoped, but stamp the OWNER now: an
+                // Agency Admin's new client belongs to THEIR agency, not whatever
+                // lpc_default_client_data()'s generic default happens to be.
+                if (lpc_current_actor_role() === 'agency_admin') {
+                    $client['agency_id'] = lpc_current_actor_agency_id();
+                }
                 $client['branding']      = $w['branding'];
                 $client['services']      = $w['services'];
                 $client['hubs']          = $w['hubs'];

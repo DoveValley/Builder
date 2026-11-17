@@ -7,6 +7,10 @@
 # version control even though client.json itself is tracked source).
 clients/*/secrets/
 
+# Same reasoning, for agency login passwords — client_agencies/*.json is
+# tracked source; the password hash lives in this sibling flat tree instead.
+client_agencies_secrets/
+
 # Google Search Console service account key — real credential, never commit.
 config/gsc_service_account.json
 
@@ -109,6 +113,12 @@ __pycache__/
 # CallTrackingMetrics agency API credentials (secret — never commit)
 .ctm_key
 .ctm_secret
+
+# Stripe API keys (secret key — never commit; publishable key isn't secret
+# but kept alongside it for consistency)
+.stripe_secret_key
+.stripe_publishable_key
+.stripe_webhook_secret
 
 # Test Lab AI-image-generator output — throwaway, paid-API artifacts, not curated examples
 admin/_labshots/ai_generated_*

@@ -6,6 +6,15 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+// Niches are global, shared templates every agency's clients draw from —
+// Scott-only by decision (not agencies), so one agency can't silently change
+// AI output for every OTHER agency's clients in that niche. A real agency
+// session is unrestricted here only in the sense that lpc_current_actor_role()
+// defaults to 'super_admin' until a login flow actually sets 'agency_admin'.
+if (lpc_current_actor_role() !== 'super_admin') {
+    header('Location: clients.php?msg=error:Niche+profiles+are+managed+by+the+platform+only');
+    exit;
+}
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }

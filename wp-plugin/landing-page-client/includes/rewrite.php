@@ -361,6 +361,38 @@ function lpc_render_single_page( $page, $top_level = 'h2' ) {
 	echo lpc_render_sections( $page['sections'] ?? [], $top_level ); // phpcs:ignore WordPress.Security.EscapeOutput -- section renderer escapes each field itself.
 	echo '</main>';
 	echo lpc_render_schema( $page['schema_jsonld'] ?? null ); // phpcs:ignore WordPress.Security.EscapeOutput -- JSON-LD, not HTML.
+	echo lpc_render_click_tracking_script( $page['page_id'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- builds its own escaped values, see function doc.
+}
+
+/**
+ * "N people tried to contact you," not a confirmed-conversion count — a
+ * visitor tapping any [data-lpc-track] element (today: the tel: links in
+ * the hero/CTA sections; directions/contact-page links get the same
+ * attribute the day those page elements exist, no engine change needed).
+ * Reports to the SAME delivery server the plugin already fetches content
+ * from (LPC_DELIVERY_BASE), not a new endpoint/domain the plugin has no
+ * existing trust relationship with. FormData, not a plain object — sendBeacon
+ * sends FormData as multipart/form-data, which PHP auto-parses into $_POST;
+ * a bare URLSearchParams body would arrive as text/plain and never populate
+ * $_POST on the receiving end.
+ */
+function lpc_render_click_tracking_script( $slug ) {
+	$api_key = get_option( 'lpc_api_key', '' );
+	if ( $api_key === '' || $slug === '' ) {
+		return '';
+	}
+	$out  = '<script>(function(){';
+	$out .= 'var base=' . wp_json_encode( LPC_DELIVERY_BASE ) . ';';
+	$out .= 'var key=' . wp_json_encode( $api_key ) . ';';
+	$out .= 'var slug=' . wp_json_encode( $slug ) . ';';
+	$out .= 'document.addEventListener("click",function(e){';
+	$out .= 'var el=e.target.closest("[data-lpc-track]");if(!el)return;';
+	$out .= 'var fd=new FormData();';
+	$out .= 'fd.append("action","track_click");fd.append("key",key);fd.append("slug",slug);fd.append("link_type",el.getAttribute("data-lpc-track"));';
+	$out .= 'if(navigator.sendBeacon){navigator.sendBeacon(base,fd);}else{fetch(base,{method:"POST",body:fd,keepalive:true});}';
+	$out .= '},true);';
+	$out .= '})();</script>';
+	return $out;
 }
 
 function lpc_output_sitemap() {

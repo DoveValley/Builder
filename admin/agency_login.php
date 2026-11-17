@@ -1,0 +1,108 @@
+<?php
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+// If already logged in (either role), go straight to the LPC client list.
+if (!empty($_SESSION['admin_logged_in'])) {
+    header('Location: clients.php');
+    exit;
+}
+
+$error = '';
+
+// Same login-form CSRF pattern as admin/login.php — a separate token from
+// the main site's login, since this is a distinct form.
+if (empty($_SESSION['agency_login_csrf_token'])) {
+    $_SESSION['agency_login_csrf_token'] = bin2hex(random_bytes(32));
+}
+$loginCsrfToken = $_SESSION['agency_login_csrf_token'];
+
+// Same brute-force protection as admin/login.php: max 10 attempts per 15 min per IP.
+$ipKey    = 'agency_login_attempts_' . md5($_SERVER['REMOTE_ADDR'] ?? '');
+$attempts = $_SESSION[$ipKey] ?? ['count' => 0, 'first' => time()];
+if (time() - $attempts['first'] > 900) {
+    $attempts = ['count' => 0, 'first' => time()];
+}
+$locked = $attempts['count'] >= 10;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!hash_equals($_SESSION['agency_login_csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
+        $error = 'Your session expired — please try again.';
+        $_SESSION['agency_login_csrf_token'] = bin2hex(random_bytes(32));
+        $loginCsrfToken = $_SESSION['agency_login_csrf_token'];
+    } elseif ($locked) {
+        $error = 'Too many failed attempts. Please wait 15 minutes before trying again.';
+    } else {
+        $username = trim($_POST['username'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $agency   = lpc_find_agency_by_username($username);
+
+        if ($agency && lpc_verify_agency_password($agency['agency_id'], $password)) {
+            // A suspended/not-yet-approved agency authenticates correctly but
+            // still can't in — same "credentials right, access wrong" shape
+            // as a disabled user account elsewhere, not a generic bad-login
+            // error, so the agency knows what's actually going on.
+            if ($agency['status'] !== 'active') {
+                $error = $agency['status'] === 'pending_approval'
+                    ? 'This agency account is awaiting approval.'
+                    : 'This agency account is currently suspended.';
+            } else {
+                session_regenerate_id(true);
+                $_SESSION[$ipKey] = ['count' => 0, 'first' => time()]; // reset on success
+                $_SESSION['admin_logged_in'] = true;
+                $_SESSION['actor_role']      = 'agency_admin';
+                $_SESSION['agency_id']       = $agency['agency_id'];
+                $_SESSION['csrf_token']      = bin2hex(random_bytes(32));
+                header('Location: clients.php');
+                exit;
+            }
+        } else {
+            $attempts['count']++;
+            $_SESSION[$ipKey] = $attempts;
+            $remaining = 10 - $attempts['count'];
+            $error = $remaining > 0
+                ? 'Invalid username or password. (' . $remaining . ' attempt' . ($remaining === 1 ? '' : 's') . ' remaining)'
+                : 'Too many failed attempts. Please wait 15 minutes.';
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Login - <?= h(SITE_TITLE) ?></title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+    <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
+</head>
+<body class="admin-body">
+    <div class="login-wrapper">
+        <div class="card login-card">
+            <h1>Agency Login</h1>
+
+            <?php if ($error): ?>
+                <div class="alert alert-error"><?= h($error) ?></div>
+            <?php endif; ?>
+
+            <?php if ($locked): ?>
+                <p style="text-align:center;color:#888;font-size:0.9rem;">Login is temporarily locked.</p>
+            <?php else: ?>
+            <form method="post">
+                <input type="hidden" name="csrf_token" value="<?= h($loginCsrfToken) ?>">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autofocus autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn" style="width:100%;">Log In</button>
+            </form>
+            <?php endif; ?>
+        </div>
+    </div>
+</body>
+</html>

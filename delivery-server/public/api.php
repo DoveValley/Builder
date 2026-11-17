@@ -16,8 +16,10 @@ $dataDir = dirname(__DIR__) . '/data';
 $keysFile = $dataDir . '/_keys.json';
 $keys = json_decode(file_get_contents($keysFile), true) ?: [];
 
-$key = $_GET['key'] ?? '';
-$action = $_GET['action'] ?? '';
+// POST too, not just GET — track_click below is the first action that ever
+// needed to accept a POST body rather than a query string.
+$key = $_POST['key'] ?? ($_GET['key'] ?? '');
+$action = $_POST['action'] ?? ($_GET['action'] ?? '');
 
 // Not API-key-gated, unlike every action below: an image only ever gets
 // attached to a page once that page is already public, so requiring the
@@ -98,6 +100,57 @@ if ($action === 'page') {
         exit;
     }
     echo file_get_contents($pagePath);
+    exit;
+}
+
+// Click tracking — a visitor tapping tel:/directions/CTA/contact-page links
+// on a live page. Deliberately a plain counter, not an events log (no
+// timestamp/IP/UA stored per click): the admin side only ever needs "how
+// many," never "who" or "exactly when," and a flat per-day count can't grow
+// into a privacy/storage liability the way an events log eventually would.
+// Same auth as list/page above — an open counter would let anyone inflate
+// or spam another client's numbers.
+if ($action === 'track_click') {
+    $slug = $_POST['slug'] ?? ($_GET['slug'] ?? '');
+    $linkType = $_POST['link_type'] ?? ($_GET['link_type'] ?? '');
+    // Allow-list, not free text — new types (directions/contact) get added
+    // here the same day a real page element starts sending them, never
+    // accept an arbitrary string from a visitor's browser.
+    if (!preg_match('/^[a-z0-9_-]+$/i', $slug) || !in_array($linkType, ['tel', 'directions', 'cta', 'contact'], true)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'invalid_request']);
+        exit;
+    }
+    $day       = gmdate('Y-m-d');
+    $clicksDir = $clientDir . '/clicks/';
+    if (!is_dir($clicksDir)) mkdir($clicksDir, 0775, true);
+    $file   = $clicksDir . $day . '.json';
+    $counts = is_file($file) ? (json_decode(file_get_contents($file), true) ?: []) : [];
+    $key    = $slug . '__' . $linkType;
+    $counts[$key] = ($counts[$key] ?? 0) + 1;
+    file_put_contents($file, json_encode($counts), LOCK_EX);
+    echo json_encode(['ok' => true]);
+    exit;
+}
+
+// Read-only pull for the admin app's own reporting — deliberately returns
+// raw per-day files rather than pre-aggregating here; this API stays a thin
+// file reader/writer, same principle as every other action, not a place
+// for rollup logic to live.
+if ($action === 'click_summary') {
+    $from = $_GET['from'] ?? gmdate('Y-m-d', strtotime('-30 days'));
+    $to   = $_GET['to'] ?? gmdate('Y-m-d');
+    $clicksDir = $clientDir . '/clicks/';
+    $days = [];
+    if (is_dir($clicksDir)) {
+        foreach (glob($clicksDir . '*.json') as $f) {
+            $day = basename($f, '.json');
+            if ($day >= $from && $day <= $to) {
+                $days[$day] = json_decode(file_get_contents($f), true) ?: [];
+            }
+        }
+    }
+    echo json_encode(['days' => $days]);
     exit;
 }
 

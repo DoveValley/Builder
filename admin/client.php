@@ -10,13 +10,20 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+// Full editing admin page — an End Client gets read-only reporting only
+// (client_portal.php), never this, regardless of which client their
+// session is scoped to.
+if (lpc_current_actor_role() === 'end_client') {
+    header('Location: client_portal.php');
+    exit;
+}
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 $csrf = $_SESSION['csrf_token'];
 
 $client_id = $_GET['id'] ?? '';
-$client = lpc_load_client($client_id);
+$client = lpc_load_client_for_current_actor($client_id);
 if (!$client) {
     header('Location: clients.php?msg=error:Client+not+found');
     exit;
@@ -1006,10 +1013,11 @@ Thanks!</textarea></div>
                 <th style="padding:8px 12px;">Service</th>
                 <th style="padding:8px 12px;">Rank Position</th>
                 <th style="padding:8px 12px;">GSC Clicks</th>
-                <th style="padding:8px 12px;">Form Submissions</th>
+                <th style="padding:8px 12px;" title="Tap-to-call, directions, CTA, and contact-page button clicks — an intent signal, not a confirmed call or lead.">Tried to Contact</th>
             </tr>
             <?php
             $anyPublished = false;
+            $clickTotals = lpc_fetch_click_summary($client_id);
             foreach ($client['target_cities'] as $tc):
                 foreach ($tc['services'] as $sid):
                     $pageId = $tc['city_id'] . '__' . $sid;
@@ -1033,7 +1041,7 @@ Thanks!</textarea></div>
                     }
                     ?>
                 </td>
-                <td style="padding:8px 12px;color:#6b7280;">Not Tracked</td>
+                <td style="padding:8px 12px;color:#6b7280;"><?= h(lpc_click_summary_line($clickTotals, $pageId) ?: '—') ?></td>
             </tr>
             <?php endforeach; endforeach; ?>
             <?php if (!$anyPublished): ?>

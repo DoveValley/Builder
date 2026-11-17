@@ -7,6 +7,11 @@ if (empty($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
 }
+// Content editing — an End Client gets read-only reporting only.
+if (lpc_current_actor_role() === 'end_client') {
+    header('Location: client_portal.php');
+    exit;
+}
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -14,7 +19,7 @@ $csrf = $_SESSION['csrf_token'];
 
 $client_id = $_GET['client_id'] ?? '';
 $page_id   = $_GET['page_id'] ?? '';
-$client    = lpc_load_client($client_id);
+$client    = lpc_load_client_for_current_actor($client_id);
 if (!$client || !lpc_valid_page_id($page_id)) {
     header('Location: clients.php?msg=error:Client+or+page+not+found');
     exit;
