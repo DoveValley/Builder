@@ -158,7 +158,46 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
             A multi-location landing-page service sold to external businesses (plumbers, restoration
             companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
             Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
+            Resold through agencies — an agency buys access and onboards its own clients, scoped to only
+            what it owns.
         </p>
+        <h4 style="margin-bottom:4px;">Roles</h4>
+        <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+            <li><strong>Platform Super Admin</strong> (Scott) — approves every new agency (never self-serve),
+                sets each agency's monthly fee and spend cap, owns Niche Profiles (global, shared across every
+                agency — so one agency can't silently change AI output for another's clients), platform-wide
+                reporting, and the first stage of content review.</li>
+            <li><strong>Agency Admin</strong> — logs in separately (<code>agency_login.php</code>), sees only
+                the clients it created, pays its own platform bill via Stripe, runs onboarding, and gives the
+                second/final stage of content review before a page goes live.</li>
+            <li><strong>End Client</strong> — the actual business. Gets a separate read-only login
+                (<code>client_login.php</code> &rarr; a stripped-down reporting-only portal, never this
+                screen) showing GSC clicks and "Tried to Contact" counts for just their own pages.</li>
+            <li><strong>Scott's own direct-sale work</strong> runs through "Scott's Agency," a normal agency
+                row like any other — not a separate code path. If you created a client before any of this
+                existed, it already belongs to that agency and nothing changed for it.</li>
+        </ul>
+        <h4 style="margin-bottom:4px;">Content approval — real agencies only</h4>
+        <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
+            Publishing a page for a REAL agency's client doesn't go live immediately — it queues on the
+            <strong>Approvals</strong> screen (top bar, with a pending count badge): Scott approves first, then
+            that agency approves, and only then does it actually publish. This never applies to Scott's own
+            agency's clients — publishing there works exactly as it always has, no gate, since the whole point
+            is quality control over what an outside agency ships, not friction on direct work. The Pipeline
+            column on this list shows "N awaiting review"/"N rejected" whenever that's actually happening.
+        </p>
+        <h4 style="margin-bottom:4px;">Billing &amp; access</h4>
+        <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+            <li>The <strong>Agencies</strong> screen (top bar, Scott-only) creates agencies and generates a
+                real Stripe Checkout link to send them — set a Monthly Platform Fee first. Changing that fee
+                later updates an already-paying agency's real live price, not just the next link.</li>
+            <li>A failed payment suspends the agency's login immediately (Stripe webhook &rarr;
+                <code>status: suspended</code>) <em>and</em> starts a 15-day grace period before their client
+                sites actually get paused — a daily cron enforces that automatically
+                (<code>tools/lpc_check_grace_periods.php</code>), it isn't instant.</li>
+            <li>An agency can set its own logo/display name (Branding fields on its Agencies entry) — swapped
+                into this admin UI in place of the platform's own branding when that agency is logged in.</li>
+        </ul>
         <h4 style="margin-bottom:4px;">How it's built</h4>
         <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
             <li>Content reuses this site factory's own engine — the same AI content pipeline, real per-city
@@ -204,6 +243,10 @@ usort($rows, fn($a, $b) => strcasecmp($a['name'], $b['name']));
                 key to email the client (built-in compose form).</li>
             <li>Once they paste the key into their WordPress plugin settings, the status badge on this list
                 flips to Connected.</li>
+            <li>Once live, the plugin tracks taps on a page's phone number/CTA buttons automatically (no
+                setup) — rolled into the "Tried to Contact" total here and the per-page Reporting tab. It's an
+                intent signal, not a confirmed call or lead, and is the best evidence to show a client/agency
+                the pages are actually doing something.</li>
         </ol>
         <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
             <code>docs/landing-page-clients-onboarding.md</code>.</p>

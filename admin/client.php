@@ -124,6 +124,26 @@ $apiKey = lpc_get_client_api_key($client_id);
             A multi-location landing-page service sold to external businesses (plumbers, restoration
             companies, etc.) — each client gets one page per city &times; service combo (e.g. "Fire Damage
             Restoration in Plano, TX"), hosted on their own WordPress site via a small plugin we give them.
+            Resold through agencies — an agency buys access and onboards its own clients, scoped to only
+            what it owns.
+        </p>
+        <h4 style="margin-bottom:4px;">Roles</h4>
+        <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
+            <li><strong>Platform Super Admin</strong> (Scott) — approves every new agency (never self-serve),
+                sets each agency's monthly fee and spend cap, owns Niche Profiles (global, shared across every
+                agency), platform-wide reporting, and the first stage of content review.</li>
+            <li><strong>Agency Admin</strong> — logs in separately, sees only the clients it created, pays its
+                own platform bill via Stripe, runs onboarding, and gives the second/final stage of content
+                review before a page goes live.</li>
+            <li><strong>End Client</strong> — this business. Gets a separate read-only login showing GSC
+                clicks and "Tried to Contact" counts for just its own pages, never this screen.</li>
+        </ul>
+        <h4 style="margin-bottom:4px;">Content approval — real agencies only</h4>
+        <p style="font-size:.88rem;line-height:1.7;margin:0 0 14px;">
+            For a REAL agency's client, Publish doesn't go live immediately — it queues on the
+            <strong>Approvals</strong> screen: Scott approves first, then that agency approves, and only then
+            does it actually publish. Never applies to Scott's own agency's clients — publishing there works
+            exactly as it always has, no gate.
         </p>
         <h4 style="margin-bottom:4px;">How it's built</h4>
         <ul style="margin:0 0 14px;padding-left:20px;line-height:1.8;font-size:.88rem;">
@@ -165,6 +185,10 @@ $apiKey = lpc_get_client_api_key($client_id);
                 key to email the client (built-in compose form).</li>
             <li>Once they paste the key into their WordPress plugin settings, the status badge above flips
                 to Connected.</li>
+            <li>Once live, the plugin tracks taps on a page's phone number/CTA buttons automatically (no
+                setup) — shows up on the Reporting tab as "Tried to Contact." It's an intent signal, not a
+                confirmed call or lead, and is the best evidence to show this client the pages are actually
+                doing something.</li>
         </ol>
         <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
             <code>docs/landing-page-clients-onboarding.md</code>.</p>
