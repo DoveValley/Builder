@@ -189,6 +189,9 @@ $apiKey = lpc_get_client_api_key($client_id);
                 setup) — shows up on the Reporting tab as "Tried to Contact." It's an intent signal, not a
                 confirmed call or lead, and is the best evidence to show this client the pages are actually
                 doing something.</li>
+            <li>On the Reporting tab: have this client add our email as a Restricted (read-only) user on
+                their real Google Search Console property, paste the property URL in, and real per-page
+                impressions/clicks start showing instead of "Not Connected."</li>
         </ol>
         <p style="font-size:.8rem;color:#6b7280;margin:14px 0 0;">Full step-by-step checklist:
             <code>docs/landing-page-clients-onboarding.md</code>.</p>
