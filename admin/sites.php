@@ -550,6 +550,7 @@ function fmt_date(string $iso): string {
                 <?php include __DIR__ . '/_fleet_fingerprint.php'; ?>
                 <?php include __DIR__ . '/_fleet_audit_filter.php'; ?>
                 <?php include __DIR__ . '/_fleet_sites.php'; ?>
+                <?php include __DIR__ . '/_fleet_scorecard.php'; ?>
                 <?php include __DIR__ . '/_fleet_crawl.php'; ?>
                 <?php include __DIR__ . '/_fleet_index.php'; ?>
                 <?php include __DIR__ . '/_fleet_rank.php'; ?>

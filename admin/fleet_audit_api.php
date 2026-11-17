@@ -125,6 +125,10 @@ switch ($action) {
                 require_once __DIR__ . '/infra/lib/calls_audit.php';
                 $html = calls_audit_render_rows(calls_audit_latest(30, $scope)['domains'], $cityInfo);
                 break;
+            case 'scorecard':
+                require_once __DIR__ . '/infra/lib/scorecard_audit.php';
+                $html = scorecard_render_rows(scorecard_latest($scope)['rows'], $cityInfo);
+                break;
             default:
                 http_response_code(400); echo json_encode(['error' => 'No per-domain table for this audit.']); exit;
         }
