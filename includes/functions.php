@@ -26,6 +26,7 @@ require_once __DIR__ . '/landing_page_clients_clicks.php';
 require_once __DIR__ . '/stripe_client.php';
 require_once __DIR__ . '/landing_page_clients_reporting.php';
 require_once __DIR__ . '/landing_page_clients_niches.php';
+require_once __DIR__ . '/niche_library.php';
 require_once __DIR__ . '/landing_page_clients_ai.php';
 require_once __DIR__ . '/landing_page_clients_detect.php';
 require_once __DIR__ . '/landing_page_clients_media.php';

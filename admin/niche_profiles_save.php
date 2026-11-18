@@ -18,6 +18,48 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
 
 $action = $_POST['action'] ?? '';
 
+// ── Pull facts from the shared Niche Library ──────────────────────────────────
+// Copy-in, not a live link — see docs/lpc-vs-site-factory-boundary.md §4. Only
+// the business-model-agnostic fields are touched; guardrails/business_descriptor
+// are never written here, since LPC's clients perform the work themselves and
+// must keep their own real-operator framing, never the library's neutral facts
+// mistaken for finished copy.
+if ($action === 'pull_from_library') {
+    $libId = trim($_POST['library_niche_id'] ?? '');
+    $lib = niche_library_load($libId);
+    if (!$lib) { header('Location: niche_profiles.php?msg=error:That+niche+is+not+in+the+library'); exit; }
+
+    $targetId = trim($_POST['existing_niche_id'] ?? '') ?: $libId;
+    $profile = lpc_load_niche_profile($targetId) ?? lpc_default_niche_profile();
+    $profile['niche_id'] = $targetId;
+    if (empty($profile['label'])) $profile['label'] = $lib['label'];
+    if ($lib['tone'] !== '') $profile['default_tone'] = $lib['tone'];
+
+    $slots = array_merge(lpc_default_content_slots(), $profile['content_slots'] ?? []);
+    if ($lib['local_angle'] !== '') $slots['local_relevance'] = $lib['local_angle'];
+    if ($lib['seasonal_calendar'] !== '') $slots['seasonal_calendar'] = $lib['seasonal_calendar'];
+    $profile['content_slots'] = $slots;
+
+    $profile['default_services'] = array_map(
+        fn($s) => ['label' => $s['label'], 'keyword_pattern' => $s['keyword_pattern'] ?? ''],
+        $lib['services']
+    );
+    if ($lib['trust_bar_items']) $profile['trust_bar_items'] = $lib['trust_bar_items'];
+    // Union, not replace — a match keyword Scott already tuned by hand is
+    // never dropped by a library pull, only ever added to.
+    $profile['match_keywords'] = array_values(array_unique(array_merge(
+        (array) ($profile['match_keywords'] ?? []), $lib['match_keywords']
+    )));
+
+    if (!lpc_save_niche_profile($targetId, $profile)) {
+        header('Location: niche_profiles.php?msg=error:Could+not+write+the+niche+profile');
+        exit;
+    }
+    header('Location: niche_profiles.php?edit=' . urlencode($targetId)
+        . '&msg=success:' . rawurlencode('Pulled facts from "' . $lib['label'] . '" — review below, then Save.'));
+    exit;
+}
+
 if ($action === 'save') {
     $label = trim($_POST['label'] ?? '');
     if ($label === '') {

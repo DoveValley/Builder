@@ -15,6 +15,7 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | A multisite master's Color Presets, or `ms_apply_theme_preset()` | `docs/color-presets.md` |
 | Pic Drop (per-domain/per-template image management), or `includes/picdrop.php` | `docs/pic-drop-image-management.md` |
 | Onboarding a new Landing Page Clients customer, start to live handoff | `docs/landing-page-clients-onboarding.md` |
+| Deciding whether something belongs in LPC, the Site Factory, or both — shared `fleet.db`/API-key risk, block-renderer separation | `docs/lpc-vs-site-factory-boundary.md` |
 
 ## Running locally
 

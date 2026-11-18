@@ -35,6 +35,47 @@ function _nb_write(string $file, array $data): bool {
     return rename($tmp, $file);
 }
 
+// ── Pull facts from the shared Niche Library ──────────────────────────────────
+// Copy-in, not a live link — see docs/lpc-vs-site-factory-boundary.md §4. Only
+// the business-model-agnostic fields are touched; guardrails/business_descriptor
+// /enabled_archetypes/uses_research_fields/niche/master_site are never written
+// here, since those are specific to this site's own referral-network framing and
+// must never be silently overwritten by a library pull.
+if ($action === 'pull_from_library') {
+    $libId = trim($_POST['library_niche_id'] ?? '');
+    $lib = niche_library_load($libId);
+    if (!$lib) _nb_redirect('error', 'That niche is not in the library.');
+
+    $existing = file_exists($briefFile) ? json_decode((string) file_get_contents($briefFile), true) : [];
+    if (!is_array($existing)) $existing = [];
+
+    $existing['service_noun']  = $lib['service_noun'] ?: ($existing['service_noun'] ?? '');
+    $existing['customer_noun'] = $lib['customer_noun'] ?: ($existing['customer_noun'] ?? '');
+    $existing['offerings']     = array_values(array_column($lib['services'], 'label'));
+    $existing['tone']          = $lib['tone'] ?: ($existing['tone'] ?? '');
+    $localAngle = trim($lib['local_angle'] ?? '');
+    if (!empty($lib['seasonal_calendar'])) {
+        $localAngle = trim($localAngle . ($localAngle !== '' ? ' ' : '') . $lib['seasonal_calendar']);
+    }
+    if ($localAngle !== '') $existing['local_angle'] = $localAngle;
+    if (empty($existing['niche'])) $existing['niche'] = $lib['label'];
+
+    // Additive merge, keyed by field name — a custom_research_fields entry
+    // Scott already hand-wrote here is never silently replaced by the
+    // library's version of the same key.
+    $existingFields = [];
+    foreach ((array) ($existing['custom_research_fields'] ?? []) as $f) {
+        if (is_array($f) && !empty($f['key'])) $existingFields[$f['key']] = $f;
+    }
+    foreach ((array) $lib['custom_research_fields'] as $f) {
+        if (!isset($existingFields[$f['key']])) $existingFields[$f['key']] = $f;
+    }
+    $existing['custom_research_fields'] = array_values($existingFields);
+
+    if (!_nb_write($briefFile, $existing)) _nb_redirect('error', 'Could not write the niche brief file.');
+    _nb_redirect('success', 'Pulled facts from "' . $lib['label'] . '" — review the brief below, then Save.');
+}
+
 // ── Compile: regenerate ai_block_types.json from the saved brief ──────────────
 if ($action === 'compile') {
     if (!file_exists($briefFile)) _nb_redirect('error', 'Save a brief before compiling.');

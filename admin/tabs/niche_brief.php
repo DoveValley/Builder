@@ -60,6 +60,37 @@ $nbAll    = function_exists('city_chart_niches') ? city_chart_niches() : [];
         <code>pest</code> and <code>pest control</code> are two different folders.</p>
 </div>
 
+<?php
+$nbLibraryNiches = [];
+foreach (niche_library_list() as $nbLibId) {
+    $nbLibN = niche_library_load($nbLibId);
+    if ($nbLibN) $nbLibraryNiches[] = $nbLibN;
+}
+if ($nbLibraryNiches):
+?>
+<div class="card" style="border-left:4px solid #7c3aed;background:#faf5ff;">
+    <h3 style="margin-top:0;margin-bottom:6px;">Pull facts from the Niche Library</h3>
+    <p class="hint" style="margin:0 0 10px;max-width:820px;">
+        Copies this niche's shared facts in once — service noun, offerings, local/seasonal angle, tone,
+        extra research fields — leaving guardrails, business descriptor, and archetypes untouched (fill
+        those in below, since they're specific to the referral-network model this site uses). This is a
+        one-time copy, not a live link: editing the library later does not change this brief again
+        unless you pull it a second time. See the <a href="niche_library.php" target="_blank">Niche
+        Library</a> to write or edit a niche's shared facts.
+    </p>
+    <form action="niche_brief_save.php" method="post" style="display:flex;gap:8px;align-items:center;">
+        <input type="hidden" name="action" value="pull_from_library">
+        <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
+        <select name="library_niche_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;">
+            <?php foreach ($nbLibraryNiches as $nbLibN): ?>
+                <option value="<?= h($nbLibN['niche_id']) ?>"><?= h($nbLibN['label'] ?: $nbLibN['niche_id']) ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit" class="btn-sm-outline">Pull Facts In</button>
+    </form>
+</div>
+<?php endif; ?>
+
 <form action="niche_brief_save.php" method="post">
     <input type="hidden" name="action" value="save">
     <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">

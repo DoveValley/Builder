@@ -64,7 +64,10 @@ foreach (lpc_list_niche_profiles() as $id) {
 <body class="admin-body">
 <div style="background:#1e293b; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between;">
     <div style="font-weight:700; font-size:1rem; letter-spacing:.01em;">&#9776; Site Factory</div>
-    <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
+    <div>
+        <a href="niche_library.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none; margin-right:16px;">Niche Library</a>
+        <a href="clients.php" style="color:#94a3b8; font-size:.82rem; text-decoration:none;">&larr; Landing Page Clients</a>
+    </div>
 </div>
 
 <div class="lpc-wrap">
@@ -79,6 +82,37 @@ foreach (lpc_list_niche_profiles() as $id) {
         against these automatically at creation (Content Profile's read-only "Base Profile"). Add a new
         one here any time you take on a client in an industry not covered yet — no code change needed.
     </p>
+
+    <?php
+    $npLibraryNiches = [];
+    foreach (niche_library_list() as $npLibId) {
+        $npLibN = niche_library_load($npLibId);
+        if ($npLibN) $npLibraryNiches[] = $npLibN;
+    }
+    if ($npLibraryNiches):
+    ?>
+    <div class="card" style="border-left:4px solid #7c3aed;background:#faf5ff;margin-bottom:18px;">
+        <h3 style="margin-top:0;margin-bottom:6px;font-size:1rem;">Pull facts from the Niche Library</h3>
+        <p style="color:#6b7280;font-size:.82rem;margin:0 0 10px;">
+            Copies a niche's shared facts in once — tone, local/seasonal angle, starting service list,
+            trust-bar phrases, match keywords — leaving guardrails and business descriptor untouched for
+            you to write (your clients do the work themselves, unlike the fleet's referral framing). If
+            editing an existing profile, pulls into it; otherwise creates a new one with the library's
+            own id. One-time copy, not a live link — see <code>admin/niche_library.php</code>.
+        </p>
+        <form action="niche_profiles_save.php" method="post" style="display:flex;gap:8px;align-items:center;">
+            <input type="hidden" name="action" value="pull_from_library">
+            <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+            <?php if ($editing): ?><input type="hidden" name="existing_niche_id" value="<?= h($editing['niche_id']) ?>"><?php endif; ?>
+            <select name="library_niche_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:6px;">
+                <?php foreach ($npLibraryNiches as $npLibN): ?>
+                    <option value="<?= h($npLibN['niche_id']) ?>"><?= h($npLibN['label'] ?: $npLibN['niche_id']) ?></option>
+                <?php endforeach; ?>
+            </select>
+            <button type="submit" class="btn-sm-outline">Pull Facts In<?= $editing ? ' to “' . h($editing['label'] ?: $editing['niche_id']) . '”' : '' ?></button>
+        </form>
+    </div>
+    <?php endif; ?>
 
     <?php foreach ($niches as $p): ?>
         <div class="lpc-row">
